@@ -85,7 +85,6 @@ function TypographyGroup(props: any): JSX.Element {
           </Typography>
           <Box className={classes.settingsOption}>
             <Typography>FontFamily</Typography>
-
           </Box>
           <Box className={classes.settingsSlider}>
             <FormSlider label="Font Size" />

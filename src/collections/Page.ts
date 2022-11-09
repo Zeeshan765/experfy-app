@@ -80,7 +80,6 @@ export const Page: CollectionConfig = {
       },
       hooks: {
         beforeValidate: [
-
         ],
 
 
