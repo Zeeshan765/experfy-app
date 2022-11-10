@@ -9,6 +9,7 @@ ENV MONGODB_URI "$MONGODB_URI"
 ENV APP_HOME /itarp-career-portal-cms-service
 WORKDIR $APP_HOME
 COPY . .
+RUN apk add --no-cache git
 RUN yarn install --save --legacy-peer-deps payload
 RUN yarn generate:types
 RUN yarn generate:graphQLSchema
