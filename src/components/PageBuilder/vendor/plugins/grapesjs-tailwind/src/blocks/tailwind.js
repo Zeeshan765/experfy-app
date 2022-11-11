@@ -140,24 +140,24 @@ import { source as m3 } from './data/testimonial-3'
 import { source as m3s } from './data/icons/testimonial-3'
 
 const sources = [
-  // {
-  //   id: 'blog-block-1',
-  //   // class: 'fa fa-map-o',
-  //   class: '',
-  //   label: b1s,
-  //   // label: 'b2s().outerHTML',
-  //   content: b1,
-  //   category: 'Blog',
-  //   // order: 1
-  // },
-  // {
-  //   id: 'blog-block-2',
-  //   class: '',
-  //   label: b2s,
-  //   content: b2,
-  //   category: 'Blog',
-  //   // order: 1
-  // },
+  {
+    id: 'blog-block-1',
+    // class: 'fa fa-map-o',
+    class: '',
+    label: b1s,
+    // label: 'b2s().outerHTML',
+    content: b1,
+    category: 'Blog',
+    // order: 1
+  },
+  {
+    id: 'blog-block-2',
+    class: '',
+    label: b2s,
+    content: b2,
+    category: 'Practice Area',
+    // order: 1
+  },
   // {
   //   id: 'blog-block-3',
   //   class: '',
@@ -182,46 +182,46 @@ const sources = [
   //   category: 'Blog',
   //   // order: 1
   // },
-  {
-    id: 'contact-block-1',
-    class: '',
-    label: c1s,
-    content: c1,
-    category: 'Contact',
-    // order: 1
-  },
-  {
-    id: 'contact-block-2',
-    class: '',
-    label: c2s,
-    content: c2,
-    category: 'Contact',
-    // order: 1
-  },
-  {
-    id: 'contact-block-3',
-    class: '',
-    label: c3s,
-    content: c3,
-    category: 'Contact',
-    // order: 1
-  },
   // {
-  //   id: 'content-block-1',
+  //   id: 'contact-block-1',
   //   class: '',
-  //   label: d1s,
-  //   content: d1,
-  //   category: 'Content',
+  //   label: c1s,
+  //   content: c1,
+  //   category: 'Metrics/Numbers',
   //   // order: 1
   // },
   // {
-  //   id: 'content-block-2',
+  //   id: 'contact-block-2',
   //   class: '',
-  //   label: d2s,
-  //   content: d2,
-  //   category: 'Content',
+  //   label: c2s,
+  //   content: c2,
+  //   category: 'Contact',
   //   // order: 1
   // },
+  // {
+  //   id: 'contact-block-3',
+  //   class: '',
+  //   label: c3s,
+  //   content: c3,
+  //   category: 'Contact',
+  //   // order: 1
+  // },
+  {
+    id: 'content-block-1',
+    class: '',
+    label: d1s,
+    content: d1,
+    category: 'Content',
+    // order: 1
+  },
+  {
+    id: 'content-block-2',
+    class: '',
+    label: d2s,
+    content: d2,
+    category: 'Content',
+    // order: 1
+  },
   // {
   //   id: 'content-block-3',
   //   class: '',
@@ -398,46 +398,46 @@ const sources = [
     category: 'Footer',
     // order: 1
   },
-  {
-    id: 'footer-block-2',
-    class: '',
-    label: z2s,
-    content: z2,
-    category: 'Footer',
-    // order: 1
-  },
-  {
-    id: 'footer-block-3',
-    class: '',
-    label: z3s,
-    content: z3,
-    category: 'Footer',
-    // order: 1
-  },
-  {
-    id: 'footer-block-4',
-    class: '',
-    label: z4s,
-    content: z4,
-    category: 'Footer',
-    // order: 1
-  },
-  {
-    id: 'footer-block-5',
-    class: '',
-    label: z5s,
-    content: z5,
-    category: 'Footer',
-    // order: 1
-  },
   // {
-  //   id: 'gallery-block-1',
+  //   id: 'footer-block-2',
   //   class: '',
-  //   label: g1s,
-  //   content: g1,
-  //   category: 'Gallery',
+  //   label: z2s,
+  //   content: z2,
+  //   category: 'Footer',
   //   // order: 1
   // },
+  // {
+  //   id: 'footer-block-3',
+  //   class: '',
+  //   label: z3s,
+  //   content: z3,
+  //   category: 'Footer',
+  //   // order: 1
+  // },
+  // {
+  //   id: 'footer-block-4',
+  //   class: '',
+  //   label: z4s,
+  //   content: z4,
+  //   category: 'Footer',
+  //   // order: 1
+  // },
+  // {
+  //   id: 'footer-block-5',
+  //   class: '',
+  //   label: z5s,
+  //   content: z5,
+  //   category: 'Footer',
+  //   // order: 1
+  // },
+  {
+    id: 'gallery-block-1',
+    class: '',
+    label: g1s,
+    content: g1,
+    category: 'Gallery',
+    // order: 1
+  },
   // {
   //   id: 'gallery-block-2',
   //   class: '',
@@ -459,41 +459,41 @@ const sources = [
     class: '',
     label: h1s,
     content: h1,
-    category: 'Header',
-    // order: 1
-  },
-  {
-    id: 'header-block-2',
-    class: '',
-    label: h2s,
-    content: h2,
-    category: 'Header',
-    // order: 1
-  },
-  {
-    id: 'header-block-3',
-    class: '',
-    label: h3s,
-    content: h3,
-    category: 'Header',
-    // order: 1
-  },
-  {
-    id: 'header-block-4',
-    class: '',
-    label: h4s,
-    content: h4,
-    category: 'Header',
+    category: 'Headers',
     // order: 1
   },
   // {
-  //   id: 'hero-block-1',
+  //   id: 'header-block-2',
   //   class: '',
-  //   label: r1s,
-  //   content: r1,
-  //   category: 'Hero',
+  //   label: h2s,
+  //   content: h2,
+  //   category: 'Header',
   //   // order: 1
   // },
+  // {
+  //   id: 'header-block-3',
+  //   class: '',
+  //   label: h3s,
+  //   content: h3,
+  //   category: 'Header',
+  //   // order: 1
+  // },
+  // {
+  //   id: 'header-block-4',
+  //   class: '',
+  //   label: h4s,
+  //   content: h4,
+  //   category: 'Header',
+  //   // order: 1
+  // },
+  {
+    id: 'hero-block-1',
+    class: '',
+    label: r1s,
+    content: r1,
+    category: 'Hero',
+    // order: 1
+  },
   // {
   //   id: 'hero-block-2',
   //   class: '',
@@ -630,22 +630,22 @@ const sources = [
     category: 'Testimonials',
     // order: 1
   },
-  {
-    id: 'testimonial-block-2',
-    class: '',
-    label: m2s,
-    content: m2,
-    category: 'Testimonials',
-    // order: 1
-  },
-  {
-    id: 'testimonial-block-3',
-    class: '',
-    label: m3s,
-    content: m3,
-    category: 'Testimonials',
-    // order: 1
-  },
+  // {
+  //   id: 'testimonial-block-2',
+  //   class: '',
+  //   label: m2s,
+  //   content: m2,
+  //   category: 'Testimonials',
+  //   // order: 1
+  // },
+  // {
+  //   id: 'testimonial-block-3',
+  //   class: '',
+  //   label: m3s,
+  //   content: m3,
+  //   category: 'Testimonials',
+  //   // order: 1
+  // },
 ]
 
 export default (editor, options = {}) => {

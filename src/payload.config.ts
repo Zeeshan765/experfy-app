@@ -1,15 +1,20 @@
-import dotenv from 'dotenv';
-import path from 'path';
-import { buildConfig } from 'payload/config';
-import Categories from './collections/Categories';
-import Home from './collections/Home';
-import LandingCollection from './collections/LandingPage';
-import PageBuilderCollection from './collections/PageBuilder';
-import PortalIdentityCollection from './collections/PortalIdentity';
-import Tags from './collections/Tags';
-import Users from './collections/Users';
-import PageBuilder from './components/PageBuilder';
-import MyProvider from './MyProvider';
+import dotenv from "dotenv";
+import path from "path";
+import payload from "payload";
+import { buildConfig } from "payload/config";
+import BasicPortalIdentityCollection from "./collections/BasicPortalIdentity";
+import Media from "./collections/Media";
+import PageBuilderCollection from "./collections/PageBuilder";
+import PICollection from "./collections/PICollection";
+import PortalIdentityCollection from "./collections/PortalIdentity";
+import PortalIdentityDetail from "./collections/PortalIdentityDetail";
+import Users from "./collections/Users";
+import BasicPortalIdentityPage from "./components/BasicPortalPage";
+import CustomDefaultNav from "./components/CustomNavBar";
+import PageBuilder from "./components/PageBuilder";
+import PortalIdentity from "./components/PortalIdentity";
+import MyProvider from "./MyProvider";
+
 dotenv.config();
 
 export default buildConfig({
@@ -18,27 +23,45 @@ export default buildConfig({
     user: Users.slug,
     css: path.resolve(__dirname, './styles/customAdmin.scss'),
     components: {
+
+      Nav: CustomDefaultNav,
       routes: [
         {
-          path: '/collections/page_builder',
+          path: '/collections/page-builder',
           Component: PageBuilder,
+        },
+        {
+          path: '/collections/basic-portal-identity',
+          Component: BasicPortalIdentityPage,
+        },
+        {
+          path: '/collections/portal-identity',
+          Component: PortalIdentity,
         },
       ],
       providers: [MyProvider],
     },
   },
   collections: [
-    Users,
-    Home,
-    Categories,
-    Tags,
-    LandingCollection,
+    BasicPortalIdentityCollection,
     PortalIdentityCollection,
+    PortalIdentityDetail,
     PageBuilderCollection,
+    PICollection,
+    Media,
+    Users,
+
   ],
-
-  typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts')
+  localization: {
+    locales: [
+      'en',
+      'es',
+    ],
+    defaultLocale: 'en',
+    fallback: true,
   },
-
+  cors: ('*'),
+  typescript: {
+    outputFile: path.resolve(__dirname, "payload-types.ts"),
+  },
 });
