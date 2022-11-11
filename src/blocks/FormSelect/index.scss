@@ -1,0 +1,12 @@
+@import 'payload/scss';
+
+.field-type.select {
+  position: relative;
+  margin-bottom: 10px;
+
+  &.error {
+    input {
+      background-color: var(--theme-error-200);
+    }
+  }
+}

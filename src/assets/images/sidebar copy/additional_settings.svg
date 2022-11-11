@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.702" height="14.702" viewBox="0 0 14.702 14.702">
+  <g id="Group_56073" data-name="Group 56073" transform="translate(-35 -440.389)">
+    <g id="Group_56072" data-name="Group 56072">
+      <g id="Group_56071" data-name="Group 56071">
+        <g id="Group_56055" data-name="Group 56055">
+          <g id="Group_56054" data-name="Group 56054">
+            <g id="Group_56053" data-name="Group 56053">
+              <g id="Group_56042" data-name="Group 56042">
+                <path id="noun-settings-4238648" d="M164.8,91.121a1.845,1.845,0,0,0-1.776,1.378h-1.44a.46.46,0,1,0,0,.919h1.44a1.834,1.834,0,0,0,3.553,0h8.79a.46.46,0,1,0,0-.919h-8.79a1.845,1.845,0,0,0-1.777-1.378Zm0,.919h0a.919.919,0,1,1-.65.269.919.919,0,0,1,.65-.269Zm7.35,4.594a1.845,1.845,0,0,0-1.776,1.379h-8.79a.46.46,0,1,0,0,.919h8.79a1.834,1.834,0,0,0,3.553,0h1.439a.46.46,0,0,0,0-.919h-1.439a1.846,1.846,0,0,0-1.777-1.379Zm0,.919h0a.919.919,0,1,1-.65.269.919.919,0,0,1,.65-.269Zm-5.513,4.594a1.846,1.846,0,0,0-1.777,1.378h-3.277a.46.46,0,1,0,0,.919h3.277a1.834,1.834,0,0,0,3.553,0h6.952a.46.46,0,1,0,0-.919h-6.952a1.845,1.845,0,0,0-1.776-1.378Zm0,.919h0a.919.919,0,1,1-.65.269.919.919,0,0,1,.65-.269Z" transform="translate(-56.121 616.219) rotate(-90)" fill="#707071"/>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g id="Ellipse_8558" data-name="Ellipse 8558" transform="translate(41 443)" fill="#707071" stroke="#707070" stroke-width="1">
+          <ellipse cx="1.5" cy="1" rx="1.5" ry="1" stroke="none"/>
+          <ellipse cx="1.5" cy="1" rx="1" ry="0.5" fill="none"/>
+        </g>
+      </g>
+      <g id="Ellipse_8559" data-name="Ellipse 8559" transform="translate(35 450)" fill="#707071" stroke="#707070" stroke-width="1">
+        <circle cx="1.5" cy="1.5" r="1.5" stroke="none"/>
+        <circle cx="1.5" cy="1.5" r="1" fill="none"/>
+      </g>
+    </g>
+    <g id="Ellipse_8560" data-name="Ellipse 8560" transform="translate(46 448)" fill="#6f7070" stroke="#707070" stroke-width="1">
+      <circle cx="1.5" cy="1.5" r="1.5" stroke="none"/>
+      <circle cx="1.5" cy="1.5" r="1" fill="none"/>
+    </g>
+  </g>
+</svg>
