@@ -10,7 +10,7 @@ resources:
   - repository: HelmCharts
     type: git
     endpoint: AzureRepos
-    name: Infrastructure/helm-charts 
+    name: Infrastructure/helm-charts
     ref: main
   - repository: AzurePipelineTemplates
     type: git
@@ -19,17 +19,15 @@ resources:
     ref: main
 
 variables:
-  - name: tag
-    value: '$(Build.SourceVersion)-latest'
-  - name: projectName
-    value: '$(Build.Repository.Name)'
-  - name: dockerfilePath
-    value: '**/Dockerfile'
-  - name: servicesGroup
-    value: 'itarp-services'
-  - name: branchName
-    value: '$(Build.SourceBranchName)'
-
+  tag: '$(Build.SourceVersion)-latest'
+  projectName: '$(Build.Repository.Name)'
+  dockerfilePath: '**/Dockerfile'
+  servicesGroup: 'itarp-services'
+  branchName: '$(Build.SourceBranchName)'
+  ${{ if eq(variables['Build.SourceBranchName'], 'release') }}:
+    targetEnvironment: 'uat'
+  ${{ else }}:
+    targetEnvironment: 'develop'
 #  - group: "VARIABLE_GROUP_NAME"
 
 pool:
@@ -43,6 +41,7 @@ stages:
     dockerfilePath: ${{ variables.dockerfilePath }}
     branchName: ${{ variables.branchName }}
     tag: ${{ variables.tag }}
+    dockerBuildArgs: "--build-arg DEPLOYMENT_ENV=${{ variables.targetEnvironment }}"
 
 ## Deployment Stage
 - template: deployment-template.yml@AzurePipelineTemplates
