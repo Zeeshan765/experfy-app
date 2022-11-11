@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -22,7 +22,7 @@ const SectionCard: React.FC<SectionCardProps> = (props) => {
   const classes = useStyles();
 
   return (
-    <LinkTag component={Link} to={props.link}>
+    <LinkTag  href={props.link}>
       <Card className={classes.sectionCard}>
         <CardHeader title={props.title}></CardHeader>
         {props.text && (

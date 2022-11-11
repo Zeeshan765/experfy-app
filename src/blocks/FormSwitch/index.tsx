@@ -8,11 +8,15 @@ import { AntSwitch } from "./css";
 export type Type = {
   label: string
   checked: boolean 
+  handleSwitchChange?: any
+  setBrandSwitch?: any
 }
 
 const ClassSwitch: React.FC<Type> = ({ ...props }) => {
-  const [brandSwitch, setBrandSwitch] = React.useState(true);
+  const {setBrandSwitch} = props;
+  // const [brandSwitch, setBrandSwitch] = React.useState(true);
   const handleSwitchChange = () => {
+    
     if (props.checked) {
       setBrandSwitch(false);
     } else {

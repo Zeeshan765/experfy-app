@@ -1,5 +1,21 @@
+*{
+  // font-style: proxima-nova !important;
+  font-family: "proxima-nova" !important;
+}
 .App {
   text-align: center;
+}
+ul {
+  list-style: none !important;
+}
+
+ul li::before {
+  content: "\2022"!important;
+  color: red !important;
+  font-weight: bold !important;
+  display: inline-block !important; 
+  width: 1em !important;
+  margin-left: -1em !important;
 }
 
 .App-logo {
@@ -28,11 +44,3 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

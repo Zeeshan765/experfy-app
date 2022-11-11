@@ -1,74 +1,67 @@
-import { Size } from "@material-ui/core";
-import { FormControl, MenuItem, Select, Typography } from "@mui/material";
-import React from "react";
-import { useStyles } from "./css";
+import { Label, Select, useField } from 'payload/components/forms';
+import React from 'react';
+import { SelectField as Props } from 'payload/types';
+import './index.scss';
 
 
-export type Type = {
-  id?: string
-  fullWidth?: boolean
-  options?: Array<any>
-  label?: string
-  size?: Size
-  onchange?: any
-  handleChangeBT?: any
-  change?: string
-  setToolTipVisible?: any
-  placeholder?: string
-  value?: string
+// export type Type = {
+//   id?: string
+//   fullWidth?: boolean
+//   options?: Array<any>
+//   label?: string
+//   size?: Size
+//   onchange?: any
+//   handleChangeBT?: any
+//   change?: string
+//   setToolTipVisible?: any
+//   placeholder?: string
+//   value?: string
 
-}
+// }
+type CustomField = Props & {
+  path: string;
+  type?: string;
+  helperText?: string;
+  required?: boolean;
+  label?: any;
+  style?: any;
+  width?: any;
+};
+const FormSelect: React.FC<CustomField> = ({
+  options = [],
+  type = 'select',
+  path,
+  label,
+  required = false,
+}) => {
 
-const FormSelect: React.FC<Type> = ({ options = [], ...props }) => {
-  const classes = useStyles();
-  
-  const [selectedOption, setSelectedOption] = React.useState();
 
-  function handleChange(event: { target: { value: (prevState: undefined) => undefined; }; }) {
-    setSelectedOption(event.target.value);
+  // const [selectedOption, setSelectedOption] = React.useState();
+
+  function handleChange(event: {
+    target: { value: (prevState: undefined) => undefined };
+  }) {
+    // setSelectedOption(event.target.value);
   }
+  const field = useField({ path });
+  const { value, showError, setValue, errorMessage } = field;
+
+  const classes = [
+    'field-type select',
+    showError && 'error',
+  ].filter(Boolean).join(' ');
 
   return (
-    <FormControl
-      fullWidth={props.fullWidth === false ? false : true}
-      className={classes.selectInput}
-    >
-      <Typography component="span">{props.label}</Typography>
+    <div className={classes}>
+      <Label htmlFor={'field-${path}'} label={label} required={required} />
       <Select
-        fullWidth
-        value={selectedOption}
-        onChange={
-          props.change == "use-react-hook-onChange"
-            ? (props.onchange = (event: any) => props.handleChangeBT(event))
-            : handleChange
-        }
-        displayEmpty
-        size={props.size === "small" ? "small" : "medium"}
-        inputProps={{ "aria-label": "Without label" }}
-        {...props}
-        onOpen={() => {
-          if (props.id) {
-            props.setToolTipVisible(props.id);
-          }
-        }}
-        onClose={() => {
-          if (props.id) {
-            props.setToolTipVisible(null);
-          }
-        }}
-      >
-        <MenuItem disabled value="">
-          {props.placeholder}
-        </MenuItem>
-
-        {options.map((label, i) => {
-          return <MenuItem value={i}>{label.value}</MenuItem>;
-        })}
-      </Select>
-    </FormControl>
+        name={path}
+        options={options}
+        required={required}
+      />
+    </div>
   );
-}
-
+};
 export default FormSelect;
 
 //

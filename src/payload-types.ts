@@ -8,6 +8,36 @@
 export interface Config {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "basic-portal-identity".
+ */
+export interface BasicPortalIdentity {
+  id: string;
+  user?: string | User;
+  career_portal_name: string;
+  portal_url: string;
+  portal_id?: string;
+  default_locale?: 'US' | 'ES';
+  default_language?: 'English' | 'Spanish';
+  company_name?: string;
+  page_title?: string;
+  meta_keywords?: string;
+  meta_description?: string;
+  tracking_pixel?: string;
+  bring_webmaster?: string;
+  google_webmaster?: string;
+  google_analytics?: string;
+  google_id?: string;
+  brands: {
+    brand_name?: string;
+    brand_identifier?: string;
+    microsoft_identifier?: string;
+    id?: string;
+  }[];
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -23,55 +53,86 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home".
+ * via the `definition` "portal-identity".
  */
-export interface Home {
+export interface PortalIdentity {
   id: string;
-  title?: string;
-  author?: string | User;
-  publishedDate?: string;
-  category?: string | Category;
-  tags?: string[] | Tag[];
-  content?: {
-    [k: string]: unknown;
-  }[];
-  status?: 'draft' | 'published';
   createdAt: string;
   updatedAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
+ * via the `definition` "portal-identity-detail".
  */
-export interface Category {
+export interface PortalIdentityDetail {
   id: string;
-  name?: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tags".
- */
-export interface Tag {
-  id: string;
-  name?: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "landing".
- */
-export interface Landing {
-  id: string;
-  portal_name: string;
+  career_portal_name: string;
+  portal_id?: string;
   portal_url: string;
+  company_name: string;
+  language: 'English';
+  united_states: 'US';
+  google_id?: string;
+  google_analytics?: string;
+  google_webmaster?: string;
+  bing_webmaster?: string;
+  tracking_pixel?: string;
+  page_title?: string;
+  meta_keywords?: string;
+  meta_description?: string;
+  default_brand: 'Pepsi';
+  dom?: 'Sub-domains' | 'Sub-directories';
   createdAt: string;
   updatedAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "basic-info".
+ * via the `definition` "page-builder".
  */
-export interface BasicInfo {
+export interface PageBuilder {
   id: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pi".
+ */
+export interface Pi {
+  id: string;
+  name?: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface MediaLibrary {
+  id: string;
+  alt: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes: {
+    card: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    feature: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
   createdAt: string;
   updatedAt: string;
 }

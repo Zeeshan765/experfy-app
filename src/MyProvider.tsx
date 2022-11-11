@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import { useConfig } from "payload/components/utilities";
 
@@ -14,10 +14,7 @@ import { useConfig } from "payload/components/utilities";
 
 export const Context = createContext({} as any);
 
-const MyProvider: React.FC = ({ children }) => {
-
-
-
+const MyProvider: React.FC<any> = ({ children }) => {
   const {
     routes: { admin: adminRoute },
   } = useConfig();
@@ -48,14 +45,13 @@ const MyProvider: React.FC = ({ children }) => {
     setBrands,
     seo_setting,
     setSeo_Setting,
-    useNavigate,
     adminRoute
   };
 
   return (
-    <Context.Provider value={value}>
-      <BrowserRouter>{children}</BrowserRouter>
-    </Context.Provider>
+    <BrowserRouter>
+      <Context.Provider value={value} >{children}</Context.Provider>
+    </BrowserRouter>
   );
 };
 

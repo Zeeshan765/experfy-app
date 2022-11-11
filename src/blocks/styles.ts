@@ -251,8 +251,8 @@ export const useStyles = makeStyles({
     paddingTop: "1rem !important",
   },
   fourSideInputFields: {
-    flexDirection: "row !important",
-    flexWrap: "nowrap !important",
+    flexDirection: "row",
+    flexWrap: "nowrap",
     "& .MuiOutlinedInput-root": {
       width: "2.25rem",
       borderRadius: "0 !important",

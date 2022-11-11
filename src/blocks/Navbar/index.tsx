@@ -6,12 +6,12 @@ import {
 import LinkTag from '@mui/material/Link';
 import LogoImage from '../../assets/images/experfy_logo.svg';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {useStyles} from "./css";
+import { useStyles } from "./css";
 
 
 
 
-const Navbar:React.FC=()=> {
+const Navbar: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -20,8 +20,8 @@ const Navbar:React.FC=()=> {
         <img src={LogoImage} alt="Experfy" />
       </Box>
       <Box className={classes.navContent}>
-        <Stack 
-          className={classes.navLinks}
+        <Stack
+          className={classes.navLinksItem}
           direction="row">
           <LinkTag className={classes.navLinksItem}>
             Opportunities
