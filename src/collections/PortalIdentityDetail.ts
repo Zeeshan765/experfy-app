@@ -20,7 +20,7 @@ const PortalIdentityDetail: CollectionConfig = {
   },
 
   admin: {
-    useAsTitle: "career_name",
+    useAsTitle: "career_portal_name",
   },
   fields: [
     {
@@ -31,13 +31,13 @@ const PortalIdentityDetail: CollectionConfig = {
           fields: [
             {
               type: "text",
-              name: "career_name",
+              name: "career_portal_name",
               label: "Career Portal Name",
               required: true,
             },
             {
               type: "text",
-              name: "portail_id",
+              name: "portal_id",
               label: "Portal ID",
             },
             {

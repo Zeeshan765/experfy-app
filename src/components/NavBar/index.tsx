@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, useNavigate, Redirect } from 'react-router-dom'; 
+// import { BrowserRouter as Router, useNavigate, redirect } from 'react-router-dom'; 
 import { DefaultTemplate } from 'payload/components/templates';
 import { Button, Eyebrow } from 'payload/components/elements';
 import { AdminView } from 'payload/config';
 import { useStepNav } from 'payload/components/hooks';
 import { Meta, useConfig } from 'payload/components/utilities';
 import AddIcon from "@mui/icons-material/Add";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useStyles } from "./css";
 import {
   Box,
@@ -57,8 +57,8 @@ const CustomDefaultRoute: AdminView = ({ user, canAccessAdmin }) => {
     // If an unauthorized user tries to navigate straight to this page,
     // Boot 'em out
     if (!user || (user && !canAccessAdmin)) {
-      return (
-        <Redirect to={`${adminRoute}/unauthorized`} />
+      return (<></>
+        // <Redirect to={`${adminRoute}/unauthorized`} />
       );
     }
   
@@ -132,6 +132,7 @@ const CustomDefaultRoute: AdminView = ({ user, canAccessAdmin }) => {
           el="link"
           to={`${adminRoute}/collections/tags`}
           buttonStyle="primary"
+          className='dashboard-home-page-btn'
         >
           Configure
         </Button>

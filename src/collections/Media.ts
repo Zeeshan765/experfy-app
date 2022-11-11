@@ -21,8 +21,15 @@ export type MediaType = {
 
 const Media: CollectionConfig = {
   slug: 'media',
+  labels: {
+    singular: 'Media Library',
+    plural: 'Media Library',
+  },
   access: {
-    read: (): boolean => true, // Everyone can read Media
+    read: (): boolean => true, // Everyone can
+    create: (): boolean => true,
+    update: (): boolean => true,
+    delete: (): boolean => true,
   },
   upload: {
     adminThumbnail: 'card',

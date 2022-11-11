@@ -13,7 +13,7 @@ const FormFavicon: React.FC<FormFaviconProps> = (props) => {
   const classes = useStyles();
 
   return (
-    <FormControl fullWidth className={classes.fileUpload}>
+    <FormControl fullWidth className={classes.fileUploadLabel}>
       <Typography className={classes.fileUploadLabel} variant="span">
         {props.label}
       </Typography>

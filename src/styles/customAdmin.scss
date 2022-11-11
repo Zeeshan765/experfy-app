@@ -2,8 +2,9 @@
 
 // Box Sizing
 //---------------------------------------------
-@import '~payload/scss';
-@import 'app.scss';
+
+
+@import "app.scss";
 
 html {
   box-sizing: border-box;
@@ -27,9 +28,8 @@ body {
 //---------------------------------------------
 
 body {
-
-  background-color: #F9F9F9 !important;
-  font-family: 'proxima nova', sans-serif;
+  background-color: #f9f9f9 !important;
+  font-family: "proxima nova", sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -78,7 +78,6 @@ body {
   }
 }
 
-
 .login__brand {
   svg {
     width: base(10);
@@ -89,36 +88,38 @@ body {
 .btn--style-primary {
   background-color: #48a3d7;
   color: whitesmoke;
+  padding: 12px 35px;
 }
 
-.template-default{
-  
-  .eyebrow:before{
+.template-default {
+
+  .eyebrow:before {
     background-color: #1b2c4a;
     opacity: 1;
-}
-
-  .step-nav span{
-    color: whitesmoke;
   }
 
-  .eyebrow{
+  .step-nav span {
+    color: white;
+  }
+
+  .eyebrow {
     padding: 15px;
   }
 
-  .nav header{
+  .nav header {
     padding: 15px;
-    background-color: #1b2c4a; 
+    background-color: #1b2c4a;
     margin-bottom: 20px;
   }
 
-  .nav__scroll{
+  .nav__scroll {
     padding: 0px;
   }
-  @media (prefers-reduced-motion: no-preference) { 
-    .graphic-icon path{
-        fill: whitesmoke;
-        animation: App-logo-spin infinite 20s linear;
+
+  @media (prefers-reduced-motion: no-preference) {
+    .graphic-icon path {
+      fill: white;
+      // animation: App-logo-spin infinite 20s linear;
     }
   }
 
@@ -126,53 +127,246 @@ body {
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }
   }
-  .nav__wrap{
+
+  .nav__wrap {
     padding: 0px 20px;
   }
 
-  .nav nav a{
-    margin-left: 15px;
+  .nav nav a {
+    margin-left: 8px;
   }
 
-  .nav-group{
+  .nav-group {
     margin: 0px;
     border-top: 1px solid #ccc;
     padding: 3px 0px;
   }
-  
-  .nav-group__label{
+
+  .nav-group__label {
     font-weight: 600;
     color: #444;
   }
 
-  .dashboard__wrap{
+  .dashboard__wrap {
     background: #f9f9fa;
   }
-  .card{
+
+  .card {
     background-color: #f3f4f7;
     border: 1px solid #d0dbe6;
     border-radius: 7px;
   }
-  .card h5{
+
+  .card h5 {
     color: #4a5161;
   }
 
-  .btn .btn__icon{
+  .btn .btn__icon {
     border-color: #48a3d7;
   }
 
-  .btn span, .btn svg{
-   color: whitesmoke;
+  .btn span,
+  .btn svg {
+    color: whitesmoke;
   }
-
-  .banner--type-success{
-   background-color:  #48a3d7; 
-  }
-
 
 }
- 
+
+.banner--type-success {
+  background-color: #48a3d7;
+}
+
+.banner--type-fail {
+  background-color: crimson;
+}
+
+// ------------------------------------------
+// ------------- Button Style-----------------
+// ------------------------------------------
+.primary-btn-style {
+  padding: 5px 30px;
+}
+
+.primary-btn-style-icon {
+  padding: 5px 20px;
+}
+
+.nav {
+  .makeStyles-portalSidebarLinkMain-5 .MuiTypography-root {
+    font-size: 12px !important;
+    padding: 4px 0px !important;
+    text-align: left !important;
+    text-transform: capitalize !important;
+  }
+
+  .makeStyles-portalSidebar-1 .MuiListItemIcon-root {
+    // width: 14px !important;
+    min-width: auto !important;
+  }
+
+  .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    width: 100% !important;
+  }
+
+  .makeStyles-portalSidebarLink-6 .MuiTypography-root {
+    text-align: left;
+    color: #52595d !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    text-align: left !important;
+    text-transform: capitalize !important;
+  }
+
+//   // .css-13jsku6-MuiButtonBase-root-MuiButton-root {
+//   //   text-transform: capitalize !important;
+//   //   padding: 2px 8px !important;
+//   // }
+
+//   // .makeStyles-portalSidebar-1 .MuiListItem-root:hover {
+//   //   background-color: #48a3d7;
+//   //   color: #fff !important;
+//   // }
+
+  .nav nav a:hover {
+    text-decoration: none !important;
+  }
+}
+
+.list-controls {
+  .list-controls__toggle-columns {
+    background-color: #4ba4da !important;
+    border: none;
+  }
+
+  .list-controls__toggle-where {
+    background-color: #1b2c4a !important;
+    border: none;
+  }
+
+  .list-controls__toggle-where:hover {
+    background-color: #1b2c4a;
+  }
+}
+
+.collection-list {
+  .collection-list__wrap {
+    padding-top: 30px !important;
+  }
+}
+
+.collection-list__header h1 {
+  font-size: 24px !important;
+}
+
+.collection-list__header .pill {
+  margin: 0px;
+}
+
+.collection-list__header {
+  margin-bottom: 1.9230769231rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.career-modal {
+  .field-label {
+    font-weight: 500 !important;
+    color: #3a4152 !important;
+  }
+
+  .heading {
+    font-size: 18px !important;
+    font-weight: 600;
+    color: #444;
+  }
+
+//   // .field-type.text input{
+//   //   padding: 11px 14px !important;
+//   // }
+//   //   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+//   //     padding: 11px 14px !important;
+//   //     height: 1.4375em !important;
+//   // }
+//   // .div.react-select div.rs__control{
+//   //   padding: 11px 14px !important;
+//   //   height: 1.4375em !important;
+//   // }
+
+  .css-bdhsul-MuiTypography-root-MuiDialogTitle-root {
+    padding: 16px 24px 0px 24px !important;
+  }
+
+  .css-ch2k2f-MuiTypography-root {
+    font-size: 14px;
+    font-weight: 300;
+    color: #4a5162;
+  }
+}
+
+.main__content {
+  .MuiBox-root {
+    .MuiPaper-root {
+      .makeStyles-portalCardIconOne-4 {
+        background-size: 75px 85px !important;
+      }
+
+      .makeStyles-portalCardIconTwo-5 {
+        background-size: 65px 85px !important;
+      }
+
+      .css-gepadz-MuiTypography-root {
+        font-size: 16px !important;
+      }
+
+      .css-ahj2mt-MuiTypography-root {
+        font-size: 12px !important;
+        line-height: 1.4rem;
+      }
+
+      .css-1oxscm3-MuiList-root {
+        list-style: disc !important;
+
+        li {
+          font-size: 12px !important;
+          line-height: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.MuiCardContent-root {
+  .css-1t6e9jv-MuiCardActions-root {
+    padding: 0px !important;
+  }
+}
+
+.css-hlj6pa-MuiDialogActions-root {
+  padding: 0px 24px !important;
+}
+
+.dashboard {
+  .dashboard__label {
+    font-size: 24px !important;
+  }
+
+  .dashboard__wrap {
+    padding-top: 30px !important;
+  }
+}
+
+.main-nav-sidbar-section{
+.makeStyles-portalSidebar-1{
+
+  @media only screen and (min-width: 1439px) {
+  width: 17.5rem !important;
+}
+
+}
+}

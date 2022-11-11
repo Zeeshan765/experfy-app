@@ -45,7 +45,7 @@ export default (editor, opts = {}) => {
     // checks iframe is ready before loading Tailwind CSS - issue with firefox
     const f = setInterval(() => {
       const doc = iframe.contentDocument;
-      if (doc.readyState === 'complete') {
+      if (doc?.readyState === 'complete') {
         doc.head.appendChild(script);
         doc.head.appendChild(cssStyle);
         clearInterval(f);

@@ -269,14 +269,18 @@
 import { CollectionConfig } from 'payload/types';
 
 
-import portalidentity from "../components/PortalIdentity";
+import PortalIdentity from "../components/PortalIdentity";
 // import landing from "../components/LandingPage";
 
 const PortalIdentityCollection: CollectionConfig = {
-  slug: 'portal_identity',
+  slug: 'portal-identity',
+  labels: {
+    singular: 'Portal Identity',
+    plural: 'Portal Identity',
+  },
   access: {
     read: () => true,
-    create: () => false,
+    create: () => true,
   },
   fields: [
     {
@@ -285,8 +289,8 @@ const PortalIdentityCollection: CollectionConfig = {
       label: 'Portal Identity',
       admin: {
         components: {
-          Field: portalidentity,
-          Cell: portalidentity,
+          Field: PortalIdentity,
+          Cell: PortalIdentity,
         }
       }
     },

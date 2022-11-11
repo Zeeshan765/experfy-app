@@ -1,7 +1,6 @@
 import { makeStyles } from '@mui/styles';
 export const useStyles = makeStyles({
     layoutGroup: {
-      flexDirection: 'row !important',
       justifyContent: 'space-between !important',
       alignItems: 'center !important',
       margin: '.375rem 0 !important',

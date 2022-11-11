@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useStyles } from "./css";
 
@@ -7,7 +7,7 @@ export type Type = {
   text: string
 }
 
-const FormTip: React.FC<Type> = (props) =>{
+const FormTip: React.FC<Type> = (props) => {
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,26 +23,27 @@ const FormTip: React.FC<Type> = (props) =>{
   const open = Boolean(anchorEl);
 
   return (
-    <Box className={ classes.formTip }>
-      <div
-        style={{
-          display: "flex",
-        }}
-      >
-        <Typography
-          component="span"
-          aria-owns={open ? "popover" : undefined}
-          aria-haspopup="true"
+    <Grid item xs={12}>
+      <Box className={classes.formTip}>
+        <div
+          style={{
+            display: "flex",
+          }}
         >
-          Tip
-        </Typography>
+          <Typography
+            component="span"
+            aria-owns={open ? "popover" : undefined}
+            aria-haspopup="true"
+          >
+            Tip
+          </Typography>
 
-        <Typography className={classes.formTipContentText}>
-          {props.text}
-            Tip will be displayed on the right side of the screen when the user clicks on the label.
-        </Typography>
-      </div>
-    </Box>
+          <Typography className={classes.formTipContentText}>
+            {props.text}
+          </Typography>
+        </div>
+      </Box>
+    </Grid>
   );
 }
 export default FormTip;

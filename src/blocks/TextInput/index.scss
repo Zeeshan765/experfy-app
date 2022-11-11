@@ -1,0 +1,15 @@
+@import 'payload/scss';
+
+.field-type.text {
+  position: relative;
+
+  input {
+    @include formInput;
+  }
+
+  &.error {
+    input {
+      background-color: var(--theme-error-200);
+    }
+  }
+}

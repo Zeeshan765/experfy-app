@@ -1,8 +1,9 @@
-import { CollectionConfig } from 'payload/types';
 import 'grapesjs/dist/css/grapes.min.css';
-import pagebuilder from "../components/PageBuilder"
+import { CollectionConfig } from 'payload/types';
+import PageBuilder from '../components/PageBuilder';
+
 const PageBuilderCollection: CollectionConfig = {
-  slug: 'page_builder',
+  slug: 'page-builder',
 
   access: {
     read: () => true,
@@ -10,13 +11,13 @@ const PageBuilderCollection: CollectionConfig = {
   },
   fields: [
     {
-      name: 'page_builder',
+      name: 'Page Builder',
       type: 'ui',
       label: 'Page Builder',
       admin: {
         components: {
-          Field: pagebuilder,
-          Cell: pagebuilder,
+          Field: PageBuilder,
+          Cell: PageBuilder,
         }
       }
     },
