@@ -3,7 +3,7 @@
 // Box Sizing
 //---------------------------------------------
 
-
+@import "~payload/scss";
 @import "app.scss";
 
 html {
@@ -92,7 +92,8 @@ body {
 }
 
 .template-default {
-
+  background-color: #f9f9f9;
+  
   .eyebrow:before {
     background-color: #1b2c4a;
     opacity: 1;
@@ -127,6 +128,7 @@ body {
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }
@@ -221,15 +223,16 @@ body {
     text-transform: capitalize !important;
   }
 
-//   // .css-13jsku6-MuiButtonBase-root-MuiButton-root {
-//   //   text-transform: capitalize !important;
-//   //   padding: 2px 8px !important;
-//   // }
+  // .css-13jsku6-MuiButtonBase-root-MuiButton-root {
+  //   text-transform: capitalize !important;
+  //   padding: 2px 8px !important;
+  // }
 
-//   // .makeStyles-portalSidebar-1 .MuiListItem-root:hover {
-//   //   background-color: #48a3d7;
-//   //   color: #fff !important;
-//   // }
+  // .makeStyles-portalSidebar-1 .MuiListItem-root:hover {
+  //   background-color: #48a3d7;
+  //   color: #fff !important;
+  //   text-decoration: none;
+  // }
 
   .nav nav a:hover {
     text-decoration: none !important;
@@ -285,17 +288,17 @@ body {
     color: #444;
   }
 
-//   // .field-type.text input{
-//   //   padding: 11px 14px !important;
-//   // }
-//   //   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
-//   //     padding: 11px 14px !important;
-//   //     height: 1.4375em !important;
-//   // }
-//   // .div.react-select div.rs__control{
-//   //   padding: 11px 14px !important;
-//   //   height: 1.4375em !important;
-//   // }
+  //   // .field-type.text input{
+  //   //   padding: 11px 14px !important;
+  //   // }
+  //   //   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  //   //     padding: 11px 14px !important;
+  //   //     height: 1.4375em !important;
+  //   // }
+  //   // .div.react-select div.rs__control{
+  //   //   padding: 11px 14px !important;
+  //   //   height: 1.4375em !important;
+  //   // }
 
   .css-bdhsul-MuiTypography-root-MuiDialogTitle-root {
     padding: 16px 24px 0px 24px !important;
@@ -360,12 +363,12 @@ body {
   }
 }
 
-.main-nav-sidbar-section{
-.makeStyles-portalSidebar-1{
+.main-nav-sidebar-section {
+  .makeStyles-portalSidebar-1 {
 
-  @media only screen and (min-width: 1439px) {
-  width: 17.5rem !important;
-}
+    @media only screen and (min-width: 1439px) {
+      width: 17.5rem !important;
+    }
 
-}
+  }
 }

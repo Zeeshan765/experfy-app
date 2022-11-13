@@ -1,4 +1,4 @@
-import { Validate } from './types';
+import { Validate } from 'payload/types';
 
 const validateText: Validate = (val) => {
   const stringVal = val as string;
