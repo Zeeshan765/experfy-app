@@ -32,7 +32,7 @@ export const useStyles = makeStyles({
   settingsSidebarGroup: {
     borderBottom: "1px solid #d1dbe3",
   },
-  settingsSidebarAccordion: {  
+  settingsSidebarAccordion: {
     boxShadow: "none !important",
     borderRadius: "0 !important",
     "& .MuiAccordionSummary-root": {
@@ -100,8 +100,8 @@ export const useStyles = makeStyles({
       '& .selectField': {
         '& .MuiOutlinedInput-notchedOutline': {
           top: '0 !important'
-        } 
-      } 
+        }
+      }
     },
     '& > .MuiTypography-root + .MuiFormControl-root': {
       maxWidth: "11.25rem",
@@ -252,8 +252,8 @@ export const useStyles = makeStyles({
     paddingTop: "1rem !important",
   },
   fourSideInputFields: {
-    flexDirection: "row !important",
-    flexWrap: "nowrap !important",
+    flexDirection: "row",
+    flexWrap: "nowrap",
     "& .MuiOutlinedInput-root": {
       width: "2.25rem",
       borderRadius: "0 !important",
@@ -315,7 +315,7 @@ export const useStyles = makeStyles({
       color: "#4a5162",
     },
   },
-  customColorPickerFrame:{
+  customColorPickerFrame: {
     border: "1px solid #d1dbe3",
     borderRadius: ".25rem",
     "& .ColorPicker-MuiButton-root": {

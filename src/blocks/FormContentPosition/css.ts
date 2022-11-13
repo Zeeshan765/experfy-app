@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles({
     alignmentGroup: {
-      flexDirection: 'row !important',
+      flexDirection: 'row',
       justifyContent: 'space-between !important',
       alignItems: 'center !important',
       margin: '.375rem 0 !important',

@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 
 import {
   Card,
@@ -29,8 +29,8 @@ import {
 } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
-import TextInput from "../TextInput1";
 import FormSelect from "../FormSelect";
+import TextInput from "../TextInput/Component";
 
 
 
@@ -43,7 +43,7 @@ import FormSelect from "../FormSelect";
 
 
 const FormOne: React.FC<any> = (props) => {
-  const { handleClose ,setFormData} = props;
+  const { handleClose, setFormData } = props;
 
 
 
@@ -57,10 +57,10 @@ const FormOne: React.FC<any> = (props) => {
 
 
 
-const onChangeHandlear=(e)=>{
-    const {name,value}=e.target;
-    setFormData(pre=>({...pre,[name]:value})); 
-}
+  const onChangeHandlear = (e) => {
+    const { name, value } = e.target;
+    setFormData(pre => ({ ...pre, [name]: value }));
+  }
 
 
 
@@ -85,60 +85,42 @@ const onChangeHandlear=(e)=>{
           <Grid item xs={8}>
             <TextInput
               label="Career Portal Name"
-              placeholder="Company Career Portal"
-              id={"portal_name"}
+              placeHolder="Company Career Portal"
+              path={"portal_name"}
               required={true}
-              name="portal_name"
-              onChange={onChangeHandlear}
-              helpertext="The go-to-market name of the career portal"
             />
           </Grid>
 
           <Grid item xs={8}>
             <TextInput
-              disabled={false}
               label="Portal ID"
-              placeholder="CP-ID798998989"
-              id={"portal_id"}
-              name="portal_id"
-              onChange={
-                onChangeHandlear
-                }
-              helpertext=
-              "The read only filed displays the Portal ID"
+              placeHolder="CP-ID798998989"
+              path="portal_id"
             />
           </Grid>
 
 
-          
 
-           <Grid item xs={8}>
-            <TextInput 
+
+          <Grid item xs={8}>
+            <TextInput
               label="Portal URL"
-              name = "portal_url"
-              placeholder="www.experfydemo/career-portal-experfy.com"
-              id={"portal_url"}
-              onChange={onChangeHandlear}
-              helpertext=
-              "Access your career portal using this domain. This is thee single main domain upon which all applications in your external career portal are based. Don’t include “http” or “https” in easily identify the URL"
-              
+              path="portal_url"
+              placeHolder="www.experfydemo/career-portal-experfy.com"
+
             />
           </Grid>
 
           <Grid item xs={8}>
             <TextInput
-              disabled={false}
               label="Company Name"
-              name="company_name"
-              id={"company_name"}
-              onChange={onChangeHandlear}
-              helpertext="The company of your career Portal. This can be a shortened version of Portal."
+              path="company_name"
             />
           </Grid>
 
 
-          
-          
+
+
         </Grid>
       </DialogContent>
     </>

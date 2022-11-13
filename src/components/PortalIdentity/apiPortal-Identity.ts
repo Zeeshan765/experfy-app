@@ -1,15 +1,19 @@
 import React from "react";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import { CAREER_PORTAL_API_URL, AUTHORIZATION } from "../../globalConstants";
+
+
 
 export const getToolTipApi = async (setToolTip, setLoading) => {
   setLoading(true);
   try {
+
     let response = await axios.get(
-      CAREER_PORTAL_API_URL + `api/v1/admin/tooltips`,
+      CAREER_PORTAL_API_URL + 'api/v1/admin/tooltips',
       {
         params: { title: "portal_identity" },
         headers: {
+          "Access-Control-Allow-Origin": "*",
           Authorization: AUTHORIZATION,
         },
       }

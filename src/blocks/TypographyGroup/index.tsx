@@ -1,21 +1,19 @@
-import React, { ReactEventHandler } from 'react';
+import EditIcon from '@mui/icons-material/Edit';
+import LanguageIcon from '@mui/icons-material/Language';
+import SettingIcon from '@mui/icons-material/Settings';
 import {
   Box,
-  ButtonGroup,
-  IconButton,
+  ButtonGroup, IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  Popover,
-  Typography,
+  Popover, Typography
 } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
-import LanguageIcon from '@mui/icons-material/Language';
-import SettingIcon from '@mui/icons-material/Settings';
-import FormSelect from '../FormSelect';
+import React, { ReactEventHandler } from 'react';
 import FormSlider from '../FormSlider';
 import { useStyles } from './css';
+
 
 export type Type = {
   label?: string;
@@ -87,30 +85,20 @@ function TypographyGroup(props: any): JSX.Element {
           </Typography>
           <Box className={classes.settingsOption}>
             <Typography>FontFamily</Typography>
-            <FormSelect
-              fullWidth={false}
-              size="small" />
           </Box>
           <Box className={classes.settingsSlider}>
             <FormSlider label="Font Size" />
           </Box>
           <Box className={classes.settingsOption}>
             <Typography>Weight</Typography>
-            <FormSelect
-              fullWidth={false}
-              size="small" />
           </Box>
           <Box className={classes.settingsOption}>
             <Typography>Font Style</Typography>
-            <FormSelect
-              fullWidth={false}
-              size="small" />
+
           </Box>
           <Box className={classes.settingsOption}>
             <Typography>Transform</Typography>
-            <FormSelect
-              fullWidth={false}
-              size="small" />
+
           </Box>
           <Box className={classes.settingsSlider}>
             <FormSlider label="Letter Spacing" />

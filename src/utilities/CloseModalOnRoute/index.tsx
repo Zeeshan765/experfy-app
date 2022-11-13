@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useModal } from '@faceless-ui/modal';
 
 const CloseModalOnRoute: React.FC = () => {
-  const { closeAll } = useModal();
+  const { closeAllModals } = useModal();
 
   useEffect(() => {
-    closeAll();
-  }, [closeAll]);
+    closeAllModals();
+  }, [closeAllModals]);
 
   return null;
 }

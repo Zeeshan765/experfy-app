@@ -11,7 +11,7 @@ import {
 import TopAlignIcon from '../../assets/images/global-theme-settings/aligment/top.svg';
 import CenterAlignIcon from '../../assets/images/global-theme-settings/aligment/center.svg';
 import BottomAlignIcon from '../../assets/images/global-theme-settings/aligment/bottom.svg';
-import {useStyles} from "./css";
+import { useStyles } from "./css";
 
 
 declare module "@mui/material/Typography" {
@@ -22,13 +22,13 @@ declare module "@mui/material/Typography" {
 
 
 
-interface FormContentProps{
+interface FormContentProps {
   label?: string,
 }
 
 
 
-const FormContentPosition : React.FC<FormContentProps>=(props)=> {
+const FormContentPosition: React.FC<FormContentProps> = (props) => {
   const classes = useStyles();
   const [alignment, setAlignment] = React.useState('left');
 
@@ -40,7 +40,7 @@ const FormContentPosition : React.FC<FormContentProps>=(props)=> {
     <FormControl
       fullWidth
       className={classes.alignmentGroup}>
-      <Typography 
+      <Typography
         variant='span'
         className={classes.alignmentGroupLabel}>
         {props.label}
@@ -61,7 +61,7 @@ const FormContentPosition : React.FC<FormContentProps>=(props)=> {
         <ToggleButton value="right" aria-label="bottom aligned">
           <img src={BottomAlignIcon} alt='Bottom' />
         </ToggleButton>
-      </ToggleButtonGroup>  
+      </ToggleButtonGroup>
     </FormControl>
   );
 }

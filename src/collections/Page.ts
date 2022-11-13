@@ -1,11 +1,9 @@
 import { CollectionConfig } from 'payload/types';
 import { MediaType } from './Media';
-import formatSlug from '../utilities/formatSlug';
 // import { Image, Type as ImageType } from '../blocks/Image';
-import { CallToAction, Type as CallToActionType } from '../blocks/CallToAction';
 import { Content, Type as ContentType } from '../blocks/Content';
 
-export type Layout = CallToActionType | ContentType 
+export type Layout = ContentType
 
 
 export type Type = {
@@ -47,7 +45,6 @@ export const Page: CollectionConfig = {
       type: 'blocks',
       minRows: 1,
       blocks: [
-        CallToAction,
         Content,
         // Image,
       ],
@@ -83,7 +80,6 @@ export const Page: CollectionConfig = {
       },
       hooks: {
         beforeValidate: [
-          formatSlug('title'),
         ],
 
 
@@ -93,23 +89,23 @@ export const Page: CollectionConfig = {
 
 
 
-  hooks:{
-    beforeLogin:[(args)=> {
+  hooks: {
+    beforeLogin: [(args) => {
       console.log("brfore login called", args);
     }],
- afterLogin:[(args)=>{
-  console.log("After Login Called",args)
- }],
- afterLogout:[(args)=>{
-  console.log("After Logout Called",args)
- }],
+    afterLogin: [(args) => {
+      console.log("After Login Called", args)
+    }],
+    afterLogout: [(args) => {
+      console.log("After Logout Called", args)
+    }],
 
- afterRefresh:[(args)=>{
-  console.log("After Refresh Called",args)
- }],
- afterMe:[(args)=>{
-  console.log("After Me Called",args)
- }],
+    afterRefresh: [(args) => {
+      console.log("After Refresh Called", args)
+    }],
+    afterMe: [(args) => {
+      console.log("After Me Called", args)
+    }],
 
 
 

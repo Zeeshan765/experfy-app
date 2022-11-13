@@ -3,7 +3,7 @@
 // Box Sizing
 //---------------------------------------------
 
-
+@import '~payload/scss';
 @import "app.scss";
 
 html {
@@ -127,7 +127,6 @@ body {
     from {
       transform: rotate(0deg);
     }
-
     to {
       transform: rotate(360deg);
     }
@@ -361,11 +360,11 @@ body {
   }
 }
 
-.main-nav-sidbar-section {
+.main-nav-sidebar-section {
   .makeStyles-portalSidebar-1 {
 
     @media only screen and (min-width: 1439px) {
-      width: 17.5rem !important;
+      width: 17.4rem !important;
     }
 
   }
