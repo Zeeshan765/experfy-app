@@ -1,0 +1,52 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - release
+    - develop
+
+resources:
+  repositories:
+  - repository: HelmCharts
+    type: git
+    endpoint: AzureRepos
+    name: Infrastructure/helm-charts
+    ref: main
+  - repository: AzurePipelineTemplates
+    type: git
+    endpoint: AzureRepos
+    name: Infrastructure/azure-pipeline-templates
+    ref: main
+
+variables:
+  tag: '$(Build.SourceVersion)-latest'
+  projectName: '$(Build.Repository.Name)'
+  dockerfilePath: '**/Dockerfile'
+  servicesGroup: 'itarp-services'
+  branchName: '$(Build.SourceBranchName)'
+  ${{ if eq(variables['Build.SourceBranchName'], 'release') }}:
+    targetEnvironment: 'uat'
+  ${{ else }}:
+    targetEnvironment: 'develop'
+#  - group: "VARIABLE_GROUP_NAME"
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+## Build and Push Docker image Azure Container Registry
+- template: container-template.yml@AzurePipelineTemplates
+  parameters:
+    projectName: ${{ variables.projectName }}
+    dockerfilePath: ${{ variables.dockerfilePath }}
+    branchName: ${{ variables.branchName }}
+    tag: ${{ variables.tag }}
+    dockerBuildArgs: "--build-arg DEPLOYMENT_ENV=${{ variables.targetEnvironment }}"
+
+## Deployment Stage
+- template: deployment-template.yml@AzurePipelineTemplates
+  parameters:
+    projectName: ${{ variables.projectName }}
+    tag: ${{ variables.tag }}
+    servicesGroup: ${{ variables.servicesGroup }}
+    branchName: ${{ variables.branchName }}
