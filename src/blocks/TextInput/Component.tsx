@@ -64,7 +64,6 @@ const TextInput: React.FC<CustomTextField> = ({
       className={classes}>
       <Label htmlFor={`field-${path}`} label={label} required={required} />
       <input
-        className={classes}
         name={path}
         required={required}
         value={value || ''}

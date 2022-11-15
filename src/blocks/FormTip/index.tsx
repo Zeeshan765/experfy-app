@@ -28,19 +28,13 @@ const FormTip: React.FC<Type> = (props) => {
         <div
           style={{
             display: "flex",
+            padding: 10,
           }}
         >
-          <Typography
-            component="span"
-            aria-owns={open ? "popover" : undefined}
-            aria-haspopup="true"
-          >
-            Tip
-          </Typography>
-
-          <Typography className={classes.formTipContentText}>
+         <span>Tip</span>
+          <text style={{paddingTop:10}}className={classes.formTipContentText}>
             {props.text}
-          </Typography>
+          </text>
         </div>
       </Box>
     </Grid>

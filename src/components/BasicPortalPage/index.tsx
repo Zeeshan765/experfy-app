@@ -296,9 +296,8 @@ const BasicPortalPage: React.FC = (props) => {
                 justifyContent="space-between"
                 alignItems="center"
               >
-                <Typography variant="h2" className="heading">
-                  Portal Identity
-                </Typography>
+                <h2>Portal Identity</h2>
+                  
                 <IconButton onClick={() => handleClose()}>
                   <CloseIcon />
                 </IconButton>
@@ -314,12 +313,10 @@ const BasicPortalPage: React.FC = (props) => {
                   validationOperation="create"
                 >
                   <input name={'user'} value={user.id} hidden={true} />
-                  <Typography variant="h5" mb={2}>
-                    Fill in the information below and you will be on your way to
-                    creating your Career portal
-                  </Typography>
+                  <h3>Fill in the information below and you will be on your way to
+                    creating your Career portal</h3>
                   <Grid>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={0}>
                       <Grid item xs={8}>
                         <TextInput
                           label={'Portal Name'}
@@ -539,7 +536,7 @@ const BasicPortalPage: React.FC = (props) => {
                                   placeholder="Brand Identifier"/> */}
 
                                 <TextInput
-                                  // label={'Portal Name'}
+                                  name='Portal Name'
                                   path={'brand_identifier'}
                                   required={false}
                                   placeHolder="Brand Identifier"

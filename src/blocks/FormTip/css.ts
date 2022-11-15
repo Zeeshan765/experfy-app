@@ -22,5 +22,6 @@ export const useStyles = makeStyles({
     formTipContentText: {
       fontSize: ".9375rem !important",
       padding: "1.5rem 16px",
+      margin: "10px",
     },
   });
