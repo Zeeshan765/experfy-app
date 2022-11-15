@@ -9,6 +9,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     singular: 'Basic Portal Identity',
     plural: 'Basic Portal Identity'
   },
+
   access: {
     read: () => true,
     create: () => true,
@@ -32,12 +33,12 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     {
       name: 'career_portal_name',
       type: 'text',
-      required: true,
+      required: false,
     },
     {
       name: 'portal_url',
       type: 'text',
-      required: true,
+      required: false,
     },
     {
       name: 'portal_id',

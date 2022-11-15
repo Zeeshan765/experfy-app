@@ -36,8 +36,6 @@ function PageBuilder() {
       container: '#editor',
       plugins: [plugin2, plugin1],
       devicePreviewMode: false,
-      height: '1000px',
-      width: 'auto',
       storageManager: true,
       // panels: { defaults: [] },
     });

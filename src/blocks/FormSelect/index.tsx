@@ -29,7 +29,6 @@ type CustomField = Props & {
 };
 const FormSelect: React.FC<CustomField> = ({
   options = [],
-  type = 'select',
   path,
   label,
   required = false,

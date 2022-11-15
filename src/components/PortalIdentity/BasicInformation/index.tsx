@@ -103,7 +103,7 @@ export default function BasicInformation(props) {
   return (
     <Box sx={{ p: 1 }}>
       <Form method="post" action={`${serverURL}${api}/landing`}>
-        <Grid container spacing={3}>
+        <Grid container>
           <Grid item xs={8}>
             <TextInput
               label={'Portal Name'}

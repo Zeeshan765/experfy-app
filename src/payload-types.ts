@@ -13,8 +13,8 @@ export interface Config {}
 export interface BasicPortalIdentity {
   id: string;
   user?: string | User;
-  career_portal_name: string;
-  portal_url: string;
+  career_portal_name?: string;
+  portal_url?: string;
   portal_id?: string;
   default_locale?: 'US' | 'ES';
   default_language?: 'English' | 'Spanish';

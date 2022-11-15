@@ -4,7 +4,47 @@
 //---------------------------------------------
 
 @import '~payload/scss';
-@import "app.scss";
+@import "font-proxima-nova";
+
+:root {
+  --breakpoint-xs-width : #{$breakpoint-xs-width};
+  --breakpoint-s-width : #{$breakpoint-s-width};
+  --breakpoint-m-width : #{$breakpoint-m-width};
+  --breakpoint-l-width : #{$breakpoint-l-width};
+  --scrollbar-width: 17px;
+  --nav-width: #{base(9)};
+
+  --theme-bg: #f9f9fa;
+  --theme-input-bg: var(--theme-elevation-0);
+  --theme-text: #4a5162;
+  --theme-primary: #48a3d7;;
+  --theme-baseline: #{$baseline-px};
+  --theme-baseline-body-size: #{$baseline-body-size};
+  --font-body: 'proxima-nova', system-ui;
+  --font-mono: monospace;
+  --font-serif: 'Merriweather', serif;
+
+  --z-popup: 10;
+  --z-nav: 20;
+  --z-modal: 30;
+  --z-status: 40;
+
+  --gutter-h: #{base(5)};
+
+  @include large-break {
+    --gutter-h: #{base(3)};
+    --nav-width: #{base(8)};
+  }
+
+  @include mid-break {
+    --gutter-h: #{base(2)};
+    --nav-width: 100%;
+  }
+
+  @include small-break {
+    --gutter-h: #{base(.5)};
+  }
+}
 
 html {
   box-sizing: border-box;
@@ -19,27 +59,17 @@ html {
 // HTML
 //---------------------------------------------
 
-html,
-body {
-  height: 100%;
-}
+// html,
 
 // Body
 //---------------------------------------------
 
 body {
-  background-color: #f9f9f9 !important;
-  font-family: "proxima nova", sans-serif;
+  font-family: var(--font-body);
+  color: var(--theme-text);
+  font-weight: 400;
   font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-// Root
-//---------------------------------------------
-
-#root {
-  height: 100%;
 }
 
 // Page
@@ -80,36 +110,43 @@ body {
 
 .login__brand {
   svg {
-    width: base(10);
+    color: var(--theme-text);
+    width: base(8);
     height: auto;
   }
 }
 
 .btn--style-primary {
-  background-color: #48a3d7;
-  color: whitesmoke;
-  padding: 12px 35px;
+  background-color: var(--theme-primary);
+  color: var(--theme-elevation-0);
+  padding: 10px 25px 10px 25px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: medium;
 }
 
 .template-default {
 
   .eyebrow:before {
-    background-color: #1b2c4a;
+    background-color: var(--theme-elevation-0);
     opacity: 1;
   }
 
   .step-nav span {
-    color: white;
+    color: var(--theme-text);
   }
 
   .eyebrow {
-    padding: 15px;
+    padding: 25px;
+    font-weight: 500;
+    font-size: large;
+    border-bottom: var(--theme-elevation-100) 1px solid;
   }
 
   .nav header {
-    padding: 15px;
-    background-color: #1b2c4a;
-    margin-bottom: 20px;
+    padding: 18px;
+    background-color: var(--theme-elevation-0);
+    margin-bottom: 0px;
   }
 
   .nav__scroll {
@@ -118,7 +155,7 @@ body {
 
   @media (prefers-reduced-motion: no-preference) {
     .graphic-icon path {
-      fill: white;
+      fill: var(--theme-text);
       // animation: App-logo-spin infinite 20s linear;
     }
   }
@@ -127,28 +164,36 @@ body {
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }
   }
 
   .nav__wrap {
-    padding: 0px 20px;
+    padding: 0px;
+    background-color: var(--theme-elevation-0);
   }
 
   .nav nav a {
-    margin-left: 8px;
+    padding: .5rem 2rem .5rem 2rem;
+    font-weight: 500;
+    font-size: 13px;
+      &.active{
+        background-color: var(--theme-elevation-50);
+      }
+   
   }
+    
 
   .nav-group {
     margin: 0px;
-    border-top: 1px solid #ccc;
     padding: 3px 0px;
   }
 
   .nav-group__label {
     font-weight: 600;
-    color: #444;
+    color: var(--theme-text);
   }
 
   .dashboard__wrap {
@@ -161,65 +206,56 @@ body {
     border-radius: 7px;
   }
 
-  .card h5 {
-    color: #4a5161;
-  }
 
-  .btn .btn__icon {
-    border-color: #48a3d7;
-  }
 
-  .btn span,
-  .btn svg {
-    color: whitesmoke;
-  }
+  // .btn .btn__icon {
+  //   border-color: #48a3d7;
+  // }
+
+  // .btn span,
+  // .btn svg {
+  //   color: var(--theme-text);
+  // }
 
 }
 
-.banner--type-success {
-  background-color: #48a3d7;
-}
-
-.banner--type-fail {
-  background-color: crimson;
-}
 
 // ------------------------------------------
 // ------------- Button Style-----------------
 // ------------------------------------------
-.primary-btn-style {
-  padding: 5px 30px;
-}
+// .primary-btn-style {
+//   padding: 5px 30px;
+// }
 
-.primary-btn-style-icon {
-  padding: 5px 20px;
-}
+// .primary-btn-style-icon {
+//   padding: 5px 20px;
+// }
 
-.nav {
-  .makeStyles-portalSidebarLinkMain-5 .MuiTypography-root {
-    font-size: 12px !important;
-    padding: 4px 0px !important;
-    text-align: left !important;
-    text-transform: capitalize !important;
-  }
+// .nav {
+//   .makeStyles-portalSidebarLinkMain-5 .MuiTypography-root {
+//     font-size: 12px !important;
+//     padding: 4px 0px !important;
+//     text-align: left !important;
+//     text-transform: capitalize !important;
+//   }
 
-  .makeStyles-portalSidebar-1 .MuiListItemIcon-root {
-    // width: 14px !important;
-    min-width: auto !important;
-  }
+//   .makeStyles-portalSidebar-1 .MuiListItemIcon-root {
+//     // width: 14px !important;
+//     min-width: auto !important;
+//   }
 
-  .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
-    width: 100% !important;
-  }
+//   .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+//     width: 100% !important;
+//   }
 
-  .makeStyles-portalSidebarLink-6 .MuiTypography-root {
-    text-align: left;
-    color: #52595d !important;
-    font-weight: 600 !important;
-    font-size: 12px !important;
-    text-align: left !important;
-    text-transform: capitalize !important;
-  }
+//   .makeStyles-portalSidebarLink-6 .MuiTypography-root {
+//     text-align: left;
+//     color: #52595d !important;
+//     font-weight: 600 !important;
+//     font-size: 12px !important;
+//     text-align: left !important;
+//     text-transform: capitalize !important;
+//   }
 
   //   // .css-13jsku6-MuiButtonBase-root-MuiButton-root {
   //   //   text-transform: capitalize !important;
@@ -231,10 +267,10 @@ body {
   //   //   color: #fff !important;
   //   // }
 
-  .nav nav a:hover {
-    text-decoration: none !important;
-  }
-}
+//   .nav nav a:hover {
+//     text-decoration: none !important;
+//   }
+// }
 
 .list-controls {
   .list-controls__toggle-columns {
@@ -273,17 +309,19 @@ body {
   flex-wrap: wrap;
 }
 
-.career-modal {
-  .field-label {
-    font-weight: 500 !important;
-    color: #3a4152 !important;
-  }
+// .career-modal {
+//   .field-label {
+//     font-weight: 500 !important;
+//     color: #3a4152 !important;
+//   }
 
-  .heading {
-    font-size: 18px !important;
-    font-weight: 600;
-    color: #444;
-  }
+//   .heading {
+//     font-size: 18px !important;
+//     font-weight: 600;
+//     color: #444;
+//   }
+
+  
 
   //   // .field-type.text input{
   //   //   padding: 11px 14px !important;
@@ -297,75 +335,75 @@ body {
   //   //   height: 1.4375em !important;
   //   // }
 
-  .css-bdhsul-MuiTypography-root-MuiDialogTitle-root {
-    padding: 16px 24px 0px 24px !important;
-  }
+//   .css-bdhsul-MuiTypography-root-MuiDialogTitle-root {
+//     padding: 16px 24px 0px 24px !important;
+//   }
 
-  .css-ch2k2f-MuiTypography-root {
-    font-size: 14px;
-    font-weight: 300;
-    color: #4a5162;
-  }
-}
+//   .css-ch2k2f-MuiTypography-root {
+//     font-size: 14px;
+//     font-weight: 300;
+//     color: #4a5162;
+//   }
+// }
 
-.main__content {
-  .MuiBox-root {
-    .MuiPaper-root {
-      .makeStyles-portalCardIconOne-4 {
-        background-size: 75px 85px !important;
-      }
+// .main__content {
+//   .MuiBox-root {
+//     .MuiPaper-root {
+//       .makeStyles-portalCardIconOne-4 {
+//         background-size: 75px 85px !important;
+//       }
 
-      .makeStyles-portalCardIconTwo-5 {
-        background-size: 65px 85px !important;
-      }
+//       .makeStyles-portalCardIconTwo-5 {
+//         background-size: 65px 85px !important;
+//       }
 
-      .css-gepadz-MuiTypography-root {
-        font-size: 16px !important;
-      }
+//       .css-gepadz-MuiTypography-root {
+//         font-size: 16px !important;
+//       }
 
-      .css-ahj2mt-MuiTypography-root {
-        font-size: 12px !important;
-        line-height: 1.4rem;
-      }
+//       .css-ahj2mt-MuiTypography-root {
+//         font-size: 12px !important;
+//         line-height: 1.4rem;
+//       }
 
-      .css-1oxscm3-MuiList-root {
-        list-style: disc !important;
+//       .css-1oxscm3-MuiList-root {
+//         list-style: disc !important;
 
-        li {
-          font-size: 12px !important;
-          line-height: 1.2rem;
-        }
-      }
-    }
-  }
-}
+//         li {
+//           font-size: 12px !important;
+//           line-height: 1.2rem;
+//         }
+//       }
+//     }
+//   }
+// }
 
-.MuiCardContent-root {
-  .css-1t6e9jv-MuiCardActions-root {
-    padding: 0px !important;
-  }
-}
+// .MuiCardContent-root {
+//   .css-1t6e9jv-MuiCardActions-root {
+//     padding: 0px !important;
+//   }
+// }
 
-.css-hlj6pa-MuiDialogActions-root {
-  padding: 0px 24px !important;
-}
+// .css-hlj6pa-MuiDialogActions-root {
+//   padding: 0px 24px !important;
+// }
 
-.dashboard {
-  .dashboard__label {
-    font-size: 24px !important;
-  }
+// .dashboard {
+//   .dashboard__label {
+//     font-size: 24px !important;
+//   }
 
-  .dashboard__wrap {
-    padding-top: 30px !important;
-  }
-}
+//   .dashboard__wrap {
+//     padding-top: 30px !important;
+//   }
+// }
 
-.main-nav-sidebar-section {
-  .makeStyles-portalSidebar-1 {
+// .main-nav-sidebar-section {
+//   .makeStyles-portalSidebar-1 {
 
-    @media only screen and (min-width: 1439px) {
-      width: 17.4rem !important;
-    }
+//     @media only screen and (min-width: 1439px) {
+//       width: 17.4rem !important;
+//     }
 
-  }
-}
+//   }
+// }
