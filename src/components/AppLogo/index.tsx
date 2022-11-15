@@ -1,4 +1,3 @@
-import { Hidden } from '@mui/material';
 import React from 'react';
 const ExperfyLogo: React.FC = () => (
     <svg  xmlns = "http://www.w3.org/2000/svg" width = "0" height = "35" viewBox = "0 0 140 35" >
