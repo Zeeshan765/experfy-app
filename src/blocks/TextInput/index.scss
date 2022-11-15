@@ -4,14 +4,15 @@
   position: relative;
 
   .field-label {
-      font-weight: 500;
-      font-size: 16px;
-      color: var(--theme-text);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--theme-text);
   }
+
   input {
     padding: .375rem .75rem;
     @include formInput;
-    
+
   }
 
   &.error {
