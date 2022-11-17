@@ -26,7 +26,7 @@ import React, { useEffect, useState } from 'react';
 import FormSelect from '../../blocks/FormSelect';
 import FormSwitch from '../../blocks/FormSwitch';
 import FormTip from '../../blocks/FormTip';
-import TextInput from '../../blocks/TextInput/Component';
+import TextInput from '../../blocks/TextInput';
 import '../../styles/customAdmin.scss';
 import { useStyles } from './css';
 

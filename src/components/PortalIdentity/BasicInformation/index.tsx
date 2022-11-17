@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import FormSelect from '../../../blocks/FormSelect';
 import FormTip from '../../../blocks/FormTip';
-import TextInput from '../../../blocks/TextInput/Component';
+import TextInput from '../../../blocks/TextInput';
 import { getToolTipApi } from '../apiPortal-Identity';
 
 export default function BasicInformation(props) {

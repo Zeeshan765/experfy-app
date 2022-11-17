@@ -34,7 +34,7 @@ import { useFieldArray, useForm } from 'react-hook-form';
 import FormSelect from '../../blocks/FormSelect';
 import FormSwitch from '../../blocks/FormSwitch';
 import FormTip from '../../blocks/FormTip';
-import TextInput from '../../blocks/TextInput/Component';
+import TextInput from '../../blocks/TextInput';
 
 import { useStyles } from './css';
 
@@ -51,6 +51,7 @@ const company_name_tip = "The company of your career Portal. This can be a short
 const BasicPortalPage: React.FC = (props) => {
   const {
     routes: { admin: adminRoute },
+    user: { isAdmin },
   } = useConfig();
 
   const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
@@ -68,7 +69,7 @@ const BasicPortalPage: React.FC = (props) => {
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
-  const { user } = useAuth();
+  const { user } = useConfig(User);
   const result = async () => {
     payload.find({
       collection: 'basic-portal-identity',

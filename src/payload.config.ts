@@ -1,18 +1,14 @@
-import { IconButton } from "@mui/material";
 import dotenv from "dotenv";
 import path from "path";
 import { buildConfig } from "payload/config";
-import BasicPortalIdentityCollection from "./collections/BasicPortalIdentity";
 import Media from "./collections/Media";
 import PageBuilderCollection from "./collections/PageBuilder";
-import PICollection from "./collections/PICollection";
-import PortalIdentityCollection from "./collections/PortalIdentity";
 import PortalIdentityDetail from "./collections/PortalIdentityDetail";
 import Users from "./collections/Users";
 import BasicPortalIdentityPage from "./components/BasicPortalPage";
-import ExperfyLogo from "./components/AppLogo";
-import AfterNav from "./components/AfterNav";
-import BeforeNav from "./components/BeforeNav";
+import AfterNav from "./components/Nav/AfterNav";
+import ExperfyLogo from "./components/Nav/AppLogo";
+import BeforeNav from "./components/Nav/BeforeNav";
 import PageBuilder from "./components/PageBuilder";
 import PortalIdentity from "./components/PortalIdentity";
 import MyProvider from "./MyProvider";
@@ -23,13 +19,10 @@ export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
     // user: Users.slug,
-    css: path.resolve(__dirname, './styles/customAdmin.scss'),
-    
-    components: {
-      
+    css: path.resolve(__dirname, './styles/scss/index.scss'),
+    components: {  
       graphics: {
         Logo: ExperfyLogo,
-        Icon: ExperfyLogo,
       },
       afterNavLinks: [AfterNav],
       beforeNavLinks: [BeforeNav],
@@ -52,13 +45,9 @@ export default buildConfig({
     },
   },
   collections: [
-    
-    
     PortalIdentityDetail,
     PageBuilderCollection,
     Media,
-    
-
   ],
   
   localization: {

@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from "react";
 // import { useNavigate } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import { useConfig } from "payload/components/utilities";
-import ExperfyNavbar from "./components/ExperfyNavBar";
+import ExperfyNavbar from "./components/Nav/ExperfyNavBar";
 
 // type CustomContext = {
 //   adminPortal;

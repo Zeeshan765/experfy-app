@@ -2,7 +2,7 @@ import { Box, Button, Grid } from '@mui/material';
 import { useConfig } from 'payload/components/utilities';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import TextInput from '../../../blocks/TextInput/Component';
+import TextInput from '../../../blocks/TextInput';
 import { seoSettingApi } from '../apiPortal-Identity';
 // import TextArea from '../../components/TextArea';
 import { Form } from 'payload/components/forms';

@@ -1,6 +1,6 @@
 import { CollectionConfig } from 'payload/types';
 import landing from '../components/LandingPage';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/Nav/NavBar';
 
 
 const LandingCollection: CollectionConfig = {

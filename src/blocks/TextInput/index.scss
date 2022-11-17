@@ -1,4 +1,4 @@
-@import '../../styles/customAdmin.scss';
+@import '../../styles/scss/index.scss';
 
 .field-type.text {
   position: relative;
@@ -21,19 +21,3 @@
     }
   }
 }
-
-// .label {
-//   .field-label {
-//     @extend %body;
-//     display: flex;
-//     padding-bottom: base(.25);
-//     color: var(--theme-text);
-//     font-family: var(--font-body);
-
-//     .required {
-//       color: var(--theme-error-500);
-//       margin-left: base(.25);
-//       margin-right: auto;
-//     }
-//   }
-// }
