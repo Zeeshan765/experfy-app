@@ -51,7 +51,7 @@ const company_name_tip = "The company of your career Portal. This can be a short
 const BasicPortalPage: React.FC = (props) => {
   const {
     routes: { admin: adminRoute },
-    user: { isAdmin },
+    // user: { isAdmin },
   } = useConfig();
 
   const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
@@ -69,13 +69,13 @@ const BasicPortalPage: React.FC = (props) => {
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
-  const { user } = useConfig(User);
-  const result = async () => {
-    payload.find({
-      collection: 'basic-portal-identity',
-      user: user.id,
-    });
-  }
+  // const { user } = useConfig(User);
+  // const result = async () => {
+  //   payload.find({
+  //     collection: 'basic-portal-identity',
+  //     user: user.id,
+  //   });
+  // }
 
 
   useEffect(() => {
@@ -129,52 +129,9 @@ const BasicPortalPage: React.FC = (props) => {
   );
 
 
-  //     portalIdentityScreenOne(
-  //       data,
-  //       setVisible,
-  //       setErrorMessage,
-  //       setError,
-  //       brandSwitch,
-  //       setLoading,
-  //     );
-  //   } else {
-  //     const deleteProps = [
-  //       'portal_name',
-  //       'portal_id',
-  //       'portal_url',
-  //       'company_name',
-  //       'default_language',
-  //       'default_locale',
-  //     ].forEach((element) => delete data[element]);
 
-  //     // portalIdentityScreenTwo(
-  //     //   data,
-  //     //   props.adminPortal,
-  //     //   props.setAdminPortal,
-  //     //   props.setBrands,
-  //     //   navigate,
-  //     //   setErrorMessage,
-  //     //   setError,
-  //     //   setLoading,
-  //     //   getCompanyPortalData
-  //     // );
-  //   }
-  // };
-
-  const submitHandlear = (e) => {
-    e.prevntDefault();
-    axios({
-      method: 'post',
-      url: `${serverURL}${api}/basic-portal-identity`,
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'JWT fefege...',
-      },
-      // data:
-    });
-  };
   const [touched, setTouched] = useState('');
-  console.log(user.id);
+  
 
   const onSuccess = (data) => {
     if (brandSwitch) {
@@ -313,7 +270,7 @@ const BasicPortalPage: React.FC = (props) => {
                   action={`${serverURL}${api}/basic-portal-identity`}
                   validationOperation="create"
                 >
-                  <input name={'user'} value={user.id} hidden={true} />
+                  {/* <input name={'user'} value={user.id} hidden={true} /> */}
                   <h3>Fill in the information below and you will be on your way to
                     creating your Career portal</h3>
                   <Grid>
