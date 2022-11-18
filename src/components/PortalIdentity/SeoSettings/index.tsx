@@ -1,4 +1,5 @@
-import { Box, Button, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
+import { Button, Eyebrow } from 'payload/components/elements';
 import { useConfig } from 'payload/components/utilities';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -64,7 +65,10 @@ export default function SeoSettings(props) {
             />
           </Grid>
         </Grid>
-        <Button type="submit"> Submit </Button>
+        <Button type="submit" className="primary-btn-style">
+                    {' '}
+                    Save{' '}
+                  </Button>
       </Form>
     </Box>
   );

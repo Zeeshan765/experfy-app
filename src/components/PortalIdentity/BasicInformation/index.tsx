@@ -1,4 +1,5 @@
-import { Box, Button, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
+import { Button, Eyebrow } from 'payload/components/elements';
 import { Form } from 'payload/components/forms';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
@@ -20,12 +21,6 @@ export default function BasicInformation(props) {
   const userConfig = collections.find(
     (collection) => collection.slug === userSlug
   );
-  console.log('asda8127938****', collections);
-  console.log('8988885656475464756', userConfig);
-
-  console.log('info', props);
-
-  // const [adminPortal, setAdminPortal] = useState({});
 
   const defaultValues = {
     default_language: props.adminPortal.default_language,
@@ -55,54 +50,13 @@ export default function BasicInformation(props) {
     getToolTipApi(setToolTip, setLoading);
   }, []);
 
-  // useEffect(() => {
-
-  useEffect(() => {
-    // setValue("portal_id", adminPortal.portal_id);
-    // setValue("portal_name", adminPortal.portal_name);
-    // setValue("portal_url", adminPortal.portal_url);
-    // setValue("company_name", adminPortal.company_name);
-    // setValue("google_tag_manager_id", adminPortal.google_tag_manager_id);
-    // setValue("google_analytics_id", adminPortal.google_analytics_id);
-    // setValue("google_webmaster_id", adminPortal.google_webmaster_id);
-    // setValue("bing_webmaster_id", adminPortal.bing_webmaster_id);
-    // setValue("tracking_pixel", adminPortal.tracking_pixel);
-  }, [props]);
-
-  // const onSubmit = (data) => {
-  //   const deleteProps = [
-  //     'portal_name',
-  //     'portal_id',
-  //     'portal_url',
-  //     'company_name',
-  //     'default_language',
-  //     'default_locale',
-  //     'google_analytics_id',
-  //     'google_tag_manager_id',
-  //     'bing_webmaster_id',
-  //     'tracking_pixel',
-  //   ].forEach((element) => {
-  //     if (data[element] == '') {
-  //       delete data[element];
-  //     }
-  //   });
-  //   basicInformationAPI(
-  //     data,
-  //     adminPortal,
-  //     setAdminPortal,
-  //     setLoading,
-  //     setSuccessMessage,
-  //     setSuccess,
-  //     setErrorMessage,
-  //     setError
-  //   );
-  // };
+  useEffect(() => {}, [props]);
 
   const [touched, setTouched] = useState('');
 
   return (
     <Box sx={{ p: 1 }}>
-      <Form method="post" action={`${serverURL}${api}/landing`}>
+      <Form method="post" action={`${serverURL}${api}/basic-portal-identity`}>
         <Grid container>
           <Grid item xs={8}>
             <TextInput
@@ -111,7 +65,6 @@ export default function BasicInformation(props) {
               minLength={3}
               required={true}
               placeHolder={'Company Career Portal'}
-              // onChange={e => { setValue((e) => { e.target.value }); console.log("test onChange", e.target.value) }}
               setTouched={setTouched}
             />
           </Grid>
@@ -169,14 +122,10 @@ export default function BasicInformation(props) {
               />
             )}
           </Grid>
-
           <Grid item xs={8}>
             <FormSelect
               type={'select'}
-              options={[
-                { value: 'English', label: 'English' },
-                { value: 'Spanish', label: 'Spanish' },
-              ]}
+              options={['English', 'Spanish']}
               label="Default Language"
               name={'default_language'}
               path={'default_language'}
@@ -184,34 +133,21 @@ export default function BasicInformation(props) {
             />
           </Grid>
           <Grid item xs={4}>
-            {touched === 'default_language' && (
-              <FormTip
-                text={
-                  'The company of your career Portal. This can be a shortened version of Portal.'
-                }
-              />
-            )}
+            <FormTip text="Set the default language of your career portal for your visitors" />
           </Grid>
           <Grid item xs={8}>
             <FormSelect
-              type={'select'}
-              options={[{ value: 'US', label: 'United States' }]}
+              options={['US', 'ES']}
               label="Default Locale"
               name={'default_locale'}
               path={'default_locale'}
               defaultValue="US"
+              type={'select'}
             />
           </Grid>
           <Grid item xs={4}>
-            {touched === 'default_locale' && (
-              <FormTip
-                text={
-                  'The company of your career Portal. This can be a shortened version of Portal.'
-                }
-              />
-            )}
-          </Grid>
-
+            <FormTip text="Set the default locale of your career portal for your visitors" />
+          </Grid>{' '}
           <Grid item xs={8}>
             <TextInput
               path={'google_id'}
@@ -268,7 +204,7 @@ export default function BasicInformation(props) {
             />
           </Grid>
           <Grid item xs={4}>
-            {touched === 'bring_webmaster' && (
+            {touched === 'bing_webmaster' && (
               <FormTip text={'The Bing Webmaster Tools account.'} />
             )}
           </Grid>
@@ -291,8 +227,9 @@ export default function BasicInformation(props) {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" color="primary" type="submit">
-            Save
+          <Button type="submit" className="primary-btn-style">
+            {' '}
+            Save{' '}
           </Button>
         </Grid>
       </Form>
