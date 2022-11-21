@@ -35,7 +35,7 @@ export default function SeoSettings(props) {
 
   return (
     <Box sx={{ p: 1 }}>
-      <Form method="post" action={`${serverURL}${api}/landing`}>
+      <Form method="post" action={`${serverURL}${api}/basic-portal-identity`}>
         <Grid container spacing={3}>
           <Grid item xs={8}>
             <TextInput

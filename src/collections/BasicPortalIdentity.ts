@@ -1,7 +1,7 @@
 import payload from "payload";
 import { useLocale } from "payload/components/utilities";
 import { CollectionBeforeChangeHook, CollectionBeforeReadHook, CollectionConfig } from 'payload/types';
-import basicPortalData from '../components/BasicPortalPage';
+import BasicPortalPage from '../components/BasicPortalPage';
 
 const BasicPortalIdentityCollection: CollectionConfig = {
   slug: 'basic-portal-identity',
@@ -18,8 +18,8 @@ const BasicPortalIdentityCollection: CollectionConfig = {
   admin: {
     components: {
       views: {
-        Edit: basicPortalData,
-        List: basicPortalData,
+        Edit: BasicPortalPage,
+        List: BasicPortalPage,
       },
     },
   },

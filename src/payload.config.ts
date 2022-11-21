@@ -1,17 +1,18 @@
-import dotenv from "dotenv";
-import path from "path";
-import { buildConfig } from "payload/config";
-import Media from "./collections/Media";
-import PageBuilderCollection from "./collections/PageBuilder";
-import PortalIdentityDetail from "./collections/PortalIdentityDetail";
-import Users from "./collections/Users";
-import BasicPortalIdentityPage from "./components/BasicPortalPage";
-import AfterNav from "./components/Nav/AfterNav";
-import ExperfyLogo from "./components/Nav/AppLogo";
-import BeforeNav from "./components/Nav/BeforeNav";
-import PageBuilder from "./components/PageBuilder";
-import PortalIdentity from "./components/PortalIdentity";
-import MyProvider from "./MyProvider";
+import dotenv from 'dotenv';
+import path from 'path';
+import { buildConfig } from 'payload/config';
+import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
+import Media from './collections/Media';
+import PageBuilderCollection from './collections/PageBuilder';
+import PortalIdentityDetail from './collections/PortalIdentityDetail';
+import Users from './collections/Users';
+import BasicPortalPage from './components/BasicPortalPage';
+import AfterNav from './components/Nav/AfterNav';
+import ExperfyLogo from './components/Nav/AppLogo';
+import BeforeNav from './components/Nav/BeforeNav';
+import PageBuilder from './components/PageBuilder';
+import PortalIdentity from './components/PortalIdentity';
+import MyProvider from './MyProvider';
 
 dotenv.config();
 
@@ -20,7 +21,7 @@ export default buildConfig({
   admin: {
     // user: Users.slug,
     css: path.resolve(__dirname, './styles/scss/index.scss'),
-    components: {  
+    components: {
       graphics: {
         Logo: ExperfyLogo,
       },
@@ -33,8 +34,7 @@ export default buildConfig({
         },
         {
           path: '/collections/basic-portal-identity',
-          Component: BasicPortalIdentityPage,
-
+          Component: BasicPortalPage,
         },
         {
           path: '/collections/portal-identity',
@@ -45,22 +45,22 @@ export default buildConfig({
     },
   },
   collections: [
+    BasicPortalIdentityCollection,
+
     PortalIdentityDetail,
+
     PageBuilderCollection,
     Media,
   ],
-  
+
   localization: {
-    locales: [
-      'en',
-      'es',
-    ],
+    locales: ['en', 'es'],
     defaultLocale: 'en',
     fallback: true,
   },
-  cors: ('*'),
-  
+  cors: '*',
+
   typescript: {
-    outputFile: path.resolve(__dirname, "payload-types.ts"),
+    outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
 });
