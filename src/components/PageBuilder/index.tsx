@@ -1,6 +1,6 @@
 import GrapesJS from 'grapesjs';
 import React, { PropsWithChildren } from 'react';
-import './grapes.min.css';
+// import './grapes.min.css';
 // import './CustomGrapes.css';
 import plugin2 from 'grapesjs-preset-newsletter';
 import plugin1 from './vendor/plugins/grapesjs-tailwind/src/';
