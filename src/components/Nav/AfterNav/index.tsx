@@ -22,7 +22,7 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/pages`}
         >
-          <img style={{ paddingRight: 5 }} src={PagesIcon} alt="Pages" />
+          <img style={{ paddingRight: 8 }} src={PagesIcon} alt="Pages" />
           Pages
         </NavLink>
   
@@ -31,7 +31,7 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/menus`}
         >
-          <img style={{ paddingRight: 5 }} src={MenusIcon} alt="Menus" />
+          <img style={{ paddingRight: 8 }} src={MenusIcon} alt="Menus" />
           Menus
         </NavLink>
         <NavLink
@@ -39,7 +39,7 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/media`}
         >
-          <img style={{ paddingRight: 5 }} src={MediaLibraryIcon} alt="Media" />
+          <img style={{ paddingRight: 8 }} src={MediaLibraryIcon} alt="Media" />
           Media Library
         </NavLink>
         <NavLink
@@ -47,7 +47,7 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/templates`}
         >
-          <img style={{ paddingRight: 5 }} src={TemplateLibraryIcon} alt="Template Library" />
+          <img style={{ paddingRight: 8 }} src={TemplateLibraryIcon} alt="Template Library" />
           Template Library
         </NavLink>
         <NavLink
@@ -55,7 +55,7 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/themes`}
         >
-          <img style={{ paddingRight: 5 }} src={ThemesIcon} alt="Themes" />
+          <img style={{ paddingRight: 8 }} src={ThemesIcon} alt="Themes" />
           Themes
         </NavLink>
         <NavLink
@@ -63,7 +63,7 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/users`}
         >
-          <img style={{paddingRight: 5}} src={UsersIcon} alt="Users" />
+          <img style={{paddingRight: 8}} src={UsersIcon} alt="Users" />
           Users
         </NavLink>
         
@@ -72,7 +72,7 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/portal-identity`}
         >
-          <img style={{ paddingRight: 5 }} src={PortalIdentityIcon} alt="Portal Identity" />
+          <img style={{ paddingRight: 8 }} src={PortalIdentityIcon} alt="Portal Identity" />
           Portal Identity
         </NavLink>
       </nav>

@@ -20,17 +20,17 @@ const BeforeNav: React.FC = () => {
     <div className={baseClass}>
       <nav>
         <NavLink
-          className="nav__link"
+          className="nav__link nav-category"
           activeClassName="active"
           to={`${adminRoute}/collections/basic-portal-identity`}>
-          <img style={ {paddingRight:5 }} src={StudioDashboardIcon} alt="Dashboard" />
+          <img style={ {paddingRight:8 }} src={StudioDashboardIcon} alt="Dashboard" />
           Studio Dashboard
         </NavLink>
         <NavLink
-          className="nav__link"
+          className="nav__link nav-category"
           activeClassName="active"
           to={`${adminRoute}/collections/portal-identity`}>
-          <img style={{ paddingRight: 5 }} src={PortalSettingsIcon} alt="Portal Settings" />
+          <img style={{ paddingRight: 8 }} src={PortalSettingsIcon} alt="Portal Settings" />
           Portal Settings
         </NavLink>
       </nav>

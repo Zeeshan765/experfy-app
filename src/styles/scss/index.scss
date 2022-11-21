@@ -156,11 +156,12 @@ body {
     padding: .5rem 2rem .5rem 2rem;
     font-weight: 500;
     font-size: 13px;
-
     &.active {
       background-color: var(--theme-elevation-50);
     }
-
+    img {
+      width: 25px;
+  }
   }
 
   .nav-group {
@@ -187,5 +188,18 @@ body {
     font-weight: 500;
     font-size: medium;
   }
+  .nav-group__toggle {
+    border-bottom:1px solid #0000001f;
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    margin-top: 0px;
+  }
 
+}
+
+
+// ------------------------------------------//
+// ------------ custom css ------------------//
+// -----------------------------------------//
+.nav-category{
+  border-bottom:1px solid #0000001f;
 }
