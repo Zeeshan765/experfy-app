@@ -38,6 +38,7 @@
 		"@types/react-dom": "^18.0.8",
 		"ace-builds": "^1.12.3",
 		"axios": "^0.27.2",
+		"bootstrap": "^4.6.0",
 		"dotenv": "^16.0.3",
 		"express": "^4.18.2",
 		"grapesjs": "^0.20.1",
