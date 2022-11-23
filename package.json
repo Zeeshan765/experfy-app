@@ -37,6 +37,7 @@
 		"@types/react-dom": "^18.0.8",
 		"ace-builds": "^1.12.3",
 		"axios": "^0.27.2",
+		"bootstrap": "^4.6.0",
 		"dotenv": "^16.0.3",
 		"express": "^4.18.2",
 		"grapesjs": "^0.19.5",
@@ -47,6 +48,7 @@
 		"grapesjs-preset-webpage": "^1.0.2",
 		"grapesjs-tailwind": "^1.0.8",
 		"grapesjs-tui-image-editor": "^1.0.1",
+		"http-proxy-middleware": "2.0.6",
 		"material-ui-color": "^1.2.0",
 		"material-ui-confirm": "^3.0.7",
 		"payload": "^1.1.21",
@@ -59,8 +61,7 @@
 		"sass": "^1.55.0",
 		"sharp": "^0.31.1",
 		"util": "^0.12.5",
-		"web-vitals": "^3.0.4",
-		"http-proxy-middleware": "2.0.6"
+		"web-vitals": "^3.0.4"
 	},
 	"devDependencies": {
 		"@types/express": "^4.17.14",
