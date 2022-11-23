@@ -1,7 +1,7 @@
-import { ErrorMessage as DescriptionAlerts } from '@hookform/error-message';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import AddIcon from '@mui/icons-material/Add';
-import CloseIcon from '@mui/icons-material/Close';
+import { ErrorMessage as DescriptionAlerts } from "@hookform/error-message";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import AddIcon from "@mui/icons-material/Add";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   Card,
@@ -61,12 +61,12 @@ const BasicPortalPage: React.FC = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [focus, setFocus] = React.useState();
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = React.useState<boolean>(false);
-  const [tenantID, setTenantID] = useState('');
-  const [toolTipVisible, setToolTipVisible] = useState('portal_name');
+  const [tenantID, setTenantID] = useState("");
+  const [toolTipVisible, setToolTipVisible] = useState("portal_name");
   const [defaultBrands, setDefaultBrands] = useState([]);
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
@@ -76,8 +76,8 @@ const BasicPortalPage: React.FC = (props) => {
   useEffect(() => {
     setStepNav([
       {
-        label: 'Portal Identity',
-        url: '/basic-portal-identity',
+        label: "Portal Identity",
+        url: "/basic-portal-identity",
       },
     ]);
   }, [setStepNav]);
@@ -92,7 +92,7 @@ const BasicPortalPage: React.FC = (props) => {
   const { control, getValues, register, watch } = useForm();
 
   const { fields, append, remove } = useFieldArray({
-    name: 'brands',
+    name: "brands",
     control,
   });
   const data = watch();
@@ -168,7 +168,7 @@ const BasicPortalPage: React.FC = (props) => {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={6}>
+            {/* <Grid item xs={6}>
               <Card className={classes.portalCard}>
                 <CardContent
                   className={`${classes.portalCardContent} ${classes.portalCardIconOne}`}
@@ -232,8 +232,68 @@ const BasicPortalPage: React.FC = (props) => {
                   </CardActions>
                 </CardContent>
               </Card>
-            </Grid>
+            </Grid> */}
           </Grid>
+
+          <div className="portals-identity">
+            <div className="row">
+              <div className="col-md-6 col">
+                <div className="card card--style">
+                  <div
+                    className={`${classes.portalCardContent} ${classes.portalCardIconOne}`}
+                  >
+                    <h3>External TalentCloud Career Portal</h3>
+                    <ul>
+                      <li>Initiate the creation and enter basic information</li>
+                      <li>Configure the Portal</li>
+                      <li>Configure theme(s) for your portal</li>
+                      <li>
+                        Add pages and create custom content through
+                        pre-configured sections and elements.
+                      </li>
+                      <li>
+                        Publish the portal to start pipelining and recruiting
+                        talent from external channels.
+                      </li>
+                    </ul>
+                    <div>
+                      <Button onClick={() => handleOpen()}>Configure</Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6 col">
+                <div className="card card--style">
+                  <div
+                    className={`${classes.portalCardContent} ${classes.portalCardIconTwo}`}
+                  >
+                    <h3>
+                      Inner Mobility through Internal TalentCloud Marketplace
+                    </h3>
+                    <p>
+                      Mapping and discovery of internal talent through
+                      TalentCloud enables Managers to easily identify the
+                      resources that are needed for roles, projects and gigs.
+                      Fully brand and customize your internal opportunity
+                      marketplace and provide your employees a way to engage
+                      with new opportunities within your organization.
+                    </p>
+                    <div>
+                      <Button
+                        type="button"
+                        buttonStyle="primary"
+                        iconPosition="left"
+                        icon={<AddIcon />}
+                      >
+                        Create New
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <Dialog
             open={open}
             onClose={handleClose}
@@ -245,7 +305,7 @@ const BasicPortalPage: React.FC = (props) => {
                 <DescriptionAlerts
                   name={errorMessage}
                   errors={setError}
-                  message={'Check below errors'}
+                  message={"Check below errors"}
                 />
               </Grid>
             ) : (
@@ -289,28 +349,28 @@ const BasicPortalPage: React.FC = (props) => {
                         />
                       </Grid>
                       <Grid item xs={4}>
-                        {touched === 'career_portal_name' && (
+                        {touched === "career_portal_name" && (
                           <FormTip text={portal_name_tip} />
                         )}
                       </Grid>
                       <Grid item xs={8}>
                         <TextInput
-                          path={'portal_id'}
-                          label={'Portal ID'}
-                          placeHolder={'CP-ID798998989'}
+                          path={"portal_id"}
+                          label={"Portal ID"}
+                          placeHolder={"CP-ID798998989"}
                           setTouched={setTouched}
                         />
                       </Grid>
                       <Grid item xs={4}>
-                        {touched === 'portal_id' && (
+                        {touched === "portal_id" && (
                           <FormTip
-                            text={'The read only filed displays the Portal ID'}
+                            text={"The read only filed displays the Portal ID"}
                           />
                         )}
                       </Grid>
                       <Grid item xs={8}>
                         <TextInput
-                          path={'portal_url'}
+                          path={"portal_url"}
                           label="Portal URL"
                           required={true}
                           placeHolder="https://www.experfy.com/career-portal"
@@ -318,20 +378,20 @@ const BasicPortalPage: React.FC = (props) => {
                         />
                       </Grid>
                       <Grid item xs={4}>
-                        {touched === 'portal_url' && (
+                        {touched === "portal_url" && (
                           <FormTip text={portal_url_tip} />
                         )}
                       </Grid>
                       <Grid item xs={8}>
                         <TextInput
-                          path={'company_name'}
+                          path={"company_name"}
                           label="Company Name"
                           placeHolder="Company Name"
                           setTouched={setTouched}
                         />
                       </Grid>
                       <Grid item xs={4}>
-                        {touched === 'company_name' && (
+                        {touched === "company_name" && (
                           <FormTip text={company_name_tip} />
                         )}
                       </Grid>
@@ -340,8 +400,8 @@ const BasicPortalPage: React.FC = (props) => {
         //                  
          >
                         <FormSelect
-                          type={'select'}
-                          options={['English', 'Spanish']}
+                          type={"select"}
+                          options={["English", "Spanish"]}
                           label="Default Language"
                           name={'default_language'}
                           path={'default_language'}
@@ -357,7 +417,7 @@ const BasicPortalPage: React.FC = (props) => {
                       </Grid>
                       <Grid item xs={8}>
                         <FormSelect
-                          options={['US', 'ES']}
+                          options={["US", "ES"]}
                           label="Default Locale"
                           name={'default_locale'}
                           path={'default_locale'}
@@ -385,8 +445,8 @@ const BasicPortalPage: React.FC = (props) => {
                   </Grid>
 
                   <Button type="submit" className="primary-btn-style">
-                    {' '}
-                    Save{' '}
+                    {" "}
+                    Save{" "}
                   </Button>
                 </Form>
               </DialogContent>
@@ -403,7 +463,7 @@ const BasicPortalPage: React.FC = (props) => {
                   <Grid container spacing={3}>
                     <Grid item xs={8}>
                       <FormSelect
-                        type={'select'}
+                        type={"select"}
                         options={[]}
                         label="Default Brand"
                         name={'default_brand'}
@@ -425,7 +485,7 @@ const BasicPortalPage: React.FC = (props) => {
                     <Grid container spacing={1} alignItems="center">
                       <Grid item xs={2}>
                         <FormControlLabel
-                          name={'sub_domain'}
+                          name={"sub_domain"}
                           value="sub_domain"
                           control={<Radio />}
                           label="Sub-domains"
@@ -448,7 +508,7 @@ const BasicPortalPage: React.FC = (props) => {
                       </Grid>
                       <Grid item xs={2}>
                         <FormControlLabel
-                          name={'sub_directories'}
+                          name={"sub_directories"}
                           value="sub_directories"
                           control={<Radio />}
                           label="Sub-directories"

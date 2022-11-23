@@ -3,6 +3,7 @@ import React, { createContext, useState, useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { useConfig } from "payload/components/utilities";
 import ExperfyNavbar from "./components/Nav/ExperfyNavBar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // type CustomContext = {
 //   adminPortal;
