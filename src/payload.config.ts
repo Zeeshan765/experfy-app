@@ -39,6 +39,11 @@ export default buildConfig({
         {
           path: '/collections/portal-identity',
           Component: PortalIdentity,
+          exact: true,
+        },
+        {
+          path: '/collections/portal-identity/:id',
+          Component: PortalIdentity,
         },
       ],
       providers: [MyProvider],

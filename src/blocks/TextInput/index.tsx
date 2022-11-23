@@ -1,5 +1,5 @@
 import { Label, useField } from 'payload/components/forms';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import text from '../../utilities/text';
 import './index.scss';
 
@@ -22,10 +22,11 @@ type CustomTextField = {
   validate?: any;
   minLength?: number;
   maxLength?: number;
-
+  display?: any;
 };
 
-const TextInput: React.FC<CustomTextField> = ({
+const TextInput: React.FC<CustomTextField> = (
+  {
   validate = text,
   path,
   label,
@@ -33,9 +34,9 @@ const TextInput: React.FC<CustomTextField> = ({
   placeHolder,
   minLength,
   maxLength,
+  display,
   ...rest
 }) => {
-
   const [show, setShow] = useState(false);
   const [error, setError] = useState();
   const showToolTip = () => {
@@ -46,32 +47,49 @@ const TextInput: React.FC<CustomTextField> = ({
     setShow(false);
   };
 
-  const memoizedValidate = useCallback((value, options) => {
-    return validate(value, { ...options, minLength, maxLength, required });
-  }, [validate, minLength, maxLength, required]);
+  const memoizedValidate = useCallback(
+    (value, options) => {
+      return validate(value, { ...options, minLength, maxLength, required });
+    },
+    [validate, minLength, maxLength, required]
+  );
 
-
-  const { value, showError, setValue, errorMessage } = useField<string>({ path, validate: memoizedValidate });
+  const {value, showError, setValue, errorMessage  } = useField<string>({
+    path,
+    // validate: memoizedValidate,
+  });
   const classes = [
     'field-type text',
     showError && 'error',
     rest.readOnly && 'read-only',
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
 
+
+
+
+  useEffect(()=>{
+    if(display){
+      setValue(display)
+    }
+    },[display]);
+ 
   return (
-    < div
-      className={classes}>
+    <div className={classes}>
       <Label htmlFor={`field-${path}`} label={label} required={required} />
       <input
         name={path}
         required={required}
-        value={value || ''}
+        value={value}
         placeholder={placeHolder}
         readOnly={rest?.readOnly}
         onChange={setValue}
         // @ts-ignore
-        onWheel={(e) => { e.target.blur(); }}
+        // onWheel={(e) => {
+        //   e.target.blur();
+        // }}
         // @ts-ignore
         showError={'showError'}
         error={error}

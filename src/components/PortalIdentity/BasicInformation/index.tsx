@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Box, Grid } from '@mui/material';
 import { Button, Eyebrow } from 'payload/components/elements';
 import { Form } from 'payload/components/forms';
@@ -10,7 +11,8 @@ import TextInput from '../../../blocks/TextInput';
 import { getToolTipApi } from '../apiPortal-Identity';
 
 export default function BasicInformation(props) {
-  const { adminPortal, setAdminPortal } = props;
+  const { adminPortal, setAdminPortal, propsdata } = props;
+  console.log('propsdata', propsdata ?? '');
   const {
     admin: { user: userSlug },
     collections,
@@ -31,6 +33,7 @@ export default function BasicInformation(props) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [apiMethod ,setApiMethod]=useState("post");
   const {
     control,
     handleSubmit,
@@ -44,19 +47,28 @@ export default function BasicInformation(props) {
   const [toolTip, setToolTip] = useState<any>();
   const [toolTipVisible, setToolTipVisible] = useState(null);
 
- 
+  // useEffect(() => {
+  //   getToolTipApi(setToolTip, setLoading);
+  // }, []);
 
   useEffect(() => {
-    getToolTipApi(setToolTip, setLoading);
-  }, []);
+    if(propsdata?.id){
+      setApiMethod("patch");
+    }else{
 
-  useEffect(() => {}, [props]);
+      setApiMethod("post");
+    }
+  }, [propsdata]);
 
+  // let method=propsdata?.id?.length > 0 ? "patch" : "post";
   const [touched, setTouched] = useState('');
-
+  console.log('propsdata?.id', propsdata?.id,serverURL,api);
   return (
     <Box sx={{ p: 1 }}>
-      <Form method="post" action={`${serverURL}${api}/basic-portal-identity`}>
+      <Form
+        method={apiMethod}
+        action={`${serverURL}${api}/basic-portal-identity/${propsdata?.id??''}`}
+      >
         <Grid container>
           <Grid item xs={8}>
             <TextInput
@@ -64,7 +76,8 @@ export default function BasicInformation(props) {
               path={'career_portal_name'}
               minLength={3}
               required={true}
-              placeHolder={'Company Career Portal'}
+              display={propsdata?.career_portal_name}
+              // placeHolder={'Company Career Portal'}
               setTouched={setTouched}
             />
           </Grid>
@@ -78,7 +91,8 @@ export default function BasicInformation(props) {
               path={'portal_id'}
               label="Portal ID"
               required={true}
-              placeHolder="CP-ID798998989"
+              display={propsdata?.portal_id}
+              // placeHolder="CP-ID798998989"
               setTouched={setTouched}
             />
           </Grid>
@@ -92,7 +106,8 @@ export default function BasicInformation(props) {
               path={'portal_url'}
               label="Portal URL"
               required={true}
-              placeHolder="www.experfy.com/career-portal"
+              display={propsdata?.portal_url}
+              // placeHolder="www.experfy.com/career-portal"
               setTouched={setTouched}
             />
           </Grid>
@@ -109,7 +124,8 @@ export default function BasicInformation(props) {
             <TextInput
               path={'company_name'}
               label="Company Name"
-              placeHolder="Company Name"
+              display={propsdata?.company_name}
+              // placeHolder="Company Name"
               setTouched={setTouched}
             />
           </Grid>
@@ -152,7 +168,9 @@ export default function BasicInformation(props) {
             <TextInput
               path={'google_id'}
               label="Google Manager Tag ID"
-              placeHolder="Add Google Manager Tag Id"
+              // placeHolder="Add Google Manager Tag Id"
+              display={propsdata?.google_id}
+
               setTouched={setTouched}
             />
           </Grid>
@@ -169,7 +187,9 @@ export default function BasicInformation(props) {
             <TextInput
               path={'google_analytics'}
               label="Google Analytics ID"
-              placeHolder="Add Google Analytics ID"
+              display={propsdata?.google_analytics}
+
+              // placeHolder="Add Google Analytics ID"
               setTouched={setTouched}
             />
           </Grid>
@@ -186,7 +206,9 @@ export default function BasicInformation(props) {
             <TextInput
               path={'google_webmaster'}
               label="Google Webmaster Id"
-              placeHolder="Add Google Webmaster ID"
+              // placeHolder="Add Google Webmaster ID"
+              display={propsdata?.google_webmaster}
+
               setTouched={setTouched}
             />
           </Grid>
@@ -199,7 +221,9 @@ export default function BasicInformation(props) {
             <TextInput
               path={'bing_webmaster'}
               label="Bing Webmaster Id"
-              placeHolder="Add Bing Webmaster ID"
+              display={propsdata?.bing_webmaster}
+
+              // placeHolder="Add Bing Webmaster ID"
               setTouched={setTouched}
             />
           </Grid>
@@ -212,7 +236,9 @@ export default function BasicInformation(props) {
             <TextInput
               path={'tracking_pixel'}
               label="Tracking Pixel"
-              placeHolder="Add Tracking Pixel"
+              display={propsdata?.tracking_pixel}
+
+              // placeHolder="Add Tracking Pixel"
               setTouched={setTouched}
             />
           </Grid>
@@ -228,7 +254,6 @@ export default function BasicInformation(props) {
         </Grid>
         <Grid item xs={12}>
           <Button type="submit" className="primary-btn-style">
-           
             Save{' '}
           </Button>
         </Grid>

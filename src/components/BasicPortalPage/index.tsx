@@ -29,16 +29,19 @@ import { Button, Eyebrow } from 'payload/components/elements';
 import { Form, SelectInput } from 'payload/components/forms';
 import { useStepNav } from 'payload/components/hooks';
 import { DefaultTemplate } from 'payload/components/templates';
-import { useAuth, useConfig } from 'payload/components/utilities';
+import {
+  useAuth,
+  useConfig,
+  useDocumentInfo,
+} from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import FormSelect from '../../blocks/FormSelect';
 import FormSwitch from '../../blocks/FormSwitch';
 import FormTip from '../../blocks/FormTip';
 import TextInput from '../../blocks/TextInput';
-import {useHistory} from "react-router-dom"
+import { useHistory } from 'react-router-dom';
 import { useStyles } from './css';
-
 const baseClass = 'custom-route';
 
 const portal_url_tip =
@@ -49,10 +52,10 @@ const company_name_tip =
   'The company of your career Portal. This can be a shortened version of Portal.';
 
 const BasicPortalPage: React.FC = (props) => {
+  const history = useHistory();
+  const { publishedDoc } = useDocumentInfo();
 
-
-const history = useHistory();
-console.log("history",history);
+  console.log('publish', publishedDoc);
 
   const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
   const classes = useStyles();
@@ -68,6 +71,7 @@ console.log("history",history);
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
+  const [id, setId] = React.useState('');
   // const { user } = useConfig(User);
   // const result = async () => {
   //   payload.find({
@@ -128,11 +132,16 @@ console.log("history",history);
   const [touched, setTouched] = useState('');
 
   const onSuccess = (data) => {
+    setId(data.doc.id);
     if (brandSwitch) {
       setVisible(true);
     } else {
       setVisible(false);
-      history.push("/admin")
+      history.push({
+        pathname: `/admin/collections/portal-identity/${data.doc.id}`,
+        param: data.doc.id,
+      });
+      // history.push(`/admin/collections/portal-identity/${id}`);
     }
   };
 
@@ -264,6 +273,7 @@ console.log("history",history);
                   onSuccess={onSuccess}
                   action={`${serverURL}${api}/basic-portal-identity`}
                   validationOperation="create"
+                  // handleResponse={(e) =>  console.log('response', e)}
                 >
                   {/* <input name={'user'} value={user.id} hidden={true} /> */}
                   <h3>
@@ -378,6 +388,7 @@ console.log("history",history);
               <DialogContent>
                 <Form
                   method="post"
+                  // onSuccess={handleform}
                   action={`${serverURL}${api}/basic-portal-identity`}
                   // validationOperation="update"
                 >
@@ -492,7 +503,7 @@ console.log("history",history);
                                   placeholder="Brand Identifier"/> */}
 
                                 <TextInput
-                                  name="Portal Name"
+                                  // name="Portal Name"
                                   path={'brand_identifier'}
                                   required={false}
                                   placeHolder="Brand Identifier"
@@ -504,7 +515,8 @@ console.log("history",history);
                               placeholder="Microsoft Identifier"/> */}
 
                                 <TextInput
-                                  path={`brands.${index}.microsite_identifier`}
+                                  // path={`brands.${index}.microsite_identifier`}
+                                  path={`microsoft_identifier`}
                                   required={false}
                                   placeHolder="Microsoft Identifier"
                                   // setTouched={setTouched}
@@ -525,7 +537,6 @@ console.log("history",history);
                     </Table>
                   </TableContainer>
                   <Button type="submit" className="primary-btn-style">
-                    {' '}
                     Save{' '}
                   </Button>
                 </Form>

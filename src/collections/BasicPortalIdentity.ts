@@ -13,6 +13,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
   access: {
     read: () => true,
     create: () => true,
+    update: () => true,
 
   },
   admin: {
@@ -79,7 +80,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       type: 'text',
     },
     {
-      name: 'bring_webmaster',
+      name: 'bing_webmaster',
       type: 'text',
 
     },
