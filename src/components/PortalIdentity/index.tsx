@@ -59,9 +59,7 @@ export default function PortalIdentity(props) {
   } = useContext(Context);
 
   const { id } = useParams();
-  const [propsdata , setPropsdata] = useState("");
-  // con
-  //   console.log('Params id', params?.id);
+  const [propsdata, setPropsdata] = useState('');
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -81,37 +79,21 @@ export default function PortalIdentity(props) {
         'http://localhost:3000/api/basic-portal-identity'
       );
       const data = await res.json();
-    //   console.log('data', data);
-    //   console.log('params?.id', id);
-      const c = data.docs.filter((el) => el.id === id)[0];
-      setPropsdata(c);
-      // console.log('User: ', c);
+
+      const newdata = data.docs.filter((el) => el.id === id)[0];
+      setPropsdata(newdata);
     } catch (e) {
       console.error(e);
     }
   };
   useEffect(() => {
-    // console.log('params?.id', id);
     id?.length > 0 && getUserData();
   }, [id]);
 
   return (
     <DefaultTemplate>
-      {/* <div className="template-default__wrap"> */}
-      {/*<Box className={classes.mainHeader}>
-                    <Stack spacing={1}>
-                        <Breadcrumbs
-                            separator={<ChevronRightIcon/>}
-                            aria-label="breadcrumb"
-                            className={classes.mainHeaderBreadcrumbs}
-                        >
-                            {breadcrumbs}
-                        </Breadcrumbs>
-                    </Stack>
-                </Box>*/}
       <Eyebrow />
       <div className="main__content">
-        {/* <PortalSidebar hasHeader={true} isBrandCreated={true} /> */}
         <Box>
           <Box className={classes.mainTabs}>
             <Tabs value={value} onChange={handleChange} aria-label="tabs">
@@ -124,7 +106,7 @@ export default function PortalIdentity(props) {
             <BasicInformation
               adminPortal={adminPortal}
               setAdminPortal={setAdminPortal}
-              propsdata = {propsdata}
+              propsdata={propsdata}
             />
           </TabPanel>
           <TabPanel value={value} index={1}>
@@ -144,7 +126,6 @@ export default function PortalIdentity(props) {
           </TabPanel> */}
         </Box>
       </div>
-      {/* </div> */}
     </DefaultTemplate>
   );
 }

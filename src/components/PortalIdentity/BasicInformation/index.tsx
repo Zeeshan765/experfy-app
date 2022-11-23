@@ -44,12 +44,6 @@ export default function BasicInformation(props) {
   } = useForm({
     defaultValues,
   });
-  const [toolTip, setToolTip] = useState<any>();
-  const [toolTipVisible, setToolTipVisible] = useState(null);
-
-  // useEffect(() => {
-  //   getToolTipApi(setToolTip, setLoading);
-  // }, []);
 
   useEffect(() => {
     if(propsdata?.id){
@@ -62,7 +56,7 @@ export default function BasicInformation(props) {
 
   // let method=propsdata?.id?.length > 0 ? "patch" : "post";
   const [touched, setTouched] = useState('');
-  console.log('propsdata?.id', propsdata?.id,serverURL,api);
+  // console.log('propsdata?.id', propsdata?.id,serverURL,api);
   return (
     <Box sx={{ p: 1 }}>
       <Form

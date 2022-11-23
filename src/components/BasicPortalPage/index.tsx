@@ -55,7 +55,7 @@ const BasicPortalPage: React.FC = (props) => {
   const history = useHistory();
   const { publishedDoc } = useDocumentInfo();
 
-  console.log('publish', publishedDoc);
+  // console.log('publish', publishedDoc);
 
   const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
   const classes = useStyles();
@@ -71,7 +71,7 @@ const BasicPortalPage: React.FC = (props) => {
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
-  const [id, setId] = React.useState('');
+  const [id, setId] = useState('');
   // const { user } = useConfig(User);
   // const result = async () => {
   //   payload.find({
@@ -108,7 +108,7 @@ const BasicPortalPage: React.FC = (props) => {
     append(value);
   };
 
-  console.log('brand', brandSwitch);
+  // console.log('brand', brandSwitch);
 
   const onClickBrandName = () => {
     let finalDefaultBrandsArray = getValues()?.brands.map((i) => ({
@@ -141,9 +141,17 @@ const BasicPortalPage: React.FC = (props) => {
         pathname: `/admin/collections/portal-identity/${data.doc.id}`,
         param: data.doc.id,
       });
-      // history.push(`/admin/collections/portal-identity/${id}`);
     }
   };
+
+  const handlenaviagte = () => {
+    history.push({
+      pathname: `/admin/collections/portal-identity/${id}`,
+      param: id,
+    });
+  };
+
+  console.log('fields====', fields);
 
   return (
     <DefaultTemplate>
@@ -273,9 +281,7 @@ const BasicPortalPage: React.FC = (props) => {
                   onSuccess={onSuccess}
                   action={`${serverURL}${api}/basic-portal-identity`}
                   validationOperation="create"
-                  // handleResponse={(e) =>  console.log('response', e)}
                 >
-                  {/* <input name={'user'} value={user.id} hidden={true} /> */}
                   <h3>
                     Fill in the information below and you will be on your way to
                     creating your Career portal
@@ -387,10 +393,10 @@ const BasicPortalPage: React.FC = (props) => {
             {visible && (
               <DialogContent>
                 <Form
-                  method="post"
-                  // onSuccess={handleform}
-                  action={`${serverURL}${api}/basic-portal-identity`}
-                  // validationOperation="update"
+                  method={id ? 'patch' : 'post'}
+                  action={`${serverURL}${api}/basic-portal-identity/${
+                    id ?? ''
+                  }`}
                 >
                   <Grid container spacing={3}>
                     <Grid item xs={8}>
@@ -404,6 +410,7 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </Grid>
                   </Grid>
+
                   <Typography variant="h5" mb={2} mt={4}>
                     Please choose whether you would like your microsites in your
                     career portal network to use subdomains or sub-directories.
@@ -485,38 +492,46 @@ const BasicPortalPage: React.FC = (props) => {
                       <TableBody>
                         {fields.map((item, index) => {
                           return (
-                            <TableRow>
+                            <TableRow key={index}>
                               <TableCell>
-                                {/* <input {...register(`brands.${index}.brand_name`)} 
-                                  placeholder="Brand Name" />
-             */}
+                                {/* <input {...register(`brands.${index}.brand_name`)}
+              placeholder="Brand Name" />
+*/}
                                 <TextInput
                                   // label={'Portal Name'}
-                                  path={'brand_name'}
+                                  path={`brand_name`}
                                   required={false}
+                                  index={index}
+                                  brand="brands"
                                   placeHolder="Brand Name"
                                   // setTouched={setTouched}
                                 />
                               </TableCell>
                               <TableCell>
-                                {/* <input {...register(`brands.${index}.brand_identifier`)} 
-                                  placeholder="Brand Identifier"/> */}
+                                {/* <input {...register(`brands.${index}.brand_identifier`)}
+              placeholder="Brand Identifier"/> */}
 
                                 <TextInput
                                   // name="Portal Name"
-                                  path={'brand_identifier'}
+                                  path={`brand_identifier`}
                                   required={false}
+
+                                  index={index}
+                                  brand="brands"
                                   placeHolder="Brand Identifier"
                                   // setTouched={setTouched}
                                 />
                               </TableCell>
                               <TableCell>
-                                {/* <input {...register(`brands.${index}.microsoft_identifier`)} 
-                              placeholder="Microsoft Identifier"/> */}
+                                {/* <input {...register(`brands.${index}.microsoft_identifier`)}
+          placeholder="Microsoft Identifier"/> */}
 
                                 <TextInput
                                   // path={`brands.${index}.microsite_identifier`}
                                   path={`microsoft_identifier`}
+
+                                  index={index}
+                                  brand="brands"
                                   required={false}
                                   placeHolder="Microsoft Identifier"
                                   // setTouched={setTouched}
@@ -536,7 +551,12 @@ const BasicPortalPage: React.FC = (props) => {
                       </TableBody>
                     </Table>
                   </TableContainer>
-                  <Button type="submit" className="primary-btn-style">
+
+                  <Button
+                    type="submit"
+                    className="primary-btn-style"
+                    // onClick={handlenaviagte}
+                  >
                     Save{' '}
                   </Button>
                 </Form>

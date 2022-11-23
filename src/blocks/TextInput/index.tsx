@@ -23,10 +23,12 @@ type CustomTextField = {
   minLength?: number;
   maxLength?: number;
   display?: any;
+  name?: string;
+  index?: number;
+  brand?: string;
 };
 
-const TextInput: React.FC<CustomTextField> = (
-  {
+const TextInput: React.FC<CustomTextField> = ({
   validate = text,
   path,
   label,
@@ -35,6 +37,10 @@ const TextInput: React.FC<CustomTextField> = (
   minLength,
   maxLength,
   display,
+  setTouched,
+  name,
+  index,
+  brand,
   ...rest
 }) => {
   const [show, setShow] = useState(false);
@@ -54,7 +60,7 @@ const TextInput: React.FC<CustomTextField> = (
     [validate, minLength, maxLength, required]
   );
 
-  const {value, showError, setValue, errorMessage  } = useField<string>({
+  const { value, showError, setValue, errorMessage } = useField<string>({
     path,
     // validate: memoizedValidate,
   });
@@ -66,16 +72,14 @@ const TextInput: React.FC<CustomTextField> = (
     .filter(Boolean)
     .join(' ');
 
-
-
-
-
-  useEffect(()=>{
-    if(display){
-      setValue(display)
+  useEffect(() => {
+    if (display) {
+      setValue(display);
     }
-    },[display]);
- 
+  }, [display]);
+  console.log('path====', path);
+
+  // const newPath= index && brands?`b`
   return (
     <div className={classes}>
       <Label htmlFor={`field-${path}`} label={label} required={required} />
@@ -94,8 +98,8 @@ const TextInput: React.FC<CustomTextField> = (
         showError={'showError'}
         error={error}
         errormessage={errorMessage}
-        onFocus={(props) => rest?.setTouched(path)}
-        onBlur={() => rest?.setTouched('')}
+        onFocus={() => setTouched(path)}
+        onBlur={() => setTouched('')}
       />
     </div>
   );
