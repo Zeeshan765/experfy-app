@@ -86,6 +86,10 @@ export default function PortalIdentity(props) {
       console.error(e);
     }
   };
+
+
+  console.log("propsdata", propsdata);
+  
   useEffect(() => {
     id?.length > 0 && getUserData();
   }, [id]);
@@ -114,6 +118,8 @@ export default function PortalIdentity(props) {
               adminPortal={adminPortal}
               setAdminPortal={setAdminPortal}
               setSeo_Setting={setSeo_Setting}
+              propsdata={propsdata}
+
             />
           </TabPanel>
           {/* <TabPanel value={value} index={2}>
