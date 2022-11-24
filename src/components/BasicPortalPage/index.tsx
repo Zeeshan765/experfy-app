@@ -151,7 +151,6 @@ const BasicPortalPage: React.FC = (props) => {
     });
   };
 
-  console.log('fields====', fields);
 
   return (
     <DefaultTemplate>
@@ -345,6 +344,12 @@ const BasicPortalPage: React.FC = (props) => {
                         )}
                       </Grid>
                       <Grid item xs={8}>
+                        <div
+        //                  onFocus={() =>{console.log("test work");
+        //  setTouched('default_language')}}
+        // onBlur={() =>{ console.log("log blur");
+        //  setTouched('')}}
+         >
                         <FormSelect
                           type={'select'}
                           options={['English', 'Spanish']}
@@ -352,10 +357,15 @@ const BasicPortalPage: React.FC = (props) => {
                           name={'default_language'}
                           path={'default_language'}
                           defaultValue="English"
+                          setTouched={setTouched}
                         />
+                        </div>
                       </Grid>
                       <Grid item xs={4}>
-                        <FormTip text="Set the default language of your career portal for your visitors" />
+                        {touched === 'default_language' && (
+                          <FormTip text="Set the default language of your career portal for your visitors" />
+                        )}
+                        {/* <FormTip text="Set the default language of your career portal for your visitors" /> */}
                       </Grid>
                       <Grid item xs={8}>
                         <FormSelect
@@ -363,12 +373,17 @@ const BasicPortalPage: React.FC = (props) => {
                           label="Default Locale"
                           name={'default_locale'}
                           path={'default_locale'}
-                          defaultValue="US"
+                          defaultValue="default_locale"
                           type={'select'}
+                          setTouched={setTouched}
                         />
                       </Grid>
                       <Grid item xs={4}>
-                        <FormTip text="Set the default locale of your career portal for your visitors" />
+                      {touched === 'default_locale' && (
+                          <FormTip text="Set the default locale of your career portal for your visitors" />
+                        )}
+                        
+                        {/* <FormTip text="Set the default locale of your career portal for your visitors" /> */}
                       </Grid>
                     </Grid>
                     <Typography variant="h5" mb={2} mt={4}>
@@ -515,7 +530,6 @@ const BasicPortalPage: React.FC = (props) => {
                                   // name="Portal Name"
                                   path={`brand_identifier`}
                                   required={false}
-
                                   index={index}
                                   brand="brands"
                                   placeHolder="Brand Identifier"
@@ -529,7 +543,6 @@ const BasicPortalPage: React.FC = (props) => {
                                 <TextInput
                                   // path={`brands.${index}.microsite_identifier`}
                                   path={`microsoft_identifier`}
-
                                   index={index}
                                   brand="brands"
                                   required={false}

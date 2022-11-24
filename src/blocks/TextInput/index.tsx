@@ -77,7 +77,6 @@ const TextInput: React.FC<CustomTextField> = ({
       setValue(display);
     }
   }, [display]);
-  console.log('path====', path);
 
   // const newPath= index && brands?`b`
   return (
@@ -100,6 +99,7 @@ const TextInput: React.FC<CustomTextField> = ({
         errormessage={errorMessage}
         onFocus={() => setTouched(path)}
         onBlur={() => setTouched('')}
+        
       />
     </div>
   );

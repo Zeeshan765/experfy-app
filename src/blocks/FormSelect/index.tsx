@@ -1,8 +1,7 @@
+import React, { useEffect, useRef } from 'react';
 import { Label, Select, useField } from 'payload/components/forms';
-import React from 'react';
 import { SelectField as Props } from 'payload/types';
 import './index.scss';
-
 
 // export type Type = {
 //   id?: string
@@ -26,15 +25,18 @@ type CustomField = Props & {
   label?: any;
   style?: any;
   width?: any;
+  display?: any;
+  setTouched?: any;
 };
 const FormSelect: React.FC<CustomField> = ({
   options = [],
   path,
   label,
+  display,
+  setTouched,
+
   required = false,
 }) => {
-
-
   // const [selectedOption, setSelectedOption] = React.useState();
 
   function handleChange(event: {
@@ -45,22 +47,46 @@ const FormSelect: React.FC<CustomField> = ({
   const field = useField({ path });
   const { value, showError, setValue, errorMessage } = field;
 
-  const classes = [
-    'field-type select',
-    showError && 'error',
-  ].filter(Boolean).join(' ');
+  const classes = ['field-type select', showError && 'error']
+    .filter(Boolean)
+    .join(' ');
+
+  useEffect(() => {
+    if (display) {
+      setValue(display);
+    }
+  }, [display]);
+  
+  const focusHandler = () => {
+    console.log("test work");
+
+    setTouched(path);
+  };
+  const blurHandler=() => {
+    console.log('log blur');
+    setTouched('');
+  }
+
+  const ref = useRef('');
+
+  const handleClick = () => {
+    console.log('ref.current', ref.current);
+  };
 
   return (
-    <div className={classes}>
+    <div className={classes} onFocus={focusHandler}
+    onBlur={blurHandler}
+ >
       <Label htmlFor={'field-${path}'} label={label} required={required} />
       <Select
+        // @ts-ignore
+        ref={ref}
         name={path}
         options={options}
+        value={value}
         required={required}
-      />
+         />
     </div>
   );
 };
 export default FormSelect;
-
-//

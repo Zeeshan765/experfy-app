@@ -33,7 +33,7 @@ export default function BasicInformation(props) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [apiMethod ,setApiMethod]=useState("post");
+  const [apiMethod, setApiMethod] = useState('post');
   const {
     control,
     handleSubmit,
@@ -46,11 +46,10 @@ export default function BasicInformation(props) {
   });
 
   useEffect(() => {
-    if(propsdata?.id){
-      setApiMethod("patch");
-    }else{
-
-      setApiMethod("post");
+    if (propsdata?.id) {
+      setApiMethod('patch');
+    } else {
+      setApiMethod('post');
     }
   }, [propsdata]);
 
@@ -61,7 +60,9 @@ export default function BasicInformation(props) {
     <Box sx={{ p: 1 }}>
       <Form
         method={apiMethod}
-        action={`${serverURL}${api}/basic-portal-identity/${propsdata?.id??''}`}
+        action={`${serverURL}${api}/basic-portal-identity/${
+          propsdata?.id ?? ''
+        }`}
       >
         <Grid container>
           <Grid item xs={8}>
@@ -139,11 +140,19 @@ export default function BasicInformation(props) {
               label="Default Language"
               name={'default_language'}
               path={'default_language'}
+              display={propsdata?.default_language}
               defaultValue="English"
+              setTouched={setTouched}
             />
           </Grid>
           <Grid item xs={4}>
-            <FormTip text="Set the default language of your career portal for your visitors" />
+            {touched === 'default_language' && (
+              <FormTip
+                text={
+                  'The company of your career Portal. This can be a shortened version of Portal.'
+                }
+              />
+            )}
           </Grid>
           <Grid item xs={8}>
             <FormSelect
@@ -151,20 +160,27 @@ export default function BasicInformation(props) {
               label="Default Locale"
               name={'default_locale'}
               path={'default_locale'}
+              display={propsdata?.default_locale}
               defaultValue="US"
               type={'select'}
+              setTouched={setTouched}
             />
           </Grid>
           <Grid item xs={4}>
-            <FormTip text="Set the default locale of your career portal for your visitors" />
-          </Grid>{' '}
+            {touched === 'default_locale' && (
+              <FormTip
+                text={
+                  'The company of your career Portal. This can be a shortened version of Portal.'
+                }
+              />
+            )}
+          </Grid>
           <Grid item xs={8}>
             <TextInput
               path={'google_id'}
               label="Google Manager Tag ID"
               // placeHolder="Add Google Manager Tag Id"
               display={propsdata?.google_id}
-
               setTouched={setTouched}
             />
           </Grid>
@@ -182,7 +198,6 @@ export default function BasicInformation(props) {
               path={'google_analytics'}
               label="Google Analytics ID"
               display={propsdata?.google_analytics}
-
               // placeHolder="Add Google Analytics ID"
               setTouched={setTouched}
             />
@@ -202,7 +217,6 @@ export default function BasicInformation(props) {
               label="Google Webmaster Id"
               // placeHolder="Add Google Webmaster ID"
               display={propsdata?.google_webmaster}
-
               setTouched={setTouched}
             />
           </Grid>
@@ -216,7 +230,6 @@ export default function BasicInformation(props) {
               path={'bing_webmaster'}
               label="Bing Webmaster Id"
               display={propsdata?.bing_webmaster}
-
               // placeHolder="Add Bing Webmaster ID"
               setTouched={setTouched}
             />
@@ -231,7 +244,6 @@ export default function BasicInformation(props) {
               path={'tracking_pixel'}
               label="Tracking Pixel"
               display={propsdata?.tracking_pixel}
-
               // placeHolder="Add Tracking Pixel"
               setTouched={setTouched}
             />
