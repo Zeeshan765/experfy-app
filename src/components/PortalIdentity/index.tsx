@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     borderBottom: '1px solid #d1dbe3',
     padding: '1.5rem 2rem 0',
   },
+  
 });
 
 function TabPanel(props) {
@@ -87,9 +88,8 @@ export default function PortalIdentity(props) {
     }
   };
 
+  console.log('propsdata', propsdata);
 
-  console.log("propsdata", propsdata);
-  
   useEffect(() => {
     id?.length > 0 && getUserData();
   }, [id]);
@@ -101,9 +101,24 @@ export default function PortalIdentity(props) {
         <Box>
           <Box className={classes.mainTabs}>
             <Tabs value={value} onChange={handleChange} aria-label="tabs">
-              <Tab label="Basic Information" disableRipple {...a11yProps(0)} />
-              <Tab label="SEO Settings" disableRipple {...a11yProps(1)} />
-              <Tab label="Brands" disableRipple {...a11yProps(2)} />
+              <Tab
+                style={{ fontWeight: '600', fontSize: '1.2rem' }}
+                label="Basic Information"
+                disableRipple
+                {...a11yProps(0)}
+              />
+              <Tab
+                style={{ fontWeight: '600', fontSize: '1.2rem' }}
+                label="SEO Settings"
+                disableRipple
+                {...a11yProps(1)}
+              />
+              <Tab
+                style={{ fontWeight: '600', fontSize: '1.2rem' }}
+                label="Brands"
+                disableRipple
+                {...a11yProps(2)}
+              />
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
@@ -119,7 +134,6 @@ export default function PortalIdentity(props) {
               setAdminPortal={setAdminPortal}
               setSeo_Setting={setSeo_Setting}
               propsdata={propsdata}
-
             />
           </TabPanel>
           {/* <TabPanel value={value} index={2}>
