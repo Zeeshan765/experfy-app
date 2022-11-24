@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import path from "path";
 import { buildConfig } from "payload/config";
+import BasicPortalIdentityCollection from "./collections/BasicPortalIdentity";
 import Media from "./collections/Media";
 import PageBuilderCollection from "./collections/PageBuilder";
 import PortalIdentityDetail from "./collections/PortalIdentityDetail";
@@ -18,7 +19,7 @@ dotenv.config();
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
-    // user: Users.slug,
+    user: Users.slug,
     css: path.resolve(__dirname, './styles/scss/index.scss'),
     components: {  
       graphics: {
@@ -33,8 +34,7 @@ export default buildConfig({
         },
         {
           path: '/collections/basic-portal-identity',
-          Component: BasicPortalIdentityPage,
-
+          Component: BasicPortalIdentityPage,     
         },
         {
           path: '/collections/portal-identity',
@@ -45,9 +45,11 @@ export default buildConfig({
     },
   },
   collections: [
-    PortalIdentityDetail,
+    BasicPortalIdentityCollection,
     PageBuilderCollection,
+    PortalIdentityDetail,
     Media,
+    Users,
   ],
   
   localization: {

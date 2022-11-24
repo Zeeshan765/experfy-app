@@ -51,7 +51,6 @@ const company_name_tip = "The company of your career Portal. This can be a short
 const BasicPortalPage: React.FC = (props) => {
   const {
     routes: { admin: adminRoute },
-    user: { isAdmin },
   } = useConfig();
 
   const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
@@ -69,7 +68,7 @@ const BasicPortalPage: React.FC = (props) => {
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
-  const { user } = useConfig(User);
+  const { user  } = useAuth();
   const result = async () => {
     payload.find({
       collection: 'basic-portal-identity',
@@ -320,7 +319,7 @@ const BasicPortalPage: React.FC = (props) => {
                     <Grid container spacing={0}>
                       <Grid item xs={8}>
                         <TextInput
-                          label={'Portal Name'}
+                          label={'Career Portal Name'}
                           path={'career_portal_name'}
                           required={true}
                           placeHolder="Company Career Portal"
@@ -537,7 +536,7 @@ const BasicPortalPage: React.FC = (props) => {
                                   placeholder="Brand Identifier"/> */}
 
                                 <TextInput
-                                  name='Portal Name'
+                                  // label='Portal Name'
                                   path={'brand_identifier'}
                                   required={false}
                                   placeHolder="Brand Identifier"

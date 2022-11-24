@@ -1,7 +1,5 @@
-import payload from "payload";
-import { useLocale } from "payload/components/utilities";
 import { CollectionBeforeChangeHook, CollectionBeforeReadHook, CollectionConfig } from 'payload/types';
-import basicPortalData from '../components/BasicPortalPage';
+import BasicPortalData from '../components/BasicPortalPage';
 
 const BasicPortalIdentityCollection: CollectionConfig = {
   slug: 'basic-portal-identity',
@@ -9,40 +7,43 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     singular: 'Basic Portal Identity',
     plural: 'Basic Portal Identity'
   },
-
+  
   access: {
     read: () => true,
     create: () => true,
+    update: () => true,
 
   },
   admin: {
     components: {
       views: {
-        Edit: basicPortalData,
-        List: basicPortalData,
+        Edit: BasicPortalData,
       },
     },
   },
   fields: [
     {
-      name: 'user',
+      name: 'user_portal',
       type: 'relationship',
       relationTo: 'users',
       hasMany: false,
+      required: true,
     },
     {
+      label: 'Portal Name',
       name: 'career_portal_name',
       type: 'text',
-      required: false,
+      defaultValue: 'Career Portal',
+      required: true,  
     },
     {
       name: 'portal_url',
       type: 'text',
-      required: false,
+      required: true,
     },
     {
       name: 'portal_id',
-      // unique: true,
+      unique: true,
       type: 'text',
     },
     {
@@ -147,7 +148,6 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     // },
 
   ],
-
 };
 const beforeChangeHook: CollectionBeforeChangeHook = async ({ operation }) => {
   console.log("beforeChangeHook operation", operation);

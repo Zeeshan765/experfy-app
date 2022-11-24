@@ -47,7 +47,8 @@ function a11yProps(index) {
     };
 }
 
-export default function PortalIdentity(props) {
+const PortalIdentity: React.FC = (props) => {
+
 
 
     const {
@@ -125,3 +126,4 @@ export default function PortalIdentity(props) {
         </DefaultTemplate>
     );
 }
+export default PortalIdentity;
