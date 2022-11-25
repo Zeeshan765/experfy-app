@@ -282,22 +282,26 @@ const BasicPortalPage: React.FC = (props) => {
                   <div
                     className={`${classes.portalCardContent} ${classes.portalCardIconOne}`}
                   >
-                    <h3>External TalentCloud Career Portal</h3>
-                    <ul>
-                      <li>Initiate the creation and enter basic information</li>
-                      <li>Configure the Portal</li>
-                      <li>Configure theme(s) for your portal</li>
-                      <li>
-                        Add pages and create custom content through
-                        pre-configured sections and elements.
-                      </li>
-                      <li>
-                        Publish the portal to start pipelining and recruiting
-                        talent from external channels.
-                      </li>
-                    </ul>
                     <div>
-                      <Button onClick={() => handleOpen()}>Configure</Button>
+                      <h3>External TalentCloud Career Portal</h3>
+                      <ul>
+                        <li>
+                          Initiate the creation and enter basic information
+                        </li>
+                        <li>Configure the Portal</li>
+                        <li>Configure theme(s) for your portal</li>
+                        <li>
+                          Add pages and create custom content through
+                          pre-configured sections and elements.
+                        </li>
+                        <li>
+                          Publish the portal to start pipelining and recruiting
+                          talent from external channels.
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <button className="btn--style-primary btn-margin-style" onClick={() => handleOpen()}>Configure</button>
                     </div>
                   </div>
                 </div>
@@ -307,26 +311,23 @@ const BasicPortalPage: React.FC = (props) => {
                   <div
                     className={`${classes.portalCardContent} ${classes.portalCardIconTwo}`}
                   >
-                    <h3>
-                      Inner Mobility through Internal TalentCloud Marketplace
-                    </h3>
-                    <p>
-                      Mapping and discovery of internal talent through
-                      TalentCloud enables Managers to easily identify the
-                      resources that are needed for roles, projects and gigs.
-                      Fully brand and customize your internal opportunity
-                      marketplace and provide your employees a way to engage
-                      with new opportunities within your organization.
-                    </p>
                     <div>
-                      <Button
-                        type="button"
-                        buttonStyle="primary"
-                        iconPosition="left"
-                        icon={<AddIcon />}
-                      >
+                      <h3>
+                        Inner Mobility through Internal TalentCloud Marketplace
+                      </h3>
+                      <p>
+                        Mapping and discovery of internal talent through
+                        TalentCloud enables Managers to easily identify the
+                        resources that are needed for roles, projects and gigs.
+                        Fully brand and customize your internal opportunity
+                        marketplace and provide your employees a way to engage
+                        with new opportunities within your organization.
+                      </p>
+                    </div>
+                    <div>
+                      <button className="btn--style-primary btn-margin-style">
                         Create New
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -378,106 +379,135 @@ const BasicPortalPage: React.FC = (props) => {
                     Fill in the information below and you will be on your way to
                     creating your Career portal
                   </h3>
-                  <Grid>
-                    <Grid container spacing={0}>
-                      <Grid item xs={8}>
-                        <TextInput
-                          label={"Portal Name"}
-                          path={"career_portal_name"}
-                          required={true}
-                          placeHolder="Company Career Portal"
-                          setTouched={setTouched}
+
+                  <div className="row">
+                    <div className="col-md-8">
+                      <TextInput
+                        label={"Portal Name"}
+                        path={"career_portal_name"}
+                        required={true}
+                        placeHolder="Company Career Portal"
+                        setTouched={setTouched}
+                      />
+                    </div>
+
+                    <div className="col-md-4">
+                      {touched === "career_portal_name" && (
+                        <FormTip text={portal_name_tip} />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-md-8">
+                      <TextInput
+                        path={"portal_id"}
+                        label={"Portal ID"}
+                        placeHolder={"CP-ID798998989"}
+                        setTouched={setTouched}
+                      />
+                    </div>
+
+                    <div className="col-md-4">
+                      {touched === "portal_id" && (
+                        <FormTip
+                          text={"The read only filed displays the Portal ID"}
                         />
-                      </Grid>
-                      <Grid item xs={4}>
-                        {touched === "career_portal_name" && (
-                          <FormTip text={portal_name_tip} />
-                        )}
-                      </Grid>
-                      <Grid item xs={8}>
-                        <TextInput
-                          path={"portal_id"}
-                          label={"Portal ID"}
-                          placeHolder={"CP-ID798998989"}
-                          setTouched={setTouched}
-                        />
-                      </Grid>
-                      <Grid item xs={4}>
-                        {touched === "portal_id" && (
-                          <FormTip
-                            text={"The read only filed displays the Portal ID"}
-                          />
-                        )}
-                      </Grid>
-                      <Grid item xs={8}>
-                        <TextInput
-                          path={"portal_url"}
-                          label="Portal URL"
-                          required={true}
-                          placeHolder="https://www.experfy.com/career-portal"
-                          setTouched={setTouched}
-                        />
-                      </Grid>
-                      <Grid item xs={4}>
-                        {touched === "portal_url" && (
-                          <FormTip text={portal_url_tip} />
-                        )}
-                      </Grid>
-                      <Grid item xs={8}>
-                        <TextInput
-                          path={"company_name"}
-                          label="Company Name"
-                          placeHolder="Company Name"
-                          setTouched={setTouched}
-                        />
-                      </Grid>
-                      <Grid item xs={4}>
-                        {touched === "company_name" && (
-                          <FormTip text={company_name_tip} />
-                        )}
-                      </Grid>
-                      <Grid item xs={8}>
-                        <FormSelect
-                          type={"select"}
-                          options={["English", "Spanish"]}
-                          label="Default Language"
-                          name={"default_language"}
-                          path={"default_language"}
-                          defaultValue="English"
-                        />
-                      </Grid>
-                      <Grid item xs={4}>
-                        <FormTip text="Set the default language of your career portal for your visitors" />
-                      </Grid>
-                      <Grid item xs={8}>
-                        <FormSelect
-                          options={["US", "ES"]}
-                          label="Default Locale"
-                          name={"default_locale"}
-                          path={"default_locale"}
-                          defaultValue="US"
-                          type={"select"}
-                        />
-                      </Grid>
-                      <Grid item xs={4}>
-                        <FormTip text="Set the default locale of your career portal for your visitors" />
-                      </Grid>
-                    </Grid>
-                    <Typography variant="h5" mb={2} mt={4}>
-                      If you want to create microsite for your different brands
-                      within your career portal, enable branding below.
-                    </Typography>
-                    <FormSwitch
-                      label="Branding On"
-                      checked={brandSwitch}
-                      setBrandSwitch={setBrandSwitch}
-                      // handleSwitchChange={handleSwitchChange}
-                    />
-                  </Grid>
-                  <Button type="submit" className="primary-btn-style">
-                    {" "}
-                    Save{" "}
-                  </Button>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-md-8">
+                      <TextInput
+                        path={"portal_url"}
+                        label="Portal URL"
+                        required={true}
+                        placeHolder="https://www.experfy.com/career-portal"
+                        setTouched={setTouched}
+                      />
+                    </div>
+
+                    <div className="col-md-4">
+                      {touched === "portal_url" && (
+                        <FormTip text={portal_url_tip} />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-md-8">
+                      <TextInput
+                        path={"company_name"}
+                        label="Company Name"
+                        placeHolder="Company Name"
+                        setTouched={setTouched}
+                      />
+                    </div>
+
+                    <div className="col-md-4">
+                      {touched === "company_name" && (
+                        <FormTip text={company_name_tip} />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-md-8">
+                      <FormSelect
+                        type={"select"}
+                        options={["English", "Spanish"]}
+                        label="Default Language"
+                        name={"default_language"}
+                        path={"default_language"}
+                        defaultValue="English"
+                      />
+                    </div>
+
+                    <div className="col-md-4">
+                      <FormTip text="Set the default language of your career portal for your visitors" />
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-md-8">
+                      <FormSelect
+                        options={["US", "ES"]}
+                        label="Default Locale"
+                        name={"default_locale"}
+                        path={"default_locale"}
+                        defaultValue="US"
+                        type={"select"}
+                      />
+                    </div>
+
+                    <div className="col-md-4">
+                      <FormTip text="Set the default locale of your career portal for your visitors" />
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-md-12">
+                      <p>
+                        If you want to create microsite for your different
+                        brands within your career portal, enable branding below.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-md-4">
+                      <FormSwitch
+                        label="Branding On"
+                        checked={brandSwitch}
+                        setBrandSwitch={setBrandSwitch}
+                        // handleSwitchChange={handleSwitchChange}
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" className="btn btn--style-primary">
+                    Save
+                  </button>
                 </Form>
               </DialogContent>
             )}
