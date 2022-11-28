@@ -72,13 +72,6 @@ const BasicPortalPage: React.FC = (props) => {
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
   const [id, setId] = useState('');
-  // const { user } = useConfig(User);
-  // const result = async () => {
-  //   payload.find({
-  //     collection: 'basic-portal-identity',
-  //     user: user.id,
-  //   });
-  // }
 
   useEffect(() => {
     setStepNav([
@@ -345,10 +338,7 @@ const BasicPortalPage: React.FC = (props) => {
                       </Grid>
                       <Grid item xs={8}>
                         <div
-        //                  onFocus={() =>{console.log("test work");
-        //  setTouched('default_language')}}
-        // onBlur={() =>{ console.log("log blur");
-        //  setTouched('')}}
+        //                  
          >
                         <FormSelect
                           type={'select'}
@@ -365,7 +355,6 @@ const BasicPortalPage: React.FC = (props) => {
                         {touched === 'default_language' && (
                           <FormTip text="Set the default language of your career portal for your visitors" />
                         )}
-                        {/* <FormTip text="Set the default language of your career portal for your visitors" /> */}
                       </Grid>
                       <Grid item xs={8}>
                         <FormSelect
@@ -383,7 +372,6 @@ const BasicPortalPage: React.FC = (props) => {
                           <FormTip text="Set the default locale of your career portal for your visitors" />
                         )}
                         
-                        {/* <FormTip text="Set the default locale of your career portal for your visitors" /> */}
                       </Grid>
                     </Grid>
                     <Typography variant="h5" mb={2} mt={4}>
@@ -421,7 +409,6 @@ const BasicPortalPage: React.FC = (props) => {
                         label="Default Brand"
                         name={'default_brand'}
                         path={'default_brand'}
-                        // onFocus={onClickBrandName}
                       />
                     </Grid>
                   </Grid>
