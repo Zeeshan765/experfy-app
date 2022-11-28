@@ -186,7 +186,6 @@ const BasicPortalPage: React.FC = (props) => {
   return (
     <DefaultTemplate>
       <div className="main__content">
-        <Eyebrow />
         <Box sx={{ p: 4 }}>
           <Grid container spacing={4} alignItems="stretch">
             <Grid item xs={12}>

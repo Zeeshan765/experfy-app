@@ -1,7 +1,6 @@
 
 $primaryColor: var(--theme-bg);
 $secondaryColor: var(--theme-text);
-//'#a0a8b7';
 $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
 $fontFace: var(--font-body);
@@ -9,95 +8,119 @@ $fontSize: 0.8rem;
 $fontSizeS: 0.85rem;
 $mainFont: 'proxima-nova', sans-serif;
 $fontPath: '../../assets/fonts/proxima-nova';
-$fontName: 'proximanova-semibold-webfont';
+$fontName: 'proximanova-bold-webfont';
 $fontV: '';
 
 
+.editor-canvas{
+    background-color: #f1f3f5;
+}
+.gjs-cv-canvas{
+    width: 78% !important;
+}
+.gjs-pn-views{
+    width: 22% !important;
+}
 .gjs-pn-views-container {
-    height: 100%;
-    padding: 42px 0 0;
     right: 0;
-    width: 15%;
+    width: 22% !important;
     overflow: scroll;
-    box-shadow: 0 0 12px rgb(0 0 0 / 10%) !important;
+    box-shadow: 0 0 4px rgb(0 0 0 / 20%) !important;
+}
+.gjs-selected {
+    outline: 4px solid var(--theme-primary) !important;
+    outline-offset: -4px !important;
 }
 .gjs-sm-properties {
-    font-size: 1.1rem !important;
-    padding: 10px 5px;
-    display: flex;
-    box-sizing: border-box;
-    width: 100%;
-    font-weight: 500;
+    font-size: 1.2rem !important;
     flex-direction: column !important;
     align-items: flex-start !important;
+    font-weight: 500;
 }
-
+.gjs-pn-commands{
+    width: 100% !important;
+}
+.gjs-layer-vis{
+    width: 30px !important;
+}
+.gjs-label-wrp{
+    width: 24% !important;
+    min-width: 20% !important; 
+}
 .gjs-category-title,
 .gjs-layer-title,
 .gjs-block-category .gjs-title,
 .gjs-sm-sector-title {
     font-weight: 500 !important;
-    background-color: white;
-    letter-spacing: 1px;
-    padding: 10px 0px 10px 5px !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    text-align: left;
-    position: relative;
-    cursor: pointer;
-    font-size: 1.1rem !important;
+    color: var(--theme-text) !important;
+    font-size: 1rem !important;
+    height: 3rem !important;
 }
-
+.gjs-sm-field input,
+.gjs-clm-select input,
+.gjs-clm-field input,
+.gjs-sm-field select,
+.gjs-clm-select select,
+.gjs-clm-field select {   
+    color: var(--theme-text) !important;
+}
+    
+.gjs-layer-name{
+    padding: 0.5rem !important;
+}
 .gjs-block {
     width: 31% !important;
-    min-width: 30px !important;
-    padding: 1.2rem !important;
-    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    min-height: auto !important;
+    padding: 0.5rem !important;
     border-radius: 4px !important;
-    margin: 2px 2px 2px 2px !important;
-    box-shadow: 0 1px 0 0 rgb(0 0 0 / 30%) !important;
-    background-color: var(--theme-elevation-100) !important;
+    margin:2px !important;
+    box-shadow: 1px 2px 0 0 rgba(97, 97, 97, 0.3) !important;
+    background-color: #f1f3f5 !important;
     color: var(--theme-primary);
 }
+.gjs-blocks-c{
+    justify-content: space-evenly !important;
+}
+.gjs-block__media {
+    margin-bottom: 0px !important;
+}
 .gjs-sm-label {
-    margin: 5px 5px 5px 5px !important;
-    display: flex;
+    margin: 5px !important;
     align-items: stretch !important;
+}
+.gjs-block-label {
+    font-size: 0.65rem !important;
+    font-weight: 600 !important;
+    font-family: var(--font-body);
+    color: var(--theme-text);
 }
 .gjs-sm-property{
     width: 100% !important;
 }
 .gjs-field  {
-    background-color: rgb(255 255 255 / 20%);
     border: solid 1px #ddd !important;
     width: -webkit-fill-available !important;
     background-color: var(--theme-elevation-0) !important;
     border-radius: 1px !important;
-    padding: 8px !important;
-    min-height: 40px !important;
+    padding: 5px !important;
+    min-height: 35px !important;
 }
 .gjs-clm-tags{
     font-size: 1rem !important;
 }
 .gjs-cv-canvas {
-    left: 15% !important;
-    top: 20;
+    left: 22% !important;
 }
 
 .gjs-pn-views-container{
     left: 0;
 }
-.gjs-pn-views{
+.gjs-pn-views{                      
     left: 0;
 }
-.gjs-selected{
-    outline: 2px solid var(--theme-primary) !important;
-}
+
 .gjs-traits-label {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     font-weight: bolder !important; 
-    margin-bottom: 5px;
-    padding: 10px;
-    text-align: left;
     font-size: medium !important;
 }
 .gjs-radio-item input:checked+.gjs-radio-item-label {

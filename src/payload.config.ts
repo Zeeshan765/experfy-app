@@ -11,6 +11,7 @@ import AfterNav from "./components/Nav/AfterNav";
 import ExperfyLogo from "./components/Nav/AppLogo";
 import BeforeNav from "./components/Nav/BeforeNav";
 import PageBuilder from "./components/PageBuilder";
+import GlobalThemeSettings from "./components/PageBuilder/GlobalThemeSettings";
 import PortalIdentity from "./components/PortalIdentity";
 import MyProvider from "./MyProvider";
 
@@ -39,6 +40,10 @@ export default buildConfig({
         {
           path: '/collections/portal-identity',
           Component: PortalIdentity,
+        },
+        {
+          path: '/collections/global-theme-settings',
+          Component: GlobalThemeSettings,
         },
       ],
       providers: [MyProvider],

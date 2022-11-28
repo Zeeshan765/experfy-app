@@ -1,9 +1,11 @@
 import GrapesJS from 'grapesjs';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 // import './CustomGrapes.css';
 import { Eyebrow } from 'payload/components/elements';
 import plugin from './ExperfyPlugin';
+import { DefaultTemplate, MinimalTemplate } from 'payload/components/templates';
+import { useStepNav } from 'payload/components/hooks';
 
 export interface GrapesjsReactProps {
   id: HTMLElement['id'];
@@ -13,9 +15,20 @@ export interface GrapesjsReactProps {
   onDestroy?(): void;
 }
 
-const PageBuilder:React.FC  = (props: GrapesjsReactProps) => {
+const PageBuilder: React.FC = (props: GrapesjsReactProps) => {
 
-  const [editor, setEditor] = React.useState<GrapesJS.Editor | null>(null);
+  const [editor, setEditor] = useState<GrapesJS.Editor | null>(null);
+  const { setStepNav } = useStepNav();
+  
+
+  useEffect(() => { 
+    setStepNav([
+      {
+        label: 'Page Builder',
+        url: '/page-builder',
+      },
+    ]);
+  }, [setStepNav]);
 
   useEffect(() => {
     const editor = GrapesJS.init({
@@ -33,16 +46,19 @@ const PageBuilder:React.FC  = (props: GrapesjsReactProps) => {
         }
       }
     });
+
     setEditor(editor);
-  }, []);
-  
+  }, [setEditor]);
 
   return (
-    <div className="main__content">
-      <Eyebrow />
-      <div id="editor"></div>
-    </div>
+    
+      <div className="main__content">
+        <Eyebrow />
+        <div id="editor"></div>
+      </div>
+    
   );
 }
 
 export default PageBuilder;
+
