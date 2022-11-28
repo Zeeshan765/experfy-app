@@ -49,15 +49,18 @@ function a11yProps(index) {
   };
 }
 
-export default function PortalIdentity(props) {
-  const {
-    adminPortal,
-    setAdminPortal,
-    brands,
-    setBrands,
-    seo_setting,
-    setSeo_Setting,
-  } = useContext(Context);
+const PortalIdentity: React.FC = (props) => {
+
+
+
+    const {
+        adminPortal,
+        setAdminPortal,
+        brands,
+        setBrands,
+        seo_setting,
+        setSeo_Setting,
+    } = useContext(Context);
 
   const { id } = useParams();
   const [propsdata, setPropsdata] = useState('');
@@ -149,3 +152,4 @@ export default function PortalIdentity(props) {
     </DefaultTemplate>
   );
 }
+export default PortalIdentity;

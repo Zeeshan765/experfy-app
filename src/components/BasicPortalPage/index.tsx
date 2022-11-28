@@ -148,7 +148,6 @@ const BasicPortalPage: React.FC = (props) => {
   return (
     <DefaultTemplate>
       <div className="main__content">
-        <Eyebrow />
         <Box sx={{ p: 4 }}>
           <Grid container spacing={4} alignItems="stretch">
             <Grid item xs={12}>
@@ -282,7 +281,7 @@ const BasicPortalPage: React.FC = (props) => {
                     <Grid container spacing={0}>
                       <Grid item xs={8}>
                         <TextInput
-                          label={'Portal Name'}
+                          label={'Career Portal Name'}
                           path={'career_portal_name'}
                           required={true}
                           placeHolder="Company Career Portal"

@@ -12,7 +12,7 @@ export interface Config {}
  */
 export interface BasicPortalIdentity {
   id: string;
-  user?: string | User;
+  user_id?: string | User;
   career_portal_name?: string;
   portal_url?: string;
   portal_id?: string;
@@ -53,15 +53,6 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "portal-identity".
- */
-export interface PortalIdentity {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "portal-identity-detail".
  */
 export interface PortalIdentityDetail {
@@ -84,23 +75,6 @@ export interface PortalIdentityDetail {
   dom?: 'Sub-domains' | 'Sub-directories';
   createdAt: string;
   updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "page-builder".
- */
-export interface PageBuilder {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pi".
- */
-export interface Pi {
-  id: string;
-  name?: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

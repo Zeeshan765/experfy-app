@@ -16,7 +16,7 @@ const PageBuilderCollection: CollectionConfig = {
       label: 'Page Builder',
       admin: {
         components: {
-          Field: PageBuilder,
+          Field: PageBuilder, 
           Cell: PageBuilder,
         }
       }

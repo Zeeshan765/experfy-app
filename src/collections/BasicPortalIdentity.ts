@@ -14,7 +14,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     singular: 'Basic Portal Identity',
     plural: 'Basic Portal Identity',
   },
-
+  
   access: {
     read: () => true,
     create: () => true,
@@ -30,24 +30,27 @@ const BasicPortalIdentityCollection: CollectionConfig = {
   },
   fields: [
     {
-      name: 'user',
+      name: 'user_portal',
       type: 'relationship',
       relationTo: 'users',
       hasMany: false,
+      required: true,
     },
     {
+      label: 'Portal Name',
       name: 'career_portal_name',
       type: 'text',
-      required: false,
+      defaultValue: 'Career Portal',
+      required: true,  
     },
     {
       name: 'portal_url',
       type: 'text',
-      required: false,
+      required: true,
     },
     {
       name: 'portal_id',
-      // unique: true,
+      unique: true,
       type: 'text',
     },
     {

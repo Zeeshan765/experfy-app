@@ -18,7 +18,6 @@
   --theme-input-bg: var(--theme-elevation-0);
   --theme-text: #4a5162;
   --theme-primary: #48a3d7;
-  ;
   --theme-baseline: #{$baseline-px};
   --theme-baseline-body-size: #{$baseline-body-size};
   --font-body: 'proxima-nova', system-ui;
@@ -33,7 +32,7 @@
 
   @include large-break {
     --gutter-h: #{base(3)};
-    --nav-width: #{base(8)};
+    --nav-width: #{base(10)};
   }
 
   @include mid-break {
@@ -121,9 +120,8 @@ body {
   }
 
   .nav header {
-    padding: 18px;
-    background-color: var(--theme-elevation-0);
-    margin-bottom: 0px;
+    display: none;
+    
   }
 
   .nav__scroll {
@@ -146,6 +144,8 @@ body {
       transform: rotate(360deg);
     }
   }
+
+  
 
   .nav__wrap {
     padding: 0px;
