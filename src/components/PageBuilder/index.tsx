@@ -14,7 +14,7 @@ export interface GrapesjsReactProps {
   onDestroy?(): void;
 }
 
-const PageBuilder: React.FC<GrapesjsReactProps> = ( props: GrapesjsReactProps ) => {
+const PageBuilder: React.FC<GrapesjsReactProps> = () => {
 
   const [ editor, setEditor ] = useState<GrapesJS.Editor | null>( null );
   const { setStepNav } = useStepNav();
