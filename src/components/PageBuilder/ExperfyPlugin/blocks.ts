@@ -18,7 +18,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     content: {
       type: 'link',
-      editable: false,
+      editable: true,
       droppable: true,
       style: {
         display: 'inline-block',

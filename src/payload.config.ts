@@ -12,6 +12,7 @@ import ExperfyLogo from "./components/Nav/AppLogo";
 import BeforeNav from "./components/Nav/BeforeNav";
 import PageBuilder from "./components/PageBuilder";
 import GlobalThemeSettings from "./components/PageBuilder/GlobalThemeSettings";
+import GlobalThemeCollection from "./collections/GlobalThemeSettings";
 import PortalIdentity from "./components/PortalIdentity";
 import MyProvider from "./MyProvider";
 
@@ -61,7 +62,10 @@ export default buildConfig({
     Media,
     Users,
   ],
-
+  globals: [
+    GlobalThemeCollection,
+    
+  ],
   localization: {
     locales: ['en', 'es'],
     defaultLocale: 'en',

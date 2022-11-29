@@ -1,13 +1,9 @@
-import { CollectionConfig } from "payload/types";
+import { CollectionConfig, GlobalConfig } from "payload/types";
 import Global from "../components/PageBuilder/GlobalThemeSettings";
 
 
-const GlobalThemeSettings: CollectionConfig = {
+const GlobalThemeSettings: GlobalConfig = {
     slug: 'global-theme-settings',
-    labels: {
-        singular: 'Global Theme Settings',
-        plural: 'Global Theme Settings'
-    },
     access: {
         read: () => true,
         update: () => true,
@@ -21,3 +17,5 @@ const GlobalThemeSettings: CollectionConfig = {
     },
     fields: []
 };
+
+export default GlobalThemeSettings;

@@ -2,6 +2,7 @@ import type GrapesJS from 'grapesjs';
 import commands from './commands';
 import blocks from './blocks';
 import panels from './panels';
+import basicBlocks from 'grapesjs-blocks-basic';
 import '../index.scss';
 
 export type PluginOptions = {
@@ -73,7 +74,7 @@ export type RequiredPluginOptions = Required<PluginOptions>;
 
 const plugin: GrapesJS.Plugin<PluginOptions> = (editor, opts: Partial<PluginOptions> = {}) => {
   const config: RequiredPluginOptions = {
-    blocks: ['link-block', 'quote', 'text-basic'],
+    blocks: [],
     block: () => ({}),
     modalImportTitle: 'Import',
     modalImportButton: 'Import',
@@ -124,7 +125,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
   blocks(editor, config);
 
   // Load commands
-  // commands(editor, config);
+  commands(editor, config);
 
   // Load panels
   panels(editor, config);
