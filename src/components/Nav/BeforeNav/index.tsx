@@ -1,15 +1,8 @@
 import { useConfig } from 'payload/components/utilities';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
-// As this is the demo project, we import our dependencies from the `src` directory.
-
 import PortalSettingsIcon from "../../../assets/images/sidebar/portal_settings.svg";
 import StudioDashboardIcon from "../../../assets/images/sidebar/studio_dashboard.svg";
-
-// In your projects, you can import as follows:
-// import { Chevron } from 'payload/components/icons';
-
 
 const baseClass = 'nav-group';
 

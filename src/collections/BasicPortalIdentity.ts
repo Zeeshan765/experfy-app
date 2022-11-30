@@ -1,48 +1,56 @@
-import payload from "payload";
-import { useLocale } from "payload/components/utilities";
-import { CollectionBeforeChangeHook, CollectionBeforeReadHook, CollectionConfig } from 'payload/types';
-import basicPortalData from '../components/BasicPortalPage';
+import { type } from 'os';
+import payload from 'payload';
+import { useLocale } from 'payload/components/utilities';
+import {
+  CollectionBeforeChangeHook,
+  CollectionBeforeReadHook,
+  CollectionConfig,
+} from 'payload/types';
+import BasicPortalPage from '../components/BasicPortalPage';
 
 const BasicPortalIdentityCollection: CollectionConfig = {
   slug: 'basic-portal-identity',
   labels: {
     singular: 'Basic Portal Identity',
-    plural: 'Basic Portal Identity'
+    plural: 'Basic Portal Identity',
   },
-
+  
   access: {
     read: () => true,
     create: () => true,
-
+    update: () => true,
   },
   admin: {
     components: {
       views: {
-        Edit: basicPortalData,
-        List: basicPortalData,
+        Edit: BasicPortalPage,
+        List: BasicPortalPage,
       },
     },
   },
   fields: [
     {
-      name: 'user',
+      name: 'user_portal',
       type: 'relationship',
       relationTo: 'users',
       hasMany: false,
+      required: true,
     },
     {
+      label: 'Portal Name',
       name: 'career_portal_name',
       type: 'text',
-      required: false,
+      defaultValue: 'Career Portal',
+      required: true,  
     },
     {
       name: 'portal_url',
       type: 'text',
-      required: false,
+      required: true,
     },
     {
       name: 'portal_id',
-      // unique: true,
+      unique: true,
       type: 'text',
     },
     {
@@ -55,6 +63,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       type: 'select',
       options: ['English', 'Spanish'],
     },
+
     {
       name: 'company_name',
       type: 'text',
@@ -67,21 +76,18 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     {
       name: 'meta_keywords',
       type: 'text',
-
     },
     {
       name: 'meta_description',
       type: 'text',
     },
     {
-
       name: 'tracking_pixel',
       type: 'text',
     },
     {
-      name: 'bring_webmaster',
+      name: 'bing_webmaster',
       type: 'text',
-
     },
     {
       name: 'google_webmaster',
@@ -90,16 +96,24 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     {
       name: 'google_analytics',
       type: 'text',
-
     },
     {
       name: 'google_id',
       type: 'text',
-
     },
 
+    // {
+    //   name : 'Sub-domains',
+    //   type: 'radio',
+    //   options: ['sub_domain'],
 
+    //  },
+    //  {
+    //   name : 'Sub-directories',
+    //   type: 'radio',
+    //   options: ['sub_directories'],
 
+    //  },
     {
       name: 'brands',
       type: 'array',
@@ -119,7 +133,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
           type: 'text',
           //hidden: true,
         },
-      ]
+      ],
     },
 
     // {
@@ -145,15 +159,13 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     //     },
     //   ],
     // },
-
   ],
-
 };
 const beforeChangeHook: CollectionBeforeChangeHook = async ({ operation }) => {
-  console.log("beforeChangeHook operation", operation);
+  console.log('beforeChangeHook operation', operation);
 };
 const beforeReadHook: CollectionBeforeReadHook = async () => {
-  console.log("Before Read Hook Called");
+  console.log('Before Read Hook Called');
 };
 
 export default BasicPortalIdentityCollection;

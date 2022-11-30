@@ -24,41 +24,41 @@ import {
   TableHead,
   TableRow,
   Typography,
-} from "@mui/material";
-import axios from "axios";
-import payload from "payload";
-import { Button, Eyebrow } from "payload/components/elements";
-import { Form, SelectInput } from "payload/components/forms";
-import { useStepNav } from "payload/components/hooks";
-import { DefaultTemplate } from "payload/components/templates";
-import { useAuth, useConfig } from "payload/components/utilities";
-import React, { useEffect, useState } from "react";
-import { useFieldArray, useForm } from "react-hook-form";
-import FormSelect from "../../blocks/FormSelect";
-import FormSwitch from "../../blocks/FormSwitch";
-import FormTip from "../../blocks/FormTip";
-import TextInput from "../../blocks/TextInput";
-
-import { useStyles } from "./css";
-
-const baseClass = "custom-route";
+} from '@mui/material';
+import { Button, Eyebrow } from 'payload/components/elements';
+import { Form, SelectInput } from 'payload/components/forms';
+import { useStepNav } from 'payload/components/hooks';
+import { DefaultTemplate } from 'payload/components/templates';
+import {
+  useAuth,
+  useConfig,
+  useDocumentInfo,
+} from 'payload/components/utilities';
+import React, { useEffect, useState } from 'react';
+import { useFieldArray, useForm } from 'react-hook-form';
+import FormSelect from '../../blocks/FormSelect';
+import FormSwitch from '../../blocks/FormSwitch';
+import FormTip from '../../blocks/FormTip';
+import TextInput from '../../blocks/TextInput';
+import { useHistory } from 'react-router-dom';
+import { useStyles } from './css';
+const baseClass = 'custom-route';
 
 const portal_url_tip =
-  "Access your career portal using this domain. This is thee single main domain upon which all applications in your external career portal are based. Don’t include “http” or “https” in easily identify the URL";
-const portal_id_tip = "The read only filed displays the Portal ID";
-const portal_name_tip = "The go-to-market name of the career portal";
+  'Access your career portal using this domain. This is thee single main domain upon which all applications in your external career portal are based. Don’t include “http” or “https” in easily identify the URL';
+const portal_id_tip = 'The read only filed displays the Portal ID';
+const portal_name_tip = 'The go-to-market name of the career portal';
 const company_name_tip =
-  "The company of your career Portal. This can be a shortened version of Portal.";
+  'The company of your career Portal. This can be a shortened version of Portal.';
 
 const BasicPortalPage: React.FC = (props) => {
-  const {
-    routes: { admin: adminRoute },
-    // user: { isAdmin },
-  } = useConfig();
+  const history = useHistory();
+  const { publishedDoc } = useDocumentInfo();
+
+  // console.log('publish', publishedDoc);
 
   const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
   const classes = useStyles();
-  // const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const [focus, setFocus] = React.useState();
   const [errorMessage, setErrorMessage] = useState("");
@@ -71,13 +71,7 @@ const BasicPortalPage: React.FC = (props) => {
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
-  // const { user } = useConfig(User);
-  const result = async () => {
-    payload.find({
-      collection: "basic-portal-identity",
-      // user: user.id,
-    });
-  };
+  const [id, setId] = useState('');
 
   useEffect(() => {
     setStepNav([
@@ -102,13 +96,12 @@ const BasicPortalPage: React.FC = (props) => {
     control,
   });
   const data = watch();
-  console.log("data", data);
 
   const handleAddRow = (value: unknown) => {
     append(value);
   };
 
-  console.log("brand", brandSwitch);
+  // console.log('brand', brandSwitch);
 
   const onClickBrandName = () => {
     let finalDefaultBrandsArray = getValues()?.brands.map((i) => ({
@@ -129,65 +122,32 @@ const BasicPortalPage: React.FC = (props) => {
     (collection) => collection.slug === userSlug
   );
 
-  //     portalIdentityScreenOne(
-  //       data,
-  //       setVisible,
-  //       setErrorMessage,
-  //       setError,
-  //       brandSwitch,
-  //       setLoading,
-  //     );
-  //   } else {
-  //     const deleteProps = [
-  //       'portal_name',
-  //       'portal_id',
-  //       'portal_url',
-  //       'company_name',
-  //       'default_language',
-  //       'default_locale',
-  //     ].forEach((element) => delete data[element]);
-
-  //     // portalIdentityScreenTwo(
-  //     //   data,
-  //     //   props.adminPortal,
-  //     //   props.setAdminPortal,
-  //     //   props.setBrands,
-  //     //   navigate,
-  //     //   setErrorMessage,
-  //     //   setError,
-  //     //   setLoading,
-  //     //   getCompanyPortalData
-  //     // );
-  //   }
-  // };
-
-  const submitHandlear = (e) => {
-    e.prevntDefault();
-    axios({
-      method: "post",
-      url: `${serverURL}${api}/basic-portal-identity`,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "JWT fefege...",
-      },
-      // data:
-    });
-  };
-  const [touched, setTouched] = useState("");
-  // console.log(user.id);
+  const [touched, setTouched] = useState('');
 
   const onSuccess = (data) => {
+    setId(data.doc.id);
     if (brandSwitch) {
       setVisible(true);
     } else {
       setVisible(false);
+      history.push({
+        pathname: `/admin/collections/portal-identity/${data.doc.id}`,
+        param: data.doc.id,
+      });
     }
   };
+
+  const handlenaviagte = () => {
+    history.push({
+      pathname: `/admin/collections/portal-identity/${id}`,
+      param: id,
+    });
+  };
+
 
   return (
     <DefaultTemplate>
       <div className="main__content">
-        <Eyebrow />
         <Box sx={{ p: 4 }}>
           <Grid container spacing={4} alignItems="stretch">
             <Grid item xs={12}>
@@ -213,7 +173,7 @@ const BasicPortalPage: React.FC = (props) => {
                 <CardContent
                   className={`${classes.portalCardContent} ${classes.portalCardIconOne}`}
                 >
-                  <Typography component='h3' variant='h3'>
+                  <Typography component="h3" variant="h3">
                     External TalentCloud Career Portal
                   </Typography>
                   <List dense={dense} sx={{ color: '#4a5162' }}>
@@ -264,7 +224,7 @@ const BasicPortalPage: React.FC = (props) => {
                     <Button
                       type="button"
                       buttonStyle="primary"
-                      iconPosition='left'
+                      iconPosition="left"
                       icon={<AddIcon />}
                     >
                       Create New
@@ -358,7 +318,7 @@ const BasicPortalPage: React.FC = (props) => {
                 justifyContent="space-between"
                 alignItems="center"
               >
-                <h2>Portal Identity</h2>
+                <h2 className="mb-2">Portal Identity</h2>
 
                 <IconButton onClick={() => handleClose()}>
                   <CloseIcon />
@@ -374,11 +334,10 @@ const BasicPortalPage: React.FC = (props) => {
                   action={`${serverURL}${api}/basic-portal-identity`}
                   validationOperation="create"
                 >
-                  {/* <input name={"user"} value={user.id} hidden={true} /> */}
-                  <h3>
+                  <p className="mb-4">
                     Fill in the information below and you will be on your way to
                     creating your Career portal
-                  </h3>
+                  </p>
 
                   <div className="row">
                     <div className="col-md-8">
@@ -515,9 +474,10 @@ const BasicPortalPage: React.FC = (props) => {
             {visible && (
               <DialogContent>
                 <Form
-                  method="post"
-                  action={`${serverURL}${api}/basic-portal-identity`}
-                  validationOperation="update"
+                  method={id ? 'patch' : 'post'}
+                  action={`${serverURL}${api}/basic-portal-identity/${
+                    id ?? ''
+                  }`}
                 >
                   <Grid container spacing={3}>
                     <Grid item xs={8}>
@@ -525,12 +485,12 @@ const BasicPortalPage: React.FC = (props) => {
                         type={"select"}
                         options={[]}
                         label="Default Brand"
-                        name={"default_brand"}
-                        path={"default_brand"}
-                        // onFocus={onClickBrandName}
+                        name={'default_brand'}
+                        path={'default_brand'}
                       />
                     </Grid>
                   </Grid>
+
                   <Typography variant="h5" mb={2} mt={4}>
                     Please choose whether you would like your microsites in your
                     career portal network to use subdomains or sub-directories.
@@ -612,37 +572,44 @@ const BasicPortalPage: React.FC = (props) => {
                       <TableBody>
                         {fields.map((item, index) => {
                           return (
-                            <TableRow>
+                            <TableRow key={index}>
                               <TableCell>
-                                {/* <input {...register(`brands.${index}.brand_name`)} 
-                                  placeholder="Brand Name" />
-             */}
+                                {/* <input {...register(`brands.${index}.brand_name`)}
+              placeholder="Brand Name" />
+*/}
                                 <TextInput
                                   // label={'Portal Name'}
-                                  path={"brand_name"}
+                                  path={`brand_name`}
                                   required={false}
+                                  index={index}
+                                  brand="brands"
                                   placeHolder="Brand Name"
                                   // setTouched={setTouched}
                                 />
                               </TableCell>
                               <TableCell>
-                                {/* <input {...register(`brands.${index}.brand_identifier`)} 
-                                  placeholder="Brand Identifier"/> */}
+                                {/* <input {...register(`brands.${index}.brand_identifier`)}
+              placeholder="Brand Identifier"/> */}
 
                                 <TextInput
-                                  name="Portal Name"
-                                  path={"brand_identifier"}
+                                  // name="Portal Name"
+                                  path={`brand_identifier`}
                                   required={false}
+                                  index={index}
+                                  brand="brands"
                                   placeHolder="Brand Identifier"
                                   // setTouched={setTouched}
                                 />
                               </TableCell>
                               <TableCell>
-                                {/* <input {...register(`brands.${index}.microsoft_identifier`)} 
-                              placeholder="Microsoft Identifier"/> */}
+                                {/* <input {...register(`brands.${index}.microsoft_identifier`)}
+          placeholder="Microsoft Identifier"/> */}
 
                                 <TextInput
-                                  path={`brands.${index}.microsite_identifier`}
+                                  // path={`brands.${index}.microsite_identifier`}
+                                  path={`microsoft_identifier`}
+                                  index={index}
+                                  brand="brands"
                                   required={false}
                                   placeHolder="Microsoft Identifier"
                                   // setTouched={setTouched}
@@ -662,50 +629,17 @@ const BasicPortalPage: React.FC = (props) => {
                       </TableBody>
                     </Table>
                   </TableContainer>
-                  <Button type="submit" className="primary-btn-style">
-                    {" "}
-                    Save{" "}
+
+                  <Button
+                    type="submit"
+                    className="primary-btn-style"
+                    // onClick={handlenaviagte}
+                  >
+                    Save{' '}
                   </Button>
                 </Form>
               </DialogContent>
             )}
-
-            {/* <DialogActions>
-              {loading == true ? (
-                <CircularProgress />
-              ) : (
-                !visible && (
-                  <Grid container>
-                    <Button
-                      icon={<ChevronRightIcon />}
-                      iconPosition='right'
-                      type='submit'
-                      className='primary-btn-style-icon'
-                    >
-                      Create
-                    </Button>
-                  </Grid>
-                )
-              )}
-              {visible && (
-                <Grid container>
-                  <Button
-                    buttonStyle='secondary'
-                    icon={<ChevronLeftIcon />}
-                    iconPosition='left'
-                    onClick={() => {
-                      setVisible(false);
-                      setUpdateApi(true);
-                    }}
-                  >
-                    Back
-                  </Button>
-                  <Button buttonStyle='primary' type='submit' className='primary-btn-style'>
-                    Save
-                  </Button>
-                </Grid>
-              )}
-            </DialogActions> */}
           </Dialog>
         </Box>
       </div>
