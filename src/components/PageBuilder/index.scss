@@ -6,10 +6,10 @@ $fontFace: var(--font-body);
 $fontSize: 0.7rem;
 $fontSizeS: 0.75rem;
 $mainFont: 'proxima-nova', sans-serif;
+
 $fontPath: '../../assets/fonts/proxima-nova';
 $fontName: 'proximanova-bold-webfont';
 @import "grapesjs/src/styles/scss/main.scss"; 
-
 
 .editor-canvas{
     flex-grow: 1;
@@ -38,10 +38,12 @@ $fontName: 'proximanova-bold-webfont';
     outline-offset: -2px !important;
 }
 .gjs-sm-properties {
+    color: #101010 !important;
+    font-weight: 400;
     font-size: 1rem !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    font-weight: 500;
+    background-color: #fff !important;
 }
 .gjs-pn-commands{
     width: 100% !important;
@@ -61,6 +63,10 @@ $fontName: 'proximanova-bold-webfont';
     color: var(--theme-text) !important;
     font-size: 1rem !important;
     height: 3rem !important;
+    background-color: #fff !important;
+    flex-direction: row-reverse !important;
+    justify-content: start !important;
+    border-bottom: 2px solid rgb(235 235 235) !important;
 }
 .gjs-sm-field input,
 .gjs-clm-select input,
@@ -125,6 +131,58 @@ $fontName: 'proximanova-bold-webfont';
     font-size: 1rem !important;
 }
 
+// --------------------------------------------------------//
+// ----------------global theam setting -------------------//
+// --------------------------------------------------------//
+
+.gjs-sm-property{
+    width: 100% !important;
+   display: flex !important;
+   justify-content: space-between !important; 
+}
+.gjs-field-color .gjs-input-holder{
+    display: none !important;
+}
+.gjs-field-colorp {
+ border-left: 0 !important;
+ width: 27px !important;
+ height: 26px !important;
+}
 
 
 
+.gjs-field-color{
+   background-color: transparent !important;
+   border: none !important;
+}
+
+.gjs-field-color-picker{
+  border-radius: 3px !important;
+}
+
+.gjs-field-colorp .gjs-checker-bg, .gjs-field-colorp .gjs-field-colorp-c{
+  border-radius: 4px !important;
+}
+.gjs-sm-slider{
+    display: block !important;
+}
+.gjs-field-range{
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.panel__left{
+     background-color: rgb(255, 255, 255) !important;
+    border: var(--theme-elevation-100) 1px solid;
+    box-shadow: 0px 3px 6px 0px #00000014 !important;
+}
+
+.gjs-field-range input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #48a3d7 !important;
+    border:none;
+  }
+
+.currentColor {
+    currentColor: #d0d0d0 !important;
+}

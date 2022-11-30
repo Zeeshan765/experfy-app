@@ -258,7 +258,7 @@ const BasicPortalPage: React.FC = (props) => {
                 justifyContent="space-between"
                 alignItems="center"
               >
-                <h2>Portal Identity</h2>
+                <h2 className="mb-2">Portal Identity</h2>
 
                 <IconButton onClick={() => handleClose()}>
                   <CloseIcon />
@@ -274,10 +274,10 @@ const BasicPortalPage: React.FC = (props) => {
                   action={`${serverURL}${api}/basic-portal-identity`}
                   validationOperation="create"
                 >
-                  <h3>
+                  <p className="mb-4">
                     Fill in the information below and you will be on your way to
                     creating your Career portal
-                  </h3>
+                  </p>
 
                   <div className="row">
                     <div className="col-md-8">

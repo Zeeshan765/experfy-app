@@ -55,7 +55,6 @@ body {
   color: var(--theme-text);
   font-weight: 300;
   font-size: 16px;
-
 }
 
 // Page
@@ -197,8 +196,7 @@ body {
     border-radius: 7px;
     padding: 20px;
   }
-
-  .nav-group__toggle {
+ .nav-group__toggle {
     border-bottom: 1px solid var(--theme-bg);
     padding: 0.5rem 1rem 0.5rem 2rem;
     margin-top: 0px;
@@ -208,26 +206,56 @@ body {
   #nav-group-Collections {
     display: inline-block
   }
+  .btn-margin-style {
+    margin: 30px 0px; 
+ 
+  }
 
+}
+
+.field-type.text {
+  margin-bottom: 1.9rem;
+
+  .field-label {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0px;
+  }
+
+  input {
+    border-radius: 0.25rem;
+  }
+}
+
+.field-type.select {
+  .field-label {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0px;
+  }
+}
+
+div.react-select {
+  div.rs__control {
+    border-radius: 0.25rem;
+  }
 }
 
 .btn--style-primary {
   background-color: var(--theme-primary);
   color: var(--theme-elevation-0);
-  padding: 10px 25px 10px 25px;
-  border-radius: 6px;
+  font-family: var(--font-body);
+  padding: 10px 45px;
+  border-radius: 5px;
   font-weight: 500;
-  font-size: medium;
+  font-size: large;
+  border: none;
 }
 
-// ------------------------------------------//
 // ------------ custom css ------------------//
 // -----------------------------------------//
 .nav-category {
   padding: 4rem;
   border-bottom: 1px solid var(--theme-bg);
 }
-
 
 .portals-identity {
   margin-top: 20px;
@@ -240,14 +268,16 @@ body {
     h3 {
       font-weight: 700;
       margin-bottom: 15px;
+      font-size: 26px;
     }
 
     ul {
       padding-left: 1.230769231rem;
+      margin-bottom: 0px;
 
       li {
-        font-size: 13px;
-
+        font-size: 16px;
+        line-height: 28px;
         &::marker {
           color: var(--theme-primary);
         }
@@ -255,7 +285,9 @@ body {
     }
 
     p {
-      font-size: 13px;
+      font-size: 16px;
+      line-height: 27px;
+      margin-bottom: 0px;
     }
   }
 }
