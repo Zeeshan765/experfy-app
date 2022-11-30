@@ -116,10 +116,12 @@ body {
   .step-nav span {
     color: var(--theme-text);
   }
+
   .eyebrow:before {
     background-color: var(--theme-text);
     opacity: 0;
   }
+
   .eyebrow {
     padding: 25px;
     font-weight: 500;
@@ -129,21 +131,14 @@ body {
   }
 
   .nav header {
-    width: base(0);
-    height: base(0);
-    .graphic-icon {
-      svg {
-        color: var(--theme-bg );
-        display: block;
-        
-      }
-    }
-
+    width: 0;
+    height: 0;
   }
 
   .nav__scroll {
-    padding: 0 ;
+    padding: 0;
     overflow: auto;
+    background-color: var(--theme-elevation-0);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -184,9 +179,6 @@ body {
       color: var(--theme-elevation-0);
       text-decoration: none;
     }
-
-
-
   }
 
   .nav-group {
@@ -200,8 +192,8 @@ body {
   }
 
   .card {
-    background-color: var(--theme-bg);
-    border: 1px solid var(--theme-bg);
+    background-color: var(--theme-elevation-100);
+    border: 1px solid var(--theme-elevation-150);
     border-radius: 7px;
     padding: 20px;
   }
@@ -210,6 +202,11 @@ body {
     border-bottom: 1px solid var(--theme-bg);
     padding: 0.5rem 1rem 0.5rem 2rem;
     margin-top: 0px;
+  }
+
+  #nav-group-Globals,
+  #nav-group-Collections {
+    display: inline-block
   }
 
 }
@@ -262,6 +259,3 @@ body {
     }
   }
 }
-
-
-

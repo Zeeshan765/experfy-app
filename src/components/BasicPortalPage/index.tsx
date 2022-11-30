@@ -227,7 +227,7 @@ const BasicPortalPage: React.FC = (props) => {
                     <div>
                       <Button type="button" buttonStyle="primary" icon="plus" iconPosition="left" iconStyle="without-border">
                         Create New
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
