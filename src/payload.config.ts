@@ -26,17 +26,31 @@ import PagesCollection from './collections/PagesCollection';
 
 dotenv.config();
 
-export default buildConfig({
+export default buildConfig( {
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
     user: Users.slug,
-    css: path.resolve(__dirname, './styles/scss/index.scss'),
+    css: path.resolve( __dirname, './styles/scss/index.scss' ),
+    // webpack: ( config ) => {
+    //   output: { 
+    //     path: path.resolve( __dirname, 'dist' ),
+    //       filename: 'grapes.min.js',
+    //       publicPath: '/dist/',
+    //   }
+      
+    //   }
+      
+
+    //   return config;
+    // },
     components: {
       graphics: {
         Logo: ExperfyLogo,
+        Icon: ExperfyLogo,
       },
-      afterNavLinks: [AfterNav],
-      beforeNavLinks: [BeforeNav],
+
+      afterNavLinks: [ AfterNav ],
+      beforeNavLinks: [ BeforeNav ],
       routes: [
         {
           path: '/collections/page-builder',
@@ -77,7 +91,7 @@ export default buildConfig({
           Component: Pages,
         },
       ],
-      providers: [MyProvider],
+      providers: [ MyProvider ],
     },
   },
   collections: [
@@ -91,15 +105,15 @@ export default buildConfig({
     Media,
     Users,
   ],
-  globals: [GlobalThemeCollection],
+  globals: [ GlobalThemeCollection ],
   localization: {
-    locales: ['en', 'es'],
+    locales: [ 'en', 'es' ],
     defaultLocale: 'en',
     fallback: true,
   },
   cors: '*',
 
   typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts'),
+    outputFile: path.resolve( __dirname, 'payload-types.ts' ),
   },
-});
+} );

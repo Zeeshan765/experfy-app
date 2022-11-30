@@ -195,12 +195,13 @@ const BasicPortalPage: React.FC = (props) => {
                       </ul>
                     </div>
                     <div>
-                      <button
-                        className="btn--style-primary btn-margin-style"
+                      <Button
+                        type="button"
+                        buttonStyle="primary"
                         onClick={() => handleOpen()}
                       >
                         Configure
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -224,9 +225,9 @@ const BasicPortalPage: React.FC = (props) => {
                       </p>
                     </div>
                     <div>
-                      <button className="btn--style-primary btn-margin-style">
+                      <Button type="button" buttonStyle="primary" icon="plus" iconPosition="left" iconStyle="without-border">
                         Create New
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -409,9 +410,9 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
                   </div>
-                  <button type="submit" className="btn btn--style-primary">
+                  <Button type="submit" buttonStyle="primary">
                     Save
-                  </button>
+                  </Button>
                 </Form>
               </DialogContent>
             )}
@@ -561,12 +562,14 @@ const BasicPortalPage: React.FC = (props) => {
                                 />
                               </TableCell>
                               <TableCell>
-                                <button
+                                <Button
                                   type="button"
+                                  buttonStyle="icon-label" 
+                                  icon={"x"}
                                   onClick={() => remove(index)}
                                 >
                                   Delete
-                                </button>
+                                </Button>
                               </TableCell>
                             </TableRow>
                           );
@@ -577,10 +580,9 @@ const BasicPortalPage: React.FC = (props) => {
 
                   <Button
                     type="submit"
-                    className="primary-btn-style"
+                    buttonStyle="primary"
                     // onClick={handlenaviagte}
                   >
-                    Save{' '}
                   </Button>
                 </Form>
               </DialogContent>

@@ -13,8 +13,10 @@ import { Eyebrow } from 'payload/components/elements';
 
 const useStyles = makeStyles({
   mainTabs: {
+    color: '#000',
     borderBottom: '1px solid #d1dbe3',
     padding: '1.5rem 2rem 0',
+    uppercase: 'false',
   },
   
 });
@@ -105,21 +107,21 @@ const PortalIdentity: React.FC = (props) => {
           <Box className={classes.mainTabs}>
             <Tabs value={value} onChange={handleChange} aria-label="tabs">
               <Tab
-                style={{ fontWeight: '600', fontSize: '1.2rem' }}
+                style={{ fontWeight: '600', fontSize: '1rem' }}
                 label="Basic Information"
-                disableRipple
+                
                 {...a11yProps(0)}
               />
               <Tab
-                style={{ fontWeight: '600', fontSize: '1.2rem' }}
+                style={{ fontWeight: '600', fontSize: '1rem' }}
                 label="SEO Settings"
-                disableRipple
+                
                 {...a11yProps(1)}
               />
               <Tab
-                style={{ fontWeight: '600', fontSize: '1.2rem' }}
+                style={{ fontWeight: '600', fontSize: '1rem' }}
                 label="Brands"
-                disableRipple
+                
                 {...a11yProps(2)}
               />
             </Tabs>

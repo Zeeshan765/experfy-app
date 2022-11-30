@@ -221,10 +221,10 @@ const LandingPage: React.FC = (props) => {
                   </List>
                 </CardContent>
                 <CardActions>
-                  <Button onClick={() => handleOpen()}>
+                  <Button buttonStyle='primary' onClick={() => handleOpen()}>
                     Configure
                   </Button>
-                </CardActions>
+                </CardActions> 
               </Card>
             </Grid>
             <Grid item xs={6}>
@@ -330,7 +330,7 @@ const LandingPage: React.FC = (props) => {
                         required={true}
                       />
                     </Grid>
-                    <Button type='submit'> Submit </Button>
+                    <Button type='submit' buttonStyle='primary'> Submit </Button>
                   </Form>
                   <Grid item xs={8}>
                     <FormSelect
