@@ -244,6 +244,27 @@ body {
     border:none;
   }
 
+  .collection-edit__main {
+     width:100%; 
+}
+.collection-edit__sidebar-wrap {
+  position: inherit !important;
+  width: 100% !important;
+  padding-left: 9.6153846154rem;
+  padding-right: 9.6153846154rem;
+}
+.collection-edit__collection-actions{
+  display: none !important;
+
+}
+
+.collection-edit__document-actions{
+  padding-left: 0px !important;
+}
+.collection-edit__document-actions:before {
+  background: #fff !important;
+  /* opacity: 0.85; */
+}
 // ------------------------------------------//
 // ------------ custom css ------------------//
 // -----------------------------------------//

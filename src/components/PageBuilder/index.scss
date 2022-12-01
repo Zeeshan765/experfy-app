@@ -149,8 +149,6 @@ $fontName: 'proximanova-bold-webfont';
  height: 26px !important;
 }
 
-
-
 .gjs-field-color{
    background-color: transparent !important;
    border: none !important;
@@ -171,18 +169,44 @@ $fontName: 'proximanova-bold-webfont';
     background-color: transparent !important;
 }
 
-.panel__left{
-     background-color: rgb(255, 255, 255) !important;
-    border: var(--theme-elevation-100) 1px solid;
-    box-shadow: 0px 3px 6px 0px #00000014 !important;
-}
+// .gjs-field-range input[type="range"] {
+//     -webkit-appearance: none;
+//     width: 200px;
+//     height: 10px;
+//     background-color: #cacaca;
+//     cursor: ew-resize;
+//     overflow: hidden;
+// }
 
-.gjs-field-range input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background: #48a3d7 !important;
-    border:none;
+// .gjs-field-range input::-webkit-slider-thumb {
+//     -webkit-appearance: none;
+//     background: #48a3d7 !important;
+//     border:none;
+//   }
+
+// .gjs-field-range input[type="range"]::-webkit-slider-thumb {
+// //     -webkit-appearance: none;
+// //     width: 10px;
+// //     height: 10px;
+// //     background: #fff;
+// //     box-shadow: -205px 0 0 200px hsl(100,100%,40%);
+// // }
+
+
+.gjs-field-range input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    background: #cacaca;
+    /* border-radius: 100px; */
+    // background-color: #48a3d7;
+    border: 0px solid #000101;
   }
-
-.currentColor {
-    currentColor: #d0d0d0 !important;
+  .gjs-field-range input[type=range]::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 100px;
+    background: #48a3d7;
+    cursor: pointer;
+    -webkit-appearance: none;
 }
