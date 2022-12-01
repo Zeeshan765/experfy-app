@@ -2,15 +2,15 @@ import type GrapesJS from 'grapesjs';
 import commands from './commands';
 import blocks from './blocks';
 import panels from './panels';
-import basicBlocks from 'grapesjs-blocks-basic';
+import BasicBlocks from 'grapesjs-blocks-basic';
 import '../index.scss';
 
 export type PluginOptions = {
   /**
    * Which blocks to add.
-   * @default ['link-block', 'quote', 'text-basic']
+   * @default [basicBlocks]
    */
-  blocks?: string[];
+  blocks?: string[] ;
 
   /**
    * Add custom block options, based on block id.
@@ -68,6 +68,9 @@ export type PluginOptions = {
    * @default true
    */
   useCustomTheme?: boolean;
+
+  
+  showGlobalStyles?: boolean;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
@@ -84,6 +87,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
     textCleanCanvas: 'Are you sure you want to clear the canvas?',
     showStylesOnChange: true,
     useCustomTheme: true,
+    showGlobalStyles: true,
     ...opts,
   };
 

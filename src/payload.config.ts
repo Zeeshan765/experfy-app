@@ -10,7 +10,7 @@ import BasicPortalIdentityPage from './components/BasicPortalPage';
 import AfterNav from './components/Nav/AfterNav';
 import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
-import PageBuilder from './components/PageBuilder';
+import PageBuilder from './components/PageBuilder/SectionTemplates';
 import GlobalThemeSettings from './components/PageBuilder/GlobalThemeSettings';
 import GlobalThemeCollection from './collections/GlobalThemeSettings';
 import PortalIdentity from './components/PortalIdentity';
@@ -97,7 +97,7 @@ export default buildConfig( {
   collections: [
     BasicPortalIdentityCollection,
     PageBuilderCollection,
-    PortalIdentityDetail,
+    // PortalIdentityDetail,
     TemplatesCollection,
     ThemeCollection,
     MenusCollection,

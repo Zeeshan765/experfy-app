@@ -30,7 +30,7 @@ $fontName: 'proximanova-bold-webfont';
 }
 .gjs-pn-views-container {
     width: 22% !important;
-    overflow: scroll;
+    overflow: auto;
     box-shadow: 0 0 2px rgb(0 0 0 / 10%) !important;
 }
 .gjs-selected {
@@ -132,7 +132,7 @@ $fontName: 'proximanova-bold-webfont';
 }
 
 // --------------------------------------------------------//
-// ----------------global theam setting -------------------//
+// ----------------global theme setting -------------------//
 // --------------------------------------------------------//
 
 .gjs-sm-property{
@@ -172,8 +172,10 @@ $fontName: 'proximanova-bold-webfont';
 }
 
 .panel__left{
-     background-color: rgb(255, 255, 255) !important;
-    border: var(--theme-elevation-100) 1px solid;
+    width: 22%;
+    margin-top: 3%;
+    height: 100%;
+    background-color: rgb(255, 255, 255) !important;
     box-shadow: 0px 3px 6px 0px #00000014 !important;
 }
 

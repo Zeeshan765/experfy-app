@@ -24,7 +24,8 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
 
   // @ts-ignore
   config.showDevices = false;
-
+  
+  
   Panels.getPanels().reset([
     {
       id: 'commands',
@@ -126,13 +127,22 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
       label: `<svg ${iconStyle} viewBox="0 0 24 24">
           <path fill="currentColor" d="M12,16L19.36,10.27L21,9L12,2L3,9L4.63,10.27M12,18.54L4.62,12.81L3,14.07L12,21.07L21,14.07L19.37,12.8L12,18.54Z" />
       </svg>`
-    },{
+    },
+    {
       id: obl,
       command: obl,
       label: `<svg ${iconStyle} viewBox="0 0 24 24">
           <path fill="currentColor" d="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
       </svg>`
-    }],
+    },
+      {
+        id: 'global-style',
+        command: osm,
+        label: `<svg ${iconStyle} viewBox="0 0 24 24">
+          <path fill="currentColor" d="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+      </svg>`
+      }
+  ],
   }]);
 
   const openBl = Panels.getButton('views', obl);
@@ -149,4 +159,13 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
       openSmBtn?.set('active', true);
     }
   });
+
+  if (Panels.getButton('views', 'show-styles') && opts.showGlobalStyles){
+    Panels.getButton('views', 'show-styles').set('active', true);
+    editor.on('load', () => {
+      const openSmBtn = Panels.getButton('views', 'show-styles');
+      openSmBtn?.set('active', true);
+    })
+  };
+  
 }
