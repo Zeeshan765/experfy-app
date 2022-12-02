@@ -9,34 +9,40 @@ $mainFont: 'proxima-nova', sans-serif;
 
 $fontPath: '../../assets/fonts/proxima-nova';
 $fontName: 'proximanova-bold-webfont';
-@import "grapesjs/src/styles/scss/main.scss"; 
+@import "grapesjs/src/styles/scss/main.scss";
 
-.editor-canvas{
+.editor-canvas {
     flex-grow: 1;
     background-color: #f1f3f5;
 }
-.editor-row{
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
-  flex-wrap: nowrap;
-  height: 100%;
+
+.editor-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    height: 100%;
 }
-.gjs-cv-canvas{
+
+.gjs-cv-canvas {
     width: 78% !important;
 }
-.gjs-pn-views{
+
+.gjs-pn-views {
     width: 22% !important;
 }
+
 .gjs-pn-views-container {
     width: 22% !important;
     overflow: auto;
     box-shadow: 0 0 2px rgb(0 0 0 / 10%) !important;
 }
+
 .gjs-selected {
     outline: 2px solid var(--theme-primary) !important;
     outline-offset: -2px !important;
 }
+
 .gjs-sm-properties {
     color: #101010 !important;
     font-weight: 400;
@@ -45,16 +51,20 @@ $fontName: 'proximanova-bold-webfont';
     align-items: flex-start !important;
     background-color: #fff !important;
 }
-.gjs-pn-commands{
+
+.gjs-pn-commands {
     width: 100% !important;
 }
-.gjs-layer-vis{
+
+.gjs-layer-vis {
     width: 30px !important;
 }
-.gjs-label-wrp{
+
+.gjs-label-wrp {
     width: 22% !important;
-    min-width: 20% !important; 
+    min-width: 20% !important;
 }
+
 .gjs-category-title,
 .gjs-layer-title,
 .gjs-block-category .gjs-title,
@@ -68,37 +78,43 @@ $fontName: 'proximanova-bold-webfont';
     justify-content: start !important;
     border-bottom: 2px solid rgb(235 235 235) !important;
 }
+
 .gjs-sm-field input,
 .gjs-clm-select input,
 .gjs-clm-field input,
 .gjs-sm-field select,
 .gjs-clm-select select,
-.gjs-clm-field select {   
+.gjs-clm-field select {
     color: var(--theme-text) !important;
 }
-    
-.gjs-layer-name{
+
+.gjs-layer-name {
     padding: 0.5rem !important;
 }
+
 .gjs-block {
     width: 30% !important;
     padding: 0.5rem !important;
     border-radius: 4px !important;
-    margin:2px !important;
+    margin: 2px !important;
     box-shadow: 1px 1px 0 0 rgba(97, 97, 97, 0.3) !important;
     background-color: #f1f3f5 !important;
     color: var(--theme-primary);
 }
-.gjs-blocks-c{
+
+.gjs-blocks-c {
     justify-content: space-evenly !important;
 }
+
 .gjs-block__media {
     margin-bottom: 0px !important;
 }
+
 .gjs-sm-label {
     margin: 5px !important;
 
 }
+
 .gjs-block-label {
     font-size: 0.65rem !important;
     font-weight: 600 !important;
@@ -106,28 +122,31 @@ $fontName: 'proximanova-bold-webfont';
     color: var(--theme-text);
 }
 
-.gjs-field  {
+.gjs-field {
     border: solid 1px #ddd !important;
     background-color: var(--theme-elevation-0) !important;
     border-radius: 1px !important;
     padding: 5px !important;
 }
-.gjs-clm-tags{
+
+.gjs-clm-tags {
     font-size: 1rem !important;
 }
+
 .gjs-cv-canvas {
     left: 22% !important;
 }
 
-.gjs-pn-views-container{
+.gjs-pn-views-container {
     left: 0;
 }
-.gjs-pn-views{                      
+
+.gjs-pn-views {
     left: 0;
 }
 
 .gjs-traits-label {
-    font-weight: 600 !important; 
+    font-weight: 600 !important;
     font-size: 1rem !important;
 }
 
@@ -135,36 +154,41 @@ $fontName: 'proximanova-bold-webfont';
 // ----------------global theme setting -------------------//
 // --------------------------------------------------------//
 
-.gjs-sm-property{
+.gjs-sm-property {
     width: 100% !important;
-   display: flex !important;
-   justify-content: space-between !important; 
+    display: flex !important;
+    justify-content: space-between !important;
 }
-.gjs-field-color .gjs-input-holder{
+
+.gjs-field-color .gjs-input-holder {
     display: none !important;
 }
+
 .gjs-field-colorp {
- border-left: 0 !important;
- width: 27px !important;
- height: 26px !important;
+    border-left: 0 !important;
+    width: 27px !important;
+    height: 26px !important;
 }
 
-.gjs-field-color{
-   background-color: transparent !important;
-   border: none !important;
+.gjs-field-color {
+    background-color: transparent !important;
+    border: none !important;
 }
 
-.gjs-field-color-picker{
-  border-radius: 3px !important;
+.gjs-field-color-picker {
+    border-radius: 3px !important;
 }
 
-.gjs-field-colorp .gjs-checker-bg, .gjs-field-colorp .gjs-field-colorp-c{
-  border-radius: 4px !important;
+.gjs-field-colorp .gjs-checker-bg,
+.gjs-field-colorp .gjs-field-colorp-c {
+    border-radius: 4px !important;
 }
-.gjs-sm-slider{
+
+.gjs-sm-slider {
     display: block !important;
 }
-.gjs-field-range{
+
+.gjs-field-range {
     border: none !important;
     background-color: transparent !important;
 }
@@ -201,14 +225,17 @@ $fontName: 'proximanova-bold-webfont';
     /* border-radius: 100px; */
     // background-color: #48a3d7;
     border: 0px solid #000101;
-  }
-  .gjs-field-range input[type=range]::-webkit-slider-thumb {
+}
+
+.gjs-field-range input[type=range]::-webkit-slider-thumb {
     height: 20px;
     width: 20px;
     border-radius: 100px;
     background: #48a3d7;
     cursor: pointer;
-.panel__left{
+}
+
+.panel__left {
     width: 22%;
     margin-top: 3%;
     height: 100%;
