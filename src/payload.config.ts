@@ -24,6 +24,9 @@ import Pages from './components/Pages';
 import PagesCollection from './collections/PagesCollection';
 import NewPageBuilder from './components/NewPageBuilder';
 import NewPageBuilderCollection from './collections/NewPageBuilder';
+import IconCollection from './collections/IconCollection';
+import PhotoCollection from './collections/PhotoCollection';
+import VideoCollection from './collections/VideoCollection';
 
 dotenv.config();
 
@@ -106,6 +109,9 @@ export default buildConfig({
     MenusCollection,
     PagesCollection,
     Media,
+    IconCollection,
+    PhotoCollection,
+    VideoCollection,
     Users,
     NewPageBuilderCollection,
   ],
