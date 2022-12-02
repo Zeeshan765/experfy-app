@@ -5,7 +5,6 @@ import { Eyebrow } from 'payload/components/elements';
 import plugin from '../ExperfyPlugin';
 import Blocks from 'grapesjs-blocks-basic';
 import { useStepNav } from 'payload/components/hooks';
-// import '../';
 
 const PageBuilder: React.FC = () => {
   // const [ editor, setEditor ] = useState<GrapesJS.Editor | null>( null );

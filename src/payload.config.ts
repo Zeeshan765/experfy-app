@@ -98,7 +98,6 @@ export default buildConfig( {
   collections: [
     BasicPortalIdentityCollection,
     PageBuilderCollection,
-    // PortalIdentityDetail,
     TemplatesCollection,
     ThemeCollection,
     MenusCollection,

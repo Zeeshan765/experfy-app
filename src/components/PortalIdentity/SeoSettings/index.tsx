@@ -1,31 +1,12 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid } from '@mui/material';
 import { Button, Eyebrow } from 'payload/components/elements';
-import { useConfig } from "payload/components/utilities";
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import TextInput from "../../../blocks/TextInput";
-import { seoSettingApi } from "../apiPortal-Identity";
-// import TextArea from '../../components/TextArea';
-import { Form } from "payload/components/forms";
+import { useConfig } from 'payload/components/utilities';
+import React, { useState } from 'react';
+import TextInput from '../../../blocks/TextInput';
+import { Form } from 'payload/components/forms';
 
 export default function SeoSettings(props) {
   const { propsdata } = props;
-  const { control, handleSubmit, register } = useForm({});
-  const [errorMessage, setErrorMessage] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const onSubmit = (data) => {
-    seoSettingApi(
-      data,
-      props.adminPortal,
-      props.setSeo_Setting,
-      setSuccessMessage,
-      setSuccess,
-      setErrorMessage,
-      setError
-    );
-  };
 
   const {
     admin: { user: userSlug },
@@ -33,14 +14,6 @@ export default function SeoSettings(props) {
     serverURL,
     routes: { admin, api },
   } = useConfig();
-
-  // useEffect(() => {
-  //   if (propsdata?.id) {
-  //     setApiMethod('patch');
-  //   } else {
-  //     setApiMethod('post');
-  //   }
-  // }, [propsdata]);
 
   return (
     <Box sx={{ p: 1 }}>
@@ -79,7 +52,7 @@ export default function SeoSettings(props) {
         <div className="row">
           <div className="col-md-8">
             <TextInput
-              path={"meta_description"}
+              path={'meta_description'}
               label="Meta Description"
               display={propsdata?.meta_description}
               required={false}
@@ -90,7 +63,10 @@ export default function SeoSettings(props) {
 
         <div className="row">
           <div className="col-md-4">
-            <Button type="submit" buttonStyle="primary"> Submit </Button>
+            <Button type="submit" buttonStyle="primary">
+              {' '}
+              Submit{' '}
+            </Button>
           </div>
         </div>
       </Form>

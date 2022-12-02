@@ -3,15 +3,12 @@ import { Button, Eyebrow } from 'payload/components/elements';
 import { Form } from 'payload/components/forms';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import FormSelect from '../../../blocks/FormSelect';
 import FormTip from '../../../blocks/FormTip';
 import TextInput from '../../../blocks/TextInput';
-import { getToolTipApi } from '../apiPortal-Identity';
 
 export default function BasicInformation(props) {
   const { adminPortal, setAdminPortal, propsdata } = props;
-  console.log('propsdata', propsdata ?? '');
   const {
     admin: { user: userSlug },
     collections,
@@ -23,26 +20,7 @@ export default function BasicInformation(props) {
     (collection) => collection.slug === userSlug
   );
 
-  const defaultValues = {
-    default_language: props.adminPortal.default_language,
-    default_locale: 'US',
-  };
-  const [errorMessage, setErrorMessage] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [apiMethod, setApiMethod] = useState('post');
-  const {
-    control,
-    handleSubmit,
-    setValue,
-    getValues,
-    formState: { errors },
-    reset,
-  } = useForm({
-    defaultValues,
-  });
 
   useEffect(() => {
     if (propsdata?.id) {

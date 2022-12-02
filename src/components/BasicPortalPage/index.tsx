@@ -63,7 +63,6 @@ const BasicPortalPage: React.FC = (props) => {
   const [dense, setDense] = React.useState(false);
   const [id, setId] = useState('');
 
-
   useEffect(() => {
     setStepNav([
       {
@@ -121,6 +120,8 @@ const BasicPortalPage: React.FC = (props) => {
       setVisible(false);
       history.push({
         pathname: `/admin/collections/portal-identity/${data.doc.id}`,
+        //@ts-ignore
+
         param: data.doc.id,
       });
     }
@@ -129,6 +130,7 @@ const BasicPortalPage: React.FC = (props) => {
   const handlenaviagte = () => {
     history.push({
       pathname: `/admin/collections/portal-identity/${id}`,
+      //@ts-ignore
       param: id,
     });
   };
@@ -401,7 +403,6 @@ const BasicPortalPage: React.FC = (props) => {
                         label="Branding On"
                         checked={brandSwitch}
                         setBrandSwitch={setBrandSwitch}
-                        // handleSwitchChange={handleSwitchChange}
                       />
                     </div>
                   </div>
