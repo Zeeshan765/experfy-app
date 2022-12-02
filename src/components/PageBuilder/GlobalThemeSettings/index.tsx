@@ -1,7 +1,6 @@
 import * as GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
-import basic from 'grapesjs-blocks-basic';
 import React, { useEffect, useState } from 'react';
 import '../index.scss';
 
@@ -127,14 +126,13 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
 
       styleManager: {
         appendTo: '.styles-container',
+        
         sectors: [
           {
+            
             name: 'Global Colors Collection',
             default: true,
-            hideNotStylable: true,
             highlightChanged: true,
-            highlightComputed: true,
-            icon: 'fa fa-paint-brush',
             open: true,
             buildProps: ['background-color', 'color'],
             properties: [
@@ -142,7 +140,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 type: 'color',
                 name: 'Primary',
                 property: 'background-color',
-                default: '#e6e6e6',
+                default: '#e6e6e6',                
                 attributes: {
                   'data-type': 'background-color',
                 },
@@ -185,7 +183,6 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 type: 'slider',
                 name: 'Font Size',
                 ResizeObserverSize: 'font-size',
-
                 property: 'font-size',
                 units: ['px', 'rem'],
               },
@@ -207,6 +204,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
               },
               {
                 type: 'integer',
+                label: 'Line Height',
                 name: 'Line Height',
                 property: 'line-height',
                 ResizeObserver: 'letter-spacing',
