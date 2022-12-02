@@ -323,14 +323,14 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
               'border',
               'box-shadow',
               'font-family',
-              'font-size',
               'font-weight',
-              'letter-spacing',
-              'line-height',
               'text-align',
               'text-decoration',
               'text-shadow',
               'text-transform',
+              'font-size',
+              'line-height',
+              'letter-spacing',
             ],
             properties: [
               {
@@ -340,13 +340,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: 'Proxima Nova',
                 options: fontsList,
               },
-              {
-                type: 'slider',
-                name: 'Font Size',
-                property: 'font-size',
-                default: '14',
-                units: ['px', 'rem'],
-              },
+              
               {
                 type: 'select',
                 name: 'Font Weight',
@@ -354,20 +348,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: 'normal',
                 options: fontWeight,
               },
-              {
-                type: 'slider',
-                name: 'Letter Spacing',
-                property: 'letter-spacing',
-                default: 0,
-                units: ['px', 'rem'],
-              },
-              {
-                type: 'slider',
-                name: 'Line Height',
-                property: 'line-height',
-                default: 1,
-                units: ['px', 'rem'],
-              },
+             
               {
                 type: 'select',
                 name: 'Text Align',
@@ -414,6 +395,27 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                   { value: 'lowercase', name: 'Lowercase' },
                   { value: 'capitalize', name: 'Capitalize' },
                 ],
+              },
+              {
+                type: 'slider',
+                name: 'Font Size',
+                property: 'font-size',
+                default: '14',
+                units: ['px', 'rem'],
+              },
+              {
+                type: 'slider',
+                name: 'Letter Spacing',
+                property: 'letter-spacing',
+                default: 0,
+                units: ['px', 'rem'],
+              },
+              {
+                type: 'slider',
+                name: 'Line Height',
+                property: 'line-height',
+                default: 1,
+                units: ['px', 'rem'],
               },
             ],
           },
@@ -489,10 +491,10 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
               'font-family',
               'font-size',
               'font-weight',
-              'letter-spacing',
-              'line-height',
               'text-align',
               'text-decoration',
+              'letter-spacing',
+              'line-height',
             ],
             properties: [
               {
@@ -516,20 +518,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: 'normal',
                 options: fontWeight,
               },
-              {
-                type: 'slider',
-                name: 'Letter Spacing',
-                property: 'letter-spacing',
-                default: 0,
-                units: ['px', 'rem'],
-              },
-              {
-                type: 'slider',
-                name: 'Line Height',
-                property: 'line-height',
-                default: 1,
-                units: ['px', 'rem'],
-              },
+             
               {
                 type: 'select',
                 name: 'Text Align',
@@ -552,6 +541,20 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                   { value: 'underline', name: 'Underline' },
                   { value: 'line-through', name: 'Line Through' },
                 ],
+              },
+              {
+                type: 'slider',
+                name: 'Letter Spacing',
+                property: 'letter-spacing',
+                default: 0,
+                units: ['px', 'rem'],
+              },
+              {
+                type: 'slider',
+                name: 'Line Height',
+                property: 'line-height',
+                default: 1,
+                units: ['px', 'rem'],
               },
             ],
           },
