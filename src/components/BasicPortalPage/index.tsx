@@ -1,7 +1,7 @@
-import { ErrorMessage as DescriptionAlerts } from "@hookform/error-message";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import AddIcon from "@mui/icons-material/Add";
-import CloseIcon from "@mui/icons-material/Close";
+import { ErrorMessage as DescriptionAlerts } from '@hookform/error-message';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import AddIcon from '@mui/icons-material/Add';
+import CloseIcon from '@mui/icons-material/Close';
 import {
   Box,
   Card,
@@ -27,10 +27,7 @@ import { Button, Eyebrow } from 'payload/components/elements';
 import { Form, SelectInput } from 'payload/components/forms';
 import { useStepNav } from 'payload/components/hooks';
 import { DefaultTemplate } from 'payload/components/templates';
-import {
-  useAuth,
-  useConfig,
-} from 'payload/components/utilities';
+import { useAuth, useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import FormSelect from '../../blocks/FormSelect';
@@ -54,24 +51,24 @@ const BasicPortalPage: React.FC = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [focus, setFocus] = React.useState();
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = React.useState<boolean>(false);
-  const [tenantID, setTenantID] = useState("");
-  const [toolTipVisible, setToolTipVisible] = useState("portal_name");
+  const [tenantID, setTenantID] = useState('');
+  const [toolTipVisible, setToolTipVisible] = useState('portal_name');
   const [defaultBrands, setDefaultBrands] = useState([]);
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
-  const [id, setId] = useState('')
-  
+  const [id, setId] = useState('');
+
 
   useEffect(() => {
     setStepNav([
       {
-        label: "Portal Identity",
-        url: "/basic-portal-identity",
+        label: 'Portal Identity',
+        url: '/basic-portal-identity',
       },
     ]);
   }, [setStepNav]);
@@ -86,7 +83,7 @@ const BasicPortalPage: React.FC = (props) => {
   const { control, getValues, register, watch } = useForm();
 
   const { fields, append, remove } = useFieldArray({
-    name: "brands",
+    name: 'brands',
     control,
   });
   const data = watch();
@@ -217,7 +214,13 @@ const BasicPortalPage: React.FC = (props) => {
                       </p>
                     </div>
                     <div>
-                      <Button type="button" buttonStyle="primary" icon="plus" iconPosition="left" iconStyle="without-border">
+                      <Button
+                        type="button"
+                        buttonStyle="primary"
+                        icon="plus"
+                        iconPosition="left"
+                        iconStyle="without-border"
+                      >
                         Create New
                       </Button>
                     </div>
@@ -238,7 +241,7 @@ const BasicPortalPage: React.FC = (props) => {
                 <DescriptionAlerts
                   name={errorMessage}
                   errors={setError}
-                  message={"Check below errors"}
+                  message={'Check below errors'}
                 />
               </Grid>
             ) : (
@@ -420,7 +423,7 @@ const BasicPortalPage: React.FC = (props) => {
                   <Grid container spacing={3}>
                     <Grid item xs={8}>
                       <FormSelect
-                        type={"select"}
+                        type={'select'}
                         options={[]}
                         label="Default Brand"
                         name={'default_brand'}
@@ -442,7 +445,7 @@ const BasicPortalPage: React.FC = (props) => {
                     <Grid container spacing={1} alignItems="center">
                       <Grid item xs={2}>
                         <FormControlLabel
-                          name={"sub_domain"}
+                          name={'sub_domain'}
                           value="sub_domain"
                           control={<Radio />}
                           label="Sub-domains"
@@ -465,7 +468,7 @@ const BasicPortalPage: React.FC = (props) => {
                       </Grid>
                       <Grid item xs={2}>
                         <FormControlLabel
-                          name={"sub_directories"}
+                          name={'sub_directories'}
                           value="sub_directories"
                           control={<Radio />}
                           label="Sub-directories"
@@ -556,8 +559,8 @@ const BasicPortalPage: React.FC = (props) => {
                               <TableCell>
                                 <Button
                                   type="button"
-                                  buttonStyle="icon-label" 
-                                  icon={"x"}
+                                  buttonStyle="icon-label"
+                                  icon={'x'}
                                   onClick={() => remove(index)}
                                 >
                                   Delete
@@ -575,6 +578,7 @@ const BasicPortalPage: React.FC = (props) => {
                     buttonStyle="primary"
                     // onClick={handlenaviagte}
                   >
+                    Save
                   </Button>
                 </Form>
               </DialogContent>
