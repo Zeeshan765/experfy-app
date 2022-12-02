@@ -634,6 +634,8 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
           },
         ],
       },
+
+      
     });
 
     setEditor(editor);
