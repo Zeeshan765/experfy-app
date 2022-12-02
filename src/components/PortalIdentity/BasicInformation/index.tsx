@@ -280,7 +280,7 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            {touched === "bring_webmaster" && (
+            {touched === "bing_webmaster" && (
               <FormTip text={"The Bing Webmaster Tools account."} />
             )}
           </div>
