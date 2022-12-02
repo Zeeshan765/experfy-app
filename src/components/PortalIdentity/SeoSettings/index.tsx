@@ -90,7 +90,7 @@ export default function SeoSettings(props) {
 
         <div className="row">
           <div className="col-md-4">
-            <button type="submit" className="btn btn--style-primary"> Submit </button>
+            <Button type="submit" buttonStyle="primary"> Submit </Button>
           </div>
         </div>
       </Form>

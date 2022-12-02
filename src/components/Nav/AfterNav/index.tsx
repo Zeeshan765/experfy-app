@@ -1,18 +1,20 @@
 import { useConfig } from 'payload/components/utilities';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import MediaLibraryIcon from "../../../assets/images/sidebar/media_library.svg";
-import MenusIcon from "../../../assets/images/sidebar/menus.svg";
-import PagesIcon from "../../../assets/images/sidebar/pages.svg";
-import PortalIdentityIcon from "../../../assets/images/sidebar/portal_identity.svg";
-import TemplateLibraryIcon from "../../../assets/images/sidebar/template_library.svg";
-import ThemesIcon from "../../../assets/images/sidebar/themes.svg";
-import UsersIcon from "../../../assets/images/sidebar/users.svg";
+import MediaLibraryIcon from '../../../assets/images/sidebar/media_library.svg';
+import MenusIcon from '../../../assets/images/sidebar/menus.svg';
+import PagesIcon from '../../../assets/images/sidebar/pages.svg';
+import PortalIdentityIcon from '../../../assets/images/sidebar/portal_identity.svg';
+import TemplateLibraryIcon from '../../../assets/images/sidebar/template_library.svg';
+import ThemesIcon from '../../../assets/images/sidebar/themes.svg';
+import UsersIcon from '../../../assets/images/sidebar/users.svg';
 
 const baseClass = 'nav-group';
 
 const AfterNav: React.FC = () => {
-  const { routes: { admin: adminRoute } } = useConfig();
+  const {
+    routes: { admin: adminRoute },
+  } = useConfig();
 
   return (
     <div className={baseClass}>
@@ -25,7 +27,7 @@ const AfterNav: React.FC = () => {
           <img style={{ paddingRight: 8 }} src={PagesIcon} alt="Pages" />
           Pages
         </NavLink>
-  
+
         <NavLink
           className="nav__link"
           activeClassName="active"
@@ -66,7 +68,7 @@ const AfterNav: React.FC = () => {
           <img style={{paddingRight: 8}} src={UsersIcon} alt="Users" />
           Users
         </NavLink>
-        
+
         <NavLink
           className="nav__link"
           activeClassName="active"

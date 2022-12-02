@@ -149,15 +149,15 @@ const CustomDefaultRoute: AdminView = ({ user, canAccessAdmin }) => {
                 </Typography>
                 <Typography variant="body1">
                   Mapping and discovery of internal talent through TalentCloud
-                  enables Managers to easily indentify the resurces that are
+                  enables Managers to easily identify the resources that are
                   needed for roles, projects and gigs. Fully brand and customize
                   your internal opportunity marketplace and provide your
-                  employees a way to engage with new opportunities whitin your
+                  employees a way to engage with new opportunities within your
                   organization.
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button >
+                <Button buttonStyle='secondary'>
                   Create New
                 </Button>
               </CardActions>

@@ -13,12 +13,11 @@
   --breakpoint-l-width : #{$breakpoint-l-width};
   --scrollbar-width: 17px;
   --nav-width: #{base(9)};
-
+  --nav-width-m: #{base(7)};
   --theme-bg: #f9f9fa;
   --theme-input-bg: var(--theme-elevation-0);
-  --theme-text: #4a5162;
+  --theme-text: #3a4152;
   --theme-primary: #48a3d7;
-  ;
   --theme-baseline: #{$baseline-px};
   --theme-baseline-body-size: #{$baseline-body-size};
   --font-body: 'proxima-nova', system-ui;
@@ -33,7 +32,7 @@
 
   @include large-break {
     --gutter-h: #{base(3)};
-    --nav-width: #{base(8)};
+    --nav-width: #{base(9)};
   }
 
   @include mid-break {
@@ -51,9 +50,10 @@
 //---------------------------------------------
 
 body {
+  background-color: var(--theme-bg);
   font-family: var(--font-body);
   color: var(--theme-text);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
 }
 
@@ -97,7 +97,8 @@ body {
 .template-default {
   .nav {
     display: block;
-}
+  }
+
   .login__brand {
     svg {
       color: var(--theme-text);
@@ -106,38 +107,42 @@ body {
     }
   }
 
-  .eyebrow:before {
+  .eyebrow {
     background-color: var(--theme-elevation-0);
-    opacity: 1;
+    opacity: 0;
   }
 
   .step-nav span {
     color: var(--theme-text);
   }
-  
+
+  .eyebrow:before {
+    background-color: var(--theme-text);
+    opacity: 0;
+  }
 
   .eyebrow {
     padding: 25px;
     font-weight: 500;
     font-size: large;
     border-bottom: var(--theme-elevation-100) 1px solid;
+    opacity: 1;
   }
 
   .nav header {
-    // padding: 18px;
-    // background-color: var(--theme-elevation-0);
-    // margin-bottom: 0px;
-    display: none;
+    width: 0;
+    height: 0;
   }
 
   .nav__scroll {
-    padding: 0px;
-    // overflow: auto;
+    padding: 0;
+    overflow: auto;
+    background-color: var(--theme-elevation-0);
   }
 
   @media (prefers-reduced-motion: no-preference) {
     .graphic-icon path {
-      fill: var(--theme-text);
+      fill: var(--theme-bg);
       // animation: App-logo-spin infinite 20s linear;
     }
   }
@@ -158,17 +163,21 @@ body {
   }
 
   .nav nav a {
-    padding: .5rem 2rem .5rem 2rem;
-    font-weight: 500;
-    font-size: 13px;
+    padding: 1rem 2rem 1rem 2rem;
+    font-weight: 400;
+    font-size: 1.1rem;
+
     &.active {
-      background-color: var(--theme-elevation-50);
-    } &:hover {
-      color: var(--theme-text);
+      background-color: var(--theme-primary);
+      color: var(--theme-elevation-0);
+
     }
-    img {
-      width: 25px;
-  }
+
+    &:hover {
+      background-color: var(--theme-primary);
+      color: var(--theme-elevation-0);
+      text-decoration: none;
+    }
   }
 
   .nav-group {
@@ -182,70 +191,67 @@ body {
   }
 
   .card {
-    background-color: #f3f4f7;
-    border: 1px solid #d0dbe6;
+    background-color: var(--theme-elevation-100);
+    border: 1px solid var(--theme-elevation-150);
     border-radius: 7px;
     padding: 20px;
   }
-
-  // .btn--style-primary {
-  //   background-color: var(--theme-primary);
-  //   color: var(--theme-elevation-0);
-  //   font-family: var(--font-body);
-  //   padding: 10px 45px;
-  //   border-radius: 5px;
-  //   font-weight: 500;
-  //   font-size: large;
-  //   border:none;
-  // }
-
-  .nav-group__toggle {
-    border-bottom:1px solid #0000001f;
+ .nav-group__toggle {
+    border-bottom: 1px solid var(--theme-bg);
     padding: 0.5rem 1rem 0.5rem 2rem;
     margin-top: 0px;
   }
-  .btn-margin-style{
-    margin: 30px 0px;
+
+  #nav-group-Globals,
+  #nav-group-Collections {
+    display: inline-block
+  }
+  .btn-margin-style {
+    margin: 30px 0px; 
+ 
+  }
+
+}
+
+.field-type.text {
+  margin-bottom: 1.9rem;
+
+  .field-label {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0px;
+  }
+
+  input {
+    border-radius: 0.25rem;
   }
 }
 
-  .field-type.text{
-    margin-bottom: 1.9rem;
-      .field-label {
-        margin-bottom: 0.5rem;
-        padding-bottom: 0px;
-    }
-    input{
-      border-radius: 0.25rem;
-    }
-   }
-
-   .field-type.select{ 
-   .field-label{
+.field-type.select {
+  .field-label {
     margin-bottom: 0.5rem;
     padding-bottom: 0px;
-   }
   }
-  div.react-select{
-    div.rs__control{
-      border-radius: 0.25rem;
-    }
-  } 
-  
+}
 
-  .btn--style-primary {
-    background-color: var(--theme-primary);
-    color: var(--theme-elevation-0);
-    font-family: var(--font-body);
-    padding: 10px 45px;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: large;
-    border:none;
+div.react-select {
+  div.rs__control {
+    border-radius: 0.25rem;
   }
+}
 
-  .collection-edit__main {
-     width:100%; 
+.btn--style-primary {
+  background-color: var(--theme-primary);
+  color: var(--theme-elevation-0);
+  font-family: var(--font-body);
+  padding: 10px 45px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: large;
+  border: none;
+}
+
+.collection-edit__main {
+  width:100%; 
 }
 .collection-edit__sidebar-wrap {
   position: inherit !important;
@@ -268,33 +274,38 @@ body {
 // ------------------------------------------//
 // ------------ custom css ------------------//
 // -----------------------------------------//
-
-.nav-category{
-  border-bottom:1px solid #0000001f;
+.nav-category {
+  padding: 4rem;
+  border-bottom: 1px solid var(--theme-bg);
 }
 
 .portals-identity {
   margin-top: 20px;
-  .card--style{
+
+  .card--style {
     height: 100%;
   }
+
   .card {
     h3 {
       font-weight: 700;
       margin-bottom: 15px;
       font-size: 26px;
     }
+
     ul {
       padding-left: 1.230769231rem;
       margin-bottom: 0px;
+
       li {
         font-size: 16px;
         line-height: 28px;
-        &::marker{
+        &::marker {
           color: var(--theme-primary);
         }
       }
     }
+
     p {
       font-size: 16px;
       line-height: 27px;
@@ -302,33 +313,3 @@ body {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

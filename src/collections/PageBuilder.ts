@@ -1,27 +1,26 @@
 import 'grapesjs/dist/css/grapes.min.css';
 import { CollectionConfig } from 'payload/types';
-import PageBuilder from '../components/PageBuilder';
+import PageBuilder from '../components/PageBuilder/SectionTemplates';
 
 const PageBuilderCollection: CollectionConfig = {
   slug: 'page-builder',
-
   access: {
     read: () => true,
     create: () => false,
   },
+  admin:
+  {
+    components: {
+      views: {
+        Edit: PageBuilder,
+        List: PageBuilder,
+      },
+    }
+
+  },
   fields: [
-    {
-      name: 'Page Builder',
-      type: 'ui',
-      label: 'Page Builder',
-      admin: {
-        components: {
-          Field: PageBuilder, 
-          Cell: PageBuilder,
-        }
-      }
-    },
-  ],
+
+  ]
 };
 
 export default PageBuilderCollection;

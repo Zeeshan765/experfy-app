@@ -23,18 +23,18 @@ const FormTip: React.FC<Type> = (props) => {
   const open = Boolean(anchorEl);
 
   return (
-    <Grid item xs={12}>
+    <Grid zIndex={10} item xs={12}>
       <Box className={classes.formTip}>
         <div
           style={{
             display: "flex",
-            padding: 10,
+            alignItems: "align-items",
           }}
         >
          <span>Tip</span>
-          <text style={{paddingTop:10}}className={classes.formTipContentText}>
+          <div style={{paddingTop:10}}className={classes.formTipContentText}>
             {props.text}
-          </text>
+          </div>
         </div>
       </Box>
     </Grid>

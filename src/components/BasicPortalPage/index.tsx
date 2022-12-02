@@ -144,7 +144,6 @@ const BasicPortalPage: React.FC = (props) => {
     });
   };
 
-
   return (
     <DefaultTemplate>
       <div className="main__content">
@@ -168,71 +167,6 @@ const BasicPortalPage: React.FC = (props) => {
                 </CardContent>
               </Card>
             </Grid>
-            {/* <Grid item xs={6}>
-              <Card className={classes.portalCard}>
-                <CardContent
-                  className={`${classes.portalCardContent} ${classes.portalCardIconOne}`}
-                >
-                  <Typography component="h3" variant="h3">
-                    External TalentCloud Career Portal
-                  </Typography>
-                  <List dense={dense} sx={{ color: '#4a5162' }}>
-                    <ListItem disableGutters>
-                      Initiate the creation and enter basic information
-                    </ListItem>
-                    <ListItem disableGutters>Configure the Portal</ListItem>
-                    <ListItem disableGutters>
-                      Configure theme(s) for your portal
-                    </ListItem>
-                    <ListItem disableGutters>
-                      Add pages and create custom content through pre-configured
-                      sections and elements.
-                    </ListItem>
-                    <ListItem disableGutters>
-                      Publish the portal to start pipelining and recruiting
-                      talent from external channels.
-                    </ListItem>
-                  </List>
-                  <CardActions>
-                    <Button
-                      onClick={() => handleOpen()}
-                      className="primary-btn-style btn-margin-style "
-                    >
-                      Configure
-                    </Button>
-                  </CardActions>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={6}>
-              <Card className={classes.portalCard}>
-                <CardContent
-                  className={`${classes.portalCardContent} ${classes.portalCardIconTwo}`}
-                >
-                  <Typography component="h3" variant="h3">
-                    Inner Mobility through Internal TalentCloud Marketplace
-                  </Typography>
-                  <Typography variant="body1">
-                    Mapping and discovery of internal talent through TalentCloud
-                    enables Managers to easily identify the resources that are
-                    needed for roles, projects and gigs. Fully brand and
-                    customize your internal opportunity marketplace and provide
-                    your employees a way to engage with new opportunities within
-                    your organization.
-                  </Typography>
-                  <CardActions>
-                    <Button
-                      type="button"
-                      buttonStyle="primary"
-                      iconPosition="left"
-                      icon={<AddIcon />}
-                    >
-                      Create New
-                    </Button>
-                  </CardActions>
-                </CardContent>
-              </Card>
-            </Grid> */}
           </Grid>
 
           <div className="portals-identity">
@@ -261,7 +195,13 @@ const BasicPortalPage: React.FC = (props) => {
                       </ul>
                     </div>
                     <div>
-                      <button className="btn--style-primary btn-margin-style" onClick={() => handleOpen()}>Configure</button>
+                      <Button
+                        type="button"
+                        buttonStyle="primary"
+                        onClick={() => handleOpen()}
+                      >
+                        Configure
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -285,9 +225,9 @@ const BasicPortalPage: React.FC = (props) => {
                       </p>
                     </div>
                     <div>
-                      <button className="btn--style-primary btn-margin-style">
+                      <Button type="button" buttonStyle="primary" icon="plus" iconPosition="left" iconStyle="without-border">
                         Create New
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -342,8 +282,8 @@ const BasicPortalPage: React.FC = (props) => {
                   <div className="row">
                     <div className="col-md-8">
                       <TextInput
-                        label={"Portal Name"}
-                        path={"career_portal_name"}
+                        label={'Portal Name'}
+                        path={'career_portal_name'}
                         required={true}
                         placeHolder="Company Career Portal"
                         setTouched={setTouched}
@@ -351,7 +291,7 @@ const BasicPortalPage: React.FC = (props) => {
                     </div>
 
                     <div className="col-md-4">
-                      {touched === "career_portal_name" && (
+                      {touched === 'career_portal_name' && (
                         <FormTip text={portal_name_tip} />
                       )}
                     </div>
@@ -360,17 +300,17 @@ const BasicPortalPage: React.FC = (props) => {
                   <div className="row">
                     <div className="col-md-8">
                       <TextInput
-                        path={"portal_id"}
-                        label={"Portal ID"}
-                        placeHolder={"CP-ID798998989"}
+                        path={'portal_id'}
+                        label={'Portal ID'}
+                        placeHolder={'CP-ID798998989'}
                         setTouched={setTouched}
                       />
                     </div>
 
                     <div className="col-md-4">
-                      {touched === "portal_id" && (
+                      {touched === 'portal_id' && (
                         <FormTip
-                          text={"The read only filed displays the Portal ID"}
+                          text={'The read only filed displays the Portal ID'}
                         />
                       )}
                     </div>
@@ -379,7 +319,7 @@ const BasicPortalPage: React.FC = (props) => {
                   <div className="row">
                     <div className="col-md-8">
                       <TextInput
-                        path={"portal_url"}
+                        path={'portal_url'}
                         label="Portal URL"
                         required={true}
                         placeHolder="https://www.experfy.com/career-portal"
@@ -388,7 +328,7 @@ const BasicPortalPage: React.FC = (props) => {
                     </div>
 
                     <div className="col-md-4">
-                      {touched === "portal_url" && (
+                      {touched === 'portal_url' && (
                         <FormTip text={portal_url_tip} />
                       )}
                     </div>
@@ -397,7 +337,7 @@ const BasicPortalPage: React.FC = (props) => {
                   <div className="row">
                     <div className="col-md-8">
                       <TextInput
-                        path={"company_name"}
+                        path={'company_name'}
                         label="Company Name"
                         placeHolder="Company Name"
                         setTouched={setTouched}
@@ -405,7 +345,7 @@ const BasicPortalPage: React.FC = (props) => {
                     </div>
 
                     <div className="col-md-4">
-                      {touched === "company_name" && (
+                      {touched === 'company_name' && (
                         <FormTip text={company_name_tip} />
                       )}
                     </div>
@@ -414,34 +354,40 @@ const BasicPortalPage: React.FC = (props) => {
                   <div className="row">
                     <div className="col-md-8">
                       <FormSelect
-                        type={"select"}
-                        options={["English", "Spanish"]}
+                        type={'select'}
+                        options={['English', 'Spanish']}
                         label="Default Language"
-                        name={"default_language"}
-                        path={"default_language"}
+                        name={'default_language'}
+                        path={'default_language'}
                         defaultValue="English"
+                        setTouched={setTouched}
                       />
                     </div>
 
                     <div className="col-md-4">
-                      <FormTip text="Set the default language of your career portal for your visitors" />
+                      {touched === 'default_language' && (
+                        <FormTip text="Set the default language of your career portal for your visitors" />
+                      )}
                     </div>
                   </div>
 
                   <div className="row">
                     <div className="col-md-8">
                       <FormSelect
-                        options={["US", "ES"]}
+                        options={['US', 'ES']}
                         label="Default Locale"
-                        name={"default_locale"}
-                        path={"default_locale"}
+                        name={'default_locale'}
+                        path={'default_locale'}
                         defaultValue="US"
-                        type={"select"}
+                        type={'select'}
+                        setTouched={setTouched}
                       />
                     </div>
 
                     <div className="col-md-4">
-                      <FormTip text="Set the default locale of your career portal for your visitors" />
+                      {touched === 'default_locale' && (
+                        <FormTip text="Set the default locale of your career portal for your visitors" />
+                      )}
                     </div>
                   </div>
 
@@ -464,9 +410,9 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
                   </div>
-                  <button type="submit" className="btn btn--style-primary">
+                  <Button type="submit" buttonStyle="primary">
                     Save
-                  </button>
+                  </Button>
                 </Form>
               </DialogContent>
             )}
@@ -616,12 +562,14 @@ const BasicPortalPage: React.FC = (props) => {
                                 />
                               </TableCell>
                               <TableCell>
-                                <button
+                                <Button
                                   type="button"
+                                  buttonStyle="icon-label" 
+                                  icon={"x"}
                                   onClick={() => remove(index)}
                                 >
                                   Delete
-                                </button>
+                                </Button>
                               </TableCell>
                             </TableRow>
                           );
@@ -632,10 +580,9 @@ const BasicPortalPage: React.FC = (props) => {
 
                   <Button
                     type="submit"
-                    className="primary-btn-style"
+                    buttonStyle="primary"
                     // onClick={handlenaviagte}
                   >
-                    Save{' '}
                   </Button>
                 </Form>
               </DialogContent>

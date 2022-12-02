@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Box, Grid } from "@mui/material";
 import { Button, Eyebrow } from 'payload/components/elements';
 import { Form } from "payload/components/forms";
@@ -314,7 +313,7 @@ export default function BasicInformation(props) {
             {/* <Button variant="contained" color="primary" >
              
             </Button> */}
-            <button type="submit" className="btn btn--style-primary">Save</button>
+            <Button type="submit"  buttonStyle="primary">Save</Button>
           </div>
         </div>
       </Form>
