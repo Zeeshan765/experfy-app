@@ -4,7 +4,6 @@ import { buildConfig } from 'payload/config';
 import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
 import Media from './collections/Media';
 import PageBuilderCollection from './collections/PageBuilder';
-import PortalIdentityDetail from './collections/PortalIdentityDetail';
 import Users from './collections/Users';
 import BasicPortalIdentityPage from './components/BasicPortalPage';
 import AfterNav from './components/Nav/AfterNav';
@@ -23,23 +22,24 @@ import Menus from './components/Menus';
 import MenusCollection from './collections/MenusCollection';
 import Pages from './components/Pages';
 import PagesCollection from './collections/PagesCollection';
+import NewPageBuilder from './components/NewPageBuilder';
+import NewPageBuilderCollection from './collections/NewPageBuilder';
 
 dotenv.config();
 
-export default buildConfig( {
+export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
     user: Users.slug,
-    css: path.resolve( __dirname, './styles/scss/index.scss' ),
+    css: path.resolve(__dirname, './styles/scss/index.scss'),
     // webpack: ( config ) => {
-    //   output: { 
+    //   output: {
     //     path: path.resolve( __dirname, 'dist' ),
     //       filename: 'grapes.min.js',
     //       publicPath: '/dist/',
     //   }
-      
+
     //   }
-      
 
     //   return config;
     // },
@@ -49,8 +49,8 @@ export default buildConfig( {
         Icon: ExperfyLogo,
       },
 
-      afterNavLinks: [ AfterNav ],
-      beforeNavLinks: [ BeforeNav ],
+      afterNavLinks: [AfterNav],
+      beforeNavLinks: [BeforeNav],
       routes: [
         {
           path: '/collections/page-builder',
@@ -90,9 +90,12 @@ export default buildConfig( {
           path: '/collections/pages',
           Component: Pages,
         },
-        
+        {
+          path: '/collections/new-page-builder',
+          Component: NewPageBuilder,
+        },
       ],
-      providers: [ MyProvider ],
+      providers: [MyProvider],
     },
   },
   collections: [
@@ -104,16 +107,17 @@ export default buildConfig( {
     PagesCollection,
     Media,
     Users,
+    NewPageBuilderCollection,
   ],
-  globals: [ GlobalThemeCollection ],
+  globals: [GlobalThemeCollection],
   localization: {
-    locales: [ 'en', 'es' ],
+    locales: ['en', 'es'],
     defaultLocale: 'en',
     fallback: true,
   },
   cors: '*',
 
   typescript: {
-    outputFile: path.resolve( __dirname, 'payload-types.ts' ),
+    outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
-} );
+});
