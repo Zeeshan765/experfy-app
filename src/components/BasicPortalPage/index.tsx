@@ -1,7 +1,7 @@
-import { ErrorMessage as DescriptionAlerts } from '@hookform/error-message';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import AddIcon from '@mui/icons-material/Add';
-import CloseIcon from '@mui/icons-material/Close';
+import { ErrorMessage as DescriptionAlerts } from "@hookform/error-message";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import AddIcon from "@mui/icons-material/Add";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   Card,
@@ -54,12 +54,12 @@ const BasicPortalPage: React.FC = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [focus, setFocus] = React.useState();
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = React.useState<boolean>(false);
-  const [tenantID, setTenantID] = useState('');
-  const [toolTipVisible, setToolTipVisible] = useState('portal_name');
+  const [tenantID, setTenantID] = useState("");
+  const [toolTipVisible, setToolTipVisible] = useState("portal_name");
   const [defaultBrands, setDefaultBrands] = useState([]);
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
@@ -70,8 +70,8 @@ const BasicPortalPage: React.FC = (props) => {
   useEffect(() => {
     setStepNav([
       {
-        label: 'Portal Identity',
-        url: '/basic-portal-identity',
+        label: "Portal Identity",
+        url: "/basic-portal-identity",
       },
     ]);
   }, [setStepNav]);
@@ -86,7 +86,7 @@ const BasicPortalPage: React.FC = (props) => {
   const { control, getValues, register, watch } = useForm();
 
   const { fields, append, remove } = useFieldArray({
-    name: 'brands',
+    name: "brands",
     control,
   });
   const data = watch();
@@ -187,12 +187,13 @@ const BasicPortalPage: React.FC = (props) => {
                       </ul>
                     </div>
                     <div>
-                      <button
-                        className="btn--style-primary btn-margin-style"
+                      <Button
+                        type="button"
+                        buttonStyle="primary"
                         onClick={() => handleOpen()}
                       >
                         Configure
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -216,9 +217,9 @@ const BasicPortalPage: React.FC = (props) => {
                       </p>
                     </div>
                     <div>
-                      <button className="btn--style-primary btn-margin-style">
+                      <Button type="button" buttonStyle="primary" icon="plus" iconPosition="left" iconStyle="without-border">
                         Create New
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -237,7 +238,7 @@ const BasicPortalPage: React.FC = (props) => {
                 <DescriptionAlerts
                   name={errorMessage}
                   errors={setError}
-                  message={'Check below errors'}
+                  message={"Check below errors"}
                 />
               </Grid>
             ) : (
@@ -249,7 +250,7 @@ const BasicPortalPage: React.FC = (props) => {
                 justifyContent="space-between"
                 alignItems="center"
               >
-                <h2>Portal Identity</h2>
+                <h2 className="mb-2">Portal Identity</h2>
 
                 <IconButton onClick={() => handleClose()}>
                   <CloseIcon />
@@ -265,10 +266,10 @@ const BasicPortalPage: React.FC = (props) => {
                   action={`${serverURL}${api}/basic-portal-identity`}
                   validationOperation="create"
                 >
-                  <h3>
+                  <p className="mb-4">
                     Fill in the information below and you will be on your way to
                     creating your Career portal
-                  </h3>
+                  </p>
 
                   <div className="row">
                     <div className="col-md-8">
@@ -401,9 +402,9 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
                   </div>
-                  <button type="submit" className="btn btn--style-primary">
+                  <Button type="submit" buttonStyle="primary">
                     Save
-                  </button>
+                  </Button>
                 </Form>
               </DialogContent>
             )}
@@ -419,7 +420,7 @@ const BasicPortalPage: React.FC = (props) => {
                   <Grid container spacing={3}>
                     <Grid item xs={8}>
                       <FormSelect
-                        type={'select'}
+                        type={"select"}
                         options={[]}
                         label="Default Brand"
                         name={'default_brand'}
@@ -441,7 +442,7 @@ const BasicPortalPage: React.FC = (props) => {
                     <Grid container spacing={1} alignItems="center">
                       <Grid item xs={2}>
                         <FormControlLabel
-                          name={'sub_domain'}
+                          name={"sub_domain"}
                           value="sub_domain"
                           control={<Radio />}
                           label="Sub-domains"
@@ -464,7 +465,7 @@ const BasicPortalPage: React.FC = (props) => {
                       </Grid>
                       <Grid item xs={2}>
                         <FormControlLabel
-                          name={'sub_directories'}
+                          name={"sub_directories"}
                           value="sub_directories"
                           control={<Radio />}
                           label="Sub-directories"
@@ -553,12 +554,14 @@ const BasicPortalPage: React.FC = (props) => {
                                 />
                               </TableCell>
                               <TableCell>
-                                <button
+                                <Button
                                   type="button"
+                                  buttonStyle="icon-label" 
+                                  icon={"x"}
                                   onClick={() => remove(index)}
                                 >
                                   Delete
-                                </button>
+                                </Button>
                               </TableCell>
                             </TableRow>
                           );
@@ -569,10 +572,9 @@ const BasicPortalPage: React.FC = (props) => {
 
                   <Button
                     type="submit"
-                    className="primary-btn-style"
+                    buttonStyle="primary"
                     // onClick={handlenaviagte}
                   >
-                    Save{' '}
                   </Button>
                 </Form>
               </DialogContent>

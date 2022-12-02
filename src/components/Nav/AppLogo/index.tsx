@@ -1,6 +1,6 @@
 import React from 'react';
 const ExperfyLogo: React.FC = () => (
-    <svg  xmlns = "http://www.w3.org/2000/svg" width = "0" height = "35" viewBox = "0 0 0 0" >
+    <svg  xmlns = "http://www.w3.org/2000/svg" width = "0" height = "0" viewBox = "0 0 25 25" >
         <g id="Group_20389" data-name="Group 20389" transform="translate(-833.41 -512.82)">
             <g id="Group_20389-2" data-name="Group 20389" transform="translate(833.41 512.82)">
                 <path id="Path_16359" data-name="Path 16359" d="M838.508,512.82c-2.406,0-5.1,1.978-5.1,4.39V548.7l5.309-5.3h22.908a4.4,4.4,0,0,0,4.377-4.39v-21.8a4.4,4.4,0,0,0-4.377-4.39Z" transform="translate(-833.41 -512.82)" fill="#61a7db" fill-rule="evenodd" />

@@ -1,18 +1,15 @@
-import GrapesJS from 'grapesjs';
-import plugin from 'grapesjs-project-manager';
-import 'grapesjs-project-manager/dist/grapesjs-project-manager.min.css';
-import 'grapesjs/dist/css/grapes.min.css';
+import * as GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
-import React, { ReactPropTypes, useEffect, useState } from 'react';
-import experfy from '../ExperfyPlugin';
+import { useStepNav } from 'payload/components/hooks';
+import basic from 'grapesjs-blocks-basic';
+import React, { useEffect, useState } from 'react';
 import '../index.scss';
 
-import { useStepNav } from 'payload/components/hooks';
-import { DefaultTemplate } from 'payload/components/templates';
+
 
 export interface GrapesjsReactProps {
   id: HTMLElement['id'];
-  onInit?(editor?: GrapesJS.Editor): void;
+  onInit?(editor?: GrapesJS.default.Editor): void;
   onDestroy?(): void;
 }
 const borderStyle = [
@@ -62,8 +59,9 @@ const fontsList = [
   { value: 'Francois One', name: 'Francois One' },
 ];
 const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
-  const [editor, setEditor] = useState<GrapesJS.Editor>();
+  const [editor, setEditor] = useState<GrapesJS.default.Editor>();
   const { setStepNav } = useStepNav();
+
 
   useEffect(() => {
     setStepNav([
@@ -75,9 +73,11 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
   }, [setStepNav]);
 
   useEffect(() => {
-    const editor = GrapesJS.init({
+    const editor = GrapesJS.default.init({
       container: '#gjs',
       height: '100%',
+      fromElement: true,
+      nativeDnD: true,
       storageManager: {
         type: 'local',
         autosave: true,
@@ -94,16 +94,34 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
         },
       },
 
+
       panels: {
+
         defaults: [
           {
-            id: 'style-manager',
+            id: 'global-style',
             el: '.panel__left',
             active: true,
-            label: 'Global Color Collection',
-            command: 'show-styles',
-            toggle: false,
+            label: 'Global Theme Settings',
+
           },
+          // {
+          //   id: 'open-templates',
+          //   className: 'fa fa-folder-o',
+          //   attributes: {
+          //     title: 'Open projects and templates'
+          //   },
+          //   command: 'open-templates', //Open modal 
+          // },
+          // {
+          //   id: 'open-pages',
+          //   className: 'fa fa-file-o',
+          //   attributes: {
+          //     title: 'Take Screenshot'
+          //   },
+          //   command: 'open-pages',
+          //   toggle: false,
+          // }
         ],
       },
 
@@ -112,6 +130,11 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
         sectors: [
           {
             name: 'Global Colors Collection',
+            default: true,
+            hideNotStylable: true,
+            highlightChanged: true,
+            highlightComputed: true,
+            icon: 'fa fa-paint-brush',
             open: true,
             buildProps: ['background-color', 'color'],
             properties: [
@@ -155,25 +178,29 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 name: 'Font Family',
                 property: 'font-family',
                 default: 'Roboto',
+                ResizeObserver: true,
                 options: fontsList,
               },
               {
                 type: 'slider',
                 name: 'Font Size',
+                ResizeObserverSize: 'font-size',
+
                 property: 'font-size',
                 units: ['px', 'rem'],
-                max: 72,
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Font Weight',
                 property: 'font-weight',
+                ResizeObserver: 'font-weight',
                 default: 'normal',
                 options: fontWeight,
               },
               {
                 type: 'slider',
                 name: 'Letter Spacing',
+
                 property: 'letter-spacing',
                 default: '0',
                 units: ['px', 'rem'],
@@ -182,11 +209,12 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 type: 'integer',
                 name: 'Line Height',
                 property: 'line-height',
+                ResizeObserver: 'letter-spacing',
                 default: '1',
                 units: ['px', 'em', 'rem'],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Align',
                 property: 'text-align',
                 default: 'left',
@@ -198,7 +226,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 ],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
@@ -209,7 +237,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 ],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Shadow',
                 property: 'text-shadow',
                 default: 'none',
@@ -221,7 +249,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 ],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Transform',
                 property: 'text-transform',
                 default: 'none',
@@ -243,34 +271,39 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 type: 'integer',
                 name: 'Border Radius',
                 property: 'border-radius',
-                default: 0,
-                units: ['px', 'rem'],
-              },
-              {
+                default: '0',
+                units: ['px', '%'],
+
+              }, {
                 type: 'integer',
                 name: 'Border Width',
                 property: 'border-width',
-                default: 0,
-                units: ['px', 'rem'],
+                default: '0',
+                units: ['px', '%'],
+
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Border Style',
                 property: 'border-style',
                 default: 'solid',
-                options: borderStyle,
+                options: [
+                  { value: 'solid', name: 'Solid' },
+                  { value: 'dotted', name: 'Dotted' },
+                  { value: 'dashed', name: 'Dashed' },
+                  { value: 'double', name: 'Double' },
+                  { value: 'groove', name: 'Groove' },
+                  { value: 'ridge', name: 'Ridge' },
+                  { value: 'inset', name: 'Inset' },
+                  { value: 'outset', name: 'Outset' },
+                  { value: 'none', name: 'None' },
+                  { value: 'hidden', name: 'Hidden' },
+                ],
+
               },
+
               {
-                type: 'color',
-                name: 'Border Color',
-                property: 'border-color',
-                default: '#212e44',
-                attributes: {
-                  'data-type': 'border-color',
-                },
-              },
-              {
-                type: 'radio',
+                type: 'select',
                 name: 'Box Shadow',
                 property: 'box-shadow',
                 default: 'none',
@@ -317,7 +350,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 units: ['px', 'rem'],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Font Weight',
                 property: 'font-weight',
                 default: 'normal',
@@ -338,7 +371,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 units: ['px', 'rem'],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Align',
                 property: 'text-align',
                 default: 'left',
@@ -350,7 +383,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 ],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
@@ -361,7 +394,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 ],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Shadow',
                 property: 'text-shadow',
                 default: 'none',
@@ -373,7 +406,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 ],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Transform',
                 property: 'text-transform',
                 default: 'none',
@@ -412,7 +445,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 units: ['px', 'rem'],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Border Style',
                 property: 'border-style',
                 default: 'solid',
@@ -425,7 +458,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: 'transparent',
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Border Shadow',
                 property: 'box-shadow',
                 default: 'none',
@@ -479,7 +512,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 units: ['px', 'rem'],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Font Weight',
                 property: 'font-weight',
                 default: 'normal',
@@ -500,7 +533,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 units: ['px', 'rem'],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Align',
                 property: 'text-align',
                 default: 'left',
@@ -512,7 +545,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 ],
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
@@ -536,14 +569,14 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: '#4a5162',
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Font Weight',
                 property: 'font-weight',
                 default: 'normal',
                 options: fontWeight,
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
@@ -578,7 +611,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: 'transparent',
               },
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Font Weight',
                 property: 'font-weight',
                 default: 'normal',
@@ -586,7 +619,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
               },
 
               {
-                type: 'radio',
+                type: 'select',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
@@ -603,17 +636,34 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
     });
 
     setEditor(editor);
+    editor.onReady(clb => {
+      console.log('Editor is ready');
+      
+    });
+
   }, [setEditor]);
 
+
+
+  // editor.setDragMode('translate');
+
+
   return (
-    <div>
+    <div className='main__content'>
       <Eyebrow />
-      <div className="editor-canvas">
-        <div id="gjs"></div>
+      <div className="editor-row">
+        {/* <div className="panel__top">
+          <div className="panel__basic-actions"></div>
+        </div> */}
+        <div className="panel__left">
+          <div className="styles-container"></div>
+        </div>
+        <div className="editor-canvas">
+          <div id="gjs"></div>
+        </div>
+        
       </div>
-      <div className="panel__left">
-        <div className="styles-container"></div>
-      </div>
+      
     </div>
   );
 };
