@@ -76,6 +76,7 @@ export default buildConfig({
           path: '/collections/pages',
           Component: Pages,
         },
+        
       ],
       providers: [MyProvider],
     },

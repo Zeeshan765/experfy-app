@@ -12,8 +12,6 @@ import {
   DialogTitle,
   Grid,
   IconButton,
-  List,
-  ListItem,
   Radio,
   RadioGroup,
   Stack,
@@ -32,7 +30,6 @@ import { DefaultTemplate } from 'payload/components/templates';
 import {
   useAuth,
   useConfig,
-  useDocumentInfo,
 } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
@@ -53,10 +50,6 @@ const company_name_tip =
 
 const BasicPortalPage: React.FC = (props) => {
   const history = useHistory();
-  const { publishedDoc } = useDocumentInfo();
-
-  // console.log('publish', publishedDoc);
-
   const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -71,7 +64,8 @@ const BasicPortalPage: React.FC = (props) => {
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
-  const [id, setId] = useState('');
+  const [id, setId] = useState('')
+  
 
   useEffect(() => {
     setStepNav([
@@ -100,8 +94,6 @@ const BasicPortalPage: React.FC = (props) => {
   const handleAddRow = (value: unknown) => {
     append(value);
   };
-
-  // console.log('brand', brandSwitch);
 
   const onClickBrandName = () => {
     let finalDefaultBrandsArray = getValues()?.brands.map((i) => ({
