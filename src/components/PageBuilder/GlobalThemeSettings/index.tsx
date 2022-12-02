@@ -102,7 +102,6 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
             id: 'global-style',
             el: '.panel__left',
             active: true,
-            attributes: { class: 'panel__left' },
             label: 'Global Color Collection',
 
           },
@@ -635,7 +634,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
     setEditor(editor);
     editor.onReady(clb => {
       console.log('Editor is ready');
-      editor.runCommand('show-global-style');
+      
     });
 
   }, [setEditor]);
