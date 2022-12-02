@@ -28,7 +28,12 @@ const PageBuilder: React.FC = () => {
     pageManager: {
       pages: [],
     },
-    plugins: [ plugin, Blocks ],
+    plugins: [  Blocks ],
+    pluginsOpts: {
+      plugin: {
+        showStylesOnChange: false,
+      },
+    },
     height: '100%',
     fromElement: true,
     storageManager: {

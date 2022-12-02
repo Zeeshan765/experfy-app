@@ -3,8 +3,8 @@ import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import basic from 'grapesjs-blocks-basic';
 import React, { useEffect, useState } from 'react';
-// import '../index.scss';
-import experfy from '../ExperfyPlugin';
+import '../index.scss';
+
 
 
 export interface GrapesjsReactProps {
@@ -61,7 +61,7 @@ const fontsList = [
 const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
   const [editor, setEditor] = useState<GrapesJS.default.Editor>();
   const { setStepNav } = useStepNav();
-  
+
 
   useEffect(() => {
     setStepNav([
@@ -77,15 +77,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
       container: '#gjs',
       height: '100%',
       fromElement: true,
-      loadOnStart: false,
-      //@ts-ignore
-      pageManager: true,
-      plugins: [experfy, basic],
-      pluginsOpts: {
-        'grapesjs-project-manager': {
-
-        }
-      },
+      nativeDnD: true,
       storageManager: {
         type: 'local',
         autosave: true,
@@ -110,9 +102,9 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
             id: 'global-style',
             el: '.panel__left',
             active: true,
+            attributes: { class: 'panel__left' },
             label: 'Global Color Collection',
-            command: 'show-styles',
-            toggle: false,
+
           },
           // {
           //   id: 'open-templates',
@@ -135,7 +127,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
       },
 
       styleManager: {
-        // appendTo: '.styles-container',
+        appendTo: '.styles-container',
         sectors: [
           {
             name: 'Global Colors Collection',
@@ -205,7 +197,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
               {
                 type: 'slider',
                 name: 'Letter Spacing',
-                
+
                 property: 'letter-spacing',
                 default: '0',
                 units: ['px', 'rem'],
@@ -271,7 +263,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
             name: 'Global Border Collection',
             open: false,
             buildProps: ['border-radius', 'border', 'box-shadow'],
-            properties: [ 
+            properties: [
               {
                 type: 'integer',
                 name: 'Border Radius',
@@ -279,7 +271,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: '0',
                 units: ['px', '%'],
 
-              },{
+              }, {
                 type: 'integer',
                 name: 'Border Width',
                 property: 'border-width',
@@ -304,9 +296,9 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                   { value: 'none', name: 'None' },
                   { value: 'hidden', name: 'Hidden' },
                 ],
-                
+
               },
-              
+
               {
                 type: 'radio',
                 name: 'Box Shadow',
@@ -641,32 +633,34 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
     });
 
     setEditor(editor);
+    editor.onReady(clb => {
+      console.log('Editor is ready');
+      editor.runCommand('show-global-style');
+    });
+
   }, [setEditor]);
-  
-  // editor.Panels.addPanel({
-  //   id: 'global-style',
-  //   el: '.panel__left',
-  // })
+
+
+
   // editor.setDragMode('translate');
 
 
   return (
     <div className='main__content'>
       <Eyebrow />
-      {/* <div className="editor-row"> */}
-      {/* <div className="panel__top">
+      <div className="editor-row">
+        {/* <div className="panel__top">
           <div className="panel__basic-actions"></div>
         </div> */}
-      {/* <div className="editor-canvas"> */}
-      <div id="gjs">
         <div className="panel__left">
           <div className="styles-container"></div>
         </div>
+        <div className="editor-canvas">
+          <div id="gjs"></div>
+        </div>
+        
       </div>
-      {/* </div> */}
-
-      {/* </div> */}
-      {/* <div id="blocks"></div> */}
+      
     </div>
   );
 };

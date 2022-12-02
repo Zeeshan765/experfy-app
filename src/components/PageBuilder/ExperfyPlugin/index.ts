@@ -8,7 +8,7 @@ import '../index.scss';
 export type PluginOptions = {
   /**
    * Which blocks to add.
-   * @default [basicBlocks]
+   * @default []
    */
   blocks?: string[] ;
 
