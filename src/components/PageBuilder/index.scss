@@ -5,78 +5,78 @@ $quaternaryColor: var(--theme-primary);
 $fontFace: var(--font-body);
 $fontSize: 0.7rem;
 $fontSizeS: 0.75rem;
-$mainFont: 'proxima-nova', sans-serif;
+$mainFont: "proxima-nova", sans-serif;
 
-$fontPath: '../../assets/fonts/proxima-nova';
-$fontName: 'proximanova-bold-webfont';
+$fontPath: "../../assets/fonts/proxima-nova";
+$fontName: "proximanova-bold-webfont";
 @import "grapesjs/src/styles/scss/main.scss";
 
 .editor-canvas {
-    flex-grow: 1;
-    background-color: #f1f3f5;
+  flex-grow: 1;
+  background-color: #f1f3f5;
 }
 
 .editor-row {
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  height: 100%;
 }
 
 .gjs-cv-canvas {
-    width: 78% !important;
+  width: 78% !important;
 }
 
 .gjs-pn-views {
-    width: 22% !important;
+  width: 22% !important;
 }
 
 .gjs-pn-views-container {
-    width: 22% !important;
-    overflow: auto;
-    box-shadow: 0 0 2px rgb(0 0 0 / 10%) !important;
+  width: 22% !important;
+  overflow: auto;
+  box-shadow: 0 0 2px rgb(0 0 0 / 10%) !important;
 }
 
 .gjs-selected {
-    outline: 2px solid var(--theme-primary) !important;
-    outline-offset: -2px !important;
+  outline: 2px solid var(--theme-primary) !important;
+  outline-offset: -2px !important;
 }
 
 .gjs-sm-properties {
-    color: #101010 !important;
-    font-weight: 400;
-    font-size: 1rem !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    background-color: #fff !important;
+  color: #101010 !important;
+  font-weight: 400;
+  font-size: 1rem !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  background-color: #fff !important;
 }
 
 .gjs-pn-commands {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 .gjs-layer-vis {
-    width: 30px !important;
+  width: 30px !important;
 }
 
 .gjs-label-wrp {
-    width: 22% !important;
-    min-width: 20% !important;
+  width: 22% !important;
+  min-width: 20% !important;
 }
 
 .gjs-category-title,
 .gjs-layer-title,
 .gjs-block-category .gjs-title,
 .gjs-sm-sector-title {
-    font-weight: 500 !important;
-    color: var(--theme-text) !important;
-    font-size: 1rem !important;
-    height: 3rem !important;
-    background-color: #fff !important;
-    flex-direction: row-reverse !important;
-    justify-content: start !important;
-    border-bottom: 2px solid rgb(235 235 235) !important;
+  font-weight: 500 !important;
+  color: var(--theme-text) !important;
+  font-size: 1rem !important;
+  height: 3rem !important;
+  background-color: #fff !important;
+  flex-direction: row-reverse !important;
+  justify-content: start !important;
+  border-bottom: 2px solid rgb(235 235 235) !important;
 }
 
 .gjs-sm-field input,
@@ -85,69 +85,88 @@ $fontName: 'proximanova-bold-webfont';
 .gjs-sm-field select,
 .gjs-clm-select select,
 .gjs-clm-field select {
-    color: var(--theme-text) !important;
+  color: var(--theme-text) !important;
 }
 
 .gjs-layer-name {
-    padding: 0.5rem !important;
+  padding: 0.5rem !important;
 }
 
 .gjs-block {
-    width: 30% !important;
-    padding: 0.5rem !important;
-    border-radius: 4px !important;
-    margin: 2px !important;
-    box-shadow: 1px 1px 0 0 rgba(97, 97, 97, 0.3) !important;
-    background-color: #f1f3f5 !important;
-    color: var(--theme-primary);
+  width: 30% !important;
+  padding: 0.5rem !important;
+  border-radius: 4px !important;
+  margin: 2px !important;
+  box-shadow: 1px 1px 0 0 rgba(97, 97, 97, 0.3) !important;
+  background-color: #f1f3f5 !important;
+  color: var(--theme-primary);
 }
 
 .gjs-blocks-c {
-    justify-content: space-evenly !important;
+  justify-content: space-evenly !important;
 }
 
 .gjs-block__media {
-    margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .gjs-sm-label {
-    margin: 5px !important;
-
+  margin: 5px !important;
 }
 
 .gjs-block-label {
-    font-size: 0.65rem !important;
-    font-weight: 600 !important;
-    font-family: var(--font-body);
-    color: var(--theme-text);
+  font-size: 0.65rem !important;
+  font-weight: 600 !important;
+  font-family: var(--font-body);
+  color: var(--theme-text);
 }
 
 .gjs-field {
-    border: solid 1px #ddd !important;
-    background-color: var(--theme-elevation-0) !important;
-    border-radius: 1px !important;
-    padding: 5px !important;
+  border: solid 1px #ddd !important;
+  background-color: var(--theme-elevation-0) !important;
+  border-radius: 2px !important;
+  // padding: 5px !important;
+}
+.gjs-select select {
+  padding-right: 20px !important;
+  padding-left: 10px !important;
+  width: 140px !important;
+}
+
+.gjs-select select option {
+    background-color: #fff !important;
+    color: #101010 !important;
+    border: none !important;
+}
+
+.gjs-field .gjs-d-s-arrow {
+  right: 10px !important;
+}
+
+.gjs-field-integer input {
+    padding-right: 30px;
+    width: 140px !important;
 }
 
 .gjs-clm-tags {
-    font-size: 1rem !important;
+  font-size: 1rem !important;
 }
 
 .gjs-cv-canvas {
-    left: 22% !important;
+  left: 22% !important;
 }
 
 .gjs-pn-views-container {
-    left: 0;
+  left: 0;
 }
 
 .gjs-pn-views {
-    left: 0;
+  left: 0;
 }
 
 .gjs-traits-label {
-    font-weight: 600 !important;
-    font-size: 1rem !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
 }
 
 // --------------------------------------------------------//
@@ -155,44 +174,51 @@ $fontName: 'proximanova-bold-webfont';
 // --------------------------------------------------------//
 
 .gjs-sm-property {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: space-between !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
 }
 
+.gjs-sm-property__border{
+    display: block !important;
+    .gjs-sm-composite{
+        border: 1px solid rgb(255 255 255 / 25%) !important;
+    }
+}
+
+
+
 .gjs-field-color .gjs-input-holder {
-    display: none !important;
+  display: none !important;
 }
 
 .gjs-field-colorp {
-    border-left: 0 !important;
-    width: 27px !important;
-    height: 26px !important;
+  border-left: 0 !important;
+  width: 27px !important;
+  height: 26px !important;
 }
 
-
-
-.gjs-field-color{
-   background-color: transparent !important;
-   border: none !important;
+.gjs-field-color {
+  background-color: transparent !important;
+  border: none !important;
 }
 
 .gjs-field-color-picker {
-    border-radius: 3px !important;
+  border-radius: 3px !important;
 }
 
 .gjs-field-colorp .gjs-checker-bg,
 .gjs-field-colorp .gjs-field-colorp-c {
-    border-radius: 4px !important;
+  border-radius: 4px !important;
 }
 
 .gjs-sm-slider {
-    display: block !important;
+  display: block !important;
 }
 
 .gjs-field-range {
-    border: none !important;
-    background-color: transparent !important;
+  border: none !important;
+  background-color: transparent !important;
 }
 
 // .gjs-field-range input[type="range"] {
@@ -218,27 +244,33 @@ $fontName: 'proximanova-bold-webfont';
 // //     box-shadow: -205px 0 0 200px hsl(100,100%,40%);
 // // }
 
+.gjs-field-range input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: #cacaca;
+  border: 0px solid #000101;
+}
+.gjs-field-range input[type="range"]::-webkit-slider-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 100px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  background: #48a3d7 !important;
+  border: none;
 
-.gjs-field-range input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 5px;
-    cursor: pointer;
-    background: #cacaca;
-    /* border-radius: 100px; */
-    // background-color: #48a3d7;
-    border: 0px solid #000101;
-  }
-  .gjs-field-range input[type=range]::-webkit-slider-thumb {
-    height: 20px;
-    width: 20px;
-    border-radius: 100px;
-    background: #48a3d7;
-    cursor: pointer;
-    -webkit-appearance: none;
-    background: #48a3d7 !important;
-    border:none;
-  }
+}
 
 .currentColor {
-    currentColor: #d0d0d0 !important;
+  currentcolor: #d0d0d0 !important;
+}
+
+.gjs-select {
+  .gjs-sel-arrow {
+    .gjs-d-s-arrow {
+      border-left: 4px solid transparent;
+      border-top: 5px solid rgba(0, 0, 0, 0.7);
+    }
+  }
 }
