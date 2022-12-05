@@ -3,10 +3,9 @@ $secondaryColor: var(--theme-text);
 $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
 $fontFace: var(--font-body);
-$fontSize: 0.7rem;
-$fontSizeS: 0.75rem;
-$mainFont: "proxima-nova", sans-serif;
-
+$fontSize: 0.9rem;
+$fontSizeS: 0.9rem;
+$mainFont: 'proxima-nova', sans-serif;
 $fontPath: "../../assets/fonts/proxima-nova";
 $fontName: "proximanova-bold-webfont";
 @import "grapesjs/src/styles/scss/main.scss";
