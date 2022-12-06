@@ -90,6 +90,9 @@ const NewPageBuilder = () => {
     
   }, []);
 
+
+
+  
   return (
     <div className="main">
       <div id="editor"></div>
