@@ -95,9 +95,9 @@ body {
 }
 
 .template-default {
-  .nav {
-    display: block;
-  }
+  // .nav {
+  //   display: block;
+  // }
 
   .login__brand {
     svg {
@@ -163,9 +163,12 @@ body {
   }
 
   .nav nav a {
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 2rem 1rem 1.5rem;
     font-weight: 400;
     font-size: 1.1rem;
+.icon--chevron{
+  display: none;
+}
 
     &.active {
       background-color: var(--theme-primary);
@@ -183,9 +186,17 @@ body {
   .nav-group {
     margin: 0px;
     padding: 3px 0px;
-  }
+    .nav-group__content{
+      a{
+        padding-left: 2rem;
+        padding-right: 5px;
 
-  .nav-group__label {
+      }
+
+    }
+}
+
+.nav-group__label {
     font-weight: 600;
     color: var(--theme-text);
   }
@@ -198,7 +209,7 @@ body {
   }
  .nav-group__toggle {
     border-bottom: 1px solid var(--theme-bg);
-    padding: 0.5rem 1rem 0.5rem 2rem;
+    padding: 0.5rem 1rem 0.5rem 1.5rem;
     margin-top: 0px;
   }
 
