@@ -62,6 +62,7 @@ const afterReadHook: CollectionAfterReadHook = async ({
   query, // JSON formatted query
   findMany, // boolean to denote if this hook is running against finding one, or finding many
 }) => {
+  
   // console.log("afterReadHook=====");
   // console.log("findMany=====",findMany);
   // console.log("query=====",query);
@@ -83,6 +84,7 @@ const IconCollection: CollectionConfig = {
     read: (): boolean => true,
   },
   admin: {
+    group: "Media Library",
     useAsTitle: "filename",
   },
   upload: {
@@ -145,7 +147,8 @@ const IconCollection: CollectionConfig = {
     afterChange: [HookTestComponent],
     // afterChange: [afterChangeHook],
     afterRead:[afterReadHook]
-    // afterLogin:[afterLoginHook]
+    
+
   },
 };
 export default IconCollection;

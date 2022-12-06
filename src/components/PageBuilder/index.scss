@@ -11,6 +11,7 @@ $fontPath: "../../assets/fonts/proxima-nova";
 $fontName: "proximanova-bold-webfont";
 @import "grapesjs/src/styles/scss/main.scss";
 
+
 .editor-canvas {
   flex-grow: 1;
   background-color: #f1f3f5;
@@ -25,17 +26,18 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-cv-canvas {
-  width: 78% !important;
+  width: 82% !important;
 }
-
+.gjs-pn-panel,
 .gjs-pn-views {
-  width: 22% !important;
+  width: 18% !important;
+  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
 }
 
 .gjs-pn-views-container {
-  width: 22% !important;
-  overflow: auto;
-  box-shadow: 0 0 2px rgb(0 0 0 / 10%) !important;
+  width: 18% !important;
+  overflow: auto; 
+  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
 }
 
 .gjs-selected {
@@ -61,7 +63,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-label-wrp {
-  width: 22% !important;
+  width: 18% !important;
   min-width: 20% !important;
 }
 
@@ -153,7 +155,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-cv-canvas {
-  left: 22% !important;
+  left: 18% !important;
 }
 
 .gjs-pn-views-container {

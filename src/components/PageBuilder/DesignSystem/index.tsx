@@ -1,16 +1,8 @@
-import * as GrapesJS from 'grapesjs';
+import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useState } from 'react';
-import '../index.scss';
 
-
-
-export interface GrapesjsReactProps {
-  id: HTMLElement['id'];
-  onInit?(editor?: GrapesJS.default.Editor): void;
-  onDestroy?(): void;
-}
 const borderStyle = [
   { value: 'solid', name: 'Solid' },
   { value: 'dotted', name: 'Dotted' },
@@ -57,22 +49,22 @@ const fontsList = [
   { value: 'Fjalla One', name: 'Fjalla One' },
   { value: 'Francois One', name: 'Francois One' },
 ];
-const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
-  const [editor, setEditor] = useState<GrapesJS.default.Editor>();
+const DesignSystem: React.FC = () => {
+  const [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
 
 
   useEffect(() => {
     setStepNav([
       {
-        label: 'Global Theme Settings',
-        url: '/collections/global-theme-settings',
+        label: 'Design System',
+        url: '/collections/design-system',
       },
     ]);
   }, [setStepNav]);
 
   useEffect(() => {
-    const editor = GrapesJS.default.init({
+    const editor = GrapesJS.init({
       container: '#gjs',
       height: '100%',
       fromElement: true,
@@ -102,6 +94,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
             el: '.panel__left',
             active: true,
             label: 'Global Theme Settings',
+            
 
           },
           // {
@@ -126,21 +119,21 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
 
       styleManager: {
         appendTo: '.styles-container',
-        
         sectors: [
           {
-            
+
             name: 'Global Colors Collection',
-            default: true,
             highlightChanged: true,
             open: true,
+            stylePrefix: 'gds-', // Prefix for all class names
             buildProps: ['background-color', 'color'],
             properties: [
               {
+                
                 type: 'color',
                 name: 'Primary',
                 property: 'background-color',
-                default: '#e6e6e6',                
+                default: '#e6e6e6',
                 attributes: {
                   'data-type': 'background-color',
                 },
@@ -261,7 +254,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
             ],
           },
           {
-            name: 'Global Border Collection',
+            name: 'Theme Style',
             open: false,
             buildProps: ['border-radius', 'border', 'box-shadow'],
             properties: [
@@ -340,7 +333,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: 'Proxima Nova',
                 options: fontsList,
               },
-              
+
               {
                 type: 'select',
                 name: 'Font Weight',
@@ -348,7 +341,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: 'normal',
                 options: fontWeight,
               },
-             
+
               {
                 type: 'select',
                 name: 'Text Align',
@@ -518,7 +511,7 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
                 default: 'normal',
                 options: fontWeight,
               },
-             
+
               {
                 type: 'select',
                 name: 'Text Align',
@@ -635,13 +628,13 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
         ],
       },
 
-      
+
     });
 
     setEditor(editor);
     editor.onReady(clb => {
       console.log('Editor is ready');
-      
+
     });
 
   }, [setEditor]);
@@ -664,11 +657,12 @@ const GlobalThemeSettings: React.FC<GrapesjsReactProps> = () => {
         <div className="editor-canvas">
           <div id="gjs"></div>
         </div>
-        
+
       </div>
-      
+
     </div>
   );
 };
 
-export default GlobalThemeSettings;
+
+export default DesignSystem;

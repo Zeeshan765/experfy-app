@@ -1,8 +1,9 @@
 import grapesjs from 'grapesjs';
 import React from 'react';
-import './grapes.min.css';
+// import './grapes.min.css';
 // import './CustomGrapes.css';
-import plugin2 from 'grapesjs-preset-newsletter';
+import '../PageBuilder/index.scss';
+import plugin2 from 'grapesjs-project-manager';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 import Basics from 'grapesjs-blocks-basic';
@@ -27,7 +28,7 @@ const NewPageBuilder = () => {
   React.useEffect(() => {
     const editor = grapesjs.init({
       container: '#editor',
-      plugins: [plugin2, plugin1],
+      plugins: [ plugin1,  Basics ],
 
       // panels: { defaults: [] },
     });
@@ -86,7 +87,7 @@ const NewPageBuilder = () => {
         },
       ],
     });
-    setEditor(editor);
+    
   }, []);
 
   return (

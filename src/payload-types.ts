@@ -8,11 +8,18 @@
 export interface Config {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "global-theme-settings".
+ */
+export interface GlobalThemeSettings {
+  id: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "basic-portal-identity".
  */
 export interface BasicPortalIdentity {
   id: string;
-  user_id?: string | User;
+  user_portal?: string | User;
   career_portal_name?: string;
   portal_url?: string;
   portal_id?: string;
@@ -23,7 +30,7 @@ export interface BasicPortalIdentity {
   meta_keywords?: string;
   meta_description?: string;
   tracking_pixel?: string;
-  bring_webmaster?: string;
+  bing_webmaster?: string;
   google_webmaster?: string;
   google_analytics?: string;
   google_id?: string;
@@ -53,26 +60,46 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "portal-identity-detail".
+ * via the `definition` "page-builder".
  */
-export interface PortalIdentityDetail {
+export interface PageBuilder {
   id: string;
-  career_portal_name: string;
-  portal_id?: string;
-  portal_url: string;
-  company_name: string;
-  language: 'English';
-  united_states: 'US';
-  google_id?: string;
-  google_analytics?: string;
-  google_webmaster?: string;
-  bing_webmaster?: string;
-  tracking_pixel?: string;
-  page_title?: string;
-  meta_keywords?: string;
-  meta_description?: string;
-  default_brand: 'Pepsi';
-  dom?: 'Sub-domains' | 'Sub-directories';
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "templates".
+ */
+export interface Template {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "themes".
+ */
+export interface Theme {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menus".
+ */
+export interface Menu {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -80,9 +107,23 @@ export interface PortalIdentityDetail {
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
-export interface MediaLibrary {
+export interface Media {
   id: string;
-  alt: string;
+  iconMedia?: string | IconCollection;
+  photoMedia?: string | PhotoCollection;
+  VideoMedia?: string | VideoCollection;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "icon-collection".
+ */
+export interface IconCollection {
+  id: string;
+  title: string;
+  keywords: string;
+  description: string;
   url?: string;
   filename?: string;
   mimeType?: string;
@@ -91,6 +132,22 @@ export interface MediaLibrary {
   height?: number;
   sizes: {
     card: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    portrait: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    square: {
       url?: string;
       width?: number;
       height?: number;
@@ -107,6 +164,119 @@ export interface MediaLibrary {
       filename?: string;
     };
   };
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "photo-collection".
+ */
+export interface PhotoCollection {
+  id: string;
+  title: string;
+  keywords: string;
+  description: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes: {
+    card: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    portrait: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    square: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    feature: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "video-collection".
+ */
+export interface VideoCollection {
+  id: string;
+  title: string;
+  keywords: string;
+  description: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes: {
+    card: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    portrait: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    square: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    feature: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "new-page-builder".
+ */
+export interface NewPageBuilder {
+  id: string;
   createdAt: string;
   updatedAt: string;
 }
