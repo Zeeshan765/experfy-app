@@ -28,6 +28,7 @@ const VideoCollection: CollectionConfig = {
     read: (): boolean => true,
   },
   admin: {
+    group: "Media Library",
     useAsTitle: "filename",
   },
   upload: {

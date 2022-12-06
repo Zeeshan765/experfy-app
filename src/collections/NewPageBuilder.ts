@@ -1,4 +1,3 @@
-import 'grapesjs/dist/css/grapes.min.css';
 import { CollectionConfig } from 'payload/types';
 import PageBuilder from '../components/PageBuilder/SectionTemplates';
 

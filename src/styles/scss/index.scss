@@ -12,12 +12,13 @@
   --breakpoint-m-width : #{$breakpoint-m-width};
   --breakpoint-l-width : #{$breakpoint-l-width};
   --scrollbar-width: 17px;
-  --nav-width: #{base(9)};
-  --nav-width-m: #{base(7)};
+  --nav-width: #{base(12)};
+  --nav-width-m: #{base(10)};
   --theme-bg: #f9f9fa;
   --theme-input-bg: var(--theme-elevation-0);
   --theme-text: #3a4152;
   --theme-primary: #48a3d7;
+  // --theme-elevation-150 : #f1f3f5;
   --theme-baseline: #{$baseline-px};
   --theme-baseline-body-size: #{$baseline-body-size};
   --font-body: 'proxima-nova', system-ui;
@@ -28,11 +29,12 @@
   --z-modal: 30;
   --z-status: 40;
 
+    
   --gutter-h: #{base(5)};
 
   @include large-break {
     --gutter-h: #{base(3)};
-    --nav-width: #{base(9)};
+    --nav-width: #{base(10)};
   }
 
   @include mid-break {
@@ -222,7 +224,7 @@ body {
  
   }
 
-}
+ }
 
 .field-type.text {
   margin-bottom: 1.9rem;

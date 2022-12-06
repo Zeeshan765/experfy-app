@@ -2,31 +2,31 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { buildConfig } from 'payload/config';
 import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
+import DesignSystemCollection from "./collections/DesignSystemCollection";
+import IconCollection from './collections/IconCollection';
 import Media from './collections/Media';
+import MenusCollection from './collections/MenusCollection';
+import NewPageBuilderCollection from './collections/NewPageBuilder';
 import PageBuilderCollection from './collections/PageBuilder';
+import PagesCollection from './collections/PagesCollection';
+import PhotoCollection from './collections/PhotoCollection';
+import TemplatesCollection from './collections/TemplatesCollection';
+import ThemeCollection from './collections/ThemeCollection';
 import Users from './collections/Users';
+import VideoCollection from './collections/VideoCollection';
 import BasicPortalIdentityPage from './components/BasicPortalPage';
+import Menus from './components/Menus';
 import AfterNav from './components/Nav/AfterNav';
 import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
+import NewPageBuilder from './components/NewPageBuilder';
+import DesignSystem from './components/PageBuilder/DesignSystem';
 import PageBuilder from './components/PageBuilder/SectionTemplates';
-import GlobalThemeSettings from './components/PageBuilder/GlobalThemeSettings';
-import GlobalThemeCollection from './collections/GlobalThemeSettings';
+import Pages from './components/Pages';
 import PortalIdentity from './components/PortalIdentity';
-import MyProvider from './MyProvider';
-import TemplatesCollection from './collections/TemplatesCollection';
 import Templates from './components/Templates';
 import Themes from './components/Themes';
-import ThemeCollection from './collections/ThemeCollection';
-import Menus from './components/Menus';
-import MenusCollection from './collections/MenusCollection';
-import Pages from './components/Pages';
-import PagesCollection from './collections/PagesCollection';
-import NewPageBuilder from './components/NewPageBuilder';
-import NewPageBuilderCollection from './collections/NewPageBuilder';
-import IconCollection from './collections/IconCollection';
-import PhotoCollection from './collections/PhotoCollection';
-import VideoCollection from './collections/VideoCollection';
+import MyProvider from './MyProvider';
 
 dotenv.config();
 
@@ -58,10 +58,13 @@ export default buildConfig({
         {
           path: '/collections/page-builder',
           Component: PageBuilder,
+          exact: true,
+
         },
         {
           path: '/collections/basic-portal-identity',
           Component: BasicPortalIdentityPage,
+          exact: true,
         },
         {
           path: '/collections/portal-identity',
@@ -71,10 +74,14 @@ export default buildConfig({
         {
           path: '/collections/portal-identity/:id',
           Component: PortalIdentity,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/global-theme-settings',
-          Component: GlobalThemeSettings,
+          path: '/collections/design-system',
+          Component: DesignSystem,
+          exact: true,
+          strict: true,
         },
         {
           path: '/collections/templates',
@@ -105,6 +112,7 @@ export default buildConfig({
     BasicPortalIdentityCollection,
     PageBuilderCollection,
     TemplatesCollection,
+    DesignSystemCollection,
     ThemeCollection,
     MenusCollection,
     PagesCollection,
@@ -115,7 +123,7 @@ export default buildConfig({
     Users,
     NewPageBuilderCollection,
   ],
-  globals: [GlobalThemeCollection],
+ 
   localization: {
     locales: ['en', 'es'],
     defaultLocale: 'en',
