@@ -223,7 +223,7 @@ const NewPageBuilder = () => {
           {
             type: 'select',
             name: 'image-link',
-            label: 'Link',
+            label: 'Link To',
             default: 'none',
             options: [
               { id: 'none', name: 'None' },
@@ -231,12 +231,164 @@ const NewPageBuilder = () => {
               { id: 'curl', name: 'Custom URL' },
             ],
           },
+
+          {
+            type: 'select',
+            name: 'image-order',
+            label: 'Order',
+            default: 'none',
+            options: [{ id: 'none', name: 'None' }],
+          },
         ],
       },
     },
   });
 
   //Trait for Button
+  editor.DomComponents.addType('button', {
+    model: {
+      defaults: {
+        traits: [
+          {
+            type: 'text',
+            name: 'btn-text',
+            label: 'Button Text',
+            placeholder: 'Button Label',
+            
+          },
+          {
+            type: 'text',
+            name: 'btn-link',
+            label: 'Link',
+            placeholder: 'Paste URL or Type ',
+            
+          },
+          {
+            type: 'select',
+            name: 'btn-alignment',
+            label: 'Alignment',
+            default: 'left',
+            options: [
+              { id: 'left', name: 'Left' },
+              { id: 'center', name: 'Center' },
+              { id: 'right', name: 'Right' },
+            ],
+          },
+          {
+            type: 'select',
+            name: 'btn-size',
+            label: 'Button Size',
+            default: 'default',
+            options: [
+              { id: 'default', name: 'Default' },
+              { id: 'xs', name: 'Extra Small' },
+
+              { id: 'small', name: 'Small' },
+              { id: 'medium', name: 'Medium' },
+              { id: 'large', name: 'Large' },
+              { id: 'xl', name: 'Extra Large' },
+
+            ],
+          },
+          {
+            type: 'select',
+            name: 'image-link',
+            label: 'Link To',
+            default: 'none',
+            options: [
+              { id: 'none', name: 'None' },
+              { id: 'media ', name: 'Media File' },
+              { id: 'curl', name: 'Custom URL' },
+            ],
+          },
+
+          {
+            type: 'select',
+            name: 'image-order',
+            label: 'Order',
+            default: 'none',
+            options: [{ id: 'none', name: 'None' }],
+          },
+        ],
+      },
+    },
+  });
+
+
+
+  editor.DomComponents.addType('textarea', {
+    model: {
+      defaults: {
+        traits: [
+          {
+            type: 'text',
+            name: 'text-title',
+            label: 'Text',
+            placeholder: 'Insert Your Text Here', 
+          },
+         
+          {
+            type: 'select',
+            name: 'text-size',
+            label: 'Size',
+            default: 'default',
+            options: [
+              { id: 'default', name: 'Default' },
+              { id: 'small', name: 'Small' },
+              { id: 'medium', name: 'Medium' },
+              { id: 'large', name: 'Large' },
+              { id: 'xl', name: 'XL' },
+              { id: 'xxl', name: 'XXL' },
+            ],
+          },
+
+          {
+            type: 'select',
+            name: 'text-html-tag',
+            label: 'HTML Tag',
+            default: 'h1',
+            options: [
+              { id: 'h1', name: 'H1' },
+              { id: 'h2', name: 'H2' },
+              { id: 'h3', name: 'H3' },
+              { id: 'h4', name: 'H4' },
+              { id: 'h5', name: 'H5' },
+              { id: 'h6', name: 'H6' },
+              { id: 'div', name: 'div' },
+              { id: 'span', name: 'span' },
+              { id: 'p', name: 'p' },
+            ],
+          },
+          
+        ],
+      },
+    },
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // editor.DomComponents.addType('button', {
   //   model: {
