@@ -11,7 +11,9 @@ export const source = `
           <label style="font-size: 18px;
           font-weight: 500;">Email</label>
           <br>
-          <input type="email" style="width: 100%;
+          <input type="email" 
+          data-gjs-type= "textarea"
+          style="width: 100%;
           border: 1px solid #ccc;
           padding: 10px;
           border-radius: 5px;">
@@ -21,7 +23,9 @@ export const source = `
           <label style="font-size: 18px;
           font-weight: 500;">Name</label>
           <br>
-          <input type="text" style="width: 100%;
+          <input type="text" 
+          data-gjs-type= "textarea"
+          style="width: 100%;
           border: 1px solid #ccc;
           padding: 10px;
           border-radius: 5px;">
@@ -31,13 +35,16 @@ export const source = `
           <label style="font-size: 18px;
           font-weight: 500;">Message</label>
           <br>
-          <textarea style="width:100%;
+          <textarea  data-gjs-type= "textarea"
+          style="width:100%;
           border: 1px solid #ccc;
           padding: 10px;
           border-radius: 5px;
           resize: none;" row="7" ></textarea>
         </div>
-        <button type="submit" class="btn" style="margin-top: 20px;
+        <button type="submit" 
+        data-gjs-type= "button"
+        class="btn" style="margin-top: 20px;
         width: 100%;
         padding: 8px;
         background-color: #0a917f;

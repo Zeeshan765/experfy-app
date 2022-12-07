@@ -53,7 +53,6 @@ const DesignSystem: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
 
-
   useEffect(() => {
     setStepNav([
       {
@@ -85,17 +84,13 @@ const DesignSystem: React.FC = () => {
         },
       },
 
-
       panels: {
-
         defaults: [
           {
             id: 'global-style',
             el: '.panel__left',
             active: true,
             label: 'Global Theme Settings',
-            
-
           },
           // {
           //   id: 'open-templates',
@@ -103,7 +98,7 @@ const DesignSystem: React.FC = () => {
           //   attributes: {
           //     title: 'Open projects and templates'
           //   },
-          //   command: 'open-templates', //Open modal 
+          //   command: 'open-templates', //Open modal
           // },
           // {
           //   id: 'open-pages',
@@ -121,15 +116,14 @@ const DesignSystem: React.FC = () => {
         appendTo: '.styles-container',
         sectors: [
           {
-
             name: 'Global Colors Collection',
             highlightChanged: true,
+
             open: true,
             stylePrefix: 'gds-', // Prefix for all class names
             buildProps: ['background-color', 'color'],
             properties: [
               {
-                
                 type: 'color',
                 name: 'Primary',
                 property: 'background-color',
@@ -255,6 +249,7 @@ const DesignSystem: React.FC = () => {
           },
           {
             name: 'Theme Style',
+
             open: false,
             buildProps: ['border-radius', 'border', 'box-shadow'],
             properties: [
@@ -264,14 +259,13 @@ const DesignSystem: React.FC = () => {
                 property: 'border-radius',
                 default: '0',
                 units: ['px', '%'],
-
-              }, {
+              },
+              {
                 type: 'integer',
                 name: 'Border Width',
                 property: 'border-width',
                 default: '0',
                 units: ['px', '%'],
-
               },
               {
                 type: 'select',
@@ -290,7 +284,6 @@ const DesignSystem: React.FC = () => {
                   { value: 'none', name: 'None' },
                   { value: 'hidden', name: 'Hidden' },
                 ],
-
               },
 
               {
@@ -627,25 +620,18 @@ const DesignSystem: React.FC = () => {
           },
         ],
       },
-
-
     });
 
     setEditor(editor);
-    editor.onReady(clb => {
+    editor.onReady((clb) => {
       console.log('Editor is ready');
-
     });
-
   }, [setEditor]);
-
-
 
   // editor.setDragMode('translate');
 
-
   return (
-    <div className='main__content'>
+    <div className="main__content">
       <Eyebrow />
       <div className="editor-row">
         {/* <div className="panel__top">
@@ -657,12 +643,9 @@ const DesignSystem: React.FC = () => {
         <div className="editor-canvas">
           <div id="gjs"></div>
         </div>
-
       </div>
-
     </div>
   );
 };
-
 
 export default DesignSystem;

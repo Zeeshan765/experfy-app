@@ -12,7 +12,8 @@ export default (editor, opts = {}) => {
       config: {},
       cover: `img.object-cover { filter: sepia(1) hue-rotate(190deg) opacity(.46) grayscale(.7) !important; }`,
       changeThemeText: 'Change Theme',
-    }, ...opts
+    },
+    ...opts,
   };
 
   // Add blocks
@@ -20,10 +21,11 @@ export default (editor, opts = {}) => {
   // Add commands
   loadCommands(editor, options);
   // Load i18n files
-  editor.I18n && editor.I18n.addMessages({
-    en,
-    ...options.i18n,
-  });
+  editor.I18n &&
+    editor.I18n.addMessages({
+      en,
+      ...options.i18n,
+    });
 
   const appendTailwindCss = async (frame) => {
     const iframe = frame.view.getEl();
@@ -33,10 +35,11 @@ export default (editor, opts = {}) => {
     const { tailwindPlayCdn, plugins, config, cover } = options;
     const init = () => {
       iframe.contentWindow.tailwind.config = config;
-    }
+    };
 
     const script = document.createElement('script');
-    script.src = tailwindPlayCdn + (plugins.length ? `?plugins=${plugins.join()}` : '');
+    script.src =
+      tailwindPlayCdn + (plugins.length ? `?plugins=${plugins.join()}` : '');
     script.onload = init;
 
     const cssStyle = document.createElement('style');
@@ -50,10 +53,12 @@ export default (editor, opts = {}) => {
         doc.head.appendChild(cssStyle);
         clearInterval(f);
       }
-    }, 100)
-  }
+    }, 100);
+  };
 
   editor.Canvas.getModel()['on']('change:frames', (m, frames) => {
-    frames.forEach(frame => frame.once('loaded', () => appendTailwindCss(frame)));
+    frames.forEach((frame) =>
+      frame.once('loaded', () => appendTailwindCss(frame))
+    );
   });
 };
