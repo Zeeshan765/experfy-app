@@ -2,15 +2,14 @@
 
 // Box Sizing
 //---------------------------------------------
-
-@import '~payload/scss';
+@import "~payload/scss";
 @import "font-proxima-nova";
 
 :root {
-  --breakpoint-xs-width : #{$breakpoint-xs-width};
-  --breakpoint-s-width : #{$breakpoint-s-width};
-  --breakpoint-m-width : #{$breakpoint-m-width};
-  --breakpoint-l-width : #{$breakpoint-l-width};
+  --breakpoint-xs-width: #{$breakpoint-xs-width};
+  --breakpoint-s-width: #{$breakpoint-s-width};
+  --breakpoint-m-width: #{$breakpoint-m-width};
+  --breakpoint-l-width: #{$breakpoint-l-width};
   --scrollbar-width: 17px;
   --nav-width: #{base(12)};
   --nav-width-m: #{base(10)};
@@ -21,15 +20,13 @@
   // --theme-elevation-150 : #f1f3f5;
   --theme-baseline: #{$baseline-px};
   --theme-baseline-body-size: #{$baseline-body-size};
-  --font-body: 'proxima-nova', system-ui;
-
+  --font-body: "proxima-nova", system-ui;
 
   --z-popup: 10;
   --z-nav: 20;
   --z-modal: 30;
   --z-status: 40;
 
-    
   --gutter-h: #{base(5)};
 
   @include large-break {
@@ -43,10 +40,9 @@
   }
 
   @include small-break {
-    --gutter-h: #{base(.5)};
+    --gutter-h: #{base(0.5)};
   }
 }
-
 
 // Body
 //---------------------------------------------
@@ -93,7 +89,6 @@ body {
     height: 100%;
     // padding-left: 23.75rem;
   }
-
 }
 
 .template-default {
@@ -168,14 +163,13 @@ body {
     padding: 1rem 2rem 1rem 1.5rem;
     font-weight: 400;
     font-size: 1.1rem;
-.icon--chevron{
-  display: none;
-}
+    .icon--chevron {
+      display: none;
+    }
 
     &.active {
       background-color: var(--theme-primary);
       color: var(--theme-elevation-0);
-
     }
 
     &:hover {
@@ -188,17 +182,15 @@ body {
   .nav-group {
     margin: 0px;
     padding: 3px 0px;
-    .nav-group__content{
-      a{
+    .nav-group__content {
+      a {
         padding-left: 2rem;
         padding-right: 5px;
-
       }
-
     }
-}
+  }
 
-.nav-group__label {
+  .nav-group__label {
     font-weight: 600;
     color: var(--theme-text);
   }
@@ -209,7 +201,7 @@ body {
     border-radius: 7px;
     padding: 20px;
   }
- .nav-group__toggle {
+  .nav-group__toggle {
     border-bottom: 1px solid var(--theme-bg);
     padding: 0.5rem 1rem 0.5rem 1.5rem;
     margin-top: 0px;
@@ -217,14 +209,12 @@ body {
 
   #nav-group-Globals,
   #nav-group-Collections {
-    display: inline-block
+    display: inline-block;
   }
   .btn-margin-style {
-    margin: 30px 0px; 
- 
+    margin: 30px 0px;
   }
-
- }
+}
 
 .field-type.text {
   margin-bottom: 1.9rem;
@@ -263,9 +253,8 @@ div.react-select {
   border: none;
 }
 
-
 .collection-edit__main {
-  width:100%; 
+  width: 100%;
 }
 .collection-edit__sidebar-wrap {
   position: inherit !important;
@@ -273,12 +262,11 @@ div.react-select {
   padding-left: 9.6153846154rem;
   padding-right: 9.6153846154rem;
 }
-.collection-edit__collection-actions{
+.collection-edit__collection-actions {
   display: none !important;
-
 }
 
-.collection-edit__document-actions{
+.collection-edit__document-actions {
   padding-left: 0px !important;
 }
 .collection-edit__document-actions:before {
@@ -290,6 +278,29 @@ div.react-select {
   margin-left: 8px;
 }
 
+#nav-design-system {
+  position: relative;
+}
+
+.Global #nav-design-system::before{
+  background-image: url("/src/assets/images/sidebar/design_system.svg");
+  background-repeat: no-repeat;
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+.Global #nav-themes::before {
+  background-image: url("/src/assets/images/sidebar/themes.svg") !important;
+  // background-size: 100% 100%;
+  // width: 16px;
+  // height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
 
 // ------------------------------------------//
 // ------------ custom css ------------------//
@@ -332,4 +343,10 @@ div.react-select {
       margin-bottom: 0px;
     }
   }
+}
+
+
+.full-width-image {
+  width: 90% !important;
+  margin:10px !important
 }

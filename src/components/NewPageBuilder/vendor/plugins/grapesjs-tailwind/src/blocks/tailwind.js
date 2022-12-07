@@ -143,7 +143,7 @@ const sources = [
   {
     id: 'blog-block-1',
     // class: 'fa fa-map-o',
-    class: '',
+    class: 'full-width-image',
     label: b1s,
     // label: 'b2s().outerHTML',
     content: b1,
@@ -328,7 +328,7 @@ const sources = [
   // },
   {
     id: 'feature-block-1',
-    class: '',
+    class: 'full-width-image',
     label: f1s,
     content: f1,
     category: 'Form',
@@ -392,7 +392,7 @@ const sources = [
   // },
   {
     id: 'footer-block-1',
-    class: '',
+    class: 'full-width-image',
     label: z1s,
     content: z1,
     category: 'Footer',
@@ -432,7 +432,7 @@ const sources = [
   // },
   {
     id: 'gallery-block-1',
-    class: '',
+    class: 'full-width-image',
     label: g1s,
     content: g1,
     category: 'Paragraph',
@@ -456,7 +456,7 @@ const sources = [
   // },
   {
     id: 'header-block-1',
-    class: '',
+    class: 'full-width-image',
     label: h1s,
     content: h1,
     category: 'Headers',
@@ -488,7 +488,7 @@ const sources = [
   // },
   {
     id: 'hero-block-1',
-    class: '',
+    class: 'full-width-image',
     label: r1s,
     content: r1,
     category: 'Benefits ',
@@ -536,7 +536,7 @@ const sources = [
   // },
   {
     id: 'pricing-block-1',
-    class: '',
+    class: 'full-width-image',
     label: p1s,
     content: p1,
     category: 'Numbers',
@@ -552,7 +552,7 @@ const sources = [
   // },
   {
     id: 'statistic-block-1',
-    class: '',
+    class: 'full-width-image',
     label: s1s,
     content: s1,
     category: 'Guideline',
@@ -576,7 +576,7 @@ const sources = [
   // },
   {
     id: 'step-block-1',
-    class: '',
+    class: 'full-width-image',
     label: q1s,
     content: q1,
     category: 'Location',
@@ -600,7 +600,7 @@ const sources = [
   // },
   {
     id: 'team-block-1',
-    class: '',
+    class: 'full-width-image',
     label: t1s,
     content: t1,
     category: 'Video',
@@ -624,7 +624,7 @@ const sources = [
   // },
   {
     id: 'testimonial-block-1',
-    class: '',
+    class: 'full-width-image',
     label: m1s,
     content: m1,
     category: 'Testimonials',
@@ -652,11 +652,13 @@ export default (editor, options = {}) => {
   const bm = editor.Blocks
 
   sources.forEach((s) => {
+    console.log('zeeshan', s)
     bm.add(s.id, {
       label: s.label,
       attributes: { class: s.class },
       content: s.content,
       category: { label: s.category, open: s.category === 'Blog' },
+      class:  s?.class
     })
   })
 }
