@@ -16,7 +16,7 @@
   --nav-width-m: #{base(10)};
   --theme-bg: #f9f9fa;
   --theme-input-bg: var(--theme-elevation-0);
-  --theme-text: #3a4152;
+  --theme-text: #4a5162;
   --theme-primary: #48a3d7;
   // --theme-elevation-150 : #f1f3f5;
   --theme-baseline: #{$baseline-px};
@@ -204,7 +204,7 @@ body {
   }
 
   .card {
-    background-color: var(--theme-elevation-100);
+    background-color: #f1f3f5;
     border: 1px solid var(--theme-elevation-150);
     border-radius: 7px;
     padding: 20px;
