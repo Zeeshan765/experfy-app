@@ -273,7 +273,7 @@ const PageBuilder: React.FC = () => {
   //   },
   // });
 
-//Trait for Inner Section
+  //Trait for Inner Section
   // editor.DomComponents.addType('inner-section', {
   //   model: {
   //     defaults: {
@@ -297,7 +297,6 @@ const PageBuilder: React.FC = () => {
   //             { id: 'default', name: 'Default' },
   //             { id: 'nogap', name: 'No Gap' },
   //             { id: 'extended', name: 'Extended' },
-
 
   //             { id: 'narrow', name: 'Narrow' },
   //             { id: 'wide', name: 'Wide' },
@@ -356,7 +355,7 @@ const PageBuilder: React.FC = () => {
   //             { id: 'article', name: 'article' },
   //             { id: 'aside', name: 'aside' },
   //             { id: 'nav', name: 'nav' },
-              
+
   //           ],
   //         },
   //       ],
@@ -364,15 +363,10 @@ const PageBuilder: React.FC = () => {
   //   },
   // });
 
-
-
-
-
-
-
   return (
     <div className="main__content">
       <Eyebrow />
+      <div className="styles-container"></div>
       <div id="gjs" />
     </div>
   );

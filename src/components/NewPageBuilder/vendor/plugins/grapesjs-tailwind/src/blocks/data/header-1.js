@@ -1,6 +1,7 @@
 export const source = 
 `
-<header class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
+    
+    <header data-gjs-type= "header"  class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
