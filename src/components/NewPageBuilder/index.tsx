@@ -336,7 +336,7 @@ const NewPageBuilder = () => {
   //   },
   // });
 
-  //Trait for Inner Section
+  //Trait for Testimonial
   editor.DomComponents.addType('testimonial', {
     model: {
       defaults: {
