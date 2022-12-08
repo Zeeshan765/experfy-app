@@ -143,7 +143,7 @@ const sources = [
   {
     id: 'blog-block-1',
     // class: 'fa fa-map-o',
-    class: '',
+    class: 'full-width-image',
     label: b1s,
     name: 'image-text',
     // label: 'b2s().outerHTML',
@@ -329,7 +329,7 @@ const sources = [
   // },
   {
     id: 'feature-block-1',
-    class: '',
+    class: 'full-width-image',
     label: f1s,
     name: 'form',
     content: f1,
@@ -394,7 +394,7 @@ const sources = [
   // },
   {
     id: 'footer-block-1',
-    class: '',
+    class: 'full-width-image',
     label: z1s,
     name: 'footer',
     content: z1,
@@ -435,7 +435,7 @@ const sources = [
   // },
   {
     id: 'gallery-block-1',
-    class: '',
+    class: 'full-width-image',
     label: g1s,
     name: 'paragraph',
     content: g1,
@@ -460,7 +460,7 @@ const sources = [
   // },
   {
     id: 'header-block-1',
-    class: '',
+    class: 'full-width-image',
     label: h1s,
     content: h1,
     category: 'Headers',
@@ -492,7 +492,7 @@ const sources = [
   // },
   {
     id: 'hero-block-1',
-    class: '',
+    class: 'full-width-image',
     label: r1s,
     name: 'benefits',
     content: r1,
@@ -541,7 +541,7 @@ const sources = [
   // },
   {
     id: 'pricing-block-1',
-    class: '',
+    class: 'full-width-image',
     label: p1s,
     name: 'numbers',
     content: p1,
@@ -558,7 +558,7 @@ const sources = [
   // },
   {
     id: 'statistic-block-1',
-    class: '',
+    class: 'full-width-image',
     label: s1s,
     name: 'guideline',
     content: s1,
@@ -583,7 +583,7 @@ const sources = [
   // },
   {
     id: 'step-block-1',
-    class: '',
+    class: 'full-width-image',
     label: q1s,
     name: 'location',
     name: q1s,
@@ -609,7 +609,7 @@ const sources = [
   // },
   {
     id: 'team-block-1',
-    class: '',
+    class: 'full-width-image',
     label: t1s,
     name: 'video',
     content: t1,
@@ -634,7 +634,7 @@ const sources = [
   // },
   {
     id: 'testimonial-block-1',
-    class: '',
+    class: 'full-width-image',
     label: m1s,
     name: 'testimonials',
     content: m1,
@@ -663,6 +663,7 @@ export default (editor, options = {}) => {
   const bm = editor.Blocks;
 
   sources.forEach((s) => {
+    // console.log('zeeshan', s)
     bm.add(s.id, {
       label: s.label,
       attributes: { class: s.class },
