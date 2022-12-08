@@ -161,7 +161,7 @@ body {
 
   .nav nav a {
     padding: 1rem 2rem 1rem 1.5rem;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1.1rem;
     .icon--chevron {
       display: none;
@@ -191,8 +191,9 @@ body {
   }
 
   .nav-group__label {
-    font-weight: 600;
+    font-weight: 500;
     color: var(--theme-text);
+    font-size: 1rem;
   }
 
   .card {
@@ -242,16 +243,51 @@ div.react-select {
   }
 }
 
-.btn--style-primary {
-  background-color: var(--theme-primary);
-  color: var(--theme-elevation-0);
+// .btn--style-primary {
+//   // background-color: var(--theme-primary);
+//   // color: var(--theme-elevation-0);
+//   font-family: var(--font-body);
+//   padding: 10px 45px;
+//   border-radius: 5px;
+//   font-weight: 500;
+//   font-size: large;
+//   border: none;
+// }
+
+.btn-hover.color-9 {
+  // background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  background-image: linear-gradient(to right, #48a3d7, #48a3d7, #48a3d7, #48a3d7);
+}
+
+
+.btn-hover {
+  color: #fff;
+  cursor: pointer;
+  text-align:center;
   font-family: var(--font-body);
   padding: 10px 45px;
   border-radius: 5px;
   font-weight: 500;
   font-size: large;
-  border: none;
+  background-size: 300% 100%;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
+
+.btn-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  color:#fff;
+}
+
+
+
+
 
 .collection-edit__main {
   width: 100%;

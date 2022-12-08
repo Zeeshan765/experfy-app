@@ -28,13 +28,13 @@ const FormTip: React.FC<Type> = (props) => {
         <div
           style={{
             display: "flex",
-            alignItems: "align-items",
+            alignItems: "center",
           }}
         >
          <span>Tip</span>
-          <div style={{paddingTop:10}}className={classes.formTipContentText}>
+          <p className={classes.formTipContentText}>
             {props.text}
-          </div>
+          </p>
         </div>
       </Box>
     </Grid>

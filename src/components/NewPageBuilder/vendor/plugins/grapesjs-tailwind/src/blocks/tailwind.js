@@ -143,7 +143,7 @@ const sources = [
   {
     id: 'blog-block-1',
     // class: 'fa fa-map-o',
-    class: 'full-width-image',
+    class: 'full-width-image img_text',
     label: b1s,
     // label: 'b2s().outerHTML',
     content: b1,
@@ -328,7 +328,7 @@ const sources = [
   // },
   {
     id: 'feature-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image featured',
     label: f1s,
     content: f1,
     category: 'Form',
@@ -392,7 +392,7 @@ const sources = [
   // },
   {
     id: 'footer-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image footer',
     label: z1s,
     content: z1,
     category: 'Footer',
@@ -432,7 +432,7 @@ const sources = [
   // },
   {
     id: 'gallery-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image paragraph',
     label: g1s,
     content: g1,
     category: 'Paragraph',
@@ -456,7 +456,7 @@ const sources = [
   // },
   {
     id: 'header-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image header',
     label: h1s,
     content: h1,
     category: 'Headers',
@@ -488,7 +488,7 @@ const sources = [
   // },
   {
     id: 'hero-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image benefits',
     label: r1s,
     content: r1,
     category: 'Benefits ',
@@ -536,7 +536,7 @@ const sources = [
   // },
   {
     id: 'pricing-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image number',
     label: p1s,
     content: p1,
     category: 'Numbers',
@@ -552,7 +552,7 @@ const sources = [
   // },
   {
     id: 'statistic-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image guideline',
     label: s1s,
     content: s1,
     category: 'Guideline',
@@ -576,7 +576,7 @@ const sources = [
   // },
   {
     id: 'step-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image location',
     label: q1s,
     content: q1,
     category: 'Location',
@@ -600,7 +600,7 @@ const sources = [
   // },
   {
     id: 'team-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image video',
     label: t1s,
     content: t1,
     category: 'Video',
@@ -624,7 +624,7 @@ const sources = [
   // },
   {
     id: 'testimonial-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image testimonials',
     label: m1s,
     content: m1,
     category: 'Testimonials',
@@ -652,7 +652,6 @@ export default (editor, options = {}) => {
   const bm = editor.Blocks
 
   sources.forEach((s) => {
-    console.log('zeeshan', s)
     bm.add(s.id, {
       label: s.label,
       attributes: { class: s.class },

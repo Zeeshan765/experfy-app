@@ -189,6 +189,7 @@ const BasicPortalPage: React.FC = (props) => {
                       <Button
                         type="button"
                         buttonStyle="primary"
+                        className="btn-hover color-9"
                         onClick={() => handleOpen()}
                       >
                         Configure
@@ -222,6 +223,7 @@ const BasicPortalPage: React.FC = (props) => {
                         icon="plus"
                         iconPosition="left"
                         iconStyle="without-border"
+                        className="btn-hover color-9"
                       >
                         Create New
                       </Button>
@@ -287,10 +289,10 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-4 d-flex align-items-center">
                       {touched === 'career_portal_name' && (
                         <FormTip text={portal_name_tip} />
-                      )}
+                       )} 
                     </div>
                   </div>
 
@@ -304,7 +306,7 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-4 d-flex align-items-center">
                       {touched === 'portal_id' && (
                         <FormTip
                           text={'The read only filed displays the Portal ID'}
@@ -324,10 +326,10 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-4 d-flex align-items-center">
                       {touched === 'portal_url' && (
                         <FormTip text={portal_url_tip} />
-                      )}
+                       )} 
                     </div>
                   </div>
 
@@ -341,7 +343,7 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-4 d-flex align-items-center">
                       {touched === 'company_name' && (
                         <FormTip text={company_name_tip} />
                       )}
@@ -361,7 +363,7 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-4 d-flex align-items-center">
                       {touched === 'default_language' && (
                         <FormTip text="Set the default language of your career portal for your visitors" />
                       )}
@@ -381,10 +383,10 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-4 d-flex align-items-center">
                       {touched === 'default_locale' && (
                         <FormTip text="Set the default locale of your career portal for your visitors" />
-                      )}
+                       )} 
                     </div>
                   </div>
 
@@ -398,7 +400,7 @@ const BasicPortalPage: React.FC = (props) => {
                   </div>
 
                   <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-4 d-flex align-items-center">
                       <FormSwitch
                         label="Branding On"
                         checked={brandSwitch}
@@ -406,7 +408,7 @@ const BasicPortalPage: React.FC = (props) => {
                       />
                     </div>
                   </div>
-                  <Button type="submit" buttonStyle="primary">
+                  <Button type="submit" buttonStyle="primary" className='btn-hover color-9'>
                     Save
                   </Button>
                 </Form>
