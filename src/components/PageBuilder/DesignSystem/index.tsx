@@ -18,36 +18,19 @@ const fontWeight = [
 ];
 
 const fontsList = [
-  { value: 'proxima-nova', name: 'Proxima Nova' },
-  { value: 'Roboto', name: 'Roboto' },
-  { value: 'Open Sans', name: 'Open Sans' },
-  { value: 'Lato', name: 'Lato' },
-  { value: 'Montserrat', name: 'Montserrat' },
-  { value: 'Raleway', name: 'Raleway' },
-  { value: 'Oswald', name: 'Oswald' },
-  { value: 'Lora', name: 'Lora' },
-  { value: 'Merriweather', name: 'Merriweather' },
-  { value: 'Playfair Display', name: 'Playfair Display' },
-  { value: 'Nunito', name: 'Nunito' },
-  { value: 'Poppins', name: 'Poppins' },
-  { value: 'Source Sans Pro', name: 'Source Sans Pro' },
-  { value: 'PT Sans', name: 'PT Sans' },
-  { value: 'PT Serif', name: 'PT Serif' },
-  { value: 'Work Sans', name: 'Work Sans' },
-  { value: 'Noto Sans', name: 'Noto Sans' },
-  { value: 'Noto Serif', name: 'Noto Serif' },
-  { value: 'Muli', name: 'Muli' },
-  { value: 'Rubik', name: 'Rubik' },
-  { value: 'Quicksand', name: 'Quicksand' },
-  { value: 'Fira Sans', name: 'Fira Sans' },
-  { value: 'Dosis', name: 'Dosis' },
-  { value: 'Ubuntu', name: 'Ubuntu' },
-  { value: 'Titillium Web', name: 'Titillium Web' },
-  { value: 'Varela Round', name: 'Varela Round' },
-  { value: 'Exo 2', name: 'Exo 2' },
-  { value: 'Cabin', name: 'Cabin' },
-  { value: 'Fjalla One', name: 'Fjalla One' },
-  { value: 'Francois One', name: 'Francois One' },
+  { value:"Arial, Helvetica, sans-serif", name: 'Arial' },
+  { value:"Arial Black, Gadget, sans-serif" , name: 'Arial Black' },
+  { value:"Brush Script MT, sans-serif" , name: 'Brush Script MT' },
+  { value:"Comic Sans MS, cursive, sans-serif" , name: 'Comic Sans MS' },
+  { value:"Courier New, Courier, monospace" , name: 'Courier New' },
+  { value:"Georgia, serif" , name: 'Georgia' },
+  { value:"Helvetica, sans-serif" , name: 'Helvetica' },
+  { value:"Impact, Charcoal, sans-serif" , name: 'Impact' },
+  { value:"Lucida Sans Unicode, Lucida Grande, sans-serif" , name: 'Lucida Sans Unicode' },
+  { value:"Tahoma, Geneva, sans-serif" , name: 'Tahoma' },
+  { value:"Times New Roman, Times, serif" , name: 'Times New Roman' },
+  { value:"Trebuchet MS, Helvetica, sans-serif" , name: 'Trebuchet MS' },
+  { value:"Verdana, Geneva, sans-serif" , name: 'Verdana' }, 
 ];
 const DesignSystem: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -56,7 +39,7 @@ const DesignSystem: React.FC = () => {
   useEffect(() => {
     setStepNav([
       {
-        label: 'Design System',
+        label: 'Global Theme Settings',
         url: '/collections/design-system',
       },
     ]);
@@ -67,16 +50,12 @@ const DesignSystem: React.FC = () => {
       container: '#gjs',
       height: '100%',
       fromElement: true,
-      nativeDnD: true,
       storageManager: {
         type: 'local',
         autosave: true,
         autoload: true,
-        stepsBeforeSave: 1,
+        stepsBeforeSave: 3,
         options: {
-          storeComponents: true,
-          storeStyles: true,
-          storeHtml: true,
           storeCss: true,
           local: {
             key: 'global-theme-settings',
@@ -114,14 +93,12 @@ const DesignSystem: React.FC = () => {
 
       styleManager: {
         appendTo: '.styles-container',
+        
         sectors: [
           {
             name: 'Global Colors Collection',
-            highlightChanged: true,
-
             open: true,
-            stylePrefix: 'gds-', // Prefix for all class names
-            buildProps: ['background-color', 'color'],
+            buildProps: ['background-color', 'color', 'color'],
             properties: [
               {
                 type: 'color',
@@ -139,6 +116,15 @@ const DesignSystem: React.FC = () => {
                 default: '#4aa4da',
                 attributes: {
                   'data-type': 'color',
+                },
+              },
+              {
+                type: 'color',
+                name: 'Accent',
+                property: 'color',
+                default: '#4aa4da',
+                attributes: {
+                  'data-type': 'text-html-tag',
                 },
               },
             ],
@@ -162,7 +148,6 @@ const DesignSystem: React.FC = () => {
                 type: 'select',
                 name: 'Font Family',
                 property: 'font-family',
-                default: 'Roboto',
                 ResizeObserver: true,
                 options: fontsList,
               },

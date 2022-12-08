@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import path from 'path';
+import {createProxyMiddleware} from 'http-proxy-middleware'
 import { buildConfig } from 'payload/config';
 import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
 import DesignSystemCollection from "./collections/DesignSystemCollection";
@@ -129,8 +130,8 @@ export default buildConfig({
     defaultLocale: 'en',
     fallback: true,
   },
+  debug: true,
   cors: '*',
-
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
