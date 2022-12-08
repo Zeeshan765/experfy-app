@@ -663,7 +663,7 @@ export default (editor, options = {}) => {
   const bm = editor.Blocks;
 
   sources.forEach((s) => {
-    console.log('zeeshan', s)
+    // console.log('zeeshan', s)
     bm.add(s.id, {
       label: s.label,
       attributes: { class: s.class },

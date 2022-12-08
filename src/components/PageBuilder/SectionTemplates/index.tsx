@@ -52,8 +52,8 @@ const PageBuilder: React.FC = () => {
     editor.onReady((clb) => {
       console.log('Editor is ready');
       Text(editor);
-      ImageComponent(editor);
-      MapComponent(editor);
+      // ImageComponent(editor);
+      // MapComponent(editor);
     });
 
   }, [setEditor]);
@@ -333,9 +333,7 @@ function Text(editor: GrapesJS.Editor) {
       },
     },
   });
-}
-
-function MapComponent(editor: GrapesJS.Editor) {
+  //Trait for Map
   editor.DomComponents.addType('map', {
     model: {
       defaults: {
@@ -350,9 +348,8 @@ function MapComponent(editor: GrapesJS.Editor) {
       },
     },
   });
-}
 
-function ImageComponent(editor: GrapesJS.Editor) {
+  //Trait for Image
   editor.DomComponents.addType('image', {
     model: {
       defaults: {
@@ -408,5 +405,15 @@ function ImageComponent(editor: GrapesJS.Editor) {
       },
     },
   });
-}
+
+
+  return (
+    <div className="main__content">
+      <Eyebrow />
+      <div id="gjs" />
+      
+    </div>
+  );
+  
+};
 
