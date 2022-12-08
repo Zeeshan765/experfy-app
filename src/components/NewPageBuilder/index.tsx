@@ -33,6 +33,31 @@ const NewPageBuilder = () => {
     container: '#editor',
     plugins: [plugin1, Basics],
 
+    // styleManager: {
+    //   appendTo: '.styles-container',
+
+    //   sectors: [
+    //     {
+    //       // name: 'Global Colors Collection',
+    //       highlightChanged: true,
+    //       stylePrefix: 'ts-yes', // Prefix for all class names
+    //       open: true,
+    //       buildProps: ['background-color', 'color', 'color'],
+    //       properties: [
+    //         {
+    //           type: 'color',
+    //           name: 'Primary',
+    //           property: 'background-color',
+    //           default: '#e6e6e6',
+    //           attributes: {
+    //             'data-type': 'background-color',
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
+
     // panels: { defaults: [] },
   });
   const panelManager = editor.Panels;
@@ -96,8 +121,6 @@ const NewPageBuilder = () => {
   //     console.log('Editor is ready');
   //   });
   // }, [setEditor]);
-
-  console.log('editor', editor);
 
   editor.DomComponents.addType('text', {
     model: {
@@ -254,14 +277,12 @@ const NewPageBuilder = () => {
             name: 'btn-text',
             label: 'Button Text',
             placeholder: 'Button Label',
-            
           },
           {
             type: 'text',
             name: 'btn-link',
             label: 'Link',
             placeholder: 'Paste URL or Type ',
-            
           },
           {
             type: 'select',
@@ -287,7 +308,6 @@ const NewPageBuilder = () => {
               { id: 'medium', name: 'Medium' },
               { id: 'large', name: 'Large' },
               { id: 'xl', name: 'Extra Large' },
-
             ],
           },
           {
@@ -314,8 +334,7 @@ const NewPageBuilder = () => {
     },
   });
 
-
-
+  //Trait for TextArea
   editor.DomComponents.addType('textarea', {
     model: {
       defaults: {
@@ -324,9 +343,9 @@ const NewPageBuilder = () => {
             type: 'text',
             name: 'text-title',
             label: 'Text',
-            placeholder: 'Insert Your Text Here', 
+            placeholder: 'Insert Your Text Here',
           },
-         
+
           {
             type: 'select',
             name: 'text-size',
@@ -359,36 +378,10 @@ const NewPageBuilder = () => {
               { id: 'p', name: 'p' },
             ],
           },
-          
         ],
       },
     },
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // editor.DomComponents.addType('button', {
   //   model: {
@@ -552,7 +545,7 @@ const NewPageBuilder = () => {
     },
   });
 
-  // // Trait for Footer
+  // // Trait for Inner Section
   // editor.DomComponents.addType('inner-section', {
   //   model: {
   //     defaults: {
@@ -642,9 +635,25 @@ const NewPageBuilder = () => {
   //   },
   // });
 
+  editor.DomComponents.addType('div', {
+    model: {
+      defaults: {
+        traits: [
+          {
+            type: 'text',
+            name: 'map-location',
+            label: 'Location',
+            placeholder: 'Enter your location ',
+          },
+        ],
+      },
+    },
+  });
+
   return (
     <div className="main">
       <div id="editor"></div>
+      <div className="styles-container"></div>
     </div>
   );
 };
