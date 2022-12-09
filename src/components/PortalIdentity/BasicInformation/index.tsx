@@ -52,10 +52,10 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'career_portal_name' && (
               <FormTip text={'The go-to-market name of the career portal'} />
-            )}
+             )} 
           </div>
         </div>
 
@@ -70,7 +70,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'portal_id' && (
               <FormTip text={'The read only filed displays the Portal ID'} />
             )}
@@ -88,7 +88,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'portal_url' && (
               <FormTip
                 text={
@@ -109,7 +109,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'company_name' && (
               <FormTip
                 text={
@@ -134,7 +134,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'default_language' && (
               <FormTip
                 text={
@@ -159,7 +159,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'default_locale' && (
               <FormTip
                 text={
@@ -180,7 +180,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'google_id' && (
               <FormTip
                 text={
@@ -201,7 +201,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'google_analytics' && (
               <FormTip
                 text={
@@ -222,7 +222,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'google_webmaster' && (
               <FormTip text={'The Google Webmaster account.'} />
             )}
@@ -239,7 +239,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'bing_webmaster' && (
               <FormTip text={'The Bing Webmaster Tools account.'} />
             )}
@@ -256,7 +256,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-4 d-flex align-items-center">
             {touched === 'tracking_pixel' && (
               <FormTip
                 text={
@@ -269,7 +269,7 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-4">
-            <Button type="submit" buttonStyle="primary">
+            <Button type="submit" buttonStyle="primary" className='btn-hover color-9'>
               Save
             </Button>
           </div>

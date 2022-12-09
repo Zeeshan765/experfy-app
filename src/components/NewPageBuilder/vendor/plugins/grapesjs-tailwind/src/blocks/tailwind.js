@@ -143,7 +143,7 @@ const sources = [
   {
     id: 'blog-block-1',
     // class: 'fa fa-map-o',
-    class: 'full-width-image',
+    class: 'full-width-image img_text',
     label: b1s,
     name: 'image-text',
     // label: 'b2s().outerHTML',
@@ -329,7 +329,7 @@ const sources = [
   // },
   {
     id: 'feature-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image featured',
     label: f1s,
     name: 'form',
     content: f1,
@@ -394,7 +394,7 @@ const sources = [
   // },
   {
     id: 'footer-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image footer',
     label: z1s,
     name: 'footer',
     content: z1,
@@ -435,7 +435,7 @@ const sources = [
   // },
   {
     id: 'gallery-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image paragraph',
     label: g1s,
     name: 'paragraph',
     content: g1,
@@ -460,7 +460,7 @@ const sources = [
   // },
   {
     id: 'header-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image header',
     label: h1s,
     content: h1,
     category: 'Headers',
@@ -492,7 +492,7 @@ const sources = [
   // },
   {
     id: 'hero-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image benefits',
     label: r1s,
     name: 'benefits',
     content: r1,
@@ -541,7 +541,7 @@ const sources = [
   // },
   {
     id: 'pricing-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image number',
     label: p1s,
     name: 'numbers',
     content: p1,
@@ -558,7 +558,7 @@ const sources = [
   // },
   {
     id: 'statistic-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image guideline',
     label: s1s,
     name: 'guideline',
     content: s1,
@@ -583,7 +583,7 @@ const sources = [
   // },
   {
     id: 'step-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image location',
     label: q1s,
     name: 'location',
     name: q1s,
@@ -609,7 +609,7 @@ const sources = [
   // },
   {
     id: 'team-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image video',
     label: t1s,
     name: 'video',
     content: t1,
@@ -634,7 +634,7 @@ const sources = [
   // },
   {
     id: 'testimonial-block-1',
-    class: 'full-width-image',
+    class: 'full-width-image testimonials',
     label: m1s,
     name: 'testimonials',
     content: m1,
@@ -669,6 +669,7 @@ export default (editor, options = {}) => {
       attributes: { class: s.class },
       content: s.content,
       category: { label: s.category, open: s.category === 'Blog' },
-    });
-  });
-};
+      class:  s?.class
+    })
+  })
+}

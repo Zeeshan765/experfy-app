@@ -1,20 +1,41 @@
-import { GlobalConfig } from 'payload/types';
-import Menus from '../components/Menus';
+import { CollectionConfig, GlobalConfig } from "payload/types";
+import link, { Type as LinkType } from "../fields/link";
 
-const MenusCollection: GlobalConfig = {
-  slug: 'menus',
-  access: {
-    read: () => true,
-    update: () => true,
-  },
-  admin: {
-    components: {
-      views: {
-        Edit: Menus,
-      },
-    },
-  },
-  fields: [],
+export type Type = {
+  nav: {
+    link: LinkType;
+  }[];
 };
 
-export default MenusCollection;
+const Menu: CollectionConfig = {
+  slug: "mega-menu",
+  labels: { singular: "Menu", plural: "Menus" },
+
+  admin: {
+    useAsTitle: "title",
+    defaultColumns: ["title", "nav"],
+  },
+  access: {
+    read: () => true,
+  },
+  fields: [
+    {
+      name: "title",
+      label: "Menu Title",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "nav",
+      label: "Navigation",
+      type: "array",
+      labels: {
+        singular: "Link",
+        plural: "Links",
+      },
+      fields: [link],
+    },
+  ],
+};
+
+export default Menu;
