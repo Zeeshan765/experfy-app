@@ -1,19 +1,13 @@
-import { GlobalConfig } from 'payload/types';
-import Pages from '../components/Pages';
+import { GlobalConfig, CollectionConfig } from "payload/types";
+import Pages from "../components/Pages";
 
-const PagesCollection: GlobalConfig = {
-  slug: 'pages',
+const PagesCollection: CollectionConfig = {
+  slug: "xpagex",
   access: {
     read: () => true,
     update: () => true,
   },
-  admin: {
-    components: {
-      views: {
-        Edit: Pages,
-      },
-    },
-  },
+
   fields: [],
 };
 

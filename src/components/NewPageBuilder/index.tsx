@@ -705,7 +705,7 @@ const NewPageBuilder = () => {
   return (
     <div className="main">
       <div id="editor"></div>
-      <div className="styles-container"></div>
+      <div className="styles-container"></div>  
     </div>
   );
 };

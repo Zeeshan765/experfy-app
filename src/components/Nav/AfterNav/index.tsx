@@ -1,15 +1,15 @@
-import { useConfig } from 'payload/components/utilities';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import MediaLibraryIcon from '../../../assets/images/sidebar/media_library.svg';
-import MenusIcon from '../../../assets/images/sidebar/menus.svg';
-import PagesIcon from '../../../assets/images/sidebar/pages.svg';
-import PortalIdentityIcon from '../../../assets/images/sidebar/portal_identity.svg';
-import TemplateLibraryIcon from '../../../assets/images/sidebar/template_library.svg';
-import ThemesIcon from '../../../assets/images/sidebar/themes.svg';
-import UsersIcon from '../../../assets/images/sidebar/users.svg';
+import { useConfig } from "payload/components/utilities";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import MediaLibraryIcon from "../../../assets/images/sidebar/media_library.svg";
+import MenusIcon from "../../../assets/images/sidebar/menus.svg";
+import PagesIcon from "../../../assets/images/sidebar/pages.svg";
+import PortalIdentityIcon from "../../../assets/images/sidebar/portal_identity.svg";
+import TemplateLibraryIcon from "../../../assets/images/sidebar/template_library.svg";
+import ThemesIcon from "../../../assets/images/sidebar/themes.svg";
+import UsersIcon from "../../../assets/images/sidebar/users.svg";
 
-const baseClass = 'nav-group';
+const baseClass = "nav-group";
 
 const AfterNav: React.FC = () => {
   const {
@@ -31,7 +31,7 @@ const AfterNav: React.FC = () => {
         <NavLink
           className="nav__link"
           activeClassName="active"
-          to={`${adminRoute}/collections/menus`}
+          to={`${adminRoute}/collections/mega-menu`}
         >
           <img style={{ paddingRight: 8 }} src={MenusIcon} alt="Menus" />
           Menus
@@ -49,7 +49,11 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/templates`}
         >
-          <img style={{ paddingRight: 8 }} src={TemplateLibraryIcon} alt="Template Library" />
+          <img
+            style={{ paddingRight: 8 }}
+            src={TemplateLibraryIcon}
+            alt="Template Library"
+          />
           Template Library
         </NavLink>
         <NavLink
@@ -65,7 +69,7 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/users`}
         >
-          <img style={{paddingRight: 8}} src={UsersIcon} alt="Users" />
+          <img style={{ paddingRight: 8 }} src={UsersIcon} alt="Users" />
           Users
         </NavLink>
 
@@ -74,7 +78,11 @@ const AfterNav: React.FC = () => {
           activeClassName="active"
           to={`${adminRoute}/collections/portal-identity`}
         >
-          <img style={{ paddingRight: 8 }} src={PortalIdentityIcon} alt="Portal Identity" />
+          <img
+            style={{ paddingRight: 8 }}
+            src={PortalIdentityIcon}
+            alt="Portal Identity"
+          />
           Portal Identity
         </NavLink>
       </nav>
