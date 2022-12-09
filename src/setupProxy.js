@@ -14,7 +14,6 @@ module.exports = function (app) {
       hostRewrite: true,
       autoRewrite: true,
       followRedirects: true,
-      pathRewrite: { [LOGIN_MATCHER]: "" },
     })
   );
 };
