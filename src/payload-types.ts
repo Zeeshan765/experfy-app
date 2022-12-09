@@ -78,19 +78,37 @@ export interface Template {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "themes".
+ * via the `definition` "design-system".
  */
-export interface Theme {
+export interface DesignSystem {
   id: string;
   createdAt: string;
   updatedAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "menus".
+ * via the `definition` "themes".
+ */
+export interface ThemeStyle {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "mega-menu".
  */
 export interface Menu {
   id: string;
+  nav: {
+    link: {
+      type?: 'page' | 'custom';
+      label: string;
+      page: string | Page;
+      url: string;
+    };
+    id?: string;
+  }[];
   createdAt: string;
   updatedAt: string;
 }
@@ -100,6 +118,9 @@ export interface Menu {
  */
 export interface Page {
   id: string;
+  title: string;
+  pageType: 'scratch' | 'template';
+  slug?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -109,9 +130,52 @@ export interface Page {
  */
 export interface Media {
   id: string;
-  iconMedia?: string | IconCollection;
-  photoMedia?: string | PhotoCollection;
-  VideoMedia?: string | VideoCollection;
+  mediaType?: 'Icon' | 'Photo' | 'Video';
+  'Icon Title': string;
+  'Photo Title': string;
+  'Video Title': string;
+  keywords: string;
+  description: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes: {
+    card: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    portrait: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    square: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    feature: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
   createdAt: string;
   updatedAt: string;
 }

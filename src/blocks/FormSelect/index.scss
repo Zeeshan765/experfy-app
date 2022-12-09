@@ -13,6 +13,18 @@
   // margin: 10px 0px 10px 0px;
    
 
+  .field-label {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--theme-text);
+  }
+
+  .field-label {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--theme-text);
+  }
+
   &.error {
     input {
       background-color: var(--theme-error-200);

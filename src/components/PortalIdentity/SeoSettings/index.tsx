@@ -63,9 +63,9 @@ export default function SeoSettings(props) {
 
         <div className="row">
           <div className="col-md-4">
-            <Button type="submit" buttonStyle="primary" className='btn-hover color-9'>
-              
-              Submit
+            <Button type="submit" buttonStyle="primary">
+              {' '}
+              Submit{' '}
             </Button>
           </div>
         </div>
