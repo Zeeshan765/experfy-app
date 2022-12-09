@@ -589,7 +589,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-pn-views-container {
   left: 0 !important;
   background-color: #ffffff !important;
-  top: 100px !important;
+  top: 80px !important;
   /* width: 19% !important; */
 }
 
@@ -622,3 +622,79 @@ $fontName: "proximanova-bold-webfont";
     top: 80px !important;
   }
 }
+
+
+// -----------------------------------------------------------//
+// ----new page builder sidebar collection settinf------------//
+// ----------------------------------------------------------//
+.gjs-trt-traits{
+
+  .gjs-trt-trait {
+    padding: 7px 15px !important;
+
+    .gjs-label{
+      margin-bottom: 0.3rem !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      color: var(--theme-text) !important;
+    }
+    .gjs-field-wrp--select{
+      display: flex !important;
+      justify-content: end !important;
+
+      .gjs-field-select {
+        width: 200px !important;
+      select{
+        padding-right: 20px !important;
+        padding-left: 10px !important;
+        option {
+          background-color: #fff !important;
+          color: #101010 !important;
+          border: none !important;
+      }
+      }
+    }
+
+      .gjs-sel-arrow{
+        .gjs-d-s-arrow{
+          border-top: 5px solid rgb(0 0 0) !important; 
+          border-left: 4px solid transparent !important;
+          border-right: 4px solid transparent !important;
+        }
+      }
+
+    }
+  }
+
+  .gjs-trt-trait__wrp-text-title{
+    .gjs-trt-trait--text{
+      display: block !important;
+      .gjs-field-text{
+        input{
+          padding: 15px 10px !important;   
+        }
+      }
+    }
+  }
+  .gjs-trt-trait__wrp-text-link{
+    .gjs-trt-trait--text{
+      display: block !important;
+      .gjs-field-text{
+        input{
+       padding: 15px 10px !important;   
+        }
+      }
+    }
+  }
+
+
+  
+
+
+
+
+
+
+}
+
+
