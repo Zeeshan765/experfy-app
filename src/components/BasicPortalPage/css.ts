@@ -62,10 +62,10 @@ export const useStyles = makeStyles({
   portalCardContent: {
     flex: 1,
     width: "100%",
-    paddingLeft: "8rem !important",
+    paddingLeft: "10rem !important",
   },
   portalCardIconOne: {
-    background: `url(${IconOne}) left 1rem top .25rem no-repeat scroll`,
+    background: `url(${IconOne}) left 0.5rem top -0.9rem no-repeat scroll`,
   },
   portalCardIconTwo: {
     background: `url(${IconTwo}) left 1rem top 1rem no-repeat scroll`,
