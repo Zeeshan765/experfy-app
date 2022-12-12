@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import path from "path";
-import { createProxyMiddleware } from "http-proxy-middleware";
 import { buildConfig } from "payload/config";
 import BasicPortalIdentityCollection from "./collections/BasicPortalIdentity";
 import DesignSystemCollection from "./collections/DesignSystemCollection";
@@ -12,7 +11,6 @@ import PageBuilderCollection from "./collections/PageBuilder";
 import TemplatesCollection from "./collections/TemplatesCollection";
 import ThemeCollection from "./collections/ThemeCollection";
 import Users from "./collections/Users";
-import VideoCollection from "./collections/VideoCollection";
 import BasicPortalIdentityPage from "./components/BasicPortalPage";
 import AfterNav from "./components/Nav/AfterNav";
 import ExperfyLogo from "./components/Nav/AppLogo";
@@ -23,7 +21,6 @@ import PageBuilder from "./components/PageBuilder/SectionTemplates";
 // import Pages from "./components/Pages";
 import PortalIdentity from "./components/PortalIdentity";
 import Templates from "./components/Templates";
-import Themes from "./components/Themes";
 import MyProvider from "./MyProvider";
 
 dotenv.config();
@@ -108,10 +105,7 @@ export default buildConfig({
     Media,
     Users,
     NewPageBuilderCollection,
-    Users,
-    NewPageBuilderCollection,
   ],
-
 
   localization: {
     locales: ["en", "es"],
