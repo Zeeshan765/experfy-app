@@ -4,8 +4,8 @@ require("dotenv").config();
 const app = express();
 import { createProxyMiddleware } from "http-proxy-middleware";
 
-const LOGIN_MATCHER = process.env.REACT_APP_LOGIN_MATCHER;
-const LOGIN_API_URL = process.env.REACT_APP_LOGIN_URL;
+const LOGIN_MATCHER = "/login";
+const LOGIN_API_URL = "https://landing-ui-service.develop.experfy.com";
 
 // Redirect root to Admin panel
 app.get("/", (_, res) => {
