@@ -10,6 +10,9 @@ import Basics from 'grapesjs-blocks-basic';
 
 const NewPageBuilder = () => {
   // const [editor, setEditor] = React.useState(null);
+
+
+
   // const myFirstBlock = (editor) => {
   //   var blockManager = editor.BlockManager
   //   // 'my-first-block' is the ID of the block
@@ -26,9 +29,9 @@ const NewPageBuilder = () => {
   //   });
   //  }
 
-  // const [editor, setEditor] = React.useState<GrapesJS.Editor>();
+  const [editor, setEditor] = React.useState<GrapesJS.Editor>();
 
-  // React.useEffect(() => {
+  React.useEffect(() => {
   const editor = GrapesJS.init({
     container: '#editor',
     plugins: [plugin1, Basics],
@@ -114,12 +117,10 @@ const NewPageBuilder = () => {
     ],
   });
 
-  //   setEditor(editor);
+    setEditor(editor);
   //   editor.onReady((clb) => {
   //     console.log('Editor is ready');
   //   });
-  // }, [setEditor]);
-
   editor.DomComponents.addType('text', {
     model: {
       defaults: {
@@ -129,12 +130,14 @@ const NewPageBuilder = () => {
             name: 'text-title',
             label: 'Title',
             placeholder: 'Enter your title ',
+            className: 'custom-text',
           },
           {
             type: 'text',
             name: 'text-link',
             label: 'Link',
             placeholder: 'Paste URL or Type ',
+            class: 'custom-link',
           },
           {
             type: 'select',
@@ -702,10 +705,64 @@ const NewPageBuilder = () => {
     },
   });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }, [setEditor]);
+
+ 
+  // editor.TraitManager.addType('text', {
+  //   // ...
+
+  //   // Update the component based on element changes
+  //   // `elInput` is the result HTMLElement you get from `createInput`
+  //   onEvent({ elInput, component, event }) {
+  //     console.log('elInput, component, event', elInput, component, event);
+  //     const inputType = elInput.querySelector('.gjs-field gjs-field-text');
+  //     console.log('inputType', inputType);
+
+  //     let href = '';
+
+  //     switch (inputType.value) {
+  //       case 'url':
+  //         const valUrl = elInput.querySelector('.href-next__url').value;
+  //         href = valUrl;
+  //         break;
+  //       case 'email':
+  //         const valEmail = elInput.querySelector('.href-next__email').value;
+  //         const valSubj = elInput.querySelector(
+  //           '.href-next__email-subject'
+  //         ).value;
+  //         href = `mailto:${valEmail}${valSubj ? `?subject=${valSubj}` : ''}`;
+  //         break;
+  //     }
+
+  //     component.addAttributes({ href });
+  //   },
+
+  //   onUpdate({ elInput, component }) {
+  //     console.log('   ', elInput, component);
+  //   },
+  // });
+
   return (
     <div className="main">
       <div id="editor"></div>
-      <div className="styles-container"></div>  
+      <div className="styles-container"></div>
     </div>
   );
 };
