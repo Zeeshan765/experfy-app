@@ -1,18 +1,15 @@
-import { type } from 'os';
-import payload from 'payload';
-import { useLocale } from 'payload/components/utilities';
 import {
   CollectionBeforeChangeHook,
   CollectionBeforeReadHook,
   CollectionConfig,
-} from 'payload/types';
-import BasicPortalPage from '../components/BasicPortalPage';
+} from "payload/types";
+import BasicPortalPage from "../components/BasicPortalPage";
 
 const BasicPortalIdentityCollection: CollectionConfig = {
-  slug: 'basic-portal-identity',
+  slug: "basic-portal-identity",
   labels: {
-    singular: 'Basic Portal Identity',
-    plural: 'Basic Portal Identity',
+    singular: "Basic Portal Identity",
+    plural: "Basic Portal Identity",
   },
 
   access: {
@@ -30,76 +27,76 @@ const BasicPortalIdentityCollection: CollectionConfig = {
   },
   fields: [
     {
-      name: 'user_portal',
-      type: 'relationship',
-      relationTo: 'users',
+      name: "user_portal",
+      type: "relationship",
+      relationTo: "users",
       hasMany: false,
       // required: true,
     },
     {
-      label: 'Portal Name',
-      name: 'career_portal_name',
-      type: 'text',
-      defaultValue: 'Career Portal',
+      label: "Portal Name",
+      name: "career_portal_name",
+      type: "text",
+      defaultValue: "Career Portal",
       required: false,
     },
     {
-      name: 'portal_url',
-      type: 'text',
+      name: "portal_url",
+      type: "text",
       required: false,
     },
     {
-      name: 'portal_id',
+      name: "portal_id",
       unique: true,
-      type: 'text',
+      type: "text",
     },
     {
-      name: 'default_locale',
-      type: 'select',
-      options: ['US', 'ES'],
+      name: "default_locale",
+      type: "select",
+      options: ["US", "ES"],
     },
     {
-      name: 'default_language',
-      type: 'select',
-      options: ['English', 'Spanish'],
-    },
-
-    {
-      name: 'company_name',
-      type: 'text',
+      name: "default_language",
+      type: "select",
+      options: ["English", "Spanish"],
     },
 
     {
-      name: 'page_title',
-      type: 'text',
+      name: "company_name",
+      type: "text",
+    },
+
+    {
+      name: "page_title",
+      type: "text",
     },
     {
-      name: 'meta_keywords',
-      type: 'text',
+      name: "meta_keywords",
+      type: "text",
     },
     {
-      name: 'meta_description',
-      type: 'text',
+      name: "meta_description",
+      type: "text",
     },
     {
-      name: 'tracking_pixel',
-      type: 'text',
+      name: "tracking_pixel",
+      type: "text",
     },
     {
-      name: 'bing_webmaster',
-      type: 'text',
+      name: "bing_webmaster",
+      type: "text",
     },
     {
-      name: 'google_webmaster',
-      type: 'text',
+      name: "google_webmaster",
+      type: "text",
     },
     {
-      name: 'google_analytics',
-      type: 'text',
+      name: "google_analytics",
+      type: "text",
     },
     {
-      name: 'google_id',
-      type: 'text',
+      name: "google_id",
+      type: "text",
     },
 
     // {
@@ -115,22 +112,22 @@ const BasicPortalIdentityCollection: CollectionConfig = {
 
     //  },
     {
-      name: 'brands',
-      type: 'array',
+      name: "brands",
+      type: "array",
       fields: [
         {
-          name: 'brand_name',
-          type: 'text',
+          name: "brand_name",
+          type: "text",
           //hidden: true,
         },
         {
-          name: 'brand_identifier',
-          type: 'text',
+          name: "brand_identifier",
+          type: "text",
           //hidden: true,
         },
         {
-          name: 'microsoft_identifier',
-          type: 'text',
+          name: "microsoft_identifier",
+          type: "text",
           //hidden: true,
         },
       ],
@@ -162,10 +159,10 @@ const BasicPortalIdentityCollection: CollectionConfig = {
   ],
 };
 const beforeChangeHook: CollectionBeforeChangeHook = async ({ operation }) => {
-  console.log('beforeChangeHook operation', operation);
+  console.log("beforeChangeHook operation", operation);
 };
 const beforeReadHook: CollectionBeforeReadHook = async () => {
-  console.log('Before Read Hook Called');
+  console.log("Before Read Hook Called");
 };
 
 export default BasicPortalIdentityCollection;

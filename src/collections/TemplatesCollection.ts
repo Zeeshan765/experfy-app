@@ -1,21 +1,20 @@
-import {  GlobalConfig } from "payload/types";
+import { CollectionConfig } from "payload/types";
 import Templates from "../components/Templates";
 
-
-const TemplatesCollection: GlobalConfig = {
-    slug: 'templates',
-    access: {
-        read: () => true,
-        update: () => true,
+const TemplatesCollection: CollectionConfig = {
+  slug: "templates",
+  access: {
+    read: () => true,
+    update: () => true,
+  },
+  admin: {
+    components: {
+      views: {
+        Edit: Templates,
+      },
     },
-    admin: {
-        components: {
-            views: {
-                Edit: Templates,
-            },
-        },
-    },
-    fields: []
+  },
+  fields: [],
 };
 
 export default TemplatesCollection;

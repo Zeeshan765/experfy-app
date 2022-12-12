@@ -1,23 +1,17 @@
-import { Page } from "./payload-types";
 import dotenv from "dotenv";
 import path from "path";
-import { createProxyMiddleware } from "http-proxy-middleware";
 import { buildConfig } from "payload/config";
 import BasicPortalIdentityCollection from "./collections/BasicPortalIdentity";
 import DesignSystemCollection from "./collections/DesignSystemCollection";
-import IconCollection from "./collections/IconCollection";
 import Media from "./collections/Media";
 import MenusCollection from "./collections/MenusCollection";
 import NewPageBuilderCollection from "./collections/NewPageBuilder";
-import PageBuilderCollection from "./collections/PageBuilder";
 import PagesCollection from "./collections/Page";
-import PhotoCollection from "./collections/PhotoCollection";
+import PageBuilderCollection from "./collections/PageBuilder";
 import TemplatesCollection from "./collections/TemplatesCollection";
 import ThemeCollection from "./collections/ThemeCollection";
 import Users from "./collections/Users";
-import VideoCollection from "./collections/VideoCollection";
 import BasicPortalIdentityPage from "./components/BasicPortalPage";
-import Menus from "./components/Menus";
 import AfterNav from "./components/Nav/AfterNav";
 import ExperfyLogo from "./components/Nav/AppLogo";
 import BeforeNav from "./components/Nav/BeforeNav";
@@ -89,7 +83,9 @@ export default buildConfig({
         },
         {
           path: "/collections/themes",
-          Component: Themes,
+          Component: DesignSystem,
+          exact: true,
+          strict: true,
         },
         {
           path: "/collections/new-page-builder",
@@ -117,7 +113,6 @@ export default buildConfig({
     defaultLocale: "en",
     fallback: true,
   },
-  debug: true,
   cors: "*",
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
