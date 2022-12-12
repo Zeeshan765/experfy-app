@@ -142,7 +142,6 @@ const BasicPortalIdentityCollection: CollectionConfig = {
           //hidden: true,
         },
       ],
-      ],
     },
 
     // {
@@ -171,10 +170,10 @@ const BasicPortalIdentityCollection: CollectionConfig = {
   ],
 };
 const beforeChangeHook: CollectionBeforeChangeHook = async ({ operation }) => {
-  console.log('beforeChangeHook operation', operation);
+  console.log("beforeChangeHook operation", operation);
 };
 const beforeReadHook: CollectionBeforeReadHook = async () => {
-  console.log('Before Read Hook Called');
+  console.log("Before Read Hook Called");
 };
 
 export default BasicPortalIdentityCollection;
