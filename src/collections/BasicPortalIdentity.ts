@@ -32,6 +32,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       relationTo: "users",
       hasMany: false,
       // required: true,
+      // required: true,
     },
     {
       label: "Portal Name",
@@ -103,13 +104,23 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     //   name : 'Sub-domains',
     //   type: 'radio',
     //   options: ['sub_domain'],
+    // {
+    //   name : 'Sub-domains',
+    //   type: 'radio',
+    //   options: ['sub_domain'],
 
     //  },
     //  {
     //   name : 'Sub-directories',
     //   type: 'radio',
     //   options: ['sub_directories'],
+    //  },
+    //  {
+    //   name : 'Sub-directories',
+    //   type: 'radio',
+    //   options: ['sub_directories'],
 
+    //  },
     //  },
     {
       name: "brands",
@@ -130,6 +141,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
           type: "text",
           //hidden: true,
         },
+      ],
       ],
     },
 
@@ -159,10 +171,10 @@ const BasicPortalIdentityCollection: CollectionConfig = {
   ],
 };
 const beforeChangeHook: CollectionBeforeChangeHook = async ({ operation }) => {
-  console.log("beforeChangeHook operation", operation);
+  console.log('beforeChangeHook operation', operation);
 };
 const beforeReadHook: CollectionBeforeReadHook = async () => {
-  console.log("Before Read Hook Called");
+  console.log('Before Read Hook Called');
 };
 
 export default BasicPortalIdentityCollection;

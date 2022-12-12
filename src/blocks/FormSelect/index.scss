@@ -1,10 +1,17 @@
 @import '../../styles/scss/index.scss';
+@import '../../styles/scss/index.scss';
 
 .field-type.select {
   position: relative;
   
 
+  
+
   .field-label {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--theme-text);
+  }
     font-weight: 500;
     font-size: 16px;
     color: var(--theme-text);
