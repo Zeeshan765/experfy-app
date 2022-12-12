@@ -1,11 +1,7 @@
 @import '../../styles/scss/index.scss';
-@import '../../styles/scss/index.scss';
 
 .field-type.select {
   position: relative;
-
-
-
 
   .field-label {
     font-weight: 500;
@@ -16,19 +12,10 @@
   font-weight: 500;
   font-size: 16px;
   color: var(--theme-text);
-}
 
-// margin: 10px 0px 10px 0px;
-
-
-.field-label {
-  font-weight: 500;
-  font-size: 16px;
-  color: var(--theme-text);
-}
-
-&.error {
-  input {
-    background-color: var(--theme-error-200);
+  &.error {
+    input {
+      background-color: var(--theme-error-200);
+    }
   }
 }
