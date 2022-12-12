@@ -30,19 +30,23 @@ $fontName: "proximanova-bold-webfont";
 .gjs-pn-panel,
 .gjs-pn-views {
   width: 20% !important;
-  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
+  box-shadow: 0 0 10px var(--theme-elevation-300) !important;
   position: relative !important;
+  font-size: x-large !important;
+  font-weight: 400 !important;
+  color: var(--theme-elevation-0) !important;
+  padding: 0 !important;
 }
 
 .gjs-pn-views-container {
   width: 20% !important;
   overflow: auto;
-  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
+  box-shadow: 0 0 10px var(--theme-elevation-300) !important;
 }
 
 .gjs-selected {
-  outline: 2px solid var(--theme-primary) !important;
-  outline-offset: -2px !important;
+  outline: 4px solid var(--theme-primary) !important;
+  outline-offset: -4px !important;
 }
 
 .gjs-sm-properties {
@@ -51,7 +55,7 @@ $fontName: "proximanova-bold-webfont";
   font-size: 1rem !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  background-color: #fff !important;
+  background-color: var(--theme-elevation-0)
 }
 
 .gjs-pn-commands {
@@ -67,9 +71,9 @@ $fontName: "proximanova-bold-webfont";
   min-width: 20% !important;
 }
 
-// .gjs-category-title,
-// .gjs-layer-title,
-// .gjs-block-category,
+.gjs-category-title,
+.gjs-layer-title,
+.gjs-block-category,
 .gjs-sm-sector-title {
   font-weight: 500 !important;
   color: var(--theme-text) !important;
@@ -78,7 +82,7 @@ $fontName: "proximanova-bold-webfont";
   background-color: #fff !important;
   flex-direction: row-reverse !important;
   justify-content: start !important;
-  // border-bottom: 2px solid rgb(235 x235 235) !important;
+  border-bottom: 2px solid var(--theme-elevation-50) !important
 }
 
 .gjs-sm-field input,
@@ -187,11 +191,15 @@ $fontName: "proximanova-bold-webfont";
   padding: 0 10px;
 }
 
+.gjs-pn-buttons {
+  background-color: var(--theme-primary);
+}
+
 .gjs-sm-property__border {
   display: block !important;
 
   .gjs-sm-composite {
-    border: 1px solid rgb(255 255 255 / 25%) !important;
+    border: 1px solid var(--theme-elevation-150) !important;
   }
 }
 
@@ -231,7 +239,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-category-open,
 .gjs-block-category.gjs-open,
 .gjs-sm-sector.gjs-sm-open {
-  border-bottom: 1px solid var(--theme-elevation-900) !important;
+  border-bottom: 2px solid var(--theme-elevation-50) !important
 }
 
 // .gjs-field-range input[type="range"] {
