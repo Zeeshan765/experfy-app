@@ -77,7 +77,9 @@ const DesignSystem: React.FC = () => {
         },
       },
 
+
       panels: {
+
         defaults: [
           {
             id: "global-style",
@@ -109,7 +111,7 @@ const DesignSystem: React.FC = () => {
           //   attributes: {
           //     title: 'Open projects and templates'
           //   },
-          //   command: 'open-templates', //Open modal
+          //   command: 'open-templates', //Open modal 
           // },
           // {
           //   id: 'open-pages',
@@ -260,7 +262,55 @@ const DesignSystem: React.FC = () => {
           {
             name: "Theme Style",
             open: false,
-            active: false,
+            buildProps: ["border-radius", "border", "box-shadow"],
+            properties: [
+              {
+                type: "integer",
+                name: "Border Radius",
+                property: "border-radius",
+                default: "0",
+                units: ["px", "%"],
+              },
+              {
+                type: "integer",
+                name: "Border Width",
+                property: "border-width",
+                default: "0",
+                units: ["px", "%"],
+              },
+              {
+                type: "select",
+                name: "Border Style",
+                property: "border-style",
+                default: "solid",
+                options: [
+                  { value: "solid", name: "Solid" },
+                  { value: "dotted", name: "Dotted" },
+                  { value: "dashed", name: "Dashed" },
+                  { value: "double", name: "Double" },
+                  { value: "groove", name: "Groove" },
+                  { value: "ridge", name: "Ridge" },
+                  { value: "inset", name: "Inset" },
+                  { value: "outset", name: "Outset" },
+                  { value: "none", name: "None" },
+                  { value: "hidden", name: "Hidden" },
+                ],
+
+              },
+
+              {
+                type: "select",
+                name: "Box Shadow",
+                property: "box-shadow",
+                default: "none",
+                options: [
+                  { value: "none", name: "None" },
+                  { value: "0 1px 1px rgba(0, 0, 0, 0.3)", name: "Small" },
+                  { value: "0 2px 2px rgba(0, 0, 0, 0.3)", name: "Medium" },
+                  { value: "0 3px 3px rgba(0, 0, 0, 0.3)", name: "Big" },
+                ],
+              },
+            ],
           },
           {
             name: "Buttons",
@@ -584,18 +634,24 @@ const DesignSystem: React.FC = () => {
           },
         ],
       },
+
+
     });
 
     setEditor(editor);
     editor.onReady((clb) => {
       editor.Canvas.getBody().style.backgroundColor = "#fff";
     });
+
   }, [setEditor]);
+
+
 
   // editor.setDragMode('translate');
 
+
   return (
-    <div className="main__content">
+    <div className='main__content'>
       <Eyebrow />
       <div className="panel__top">
         <div className="panel__basic-actions"></div>
@@ -607,9 +663,12 @@ const DesignSystem: React.FC = () => {
         <div className="editor-canvas">
           <div id="gjs"></div>
         </div>
+
       </div>
+
     </div>
   );
 };
+
 
 export default DesignSystem;
