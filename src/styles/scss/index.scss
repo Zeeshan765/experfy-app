@@ -316,6 +316,7 @@ div.react-select {
   margin-right: 10px;
 }
 
+
 // ------------------------------------------//
 // ------------ custom css ------------------//
 // -----------------------------------------//
@@ -395,4 +396,21 @@ div.react-select {
 
     .radio-input__styled-radio{
  display: none !important;
+}
+
+.collection-edit__main{
+  .collection-edit__edit{
+    display: flex;
+    flex-direction: column;
+  }
+  .collection-edit__header{
+    
+    order: 2;
+  }
+  .field-type{
+    order: 3;
+  }
+  .render-fields{
+    order:1 
+  }
 }
