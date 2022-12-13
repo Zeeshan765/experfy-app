@@ -29,6 +29,7 @@
 
   --gutter-h: #{base(5)};
 
+
   @include large-break {
     --gutter-h: #{base(3)};
     --nav-width: #{base(10)};
@@ -103,6 +104,9 @@ body {
 
 .step-nav span {
   color: var(--theme-text);
+  text-overflow: unset;
+  overflow: unset;
+  white-space: nowrap;
 }
 
 .eyebrow:before {
@@ -126,7 +130,7 @@ body {
 
 .nav__scroll {
   padding: 0;
-  overflow: auto;
+  overflow: inherit;
   background-color: var(--theme-elevation-0);
 }
 
@@ -268,7 +272,6 @@ div.react-select {
   font-weight: 500;
   font-size: large;
   background-size: 300% 100%;
-  moz-transition: all .6s ease-in-out;
   -o-transition: all .6s ease-in-out;
   -webkit-transition: all .6s ease-in-out;
   transition: all 0.6s ease-in-out;
@@ -276,7 +279,6 @@ div.react-select {
 
 .btn-hover:hover {
   background-position: 100% 0;
-  moz-transition: all .6s ease-in-out;
   -o-transition: all .6s ease-in-out;
   -webkit-transition: all .6s ease-in-out;
   transition: all 0.6s ease-in-out;
