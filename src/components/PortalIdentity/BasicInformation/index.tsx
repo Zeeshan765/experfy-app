@@ -216,7 +216,7 @@ export default function BasicInformation(props) {
           <div className="col-md-8">
             <TextInput
               path={'google_webmaster'}
-              label="Google Webmaster Id"
+              label="Google Webmaster ID"
               display={propsdata?.google_webmaster}
               setTouched={setTouched}
             />
@@ -233,7 +233,7 @@ export default function BasicInformation(props) {
           <div className="col-md-8">
             <TextInput
               path={'bing_webmaster'}
-              label="Bing Webmaster Id"
+              label="Bing Webmaster ID"
               display={propsdata?.bing_webmaster}
               setTouched={setTouched}
             />

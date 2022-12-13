@@ -44,6 +44,7 @@ export const Media: CollectionConfig = {
         height: 576,
       },
     ],
+    mimeTypes: ["image/*", "image/svg","video/*", "image/png"],
     // adminThumbnail: '',
     // mimeTypes: (_,siblingData):String=>{
     //         console.log("image condation",siblingData);
@@ -140,26 +141,9 @@ export const Media: CollectionConfig = {
       label: "Description",
       type: "textarea",
       required: true,
-      admin: {
-        layout: 'horizontal',
-      }
-    },
-    {
-      name: 'keywords',
-      label: 'Keywords',
-      type: 'text',
       
     },
-    {
-      name: 'title',
-      label: 'Title',
-      type: 'text',
-    },
-    {
-      name: 'description',
-      label: 'Description',
-      type: 'textarea',
-    },
+  
     
 
   ],
