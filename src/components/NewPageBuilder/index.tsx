@@ -2,20 +2,12 @@ import GrapesJS from "grapesjs";
 import React from "react";
 // import './grapes.min.css';
 // import './CustomGrapes.css';
-<<<<<<< HEAD
-import '../PageBuilder/index.scss';
-import plugin2 from 'grapesjs-project-manager';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
-import Basics from 'grapesjs-blocks-basic';
-=======
 import "./index.scss";
 import plugin2 from "grapesjs-project-manager";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
 import Basics from "grapesjs-blocks-basic";
 
->>>>>>> a45c41e97b1a3dd25c82b6fd280719b262534ed6
 const NewPageBuilder = () => {
   // const [editor, setEditor] = React.useState(null);
   // const myFirstBlock = (editor) => {
@@ -39,12 +31,8 @@ const NewPageBuilder = () => {
     container: "#editor",
     plugins: [plugin1, Basics],
     styleManager: {
-<<<<<<< HEAD
-      appendTo: '.styles-container',
-=======
       appendTo: ".styles-container",
 
->>>>>>> a45c41e97b1a3dd25c82b6fd280719b262534ed6
       sectors: [
         {
           // name: 'Global Colors Collection',
@@ -54,17 +42,10 @@ const NewPageBuilder = () => {
           buildProps: ["background-color", "color", "color"],
           properties: [
             {
-<<<<<<< HEAD
-              type: 'color',
-              name: 'Primary',
-              property: 'background-color',
-              default: '#E6E6E6',
-=======
               type: "color",
               name: "Primary",
               property: "background-color",
               default: "#e6e6e6",
->>>>>>> a45c41e97b1a3dd25c82b6fd280719b262534ed6
               attributes: {
                 "data-type": "background-color",
               },
