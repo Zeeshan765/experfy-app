@@ -27,12 +27,7 @@ $fontName: "proximanova-bold-webfont";
   width: 80% !important;
 }
 
-.gjs-pn-panel,
-.gjs-pn-views {
-  width: 20% !important;
-  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
-  position: relative !important;
-}
+
 
 .gjs-pn-views-container {
   width: 20% !important;
@@ -163,9 +158,7 @@ $fontName: "proximanova-bold-webfont";
   left: 0;
 }
 
-.gjs-pn-views {
-  left: 0;
-}
+
 
 .gjs-traits-label {
   font-weight: 600 !important;
