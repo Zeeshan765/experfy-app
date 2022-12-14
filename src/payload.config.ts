@@ -102,7 +102,7 @@ export default buildConfig({
   collections: [
     BasicPortalIdentityCollection,
     PageBuilderCollection,
-    TemplatesCollection,
+    // TemplatesCollection,
     DesignSystemCollection,
     ThemeCollection,
     MenusCollection,
