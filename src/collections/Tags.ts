@@ -15,7 +15,7 @@ const Tags: CollectionConfig = {
       type: 'text',
     },
   ],
-  timestamps: false,
+  timestamps: false,  
 }
 
 export default Tags;
