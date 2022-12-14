@@ -18,7 +18,7 @@ export type Type = {
 export const Media: CollectionConfig = {
   slug: "media",
   admin: {
-    useAsTitle: "title",
+    useAsTitle: "keywords",
   },
   upload: {
     adminThumbnail: "card",
@@ -134,6 +134,7 @@ export const Media: CollectionConfig = {
       name: "keywords",
       label: "Keywords",
       type: "text",
+      defaultValue:'Media',
       required: true,
     },
     {
