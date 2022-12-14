@@ -25,12 +25,7 @@ const FormTip: React.FC<Type> = (props) => {
   return (
     <Grid zIndex={10} item xs={12}>
       <Box className={classes.formTip}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        <div className={classes.formTipInner}>
          <span>Tip</span>
           <p className={classes.formTipContentText}>
             {props.text}

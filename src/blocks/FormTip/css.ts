@@ -3,6 +3,9 @@ import { makeStyles } from "@mui/styles";
 export const useStyles = makeStyles({
     formTip: {
       "& span": {
+        position: 'absolute',
+        left: 0,
+        top: 0,
         fontSize: ".9375rem",
         fontWeight: 500,
         textTransform: "uppercase",
@@ -15,9 +18,16 @@ export const useStyles = makeStyles({
         maxHeight:'30px'
       },
     },
+    formTipInner: {
+      position: "relative",
+      paddingLeft: '50px'
+    },
     formTipContentText: {
+      position: 'absolute',
+      top: '2px',
+      left: '50px',
       fontSize: "1rem !important",
-      margin: "0px 0px 0px 15px",
-      fontWeight: 300,
+      fontWeight: 400,
+      zIndex: '2',
     },
   });
