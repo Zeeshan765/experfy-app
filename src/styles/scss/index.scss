@@ -30,7 +30,6 @@
 
   --gutter-h: #{base(5)};
 
-
   @include large-break {
     --gutter-h: #{base(3)};
     --nav-width: #{base(10)};
@@ -123,11 +122,11 @@ body {
   border-bottom: var(--theme-elevation-150) 1px solid;
   opacity: 1;
 
-  .gutter--left{
-    padding-left: 0px ;
+  .gutter--left {
+    padding-left: 0px;
   }
-  .gutter--right{
-    padding-right: 0px ;
+  .gutter--right {
+    padding-right: 0px;
   }
 }
 
@@ -265,9 +264,8 @@ div.react-select {
 }
 
 .btn--style-primary:not(.btn--disabled):hover {
- color:  #fff !important;
+  color: #fff !important;
 }
-
 
 .btn-hover {
   color: #fff;
@@ -279,19 +277,18 @@ div.react-select {
   font-weight: 500;
   font-size: large;
   background-size: 300% 100%;
-  -o-transition: all .6s ease-in-out;
-  -webkit-transition: all .6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
 
 .btn-hover:hover {
   background-position: 100% 0;
-  -o-transition: all .6s ease-in-out;
-  -webkit-transition: all .6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
   color: #fff;
 }
-
 
 .collection-edit__main {
   width: 100% !important;
@@ -300,8 +297,7 @@ div.react-select {
 .collection-edit__sidebar-wrap {
   position: inherit !important;
   width: 100% !important;
-  padding-left: 9.6153846154rem;
-  padding-right: 9.6153846154rem;
+  padding-left: 24px;
 }
 .collection-edit__collection-actions {
   display: none !important;
@@ -311,7 +307,7 @@ div.react-select {
   padding-left: 0px !important;
 }
 .collection-edit__document-actions:before {
-  background: #f9f9fa !important;
+  background: transparent !important;
   /* opacity: 0.85; */
 }
 
@@ -342,7 +338,6 @@ div.react-select {
   height: 16px;
   margin-right: 10px;
 }
-
 
 // ------------------------------------------//
 // ------------ custom css ------------------//
@@ -389,53 +384,104 @@ div.react-select {
 
 .full-width-image {
   width: 90% !important;
-  margin: 10px !important
+  margin: 10px !important;
 }
 
-
-.radio-group{
-  #field-mediaType{
-    .radio-input{
-        .radio-input__label{
-          font-weight: 600;
-          font-size: 18px;
-          color: #4a5162;
-          text-transform: capitalize;
-          color: var(--theme-text);
-          border-bottom: 2px solid transparent;
-        }
-     }
+.radio-group {
+  #field-mediaType {
+    .radio-input {
+      .radio-input__label {
+        font-weight: 600;
+        font-size: 18px;
+        color: #4a5162;
+        text-transform: capitalize;
+        color: var(--theme-text);
+        border-bottom: 2px solid transparent;
+      }
+    }
   }
 }
 
+#field-mediaType {
+  .radio-input--is-selected {
+    .radio-input__label {
+      color: #48a3d7 !important;
+      border-bottom: 2px solid #48a3d7 !important;
+    }
+  }
+}
 
+.radio-input__styled-radio {
+  display: none !important;
+}
 
-  #field-mediaType{
-      .radio-input--is-selected {
-        .radio-input__label{
-          color: #48a3d7 !important;
-          border-bottom: 2px solid #48a3d7 !important;
+.collection-edit__main {
+
+  .gutter--left {
+    padding-left: 0px !important;
+  }
+  .gutter--right {
+    padding-right: 0px !important;
+  }
+
+  .collection-edit__edit{
+    .radio-group--layout-horizontal{
+      label.field-label{
+        display: none !important;
+      }
+    }
+  }
+
+  .collection-edit__edit {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0px !important;
+
+    .field-type{
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .radio-group--layout-horizontal{
+
+      border-bottom: 1px solid #d1dbe3;
+      padding: 1.5rem 2rem 0;
+      
+      ul{
+        li{
+          padding-right: 0px !important;
+        }
+      }
+  
+      .radio-group--group{
+        label{
+          margin-bottom: 0px !important;
+          .radio-input{
+            margin: 0px !important;
+
+          }
         }
       }
     }
-
-    .radio-input__styled-radio{
- display: none !important;
-}
-
-.collection-edit__main{
-  .collection-edit__edit{
-    display: flex;
-    flex-direction: column;
   }
-  .collection-edit__header{
-    
+
+  
+  .radio-input{
+    .radio-input__label{
+      padding: 12px 16px;
+      margin-left: 0px !important;
+    }
+  }
+  
+  .collection-edit__header {
     order: 2;
+    padding-left: 24px;
+    padding-right: 24px;
   }
-  .field-type{
+  .field-type {
     order: 3;
   }
-  .render-fields{
-    order:1 
+  .render-fields {
+    order: 1;
   }
 }
