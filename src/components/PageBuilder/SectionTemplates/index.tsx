@@ -21,38 +21,38 @@ const PageBuilder: React.FC = () => {
 
   useEffect(() => {
     const editor = GrapesJS.init({
+
       container: "#gjs",
-      pageManager: {
-        pages: [],
-      },
       plugins: [Blocks, plugin1],
-      pluginsOpts: {
-        plugin: {
-          showStylesOnChange: true,
-        },
-      },
+
       height: "100%",
-      headless: true,
-      autorender: true,
+      fromElement: true,
+
       storageManager: {
         type: "local",
         autoload: true,
+        onLoad: (ids) => {
+          console.log("onLoad", ids);
+        },
         options: {
+          load: true,
           storeComponents: true,
           storeStyles: true,
           storeHtml: true,
           storeCss: true,
           local: {
-            key: "global-theme-settings",
+            key: "section-templates",
           },
         },
       },
+
     });
 
     setEditor(editor);
     editor.onReady((clb) => {
       console.log("Editor is ready");
-      Text(editor);
+      Text({ editor });
+
       // ImageComponent(editor);
       // MapComponent(editor);
     });
@@ -255,6 +255,7 @@ const PageBuilder: React.FC = () => {
   return (
     <div className="main__content">
       <Eyebrow />
+      <></>
       <div className="styles-container"></div>
       <div id="gjs" />
     </div>
@@ -263,7 +264,7 @@ const PageBuilder: React.FC = () => {
 
 export default PageBuilder;
 
-function Text(editor: GrapesJS.Editor) {
+function Text({ editor }: { editor: GrapesJS.Editor; }): void {
   editor.DomComponents.addType("text", {
     model: {
       defaults: {
@@ -400,11 +401,5 @@ function Text(editor: GrapesJS.Editor) {
       },
     },
   });
-
-  return (
-    <div className="main__content">
-      <Eyebrow />
-      <div id="gjs" />
-    </div>
-  );
+  
 }

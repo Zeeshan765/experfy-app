@@ -1,5 +1,6 @@
-$primaryColor: var(--theme-bg);
-$secondaryColor: var(--theme-text);
+@import "grapesjs/src/styles/scss/_gjs_variables.scss";
+$primaryColor: var(--theme-primary);
+$secondaryColor: var(--theme-primary);
 $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
 $fontFace: var(--font-body);
@@ -22,16 +23,6 @@ $fontName: "proximanova-bold-webfont";
   flex-wrap: nowrap;
   height: 100%;
 }
-  
-  
-  
-  
-
-
-
-
-
-
 
 .gjs-cv-canvas {
   width: 80% !important;

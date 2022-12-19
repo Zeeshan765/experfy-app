@@ -103,15 +103,15 @@ export default buildConfig({
     MenusCollection,
     PagesCollection,
     Media,
-    Users,
     NewPageBuilderCollection,
   ],
-
-  localization: {
-    locales: ["en", "es"],
-    defaultLocale: "en",
-    fallback: true,
+  i18n: {
+    supportedLngs: ["en", "es"],
+    saveMissing: true,
+    fallbackLng: "en",
+    
   },
+
   cors: "*",
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),

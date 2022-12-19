@@ -18,8 +18,17 @@ export type Type = {
 export const Media: CollectionConfig = {
   slug: "media",
   admin: {
-    useAsTitle: "title",
+    useAsTitle: "icon",
+    pagination: {
+      defaultLimit: 6,
+      limits: [12, 24, 48],
+    }
   },
+
+  // pagination: {
+  //   itemsPerPage: 10,
+  // },
+
   upload: {
     adminThumbnail: "card",
     imageSizes: [
@@ -84,7 +93,7 @@ export const Media: CollectionConfig = {
       ],
     },
     {
-      name: "Icon Title",
+      name: "icon",
       label: "Icon Title",
       type: "text",
       required: true,
@@ -97,7 +106,7 @@ export const Media: CollectionConfig = {
     },
 
     {
-      name: "Photo Title",
+      name: "title",
       label: "Photo Title",
       type: "text",
       required: true,
@@ -112,7 +121,7 @@ export const Media: CollectionConfig = {
       },
     },
     {
-      name: "Video Title",
+      name: "title",
       label: "Video Title",
       type: "text",
       required: true,

@@ -183,6 +183,7 @@ body {
 
   .nav-group__content {
     a {
+      font-size: smaller;
       padding-left: 2rem;
       padding-right: 5px;
     }
@@ -203,7 +204,7 @@ body {
 }
 
 .nav-group__toggle {
-  border-bottom: 1px solid var(--theme-bg);
+  border-bottom: 1px solid var(--theme-elevation-150);
   padding: 0.5rem 1rem 0.5rem 1.5rem;
   margin-top: 0px;
 }
@@ -344,7 +345,7 @@ div.react-select {
 // -----------------------------------------//
 .nav-category {
   padding: 4rem;
-  border-bottom: 1px solid var(--theme-bg);
+  border-bottom: 1px solid var(--theme-elevation-150);
 }
 
 .portals-identity {

@@ -92,7 +92,7 @@ export default function BasicInformation(props) {
             {touched === 'portal_url' && (
               <FormTip
                 text={
-                  'Access your career portal using this domain. This is thee single main domain upon which all applications in your external career portal are based. Don’t include “http” or “https” in easily identify the URL'
+                  'Access your career portal using this domain. This is the single main domain upon which all applications in your external career portal are based. Don’t include “http” or “https” in easily identify the URL'
                 }
               />
             )}

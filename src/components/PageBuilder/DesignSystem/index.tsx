@@ -129,6 +129,7 @@ const DesignSystem: React.FC = () => {
         appendTo: ".styles-container",
         hideNotStylable: false,
         sectors: [
+
           {
             name: "Global Colors Collection",
             open: !showTheme ? true : false,
@@ -653,7 +654,7 @@ const DesignSystem: React.FC = () => {
   return (
     <div className='main__content'>
       <Eyebrow />
-      <div className="panel__top">
+      <div className="panel__top right">
         <div className="panel__basic-actions"></div>
       </div>
       <div className="editor-row">

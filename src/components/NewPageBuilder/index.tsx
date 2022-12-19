@@ -1,10 +1,6 @@
 import GrapesJS from "grapesjs";
 import React from "react";
-// import './grapes.min.css';
-// import './CustomGrapes.css';
 import "./index.scss";
-import plugin2 from "grapesjs-project-manager";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
 import Basics from "grapesjs-blocks-basic";
 
@@ -72,20 +68,20 @@ const NewPageBuilder = () => {
     buttons: [
       {
         id: "visibility",
-        active: true,
+        active: false,
         className: "btn-toggle-borders-panelOne panel-btn",
         label: `<div class="preview"> <div><svg class= "preview-icon"  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="VisibilityIcon"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>  </div> <div class = "preview-text">Preview</div>`,
         command: "preview",
       },
       {
         id: "visibility2",
-        active: true,
+        active: false,
         className: "pg-builder-save-btn save-panel-btn",
         label: "save",
       },
       {
         id: "visibility3",
-        active: true,
+        active: false,
         className: "pg-builder-save-btn publish-btn",
         label: `<div>  <div>Publish</div> </div>`,
         content: "image",
@@ -94,8 +90,6 @@ const NewPageBuilder = () => {
   });
   var newPanel2 = panelManager.addPanel({
     id: "panelTwo",
-    className: "btn-toggles-borders-panelTwo",
-    style: { color: "red" },
     visible: true,
     buttons: [
       {
