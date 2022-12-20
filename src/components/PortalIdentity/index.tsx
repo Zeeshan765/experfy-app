@@ -4,9 +4,8 @@ import { Box, Link, Tab, Tabs, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import BasicInformation from './BasicInformation';
 import SeoSettings from './SeoSettings';
+import Brands from './Brands';
 import { useParams } from 'react-router-dom';
-// import PortalSidebar from "./PortalSidebar";
-// import { useLocation } from 'react-router-dom';
 import { Context } from '../../MyProvider';
 import { DefaultTemplate } from 'payload/components/templates';
 import { Eyebrow } from 'payload/components/elements';
@@ -63,7 +62,7 @@ const PortalIdentity: React.FC = (props) => {
         seo_setting,
         setSeo_Setting,
     } = useContext(Context);
-
+//@ts-ignore
   const { id } = useParams();
   const [propsdata, setPropsdata] = useState('');
 
@@ -93,7 +92,6 @@ const PortalIdentity: React.FC = (props) => {
     }
   };
 
-  console.log('propsdata', propsdata);
 
   useEffect(() => {
     id?.length > 0 && getUserData();
@@ -141,14 +139,14 @@ const PortalIdentity: React.FC = (props) => {
               propsdata={propsdata}
             />
           </TabPanel>
-          {/* <TabPanel value={value} index={2}>
+          <TabPanel value={value} index={2}>
             <Brands
               adminPortal={adminPortal}
               setAdminPortal={setAdminPortal}
               setBrands={setBrands}
-              brands={brands}
+              propsdata={propsdata}
             />
-          </TabPanel> */}
+          </TabPanel>
         </Box>
       </div>
     </DefaultTemplate>

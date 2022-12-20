@@ -390,22 +390,22 @@ const sources = [
   //   category: 'Features',
   //   // order: 1
   // },
-  {
-    id: 'footer-block-1',
-    class: '',
-    label: z1s,
-    content: z1,
-    category: 'Footer',
-    // order: 1
-  },
   // {
-  //   id: 'footer-block-2',
+  //   id: 'footer-block-1',
   //   class: '',
-  //   label: z2s,
-  //   content: z2,
+  //   label: z1s,
+  //   content: z1,
   //   category: 'Footer',
   //   // order: 1
   // },
+  {
+    id: 'footer-block-2',
+    class: '',
+    label: z2s,
+    content: z2,
+    category: 'Footer',
+    // order: 1
+  },
   // {
   //   id: 'footer-block-3',
   //   class: '',

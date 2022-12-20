@@ -3,13 +3,7 @@ export const source = `
    <div class="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col" style="padding:80px 0px 100px">
       <div class="flex-grow flex md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="font-size: 18px;
-            font-weight: 600;
-            color: #ffffff;
-            border: 2px dashed #ffffff;
-            padding:10px 10px;
-            border-width: 2px; font-size:22px; font-weight:600; color:#ffffff;
-            margin:0px;">Add Your Title</h2>
+      <input type="text" id="sohail" name="sohail" value="sohail"class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
             <ul>
             <li style="font-size: 16px;
             color: #ffffff;

@@ -12,6 +12,7 @@ type CustomField = Props & {
   style?: any;
   width?: any;
   display?: unknown;
+
   setTouched?: React.Dispatch<React.SetStateAction<string>>;
 };
 const FormSelect: React.FC<CustomField> = ({

@@ -50,10 +50,8 @@ const BasicPortalPage: React.FC = (props) => {
   const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [focus, setFocus] = React.useState();
   const [errorMessage, setErrorMessage] = useState('');
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [visible, setVisible] = React.useState<boolean>(false);
   const [tenantID, setTenantID] = useState('');
   const [toolTipVisible, setToolTipVisible] = useState('portal_name');

@@ -55,7 +55,7 @@ export default function BasicInformation(props) {
           <div className="col-md-4 d-flex align-items-center">
             {touched === 'career_portal_name' && (
               <FormTip text={'The go-to-market name of the career portal'} />
-             )} 
+            )}
           </div>
         </div>
 
@@ -269,7 +269,11 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-4">
-            <Button type="submit" buttonStyle="primary" className='btn-hover color-9'>
+            <Button
+              type="submit"
+              buttonStyle="primary"
+              className="btn-hover color-9"
+            >
               Save
             </Button>
           </div>
