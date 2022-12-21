@@ -7,7 +7,6 @@ const PagesCollection: CollectionConfig = {
     read: () => true,
     update: () => true,
   },
-
   fields: [],
 };
 

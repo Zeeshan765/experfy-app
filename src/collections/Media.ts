@@ -18,11 +18,50 @@ export type Type = {
 export const Media: CollectionConfig = {
   slug: "media",
   admin: {
-    useAsTitle: "icon",
-    pagination: {
-      defaultLimit: 6,
-      limits: [12, 24, 48],
-    }
+    useAsTitle: "keywords",
+  },
+  upload: {
+    adminThumbnail: "card",
+    imageSizes: [
+      {
+        name: "card",
+        width: 640,
+        height: 480,
+      },
+      {
+        name: "portrait",
+        width: 768,
+        height: 1024,
+      },
+      {
+        name: "square",
+        width: 1200,
+        height: 1200,
+      },
+      {
+        name: "feature",
+        width: 1024,
+        height: 576,
+      },
+    ],
+    mimeTypes: ["image/*", "image/svg","video/*", "image/png"],
+    // adminThumbnail: '',
+    // mimeTypes: (_,siblingData):String=>{
+    //         console.log("image condation",siblingData);
+    //         return ["image/*", "image/svg", "image/jpeg"]},
+    //   },
+    //   admin: {
+
+    //     condition:  (_, siblingData)=> {
+    //         console.log("image========",siblingData);
+    // //  return ["image/*", "image/svg", "image/jpeg"];
+    //     },
+  },
+  access: {
+    read: (): boolean => true, // Everyone can read Pages
+    update: () => true,
+    create: () => true,
+    delete: () => true,
   },
 
   // pagination: {
@@ -93,7 +132,7 @@ export const Media: CollectionConfig = {
       ],
     },
     {
-      name: "icon",
+      name: "Icon Title",
       label: "Icon Title",
       type: "text",
       required: true,
@@ -106,7 +145,7 @@ export const Media: CollectionConfig = {
     },
 
     {
-      name: "title",
+      name: "Photo Title",
       label: "Photo Title",
       type: "text",
       required: true,
@@ -121,7 +160,7 @@ export const Media: CollectionConfig = {
       },
     },
     {
-      name: "title",
+      name: "Video Title",
       label: "Video Title",
       type: "text",
       required: true,
@@ -140,6 +179,7 @@ export const Media: CollectionConfig = {
       name: "keywords",
       label: "Keywords",
       type: "text",
+      defaultValue:'Media',
       required: true,
     },
     {
@@ -147,7 +187,11 @@ export const Media: CollectionConfig = {
       label: "Description",
       type: "textarea",
       required: true,
+      
     },
+  
+    
+
   ],
   hooks: {
     //     beforeLogin: [

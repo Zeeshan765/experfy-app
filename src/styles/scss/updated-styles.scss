@@ -1,0 +1,190 @@
+// Variables
+
+:root {
+  --theme-primary: #4ba4da;
+}  
+
+// Typography 
+
+p {
+  font-weight: 400;
+}
+
+// Portal Banner
+
+.portal-banner {
+  padding: 40px 40px 48px;
+  background: #32293b url('/src/assets/images/portal/banner.png') right center / cover no-repeat scroll;
+  box-shadow: none;
+  min-height: 300px;
+  border-radius: 12px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+
+    > span {
+      font-size: 32px;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+
+      span {
+        color: #61a7db;
+      }
+    }
+
+    p {
+      color: #edf0f5;
+      font-size: 20px;
+      max-width: 920px;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Card Wrapper
+
+.card-wrapper {
+  height: 100%;
+
+  > * {
+    width: 100%;
+  }
+}
+
+// Card Portal
+
+.card-portal {
+  border: 1px solid #d3dbe3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 32px;
+  box-shadow: none;
+  border-radius: 8px;
+  flex-direction: column;
+  background-color: #f1f3f5;
+
+  &__content {
+    flex: 1;
+    padding: 0 0 32px 100px;
+    position: relative;
+  }
+
+  &__footer {
+    padding-left: 100px;
+
+    .btn {
+      margin: 0 !important;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+
+    &.card-portal--internal {
+      top: 0;
+      width: 80px;
+      height: 80px;
+      background: url('/src/assets/images/portal/icon_mobility.svg') right center / contain no-repeat scroll;
+    }
+
+    &.card-portal--external {
+      top: -20px;
+      width: 96px;
+      height: 96px;
+      background: url('/src/assets/images/portal/icon_configure.svg') right center / contain no-repeat scroll;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+
+    li {
+      font-size: 16px;
+      font-weight: 400;
+
+      &:before {
+        content: "•";
+        color: var(--theme-primary);
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.25;
+        display: inline-block; 
+        width: 16px;
+        margin-left: -16px;
+      }
+    }
+  }
+}
+
+// Button
+
+.btn {
+  span {
+    line-height: inherit;
+  }
+  
+  &--style-primary {
+    // padding-left: 24px !important;
+    // padding-right: 24px !important;
+
+    &:not(.btn--disabled):hover,
+    &:not(.btn--disabled):focus {
+      color: #fff;
+      background: darken(#4ba4da, 15%);
+    }  
+  }
+
+  .btn__icon {
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }  
+  
+  &:hover,
+  &:focus {
+    .btn__icon {
+      background: darken(#4ba4da, 15%);
+
+      svg {
+        color: #fff;
+      }
+    } 
+  }  
+} 
+
+// Modal
+
+.modal-title {
+  &.modal-title--lg {
+    font-weight: 700;
+    font-size: 28px;
+    margin: 0;
+  }
+}
+
+// Tip
+
+.tip-wrapper {
+  padding-top: calc(25px + .5rem);
+}
+
