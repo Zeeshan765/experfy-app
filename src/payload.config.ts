@@ -28,8 +28,7 @@ dotenv.config();
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
-    user: Users.slug,
-    css: path.resolve(__dirname, "./styles/scss/index.scss"),
+    // user: Users.slug,
     css: path.resolve(__dirname, "./styles/scss/index.scss"),
     // webpack: ( config ) => {
     //   output: {
@@ -49,22 +48,19 @@ export default buildConfig({
       },
       beforeNavLinks: [BeforeNav],
       afterNavLinks: [AfterNav],
-      afterNavLinks: [AfterNav],
+      
       routes: [
         {
-          path: "/collections/page-builder",
           path: "/collections/page-builder",
           Component: PageBuilder,
           exact: true,
         },
         {
           path: "/collections/basic-portal-identity",
-          path: "/collections/basic-portal-identity",
           Component: BasicPortalIdentityPage,
           exact: true,
         },
         {
-          path: "/collections/portal-identity",
           path: "/collections/portal-identity",
           Component: PortalIdentity,
           exact: true,
@@ -77,13 +73,11 @@ export default buildConfig({
         },
         {
           path: "/collections/design-system",
-          path: "/collections/design-system",
           Component: DesignSystem,
           exact: true,
           strict: true,
         },
         {
-          path: "/collections/templates",
           path: "/collections/templates",
           Component: Templates,
         },
@@ -92,13 +86,8 @@ export default buildConfig({
           Component: DesignSystem,
           exact: true,
           strict: true,
-          path: "/collections/themes",
-          Component: DesignSystem,
-          exact: true,
-          strict: true,
         },
         {
-          path: "/collections/new-page-builder",
           path: "/collections/new-page-builder",
           Component: NewPageBuilder,
         },

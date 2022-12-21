@@ -1,14 +1,13 @@
 import { CollectionConfig } from "payload/types";
 import RelationCollection, { Type as MediaType } from "./IconCollection";
-// import { Image, Type as ImageType } from '../blocks/Image';
-import { Content, Type as ContentType } from "../blocks/Content";
-export type Layout = ContentType;
+// import { Image, Type as ImageType } from '../blocks/Image'
+
 export type Type = {
   title: string;
   slug: string;
   // image?: MediaType;
   featuredMedia: MediaType;
-  layout: Layout[];
+
   meta: {
     title?: string;
     description?: string;
@@ -20,50 +19,7 @@ export const Media: CollectionConfig = {
   admin: {
     useAsTitle: "keywords",
   },
-  upload: {
-    adminThumbnail: "card",
-    imageSizes: [
-      {
-        name: "card",
-        width: 640,
-        height: 480,
-      },
-      {
-        name: "portrait",
-        width: 768,
-        height: 1024,
-      },
-      {
-        name: "square",
-        width: 1200,
-        height: 1200,
-      },
-      {
-        name: "feature",
-        width: 1024,
-        height: 576,
-      },
-    ],
-    mimeTypes: ["image/*", "image/svg","video/*", "image/png"],
-    // adminThumbnail: '',
-    // mimeTypes: (_,siblingData):String=>{
-    //         console.log("image condation",siblingData);
-    //         return ["image/*", "image/svg", "image/jpeg"]},
-    //   },
-    //   admin: {
-
-    //     condition:  (_, siblingData)=> {
-    //         console.log("image========",siblingData);
-    // //  return ["image/*", "image/svg", "image/jpeg"];
-    //     },
-  },
-  access: {
-    read: (): boolean => true, // Everyone can read Pages
-    update: () => true,
-    create: () => true,
-    delete: () => true,
-  },
-
+ 
   // pagination: {
   //   itemsPerPage: 10,
   // },

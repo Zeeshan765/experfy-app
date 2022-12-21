@@ -18,20 +18,20 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
+  Typography
 } from '@mui/material';
-import { Button, Eyebrow } from 'payload/components/elements';
-import { Form, SelectInput } from 'payload/components/forms';
+import { Button } from 'payload/components/elements';
+import { Form } from 'payload/components/forms';
 import { useStepNav } from 'payload/components/hooks';
 import { DefaultTemplate } from 'payload/components/templates';
-import { useAuth, useConfig } from 'payload/components/utilities';
+import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import FormSelect from '../../blocks/FormSelect';
 import FormSwitch from '../../blocks/FormSwitch';
 import FormTip from '../../blocks/FormTip';
 import TextInput from '../../blocks/TextInput';
-import { useHistory } from 'react-router-dom';
 import { useStyles } from './css';
 const baseClass = 'custom-route';
 
