@@ -1,7 +1,30 @@
 import { makeStyles } from '@mui/styles';
 import { useConfirm } from 'material-ui-confirm';
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { Form } from 'payload/components/forms';
+import { Button, Eyebrow } from 'payload/components/elements';
+import TextInput from '../../../blocks/TextInput';
+import FormSelect from '../../../blocks/FormSelect';
+import AddIcon from '@mui/icons-material/Add';
+import CloseIcon from '@mui/icons-material/Close';
+import {
+  Box,
+  Grid,
+  Radio,
+  RadioGroup,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material';
+import { useConfig } from 'payload/components/utilities';
+import { useFieldArray, useForm } from 'react-hook-form';
+
 
 const useStyles = makeStyles({
   radioExample: {
@@ -47,32 +70,12 @@ export default function Brands(props) {
     default_brand: `${defaultBrand}`,
     radioButtons: '',
   });
-  const [brandOptionList, setBrandOptionList] = useState([]);
+  
 
-  const confirm = useConfirm();
 
-  const { control, handleSubmit, reset, setValue } = useForm({
-    defaultValues,
-  });
 
-  useEffect(() => {
-    setMicroSite(props.adminPortal.microsite_setting);
-    setValue('radioButtons', microSite);
-  }, [props]);
 
-  const handleReset = () => {
-    reset({});
-  };
 
-  const handleAddBrand = () => {
-    setAddBrand(true);
-  };
-  const handleEditBrand = () => {
-    setEditBrand(true);
-  };
-  const handleEditBrandClose = () => {
-    setEditBrand(false);
-  };
   const handleOpen = () => {
     setOpen(true);
   };
@@ -80,13 +83,43 @@ export default function Brands(props) {
     setOpen(false);
   };
 
-  const handleEditOpen = (data) => {
-    setSaveEditRecord(data);
-    setOpenEdit(true);
+  const { control, getValues, register, watch } = useForm();
+
+  const { fields, append, remove } = useFieldArray({
+    name: 'brands',
+    control,
+  });
+
+  const handleAddRow = (value: unknown) => {
+    append(value);
   };
-  const handleEditClose = (data) => {
-    setOpenEdit(false);
-  };
+
+
+
+  const {
+    admin: { user: userSlug },
+    collections,
+    serverURL,
+    routes: { admin, api },
+  } = useConfig();
+
+  const userConfig = collections.find(
+    (collection) => collection.slug === userSlug
+  );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // useEffect(() => {
   //   setValue('name', saveEditRecord.name);
@@ -119,467 +152,174 @@ export default function Brands(props) {
     });
     return array;
   };
-  // useEffect(() => {
-  //   setBrandOptionList(updatedBrandsOption);
-  //   setValue('radioButtons', microSite);
-  // }, [brandList]);
-
-  // useEffect(() => {
-  //   let defaultBrandValue = brandList.map((i) =>
-  //     i.default_brand == true ? i.name : null
-  //   );
-  //   const filterDefaultBrandValue = defaultBrandValue.filter((i) => i != null);
-  //   setValue('default_brand', filterDefaultBrandValue[0]);
-  //   setDefaultBrand(filterDefaultBrandValue[0]);
-  // }, [brandList]);
-  // const handleDelete = (event, data) => {
-  //   confirm({
-  //     title: 'Delete?',
-  //     description: `Are you sure you want to delete ${data.name}.`,
-  //   })
-  //     .then(() => deleteBrandApi(data, adminPortal, setBrandDeleted))
-  //     .catch(() => console.log('Deletion cancelled.'));
-  // };
-
-  // const onSubmit = (data) => {
-  //   if (addBrand == true) {
-  //     addBrandApi(
-  //       data,
-  //       adminPortal,
-  //       setBrandDeleted,
-  //       setBrands,
-  //       setSuccessMessage,
-  //       setSuccess,
-  //       setErrorMessage,
-  //       setError,
-  //       handleClose,
-  //       handleReset,
-  //       // setFormReset,
-
-  //     );
-  //     setAddBrand(false);
-  //   }
-
-  //   if (!addBrand && !editBrand) {
-  //     updateBrandApi(
-  //       data,
-  //       adminPortal,
-  //       setBrands,
-  //       brands,
-  //       // setSuccessMessage,
-  //       // setSuccess,
-  //       // setErrorMessage,
-  //       // setError
-  //     );
-  //   }
-  //   if (editBrand) {
-  //     const deleteProps = [
-  //       'microsite_identifier',
-  //       'name',
-  //       'identifier',
-  //     ].forEach((element) => {
-  //       if (data[element] == '') {
-  //         delete data[element];
-  //       }
-  //     });
-  //     editBrandApi(
-  //       data,
-  //       props.adminPortal,
-  //       setBrandDeleted,
-  //       saveEditRecord,
-  //       setSaveEditRecord,
-  //       setSuccessMessage,
-  //       setSuccess,
-  //       setErrorMessage,
-  //       setError,
-  //       handleReset,
-  //       handleEditClose
-  //     );
-  //     setEditBrand(false);
-  //   }
-  // };
-  // const columns = [
-  //   { id: 'name', label: 'Brand Name', minWidth: 170 },
-  //   { id: 'identifier', label: 'URL Brand Identifier', minWidth: 100 },
-  //   {
-  //     id: 'microsite_identifier',
-  //     label: 'Microsite Identifier',
-  //     minWidth: 170,
-  //   },
-  //   {
-  //     id: 'Actions',
-  //     label: 'Action',
-  //     minWidth: 170,
-  //     align: 'center',
-  //     label: 'Action',
-  //     renderCell: (row, handleDelete, handleSwitchChange) => {
-  //       return (
-  //         <Stack direction="row" alignItems="center" spacing={1}>
-  //           <FormSwitch handleSwitchChange={handleSwitchChange} record={row} />
-  //           <ActionsGroup
-  //             record={row}
-  //             handleDelete={handleDelete}
-  //             handleEditOpen={handleEditOpen}
-  //             hasEdit={true}
-  //             hasDelete={true}
-  //           />
-  //         </Stack>
-  //       );
-  //     },
-  //   },
-  // ];
-  const rows = list;
 
   return (
+    <Box sx={{ p: 1 }}>
+      <Form
+        // method={id ? 'patch' : 'post'}
+        // action={`${serverURL}${api}/basic-portal-identity/${id ?? ''}`}
+      >
+        <Grid container spacing={3}>
+          <Grid item xs={8}>
+            <FormSelect
+              type={'select'}
+              options={[]}
+              label="Default Brand"
+              name={'default_brand'}
+              path={'default_brand'}
+            />
+          </Grid>
+        </Grid>
 
-    <h1>Hello Brands</h1>
+        <Typography variant="h5" mb={2} mt={4}>
+          Please choose whether you would like your microsites in your career
+          portal network to use subdomains or sub-directories.
+        </Typography>
 
-    // <Box sx={{ p: 1 }}>
-    //   <form onSubmit={handleSubmit(onSubmit)}>
-    //     <Grid container spacing={3}>
-    //       <Grid item xs={8}>
-    //         <Controller
-    //           render={({ field }) => (
-    //             <FormSelect
-    //               {...field}
-    //               options={brandOptionList}
-    //               name="defaultBrand"
-    //               label="Default Brand"
-    //             />
-    //           )}
-    //           name="default_brand"
-    //           control={control}
-    //         />
-    //       </Grid>
-    //       <Grid item xs={10}>
-    //         <Typography variant="h5" mb={2}>
-    //           Please Choose whether you would like your microsites in your
-    //           career portal network ti use subdomains or sub-directories.
-    //         </Typography>
-    //         <FormControl fullWidth>
-    //           <Controller
-    //             control={control}
-    //             name="radioButtons"
-    //             render={({ field }) => {
-    //               return (
-    //                 <RadioGroup
-    //                   aria-labelledby="radio-buttons"
-    //                   defaultValue="microsites"
-    //                   name="radio-buttons-group"
-    //                   {...field}
-    //                 >
-    //                   <Grid container spacing={1} alignItems="center">
-    //                     <Grid item xs={2}>
-    //                       <FormControlLabel
-    //                         value="sub_domain"
-    //                         control={<Radio />}
-    //                         label="Sub-domains"
-    //                       />
-    //                     </Grid>
-    //                     <Grid item xs={10}>
-    //                       <Stack
-    //                         className={classes.radioExample}
-    //                         direction="row"
-    //                         spacing={2}
-    //                       >
-    //                         <Typography>Example</Typography>
-    //                         <Typography variant="span">
-    //                           microsite1/companyname/careers.experfy.com
-    //                         </Typography>
-    //                         <Typography variant="span">
-    //                           microsite2/companyname/careers.experfy.com
-    //                         </Typography>
-    //                       </Stack>
-    //                     </Grid>
-    //                     <Grid item xs={2}>
-    //                       <FormControlLabel
-    //                         value="sub_directories"
-    //                         control={<Radio />}
-    //                         label="Sub-directories"
-    //                       />
-    //                     </Grid>
-    //                     <Grid item xs={10}>
-    //                       <Stack
-    //                         className={classes.radioExample}
-    //                         direction="row"
-    //                         spacing={2}
-    //                       >
-    //                         <Typography>Example</Typography>
-    //                         <Typography variant="span">
-    //                           companyname/careers.experfy.com/microsite1
-    //                         </Typography>
-    //                         <Typography variant="span">
-    //                           companyname/careers.experfy.com/microsite2
-    //                         </Typography>
-    //                       </Stack>
-    //                     </Grid>
-    //                   </Grid>
-    //                 </RadioGroup>
-    //               );
-    //             }}
-    //           />
-    //         </FormControl>
-    //       </Grid>
-    //       <Grid item xs={10}>
-    //         <Grid container justifyContent="flex-end">
-    //           <Button
-    //             variant="outlined"
-    //             startIcon={<AddIcon />}
-    //             color="primary"
-    //             onClick={() => handleOpen()}
-    //           >
-    //             Add Brand
-    //           </Button>
-    //         </Grid>
-    //       </Grid>
-    //       <Grid item xs={10}>
-    //         <TableContainer>
-    //           <Table aria-label="table">
-    //             <TableHead>
-    //               <TableRow>
-    //                 {columns.map((column) => (
-    //                   <TableCell
-    //                     key={column.id}
-    //                     align={column.align}
-    //                     style={{ top: 57, minWidth: column.minWidth }}
-    //                   >
-    //                     {column.label}
-    //                   </TableCell>
-    //                 ))}
-    //               </TableRow>
-    //             </TableHead>
-    //             <TableBody>
-    //               {rows.map((row) => {
-    //                 return (
-    //                   <TableRow>
-    //                     {columns.map((column) => {
-    //                       const value = row[column.id];
-    //                       return (
-    //                         <>
-    //                           {!activeRow ? (
-    //                             <TableCell key={column.id} align={column.align}>
-    //                               {value
-    //                                 ? column.format && typeof value === 'number'
-    //                                   ? column.format(value)
-    //                                   : value
-    //                                 : column.renderCell(
-    //                                   row,
-    //                                   handleDelete
-    //                                   // handleSwitchChange
-    //                                 )}
-    //                             </TableCell>
-    //                           ) : (
-    //                             <TableCell key={column.id} align={column.align}>
-    //                               <Controller
-    //                                 render={({ field }) => (
-    //                                   <TextInput {...field} />
-    //                                 )}
-    //                                 name="name"
-    //                                 control={control}
-    //                               />
-    //                             </TableCell>
-    //                           )}
-    //                         </>
-    //                       );
-    //                     })}
-    //                   </TableRow>
-    //                 );
-    //               })}
-    //             </TableBody>
-    //           </Table>
-    //         </TableContainer>
-    //       </Grid>
-    //       <Grid item xs={12}>
-    //         {/* <Button variant="contained" color="primary" type="submit">
-    //           Save
-    //         </Button> */}
-    //       </Grid>
-    //     </Grid>
-    //   </form>
-    //   <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth={true}>
-    //     {success ? (
-    //       <Grid>
-    //         <DescriptionAlerts
-    //           successMessage={successMessage}
-    //           setSuccess={setSuccess}
-    //           success={success}
-    //           title={'Congratulations'}
-    //         />
-    //       </Grid>
-    //     ) : (
-    //       ``
-    //     )}
-    //     {error ? (
-    //       <Grid className={classes.errorMessages}>
-    //         <DescriptionAlerts
-    //           errorMessage={errorMessage}
-    //           setError={setError}
-    //           error={error}
-    //           title="Following fields are either taken or blank"
-    //         />
-    //       </Grid>
-    //     ) : (
-    //       ``
-    //     )}
-    //     <form onSubmit={handleSubmit(onSubmit)}>
-    //       <DialogTitle sx={{ borderBottom: '1px solid #d1dbe3' }}>
-    //         <Grid container justifyContent="space-between" alignItems="center">
-    //           <Typography variant="h4">Add Brand</Typography>
-    //           <IconButton
-    //             onClick={() => {
-    //               handleClose();
-    //               setError(false);
-    //               setSuccess(false);
-    //             }}
-    //           >
-    //             <CloseIcon />
-    //           </IconButton>
-    //         </Grid>
-    //       </DialogTitle>
-    //       <DialogContent>
-    //         <Grid container spacing={3} pt={4}>
-    //           <Grid item xs={12}>
-    //             <Controller
-    //               render={({ field }) => {
-    //                 return <TextInput {...field} label="Brand Name" />;
-    //               }}
-    //               name="name"
-    //               control={control}
-    //               reset={reset}
-    //             />
-    //           </Grid>
-    //           <Grid item xs={12}>
-    //             <Controller
-    //               render={({ field }) => {
-    //                 return (
-    //                   <TextInput {...field} label="URL Brand Identifier" />
-    //                 );
-    //               }}
-    //               name="identifier"
-    //               control={control}
-    //               reset={reset}
-    //             />
-    //           </Grid>
-    //           <Grid item xs={12}>
-    //             <Controller
-    //               render={({ field }) => {
-    //                 return <TextInput {...field} label="Microsite ID" />;
-    //               }}
-    //               name="microsite_identifier"
-    //               control={control}
-    //               reset={reset}
-    //             />
-    //           </Grid>
-    //         </Grid>
-    //       </DialogContent>
-    //       <DialogActions>
-    //         <Grid container>
-    //           <Button
-    //             type="submit"
-    //             variant="contained"
-    //             onClick={handleAddBrand}
-    //           >
-    //             Save
-    //           </Button>
-    //         </Grid>
-    //       </DialogActions>
-    //     </form>
-    //   </Dialog>
-    //   <Dialog
-    //     open={openEdit}
-    //     onClose={handleEditClose}
-    //     maxWidth="md"
-    //     fullWidth={true}
-    //   >
-    //     {success ? (
-    //       <Grid>
-    //         <DescriptionAlerts
-    //           successMessage={successMessage}
-    //           setSuccess={setSuccess}
-    //           success={success}
-    //           title={'Congratulations'}
-    //         />
-    //       </Grid>
-    //     ) : (
-    //       ``
-    //     )}
-    //     {error ? (
-    //       <Grid className={classes.errorMessages}>
-    //         <DescriptionAlerts
-    //           errorMessage={errorMessage}
-    //           setError={setError}
-    //           error={error}
-    //           title="Following fields are either taken or blank"
-    //         />
-    //       </Grid>
-    //     ) : (
-    //       ``
-    //     )}
-    //     <form onSubmit={handleSubmit(onSubmit)}>
-    //       <DialogTitle sx={{ borderBottom: '1px solid #d1dbe3' }}>
-    //         <Grid container justifyContent="space-between" alignItems="center">
-    //           <Typography variant="h4">Edit Brand</Typography>
-    //           <IconButton
-    //             onClick={() => {
-    //               handleEditClose();
-    //               handleEditBrandClose();
-    //             }}
-    //           >
-    //             <CloseIcon />
-    //           </IconButton>
-    //         </Grid>
-    //       </DialogTitle>
-    //       <DialogContent>
-    //         <Grid container spacing={3} pt={4}>
-    //           <Grid item xs={12}>
-    //             <Controller
-    //               render={({ field }) => {
-    //                 return <TextInput {...field} label="Brand Name" />;
-    //               }}
-    //               name="name"
-    //               control={control}
-    //               reset={reset}
-    //             />
-    //           </Grid>
-    //           <Grid item xs={12}>
-    //             <Controller
-    //               render={({ field }) => {
-    //                 return (
-    //                   <TextInput {...field} label="URL Brand Identifier" />
-    //                 );
-    //               }}
-    //               name="identifier"
-    //               control={control}
-    //               reset={reset}
-    //             />
-    //           </Grid>
-    //           <Grid item xs={12}>
-    //             <Controller
-    //               render={({ field }) => {
-    //                 return <TextInput {...field} label="Microsite ID" />;
-    //               }}
-    //               name="microsite_identifier"
-    //               control={control}
-    //               reset={reset}
-    //             />
-    //           </Grid>
-    //         </Grid>
-    //       </DialogContent>
-    //       <DialogActions>
-    //         <Grid container>
-    //           <Button
-    //             type="submit"
-    //             variant="contained"
-    //             onClick={() => {
-    //               handleEditBrand();
-    //             }}
-    //           >
-    //             Save
-    //           </Button>
-    //         </Grid>
-    //       </DialogActions>
-    //     </form>
-    //   </Dialog>
-    // </Box>
+        <RadioGroup
+          aria-labelledby="radio-buttons"
+          defaultValue="micro-sites"
+          name="radio-buttons-group"
+        >
+          <Grid container spacing={1} alignItems="center">
+            <Grid item xs={2}>
+              <FormControlLabel
+                name={'sub_domain'}
+                value="sub_domain"
+                control={<Radio />}
+                label="Sub-domains"
+              />
+            </Grid>
+            <Grid item xs={10}>
+              <Stack
+                className={classes.radioExample}
+                direction="row"
+                spacing={2}
+              >
+                <Typography>Example</Typography>
+                <Typography variant="span">
+                  microsite1/companyname/careers.experfy.com
+                </Typography>
+                <Typography variant="span">
+                  microsite2/companyname/careers.experfy.com
+                </Typography>
+              </Stack>
+            </Grid>
+            <Grid item xs={2}>
+              <FormControlLabel
+                name={'sub_directories'}
+                value="sub_directories"
+                control={<Radio />}
+                label="Sub-directories"
+              />
+            </Grid>
+            <Grid item xs={10}>
+              <Stack
+                className={classes.radioExample}
+                direction="row"
+                spacing={2}
+              >
+                <Typography>Example</Typography>
+                <Typography variant="span">
+                  companyname/careers.experfy.com/microsite1
+                </Typography>
+                <Typography variant="span">
+                  companyname/careers.experfy.com/microsite2
+                </Typography>
+              </Stack>
+            </Grid>
+          </Grid>
+        </RadioGroup>
+
+        <Grid container justifyContent="flex-end" my={2}>
+          <Button
+            icon={<AddIcon />}
+            buttonStyle="primary"
+            onClick={handleAddRow}
+          >
+            Add Brand
+          </Button>
+        </Grid>
+        <TableContainer>
+          <Table aria-label="table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Brand Name</TableCell>
+                <TableCell>URL Brand Identifier</TableCell>
+                <TableCell>Microsite Identifier</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {fields.map((item, index) => {
+                return (
+                  <TableRow key={index}>
+                    <TableCell>
+                      {/* <input {...register(`brands.${index}.brand_name`)}
+              placeholder="Brand Name" />
+*/}
+                      <TextInput
+                        // label={'Portal Name'}
+                        path={`brand_name`}
+                        required={false}
+                        index={index}
+                        brand="brands"
+                        placeHolder="Brand Name"
+                        // setTouched={setTouched}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      {/* <input {...register(`brands.${index}.brand_identifier`)}
+              placeholder="Brand Identifier"/> */}
+
+                      <TextInput
+                        // name="Portal Name"
+                        path={`brand_identifier`}
+                        required={false}
+                        index={index}
+                        brand="brands"
+                        placeHolder="Brand Identifier"
+                        // setTouched={setTouched}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      {/* <input {...register(`brands.${index}.microsoft_identifier`)}
+          placeholder="Microsoft Identifier"/> */}
+
+                      <TextInput
+                        // path={`brands.${index}.microsite_identifier`}
+                        path={`microsoft_identifier`}
+                        index={index}
+                        brand="brands"
+                        required={false}
+                        placeHolder="Microsoft Identifier"
+                        // setTouched={setTouched}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        type="button"
+                        buttonStyle="icon-label"
+                        icon={'x'}
+                        onClick={() => remove(index)}
+                      >
+                        Delete
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+
+        <Button
+          type="submit"
+          buttonStyle="primary"
+          // onClick={handlenaviagte}
+        >
+          Save
+        </Button>
+      </Form>
+    </Box>
   );
 }

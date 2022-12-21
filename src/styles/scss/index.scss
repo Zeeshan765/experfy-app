@@ -4,6 +4,7 @@
 //---------------------------------------------
 @import "~payload/scss";
 @import "font-proxima-nova";
+@import "updated-styles";
 
 :root {
   --breakpoint-xs-width: #{$breakpoint-xs-width};
@@ -121,6 +122,13 @@ body {
   font-size: large;
   border-bottom: var(--theme-elevation-150) 1px solid;
   opacity: 1;
+
+  .gutter--left {
+    padding-left: 0px;
+  }
+  .gutter--right {
+    padding-right: 0px;
+  }
 }
 
 .nav header {
@@ -249,18 +257,16 @@ div.react-select {
   background-color: var(--theme-primary);
   color: var(--theme-elevation-0);
   font-family: var(--font-body);
-  padding: 10px 45px;
+  padding: 10px 25px;
   border-radius: 5px;
   font-weight: 500;
   font-size: large;
   border: none;
 }
 
-.btn-hover.color-9 {
-  // background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
-  background-image: linear-gradient(to right, #48a3d7, #48a3d7, #48a3d7, #48a3d7);
+.btn--style-primary:not(.btn--disabled):hover {
+  color: #fff !important;
 }
-
 
 .btn-hover {
   color: #fff;
@@ -272,31 +278,28 @@ div.react-select {
   font-weight: 500;
   font-size: large;
   background-size: 300% 100%;
-  -o-transition: all .6s ease-in-out;
-  -webkit-transition: all .6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
 }
 
 .btn-hover:hover {
   background-position: 100% 0;
-  -o-transition: all .6s ease-in-out;
-  -webkit-transition: all .6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
   color: #fff;
 }
 
-
 .collection-edit__main {
-  width: 100%;
+  width: 100% !important;
 }
 
 .collection-edit__sidebar-wrap {
   position: inherit !important;
   width: 100% !important;
-  padding-left: 9.6153846154rem;
-  padding-right: 9.6153846154rem;
+  padding-left: 24px;
 }
-
 .collection-edit__collection-actions {
   display: none !important;
 }
@@ -306,7 +309,7 @@ div.react-select {
 }
 
 .collection-edit__document-actions:before {
-  background: #f9f9fa !important;
+  background: transparent !important;
   /* opacity: 0.85; */
 }
 
@@ -326,7 +329,6 @@ div.react-select {
   height: 16px;
   margin-right: 10px;
 }
-
 .Global #nav-themes::before {
   background-image: url("/src/assets/images/sidebar/themes.svg") !important;
   // background-size: 100% 100%;
@@ -344,7 +346,7 @@ div.react-select {
 // -----------------------------------------//
 .nav-category {
   padding: 4rem;
-  border-bottom: 1px solid var(--theme-bg);
+  border-bottom: 1px solid var(--theme-elevation-150);
 }
 
 .portals-identity {
@@ -383,8 +385,101 @@ div.react-select {
   }
 }
 
-
 .full-width-image {
   width: 90% !important;
-  margin: 10px !important
+  margin: 10px !important;
+}
+
+.radio-group {
+  #field-mediaType {
+    .radio-input {
+      .radio-input__label {
+        font-weight: 500;
+        font-size: 20px;
+        color: #4ba4da;
+        letter-spacing: .1px;
+        padding: 12px 25px 12px 16px;
+        margin-left: 0px !important;
+        text-transform: capitalize;
+        font-family: proxima-nova;
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+}
+
+#field-mediaType {
+  .radio-input--is-selected {
+    .radio-input__label {
+      color: #4a5162 !important;
+      border-bottom: 2px solid #4a5162 !important;
+    }
+  }
+}
+
+.radio-input__styled-radio {
+  display: none !important;
+}
+
+.collection-edit__main {
+
+  .gutter--left {
+    padding-left: 0px !important;
+  }
+  .gutter--right {
+    padding-right: 0px !important;
+  }
+
+  .collection-edit__edit{
+    .radio-group--layout-horizontal{
+      label.field-label{
+        display: none !important;
+      }
+    }
+  }
+
+  .collection-edit__edit {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0px !important;
+
+    .field-type{
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .radio-group--layout-horizontal{
+
+      border-bottom: 1px solid #d1dbe3;
+      padding: 1.5rem 2rem 0;
+      
+      ul{
+        li{
+          padding-right: 0px !important;
+        }
+      }
+  
+      .radio-group--group{
+        label{
+          margin-bottom: 0px !important;
+          .radio-input{
+            margin: 0px !important;
+          }
+        }
+      }
+    }
+  }
+
+
+  .collection-edit__header {
+    order: 2;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .field-type {
+    order: 3;
+  }
+  .render-fields {
+    order: 1;
+  }
 }

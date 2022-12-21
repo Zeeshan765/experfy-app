@@ -92,7 +92,7 @@ export default function BasicInformation(props) {
             {touched === 'portal_url' && (
               <FormTip
                 text={
-                  'Access your career portal using this domain. This is thee single main domain upon which all applications in your external career portal are based. Don’t include “http” or “https” in easily identify the URL'
+                  'Access your career portal using this domain. This is the single main domain upon which all applications in your external career portal are based. Don’t include “http” or “https” in easily identify the URL'
                 }
               />
             )}
@@ -216,7 +216,7 @@ export default function BasicInformation(props) {
           <div className="col-md-8">
             <TextInput
               path={'google_webmaster'}
-              label="Google Webmaster Id"
+              label="Google Webmaster ID"
               display={propsdata?.google_webmaster}
               setTouched={setTouched}
             />
@@ -233,7 +233,7 @@ export default function BasicInformation(props) {
           <div className="col-md-8">
             <TextInput
               path={'bing_webmaster'}
-              label="Bing Webmaster Id"
+              label="Bing Webmaster ID"
               display={propsdata?.bing_webmaster}
               setTouched={setTouched}
             />
@@ -269,7 +269,11 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-4">
-            <Button type="submit" buttonStyle="primary" className='btn-hover color-9'>
+            <Button
+              type="submit"
+              buttonStyle="primary"
+              className="btn-hover color-9"
+            >
               Save
             </Button>
           </div>

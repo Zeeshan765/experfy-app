@@ -20,4 +20,3 @@ const ThemeCollection: CollectionConfig = {
 };
 
 export default ThemeCollection;
-

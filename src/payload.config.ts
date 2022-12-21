@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import path from "path";
-import { createProxyMiddleware } from "http-proxy-middleware";
 import { buildConfig } from "payload/config";
 import BasicPortalIdentityCollection from "./collections/BasicPortalIdentity";
 import DesignSystemCollection from "./collections/DesignSystemCollection";
@@ -12,7 +11,6 @@ import PageBuilderCollection from "./collections/PageBuilder";
 import TemplatesCollection from "./collections/TemplatesCollection";
 import ThemeCollection from "./collections/ThemeCollection";
 import Users from "./collections/Users";
-import VideoCollection from "./collections/VideoCollection";
 import BasicPortalIdentityPage from "./components/BasicPortalPage";
 import AfterNav from "./components/Nav/AfterNav";
 import ExperfyLogo from "./components/Nav/AppLogo";
@@ -30,7 +28,7 @@ dotenv.config();
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
-    user: Users.slug,
+    // user: Users.slug,
     css: path.resolve(__dirname, "./styles/scss/index.scss"),
     // webpack: ( config ) => {
     //   output: {
@@ -50,6 +48,7 @@ export default buildConfig({
       },
       beforeNavLinks: [BeforeNav],
       afterNavLinks: [AfterNav],
+      
       routes: [
         {
           path: "/collections/page-builder",
@@ -99,21 +98,21 @@ export default buildConfig({
   collections: [
     BasicPortalIdentityCollection,
     PageBuilderCollection,
-    TemplatesCollection,
+    // TemplatesCollection,
     DesignSystemCollection,
     ThemeCollection,
     MenusCollection,
     PagesCollection,
     Media,
-    Users,
     NewPageBuilderCollection,
   ],
-
-  localization: {
-    locales: ["en", "es"],
-    defaultLocale: "en",
-    fallback: true,
+  i18n: {
+    supportedLngs: ["en", "es"],
+    saveMissing: true,
+    fallbackLng: "en",
+    
   },
+
   cors: "*",
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),

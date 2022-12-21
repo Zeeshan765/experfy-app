@@ -260,6 +260,55 @@ const DesignSystem: React.FC = () => {
           {
             name: "Theme Style",
             open: false,
+            buildProps: ["border-radius", "border", "box-shadow"],
+            properties: [
+              {
+                type: "integer",
+                name: "Border Radius",
+                property: "border-radius",
+                default: "0",
+                units: ["px", "%"],
+              },
+              {
+                type: "integer",
+                name: "Border Width",
+                property: "border-width",
+                default: "0",
+                units: ["px", "%"],
+              },
+              {
+                type: "select",
+                name: "Border Style",
+                property: "border-style",
+                default: "solid",
+                options: [
+                  { value: "solid", name: "Solid" },
+                  { value: "dotted", name: "Dotted" },
+                  { value: "dashed", name: "Dashed" },
+                  { value: "double", name: "Double" },
+                  { value: "groove", name: "Groove" },
+                  { value: "ridge", name: "Ridge" },
+                  { value: "inset", name: "Inset" },
+                  { value: "outset", name: "Outset" },
+                  { value: "none", name: "None" },
+                  { value: "hidden", name: "Hidden" },
+                ],
+
+              },
+
+              {
+                type: "select",
+                name: "Box Shadow",
+                property: "box-shadow",
+                default: "none",
+                options: [
+                  { value: "none", name: "None" },
+                  { value: "0 1px 1px rgba(0, 0, 0, 0.3)", name: "Small" },
+                  { value: "0 2px 2px rgba(0, 0, 0, 0.3)", name: "Medium" },
+                  { value: "0 3px 3px rgba(0, 0, 0, 0.3)", name: "Big" },
+                ],
+              },
+            ],
             active: false,
           },
           {
@@ -597,7 +646,7 @@ const DesignSystem: React.FC = () => {
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="panel__top">
+      <div className="panel__top right">
         <div className="panel__basic-actions"></div>
       </div>
       <div className="editor-row">

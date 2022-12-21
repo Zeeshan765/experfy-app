@@ -1,14 +1,13 @@
 import { CollectionConfig } from "payload/types";
 import RelationCollection, { Type as MediaType } from "./IconCollection";
-// import { Image, Type as ImageType } from '../blocks/Image';
-import { Content, Type as ContentType } from "../blocks/Content";
-export type Layout = ContentType;
+// import { Image, Type as ImageType } from '../blocks/Image'
+
 export type Type = {
   title: string;
   slug: string;
   // image?: MediaType;
   featuredMedia: MediaType;
-  layout: Layout[];
+
   meta: {
     title?: string;
     description?: string;
@@ -18,8 +17,13 @@ export type Type = {
 export const Media: CollectionConfig = {
   slug: "media",
   admin: {
-    useAsTitle: "title",
+    useAsTitle: "keywords",
   },
+ 
+  // pagination: {
+  //   itemsPerPage: 10,
+  // },
+
   upload: {
     adminThumbnail: "card",
     imageSizes: [
@@ -131,6 +135,7 @@ export const Media: CollectionConfig = {
       name: "keywords",
       label: "Keywords",
       type: "text",
+      defaultValue:'Media',
       required: true,
     },
     {
@@ -138,7 +143,11 @@ export const Media: CollectionConfig = {
       label: "Description",
       type: "textarea",
       required: true,
+      
     },
+  
+    
+
   ],
   hooks: {
     //     beforeLogin: [

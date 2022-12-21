@@ -18,4 +18,3 @@ const TemplatesCollection: CollectionConfig = {
 };
 
 export default TemplatesCollection;
-
