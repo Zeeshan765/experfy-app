@@ -18,20 +18,15 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography
-  Typography
+  Typography,
 } from '@mui/material';
-import { Button } from 'payload/components/elements';
-import { Form } from 'payload/components/forms';
 import { Button } from 'payload/components/elements';
 import { Form } from 'payload/components/forms';
 import { useStepNav } from 'payload/components/hooks';
 import { DefaultTemplate } from 'payload/components/templates';
 import { useConfig } from 'payload/components/utilities';
-import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import FormSelect from '../../blocks/FormSelect';
 import FormSwitch from '../../blocks/FormSwitch';
