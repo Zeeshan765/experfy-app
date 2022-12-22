@@ -1,4 +1,6 @@
 import { CollectionConfig } from "payload/types";
+import PageBuilder from "../components/PageBuilder/SectionTemplates";
+import PageTheme from "../components/PageBuilderTemplate";
 export type Type = {
   title: string;
   slug: string;
@@ -35,12 +37,13 @@ export const Page: CollectionConfig = {
       hasMany: false,
       required: true,
     },
+
     {
       name: "pageType",
       label: "Page Type",
       type: "radio",
       required: true,
-      defaultValue: "scratch",
+      // defaultValue: "",
       admin: {
         layout: "vertical",
         description: "Choose how you want to create this page",
@@ -56,36 +59,58 @@ export const Page: CollectionConfig = {
         },
       ],
     },
+    {
+      name: "template",
+      type: "ui",
+      label: "Template",
+      admin: {
+        condition: (data) => data.pageType === "template",
+        components: {
+          Field: PageTheme ,
+        },
+      },
+    },
+    // {
+    //   name: "template",
+    //   type: "ui",
+    //   label: "Template",
+    //   admin: {
+    //     condition: (data) => data.pageType === "scratch",
+    //     components: {
+    //       Field: PageBuilder,
+    //     },
+    //   },
+    // },
   ],
 
-  hooks: {
-    beforeLogin: [
-      (args) => {
-        console.log("before login called", args);
-      },
-    ],
-    afterLogin: [
-      (args) => {
-        console.log("After Login Called", args);
-      },
-    ],
-    afterLogout: [
-      (args) => {
-        console.log("After Logout Called", args);
-      },
-    ],
+  // hooks: {
+  //   beforeLogin: [
+  //     (args) => {
+  //       console.log("before login called", args);
+  //     },
+  //   ],
+  //   afterLogin: [
+  //     (args) => {
+  //       console.log("After Login Called", args);
+  //     },
+  //   ],
+  //   afterLogout: [
+  //     (args) => {
+  //       console.log("After Logout Called", args);
+  //     },
+  //   ],
 
-    afterRefresh: [
-      (args) => {
-        console.log("After Refresh Called", args);
-      },
-    ],
-    afterMe: [
-      (args) => {
-        console.log("After Me Called", args);
-      },
-    ],
-  },
+  //   afterRefresh: [
+  //     (args) => {
+  //       console.log("After Refresh Called", args);
+  //     },
+  //   ],
+  //   afterMe: [
+  //     (args) => {
+  //       console.log("After Me Called", args);
+  //     },
+  //   ],
+  // },
 };
 
 export default Page;

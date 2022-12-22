@@ -24,9 +24,19 @@ $fontName: "proximanova-bold-webfont";
   height: 100%;
 }
 
-
 .gjs-cv-canvas {
   width: 80% !important;
+}
+
+.gjs-pn-panel,
+.gjs-pn-views {
+  width: 20% !important;
+  box-shadow: 0 0 10px var(--theme-elevation-300) !important;
+  position: relative !important;
+  font-size: x-large !important;
+  font-weight: 400 !important;
+  color: var(--theme-elevation-0) !important;
+  padding: 0 !important;
 }
 
 .gjs-pn-panel,
@@ -46,9 +56,12 @@ $fontName: "proximanova-bold-webfont";
   width: 20% !important;
   overflow: auto;
   box-shadow: 0 0 10px var(--theme-elevation-300) !important;
+  box-shadow: 0 0 10px var(--theme-elevation-300) !important;
 }
 
 .gjs-selected {
+  outline: 4px solid var(--theme-primary) !important;
+  outline-offset: -4px !important;
   outline: 4px solid var(--theme-primary) !important;
   outline-offset: -4px !important;
   outline: 4px solid var(--theme-primary) !important;
@@ -58,12 +71,10 @@ $fontName: "proximanova-bold-webfont";
 .gjs-sm-properties {
   color: var(--theme-text) !important;
   font-weight: 300;
-  color: var(--theme-text) !important;
-  font-weight: 300;
   font-size: 1rem !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  background-color: var(--theme-elevation-0)
+  background-color: var(--theme-elevation-0) !important;
 }
 
 .gjs-pn-commands {
@@ -82,6 +93,9 @@ $fontName: "proximanova-bold-webfont";
 .gjs-category-title,
 .gjs-layer-title,
 .gjs-block-category,
+.gjs-category-title,
+.gjs-layer-title,
+.gjs-block-category,
 .gjs-sm-sector-title {
   font-weight: 500 !important;
   color: var(--theme-text) !important;
@@ -90,7 +104,7 @@ $fontName: "proximanova-bold-webfont";
   background-color: #fff !important;
   flex-direction: row-reverse !important;
   justify-content: start !important;
-  border-bottom: 2px solid var(--theme-elevation-50) !important
+  border-bottom: 2px solid var(--theme-elevation-50) !important;
 }
 
 .gjs-sm-field input,
@@ -117,6 +131,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-blocks-c {
+  margin: 5px 10px;
   margin: 5px 10px;
   margin: 5px 10px;
   justify-content: space-evenly !important;
@@ -157,6 +172,9 @@ $fontName: "proximanova-bold-webfont";
   background-color: #fff !important;
   color: #101010 !important;
   border: none !important;
+  background-color: #fff !important;
+  color: #101010 !important;
+  border: none !important;
 }
 
 .gjs-field .gjs-d-s-arrow {
@@ -164,6 +182,8 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-field-integer input {
+  padding-right: 30px;
+  width: 120px !important;
   padding-right: 30px;
   width: 120px !important;
   padding-right: 30px;
@@ -177,17 +197,23 @@ $fontName: "proximanova-bold-webfont";
 .gjs-cv-canvas {
   left: 20% !important;
   left: 20% !important;
+  left: 20% !important;
 }
 
 .gjs-pn-views-container {
   left: 0;
 }
 
+
+
 .gjs-traits-label {
   font-weight: 600 !important;
   font-size: 1rem !important;
 }
 
+// .gjs-pn-buttons{
+// display: none !important;
+// }
 // .gjs-pn-buttons{
 // display: none !important;
 // }
@@ -205,15 +231,11 @@ $fontName: "proximanova-bold-webfont";
   padding: 0 10px;
 }
 
-.gjs-pn-buttons {
-  background-color: var(--theme-primary);
-}
-
 .gjs-sm-property__border {
   display: block !important;
 
   .gjs-sm-composite {
-    border: 1px solid var(--theme-elevation-150) !important;
+    border: 1px solid rgb(255 255 255 / 25%) !important;
   }
 }
 
@@ -253,9 +275,11 @@ $fontName: "proximanova-bold-webfont";
 .gjs-category-open,
 .gjs-block-category.gjs-open,
 .gjs-sm-sector.gjs-sm-open {
-  // border-bottom: 1px solid var(--theme-elevation-900) !important;
-  border-bottom: 2px solid var(--theme-elevation-50) !important
+  border-bottom: 1px solid var(--theme-elevation-900) !important;
 }
+
+// border-bottom: 1px solid var(--theme-elevation-900) !important;
+// }
 
 // .gjs-field-range input[type="range"] {
 //     -webkit-appearance: none;
@@ -330,26 +354,6 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector-title {
   position: relative !important;
-
-  .full-width-image .gjs-block-label svg {
-    width: 100%;
-    height: 100% !important;
-  }
-
-  .gjs-block {
-    .gjs-block-label {
-      font-size: 0.95rem !important;
-      font-weight: 600 !important;
-    }
-
-    .gjs-block__media svg {
-      height: 45px !important;
-    }
-  }
-}  
-
-.gjs-sm-sector-title {
-  position: relative !important;
   padding: 9px 10px 9px 15px !important;
 }
 
@@ -371,14 +375,14 @@ $fontName: "proximanova-bold-webfont";
   content: "";
 }
 
-.gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-  background-size: 100% 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
-}  
+  .gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+  }  
 
 .gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
@@ -425,35 +429,11 @@ $fontName: "proximanova-bold-webfont";
   content: "";
 }
 
-.gjs-pn-global-style { 
-  .gjs-sm-sector-title {
-    .gjs-sm-sector-label {
-      font-size: 16px;
-      letter-spacing: .1px;
-    }
-  }
-
-  .gjs-sm-sector-caret {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-
-    svg {
-      color: #bcbec4;
-    }
-  }  
-}  
-
-.gjs-sm-clear {
-  svg {
-    vertical-align: top;
-  }
-}
-
-.gjs-pn-save {
-  background-color: #4ba4da !important;
-
-  .gjs-pn-btn {
-    color: #fff !important;
-  }
+.gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
 }
