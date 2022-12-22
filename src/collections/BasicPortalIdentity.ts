@@ -1,18 +1,15 @@
-import { type } from 'os';
-import payload from 'payload';
-import { useLocale } from 'payload/components/utilities';
 import {
   CollectionBeforeChangeHook,
   CollectionBeforeReadHook,
   CollectionConfig,
-} from 'payload/types';
-import BasicPortalPage from '../components/BasicPortalPage';
+} from "payload/types";
+import BasicPortalPage from "../components/BasicPortalPage";
 
 const BasicPortalIdentityCollection: CollectionConfig = {
   slug: "basic-portal-identity",
   labels: {
-    singular: 'Basic Portal Identity',
-    plural: 'Basic Portal Identity',
+    singular: "Basic Portal Identity",
+    plural: "Basic Portal Identity",
   },
 
   access: {
@@ -30,17 +27,18 @@ const BasicPortalIdentityCollection: CollectionConfig = {
   },
   fields: [
     {
-      name: 'user_portal',
-      type: 'relationship',
-      relationTo: 'users',
+      name: "user_portal",
+      type: "relationship",
+      relationTo: "users",
       hasMany: false,
+      // required: true,
       // required: true,
     },
     {
-      label: 'Portal Name',
-      name: 'career_portal_name',
-      type: 'text',
-      defaultValue: 'Career Portal',
+      label: "Portal Name",
+      name: "career_portal_name",
+      type: "text",
+      defaultValue: "Career Portal",
       required: false,
     },
     {
@@ -49,9 +47,9 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       required: false,
     },
     {
-      name: 'portal_id',
+      name: "portal_id",
       unique: true,
-      type: 'text',
+      type: "text",
     },
     {
       name: "default_locale",
@@ -74,50 +72,38 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       type: "text",
     },
     {
-      name: 'meta_keywords',
-      type: 'text',
+      name: "meta_keywords",
+      type: "text",
     },
     {
       name: "meta_description",
       type: "text",
     },
     {
-      name: 'tracking_pixel',
-      type: 'text',
+      name: "tracking_pixel",
+      type: "text",
     },
     {
-      name: 'bing_webmaster',
-      type: 'text',
+      name: "bing_webmaster",
+      type: "text",
     },
     {
       name: "google_webmaster",
       type: "text",
     },
     {
-      name: 'google_analytics',
-      type: 'text',
+      name: "google_analytics",
+      type: "text",
     },
     {
-      name: 'google_id',
-      type: 'text',
+      name: "google_id",
+      type: "text",
     },
-    {
-      name: 'micro_sites',
-      label: 'Micro Sites',
-      type: 'radio',
-      required: true,
-      defaultValue: "sub_directories",
-      options: [
-        {
-          label: 'Sub-domains',
-          value: 'sub_domain',
-        },
-        {
-          label: 'Sub-directories',
-          value: 'sub_directories',
-        },
-      ],
-    },
+
+    // {
+    //   name : 'Sub-domains',
+    //   type: 'radio',
+    //   options: ['sub_domain'],
     // {
     //   name : 'Sub-domains',
     //   type: 'radio',
@@ -128,11 +114,17 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     //   name : 'Sub-directories',
     //   type: 'radio',
     //   options: ['sub_directories'],
+    //  },
+    //  {
+    //   name : 'Sub-directories',
+    //   type: 'radio',
+    //   options: ['sub_directories'],
 
     //  },
+    //  },
     {
-      name: 'brands',
-      type: 'array',
+      name: "brands",
+      type: "array",
       fields: [
         {
           name: "brand_name",

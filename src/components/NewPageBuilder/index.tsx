@@ -3,11 +3,11 @@ import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
 // import './CustomGrapes.css';
-import '../PageBuilder/index.scss';
-import plugin2 from 'grapesjs-project-manager';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
-import Basics from 'grapesjs-blocks-basic';
+import "./index.scss";
+import plugin2 from "grapesjs-project-manager";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
+import Basics from "grapesjs-blocks-basic";
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -1018,6 +1018,20 @@ console.log("*****************myFunction***************");
     }
   }, [testRef]);
 
+  editor.DomComponents.addType("div", {
+    model: {
+      defaults: {
+        traits: [
+          {
+            type: "text",
+            name: "map-location",
+            label: "Location",
+            placeholder: "Enter your location ",
+          },
+        ],
+      },
+    },
+  });
   return (
     <div className="main">
       <div id="editor"></div>

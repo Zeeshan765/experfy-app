@@ -112,6 +112,7 @@ export default buildConfig({
     fallbackLng: "en",
     
   },
+
   cors: "*",
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
