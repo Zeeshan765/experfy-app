@@ -1,3 +1,5 @@
+//@ts-ignore
+
 import { ErrorMessage as DescriptionAlerts } from '@hookform/error-message';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AddIcon from '@mui/icons-material/Add';
