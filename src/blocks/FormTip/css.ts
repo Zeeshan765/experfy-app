@@ -1,4 +1,5 @@
 import { makeStyles } from "@mui/styles";
+import '../../styles/scss/index.scss'; 
 
 export const useStyles = makeStyles({
     formTip: {
@@ -8,6 +9,7 @@ export const useStyles = makeStyles({
         top: 0,
         fontSize: ".9375rem",
         fontWeight: 500,
+        fontFamily: "proxima-nova",
         textTransform: "uppercase",
         color: "#ffffff",
         padding: ".25rem .75rem .125rem",

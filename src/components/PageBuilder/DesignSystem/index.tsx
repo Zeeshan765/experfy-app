@@ -77,7 +77,9 @@ const DesignSystem: React.FC = () => {
         },
       },
 
+
       panels: {
+
         defaults: [
           {
             id: "global-style",
@@ -109,7 +111,7 @@ const DesignSystem: React.FC = () => {
           //   attributes: {
           //     title: 'Open projects and templates'
           //   },
-          //   command: 'open-templates', //Open modal
+          //   command: 'open-templates', //Open modal 
           // },
           // {
           //   id: 'open-pages',
@@ -633,6 +635,8 @@ const DesignSystem: React.FC = () => {
           },
         ],
       },
+
+
     });
 
     setEditor(editor);
@@ -644,7 +648,7 @@ const DesignSystem: React.FC = () => {
   // editor.setDragMode('translate');
 
   return (
-    <div className="main__content">
+    <div className='main__content'>
       <Eyebrow />
       <div className="panel__top right">
         <div className="panel__basic-actions"></div>
@@ -656,6 +660,7 @@ const DesignSystem: React.FC = () => {
         <div className="editor-canvas">
           <div id="gjs"></div>
         </div>
+
       </div>
     </div>
   );

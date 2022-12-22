@@ -23,6 +23,7 @@ $fontName: "proximanova-bold-webfont";
   flex-wrap: nowrap;
   height: 100%;
 }
+  
 
 .gjs-cv-canvas {
   width: 80% !important;
@@ -180,8 +181,6 @@ $fontName: "proximanova-bold-webfont";
   left: 0;
 }
 
-
-
 .gjs-traits-label {
   font-weight: 600 !important;
   font-size: 1rem !important;
@@ -253,6 +252,9 @@ $fontName: "proximanova-bold-webfont";
 .gjs-block-category.gjs-open,
 .gjs-sm-sector.gjs-sm-open {
   border-bottom: 2px solid var(--theme-elevation-50) !important
+}
+
+  // border-bottom: 1px solid var(--theme-elevation-900) !important;
 }
 
 // .gjs-field-range input[type="range"] {
@@ -344,6 +346,7 @@ $fontName: "proximanova-bold-webfont";
       height: 45px !important;
     }
   }
+}  
 
   .gjs-sm-sector-title {
     position: relative !important;
@@ -369,15 +372,23 @@ $fontName: "proximanova-bold-webfont";
     content: "";
   }
 
-  .gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-    background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-  }
+.gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}  
+
+.gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
 
   .gjs-sm-sector__buttons .gjs-sm-sector-title::after {
     background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
@@ -417,12 +428,35 @@ $fontName: "proximanova-bold-webfont";
     content: "";
   }
 
-  .gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
+.gjs-pn-global-style { 
+  .gjs-sm-sector-title {
+    .gjs-sm-sector-label {
+      font-size: 16px;
+      letter-spacing: .1px;
+    }
+  }
+
+  .gjs-sm-sector-caret {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+
+    svg {
+      color: #bcbec4;
+    }
+  }  
+}  
+
+.gjs-sm-clear {
+  svg {
+    vertical-align: top;
+  }
+}
+
+.gjs-pn-save {
+  background-color: #4ba4da !important;
+
+  .gjs-pn-btn {
+    color: #fff !important;
   }
 }
