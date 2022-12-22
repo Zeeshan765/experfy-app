@@ -1,6 +1,5 @@
 export const source = `
-<footer data-gjs-type= "footer"
- class="text-gray-600 body-font" style="background-color:#40526e; color:#ffffff;">
+<footer data-gjs-type= "footer" class=" footer_main   text-gray-600 body-font" style="background-color:#40526e; color:#ffffff;">
    <div class="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col" style="padding:80px 0px 100px">
       <div class="flex-grow flex md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
