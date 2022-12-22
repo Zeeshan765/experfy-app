@@ -52,12 +52,10 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
-            <div className='tip-wrapper'>
-              {touched === 'career_portal_name' && (
-                <FormTip text={'The go-to-market name of the career portal'} />
-              )} 
-            </div>  
+          <div className="col-md-4 d-flex align-items-center">
+            {touched === 'career_portal_name' && (
+              <FormTip text={'The go-to-market name of the career portal'} />
+            )}
           </div>
         </div>
 
@@ -92,16 +90,14 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          <div className="col-md-4">
-            <div className='tip-wrapper'>
-              {touched === 'portal_url' && (
-                <FormTip
-                  text={
-                    'Access your career portal using this domain. This is thee single main domain upon which all applications in your external career portal are based. Don’t include “http” or “https” in easily identify the URL'
-                  }
-                />
-              )}
-            </div>  
+          <div className="col-md-4 d-flex align-items-center">
+            {touched === 'portal_url' && (
+              <FormTip
+                text={
+                  'Access your career portal using this domain. This is the single main domain upon which all applications in your external career portal are based. Don’t include “http” or “https” in easily identify the URL'
+                }
+              />
+            )}
           </div>
         </div>
 
@@ -291,7 +287,11 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-4">
-            <Button type="submit" buttonStyle="primary">
+            <Button
+              type="submit"
+              buttonStyle="primary"
+              className="btn-hover color-9"
+            >
               Save
             </Button>
           </div>

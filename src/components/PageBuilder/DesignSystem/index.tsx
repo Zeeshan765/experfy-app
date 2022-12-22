@@ -2,7 +2,6 @@ import GrapesJS from "grapesjs";
 import { Eyebrow } from "payload/components/elements";
 import { useStepNav } from "payload/components/hooks";
 import React, { useEffect, useState } from "react";
-import "../index.scss";
 
 const borderStyle = [
   { value: "solid", name: "Solid" },
@@ -40,18 +39,11 @@ const DesignSystem: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
 
-  const url = location.href ? location.href : "";
-  let showTheme = false;
-  if (url.includes("design-system")) {
-    showTheme = false;
-  } else {
-    showTheme = true;
-  }
   useEffect(() => {
     setStepNav([
       {
         label: "Global Theme Settings",
-        url: "/collections/global-theme-settings",
+        url: "/collections/design-system",
       },
     ]);
   }, [setStepNav]);
@@ -59,20 +51,17 @@ const DesignSystem: React.FC = () => {
   useEffect(() => {
     const editor = GrapesJS.init({
       container: "#gjs",
-      height: "0%",
+      height: "100%",
       fromElement: true,
-      avoidDefaults: true,
-
       storageManager: {
         type: "local",
         autosave: true,
         autoload: true,
-
-        stepsBeforeSave: 1,
+        stepsBeforeSave: 3,
         options: {
           storeCss: true,
           local: {
-            key: "gts",
+            key: "global-theme-settings",
           },
         },
       },
@@ -86,24 +75,6 @@ const DesignSystem: React.FC = () => {
             el: ".panel__left",
             active: true,
             label: "Global Theme Settings",
-            enable: true,
-          },
-          {
-            id: "save",
-            el: ".panel__top",
-            visible: true,
-            label: "Save",
-            toggle: false,
-            buttons: [
-              {
-                id: "save",
-                className: "fa fa-floppy-o",
-                command: "save",
-                attributes: {
-                  title: "Save",
-                },
-              },
-            ],
           },
           // {
           //   id: 'open-templates',
@@ -127,11 +98,12 @@ const DesignSystem: React.FC = () => {
 
       styleManager: {
         appendTo: ".styles-container",
-        hideNotStylable: false,
+
         sectors: [
           {
             name: "Global Colors Collection",
-            open: !showTheme ? true : false,
+            highlightChanged: true,
+            open: true,
             buildProps: ["background-color", "color"],
             properties: [
               {
@@ -156,7 +128,7 @@ const DesignSystem: React.FC = () => {
           },
           {
             name: "Global Fonts Collection",
-            open: !showTheme ? true : false,
+            open: false,
             buildProps: [
               "font-family",
               "font-size",
@@ -180,7 +152,6 @@ const DesignSystem: React.FC = () => {
                 type: "slider",
                 name: "Font Size",
                 ResizeObserverSize: "font-size",
-                ResizeObserver: true,
                 property: "font-size",
                 units: ["px", "rem"],
               },
@@ -188,23 +159,24 @@ const DesignSystem: React.FC = () => {
                 type: "select",
                 name: "Font Weight",
                 property: "font-weight",
-                ResizeObserver: true,
+                ResizeObserver: "font-weight",
                 default: "normal",
                 options: fontWeight,
               },
               {
                 type: "slider",
                 name: "Letter Spacing",
+
                 property: "letter-spacing",
-                default: "0 px",
+                default: "0",
                 units: ["px", "rem"],
               },
               {
-                type: "slider",
+                type: "integer",
                 label: "Line Height",
                 name: "Line Height",
                 property: "line-height",
-                ResizeObserver: true,
+                ResizeObserver: "letter-spacing",
                 default: "1",
                 units: ["px", "em", "rem"],
               },
@@ -213,7 +185,6 @@ const DesignSystem: React.FC = () => {
                 name: "Text Align",
                 property: "text-align",
                 default: "left",
-                ResizeObserver: true,
                 options: [
                   { value: "left", name: "Left" },
                   { value: "center", name: "Center" },
@@ -258,7 +229,6 @@ const DesignSystem: React.FC = () => {
               },
             ],
           },
-
           {
             name: "Theme Style",
             open: false,
@@ -311,45 +281,69 @@ const DesignSystem: React.FC = () => {
                 ],
               },
             ],
-            active: false,
           },
           {
             name: "Buttons",
-            open: showTheme,
+            open: false,
             buildProps: [
-              "css-class",
-              "button-font-family",
-              "button-text-shadow",
-              "text-color",
               "background-color",
+              "border-radius",
               "border",
-
-              "padding",
+              "box-shadow",
+              "font-family",
+              "font-weight",
+              "text-align",
+              "text-decoration",
+              "text-shadow",
+              "text-transform",
+              "font-size",
+              "line-height",
+              "letter-spacing",
             ],
             properties: [
               {
-                type: "input",
-                name: "CSS Class",
-                property: "css-class",
-                attributes: {
-                  "data-type": "css-class",
-                },
-                default: "btn btn-primary",
+                type: "select",
+                name: "Font Family",
+                property: "font-family",
+                default: "Proxima Nova",
+                options: fontsList,
+              },
+
+              {
+                type: "select",
+                name: "Font Weight",
+                property: "font-weight",
+                default: "normal",
+                options: fontWeight,
+              },
+
+              {
+                type: "select",
+                name: "Text Align",
+                property: "text-align",
+                default: "left",
+                options: [
+                  { value: "left", name: "Left" },
+                  { value: "center", name: "Center" },
+                  { value: "right", name: "Right" },
+                  { value: "justify", name: "Justify" },
+                ],
               },
               {
                 type: "select",
-                name: "Font Family",
-                property: "button-font-family",
-
-                options: fontsList,
-                attributes: {
-                  "data-type": "font-family",
-                },
+                name: "Text Decoration",
+                property: "text-decoration",
+                default: "none",
+                options: [
+                  { value: "none", name: "None" },
+                  { value: "underline", name: "Underline" },
+                  { value: "line-through", name: "Line Through" },
+                ],
               },
               {
                 type: "select",
                 name: "Text Shadow",
-                property: "button-text-shadow",
+                property: "text-shadow",
                 default: "none",
                 options: [
                   { value: "none", name: "None" },
@@ -357,72 +351,45 @@ const DesignSystem: React.FC = () => {
                   { value: "0 2px 2px rgba(0, 0, 0, 0.3)", name: "Medium" },
                   { value: "0 3px 3px rgba(0, 0, 0, 0.3)", name: "Big" },
                 ],
-                attributes: {
-                  "data-type": "text-shadow",
-                },
-              },
-              {
-                type: "color",
-                name: "Text Color",
-                property: "text-color",
-                default: "#4aa4da",
-                attributes: {
-                  "data-type": "color",
-                },
-              },
-              {
-                type: "color",
-                prefix: "Background",
-                name: "Background Color",
-                property: "background-color",
-                default: "#4aa4da",
-                attributes: {
-                  "data-type": "background-color",
-                },
-              },
-
-              {
-                type: "slider",
-                name: "Border Radius",
-                property: "border-radius",
-                default: 0,
-                units: ["px", "rem"],
-              },
-              {
-                type: "integer",
-                name: "Border Width",
-                property: "border-width",
-                default: 0,
-                units: ["px", "rem"],
               },
               {
                 type: "select",
-                name: "Border Style",
-                property: "border-style",
-                default: "solid",
-                options: borderStyle,
-              },
-              {
-                type: "color",
-                name: "Border Color",
-                property: "border-color",
-                default: "#4aa4da",
-                attributes: {
-                  "data-type": "border-color",
-                },
+                name: "Text Transform",
+                property: "text-transform",
+                default: "none",
+                options: [
+                  { value: "none", name: "None" },
+                  { value: "uppercase", name: "Uppercase" },
+                  { value: "lowercase", name: "Lowercase" },
+                  { value: "capitalize", name: "Capitalize" },
+                ],
               },
               {
                 type: "slider",
-                name: "Padding",
-                property: "padding",
+                name: "Font Size",
+                property: "font-size",
+                default: "14",
+                units: ["px", "rem"],
+              },
+              {
+                type: "slider",
+                name: "Letter Spacing",
+                property: "letter-spacing",
                 default: 0,
+                units: ["px", "rem"],
+              },
+              {
+                type: "slider",
+                name: "Line Height",
+                property: "line-height",
+                default: 1,
                 units: ["px", "rem"],
               },
             ],
           },
           {
             name: "Images",
-            open: showTheme,
+            open: false,
             buildProps: [
               "border-radius",
               "border",
@@ -487,7 +454,7 @@ const DesignSystem: React.FC = () => {
           },
           {
             name: "Body Text",
-            open: showTheme,
+            open: false,
             buildProps: [
               "font-family",
               "font-size",
@@ -561,7 +528,7 @@ const DesignSystem: React.FC = () => {
           },
           {
             name: "Links",
-            open: showTheme,
+            open: false,
             buildProps: ["color", "font-weight", "text-decoration"],
             properties: [
               {
@@ -592,7 +559,7 @@ const DesignSystem: React.FC = () => {
           },
           {
             name: "Form Fields",
-            open: showTheme,
+            open: false,
             buildProps: [
               "color",
               "background-color",
@@ -641,19 +608,23 @@ const DesignSystem: React.FC = () => {
 
     setEditor(editor);
     editor.onReady((clb) => {
-      editor.Canvas.getBody().style.backgroundColor = "#fff";
+      console.log("Editor is ready");
     });
+
   }, [setEditor]);
 
+
+
   // editor.setDragMode('translate');
+
 
   return (
     <div className='main__content'>
       <Eyebrow />
-      <div className="panel__top right">
-        <div className="panel__basic-actions"></div>
-      </div>
       <div className="editor-row">
+        {/* <div className="panel__top">
+          <div className="panel__basic-actions"></div>
+        </div> */}
         <div className="panel__left">
           <div className="styles-container"></div>
         </div>
@@ -665,5 +636,6 @@ const DesignSystem: React.FC = () => {
     </div>
   );
 };
+
 
 export default DesignSystem;

@@ -8,10 +8,9 @@ export type Type = {
 export const Page: CollectionConfig = {
   slug: "pages",
   versions: true,
-
+  
   admin: {
     useAsTitle: "title",
-    defaultColumns: ["title", "pageType", "updatedAt"],
   },
 
   access: {
@@ -25,14 +24,6 @@ export const Page: CollectionConfig = {
       name: "title",
       label: "Page Title",
       type: "text",
-      required: true,
-    },
-    {
-      name: "author",
-      label: "Author",
-      type: "relationship",
-      relationTo: "users",
-      hasMany: false,
       required: true,
     },
     {
@@ -55,6 +46,18 @@ export const Page: CollectionConfig = {
           value: "template",
         },
       ],
+    },
+
+    {
+      name: "slug",
+      label: "Page Slug",
+      type: "text",
+      // admin: {
+      //   position: "sidebar",
+      // },
+      hooks: {
+        beforeValidate: [],
+      },
     },
   ],
 

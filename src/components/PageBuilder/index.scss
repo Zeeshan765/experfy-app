@@ -13,7 +13,7 @@ $fontName: "proximanova-bold-webfont";
 // @import "grapesjs/src/styles/scss/main.scss";
 .editor-canvas {
   flex-grow: 1;
-  background-color: var(--theme-bg);
+  background-color: #f1f3f5;
 }
 
 .editor-row {
@@ -24,6 +24,15 @@ $fontName: "proximanova-bold-webfont";
   height: 100%;
 }
   
+  
+  
+  
+
+
+
+
+
+
 
 .gjs-cv-canvas {
   width: 80% !important;
@@ -32,12 +41,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-pn-panel,
 .gjs-pn-views {
   width: 20% !important;
-  box-shadow: 0 0 10px var(--theme-elevation-300) !important;
-  position: relative !important;
-  font-size: x-large !important;
-  font-weight: 400 !important;
-  color: var(--theme-elevation-0) !important;
-  padding: 0 !important;
+  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
 }
 
 
@@ -54,10 +58,8 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-sm-properties {
-  color: var(--theme-text) !important;
-  font-weight: 300;
-  color: var(--theme-text) !important;
-  font-weight: 300;
+  color: #101010 !important;
+  font-weight: 400;
   font-size: 1rem !important;
   flex-direction: column !important;
   align-items: flex-start !important;
@@ -84,11 +86,11 @@ $fontName: "proximanova-bold-webfont";
   font-weight: 500 !important;
   color: var(--theme-text) !important;
   font-size: 1rem !important;
-  height: 4rem !important;
+  // height: 3rem !important;
   background-color: #fff !important;
   flex-direction: row-reverse !important;
   justify-content: start !important;
-  border-bottom: 2px solid var(--theme-elevation-50) !important
+  // border-bottom: 2px solid rgb(235 235 235) !important;
 }
 
 .gjs-sm-field input,
@@ -200,11 +202,6 @@ $fontName: "proximanova-bold-webfont";
   width: 100% !important;
   display: flex !important;
   justify-content: space-between !important;
-  padding: 0 10px;
-}
-
-.gjs-pn-buttons {
-  background-color: var(--theme-primary);
 }
 
 .gjs-sm-property__border {
@@ -246,15 +243,6 @@ $fontName: "proximanova-bold-webfont";
 .gjs-field-range {
   border: none !important;
   background-color: transparent !important;
-}
-
-.gjs-category-open,
-.gjs-block-category.gjs-open,
-.gjs-sm-sector.gjs-sm-open {
-  border-bottom: 2px solid var(--theme-elevation-50) !important
-}
-
-  // border-bottom: 1px solid var(--theme-elevation-900) !important;
 }
 
 // .gjs-field-range input[type="range"] {
@@ -299,8 +287,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .currentColor {
-  color: #d0d0d0 !important;
-  color: #d0d0d0 !important;
+  currentcolor: #d0d0d0 !important;
 }
 
 .gjs-select {
@@ -458,5 +445,22 @@ $fontName: "proximanova-bold-webfont";
 
   .gjs-pn-btn {
     color: #fff !important;
+  }
+}
+
+.gjs-pn-commands {
+  right: 0 !important;
+  left: unset !important;
+  height: 80px !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+}
+
+.gjs-one-bg gjs-two-color {
+  .gjs-cv-canvas {
+    /* width: 81% !important; */
+    right: 0 !important;
+    height: 100% !important;
+    top: 80px !important;
   }
 }

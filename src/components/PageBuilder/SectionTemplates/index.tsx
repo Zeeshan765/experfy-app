@@ -2,7 +2,7 @@ import GrapesJS from "grapesjs";
 import React, { useEffect, useState } from "react";
 // import PageManagerPlugin from 'grapesjs-project-manager'
 import { Eyebrow } from "payload/components/elements";
-// import plugin from "../ExperfyPlugin";
+import plugin from "../ExperfyPlugin";
 import Blocks from "grapesjs-blocks-basic";
 import plugin1 from "../vendor/plugins/grapesjs-tailwind/src/index";
 import { useStepNav } from "payload/components/hooks";
@@ -32,7 +32,6 @@ const PageBuilder: React.FC = () => {
         },
       },
       height: "100%",
-      headless: true,
       autorender: true,
       storageManager: {
         type: "local",
