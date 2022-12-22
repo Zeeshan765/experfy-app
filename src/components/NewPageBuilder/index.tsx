@@ -3,22 +3,21 @@ import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
 // import './CustomGrapes.css';
-import "./index.scss";
-import plugin2 from "grapesjs-project-manager";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
-import Basics from "grapesjs-blocks-basic";
+import './index.scss';
+import plugin2 from 'grapesjs-project-manager';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
+import Basics from 'grapesjs-blocks-basic';
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
   const [headingText, setHeadingText] = React.useState<string>('abc');
   // console.log('test of editor', editorState);
-  const testRef= useRef();
-  const myFunction=()=>{
-console.log("*****************myFunction***************");
-
-  }
+  const testRef = useRef();
+  const myFunction = () => {
+    console.log('*****************myFunction***************');
+  };
 
   React.useEffect(() => {
     const myFirstBlock = (editor) => {
@@ -994,12 +993,12 @@ console.log("*****************myFunction***************");
     // });
     setElementCreate(true);
   }, [setEditorState]);
-  console.log("document.activeElement",document.activeElement.tagName);
-  
+  console.log('document.activeElement', document.activeElement.tagName);
+
   useEffect(() => {
     if (testRef) {
       // debugger;
-      console.log(document.getElementById('self-test'),'testRef', testRef);
+      console.log(document.getElementById('self-test'), 'testRef', testRef);
       let ftext = document.getElementById('self-test');
       if (ftext) {
         // @ts-ignore
@@ -1018,15 +1017,15 @@ console.log("*****************myFunction***************");
     }
   }, [testRef]);
 
-  editor.DomComponents.addType("div", {
+  editor.DomComponents.addType('div', {
     model: {
       defaults: {
         traits: [
           {
-            type: "text",
-            name: "map-location",
-            label: "Location",
-            placeholder: "Enter your location ",
+            type: 'text',
+            name: 'map-location',
+            label: 'Location',
+            placeholder: 'Enter your location ',
           },
         ],
       },
@@ -1041,12 +1040,3 @@ console.log("*****************myFunction***************");
   );
 };
 export default NewPageBuilder;
-
-
-
-
-
-
-
-
-
