@@ -1,0 +1,17 @@
+<svg width="20" height="18.607" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <g data-name="Group 55908" id="Group_55908">
+   <path fill="#fff" d="m18,0l-16,0a1.993,1.993 0 0 0 -2,2l0,11a1.993,1.993 0 0 0 2,2l16,0a1.993,1.993 0 0 0 2,-2l0,-11a1.993,1.993 0 0 0 -2,-2zm0,13l-16,0l0,-5l16,0l0,5zm0,-5l-16,0l0,-6l16,0l0,6z" id="ic_card_membership_24px"/>
+   <g stroke="#fff" fill="#fff" data-name="Rectangle 36397" id="Rectangle_36397">
+    <rect id="svg_1" x="4" y="16.60803" height="2" width="12"/>
+    <rect id="svg_2" fill="none" height="1" width="11" y="17.10803" x="4.5"/>
+   </g>
+   <g stroke="#fff" fill="#fff" data-name="Rectangle 36398" id="Rectangle_36398">
+    <rect id="svg_3" x="9" y="14.60803" height="2" width="2"/>
+    <rect id="svg_4" fill="none" height="1" width="1" y="15.10803" x="9.5"/>
+   </g>
+  </g>
+ </g>
+
+</svg>

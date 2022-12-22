@@ -159,6 +159,8 @@ p {
   &--style-primary {
     padding-left: 32px !important;
     padding-right: 32px !important;
+    // padding-left: 24px !important;
+    // padding-right: 24px !important;
 
     &:not(.btn--disabled):hover,
     &:not(.btn--disabled):focus {
@@ -399,21 +401,22 @@ p {
   }
 
   &__edit {
-    width: percentage(math.div(2, 3));
-    padding-top: 2rem !important;
+    // width: percentage(math.div(2, 3));
+    padding-top: 16px !important;
     padding-bottom: 0 !important;
     
     &.gutter--left {
-      padding-left: 2rem;
+      padding-left: 32px;
     }
 
     &.gutter--right {
-      padding-right: 2rem;
+      padding-right: 32px;
     }
   }
 
   &__header {
     width: 100%;
+    display: none;
   }
 
   &__sidebar-wrap {
@@ -441,6 +444,14 @@ p {
     display: none;
   }
 } 
+
+// Render Fields
+
+.render-fields {
+  .radio-group--layout-horizontal {
+
+  }
+}
 
 // Sidebar
 
@@ -603,4 +614,58 @@ p {
       }  
     }
   }
+}
+
+// Sidebar Navigation
+
+.nav-group {
+  padding: 0 !important;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 15px !important;
+  padding: 14px 16px 14px 52px !important;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    margin-top: -12px;
+    left: 16px;
+  }
+
+  &.nav-category {
+    font-size: 16px !important;
+    border-bottom: 1px solid #d3dbe3;
+    padding: 16px 16px 16px 52px !important;
+  }
+
+  $nav-icons: 'studio' 'studio_dashboard', 
+              'settings' 'portal_settings', 
+              'pages' 'pages', 
+              'menus' 'menus', 
+              'media' 'media_library', 
+              'templates' 'template_library', 
+              'themes' 'themes', 
+              'users' 'users', 
+              'identities' 'portal_identity';
+
+  @each $link, $icon in $nav-icons {
+    &.nav-#{$link} {
+      &::before {
+        background: url('/src/assets/images/sidebar/#{$icon}.svg') center center no-repeat scroll;
+      }
+
+      &:hover,
+      &:focus,
+      &.active {
+        &::before {
+          background: url('/src/assets/images/sidebar/#{$icon}_active.svg') center center no-repeat scroll;
+        }
+      }
+    }
+  }            
 }

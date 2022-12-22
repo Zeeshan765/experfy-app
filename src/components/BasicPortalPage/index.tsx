@@ -18,7 +18,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
+  Typography
 } from '@mui/material';
 import { Button } from 'payload/components/elements';
 import { Form } from 'payload/components/forms';
