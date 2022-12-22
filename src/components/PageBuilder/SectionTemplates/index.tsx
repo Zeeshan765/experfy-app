@@ -1,11 +1,12 @@
-import GrapesJS from "grapesjs";
-import React, { useEffect, useState } from "react";
+import GrapesJS from 'grapesjs';
+import React, { useEffect, useState } from 'react';
 // import PageManagerPlugin from 'grapesjs-project-manager'
-import { Eyebrow } from "payload/components/elements";
-import plugin from "../ExperfyPlugin";
-import Blocks from "grapesjs-blocks-basic";
-import plugin1 from "../vendor/plugins/grapesjs-tailwind/src/index";
-import { useStepNav } from "payload/components/hooks";
+import { Eyebrow } from 'payload/components/elements';
+import plugin from '../ExperfyPlugin';
+import Blocks from 'grapesjs-blocks-basic';
+import plugin1 from '../vendor/plugins/grapesjs-tailwind/src/index';
+import { useStepNav } from 'payload/components/hooks';
+import '../index.scss';
 
 const PageBuilder: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -13,15 +14,15 @@ const PageBuilder: React.FC = () => {
   useEffect(() => {
     setStepNav([
       {
-        label: "Page Builder",
-        url: "/page-builder",
+        label: 'Page Builder',
+        url: '/page-builder',
       },
     ]);
   }, [setStepNav]);
 
   useEffect(() => {
     const editor = GrapesJS.init({
-      container: "#gjs",
+      container: '#gjs',
       pageManager: {
         pages: [],
       },
@@ -31,10 +32,10 @@ const PageBuilder: React.FC = () => {
           showStylesOnChange: true,
         },
       },
-      height: "100%",
+      height: '100%',
       autorender: true,
       storageManager: {
-        type: "local",
+        type: 'local',
         autoload: true,
         options: {
           storeComponents: true,
@@ -42,7 +43,7 @@ const PageBuilder: React.FC = () => {
           storeHtml: true,
           storeCss: true,
           local: {
-            key: "global-theme-settings",
+            key: 'gts',
           },
         },
       },
@@ -50,7 +51,7 @@ const PageBuilder: React.FC = () => {
 
     setEditor(editor);
     editor.onReady((clb) => {
-      console.log("Editor is ready");
+      console.log('Editor is ready');
       Text(editor);
       // ImageComponent(editor);
       // MapComponent(editor);
@@ -254,8 +255,11 @@ const PageBuilder: React.FC = () => {
   return (
     <div className="main__content">
       <Eyebrow />
+
       <div className="styles-container"></div>
-      <div id="gjs" />
+      <div className="editor-canvas">
+        <div id="gjs"></div>
+      </div>
     </div>
   );
 };
@@ -263,64 +267,64 @@ const PageBuilder: React.FC = () => {
 export default PageBuilder;
 
 function Text(editor: GrapesJS.Editor) {
-  editor.DomComponents.addType("text", {
+  editor.DomComponents.addType('text', {
     model: {
       defaults: {
         traits: [
           {
-            type: "text",
-            name: "text-title",
-            label: "Title",
-            placeholder: "Enter your title ",
+            type: 'text',
+            name: 'text-title',
+            label: 'Title',
+            placeholder: 'Enter your title ',
           },
           {
-            type: "text",
-            name: "text-link",
-            label: "Link",
-            placeholder: "Paste URL or Type ",
+            type: 'text',
+            name: 'text-link',
+            label: 'Link',
+            placeholder: 'Paste URL or Type ',
           },
           {
-            type: "select",
-            name: "text-size",
-            label: "Size",
-            default: "default",
+            type: 'select',
+            name: 'text-size',
+            label: 'Size',
+            default: 'default',
             options: [
-              { id: "default", name: "Default" },
-              { id: "small", name: "Small" },
-              { id: "medium", name: "Medium" },
-              { id: "large", name: "Large" },
-              { id: "xl", name: "XL" },
-              { id: "xxl", name: "XXL" },
+              { id: 'default', name: 'Default' },
+              { id: 'small', name: 'Small' },
+              { id: 'medium', name: 'Medium' },
+              { id: 'large', name: 'Large' },
+              { id: 'xl', name: 'XL' },
+              { id: 'xxl', name: 'XXL' },
             ],
           },
 
           {
-            type: "select",
-            name: "text-html-tag",
-            label: "HTML Tag",
-            default: "h1",
+            type: 'select',
+            name: 'text-html-tag',
+            label: 'HTML Tag',
+            default: 'h1',
             options: [
-              { id: "h1", name: "H1" },
-              { id: "h2", name: "H2" },
-              { id: "h3", name: "H3" },
-              { id: "h4", name: "H4" },
-              { id: "h5", name: "H5" },
-              { id: "h6", name: "H6" },
-              { id: "div", name: "div" },
-              { id: "span", name: "span" },
-              { id: "p", name: "p" },
+              { id: 'h1', name: 'H1' },
+              { id: 'h2', name: 'H2' },
+              { id: 'h3', name: 'H3' },
+              { id: 'h4', name: 'H4' },
+              { id: 'h5', name: 'H5' },
+              { id: 'h6', name: 'H6' },
+              { id: 'div', name: 'div' },
+              { id: 'span', name: 'span' },
+              { id: 'p', name: 'p' },
             ],
           },
           {
-            type: "select",
-            name: "text-alignment",
-            label: "Alignment",
-            default: "left",
+            type: 'select',
+            name: 'text-alignment',
+            label: 'Alignment',
+            default: 'left',
             options: [
-              { id: "left", name: "Left" },
-              { id: "center", name: "Center" },
-              { id: "right", name: "Right" },
-              { id: "justified", name: "Justified" },
+              { id: 'left', name: 'Left' },
+              { id: 'center', name: 'Center' },
+              { id: 'right', name: 'Right' },
+              { id: 'justified', name: 'Justified' },
             ],
           },
         ],
@@ -328,15 +332,15 @@ function Text(editor: GrapesJS.Editor) {
     },
   });
   //Trait for Map
-  editor.DomComponents.addType("map", {
+  editor.DomComponents.addType('map', {
     model: {
       defaults: {
         traits: [
           {
-            type: "text",
-            name: "map-location",
-            label: "Location",
-            placeholder: "Enter your location ",
+            type: 'text',
+            name: 'map-location',
+            label: 'Location',
+            placeholder: 'Enter your location ',
           },
         ],
       },
@@ -344,66 +348,59 @@ function Text(editor: GrapesJS.Editor) {
   });
 
   //Trait for Image
-  editor.DomComponents.addType("image", {
+  editor.DomComponents.addType('image', {
     model: {
       defaults: {
         traits: [
           {
-            type: "select",
-            name: "image-size",
-            label: "Size",
-            default: "large",
+            type: 'select',
+            name: 'image-size',
+            label: 'Size',
+            default: 'large',
             options: [
-              { id: "thumbnail", name: "Thumbnail- 150 x 150" },
-              { id: "medium", name: "Medium- 300 x 300" },
-              { id: "medium-large", name: "Medium Large-  768 x 0" },
-              { id: "large", name: "Large- 1024 x 1024 " },
-              { id: "custom", name: "Custom" },
-              { id: "full", name: "Full" },
+              { id: 'thumbnail', name: 'Thumbnail- 150 x 150' },
+              { id: 'medium', name: 'Medium- 300 x 300' },
+              { id: 'medium-large', name: 'Medium Large-  768 x 0' },
+              { id: 'large', name: 'Large- 1024 x 1024 ' },
+              { id: 'custom', name: 'Custom' },
+              { id: 'full', name: 'Full' },
             ],
           },
           {
-            type: "select",
-            name: "image-alignment",
-            label: "Alignment",
-            default: "left",
+            type: 'select',
+            name: 'image-alignment',
+            label: 'Alignment',
+            default: 'left',
             options: [
-              { id: "left", name: "Left" },
-              { id: "center", name: "Center" },
-              { id: "right", name: "Right" },
+              { id: 'left', name: 'Left' },
+              { id: 'center', name: 'Center' },
+              { id: 'right', name: 'Right' },
             ],
           },
           {
-            type: "select",
-            name: "image-caption",
-            label: "Caption",
-            default: "none",
+            type: 'select',
+            name: 'image-caption',
+            label: 'Caption',
+            default: 'none',
             options: [
-              { id: "none", name: "None" },
-              { id: "attachment", name: "Attachment Caption" },
-              { id: "custom", name: "Custom Caption" },
+              { id: 'none', name: 'None' },
+              { id: 'attachment', name: 'Attachment Caption' },
+              { id: 'custom', name: 'Custom Caption' },
             ],
           },
           {
-            type: "select",
-            name: "image-link",
-            label: "Link",
-            default: "none",
+            type: 'select',
+            name: 'image-link',
+            label: 'Link',
+            default: 'none',
             options: [
-              { id: "none", name: "None" },
-              { id: "media ", name: "Media File" },
-              { id: "curl", name: "Custom URL" },
+              { id: 'none', name: 'None' },
+              { id: 'media ', name: 'Media File' },
+              { id: 'curl', name: 'Custom URL' },
             ],
           },
         ],
       },
     },
   });
-
-  return (
-    <div className="main__content">
-      <Eyebrow />
-      <div id="gjs" />
-    </div>
-  );
 }
