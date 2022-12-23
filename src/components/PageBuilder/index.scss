@@ -1,5 +1,6 @@
-$primaryColor: var(--theme-bg);
-$secondaryColor: var(--theme-text);
+@import "grapesjs/src/styles/scss/_gjs_variables.scss";
+$primaryColor: var(--theme-primary);
+$secondaryColor: var(--theme-primary);
 $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
 $tagBg: var(--theme-primary);
@@ -9,8 +10,8 @@ $fontSizeS: 0.9rem;
 $mainFont: "proxima-nova", sans-serif;
 $fontPath: "../../assets/fonts/proxima-nova";
 $fontName: "proximanova-bold-webfont";
-@import "grapesjs/src/styles/scss/main.scss";
 
+// @import "grapesjs/src/styles/scss/main.scss";
 .editor-canvas {
   flex-grow: 1;
   background-color: var(--theme-bg);
@@ -39,6 +40,8 @@ $fontName: "proximanova-bold-webfont";
   padding: 0 !important;
 }
 
+
+
 .gjs-pn-views-container {
   width: 20% !important;
   overflow: auto;
@@ -52,6 +55,8 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-sm-properties {
+  color: var(--theme-text) !important;
+  font-weight: 300;
   color: var(--theme-text) !important;
   font-weight: 300;
   font-size: 1rem !important;
@@ -112,6 +117,7 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-blocks-c {
   margin: 5px 10px;
+  margin: 5px 10px;
   justify-content: space-evenly !important;
 }
 
@@ -147,6 +153,9 @@ $fontName: "proximanova-bold-webfont";
   background-color: var(--theme-bg) !important;
   color: var(--theme-text) !important;
   border: none !important;
+  background-color: #fff !important;
+  color: #101010 !important;
+  border: none !important;
 }
 
 .gjs-field .gjs-d-s-arrow {
@@ -156,6 +165,8 @@ $fontName: "proximanova-bold-webfont";
 .gjs-field-integer input {
   padding-right: 30px;
   width: 120px !important;
+  padding-right: 30px;
+  width: 120px !important;
 }
 
 .gjs-clm-tags {
@@ -163,6 +174,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-cv-canvas {
+  left: 20% !important;
   left: 20% !important;
 }
 
@@ -290,7 +302,6 @@ $fontName: "proximanova-bold-webfont";
 }
 
 
-
 .gjs-select {
   .gjs-sel-arrow {
     .gjs-d-s-arrow {
@@ -336,65 +347,95 @@ $fontName: "proximanova-bold-webfont";
   content: "";
 }
 
-.gjs-sm-sector__global_fonts_collection .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg") !important;
-  background-size: 100% 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
-}
+  .gjs-block {
+    .gjs-block-label {
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+    }
 
-.gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-  background-size: 100% 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
-}
+    .gjs-block__media svg {
+      height: 45px !important;
+    }
+  }
 
-.gjs-sm-sector__buttons .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
-  background-size: 100% 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
-}
+  .gjs-sm-sector-title {
+    position: relative !important;
+    padding: 9px 10px 9px 15px !important;
+  }
 
-.gjs-sm-sector__images .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/images.svg") !important;
-  background-size: 100% 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
-}
+  .gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg");
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+  }
 
-.gjs-sm-sector__body_text .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/body-text.svg") !important;
-  background-size: 100% 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
-}
+  .gjs-sm-sector__global_fonts_collection .gjs-sm-sector-title::after {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg") !important;
+    background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg") !important;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+  }
 
-.gjs-sm-sector__links .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/links.svg") !important;
-  background-size: 100% 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
-}
+  .gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
+    background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+  }
 
-.gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
-  background-size: 100% 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
+  .gjs-sm-sector__buttons .gjs-sm-sector-title::after {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+  }
+
+  .gjs-sm-sector__images .gjs-sm-sector-title::after {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/images.svg") !important;
+    background-image: url("../../assets/images/global-theme-settings/sidebar/images.svg") !important;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+  }
+
+  .gjs-sm-sector__body_text .gjs-sm-sector-title::after {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/body-text.svg") !important;
+    background-image: url("../../assets/images/global-theme-settings/sidebar/body-text.svg") !important;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+  }
+
+  .gjs-sm-sector__links .gjs-sm-sector-title::after {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/links.svg") !important;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+  }
+
+  .gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+  }
 }
