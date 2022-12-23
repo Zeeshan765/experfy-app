@@ -1018,20 +1018,7 @@ console.log("*****************myFunction***************");
     }
   }, [testRef]);
 
-  editor.DomComponents.addType("div", {
-    model: {
-      defaults: {
-        traits: [
-          {
-            type: "text",
-            name: "map-location",
-            label: "Location",
-            placeholder: "Enter your location ",
-          },
-        ],
-      },
-    },
-  });
+ 
   return (
     <div className="main">
       <div id="editor"></div>
