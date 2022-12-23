@@ -15,10 +15,6 @@ const NewPageBuilder = () => {
   const [headingText, setHeadingText] = React.useState<string>('abc');
   // console.log('test of editor', editorState);
   const testRef= useRef();
-  const myFunction=()=>{
-console.log("*****************myFunction***************");
-
-  }
 
   React.useEffect(() => {
     const myFirstBlock = (editor) => {
@@ -1018,20 +1014,7 @@ console.log("*****************myFunction***************");
     }
   }, [testRef]);
 
-  editor.DomComponents.addType("div", {
-    model: {
-      defaults: {
-        traits: [
-          {
-            type: "text",
-            name: "map-location",
-            label: "Location",
-            placeholder: "Enter your location ",
-          },
-        ],
-      },
-    },
-  });
+
   return (
     <div className="main">
       <div id="editor"></div>
@@ -1041,12 +1024,3 @@ console.log("*****************myFunction***************");
   );
 };
 export default NewPageBuilder;
-
-
-
-
-
-
-
-
-
