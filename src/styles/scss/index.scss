@@ -113,7 +113,7 @@ body {
     overflow: unset;
     white-space: nowrap;
     font-size: 24px;
-  }  
+  }
 
   a {
     span {
@@ -122,7 +122,7 @@ body {
 
     &:hover {
       text-decoration: none;
-    }  
+    }
   }
 }
 
@@ -142,6 +142,7 @@ body {
   .gutter--left {
     padding-left: 0px;
   }
+
   .gutter--right {
     padding-right: 0px;
   }
@@ -150,7 +151,7 @@ body {
 .nav {
   header {
     display: none;
-  }  
+  }
 
   @media (max-width: 1024px) {
     header {
@@ -331,9 +332,10 @@ div.react-select {
   width: 100% !important;
   padding-left: 24px;
 }
-.collection-edit__collection-actions {
-  display: none !important;
-}
+
+// .collection-edit__collection-actions {
+//   display: none !important;
+// }
 
 .collection-edit__document-actions {
   padding-left: 0px !important;
@@ -360,6 +362,7 @@ div.react-select {
   height: 16px;
   margin-right: 10px;
 }
+
 .Global #nav-themes::before {
   background-image: url("/src/assets/images/sidebar/themes.svg") !important;
   // background-size: 100% 100%;
@@ -438,7 +441,7 @@ div.react-select {
 
       .radio-input__styled-radio {
         display: none;
-      } 
+      }
 
       &.radio-input--is-selected {
         .radio-input__label {
@@ -458,7 +461,7 @@ div.react-select {
       }
     }
 
-    li + li {
+    li+li {
       margin-left: 48px;
     }
   }
@@ -472,9 +475,9 @@ div.react-select {
   //   padding-right: 0px !important;
   // }
 
-  .collection-edit__edit{
-    .radio-group--layout-horizontal{
-      label.field-label{
+  .collection-edit__edit {
+    .radio-group--layout-horizontal {
+      label.field-label {
         display: none !important;
       }
     }
@@ -485,23 +488,24 @@ div.react-select {
     flex-direction: column;
     padding-top: 0px !important;
 
-    .radio-group--layout-horizontal{
+    .radio-group--layout-horizontal {
       border-bottom: 1px solid #d1dbe3;
       // padding: 1.5rem 2rem 0;
       padding: 24px 32px 0;
       margin-right: -32px;
       margin-left: -32px;
-      
-      ul{
-        li{
+
+      ul {
+        li {
           padding-right: 0px !important;
         }
       }
-  
-      .radio-group--group{
-        label{
+
+      .radio-group--group {
+        label {
           margin-bottom: 0px !important;
-          .radio-input{
+
+          .radio-input {
             margin: 0px !important;
           }
         }
@@ -513,11 +517,13 @@ div.react-select {
     order: 2;
     padding-left: 24px;
     padding-right: 24px;
-  }
-  .field-type {
-    order: 3;
-  }
-  .render-fields {
-    order: 1;
+
+    .field-type {
+      order: 3;
+    }
+
+    .render-fields {
+      order: 1;
+    }
   }
 }
