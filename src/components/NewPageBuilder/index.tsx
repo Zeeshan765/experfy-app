@@ -1,24 +1,24 @@
-// @ts-ignore
 import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
 // import './CustomGrapes.css';
+import '../PageBuilder/index.scss';
 import './index.scss';
 import plugin2 from 'grapesjs-project-manager';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 import Basics from 'grapesjs-blocks-basic';
+import { Eyebrow } from 'payload/components/elements';
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
   const [headingText, setHeadingText] = React.useState<string>('abc');
   // console.log('test of editor', editorState);
-  const testRef= useRef();
-  const myFunction=()=>{
-console.log("*****************myFunction***************");
-
-  }
+  const testRef = useRef();
+  const myFunction = () => {
+    console.log('*****************myFunction***************');
+  };
 
   React.useEffect(() => {
     const myFirstBlock = (editor) => {
@@ -43,7 +43,7 @@ console.log("*****************myFunction***************");
 
     const editor = GrapesJS.init({
       container: '#editor',
-      plugins: [plugin1, Basics, myFirstBlock],
+      plugins: [plugin1, Basics],
 
       // blockManager: {
       //   appendTo: '.myblocks',
@@ -69,30 +69,30 @@ console.log("*****************myFunction***************");
       //   ],
       // }
 
-      // styleManager: {
-      //   appendTo: '.styles-container',
+      styleManager: {
+        appendTo: '.styles-container',
 
-      //   sectors: [
-      //     {
-      //       // name: 'Global Colors Collection',
-      //       highlightChanged: true,
-      //       stylePrefix: 'ts-', // Prefix for all class names
-      //       open: true,
-      //       buildProps: ['background-color', 'color', 'color'],
-      //       properties: [
-      //         {
-      //           type: 'color',
-      //           name: 'Primary',
-      //           property: 'background-color',
-      //           default: '#e6e6e6',
-      //           attributes: {
-      //             'data-type': 'background-color',
-      //           },
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
+        sectors: [
+          {
+            // name: 'Global Colors Collection',
+            highlightChanged: true,
+            stylePrefix: 'ts-', // Prefix for all class names
+            open: true,
+            buildProps: ['background-color', 'color', 'color'],
+            properties: [
+              {
+                type: 'color',
+                name: 'Primary',
+                property: 'background-color',
+                default: '#e6e6e6',
+                attributes: {
+                  'data-type': 'background-color',
+                },
+              },
+            ],
+          },
+        ],
+      },
     });
     const panelManager = editor.Panels;
     var newPanel = panelManager.addPanel({
@@ -994,12 +994,12 @@ console.log("*****************myFunction***************");
     // });
     setElementCreate(true);
   }, [setEditorState]);
-  console.log("document.activeElement",document.activeElement.tagName);
-  
+  console.log('document.activeElement', document.activeElement.tagName);
+
   useEffect(() => {
     if (testRef) {
       // debugger;
-      console.log(document.getElementById('self-test'),'testRef', testRef);
+      console.log(document.getElementById('self-test'), 'testRef', testRef);
       let ftext = document.getElementById('self-test');
       if (ftext) {
         // @ts-ignore
@@ -1019,20 +1019,11 @@ console.log("*****************myFunction***************");
   }, [testRef]);
 
   return (
-    <div className="main">
-      <div id="editor"></div>
-      <div className="myblocks"></div>
+    <div className="main__content">
+      <Eyebrow />
       <div className="styles-container"></div>
+      <div id="editor"></div>
     </div>
   );
 };
 export default NewPageBuilder;
-
-
-
-
-
-
-
-
-
