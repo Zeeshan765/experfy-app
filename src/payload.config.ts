@@ -8,6 +8,7 @@ import MenusCollection from "./collections/MenusCollection";
 import NewPageBuilderCollection from "./collections/NewPageBuilder";
 import PagesCollection from "./collections/Page";
 import PageBuilderCollection from "./collections/PageBuilder";
+import TemplateLibraryCollection from "./collections/TemplateLibaryCollection";
 import TemplatesCollection from "./collections/TemplatesCollection";
 import ThemeCollection from "./collections/ThemeCollection";
 import Users from "./collections/Users";
@@ -20,6 +21,7 @@ import DesignSystem from "./components/PageBuilder/DesignSystem";
 import PageBuilder from "./components/PageBuilder/SectionTemplates";
 // import Pages from "./components/Pages";
 import PortalIdentity from "./components/PortalIdentity";
+import TemplatesLibrary from "./components/TemplateLibrary";
 import Templates from "./components/Templates";
 import MyProvider from "./MyProvider";
 
@@ -48,7 +50,7 @@ export default buildConfig({
       },
       beforeNavLinks: [BeforeNav],
       afterNavLinks: [AfterNav],
-      
+
       routes: [
         {
           path: "/collections/page-builder",
@@ -91,6 +93,10 @@ export default buildConfig({
           path: "/collections/new-page-builder",
           Component: NewPageBuilder,
         },
+        {
+          path:'/collections/templates-library',
+          Component:TemplatesLibrary,
+        }
       ],
       providers: [MyProvider],
     },
@@ -105,12 +111,12 @@ export default buildConfig({
     PagesCollection,
     Media,
     NewPageBuilderCollection,
+    TemplateLibraryCollection
   ],
   i18n: {
     supportedLngs: ["en", "es"],
     saveMissing: true,
     fallbackLng: "en",
-    
   },
 
   cors: "*",
