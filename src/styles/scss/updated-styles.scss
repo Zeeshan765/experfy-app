@@ -426,7 +426,7 @@ p {
   }
 
   &__collection-actions {
-    // display: none !important;
+    display: none !important;
   }
 
   &__document-actions {
@@ -665,4 +665,15 @@ p {
       }
     }
   }
+}
+
+&:hover,
+&:focus,
+&.active {
+  &::before {
+    background: url('/src/assets/images/sidebar/#{$icon}_active.svg') center center no-repeat scroll;
+  }
+}
+}
+}
 }
