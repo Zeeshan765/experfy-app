@@ -1014,7 +1014,6 @@ const NewPageBuilder = () => {
     }
   }, [testRef]);
 
-
   return (
     <div className="main">
       <div id="editor"></div>

@@ -3,9 +3,18 @@ import TemplatesLibrary from "../components/TemplateLibrary";
 
  const TemplateLibraryCollection: CollectionConfig = {
   slug: "templates-library",
+  labels: {
+    singular: "Template Library",
+    plural: "Template Library",
+  },
+  // access: {
+  //   read: () => true,
+  //   create: () => false,
+  // },
   access: {
     read: () => true,
-    create: () => false,
+    create: () => true,
+    update: () => true,
   },
   admin: {
     components: {
