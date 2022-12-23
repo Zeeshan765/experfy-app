@@ -669,14 +669,3 @@ p {
     }
   }            
 }
-
-&:hover,
-&:focus,
-&.active {
-  &::before {
-    background: url('/src/assets/images/sidebar/#{$icon}_active.svg') center center no-repeat scroll;
-  }
-}
-}
-}
-}
