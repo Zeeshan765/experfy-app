@@ -3,21 +3,21 @@ import commands from './commands';
 import blocks from './blocks';
 import panels from './panels';
 import BasicBlocks from 'grapesjs-blocks-basic';
-import '../index.scss';
+// import '../index.scss';
 
 export type PluginOptions = {
   /**
    * Which blocks to add.
    * @default []
    */
-  blocks?: string[] ;
+  blocks?: string[];
 
   /**
    * Add custom block options, based on block id.
    * @default (blockId) => ({})
    * @example (blockId) => blockId === 'quote' ? { attributes: {...} } : {};
    */
-  block?: (blockId: string) => ({});
+  block?: (blockId: string) => {};
 
   /**
    * Modal import title.
@@ -69,13 +69,15 @@ export type PluginOptions = {
    */
   useCustomTheme?: boolean;
 
-  
   showGlobalStyles?: boolean;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
 
-const plugin: GrapesJS.Plugin<PluginOptions> = (editor, opts: Partial<PluginOptions> = {}) => {
+const plugin: GrapesJS.Plugin<PluginOptions> = (
+  editor,
+  opts: Partial<PluginOptions> = {}
+) => {
   const config: RequiredPluginOptions = {
     blocks: [],
     block: () => ({}),
@@ -133,6 +135,6 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (editor, opts: Partial<PluginOpti
 
   // Load panels
   panels(editor, config);
-}
+};
 
 export default plugin;

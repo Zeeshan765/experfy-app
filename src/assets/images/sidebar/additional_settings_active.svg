@@ -1,0 +1,33 @@
+<svg width="14.702" height="14.702" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <g data-name="Group 56073" id="Group_56073">
+   <g data-name="Group 56072" id="Group_56072">
+    <g data-name="Group 56071" id="Group_56071">
+     <g data-name="Group 56055" id="Group_56055">
+      <g data-name="Group 56054" id="Group_56054">
+       <g data-name="Group 56053" id="Group_56053">
+        <g data-name="Group 56042" id="Group_56042">
+         <path transform="rotate(-90 -91.121 175.83)" fill="#fff" d="m73.679,266.95099a1.845,1.845 0 0 0 -1.776,1.378l-1.44,0a0.46,0.46 0 1 0 0,0.919l1.44,0a1.834,1.834 0 0 0 3.553,0l8.79,0a0.46,0.46 0 1 0 0,-0.919l-8.79,0a1.845,1.845 0 0 0 -1.777,-1.378zm0,0.919l0,0a0.919,0.919 0 1 1 -0.65,0.269a0.919,0.919 0 0 1 0.65,-0.269zm7.35,4.594a1.845,1.845 0 0 0 -1.776,1.379l-8.79,0a0.46,0.46 0 1 0 0,0.919l8.79,0a1.834,1.834 0 0 0 3.553,0l1.439,0a0.46,0.46 0 0 0 0,-0.919l-1.439,0a1.846,1.846 0 0 0 -1.777,-1.379zm0,0.919l0,0a0.919,0.919 0 1 1 -0.65,0.269a0.919,0.919 0 0 1 0.65,-0.269zm-5.513,4.594a1.846,1.846 0 0 0 -1.777,1.378l-3.277,0a0.46,0.46 0 1 0 0,0.919l3.277,0a1.834,1.834 0 0 0 3.553,0l6.952,0a0.46,0.46 0 1 0 0,-0.919l-6.952,0a1.845,1.845 0 0 0 -1.776,-1.378zm0,0.919l0,0a0.919,0.919 0 1 1 -0.65,0.269a0.919,0.919 0 0 1 0.65,-0.269z" id="noun-settings-4238648"/>
+        </g>
+       </g>
+      </g>
+     </g>
+     <g stroke="#fff" fill="#fff" data-name="Ellipse 8558" id="Ellipse_8558">
+      <ellipse id="svg_1" ry="1" rx="1.5" cy="3.61099" cx="7.5"/>
+      <ellipse id="svg_2" fill="none" ry="0.5" rx="1" cy="3.61099" cx="7.5"/>
+     </g>
+    </g>
+    <g stroke="#fff" fill="#fff" data-name="Ellipse 8559" id="Ellipse_8559">
+     <circle id="svg_3" r="1.5" cy="11.11099" cx="1.5"/>
+     <circle id="svg_4" fill="none" r="1" cy="11.11099" cx="1.5"/>
+    </g>
+   </g>
+   <g stroke="#fff" fill="#fff" data-name="Ellipse 8560" id="Ellipse_8560">
+    <circle id="svg_5" r="1.5" cy="9.11099" cx="12.5"/>
+    <circle id="svg_6" fill="none" r="1" cy="9.11099" cx="12.5"/>
+   </g>
+  </g>
+ </g>
+
+</svg>

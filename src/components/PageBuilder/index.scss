@@ -3,6 +3,7 @@ $primaryColor: var(--theme-primary);
 $secondaryColor: var(--theme-primary);
 $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
+$tagBg: var(--theme-primary);
 $fontFace: var(--font-body);
 $fontSize: 0.9rem;
 $fontSizeS: 0.9rem;
@@ -44,7 +45,8 @@ $fontName: "proximanova-bold-webfont";
 .gjs-pn-views-container {
   width: 20% !important;
   overflow: auto;
-  box-shadow: 0 0 10px var(--theme-elevation-300) !important;
+  box-shadow: 0rem 0rem 1rem var(--theme-elevation-300) !important;
+  left: 0px !important;
 }
 
 .gjs-selected {
@@ -64,7 +66,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-pn-commands {
-  width: 100% !important;
+  width: 20% !important;
 }
 
 .gjs-layer-vis {
@@ -84,7 +86,7 @@ $fontName: "proximanova-bold-webfont";
   color: var(--theme-text) !important;
   font-size: 1rem !important;
   height: 4rem !important;
-  background-color: #fff !important;
+  background-color: var(--theme-bg) !important;
   flex-direction: row-reverse !important;
   justify-content: start !important;
   border-bottom: 2px solid var(--theme-elevation-50) !important
@@ -108,9 +110,9 @@ $fontName: "proximanova-bold-webfont";
   padding: 0.5rem !important;
   border-radius: 4px !important;
   margin: 2px !important;
-  box-shadow: 1px 1px 0 0 rgba(97, 97, 97, 0.3) !important;
-  background-color: #f1f3f5 !important;
-  color: var(--theme-primary);
+  box-shadow: 1px 1px 0 0 var(--theme-elevation-100) !important;
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-primary) !important;
 }
 
 .gjs-blocks-c {
@@ -148,6 +150,9 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-select select option {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
+  border: none !important;
   background-color: #fff !important;
   color: #101010 !important;
   border: none !important;
@@ -176,9 +181,9 @@ $fontName: "proximanova-bold-webfont";
   left: 20% !important;
 }
 
-.gjs-pn-views-container {
-  left: 0;
-}
+// .gjs-pn-views-container {
+//   left: 0;
+// }
 
 
 
@@ -212,7 +217,7 @@ $fontName: "proximanova-bold-webfont";
   display: block !important;
 
   .gjs-sm-composite {
-    border: 1px solid var(--theme-elevation-150) !important;
+    border: 0.1rem solid var(--theme-elevation-200) !important;
   }
 }
 
@@ -255,6 +260,9 @@ $fontName: "proximanova-bold-webfont";
   border-bottom: 2px solid var(--theme-elevation-50) !important
 }
 
+// border-bottom: 1px solid var(--theme-elevation-900) !important;
+// }
+
 // .gjs-field-range input[type="range"] {
 //     -webkit-appearance: none;
 //     width: 200px;
@@ -282,8 +290,8 @@ $fontName: "proximanova-bold-webfont";
   width: 100%;
   height: 3px;
   cursor: pointer;
-  background: #cacaca;
-  border: 0px solid #000101;
+  background: var(--theme-bg);
+  border: 0px solid var(--theme-elevation-100);
 }
 
 .gjs-field-range input[type="range"]::-webkit-slider-thumb {
@@ -292,20 +300,16 @@ $fontName: "proximanova-bold-webfont";
   border-radius: 100px;
   cursor: pointer;
   -webkit-appearance: none;
-  background: #48a3d7 !important;
+  background: var(--theme-primary) !important;
   border: none;
 }
 
-.currentColor {
-  color: #d0d0d0 !important;
-  color: #d0d0d0 !important;
-}
 
 .gjs-select {
   .gjs-sel-arrow {
     .gjs-d-s-arrow {
       border-left: 4px solid transparent;
-      border-top: 5px solid rgba(0, 0, 0, 0.7);
+      border-top: 5px solid var(--theme-elevation-150);
     }
   }
 }
@@ -328,11 +332,23 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector-title {
   position: relative !important;
+}
 
-  .full-width-image .gjs-block-label svg {
-    width: 100%;
-    height: 100% !important;
-  }
+
+
+// .gjs-sm-sector-title {
+//   position: relative !important;
+//   padding: 9px 10px 9px 15px !important;
+// }
+
+.gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg") !important;
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
 
   .gjs-block {
     .gjs-block-label {

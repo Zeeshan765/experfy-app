@@ -72,38 +72,50 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       type: "text",
     },
     {
-      name: "meta_keywords",
-      type: "text",
+      name: 'meta_keywords',
+      type: 'text',
     },
     {
       name: "meta_description",
       type: "text",
     },
     {
-      name: "tracking_pixel",
-      type: "text",
+      name: 'tracking_pixel',
+      type: 'text',
     },
     {
-      name: "bing_webmaster",
-      type: "text",
+      name: 'bing_webmaster',
+      type: 'text',
     },
     {
       name: "google_webmaster",
       type: "text",
     },
     {
-      name: "google_analytics",
-      type: "text",
+      name: 'google_analytics',
+      type: 'text',
     },
     {
-      name: "google_id",
-      type: "text",
+      name: 'google_id',
+      type: 'text',
     },
-
-    // {
-    //   name : 'Sub-domains',
-    //   type: 'radio',
-    //   options: ['sub_domain'],
+    {
+      name: 'micro_sites',
+      label: 'Micro Sites',
+      type: 'radio',
+      required: true,
+      defaultValue: "sub_directories",
+      options: [
+        {
+          label: 'Sub-domains',
+          value: 'sub_domain',
+        },
+        {
+          label: 'Sub-directories',
+          value: 'sub_directories',
+        },
+      ],
+    },
     // {
     //   name : 'Sub-domains',
     //   type: 'radio',
@@ -114,17 +126,11 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     //   name : 'Sub-directories',
     //   type: 'radio',
     //   options: ['sub_directories'],
-    //  },
-    //  {
-    //   name : 'Sub-directories',
-    //   type: 'radio',
-    //   options: ['sub_directories'],
 
     //  },
-    //  },
     {
-      name: "brands",
-      type: "array",
+      name: 'brands',
+      type: 'array',
       fields: [
         {
           name: "brand_name",
