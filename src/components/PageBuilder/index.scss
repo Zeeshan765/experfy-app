@@ -252,6 +252,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-category-open,
 .gjs-block-category.gjs-open,
 .gjs-sm-sector.gjs-sm-open {
+  // border-bottom: 1px solid var(--theme-elevation-900) !important;
   border-bottom: 2px solid var(--theme-elevation-50) !important
 }
 
