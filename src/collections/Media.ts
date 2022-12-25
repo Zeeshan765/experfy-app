@@ -1,5 +1,5 @@
-import { CollectionConfig } from "payload/types";
-import RelationCollection, { Type as MediaType } from "./IconCollection";
+import { CollectionConfig } from 'payload/types';
+import RelationCollection, { Type as MediaType } from './IconCollection';
 // import { Image, Type as ImageType } from '../blocks/Image'
 
 export type Type = {
@@ -15,35 +15,35 @@ export type Type = {
   };
 };
 export const Media: CollectionConfig = {
-  slug: "media",
+  slug: 'media',
   admin: {
-    useAsTitle: "keywords",
+    useAsTitle: 'keywords',
   },
- 
+
   // pagination: {
   //   itemsPerPage: 10,
   // },
 
   upload: {
-    adminThumbnail: "card",
+    adminThumbnail: 'card',
     imageSizes: [
       {
-        name: "card",
+        name: 'card',
         width: 640,
         height: 480,
       },
       {
-        name: "portrait",
+        name: 'portrait',
         width: 768,
         height: 1024,
       },
       {
-        name: "square",
+        name: 'square',
         width: 1200,
         height: 1200,
       },
       {
-        name: "feature",
+        name: 'feature',
         width: 1024,
         height: 576,
       },
@@ -68,86 +68,82 @@ export const Media: CollectionConfig = {
   },
   fields: [
     {
-      name: "mediaType",
-      type: "radio",
-      label: ".",
-      defaultValue: "Icon",
+      name: 'mediaType',
+      type: 'radio',
+      label: '.',
+      defaultValue: 'Icon',
       options: [
         {
-          label: "Icon",
-          value: "Icon",
+          label: 'Icon',
+          value: 'Icon',
         },
         {
-          label: "Photo",
-          value: "Photo",
+          label: 'Photo',
+          value: 'Photo',
         },
         {
-          label: "Video",
-          value: "Video",
+          label: 'Video',
+          value: 'Video',
         },
       ],
     },
     {
-      name: "Icon Title",
-      label: "Icon Title",
-      type: "text",
+      name: 'icon',
+      label: 'Icon Title',
+      type: 'text',
       required: true,
       admin: {
         condition: (_, siblingData) => {
-          console.log("Icon siblingData===", siblingData?.mediaType);
-          return siblingData?.mediaType === "Icon";
+          console.log('Icon siblingData===', siblingData?.mediaType);
+          return siblingData?.mediaType === 'icon';
         },
       },
     },
 
     {
-      name: "Photo Title",
-      label: "Photo Title",
-      type: "text",
-      required: true,
-      admin: {
-        condition: (_, siblingData) => {
-          console.log(
-            "Photo SiblingData===",
-            siblingData?.mediaType === "Photo" ?? false
-          );
-          return siblingData?.mediaType === "Photo";
-        },
-      },
-    },
-    {
-      name: "Video Title",
-      label: "Video Title",
-      type: "text",
+      name: 'photo',
+      label: 'Photo Title',
+      type: 'text',
       required: true,
       admin: {
         condition: (_, siblingData) => {
           console.log(
-            "Video siblingData===",
-            siblingData?.mediaType === "Video" ?? false
+            'Photo SiblingData===',
+            siblingData?.mediaType === 'Photo' ?? false
           );
-
-          return siblingData?.mediaType === "Video";
+          return siblingData?.mediaType === 'photo';
         },
       },
     },
     {
-      name: "keywords",
-      label: "Keywords",
-      type: "text",
-      defaultValue:'Media',
+      name: 'video',
+      label: 'Video Title',
+      type: 'text',
+      required: true,
+      admin: {
+        condition: (_, siblingData) => {
+          console.log(
+            'Video siblingData===',
+            siblingData?.mediaType === 'Video' ?? false
+          );
+
+          return siblingData?.mediaType === 'video';
+        },
+      },
+    },
+    {
+      name: 'keywords',
+      label: 'Keywords',
+      type: 'text',
+      defaultValue: 'Media',
       required: true,
     },
     {
-      name: "description",
-      label: "Description",
-      type: "textarea",
+      name: 'description',
+      label: 'Description',
+      type: 'textarea',
       required: true,
-      
     },
-  
-    
-
   ],
   hooks: {
     //     beforeLogin: [

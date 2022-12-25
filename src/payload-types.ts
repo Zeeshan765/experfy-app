@@ -27,6 +27,7 @@ export interface BasicPortalIdentity {
   google_webmaster?: string;
   google_analytics?: string;
   google_id?: string;
+  micro_sites: 'sub_domain' | 'sub_directories';
   brands: {
     brand_name?: string;
     brand_identifier?: string;
@@ -42,7 +43,6 @@ export interface BasicPortalIdentity {
  */
 export interface User {
   id: string;
-  name?: string;
   email?: string;
   resetPasswordToken?: string;
   resetPasswordExpiration?: string;
@@ -62,15 +62,6 @@ export interface PageBuilder {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "templates".
- */
-export interface Template {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "design-system".
  */
 export interface DesignSystem {
@@ -82,7 +73,7 @@ export interface DesignSystem {
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "themes".
  */
-export interface ThemeStyle {
+export interface Theme {
   id: string;
   createdAt: string;
   updatedAt: string;
@@ -91,8 +82,9 @@ export interface ThemeStyle {
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "mega-menu".
  */
-export interface Menu {
+export interface MegaMenu {
   id: string;
+  title: string;
   nav: {
     link: {
       type?: 'page' | 'custom';
@@ -112,8 +104,8 @@ export interface Menu {
 export interface Page {
   id: string;
   title: string;
+  author: string | User;
   pageType: 'scratch' | 'template';
-  slug?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -124,165 +116,9 @@ export interface Page {
 export interface Media {
   id: string;
   mediaType?: 'Icon' | 'Photo' | 'Video';
-  'Icon Title': string;
-  'Photo Title': string;
-  'Video Title': string;
-  keywords: string;
-  description: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
-  sizes: {
-    card: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    portrait: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    square: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    feature: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "icon-collection".
- */
-export interface IconCollection {
-  id: string;
-  title: string;
-  keywords: string;
-  description: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
-  sizes: {
-    card: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    portrait: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    square: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    feature: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "photo-collection".
- */
-export interface PhotoCollection {
-  id: string;
-  title: string;
-  keywords: string;
-  description: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
-  sizes: {
-    card: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    portrait: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    square: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    feature: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "video-collection".
- */
-export interface VideoCollection {
-  id: string;
-  title: string;
+  icon: string;
+  photo: string;
+  video: string;
   keywords: string;
   description: string;
   url?: string;
