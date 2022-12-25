@@ -1,6 +1,5 @@
-import { DialogTitle } from '@material-ui/core';
-import { Button, Dialog } from '@mui/material';
-import React, { useCallback, useEffect, useMemo } from 'react';
+import { Dialog } from '@mui/material';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import browse_jobs from '../../assets/images/templates/browse_jobs.png';
 import category from '../../assets/images/templates/category.png';
