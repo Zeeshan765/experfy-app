@@ -1,6 +1,6 @@
-@import "grapesjs/src/styles/scss/_gjs_variables.scss";
-$primaryColor: var(--theme-primary);
-$secondaryColor: var(--theme-primary);
+// @import "grapesjs/src/styles/scss/_gjs_variables.scss";
+$primaryColor: var(--theme-bg);
+$secondaryColor: var(--theme-text);
 $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
 $tagBg: var(--theme-primary);
@@ -11,7 +11,8 @@ $mainFont: "proxima-nova", sans-serif;
 $fontPath: "../../assets/fonts/proxima-nova";
 $fontName: "proximanova-bold-webfont";
 
-// @import "grapesjs/src/styles/scss/main.scss";
+@import "grapesjs/src/styles/scss/main.scss";
+
 .editor-canvas {
   flex-grow: 1;
   background-color: var(--theme-bg);
@@ -153,12 +154,6 @@ $fontName: "proximanova-bold-webfont";
   background-color: var(--theme-bg) !important;
   color: var(--theme-text) !important;
   border: none !important;
-  background-color: #fff !important;
-  color: #101010 !important;
-  border: none !important;
-  background-color: #fff !important;
-  color: #101010 !important;
-  border: none !important;
 }
 
 .gjs-field .gjs-d-s-arrow {
@@ -257,34 +252,9 @@ $fontName: "proximanova-bold-webfont";
 .gjs-category-open,
 .gjs-block-category.gjs-open,
 .gjs-sm-sector.gjs-sm-open {
+  // border-bottom: 1px solid var(--theme-elevation-900) !important;
   border-bottom: 2px solid var(--theme-elevation-50) !important
 }
-
-// border-bottom: 1px solid var(--theme-elevation-900) !important;
-// }
-
-// .gjs-field-range input[type="range"] {
-//     -webkit-appearance: none;
-//     width: 200px;
-//     height: 10px;
-//     background-color: #cacaca;
-//     cursor: ew-resize;
-//     overflow: hidden;
-// }
-
-// .gjs-field-range input::-webkit-slider-thumb {
-//     -webkit-appearance: none;
-//     background: #48a3d7 !important;
-//     border:none;
-//   }
-
-// .gjs-field-range input[type="range"]::-webkit-slider-thumb {
-// //     -webkit-appearance: none;
-// //     width: 10px;
-// //     height: 10px;
-// //     background: #fff;
-// //     box-shadow: -205px 0 0 200px hsl(100,100%,40%);
-// // }
 
 .gjs-field-range input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
@@ -332,113 +302,77 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector-title {
   position: relative !important;
+  padding: 9px 10px 9px 15px !important;
 }
-
-
-
-// .gjs-sm-sector-title {
-//   position: relative !important;
-//   padding: 9px 10px 9px 15px !important;
-// }
 
 .gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg") !important;
-  background-size: 100% 100%;
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
   content: "";
 }
 
-  .gjs-block {
-    .gjs-block-label {
-      font-size: 0.95rem !important;
-      font-weight: 600 !important;
-    }
+.gjs-sm-sector__global_fonts_collection .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg") !important;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
 
-    .gjs-block__media svg {
-      height: 45px !important;
-    }
-  }
+.gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
 
-  .gjs-sm-sector-title {
-    position: relative !important;
-    padding: 9px 10px 9px 15px !important;
-  }
+.gjs-sm-sector__buttons .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
 
-  .gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg");
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-  }
+.gjs-sm-sector__images .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/images.svg") !important;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
 
-  .gjs-sm-sector__global_fonts_collection .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg") !important;
-    background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg") !important;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-  }
+.gjs-sm-sector__body_text .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/body-text.svg") !important;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
 
-  .gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-    background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-  }
+.gjs-sm-sector__links .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/links.svg") !important;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
 
-  .gjs-sm-sector__buttons .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-  }
-
-  .gjs-sm-sector__images .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/images.svg") !important;
-    background-image: url("../../assets/images/global-theme-settings/sidebar/images.svg") !important;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-  }
-
-  .gjs-sm-sector__body_text .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/body-text.svg") !important;
-    background-image: url("../../assets/images/global-theme-settings/sidebar/body-text.svg") !important;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-  }
-
-  .gjs-sm-sector__links .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/links.svg") !important;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-  }
-
-  .gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-  }
+.gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
 }

@@ -142,6 +142,7 @@ body {
   .gutter--left {
     padding-left: 0px;
   }
+
   .gutter--right {
     padding-right: 0px;
   }
@@ -331,9 +332,10 @@ div.react-select {
   width: 100% !important;
   padding-left: 24px;
 }
-.collection-edit__collection-actions {
-  display: none !important;
-}
+
+// .collection-edit__collection-actions {
+//   display: none !important;
+// }
 
 .collection-edit__document-actions {
   padding-left: 0px !important;
@@ -360,8 +362,9 @@ div.react-select {
   height: 16px;
   margin-right: 10px;
 }
+
 .Global #nav-themes::before {
-  background-image: url("/src/assets/images/sidebar/themes.svg") !important;
+  background-image: url("/src/assets/images/sidebar/theme_style.svg") !important;
   // background-size: 100% 100%;
   // width: 16px;
   // height: 16px;
@@ -497,11 +500,12 @@ div.react-select {
           padding-right: 0px !important;
         }
       }
-  
-      .radio-group--group{
-        label{
+
+      .radio-group--group {
+        label {
           margin-bottom: 0px !important;
-          .radio-input{
+
+          .radio-input {
             margin: 0px !important;
           }
         }
@@ -513,11 +517,13 @@ div.react-select {
     order: 2;
     padding-left: 24px;
     padding-right: 24px;
-  }
-  .field-type {
-    order: 3;
-  }
-  .render-fields {
-    order: 1;
+
+    .field-type {
+      order: 3;
+    }
+
+    .render-fields {
+      order: 1;
+    }
   }
 }
