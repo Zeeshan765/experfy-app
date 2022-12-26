@@ -1,5 +1,6 @@
 import GrapesJS from 'grapesjs';
 import React from 'react';
+import "../index.scss";
 import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
 
 const NewPageBuilder = () => {
