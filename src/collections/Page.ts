@@ -1,6 +1,6 @@
 import { CollectionConfig } from 'payload/types';
-import PageBuilder from '../components/PageBuilder/SectionTemplates';
-import PageTheme from '../components/PageBuilderTemplate';
+// import PageBuilder from '../components/PageBuilder/SectionTemplates';
+// import PageTheme from '../components/PageBuilderTemplate';
 export type Type = {
   title: string;
   slug: string;
@@ -59,17 +59,17 @@ export const Page: CollectionConfig = {
         },
       ],
     },
-    {
-      name: 'template',
-      type: 'ui',
-      label: 'Template',
-      admin: {
-        condition: (data) => data.pageType === 'template',
-        components: {
-          Field: PageTheme,
-        },
-      },
-    },
+    // {
+    //   name: 'template',
+    //   type: 'ui',
+    //   label: 'Template',
+    //   admin: {
+    //     condition: (data) => data.pageType === 'template',
+    //     components: {
+    //       Field: PageTheme,
+    //     },
+    //   },
+    // },
     // {
     //   name: "template",
     //   type: "ui",
