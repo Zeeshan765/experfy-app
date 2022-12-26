@@ -37,13 +37,12 @@ export const Page: CollectionConfig = {
       hasMany: false,
       required: true,
     },
-
     {
       name: 'pageType',
       label: 'Page Type',
       type: 'radio',
       required: true,
-      // defaultValue: "",
+      defaultValue: "scratch",
       admin: {
         layout: 'vertical',
         description: 'Choose how you want to create this page',
@@ -83,34 +82,35 @@ export const Page: CollectionConfig = {
     // },
   ],
 
-  // hooks: {
-  //   beforeLogin: [
-  //     (args) => {
-  //       console.log("before login called", args);
-  //     },
-  //   ],
-  //   afterLogin: [
-  //     (args) => {
-  //       console.log("After Login Called", args);
-  //     },
-  //   ],
-  //   afterLogout: [
-  //     (args) => {
-  //       console.log("After Logout Called", args);
-  //     },
-  //   ],
 
-  //   afterRefresh: [
-  //     (args) => {
-  //       console.log("After Refresh Called", args);
-  //     },
-  //   ],
-  //   afterMe: [
-  //     (args) => {
-  //       console.log("After Me Called", args);
-  //     },
-  //   ],
-  // },
+  hooks: {
+    beforeLogin: [
+      (args) => {
+        console.log("before login called", args);
+      },
+    ],
+    afterLogin: [
+      (args) => {
+        console.log("After Login Called", args);
+      },
+    ],
+    afterLogout: [
+      (args) => {
+        console.log("After Logout Called", args);
+      },
+    ],
+
+    afterRefresh: [
+      (args) => {
+        console.log("After Refresh Called", args);
+      },
+    ],
+    afterMe: [
+      (args) => {
+        console.log("After Me Called", args);
+      },
+    ],
+  },
 };
 
 export default Page;
