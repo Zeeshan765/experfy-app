@@ -102,7 +102,7 @@ export default buildConfig({
     DesignSystemCollection,
     ThemeCollection,
     MenusCollection,
-    // PagesCollection,
+    PagesCollection,
     Media,
     NewPageBuilderCollection,
   ],
