@@ -1,15 +1,15 @@
-//page builder index.scss
+// @import "grapesjs/src/styles/scss/_gjs_variables.scss";
 $primaryColor: var(--theme-bg);
 $secondaryColor: var(--theme-text);
 $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
+$tagBg: var(--theme-primary);
 $fontFace: var(--font-body);
 $fontSize: 0.9rem;
 $fontSizeS: 0.9rem;
 $mainFont: "proxima-nova", sans-serif;
 $fontPath: "../../assets/fonts/proxima-nova";
 $fontName: "proximanova-bold-webfont";
-@import "grapesjs/src/styles/scss/main.scss";
 
 @import "grapesjs/src/styles/scss/main.scss";
 
@@ -30,17 +30,29 @@ $fontName: "proximanova-bold-webfont";
   width: 80% !important;
 }
 
+// .gjs-pn-panel,
+// .gjs-pn-views {
+//   width: 20% !important;
+//   box-shadow: 0 0 10px var(--theme-elevation-300) !important;
+//   position: relative !important;
+//   font-size: x-large !important;
+//   font-weight: 400 !important;
+//   color: var(--theme-elevation-0) !important;
+//   padding: 0 !important;
+// }
+
 
 
 .gjs-pn-views-container {
   width: 20% !important;
   overflow: auto;
-  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
+  box-shadow: 0rem 0rem 1rem var(--theme-elevation-300) !important;
+  left: 0px !important;
 }
 
 .gjs-selected {
-  outline: 2px solid var(--theme-primary) !important;
-  outline-offset: -2px !important;
+  outline: 4px solid var(--theme-primary) !important;
+  outline-offset: -4px !important;
 }
 
 .gjs-sm-properties {
@@ -49,11 +61,11 @@ $fontName: "proximanova-bold-webfont";
   font-size: 1rem !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  background-color: #fff !important;
+  background-color: var(--theme-elevation-0)
 }
 
 .gjs-pn-commands {
-  width: 100% !important;
+  width: 20% !important;
 }
 
 .gjs-layer-vis {
@@ -66,17 +78,17 @@ $fontName: "proximanova-bold-webfont";
 }
 
 // .gjs-category-title,
-// .gjs-layer-title,
+.gjs-layer-title,
 // .gjs-block-category,
 .gjs-sm-sector-title {
   font-weight: 500 !important;
   color: var(--theme-text) !important;
   font-size: 1rem !important;
   height: 4rem !important;
-  background-color: #fff !important;
+  background-color: var(--theme-bg) !important;
   flex-direction: row-reverse !important;
   justify-content: start !important;
-  // border-bottom: 2px solid rgb(235 x235 235) !important;
+  border-bottom: 2px solid var(--theme-elevation-50) !important
 }
 
 .gjs-sm-field input,
@@ -97,9 +109,9 @@ $fontName: "proximanova-bold-webfont";
   padding: 0.5rem !important;
   border-radius: 4px !important;
   margin: 2px !important;
-  box-shadow: 1px 1px 0 0 rgba(97, 97, 97, 0.3) !important;
-  background-color: #f1f3f5 !important;
-  color: var(--theme-primary);
+  box-shadow: 1px 1px 0 0 var(--theme-elevation-100) !important;
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-primary) !important;
 }
 
 .gjs-blocks-c {
@@ -136,8 +148,8 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-select select option {
-  background-color: #fff !important;
-  color: #101010 !important;
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
   border: none !important;
 }
 
@@ -148,6 +160,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-field-integer input {
   padding-right: 30px;
   width: 120px !important;
+
 }
 
 .gjs-clm-tags {
@@ -158,9 +171,9 @@ $fontName: "proximanova-bold-webfont";
   left: 20% !important;
 }
 
-.gjs-pn-views-container {
-  left: 0;
-}
+// .gjs-pn-views-container {
+//   left: 0;
+// }
 
 
 
@@ -169,6 +182,9 @@ $fontName: "proximanova-bold-webfont";
   font-size: 1rem !important;
 }
 
+// .gjs-pn-buttons{
+// display: none !important;
+// }
 // .gjs-pn-buttons{
 // display: none !important;
 // }
@@ -183,11 +199,15 @@ $fontName: "proximanova-bold-webfont";
   padding: 0 10px;
 }
 
+.gjs-pn-buttons {
+  background-color: var(--theme-bg);
+}
+
 .gjs-sm-property__border {
   display: block !important;
 
   .gjs-sm-composite {
-    border: 1px solid rgb(255 255 255 / 25%) !important;
+    border: 0.1rem solid var(--theme-elevation-200) !important;
   }
 }
 
@@ -227,38 +247,16 @@ $fontName: "proximanova-bold-webfont";
 .gjs-category-open,
 .gjs-block-category.gjs-open,
 .gjs-sm-sector.gjs-sm-open {
-  border-bottom: 1px solid var(--theme-elevation-900) !important;
+  // border-bottom: 1px solid var(--theme-elevation-900) !important;
+  border-bottom: 2px solid var(--theme-elevation-50) !important
 }
-
-// .gjs-field-range input[type="range"] {
-//     -webkit-appearance: none;
-//     width: 200px;
-//     height: 10px;
-//     background-color: #cacaca;
-//     cursor: ew-resize;
-//     overflow: hidden;
-// }
-
-// .gjs-field-range input::-webkit-slider-thumb {
-//     -webkit-appearance: none;
-//     background: #48a3d7 !important;
-//     border:none;
-//   }
-
-// .gjs-field-range input[type="range"]::-webkit-slider-thumb {
-// //     -webkit-appearance: none;
-// //     width: 10px;
-// //     height: 10px;
-// //     background: #fff;
-// //     box-shadow: -205px 0 0 200px hsl(100,100%,40%);
-// // }
 
 .gjs-field-range input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 3px;
   cursor: pointer;
-  background: #cacaca;
-  border: 0px solid #000101;
+  background: var(--theme-bg);
+  border: 0px solid var(--theme-elevation-100);
 }
 
 .gjs-field-range input[type="range"]::-webkit-slider-thumb {
@@ -267,19 +265,16 @@ $fontName: "proximanova-bold-webfont";
   border-radius: 100px;
   cursor: pointer;
   -webkit-appearance: none;
-  background: #48a3d7 !important;
+  background: var(--theme-primary) !important;
   border: none;
 }
 
-.currentColor {
-  color: #d0d0d0 !important;
-}
 
 .gjs-select {
   .gjs-sel-arrow {
     .gjs-d-s-arrow {
       border-left: 4px solid transparent;
-      border-top: 5px solid rgba(0, 0, 0, 0.7);
+      border-top: 5px solid var(--theme-elevation-150);
     }
   }
 }
@@ -306,8 +301,8 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg");
-  background-size: 100% 100%;
+  background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg") !important;
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -316,7 +311,7 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector__global_fonts_collection .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg") !important;
-  background-size: 100% 100%;
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -325,7 +320,7 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-  background-size: 100% 100%;
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -334,7 +329,7 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector__buttons .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
-  background-size: 100% 100%;
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -343,7 +338,7 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector__images .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/images.svg") !important;
-  background-size: 100% 100%;
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -352,7 +347,7 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector__body_text .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/body-text.svg") !important;
-  background-size: 100% 100%;
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -361,7 +356,7 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector__links .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/links.svg") !important;
-  background-size: 100% 100%;
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -370,7 +365,7 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
-  background-size: 100% 100%;
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;

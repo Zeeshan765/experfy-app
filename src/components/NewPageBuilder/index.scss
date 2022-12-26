@@ -1,9 +1,3 @@
-
-
-// new page builder index.scss
-
-
-
 $primaryColor: var(--theme-bg);
 $secondaryColor: var(--theme-text);
 $tertiaryColor: var(--theme-primary);
@@ -20,60 +14,60 @@ $fontName: "proximanova-bold-webfont";
 //--------------------------------------- //
 
 .gjs-title {
-    padding: 18px 0px 18px 50px !important;
-    margin: 5px 15px !important;
-    border: 1px solid #d5dbe0 !important;
-    height: auto !important;
-    border-radius: 5px !important;
-    position: relative !important;
-    font-weight: 600 !important;
-    font-size: 15px !important;
-    background-color: #fff !important;
-    display: flex !important;
-    align-items: center !important;
+  padding: 18px 0px 18px 50px !important;
+  margin: 5px 15px !important;
+  border: 1px solid #d5dbe0 !important;
+  height: auto !important;
+  border-radius: 5px !important;
+  position: relative !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  background-color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
 
-    .gjs-caret-icon {
-        position: absolute !important;
-        right: 30px !important;
-        content: "";
-        width: 16px;
-        height: 16px;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        background-image: url("../../assets/images/eye.svg") !important;
-    }
+  .gjs-caret-icon {
+    position: absolute !important;
+    right: 30px !important;
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("../../assets/images/eye.svg") !important;
+  }
 
-    .fa-caret-right:before {
-        display: none !important;
-    }
+  .fa-caret-right:before {
+    display: none !important;
+  }
 
-    .fa-caret-down:before {
-        display: none !important;
-    }
+  .fa-caret-down:before {
+    display: none !important;
+  }
 }
 
 .gjs-title::before {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
-    position: absolute;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-    z-index: 11111;
-    left: 20px;
+  background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
+  position: absolute;
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+  z-index: 11111;
+  left: 20px;
 }
 
 .gjs-title::after {
-    background-image: url("../../assets/images/handle.svg") !important;
-    position: absolute;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-    z-index: 11111;
-    right: 10px;
+  background-image: url("../../assets/images/handle.svg") !important;
+  position: absolute;
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+  z-index: 11111;
+  right: 10px;
 }
 
 // --------------------------------------
@@ -81,9 +75,9 @@ $fontName: "proximanova-bold-webfont";
 // --------------------------------------
 
 .gjs-pn-views {
-    left: 0;
-    width: 20% !important;
-  }
+  left: 0;
+  width: 20% !important;
+}
 
 // .gjs-pn-options{
 //   justify-content: center !important;
@@ -282,9 +276,11 @@ $fontName: "proximanova-bold-webfont";
     top: 20px !important;
     left: auto !important;
   }
-  .gjs-layer-count{
+
+  .gjs-layer-count {
     display: none !important;
   }
+
   .gjs-one-bg {
     .gjs-layer-title {
       padding: 18px 0px 18px 50px !important;
@@ -300,19 +296,21 @@ $fontName: "proximanova-bold-webfont";
       align-items: center !important;
       letter-spacing: 1px;
       text-align: left;
-      
-      .gjs-layer-title-inn{
+
+      .gjs-layer-title-inn {
         .gjs-no-app {
-            height: auto !important;
+          height: auto !important;
         }
-        
-        .gjs-layer-caret{
-            display: none !important;
+
+        .gjs-layer-caret {
+          display: none !important;
         }
+
         .gjs-layer-name {
-            padding: 0px !important;
+          padding: 0px !important;
         }
       }
+
       &::before {
         background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
         position: absolute;
@@ -324,6 +322,7 @@ $fontName: "proximanova-bold-webfont";
         z-index: 11111;
         left: 20px;
       }
+
       &::after {
         background-image: url("../../assets/images/handle.svg") !important;
         position: absolute;

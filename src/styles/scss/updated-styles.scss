@@ -6,7 +6,7 @@
   --theme-primary: #4ba4da;
   --theme-text: #4a5162;
   --font-body: "proxima-nova", system-ui;
-}  
+}
 
 // Typography 
 
@@ -171,8 +171,8 @@ p {
 
   .btn__icon {
     background-color: transparent;
-  }  
-  
+  }
+
   &:hover,
   &:focus {
     .btn__icon {
@@ -667,7 +667,54 @@ p {
   }
 }
 
+.nav-group__toggle {
+  display: flex;
+  align-items: center;
+  padding: 16px 16px !important;
+  border-bottom: 1px solid #d3dbe3 !important;
+
+  .nav-group__label {
+    font-size: 16px;
+  }
+}
+
+.nav-group--collapsed .nav-group__indicator {
+  transform: rotate(-0.25turn);
+}
+
+.Global {
+
+  #nav-design-system,
+  #nav-themes {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px 12px 36px !important;
+  }
+
+  #nav-design-system {
+
+    &:hover,
+    &:focus,
+    &.active {
+      &:before {
+        background-image: url("/src/assets/images/sidebar/design_system_active.svg") !important;
+      }
+    }
+  }
+
+  #nav-themes {
+
+    &:hover,
+    &:focus,
+    &.active {
+      &:before {
+        background-image: url("/src/assets/images/sidebar/theme_style_active.svg") !important;
+      }
+    }
+  }
+
   .nav-group__content {
     border-bottom: 1px solid #d3dbe3 !important;
     padding: 8px 0;
   }
+}

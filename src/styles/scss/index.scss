@@ -1,4 +1,3 @@
-// style // index.scss
 // @import "./font-proxima-nova.scss";
 
 // Box Sizing
@@ -53,8 +52,8 @@ body {
   background-color: var(--theme-bg);
   font-family: var(--font-body);
   color: var(--theme-text);
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 // Page
@@ -83,7 +82,11 @@ body {
   }
 
   &__content {
-    height: 100%;
+    height: calc(100% - 3.5rem);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    // height: 100%;
     // padding-left: 15.5rem;
   }
 
@@ -103,11 +106,24 @@ body {
   }
 }
 
-.step-nav span {
-  color: var(--theme-text);
-  text-overflow: unset;
-  overflow: unset;
-  white-space: nowrap;
+.step-nav {
+  span {
+    color: var(--theme-text);
+    text-overflow: unset;
+    overflow: unset;
+    white-space: nowrap;
+    font-size: 24px;
+  }
+
+  a {
+    span {
+      font-weight: 400;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .eyebrow:before {
@@ -132,9 +148,20 @@ body {
   }
 }
 
-.nav header {
-  width: 0;
-  height: 0;
+.nav {
+  header {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    header {
+      display: block;
+    }
+  }
+
+  &__controls {
+    display: none;
+  }
 }
 
 .nav__scroll {
@@ -251,6 +278,10 @@ body {
 div.react-select {
   div.rs__control {
     border-radius: 0.25rem;
+    box-shadow: none !important;
+    min-height: 56px;
+    font-size: 16px !important;
+    font-weight: 400;
   }
 }
 
@@ -347,10 +378,10 @@ div.react-select {
 // ------------------------------------------//
 // ------------ custom css ------------------//
 // -----------------------------------------//
-.nav-category {
-  padding: 4rem;
-  border-bottom: 1px solid var(--theme-bg);
-}
+// .nav-category {
+//   padding: 4rem;
+//   border-bottom: 1px solid var(--theme-elevation-150);
+// }
 
 .portals-identity {
   margin-top: 20px;
@@ -397,42 +428,56 @@ div.react-select {
   #field-mediaType {
     .radio-input {
       .radio-input__label {
-        font-weight: 600;
-        font-size: 18px;
-        color: #4a5162;
+        position: relative;
+        font-weight: 500;
+        font-size: 20px;
+        color: #4ba4da;
+        letter-spacing: .1px;
+        padding: 8px 0;
+        margin-left: 0px !important;
         text-transform: capitalize;
-        color: var(--theme-text);
-        border-bottom: 2px solid transparent;
+        font-family: var(--font-body);
+      }
+
+      .radio-input__styled-radio {
+        display: none;
+      }
+
+      &.radio-input--is-selected {
+        .radio-input__label {
+          color: #4a5162 !important;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 2px;
+            background-color: #4a5162;
+          }
+        }
       }
     }
-  }
-}
 
-#field-mediaType {
-  .radio-input--is-selected {
-    .radio-input__label {
-      color: #48a3d7 !important;
-      border-bottom: 2px solid #48a3d7 !important;
+    li+li {
+      margin-left: 48px;
     }
   }
-}
-
-.radio-input__styled-radio {
-  display: none !important;
 }
 
 .collection-edit__main {
+  // .gutter--left {
+  //   padding-left: 0px !important;
+  // }
+  // .gutter--right {
+  //   padding-right: 0px !important;
+  // }
 
-  .gutter--left {
-    padding-left: 0px !important;
-  }
-  .gutter--right {
-    padding-right: 0px !important;
-  }
-
-  .collection-edit__edit{
-    .radio-group--layout-horizontal{
-      label.field-label{
+  .collection-edit__edit {
+    .radio-group--layout-horizontal {
+      label.field-label {
         display: none !important;
       }
     }
@@ -443,18 +488,15 @@ div.react-select {
     flex-direction: column;
     padding-top: 0px !important;
 
-    .field-type{
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-
-    .radio-group--layout-horizontal{
-
+    .radio-group--layout-horizontal {
       border-bottom: 1px solid #d1dbe3;
-      padding: 1.5rem 2rem 0;
-      
-      ul{
-        li{
+      // padding: 1.5rem 2rem 0;
+      padding: 24px 32px 0;
+      margin-right: -32px;
+      margin-left: -32px;
+
+      ul {
+        li {
           padding-right: 0px !important;
         }
       }
@@ -465,21 +507,12 @@ div.react-select {
 
           .radio-input {
             margin: 0px !important;
-
           }
         }
       }
     }
   }
 
-  
-  .radio-input{
-    .radio-input__label{
-      padding: 12px 16px;
-      margin-left: 0px !important;
-    }
-  }
-  
   .collection-edit__header {
     order: 2;
     padding-left: 24px;
