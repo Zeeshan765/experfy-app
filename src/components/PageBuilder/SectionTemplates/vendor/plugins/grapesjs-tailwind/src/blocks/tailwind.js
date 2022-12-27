@@ -6,6 +6,20 @@ import { source as h1 } from './data/header-1';
 import { source as h1s } from './data/icons/header-1';
 import { source as z1 } from './data/footer-1';
 import { source as z1s } from './data/icons/footer-1';
+import { source as s1 } from './data/statistic-1';
+import { source as s1s } from './data/icons/statistic-1';
+import { source as p1 } from './data/pricing-1';
+import { source as p1s } from './data/icons/pricing-1';
+import { source as q1 } from './data/step-1';
+import { source as q1s } from './data/icons/step-1';
+import { source as t1 } from './data/team-1';
+import { source as t1s } from './data/icons/team-1';
+import { source as m1 } from './data/testimonial-1';
+import { source as m1s } from './data/icons/testimonial-1';
+import { source as r1 } from './data/hero-1';
+import { source as r1s } from './data/icons/hero-1';
+import { source as b1 } from './data/blog-1';
+import { source as b1s } from './data/icons/blog-2';
 const sources = [
   {
     id: 'gallery-block-1',
@@ -37,6 +51,63 @@ const sources = [
     label: h1s,
     content: h1,
     category: 'Headers',
+  },
+  {
+    id: 'hero-block-1',
+    class: 'full-width-image benefits',
+    label: r1s,
+    name: 'benefits',
+    content: r1,
+    category: 'Benefits ',
+  },
+  {
+    id: 'pricing-block-1',
+    class: 'full-width-image number',
+    label: p1s,
+    name: 'numbers',
+    content: p1,
+    category: 'Numbers',
+  },
+  {
+    id: 'statistic-block-1',
+    class: 'full-width-image guideline',
+    label: s1s,
+    name: 'guideline',
+    content: s1,
+    category: 'Guideline',
+  },
+  {
+    id: 'step-block-1',
+    class: 'full-width-image location',
+    label: q1s,
+    name: 'location',
+    name: q1s,
+    content: q1,
+    category: 'Location',
+  },
+  {
+    id: 'team-block-1',
+    class: 'full-width-image video',
+    label: t1s,
+    name: 'video',
+    content: t1,
+    category: 'Video',
+  },
+  {
+    id: 'testimonial-block-1',
+    class: 'full-width-image testimonials',
+    label: m1s,
+    name: 'testimonials',
+    content: m1,
+    category: 'Testimonials',
+  },
+  {
+    id: 'blog-block-1',
+    class: 'full-width-image img_text',
+    label: b1s,
+    name: 'image-text',
+    content: b1,
+    category: 'Image and Text',
   },
 ];
 
