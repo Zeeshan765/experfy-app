@@ -50,13 +50,8 @@ const AfterNav: React.FC = () => {
         <NavLink
           className="nav-link nav-templates"
           activeClassName="active"
-          to={`${adminRoute}/collections/templates`}
+          to={`${adminRoute}/collections/templates-library`}
         >
-          {/* <img
-            style={{ paddingRight: 8 }}
-            src={TemplateLibraryIcon}
-            alt="Template Library"
-          /> */}
           Template Library
         </NavLink>
         <NavLink

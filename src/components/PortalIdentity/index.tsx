@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import { Context } from '../../MyProvider';
 import { DefaultTemplate } from 'payload/components/templates';
 import { Eyebrow } from 'payload/components/elements';
+import '../../styles/scss/index.scss'; 
 
 const useStyles = makeStyles({
   mainTabs: {

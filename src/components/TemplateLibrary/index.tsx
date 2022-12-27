@@ -9,7 +9,8 @@ const TemplatesLibrary = () => {
     <div style={{ background: "#fff" }}>
       <div
         style={{
-          padding: "16px",
+          padding: "8px 2rem",
+          borderBottom:'1px solid gray',
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",

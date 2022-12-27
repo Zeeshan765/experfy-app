@@ -33,6 +33,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       hasMany: false,
       // required: true,
       // required: true,
+    
     },
     {
       label: "Portal Name",

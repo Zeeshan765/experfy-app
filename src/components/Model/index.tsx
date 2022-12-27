@@ -27,45 +27,71 @@ const FaceLessModel = ({ data }) => {
         fullWidth={true}
         style={{ background: "#fff" }}
       >
-        <DialogTitle>
+        <DialogTitle style={{ borderBottom: "1px solid gray" }}>
           <div
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              width: "100%",
-              margin: "0px",
+              width: "95%",
+              margin: "0px auto",
             }}
           >
             <p
               onClick={handleClose}
-              style={{ cursor: "pointer", margin: "0px" }}
+              style={{
+                cursor: "pointer",
+                margin: "0px",
+                fontSize: "16px",
+                fontWeight: "600",
+              }}
             >
               <ArrowBackIosIcon />
               Back to page
             </p>
-            <p
-              onClick={handleClose}
-              style={{ cursor: "pointer", margin: "0px" }}
-            >
-              X
-            </p>
+            <div style={{display:"flex",gap:'1rem'}}>
+              <button
+                style={{
+                  background: "skyblue",
+                  color: "#fff",
+                  padding: "0.5rem 1rem",
+                  border: "0px",
+                  borderRadius: "6px",
+                  lineHeight:'normal' ,
+                }}
+              >
+                Create Page
+              </button>
+              <p
+                onClick={handleClose}
+                style={{
+                  cursor: "pointer",
+                  margin: "0px",
+                  fontSize: "1.5rem",
+                  alignmentBaseline:'central',
+                  fontWeight: "600",
+                }}
+              >
+                X
+              </p>
+            </div>
           </div>
         </DialogTitle>
         {/* <Modal slug="my-modal" > */}
-        <div key={id} style={{ width: "60%", margin: "auto" }}>
+        <div key={id} style={{ width: "90%", margin: "2rem auto" }}>
           <img
             src={image}
             style={{
               width: "100%",
+              height:'450px',
               objectFit: "contain",
-              boxShadow: "1px 1px 3px 0px #000",
+              boxShadow: "0px 1px 3px 0px #000",
               marginBottom: "16px",
-              borderRadius: "8px",
+              borderRadius: "4px",
             }}
             alt={name}
           />
-          <div style={{width:'100%', display: "flex", alignItems: "center",justifyContent:'right' }}>
+          {/* <div style={{width:'100%', display: "flex", alignItems: "center",justifyContent:'right' }}>
             {" "}
             <button
               style={{
@@ -89,7 +115,7 @@ const FaceLessModel = ({ data }) => {
             >
               cancle
             </button>
-          </div>
+          </div> */}
         </div>
       </Dialog>
       {/* </Modal> */}
@@ -99,7 +125,9 @@ const FaceLessModel = ({ data }) => {
           color: "blue",
           border: "none",
           background: "none",
-          fontWeight: 600,
+          fontWeight: 500,
+          fontSize:'1rem',
+          padding:'4px 0px'
         }}
         onClick={handleOpen}
         type="button"

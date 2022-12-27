@@ -59,7 +59,8 @@ return(
           style={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "space-evenly",
+            alignItems:'center',
+            justifyContent: "center",
           }}
         >
           {pageList.map(({ id, image, name, link }) => (

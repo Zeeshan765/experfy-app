@@ -119,12 +119,17 @@ const SectionTemplate = () => {
     },
   ];
   return (
-    <div>
+    <div style={{}}>
+      <div style={{ width: "100%", margin: "auto",padding:'0 18px' }}>
+        <p style={{ margin: 0, fontSize: "16px", fontWeight: "600",marginTop:'8px' }}>
+          Start customizing your portal
+        </p>
+      </div>
       <div
         style={{
           display: "flex",
-          alignItems:'center',
-          justifyContent:'center',
+          alignItems: "center",
+          justifyContent: "center",
           flexWrap: "wrap",
           gap: "2rem",
         }}
