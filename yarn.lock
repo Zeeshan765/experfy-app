@@ -1184,11 +1184,14 @@
   "integrity" "sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg=="
   "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.20.1.tgz"
   "version" "7.20.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.17.2", "@babel/runtime@^7.18.3", "@babel/runtime@^7.2.0", "@babel/runtime@^7.20.1", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   "integrity" "sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg=="
   "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.20.1.tgz"
   "version" "7.20.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     "regenerator-runtime" "^0.13.10"
 =========
@@ -1196,6 +1199,7 @@
   "integrity" "sha512-Q+8MqP7TiHMWzSfwiJwXCjyf4GYA4Dgw3emg/7xmwsdLJOZUp+nMqcOwOzzYheuM1rhDu8FSj2l0aoMygEuXuA=="
   "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.20.6.tgz"
   "version" "7.20.6"
+<<<<<<< HEAD
     "regenerator-runtime" "^0.13.10"
 =========
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.17.2", "@babel/runtime@^7.18.3", "@babel/runtime@^7.19.0", "@babel/runtime@^7.2.0", "@babel/runtime@^7.20.1", "@babel/runtime@^7.20.6", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
@@ -1207,6 +1211,11 @@
 >>>>>>>>> Temporary merge branch 2
     "regenerator-runtime" "^0.13.11"
 >>>>>>>>> Temporary merge branch 2
+=======
+  dependencies:
+    "regenerator-runtime" "^0.13.11"
+>>>>>>>>> Temporary merge branch 2
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 "@babel/template@^7.18.10", "@babel/template@^7.3.3":
   version "7.18.10"
@@ -3117,8 +3126,11 @@
 
 <<<<<<<<< Temporary merge branch 1
 =========
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 =========
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 "@types/sharp@^0.26.1":
   version "0.26.1"
   resolved "https://registry.npmjs.org/@types/sharp/-/sharp-0.26.1.tgz"
@@ -3127,7 +3139,10 @@
     "@types/node" "*"
 
 >>>>>>>>> Temporary merge branch 2
+<<<<<<< HEAD
 >>>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 "@types/sockjs@^0.3.33":
   version "0.3.33"
   resolved "https://registry.npmjs.org/@types/sockjs/-/sockjs-0.3.33.tgz"
@@ -3538,11 +3553,14 @@ agent-base@6:
   "integrity" "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g=="
   "resolved" "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
   "version" "6.12.6"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "ajv@^6.12.3":
   "integrity" "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g=="
   "resolved" "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
   "version" "6.12.6"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     ajv "^8.0.0"
 
@@ -3552,12 +3570,15 @@ agent-base@6:
   "integrity" "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g=="
   "resolved" "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
   "version" "6.12.6"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "ajv@^6.12.4":
   "integrity" "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g=="
   "resolved" "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
   "version" "6.12.6"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     fast-deep-equal "^3.1.3"
 
@@ -3766,11 +3787,14 @@ array.prototype.flat@^1.2.5:
   "integrity" "sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ=="
   "resolved" "https://registry.npmjs.org/asn1/-/asn1-0.2.6.tgz"
   "version" "0.2.6"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "asn1@~0.2.3":
   "integrity" "sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ=="
   "resolved" "https://registry.npmjs.org/asn1/-/asn1-0.2.6.tgz"
   "version" "0.2.6"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     call-bind "^1.0.2"
     define-properties "^1.1.4"
@@ -3794,23 +3818,29 @@ array.prototype.reduce@^1.0.5:
   "integrity" "sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw=="
   "resolved" "https://registry.npmjs.org/assign-symbols/-/assign-symbols-1.0.0.tgz"
   "version" "1.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "assign-symbols@^1.0.0":
   "integrity" "sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw=="
   "resolved" "https://registry.npmjs.org/assign-symbols/-/assign-symbols-1.0.0.tgz"
   "version" "1.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 <<<<<<<<< Temporary merge branch 1
 "async@^3.1.0":
   "integrity" "sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ=="
   "resolved" "https://registry.npmjs.org/async/-/async-3.2.4.tgz"
   "version" "3.2.4"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "async@^3.1.0":
   "integrity" "sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ=="
   "resolved" "https://registry.npmjs.org/async/-/async-3.2.4.tgz"
   "version" "3.2.4"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -3818,12 +3848,15 @@ array.prototype.reduce@^1.0.5:
   "integrity" "sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q=="
   "resolved" "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz"
   "version" "0.4.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "asynckit@^0.4.0":
   "integrity" "sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q=="
   "resolved" "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz"
   "version" "0.4.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 ast-types-flow@^0.0.7:
   version "0.0.7"
@@ -3855,11 +3888,14 @@ atob@^2.1.2:
   "integrity" "sha512-08kcGqnYf/YmjoRhfxyu+CLxBjUtHLXLXX/vUfx9l2LYzG3c1m61nrpyFUZI6zeS+Li/wWMMidD9KgrqtGq3mA=="
   "resolved" "https://registry.npmjs.org/aws-sign2/-/aws-sign2-0.7.0.tgz"
   "version" "0.7.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "aws-sign2@~0.7.0":
   "integrity" "sha512-08kcGqnYf/YmjoRhfxyu+CLxBjUtHLXLXX/vUfx9l2LYzG3c1m61nrpyFUZI6zeS+Li/wWMMidD9KgrqtGq3mA=="
   "resolved" "https://registry.npmjs.org/aws-sign2/-/aws-sign2-0.7.0.tgz"
   "version" "0.7.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 atomically@^1.7.0:
   version "1.7.0"
@@ -3872,12 +3908,15 @@ atomically@^1.7.0:
   "integrity" "sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ=="
   "resolved" "https://registry.npmjs.org/axios/-/axios-0.27.2.tgz"
   "version" "0.27.2"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "axios@^0.27.2":
   "integrity" "sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ=="
   "resolved" "https://registry.npmjs.org/axios/-/axios-0.27.2.tgz"
   "version" "0.27.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     browserslist "^4.21.4"
     caniuse-lite "^1.0.30001426"
@@ -4137,11 +4176,14 @@ base64-js@^1.3.1:
   "integrity" "sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w=="
   "resolved" "https://registry.npmjs.org/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz"
   "version" "1.0.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "bcrypt-pbkdf@^1.0.0":
   "integrity" "sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w=="
   "resolved" "https://registry.npmjs.org/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz"
   "version" "1.0.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     cache-base "^1.0.1"
     class-utils "^0.3.5"
@@ -4157,12 +4199,15 @@ base64-js@^1.3.1:
   "integrity" "sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ=="
   "resolved" "https://registry.npmjs.org/big.js/-/big.js-5.2.2.tgz"
   "version" "5.2.2"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "big.js@^5.2.2":
   "integrity" "sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ=="
   "resolved" "https://registry.npmjs.org/big.js/-/big.js-5.2.2.tgz"
   "version" "5.2.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 bfj@^7.0.2:
   version "7.0.2"
@@ -4201,6 +4246,7 @@ bl@^4.0.3, bl@^4.1.0:
   "integrity" "sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww=="
   "resolved" "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz"
   "version" "1.0.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "boolbase@^1.0.0", "boolbase@~1.0.0":
 =========
@@ -4209,6 +4255,8 @@ bl@^4.0.3, bl@^4.1.0:
   "integrity" "sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww=="
   "resolved" "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz"
   "version" "1.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 body-parser@1.20.1, body-parser@^1.19.0:
   version "1.20.1"
@@ -4419,11 +4467,14 @@ camel-case@^4.1.2:
   "integrity" "sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw=="
   "resolved" "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
   "version" "0.12.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "caseless@~0.12.0":
   "integrity" "sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw=="
   "resolved" "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
   "version" "0.12.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -4437,6 +4488,7 @@ camel-case@^4.1.2:
     "has-ansi" "^2.0.0"
     "strip-ansi" "^3.0.0"
     "supports-color" "^2.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "chalk@^1.0.0":
@@ -4449,6 +4501,8 @@ camel-case@^4.1.2:
     "has-ansi" "^2.0.0"
     "strip-ansi" "^3.0.0"
     "supports-color" "^2.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 camelcase@^6.0.0, camelcase@^6.2.0, camelcase@^6.2.1:
   version "6.3.0"
@@ -4475,11 +4529,14 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001426:
   "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
   "resolved" "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
   "version" "2.4.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "chalk@^2.4.2":
   "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
   "resolved" "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
   "version" "2.4.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     rsvp "^4.8.4"
 
@@ -4492,6 +4549,7 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001426:
   dependencies:
     "ansi-styles" "^4.1.0"
     "supports-color" "^7.1.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "chalk@^3.0.0":
@@ -4501,6 +4559,8 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001426:
   dependencies:
     "ansi-styles" "^4.1.0"
     "supports-color" "^7.1.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 chalk@^1.0.0, chalk@^1.1.3:
   version "1.1.3"
@@ -4580,6 +4640,7 @@ charenc@0.0.2:
     "lodash.reduce" "^4.4.0"
     "lodash.reject" "^4.4.0"
     "lodash.some" "^4.4.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "cheerio@^0.22.0":
   "integrity" "sha512-8/MzidM6G/TgRelkzDG13y3Y9LxBjCb+8yOEZ9+wwq5gVF2w2pV0wmHvjfT0RvuxGyR7UEuK36r+yYMbT4uKgA=="
@@ -4602,6 +4663,8 @@ charenc@0.0.2:
     "lodash.reduce" "^4.4.0"
     "lodash.reject" "^4.4.0"
     "lodash.some" "^4.4.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -4609,12 +4672,15 @@ charenc@0.0.2:
   "integrity" "sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw=="
   "resolved" "https://registry.npmjs.org/chokidar/-/chokidar-3.5.3.tgz"
   "version" "3.5.3"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "chokidar@^3.4.0", "chokidar@^3.5.2", "chokidar@^3.5.3", "chokidar@>=3.0.0 <4.0.0":
   "integrity" "sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw=="
   "resolved" "https://registry.npmjs.org/chokidar/-/chokidar-3.5.3.tgz"
   "version" "3.5.3"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     anymatch "~3.1.2"
     braces "~3.0.2"
@@ -4869,11 +4935,14 @@ colorette@^2.0.10, colorette@^2.0.14, colorette@^2.0.7:
   "integrity" "sha512-1r4nPW553JviRcFRvN3fS2V9nUSQGjRIws8UfEeFLIxk8j1tvtaX+AAYTkH3A4B5Muiys8SA1WJxf+00xVTXyg=="
   "resolved" "https://registry.npmjs.org/colorthief/-/colorthief-2.3.2.tgz"
   "version" "2.3.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "colorthief@^2.3.2":
   "integrity" "sha512-1r4nPW553JviRcFRvN3fS2V9nUSQGjRIws8UfEeFLIxk8j1tvtaX+AAYTkH3A4B5Muiys8SA1WJxf+00xVTXyg=="
   "resolved" "https://registry.npmjs.org/colorthief/-/colorthief-2.3.2.tgz"
   "version" "2.3.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     delayed-stream "~1.0.0"
 
@@ -4886,6 +4955,7 @@ colorette@^2.0.10, colorette@^2.0.14, colorette@^2.0.7:
   "version" "1.0.8"
   dependencies:
     "delayed-stream" "~1.0.0"
+<<<<<<< HEAD
 "combined-stream@^1.0.6", "combined-stream@^1.0.8", "combined-stream@~1.0.6":
 =========
 "combined-stream@^1.0.8":
@@ -4895,6 +4965,8 @@ colorette@^2.0.10, colorette@^2.0.14, colorette@^2.0.7:
   "version" "1.0.8"
   dependencies:
     "delayed-stream" "~1.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 <<<<<<<<< Temporary merge branch 1
 "commander@^2.15.1", "commander@^2.20.0", "commander@^2.20.3":
@@ -5061,6 +5133,7 @@ core-js-pure@^3.23.3, core-js-pure@^3.25.1:
   "integrity" "sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ=="
   "resolved" "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
   "version" "1.0.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "core-util-is@~1.0.0", "core-util-is@1.0.2":
 =========
@@ -5069,6 +5142,8 @@ core-js-pure@^3.23.3, core-js-pure@^3.25.1:
   "integrity" "sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ=="
   "resolved" "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
   "version" "1.0.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 core-js@^3.21.1, core-js@^3.25.1:
   version "3.26.1"
@@ -5129,11 +5204,14 @@ cross-env@^7.0.3:
   "integrity" "sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A=="
   "resolved" "https://registry.npmjs.org/cross-spawn/-/cross-spawn-5.1.0.tgz"
   "version" "5.1.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "cross-spawn@^5.1.0":
   "integrity" "sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A=="
   "resolved" "https://registry.npmjs.org/cross-spawn/-/cross-spawn-5.1.0.tgz"
   "version" "5.1.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     nice-try "^1.0.4"
     path-key "^2.0.1"
@@ -5147,12 +5225,15 @@ cross-env@^7.0.3:
   "integrity" "sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ=="
   "resolved" "https://registry.npmjs.org/cross-spawn/-/cross-spawn-6.0.5.tgz"
   "version" "6.0.5"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "cross-spawn@^6.0.0":
   "integrity" "sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ=="
   "resolved" "https://registry.npmjs.org/cross-spawn/-/cross-spawn-6.0.5.tgz"
   "version" "6.0.5"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
@@ -5261,11 +5342,14 @@ css-select@^2.0.0:
   "integrity" "sha512-dUQOBoqdR7QwV90WysXPLXG5LO7nhYBgiWVfxF80DKPF8zx1t/pUd2FYy73emg3zrjtM6dzmYgbHKfV2rxiHQA=="
   "resolved" "https://registry.npmjs.org/css-select/-/css-select-1.2.0.tgz"
   "version" "1.2.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "css-select@~1.2.0":
   "integrity" "sha512-dUQOBoqdR7QwV90WysXPLXG5LO7nhYBgiWVfxF80DKPF8zx1t/pUd2FYy73emg3zrjtM6dzmYgbHKfV2rxiHQA=="
   "resolved" "https://registry.npmjs.org/css-select/-/css-select-1.2.0.tgz"
   "version" "1.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     boolbase "^1.0.0"
     css-what "^6.0.1"
@@ -5279,12 +5363,15 @@ css-select@^2.0.0:
   "integrity" "sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q=="
   "resolved" "https://registry.npmjs.org/css-tree/-/css-tree-1.1.3.tgz"
   "version" "1.1.3"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "css-tree@^1.1.2", "css-tree@^1.1.3":
   "integrity" "sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q=="
   "resolved" "https://registry.npmjs.org/css-tree/-/css-tree-1.1.3.tgz"
   "version" "1.1.3"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     mdn-data "2.0.4"
     source-map "^0.6.1"
@@ -5315,11 +5402,14 @@ css-what@^3.2.1:
   "integrity" "sha512-a+EPoD+uZiNfh+5fxw2nO9QwFa6nJe2Or35fGY6Ipw1R3R4AGz1d1TEZrCegvw2YTmZ0jXirGYlzxxpYSHwpEg=="
   "resolved" "https://registry.npmjs.org/css-what/-/css-what-2.1.3.tgz"
   "version" "2.1.3"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "css-what@2.1":
   "integrity" "sha512-a+EPoD+uZiNfh+5fxw2nO9QwFa6nJe2Or35fGY6Ipw1R3R4AGz1d1TEZrCegvw2YTmZ0jXirGYlzxxpYSHwpEg=="
   "resolved" "https://registry.npmjs.org/css-what/-/css-what-2.1.3.tgz"
   "version" "2.1.3"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -5327,12 +5417,15 @@ css-what@^3.2.1:
   "integrity" "sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg=="
   "resolved" "https://registry.npmjs.org/css.escape/-/css.escape-1.5.1.tgz"
   "version" "1.5.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "css.escape@^1.5.1":
   "integrity" "sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg=="
   "resolved" "https://registry.npmjs.org/css.escape/-/css.escape-1.5.1.tgz"
   "version" "1.5.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 cssdb@^7.1.0:
   version "7.1.0"
@@ -5445,11 +5538,14 @@ d@1, d@^1.0.1:
   "integrity" "sha512-WXlK/m+Di8DMMcCjcWr4i+XzcQra9eCdXIJrgh4TUgh0pIS/yJduLxS9JgefsHJ/YVLdgPtXm9r62W92MvanEQ=="
   "resolved" "https://registry.npmjs.org/cwise-compiler/-/cwise-compiler-1.1.3.tgz"
   "version" "1.1.3"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "cwise-compiler@^1.1.2":
   "integrity" "sha512-WXlK/m+Di8DMMcCjcWr4i+XzcQra9eCdXIJrgh4TUgh0pIS/yJduLxS9JgefsHJ/YVLdgPtXm9r62W92MvanEQ=="
   "resolved" "https://registry.npmjs.org/cwise-compiler/-/cwise-compiler-1.1.3.tgz"
   "version" "1.1.3"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     abab "^2.0.3"
     whatwg-mimetype "^2.3.0"
@@ -5461,12 +5557,15 @@ d@1, d@^1.0.1:
   "integrity" "sha512-m62ShEObQ39CfralilEQRjH6oAMtNCV1xJyEx5LpRYUVN+EviphDgUc/F3hnYbADmkiNs67Y+3ylmlG7Lnu+FA=="
   "resolved" "https://registry.npmjs.org/d/-/d-1.0.1.tgz"
   "version" "1.0.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "d@^1.0.1", "d@1":
   "integrity" "sha512-m62ShEObQ39CfralilEQRjH6oAMtNCV1xJyEx5LpRYUVN+EviphDgUc/F3hnYbADmkiNs67Y+3ylmlG7Lnu+FA=="
   "resolved" "https://registry.npmjs.org/d/-/d-1.0.1.tgz"
   "version" "1.0.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     mimic-fn "^3.0.0"
 
@@ -5475,11 +5574,14 @@ d@1, d@^1.0.1:
   "integrity" "sha512-jRFi8UDGo6j+odZiEpjazZaWqEal3w/basFjQHQEwVtZJGDpxbH1MeYluwCS8Xq5wmLJooDlMgvVarmWfGM44g=="
   "resolved" "https://registry.npmjs.org/dashdash/-/dashdash-1.14.1.tgz"
   "version" "1.14.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "dashdash@^1.12.0":
   "integrity" "sha512-jRFi8UDGo6j+odZiEpjazZaWqEal3w/basFjQHQEwVtZJGDpxbH1MeYluwCS8Xq5wmLJooDlMgvVarmWfGM44g=="
   "resolved" "https://registry.npmjs.org/dashdash/-/dashdash-1.14.1.tgz"
   "version" "1.14.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     ms "2.0.0"
 
@@ -5496,12 +5598,15 @@ debug@3.1.0:
   "integrity" "sha512-X5eWTSXO/BJmpdIKCRuKUgSCgAN0OwliVK3yPKbwIWU1Tdw5BRajxlzMidvh+gwko9AfQ9zIj52pzF91Q3YAvQ=="
   "resolved" "https://registry.npmjs.org/data-urls/-/data-urls-2.0.0.tgz"
   "version" "2.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "data-urls@^2.0.0":
   "integrity" "sha512-X5eWTSXO/BJmpdIKCRuKUgSCgAN0OwliVK3yPKbwIWU1Tdw5BRajxlzMidvh+gwko9AfQ9zIj52pzF91Q3YAvQ=="
   "resolved" "https://registry.npmjs.org/data-urls/-/data-urls-2.0.0.tgz"
   "version" "2.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     ms "2.1.2"
 
@@ -5515,6 +5620,7 @@ debug@3.1.0:
   "integrity" "sha512-zS2HSf9pI5XPlNZgIqJg/wCJpecgU/HA6E/uv2EfaWnW1EiTGLfy/EexTIsC9c99yoCOTXlqeeWk4FkCSuO3/g=="
   "resolved" "https://registry.npmjs.org/datauri/-/datauri-2.0.0.tgz"
   "version" "2.0.0"
+<<<<<<< HEAD
 "dataloader@^2.1.0":
   "integrity" "sha512-qTcEYLen3r7ojZNgVUaRggOI+KM7jrKxXeSHhogh/TWxYMeONEMqY+hmkobiYQozsGIyg9OYVzO4ZIfoB4I0pQ=="
   "resolved" "https://registry.npmjs.org/dataloader/-/dataloader-2.1.0.tgz"
@@ -5525,6 +5631,8 @@ debug@3.1.0:
   "integrity" "sha512-zS2HSf9pI5XPlNZgIqJg/wCJpecgU/HA6E/uv2EfaWnW1EiTGLfy/EexTIsC9c99yoCOTXlqeeWk4FkCSuO3/g=="
   "resolved" "https://registry.npmjs.org/datauri/-/datauri-2.0.0.tgz"
   "version" "2.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     ms "^2.1.1"
 
@@ -5534,12 +5642,15 @@ debug@3.1.0:
   "integrity" "sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw=="
   "resolved" "https://registry.npmjs.org/date-fns/-/date-fns-1.30.1.tgz"
   "version" "1.30.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "date-fns@^1.27.2":
   "integrity" "sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw=="
   "resolved" "https://registry.npmjs.org/date-fns/-/date-fns-1.30.1.tgz"
   "version" "1.30.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 <<<<<<< HEAD
 "date-fns@^2.0.1":
@@ -5677,11 +5788,14 @@ define-property@^2.0.2:
   "integrity" "sha512-N8vBdOa+DF7zkRrDCsaOXoCs/E2fJfx9B9MrKnnSiHNh4ws7eSys6YQE4KvT1cecKmOASYQBhbKjeuDD9lT81w=="
   "resolved" "https://registry.npmjs.org/deep-extend/-/deep-extend-0.5.1.tgz"
   "version" "0.5.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "deep-extend@^0.5.1":
   "integrity" "sha512-N8vBdOa+DF7zkRrDCsaOXoCs/E2fJfx9B9MrKnnSiHNh4ws7eSys6YQE4KvT1cecKmOASYQBhbKjeuDD9lT81w=="
   "resolved" "https://registry.npmjs.org/deep-extend/-/deep-extend-0.5.1.tgz"
   "version" "0.5.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -5689,12 +5803,15 @@ define-property@^2.0.2:
   "integrity" "sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA=="
   "resolved" "https://registry.npmjs.org/deep-extend/-/deep-extend-0.6.0.tgz"
   "version" "0.6.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "deep-extend@^0.6.0":
   "integrity" "sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA=="
   "resolved" "https://registry.npmjs.org/deep-extend/-/deep-extend-0.6.0.tgz"
   "version" "0.6.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 denque@^2.0.1:
   version "2.1.0"
@@ -5854,11 +5971,14 @@ dom-serializer@0:
   "integrity" "sha512-l0IU0pPzLWSHBcieZbpOKgkIn3ts3vAh7ZuFyXNwJxJXk/c4Gwj9xaTJwIDVQCXawWD0qb3IzMGH5rglQaO0XA=="
   "resolved" "https://registry.npmjs.org/dom-serializer/-/dom-serializer-0.1.1.tgz"
   "version" "0.1.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "dom-serializer@~0.1.0", "dom-serializer@0":
   "integrity" "sha512-l0IU0pPzLWSHBcieZbpOKgkIn3ts3vAh7ZuFyXNwJxJXk/c4Gwj9xaTJwIDVQCXawWD0qb3IzMGH5rglQaO0XA=="
   "resolved" "https://registry.npmjs.org/dom-serializer/-/dom-serializer-0.1.1.tgz"
   "version" "0.1.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     domelementtype "^2.0.1"
     domhandler "^4.2.0"
@@ -5870,23 +5990,29 @@ dom-serializer@0:
   "integrity" "sha512-Dt0QdaHmLpjURjU7Tnu3AgYSF2LuOmksSGsUcE6ItvJoCWTBEmiMXcqBdNSAm9+QbbwD7JMoVsuuKX6ZVQv1qA=="
   "resolved" "https://registry.npmjs.org/dom-to-image/-/dom-to-image-2.6.0.tgz"
   "version" "2.6.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "dom-to-image@^2.6.0":
   "integrity" "sha512-Dt0QdaHmLpjURjU7Tnu3AgYSF2LuOmksSGsUcE6ItvJoCWTBEmiMXcqBdNSAm9+QbbwD7JMoVsuuKX6ZVQv1qA=="
   "resolved" "https://registry.npmjs.org/dom-to-image/-/dom-to-image-2.6.0.tgz"
   "version" "2.6.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 <<<<<<<<< Temporary merge branch 1
 "domelementtype@^1.3.0", "domelementtype@^1.3.1", "domelementtype@1":
   "integrity" "sha512-BSKB+TSpMpFI/HOxCNr1O8aMOTZ8hT3pM3GQ0w/mWRmkhEDSFJkkyzz4XQsBV44BChwGkrDfMyjVD0eA2aFV3w=="
   "resolved" "https://registry.npmjs.org/domelementtype/-/domelementtype-1.3.1.tgz"
   "version" "1.3.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "domelementtype@^1.3.0", "domelementtype@^1.3.1", "domelementtype@1":
   "integrity" "sha512-BSKB+TSpMpFI/HOxCNr1O8aMOTZ8hT3pM3GQ0w/mWRmkhEDSFJkkyzz4XQsBV44BChwGkrDfMyjVD0eA2aFV3w=="
   "resolved" "https://registry.npmjs.org/domelementtype/-/domelementtype-1.3.1.tgz"
   "version" "1.3.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -5894,12 +6020,15 @@ dom-serializer@0:
   "integrity" "sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw=="
   "resolved" "https://registry.npmjs.org/domelementtype/-/domelementtype-2.3.0.tgz"
   "version" "2.3.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "domelementtype@^2.0.1", "domelementtype@^2.2.0":
   "integrity" "sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw=="
   "resolved" "https://registry.npmjs.org/domelementtype/-/domelementtype-2.3.0.tgz"
   "version" "2.3.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 domexception@^2.0.1:
   version "2.0.1"
@@ -5913,11 +6042,14 @@ domexception@^2.0.1:
   "integrity" "sha512-JiK04h0Ht5u/80fdLMCEmV4zkNh2BcoMFBmZ/91WtYZ8qVXSKjiw7fXMgFPnHcSZgOo3XdinHvmnDUeMf5R4wA=="
   "resolved" "https://registry.npmjs.org/domhandler/-/domhandler-2.4.2.tgz"
   "version" "2.4.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "domhandler@^2.3.0":
   "integrity" "sha512-JiK04h0Ht5u/80fdLMCEmV4zkNh2BcoMFBmZ/91WtYZ8qVXSKjiw7fXMgFPnHcSZgOo3XdinHvmnDUeMf5R4wA=="
   "resolved" "https://registry.npmjs.org/domhandler/-/domhandler-2.4.2.tgz"
   "version" "2.4.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     domelementtype "^2.2.0"
 
@@ -5935,12 +6067,15 @@ domutils@^1.7.0:
   "integrity" "sha512-GrwoxYN+uWlzO8uhUXRl0P+kHE4GtVPfYzVLcUxPL7KNdHKj66vvlhiweIHqYYXWlw+T8iLMp42Lm67ghw4WMQ=="
   "resolved" "https://registry.npmjs.org/domhandler/-/domhandler-4.3.1.tgz"
   "version" "4.3.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "domhandler@^4.0.0", "domhandler@^4.2.0", "domhandler@^4.3.1":
   "integrity" "sha512-GrwoxYN+uWlzO8uhUXRl0P+kHE4GtVPfYzVLcUxPL7KNdHKj66vvlhiweIHqYYXWlw+T8iLMp42Lm67ghw4WMQ=="
   "resolved" "https://registry.npmjs.org/domhandler/-/domhandler-4.3.1.tgz"
   "version" "4.3.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     dom-serializer "^1.0.1"
     domelementtype "^2.2.0"
@@ -5951,11 +6086,14 @@ domutils@^1.7.0:
   "integrity" "sha512-gSu5Oi/I+3wDENBsOWBiRK1eoGxcywYSqg3rR960/+EfY0CF4EX1VPkgHOZ3WiS/Jg2DtliF6BhWcHlfpYUcGw=="
   "resolved" "https://registry.npmjs.org/domutils/-/domutils-1.5.1.tgz"
   "version" "1.5.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "domutils@^1.5.1", "domutils@1.5.1":
   "integrity" "sha512-gSu5Oi/I+3wDENBsOWBiRK1eoGxcywYSqg3rR960/+EfY0CF4EX1VPkgHOZ3WiS/Jg2DtliF6BhWcHlfpYUcGw=="
   "resolved" "https://registry.npmjs.org/domutils/-/domutils-1.5.1.tgz"
   "version" "1.5.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     no-case "^3.0.4"
     tslib "^2.0.3"
@@ -5973,12 +6111,15 @@ dot-prop@^6.0.1:
   "integrity" "sha512-w96Cjofp72M5IIhpjgobBimYEfoPjx1Vx0BSX9P30WBdZW2WIKU0T1Bd0kz2eNZ9ikjKgHbEyKx8BB6H1L3h3A=="
   "resolved" "https://registry.npmjs.org/domutils/-/domutils-2.8.0.tgz"
   "version" "2.8.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "domutils@^2.5.2", "domutils@^2.8.0":
   "integrity" "sha512-w96Cjofp72M5IIhpjgobBimYEfoPjx1Vx0BSX9P30WBdZW2WIKU0T1Bd0kz2eNZ9ikjKgHbEyKx8BB6H1L3h3A=="
   "resolved" "https://registry.npmjs.org/domutils/-/domutils-2.8.0.tgz"
   "version" "2.8.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     typescript ">=3.0.1"
     yargs "^17.2.1"
@@ -6065,11 +6206,14 @@ encodeurl@~1.0.2:
   "integrity" "sha512-eh9O+hwRHNbG4BLTjEl3nw044CkGm5X6LoaCf7LPp7UU8Qrt47JYNi6nPX8xjW97TKGKm1ouctg0QSpZe9qrnw=="
   "resolved" "https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz"
   "version" "0.1.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "ecc-jsbn@~0.1.1":
   "integrity" "sha512-eh9O+hwRHNbG4BLTjEl3nw044CkGm5X6LoaCf7LPp7UU8Qrt47JYNi6nPX8xjW97TKGKm1ouctg0QSpZe9qrnw=="
   "resolved" "https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz"
   "version" "0.1.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     once "^1.4.0"
 
@@ -6079,12 +6223,15 @@ encodeurl@~1.0.2:
   "integrity" "sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ=="
   "resolved" "https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz"
   "version" "1.0.11"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "ecdsa-sig-formatter@1.0.11":
   "integrity" "sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ=="
   "resolved" "https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz"
   "version" "1.0.11"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     graceful-fs "^4.2.4"
     tapable "^2.2.0"
@@ -6215,11 +6362,14 @@ es-shim-unscopables@^1.0.0:
   "integrity" "sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w=="
   "resolved" "https://registry.npmjs.org/entities/-/entities-1.1.2.tgz"
   "version" "1.1.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "entities@^1.1.1", "entities@~1.1.1":
   "integrity" "sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w=="
   "resolved" "https://registry.npmjs.org/entities/-/entities-1.1.2.tgz"
   "version" "1.1.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -6227,12 +6377,15 @@ es-shim-unscopables@^1.0.0:
   "integrity" "sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A=="
   "resolved" "https://registry.npmjs.org/entities/-/entities-2.2.0.tgz"
   "version" "2.2.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "entities@^2.0.0":
   "integrity" "sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A=="
   "resolved" "https://registry.npmjs.org/entities/-/entities-2.2.0.tgz"
   "version" "2.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 es6-iterator@^2.0.3:
   version "2.0.3"
@@ -6779,11 +6932,14 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
   "integrity" "sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g=="
   "resolved" "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz"
   "version" "3.0.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "extend@~3.0.2":
   "integrity" "sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g=="
   "resolved" "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz"
   "version" "3.0.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -6791,12 +6947,15 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
   "integrity" "sha512-hMQ4CX1p1izmuLYyZqLMO/qGNw10wSv9QDCPfzXfyFrOaCSSoRfqE1Kf1s5an66J5JZC62NewG+mK49jOCtQew=="
   "resolved" "https://registry.npmjs.org/external-editor/-/external-editor-3.1.0.tgz"
   "version" "3.1.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "external-editor@^3.0.3":
   "integrity" "sha512-hMQ4CX1p1izmuLYyZqLMO/qGNw10wSv9QDCPfzXfyFrOaCSSoRfqE1Kf1s5an66J5JZC62NewG+mK49jOCtQew=="
   "resolved" "https://registry.npmjs.org/external-editor/-/external-editor-3.1.0.tgz"
   "version" "3.1.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     array-unique "^0.3.2"
     define-property "^1.0.0"
@@ -6833,11 +6992,14 @@ fast-glob@^3.2.12, fast-glob@^3.2.9:
   "integrity" "sha512-11Ndz7Nv+mvAC1j0ktTa7fAb0vLyGGX+rMHNBYQviQDGU0Hw7lhctJANqbPhu9nV9/izT/IntTgZ7Im/9LJs9g=="
   "resolved" "https://registry.npmjs.org/extsprintf/-/extsprintf-1.3.0.tgz"
   "version" "1.3.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "extsprintf@^1.2.0", "extsprintf@1.3.0":
   "integrity" "sha512-11Ndz7Nv+mvAC1j0ktTa7fAb0vLyGGX+rMHNBYQviQDGU0Hw7lhctJANqbPhu9nV9/izT/IntTgZ7Im/9LJs9g=="
   "resolved" "https://registry.npmjs.org/extsprintf/-/extsprintf-1.3.0.tgz"
   "version" "1.3.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -6845,12 +7007,15 @@ fast-glob@^3.2.12, fast-glob@^3.2.9:
   "integrity" "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
   "version" "3.1.3"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "fast-deep-equal@^3.1.1", "fast-deep-equal@^3.1.3":
   "integrity" "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
   "version" "3.1.3"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 fast-redact@^3.0.0:
   version "3.1.2"
@@ -7064,11 +7229,14 @@ follow-redirects@^1.0.0, follow-redirects@^1.14.9:
   "integrity" "sha512-j0KLYPhm6zeac4lz3oJ3o65qvgQCcPubiyotZrXqEaG4hNagNYO8qdlUrX5vwqv9ohqeT/Z3j6+yW067yWWdUw=="
   "resolved" "https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz"
   "version" "0.6.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "forever-agent@~0.6.1":
   "integrity" "sha512-j0KLYPhm6zeac4lz3oJ3o65qvgQCcPubiyotZrXqEaG4hNagNYO8qdlUrX5vwqv9ohqeT/Z3j6+yW067yWWdUw=="
   "resolved" "https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz"
   "version" "0.6.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -7076,12 +7244,15 @@ follow-redirects@^1.0.0, follow-redirects@^1.14.9:
   "integrity" "sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg=="
   "resolved" "https://registry.npmjs.org/form-data/-/form-data-3.0.1.tgz"
   "version" "3.0.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "form-data@^3.0.0":
   "integrity" "sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg=="
   "resolved" "https://registry.npmjs.org/form-data/-/form-data-3.0.1.tgz"
   "version" "3.0.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@types/json-schema" "^7.0.5"
@@ -7111,11 +7282,14 @@ form-data@^3.0.0:
   "integrity" "sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ=="
   "resolved" "https://registry.npmjs.org/form-data/-/form-data-2.3.3.tgz"
   "version" "2.3.3"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "form-data@~2.3.2":
   "integrity" "sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ=="
   "resolved" "https://registry.npmjs.org/form-data/-/form-data-2.3.3.tgz"
   "version" "2.3.3"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.8"
@@ -7127,12 +7301,15 @@ form-data@^3.0.0:
   "integrity" "sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow=="
   "resolved" "https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz"
   "version" "0.2.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "forwarded@0.2.0":
   "integrity" "sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow=="
   "resolved" "https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz"
   "version" "0.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 fraction.js@^4.2.0:
   version "4.2.0"
@@ -7249,11 +7426,14 @@ get-own-enumerable-property-symbols@^3.0.0:
   "integrity" "sha512-5kyGBn90i9tSMUVHTqkgCHsoWoR+/lGbl4yC83Gefyr0HLIhgSWEx/2F/3YgsZ7UpYNuM6pDhDK7zebrUJ5nXg=="
   "resolved" "https://registry.npmjs.org/get-pixels/-/get-pixels-3.3.3.tgz"
   "version" "3.3.3"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "get-pixels@^3.3.2":
   "integrity" "sha512-5kyGBn90i9tSMUVHTqkgCHsoWoR+/lGbl4yC83Gefyr0HLIhgSWEx/2F/3YgsZ7UpYNuM6pDhDK7zebrUJ5nXg=="
   "resolved" "https://registry.npmjs.org/get-pixels/-/get-pixels-3.3.3.tgz"
   "version" "3.3.3"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     pump "^3.0.0"
 
@@ -7263,12 +7443,15 @@ get-own-enumerable-property-symbols@^3.0.0:
   "integrity" "sha512-sY22aA6xchAzprjyqmSEQv4UbAAzRN0L2dQB0NlN5acTTK9Don6nhoc3eAbUnpZiCANAMfd/+40kVdKfFygohg=="
   "resolved" "https://registry.npmjs.org/get-stdin/-/get-stdin-8.0.0.tgz"
   "version" "8.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "get-stdin@^8.0.0":
   "integrity" "sha512-sY22aA6xchAzprjyqmSEQv4UbAAzRN0L2dQB0NlN5acTTK9Don6nhoc3eAbUnpZiCANAMfd/+40kVdKfFygohg=="
   "resolved" "https://registry.npmjs.org/get-stdin/-/get-stdin-8.0.0.tgz"
   "version" "8.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 get-stream@^6.0.0:
   version "6.0.1"
@@ -7324,11 +7507,14 @@ glob-to-regexp@^0.4.1:
   "integrity" "sha512-0fzj9JxOLfJ+XGLhR8ze3unN0KZCgZwiSSDz168VERjK8Wl8kVSdcu2kspd4s4wtAa1y/qrVRiAA0WclVsu0ng=="
   "resolved" "https://registry.npmjs.org/getpass/-/getpass-0.1.7.tgz"
   "version" "0.1.7"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "getpass@^0.1.1":
   "integrity" "sha512-0fzj9JxOLfJ+XGLhR8ze3unN0KZCgZwiSSDz168VERjK8Wl8kVSdcu2kspd4s4wtAa1y/qrVRiAA0WclVsu0ng=="
   "resolved" "https://registry.npmjs.org/getpass/-/getpass-0.1.7.tgz"
   "version" "0.1.7"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -7343,12 +7529,15 @@ glob-to-regexp@^0.4.1:
   "integrity" "sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw=="
   "resolved" "https://registry.npmjs.org/github-from-package/-/github-from-package-0.0.0.tgz"
   "version" "0.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "github-from-package@0.0.0":
   "integrity" "sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw=="
   "resolved" "https://registry.npmjs.org/github-from-package/-/github-from-package-0.0.0.tgz"
   "version" "0.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 global-modules@^2.0.0:
   version "2.0.0"
@@ -7439,11 +7628,14 @@ grapesjs-cli@^3.0.1:
   "integrity" "sha512-A8okZkIXTS+N64QYpWwdndCObbYb5QdliA3UKCMdYt6PwfXV0kFet8BBB40CuJui7xsD2wXvkVi82rqh4M4Duw=="
   "resolved" "https://registry.npmjs.org/grapesjs-plugin-toolbox/-/grapesjs-plugin-toolbox-1.0.13.tgz"
   "version" "1.0.13"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "grapesjs-plugin-toolbox@^1.0.13":
   "integrity" "sha512-A8okZkIXTS+N64QYpWwdndCObbYb5QdliA3UKCMdYt6PwfXV0kFet8BBB40CuJui7xsD2wXvkVi82rqh4M4Duw=="
   "resolved" "https://registry.npmjs.org/grapesjs-plugin-toolbox/-/grapesjs-plugin-toolbox-1.0.13.tgz"
   "version" "1.0.13"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     dom-to-image "^2.6.0"
 
@@ -7458,12 +7650,15 @@ grapesjs-tui-image-editor@^1.0.1:
   "integrity" "sha512-7iFTq0+tTi7JJ15R1jxVsUkthNAvFdicajpmUByfNSZCqJzAh3mcRUUZf1ldXM5xPJtuvOW3x3gz/M6/Za3Dxw=="
   "resolved" "https://registry.npmjs.org/grapesjs-project-manager/-/grapesjs-project-manager-2.0.5.tgz"
   "version" "2.0.5"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "grapesjs-project-manager@^2.0.5":
   "integrity" "sha512-7iFTq0+tTi7JJ15R1jxVsUkthNAvFdicajpmUByfNSZCqJzAh3mcRUUZf1ldXM5xPJtuvOW3x3gz/M6/Za3Dxw=="
   "resolved" "https://registry.npmjs.org/grapesjs-project-manager/-/grapesjs-project-manager-2.0.5.tgz"
   "version" "2.0.5"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     backbone "1.4.1"
     backbone-undo "^0.2.5"
@@ -7542,11 +7737,14 @@ handle-thing@^2.0.0:
   "integrity" "sha512-Oqluz6zhGX8cyRaTQlFMPw80bSJVG2x/cFb8ZPhUILGgHka9SsokCCOQgpveePerqidZOrT14ipqfJb7ILcW5Q=="
   "resolved" "https://registry.npmjs.org/har-schema/-/har-schema-2.0.0.tgz"
   "version" "2.0.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "har-schema@^2.0.0":
   "integrity" "sha512-Oqluz6zhGX8cyRaTQlFMPw80bSJVG2x/cFb8ZPhUILGgHka9SsokCCOQgpveePerqidZOrT14ipqfJb7ILcW5Q=="
   "resolved" "https://registry.npmjs.org/har-schema/-/har-schema-2.0.0.tgz"
   "version" "2.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 has-ansi@^2.0.0:
   version "2.0.0"
@@ -7563,6 +7761,7 @@ has-ansi@^2.0.0:
   "version" "2.0.0"
   dependencies:
     "ansi-regex" "^2.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "has-ansi@^2.0.0":
@@ -7571,6 +7770,8 @@ has-ansi@^2.0.0:
   "version" "2.0.0"
   dependencies:
     "ansi-regex" "^2.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 has-flag@^3.0.0:
   version "3.0.0"
@@ -7734,12 +7935,15 @@ html-minifier-terser@^6.0.2:
   "integrity" "sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg=="
   "resolved" "https://registry.npmjs.org/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz"
   "version" "3.0.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 =========
 "html-parse-stringify@^3.0.1":
   "integrity" "sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg=="
   "resolved" "https://registry.npmjs.org/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz"
   "version" "3.0.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     void-elements "3.1.0"
 
@@ -7748,11 +7952,14 @@ html-minifier-terser@^6.0.2:
   "integrity" "sha512-sy88PC2cRTVxvETRgUHFrL4No3UxvcH8G1NepGhqaTT+GXN2kTamqasot0inS5hXeg1cMbFDt27zzo9p35lZVw=="
   "resolved" "https://registry.npmjs.org/html-webpack-plugin/-/html-webpack-plugin-5.5.0.tgz"
   "version" "5.5.0"
+<<<<<<< HEAD
 >>>>>>>>> Temporary merge branch 2
 "html-webpack-plugin@^5.0.0-alpha.14", "html-webpack-plugin@^5.5.0":
   "integrity" "sha512-sy88PC2cRTVxvETRgUHFrL4No3UxvcH8G1NepGhqaTT+GXN2kTamqasot0inS5hXeg1cMbFDt27zzo9p35lZVw=="
   "resolved" "https://registry.npmjs.org/html-webpack-plugin/-/html-webpack-plugin-5.5.0.tgz"
   "version" "5.5.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     "@types/html-minifier-terser" "^6.0.0"
     html-minifier-terser "^6.0.2"
@@ -7765,11 +7972,14 @@ html-minifier-terser@^6.0.2:
   "integrity" "sha512-IgieNijUMbkDovyoKObU1DUhm1iwNYE/fuifEoEHfd1oZKZDaONBSkal7Y01shxsM49R4XaMdGez3WnF9UfiCQ=="
   "resolved" "https://registry.npmjs.org/htmlparser2/-/htmlparser2-3.10.1.tgz"
   "version" "3.10.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "htmlparser2@^3.9.1":
   "integrity" "sha512-IgieNijUMbkDovyoKObU1DUhm1iwNYE/fuifEoEHfd1oZKZDaONBSkal7Y01shxsM49R4XaMdGez3WnF9UfiCQ=="
   "resolved" "https://registry.npmjs.org/htmlparser2/-/htmlparser2-3.10.1.tgz"
   "version" "3.10.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     domelementtype "^2.0.1"
     domhandler "^4.0.0"
@@ -7787,12 +7997,15 @@ http-deceiver@^1.2.7:
   "integrity" "sha512-gyyPk6rgonLFEDGoeRgQNaEUvdJ4ktTmmUh/h2t7s+M8oPpIPxgNACWa+6ESR57kXstwqPiCut0V8NRpcwgU7A=="
   "resolved" "https://registry.npmjs.org/htmlparser2/-/htmlparser2-6.1.0.tgz"
   "version" "6.1.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "htmlparser2@^6.1.0":
   "integrity" "sha512-gyyPk6rgonLFEDGoeRgQNaEUvdJ4ktTmmUh/h2t7s+M8oPpIPxgNACWa+6ESR57kXstwqPiCut0V8NRpcwgU7A=="
   "resolved" "https://registry.npmjs.org/htmlparser2/-/htmlparser2-6.1.0.tgz"
   "version" "6.1.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     depd "~1.1.2"
     inherits "2.0.4"
@@ -7864,6 +8077,7 @@ http-proxy@^1.18.1:
     "assert-plus" "^1.0.0"
     "jsprim" "^1.2.2"
     "sshpk" "^1.7.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "http-signature@~1.2.0":
   "integrity" "sha512-CAbnr6Rz4CYQkLYUtSNXxQPUH2gK8f3iWexVlsnMeD+GjlsQ0Xsy1cOX+mN3dtxYomRy21CiOzU8Uhw6OwncEQ=="
@@ -7873,6 +8087,8 @@ http-proxy@^1.18.1:
     "assert-plus" "^1.0.0"
     "jsprim" "^1.2.2"
     "sshpk" "^1.7.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -7885,6 +8101,7 @@ http-proxy@^1.18.1:
   "integrity" "sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA=="
   "resolved" "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz"
   "version" "5.0.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "http-status@^1.4.2":
@@ -7896,6 +8113,8 @@ http-proxy@^1.18.1:
   "integrity" "sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA=="
   "resolved" "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz"
   "version" "5.0.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     agent-base "6"
     debug "4"
@@ -7921,12 +8140,15 @@ hyphenate-style-name@^1.0.3:
   "integrity" "sha512-Svm+MduCElO0Meqpj1kJAriTC6OhI41VhlT/A0UPjGoPZBhAHIaGE5EfsHlTpgdH09UVX7rcc72pSDDBeKSQQA=="
   "resolved" "https://registry.npmjs.org/i18next-browser-languagedetector/-/i18next-browser-languagedetector-6.1.8.tgz"
   "version" "6.1.8"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 =========
 "i18next-browser-languagedetector@^6.1.8":
   "integrity" "sha512-Svm+MduCElO0Meqpj1kJAriTC6OhI41VhlT/A0UPjGoPZBhAHIaGE5EfsHlTpgdH09UVX7rcc72pSDDBeKSQQA=="
   "resolved" "https://registry.npmjs.org/i18next-browser-languagedetector/-/i18next-browser-languagedetector-6.1.8.tgz"
   "version" "6.1.8"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     "@babel/runtime" "^7.19.0"
 
@@ -7947,11 +8169,14 @@ i18next@^22.0.1:
   "integrity" "sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA=="
   "resolved" "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz"
   "version" "0.4.24"
+<<<<<<< HEAD
 >>>>>>>>> Temporary merge branch 2
 "iconv-lite@^0.4.24", "iconv-lite@^0.4.4", "iconv-lite@0.4.24":
   "integrity" "sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA=="
   "resolved" "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz"
   "version" "0.4.24"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
@@ -7977,11 +8202,14 @@ idb@^7.0.1:
   "integrity" "sha512-Hiyv+mXHfFEP7LzUL/llg9RwFxxY+o9N3JVLIeG5E7iFIFAalxvRU9UZthBdYDEVnzHMgjnKJPPpay5BWf1g9g=="
   "resolved" "https://registry.npmjs.org/image-size/-/image-size-0.7.5.tgz"
   "version" "0.7.5"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "image-size@^0.7.3":
   "integrity" "sha512-Hiyv+mXHfFEP7LzUL/llg9RwFxxY+o9N3JVLIeG5E7iFIFAalxvRU9UZthBdYDEVnzHMgjnKJPPpay5BWf1g9g=="
   "resolved" "https://registry.npmjs.org/image-size/-/image-size-0.7.5.tgz"
   "version" "0.7.5"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -7989,12 +8217,15 @@ idb@^7.0.1:
   "integrity" "sha512-qenGE7CstVm1NrHQbMh8YaSzTZTFNP3zPqr3YU0S0UY441j4bJTg4A2Hh5KAhwgaiU6ZZ1Ar6y/2f4TblnMReQ=="
   "resolved" "https://registry.npmjs.org/immer/-/immer-9.0.16.tgz"
   "version" "9.0.16"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "immer@^9.0.6":
   "integrity" "sha512-qenGE7CstVm1NrHQbMh8YaSzTZTFNP3zPqr3YU0S0UY441j4bJTg4A2Hh5KAhwgaiU6ZZ1Ar6y/2f4TblnMReQ=="
   "resolved" "https://registry.npmjs.org/immer/-/immer-9.0.16.tgz"
   "version" "9.0.16"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 ignore-by-default@^1.0.1:
   version "1.0.1"
@@ -8115,11 +8346,14 @@ ip@^2.0.0:
   "integrity" "sha512-pZ2xT+LOHckCatGQ3DcG/a+QuEqvoxqkiL7tvE8nn3uuu+f6i1TtpB5/FtWFbxUuVr5PZCx8KskuGatbJDXOWA=="
   "resolved" "https://registry.npmjs.org/iota-array/-/iota-array-1.0.0.tgz"
   "version" "1.0.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "iota-array@^1.0.0":
   "integrity" "sha512-pZ2xT+LOHckCatGQ3DcG/a+QuEqvoxqkiL7tvE8nn3uuu+f6i1TtpB5/FtWFbxUuVr5PZCx8KskuGatbJDXOWA=="
   "resolved" "https://registry.npmjs.org/iota-array/-/iota-array-1.0.0.tgz"
   "version" "1.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -8127,12 +8361,15 @@ ip@^2.0.0:
   "integrity" "sha512-WKa+XuLG1A1R0UWhl2+1XQSi+fZWMsYKffMZTTYsiZaUD8k2yDAj5atimTUD2TZkyCkNEeYE5NhFZmupOGtjYQ=="
   "resolved" "https://registry.npmjs.org/ip/-/ip-2.0.0.tgz"
   "version" "2.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "ip@^2.0.0":
   "integrity" "sha512-WKa+XuLG1A1R0UWhl2+1XQSi+fZWMsYKffMZTTYsiZaUD8k2yDAj5atimTUD2TZkyCkNEeYE5NhFZmupOGtjYQ=="
   "resolved" "https://registry.npmjs.org/ip/-/ip-2.0.0.tgz"
   "version" "2.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
@@ -8196,6 +8433,7 @@ is-boolean-object@^1.1.0:
   "integrity" "sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w=="
   "resolved" "https://registry.npmjs.org/is-buffer/-/is-buffer-1.1.6.tgz"
   "version" "1.1.6"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "is-buffer@^1.0.2", "is-buffer@^1.1.5", "is-buffer@^1.1.6", "is-buffer@~1.1.6":
 =========
@@ -8204,6 +8442,8 @@ is-boolean-object@^1.1.0:
   "integrity" "sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w=="
   "resolved" "https://registry.npmjs.org/is-buffer/-/is-buffer-1.1.6.tgz"
   "version" "1.1.6"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.7:
   version "1.2.7"
@@ -8497,6 +8737,7 @@ is-typed-array@^1.1.10, is-typed-array@^1.1.3:
   "integrity" "sha512-cyA56iCMHAh5CdzjJIa4aohJyeO1YbwLi3Jc35MmRU6poroFjIGZzUzupGiRPOjgHg9TLu43xbpwXk523fMxKA=="
   "resolved" "https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz"
   "version" "1.0.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "is-typedarray@^1.0.0", "is-typedarray@~1.0.0":
 =========
@@ -8505,6 +8746,8 @@ is-typed-array@^1.1.10, is-typed-array@^1.1.3:
   "integrity" "sha512-cyA56iCMHAh5CdzjJIa4aohJyeO1YbwLi3Jc35MmRU6poroFjIGZzUzupGiRPOjgHg9TLu43xbpwXk523fMxKA=="
   "resolved" "https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz"
   "version" "1.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 is-unicode-supported@^0.1.0:
   version "0.1.0"
@@ -8588,11 +8831,14 @@ isomorphic-fetch@^3.0.0:
   "integrity" "sha512-Yljz7ffyPbrLpLngrMtZ7NduUgVvi6wG9RJ9IUcyCd59YQ911PBJphODUcbOVbqYfxe1wuYf/LJ8PauMRwsM/g=="
   "resolved" "https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz"
   "version" "0.1.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "isstream@~0.1.2":
   "integrity" "sha512-Yljz7ffyPbrLpLngrMtZ7NduUgVvi6wG9RJ9IUcyCd59YQ911PBJphODUcbOVbqYfxe1wuYf/LJ8PauMRwsM/g=="
   "resolved" "https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz"
   "version" "0.1.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -8605,6 +8851,7 @@ isomorphic-fetch@^3.0.0:
   "integrity" "sha512-BXgQl9kf4WTCPCCpmFGoJkz/+uhvm7h7PFKUYxh7qarQd3ER33vHG//qaE8eN25l07YqZPpHXU9I09l/RD5aGQ=="
   "resolved" "https://registry.npmjs.org/istanbul-lib-instrument/-/istanbul-lib-instrument-4.0.3.tgz"
   "version" "4.0.3"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "istanbul-lib-coverage@^3.0.0", "istanbul-lib-coverage@^3.2.0":
@@ -8616,6 +8863,8 @@ isomorphic-fetch@^3.0.0:
   "integrity" "sha512-BXgQl9kf4WTCPCCpmFGoJkz/+uhvm7h7PFKUYxh7qarQd3ER33vHG//qaE8eN25l07YqZPpHXU9I09l/RD5aGQ=="
   "resolved" "https://registry.npmjs.org/istanbul-lib-instrument/-/istanbul-lib-instrument-4.0.3.tgz"
   "version" "4.0.3"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     "@babel/core" "^7.7.5"
     "@istanbuljs/schema" "^0.1.2"
@@ -9583,11 +9832,14 @@ joycon@^3.1.1:
   "integrity" "sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg=="
   "resolved" "https://registry.npmjs.org/jpeg-js/-/jpeg-js-0.4.4.tgz"
   "version" "0.4.4"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "jpeg-js@^0.4.1":
   "integrity" "sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg=="
   "resolved" "https://registry.npmjs.org/jpeg-js/-/jpeg-js-0.4.4.tgz"
   "version" "0.4.4"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -9595,12 +9847,15 @@ joycon@^3.1.1:
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
   "resolved" "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
   "version" "4.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
   "resolved" "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
   "version" "4.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 js-yaml@^3.13.1:
   version "3.14.1"
@@ -9629,6 +9884,7 @@ js-yaml@^4.1.0:
   "integrity" "sha512-u9Smc2G1USStM+s/x1ru5Sxrl6mPYCbByG1U/hUmqaVsm4tbNyS7CicOSRyuGQYZhTu0h84qkZZQ/I+dzizSVw=="
   "resolved" "https://registry.npmjs.org/jsdom/-/jsdom-16.7.0.tgz"
   "version" "16.7.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "jsbn@~0.1.0":
   "integrity" "sha512-UVU9dibq2JcFWxQPA6KCqj5O42VOmAY3zQUfEKxU0KpTGXwNoCjkX1e13eHNvw/xPynt6pU0rZ1htjWTNTSXsg=="
@@ -9641,6 +9897,8 @@ js-yaml@^4.1.0:
   "integrity" "sha512-u9Smc2G1USStM+s/x1ru5Sxrl6mPYCbByG1U/hUmqaVsm4tbNyS7CicOSRyuGQYZhTu0h84qkZZQ/I+dzizSVw=="
   "resolved" "https://registry.npmjs.org/jsdom/-/jsdom-16.7.0.tgz"
   "version" "16.7.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     abab "^2.0.5"
     acorn "^8.2.4"
@@ -9725,11 +9983,14 @@ json-schema-typed@^7.0.3:
   "integrity" "sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA=="
   "resolved" "https://registry.npmjs.org/json-schema/-/json-schema-0.4.0.tgz"
   "version" "0.4.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "json-schema@0.4.0":
   "integrity" "sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA=="
   "resolved" "https://registry.npmjs.org/json-schema/-/json-schema-0.4.0.tgz"
   "version" "0.4.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
@@ -9742,12 +10003,15 @@ json-stable-stringify-without-jsonify@^1.0.1:
   "integrity" "sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA=="
   "resolved" "https://registry.npmjs.org/json5/-/json5-2.2.1.tgz"
   "version" "2.2.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "json5@^2.1.2", "json5@^2.2.1":
   "integrity" "sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA=="
   "resolved" "https://registry.npmjs.org/json5/-/json5-2.2.1.tgz"
   "version" "2.2.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 json5@^2.1.2, json5@^2.2.1:
   version "2.2.1"
@@ -9778,11 +10042,14 @@ jsonpointer@^5.0.0:
   "integrity" "sha512-P2bSOMAc/ciLz6DzgjVlGJP9+BrJWu5UDGK70C2iweC5QBIeFf0ZXRvGjEj2uYgrY2MkAAhsSWHDWlFtEroZWw=="
   "resolved" "https://registry.npmjs.org/jsprim/-/jsprim-1.4.2.tgz"
   "version" "1.4.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "jsprim@^1.2.2":
   "integrity" "sha512-P2bSOMAc/ciLz6DzgjVlGJP9+BrJWu5UDGK70C2iweC5QBIeFf0ZXRvGjEj2uYgrY2MkAAhsSWHDWlFtEroZWw=="
   "resolved" "https://registry.npmjs.org/jsprim/-/jsprim-1.4.2.tgz"
   "version" "1.4.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     jws "^3.2.2"
     lodash.includes "^4.3.0"
@@ -9801,12 +10068,15 @@ jsonpointer@^5.0.0:
   "integrity" "sha512-wgBPlL3WS0WDJ1lPJcgjux/SHnDuu7opmgQKSraKs4z8dCCyYMx9IDPFKBXQ8Q5dVYij1FFV0WdxyhuOOAXuTg=="
   "resolved" "https://registry.npmjs.org/jss-plugin-camel-case/-/jss-plugin-camel-case-10.9.2.tgz"
   "version" "10.9.2"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "jss-plugin-camel-case@^10.5.1", "jss-plugin-camel-case@^10.9.2":
   "integrity" "sha512-wgBPlL3WS0WDJ1lPJcgjux/SHnDuu7opmgQKSraKs4z8dCCyYMx9IDPFKBXQ8Q5dVYij1FFV0WdxyhuOOAXuTg=="
   "resolved" "https://registry.npmjs.org/jss-plugin-camel-case/-/jss-plugin-camel-case-10.9.2.tgz"
   "version" "10.9.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     "@babel/runtime" "^7.3.1"
     hyphenate-style-name "^1.0.3"
@@ -9878,11 +10148,14 @@ jss@10.9.2, jss@^10.5.1, jss@^10.9.2:
   "integrity" "sha512-3Qym/RnFoCGa9qrDz6xn4zRnohgI6G87xKWZV+/seF3dYpaVqNS1HijsDef+elGhytRY79RIboOzk0hucLtx6g=="
   "resolved" "https://registry.npmjs.org/juice/-/juice-4.3.2.tgz"
   "version" "4.3.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "juice@^4.1.1":
   "integrity" "sha512-3Qym/RnFoCGa9qrDz6xn4zRnohgI6G87xKWZV+/seF3dYpaVqNS1HijsDef+elGhytRY79RIboOzk0hucLtx6g=="
   "resolved" "https://registry.npmjs.org/juice/-/juice-4.3.2.tgz"
   "version" "4.3.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     array-includes "^3.1.5"
     object.assign "^4.1.3"
@@ -9893,12 +10166,15 @@ jss@10.9.2, jss@^10.5.1, jss@^10.9.2:
   "integrity" "sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA=="
   "resolved" "https://registry.npmjs.org/jwa/-/jwa-1.4.1.tgz"
   "version" "1.4.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "jwa@^1.4.1":
   "integrity" "sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA=="
   "resolved" "https://registry.npmjs.org/jwa/-/jwa-1.4.1.tgz"
   "version" "1.4.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     buffer-equal-constant-time "1.0.1"
     ecdsa-sig-formatter "1.0.11"
@@ -10094,11 +10370,14 @@ lodash-es@^4.17.15:
   "integrity" "sha512-yX/rx6d/UTVh7sSVWVSIMjfnz95evAgDFdb1ZozC35I9mSFCkmzptOzevxjgbQUsc78NR44LVHWjsoMQXy9FDg=="
   "resolved" "https://registry.npmjs.org/lodash.assignin/-/lodash.assignin-4.2.0.tgz"
   "version" "4.2.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "lodash.assignin@^4.0.9":
   "integrity" "sha512-yX/rx6d/UTVh7sSVWVSIMjfnz95evAgDFdb1ZozC35I9mSFCkmzptOzevxjgbQUsc78NR44LVHWjsoMQXy9FDg=="
   "resolved" "https://registry.npmjs.org/lodash.assignin/-/lodash.assignin-4.2.0.tgz"
   "version" "4.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
@@ -10111,23 +10390,29 @@ lodash.debounce@^4.0.8:
   "integrity" "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow=="
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   "version" "4.0.8"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "lodash.debounce@^4.0.8":
   "integrity" "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow=="
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   "version" "4.0.8"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 <<<<<<<<< Temporary merge branch 1
 "lodash.defaults@^4.0.1":
   "integrity" "sha512-qjxPLHd3r5DnsdGacqOMU6pb/avJzdh9tFX2ymgoZE27BmjXrNy/y4LoaiTeAb+O3gL8AfpJGtqfX/ae2leYYQ=="
   "resolved" "https://registry.npmjs.org/lodash.defaults/-/lodash.defaults-4.2.0.tgz"
   "version" "4.2.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "lodash.defaults@^4.0.1":
   "integrity" "sha512-qjxPLHd3r5DnsdGacqOMU6pb/avJzdh9tFX2ymgoZE27BmjXrNy/y4LoaiTeAb+O3gL8AfpJGtqfX/ae2leYYQ=="
   "resolved" "https://registry.npmjs.org/lodash.defaults/-/lodash.defaults-4.2.0.tgz"
   "version" "4.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 lodash.isboolean@^3.0.3:
   version "3.0.3"
@@ -10150,12 +10435,15 @@ lodash.isinteger@^4.0.4:
   "integrity" "sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ=="
   "resolved" "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.2.tgz"
   "version" "4.4.2"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "lodash.get@^4.4.2":
   "integrity" "sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ=="
   "resolved" "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.2.tgz"
   "version" "4.4.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 lodash.isplainobject@^4.0.6:
   version "4.0.6"
@@ -10245,6 +10533,7 @@ lodash.sortby@^4.7.0:
   "integrity" "sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A=="
   "resolved" "https://registry.npmjs.org/lodash.template/-/lodash.template-4.5.0.tgz"
   "version" "4.5.0"
+<<<<<<< HEAD
 "lodash.isstring@^4.0.1":
   "integrity" "sha512-0wJxfxH1wgO3GrbuP+dTTk7op+6L41QCXbGINEmD+ny/G/eCqGzxyCsh7159S+mgDDcoarnBw6PC1PS5+wUGgw=="
   "resolved" "https://registry.npmjs.org/lodash.isstring/-/lodash.isstring-4.0.1.tgz"
@@ -10303,6 +10592,8 @@ lodash.sortby@^4.7.0:
   "integrity" "sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A=="
   "resolved" "https://registry.npmjs.org/lodash.template/-/lodash.template-4.5.0.tgz"
   "version" "4.5.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     lodash._reinterpolate "^3.0.0"
     lodash.templatesettings "^4.0.0"
@@ -10319,11 +10610,14 @@ lodash.templatesettings@^4.0.0:
   "integrity" "sha512-DhhGRshNS1aX6s5YdBE3njCCouPgnG29ebyHvImlZzXZf2SHgt+J08DHgytTPnpywNbO1Y8mNUFyQuIDBq2JZg=="
   "resolved" "https://registry.npmjs.org/lodash.unescape/-/lodash.unescape-4.0.1.tgz"
   "version" "4.0.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "lodash.unescape@^4.0.1":
   "integrity" "sha512-DhhGRshNS1aX6s5YdBE3njCCouPgnG29ebyHvImlZzXZf2SHgt+J08DHgytTPnpywNbO1Y8mNUFyQuIDBq2JZg=="
   "resolved" "https://registry.npmjs.org/lodash.unescape/-/lodash.unescape-4.0.1.tgz"
   "version" "4.0.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -10331,12 +10625,15 @@ lodash.templatesettings@^4.0.0:
   "integrity" "sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ=="
   "resolved" "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
   "version" "4.5.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "lodash.uniq@^4.5.0":
   "integrity" "sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ=="
   "resolved" "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
   "version" "4.5.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 log-symbols@^1.0.2:
   version "1.0.2"
@@ -10381,11 +10678,14 @@ lower-case@^2.0.2:
   "integrity" "sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g=="
   "resolved" "https://registry.npmjs.org/lru-cache/-/lru-cache-4.1.5.tgz"
   "version" "4.1.5"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "lru-cache@^4.0.1":
   "integrity" "sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g=="
   "resolved" "https://registry.npmjs.org/lru-cache/-/lru-cache-4.1.5.tgz"
   "version" "4.1.5"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     yallist "^3.0.2"
 
@@ -10395,12 +10695,15 @@ lower-case@^2.0.2:
   "integrity" "sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA=="
   "resolved" "https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz"
   "version" "6.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "lru-cache@^6.0.0":
   "integrity" "sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA=="
   "resolved" "https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz"
   "version" "6.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     yallist "^4.0.0"
 
@@ -10561,11 +10864,14 @@ memory-pager@^1.0.2:
   "integrity" "sha512-IAeFvcOnV9V0Yk+bFhYR07O3yNina9ANIN5MoXBKYJ/RLYPurd2d0yw14MDhpr9/momp0WofT1bPUh3hkzdi/g=="
   "resolved" "https://registry.npmjs.org/mensch/-/mensch-0.3.4.tgz"
   "version" "0.3.4"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "mensch@^0.3.3":
   "integrity" "sha512-IAeFvcOnV9V0Yk+bFhYR07O3yNina9ANIN5MoXBKYJ/RLYPurd2d0yw14MDhpr9/momp0WofT1bPUh3hkzdi/g=="
   "resolved" "https://registry.npmjs.org/mensch/-/mensch-0.3.4.tgz"
   "version" "0.3.4"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -10573,12 +10879,15 @@ memory-pager@^1.0.2:
   "integrity" "sha512-cCi6g3/Zr1iqQi6ySbseM1Xvooa98N0w31jzUYrXPX2xqObmFGHJ0tQ5u74H3mVh7wLouTseZyYIq39g8cNp1w=="
   "resolved" "https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-1.0.1.tgz"
   "version" "1.0.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "merge-descriptors@1.0.1":
   "integrity" "sha512-cCi6g3/Zr1iqQi6ySbseM1Xvooa98N0w31jzUYrXPX2xqObmFGHJ0tQ5u74H3mVh7wLouTseZyYIq39g8cNp1w=="
   "resolved" "https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-1.0.1.tgz"
   "version" "1.0.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 merge2@^1.3.0, merge2@^1.4.1:
   version "1.4.1"
@@ -10645,6 +10954,7 @@ mime-db@1.52.0, "mime-db@>= 1.43.0 < 2":
   "integrity" "sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw=="
   "resolved" "https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz"
   "version" "2.1.35"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "mime-types@^2.0.1", "mime-types@^2.1.12", "mime-types@^2.1.27", "mime-types@^2.1.30", "mime-types@^2.1.31", "mime-types@~2.1.17", "mime-types@~2.1.19", "mime-types@~2.1.24", "mime-types@~2.1.34":
 =========
@@ -10653,6 +10963,8 @@ mime-db@1.52.0, "mime-db@>= 1.43.0 < 2":
   "integrity" "sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw=="
   "resolved" "https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz"
   "version" "2.1.35"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     mime-db "1.52.0"
 
@@ -10666,11 +10978,14 @@ mime@1.6.0:
   "integrity" "sha512-ye7CWOnSgiX3mqOLJ0bNGxRAULS5a/gzjj6lGSCnRTkbLUhNvt/7dI80b6GZRoaj4CsylcWQzyyKKh1a3CT74g=="
   "resolved" "https://registry.npmjs.org/mimer/-/mimer-1.1.1.tgz"
   "version" "1.1.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "mimer@^1.0.0":
   "integrity" "sha512-ye7CWOnSgiX3mqOLJ0bNGxRAULS5a/gzjj6lGSCnRTkbLUhNvt/7dI80b6GZRoaj4CsylcWQzyyKKh1a3CT74g=="
   "resolved" "https://registry.npmjs.org/mimer/-/mimer-1.1.1.tgz"
   "version" "1.1.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -10678,12 +10993,15 @@ mime@1.6.0:
   "integrity" "sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ=="
   "resolved" "https://registry.npmjs.org/mimic-fn/-/mimic-fn-1.2.0.tgz"
   "version" "1.2.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "mimic-fn@^1.0.0":
   "integrity" "sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ=="
   "resolved" "https://registry.npmjs.org/mimic-fn/-/mimic-fn-1.2.0.tgz"
   "version" "1.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 mimic-fn@^3.0.0, mimic-fn@^3.1.0:
   version "3.1.0"
@@ -10902,6 +11220,7 @@ natural-compare-lite@^1.4.0:
   dependencies:
     "cwise-compiler" "^1.1.2"
     "ndarray" "^1.0.13"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "ndarray-pack@^1.1.1":
   "integrity" "sha512-51cECUJMT0rUZNQa09EoKsnFeDL4x2dHRT0VR5U2H5ZgEcm95ZDWcMA5JShroXjHOejmAD/fg8+H+OvUnVXz2g=="
@@ -10910,6 +11229,8 @@ natural-compare-lite@^1.4.0:
   dependencies:
     "cwise-compiler" "^1.1.2"
     "ndarray" "^1.0.13"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 needle@^2.5.2:
   version "2.9.1"
@@ -10930,6 +11251,7 @@ needle@^2.5.2:
     "debug" "^3.2.6"
     "iconv-lite" "^0.4.4"
     "sax" "^1.2.4"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "needle@^2.5.2":
@@ -10940,6 +11262,8 @@ needle@^2.5.2:
     "debug" "^3.2.6"
     "iconv-lite" "^0.4.4"
     "sax" "^1.2.4"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 neo-async@^2.6.2:
   version "2.6.2"
@@ -10988,6 +11312,7 @@ node-addon-api@^5.0.0:
   "integrity" "sha512-5Evy2epuL+6TM0lCQGpFIj6KwiEsGh1SrHUhTbNX+sLbBtjidPZFAnVK9y5yU1+h//RitLbRHTIMyxQPtxMdHw=="
   "resolved" "https://registry.npmjs.org/node-environment-flags/-/node-environment-flags-1.0.6.tgz"
   "version" "1.0.6"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "node-bitmap@0.0.1":
   "integrity" "sha512-Jx5lPaaLdIaOsj2mVLWMWulXF6GQVdyLvNSxmiYCvZ8Ma2hfKX0POoR2kgKOqz+oFsRreq0yYZjQ2wjE9VNzCA=="
@@ -11000,6 +11325,8 @@ node-addon-api@^5.0.0:
   "integrity" "sha512-5Evy2epuL+6TM0lCQGpFIj6KwiEsGh1SrHUhTbNX+sLbBtjidPZFAnVK9y5yU1+h//RitLbRHTIMyxQPtxMdHw=="
   "resolved" "https://registry.npmjs.org/node-environment-flags/-/node-environment-flags-1.0.6.tgz"
   "version" "1.0.6"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     object.getownpropertydescriptors "^2.0.3"
     semver "^5.7.0"
@@ -11132,11 +11459,14 @@ nth-check@^1.0.2:
   "integrity" "sha512-WeBOdju8SnzPN5vTUJYxYUxLeXpCaVP5i5e0LF8fg7WORF2Wd7wFX/pk0tYZk7s8T+J7VLy0Da6J1+wCT0AtHg=="
   "resolved" "https://registry.npmjs.org/nth-check/-/nth-check-1.0.2.tgz"
   "version" "1.0.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "nth-check@~1.0.1":
   "integrity" "sha512-WeBOdju8SnzPN5vTUJYxYUxLeXpCaVP5i5e0LF8fg7WORF2Wd7wFX/pk0tYZk7s8T+J7VLy0Da6J1+wCT0AtHg=="
   "resolved" "https://registry.npmjs.org/nth-check/-/nth-check-1.0.2.tgz"
   "version" "1.0.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     boolbase "^1.0.0"
 
@@ -11146,12 +11476,15 @@ nth-check@^1.0.2:
   "integrity" "sha512-4jbtZXNAsfZbAHiiqjLPBiCl16dES1zI4Hpzzxw61Tk+loF+sBDBKx1ICKKKwIqQ7M0mFn1TmkN7euSncWgHiQ=="
   "resolved" "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz"
   "version" "1.0.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "number-is-nan@^1.0.0":
   "integrity" "sha512-4jbtZXNAsfZbAHiiqjLPBiCl16dES1zI4Hpzzxw61Tk+loF+sBDBKx1ICKKKwIqQ7M0mFn1TmkN7euSncWgHiQ=="
   "resolved" "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz"
   "version" "1.0.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 nwsapi@^2.2.0:
   version "2.2.2"
@@ -11163,11 +11496,14 @@ nwsapi@^2.2.0:
   "integrity" "sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ=="
   "resolved" "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz"
   "version" "0.9.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "oauth-sign@~0.9.0":
   "integrity" "sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ=="
   "resolved" "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz"
   "version" "0.9.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -11175,12 +11511,15 @@ nwsapi@^2.2.0:
   "integrity" "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="
   "resolved" "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz"
   "version" "4.1.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "object-assign@^4.0.1", "object-assign@^4.1.0", "object-assign@^4.1.1":
   "integrity" "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="
   "resolved" "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz"
   "version" "4.1.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 object-hash@^3.0.0:
   version "3.0.0"
@@ -11284,11 +11623,14 @@ object.values@^1.1.0, object.values@^1.1.5, object.values@^1.1.6:
   "integrity" "sha512-LMJTtvgc/nugXj0Vcrrs68Mn2D1r0zf630VNtqtpI1FEO7e+O9FP4gqs9AcnBaSEeoHIPm28u6qgPR0oyEpGSw=="
   "resolved" "https://registry.npmjs.org/omggif/-/omggif-1.0.10.tgz"
   "version" "1.0.10"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "omggif@^1.0.5":
   "integrity" "sha512-LMJTtvgc/nugXj0Vcrrs68Mn2D1r0zf630VNtqtpI1FEO7e+O9FP4gqs9AcnBaSEeoHIPm28u6qgPR0oyEpGSw=="
   "resolved" "https://registry.npmjs.org/omggif/-/omggif-1.0.10.tgz"
   "version" "1.0.10"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -11296,12 +11638,15 @@ object.values@^1.1.0, object.values@^1.1.5, object.values@^1.1.6:
   "integrity" "sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg=="
   "resolved" "https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz"
   "version" "2.4.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "on-finished@2.4.1":
   "integrity" "sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg=="
   "resolved" "https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz"
   "version" "2.4.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     ee-first "1.1.1"
 
@@ -11470,11 +11815,14 @@ param-case@^3.0.4:
   "integrity" "sha512-uOtts8NqDcaCt1rIsO3VFDRsAfgE4c6osG4d9z3l4dCBlxYFzni6Di/oNU270SDrjkfZuUvLZx1rxMyqh46Y9w=="
   "resolved" "https://registry.npmjs.org/parse-data-uri/-/parse-data-uri-0.2.0.tgz"
   "version" "0.2.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "parse-data-uri@^0.2.0":
   "integrity" "sha512-uOtts8NqDcaCt1rIsO3VFDRsAfgE4c6osG4d9z3l4dCBlxYFzni6Di/oNU270SDrjkfZuUvLZx1rxMyqh46Y9w=="
   "resolved" "https://registry.npmjs.org/parse-data-uri/-/parse-data-uri-0.2.0.tgz"
   "version" "0.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     callsites "^3.0.0"
 
@@ -11484,12 +11832,15 @@ param-case@^3.0.4:
   "integrity" "sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg=="
   "resolved" "https://registry.npmjs.org/parse-json/-/parse-json-5.2.0.tgz"
   "version" "5.2.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "parse-json@^5.0.0":
   "integrity" "sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg=="
   "resolved" "https://registry.npmjs.org/parse-json/-/parse-json-5.2.0.tgz"
   "version" "5.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     "@babel/code-frame" "^7.0.0"
     error-ex "^1.3.1"
@@ -11650,6 +12001,7 @@ pause@0.0.1:
   "resolved" "https://registry.npmjs.org/payload/-/payload-1.3.0.tgz"
   "version" "1.3.0"
 >>>>>>>>> Temporary merge branch 2
+<<<<<<< HEAD
 "pause@0.0.1":
   "integrity" "sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg=="
   "resolved" "https://registry.npmjs.org/pause/-/pause-0.0.1.tgz"
@@ -11666,6 +12018,8 @@ pause@0.0.1:
   "resolved" "https://registry.npmjs.org/payload/-/payload-1.3.0.tgz"
   "version" "1.3.0"
 >>>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     "@babel/cli" "^7.12.8"
     "@babel/core" "^7.11.6"
@@ -11686,8 +12040,11 @@ pause@0.0.1:
     "@types/is-plain-object" "^2.0.4"
 <<<<<<<<< Temporary merge branch 1
 =========
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 =========
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
     "@types/sharp" "^0.26.1"
 >>>>>>>>> Temporary merge branch 2
     "babel-jest" "^26.3.0"
@@ -11798,6 +12155,7 @@ pause@0.0.1:
     "webpack-cli" "^4.3.1"
     "webpack-dev-middleware" "^4.0.2"
     "webpack-hot-middleware" "^2.25.0"
+<<<<<<< HEAD
 >>>>>>>>> Temporary merge branch 2
     "babel-jest" "^26.3.0"
     "babel-loader" "^8.1.0"
@@ -11907,6 +12265,8 @@ pause@0.0.1:
     "webpack-cli" "^4.3.1"
     "webpack-dev-middleware" "^4.0.2"
     "webpack-hot-middleware" "^2.25.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 peek-readable@^4.1.0:
   version "4.1.0"
@@ -11918,11 +12278,14 @@ peek-readable@^4.1.0:
   "integrity" "sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow=="
   "resolved" "https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz"
   "version" "2.1.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "performance-now@^2.1.0":
   "integrity" "sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow=="
   "resolved" "https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz"
   "version" "2.1.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -11930,12 +12293,15 @@ peek-readable@^4.1.0:
   "integrity" "sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ=="
   "resolved" "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
   "version" "1.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "picocolors@^1.0.0":
   "integrity" "sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ=="
   "resolved" "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
   "version" "1.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 picocolors@^1.0.0:
   version "1.0.0"
@@ -12046,11 +12412,14 @@ pluralize@^8.0.0:
   "integrity" "sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w=="
   "resolved" "https://registry.npmjs.org/pngjs/-/pngjs-3.4.0.tgz"
   "version" "3.4.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "pngjs@^3.3.3":
   "integrity" "sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w=="
   "resolved" "https://registry.npmjs.org/pngjs/-/pngjs-3.4.0.tgz"
   "version" "3.4.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -12058,12 +12427,15 @@ pluralize@^8.0.0:
   "integrity" "sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ=="
   "resolved" "https://registry.npmjs.org/popper.js/-/popper.js-1.16.1.tgz"
   "version" "1.16.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "popper.js@^1.14.4":
   "integrity" "sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ=="
   "resolved" "https://registry.npmjs.org/popper.js/-/popper.js-1.16.1.tgz"
   "version" "1.16.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -12778,11 +13150,14 @@ prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1,
   "integrity" "sha512-b/YwNhb8lk1Zz2+bXXpS/LK9OisiZZ1SNsSLxN1x2OXVEhW2Ckr/7mWE5vrC1ZTiJlD9g19jWszTmJsB+oEpFQ=="
   "resolved" "https://registry.npmjs.org/pseudomap/-/pseudomap-1.0.2.tgz"
   "version" "1.0.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "pseudomap@^1.0.2":
   "integrity" "sha512-b/YwNhb8lk1Zz2+bXXpS/LK9OisiZZ1SNsSLxN1x2OXVEhW2Ckr/7mWE5vrC1ZTiJlD9g19jWszTmJsB+oEpFQ=="
   "resolved" "https://registry.npmjs.org/pseudomap/-/pseudomap-1.0.2.tgz"
   "version" "1.0.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 "psl@^1.1.28", "psl@^1.1.33":
 =========
@@ -12791,6 +13166,7 @@ prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1,
   "integrity" "sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag=="
   "resolved" "https://registry.npmjs.org/psl/-/psl-1.9.0.tgz"
   "version" "1.9.0"
+<<<<<<< HEAD
 "psl@^1.1.28", "psl@^1.1.33":
 =========
 "psl@^1.1.33":
@@ -12798,6 +13174,8 @@ prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1,
   "integrity" "sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag=="
   "resolved" "https://registry.npmjs.org/psl/-/psl-1.9.0.tgz"
   "version" "1.9.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 pstree.remy@^1.1.8:
   version "1.1.8"
@@ -12846,11 +13224,14 @@ qs@~6.4.0:
   "integrity" "sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA=="
   "resolved" "https://registry.npmjs.org/qs/-/qs-6.5.3.tgz"
   "version" "6.5.3"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "qs@~6.5.2":
   "integrity" "sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA=="
   "resolved" "https://registry.npmjs.org/qs/-/qs-6.5.3.tgz"
   "version" "6.5.3"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 queue-microtask@^1.2.2:
   version "1.2.3"
@@ -12863,12 +13244,15 @@ queue-microtask@^1.2.2:
   "integrity" "sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ=="
   "resolved" "https://registry.npmjs.org/querystringify/-/querystringify-2.2.0.tgz"
   "version" "2.2.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "querystringify@^2.1.1":
   "integrity" "sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ=="
   "resolved" "https://registry.npmjs.org/querystringify/-/querystringify-2.2.0.tgz"
   "version" "2.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 quick-lru@^5.1.1:
   version "5.1.1"
@@ -13068,12 +13452,15 @@ react-hook-form@^7.38.0:
   "integrity" "sha512-yHb2F9BiT0lqoQDt8loZ5gWP331GwctHz9tYQ8A2EIEUu+CcEdjBLQWli1USG3RdWQt3W+jqQLg/d4rrQR96LA=="
   "resolved" "https://registry.npmjs.org/react-i18next/-/react-i18next-11.18.6.tgz"
   "version" "11.18.6"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 =========
 "react-i18next@^11.18.6":
   "integrity" "sha512-yHb2F9BiT0lqoQDt8loZ5gWP331GwctHz9tYQ8A2EIEUu+CcEdjBLQWli1USG3RdWQt3W+jqQLg/d4rrQR96LA=="
   "resolved" "https://registry.npmjs.org/react-i18next/-/react-i18next-11.18.6.tgz"
   "version" "11.18.6"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
@@ -13083,11 +13470,14 @@ react-hook-form@^7.38.0:
   "integrity" "sha512-nL9uS7jEs/zu8sqwFE5MAPx6pPkNAriACQ2rGLlqmKr2sPGtN7TXTyDdQt4lbNXVx7Uzadb40x8qotIuru6Rhg=="
   "resolved" "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-3.0.0.tgz"
   "version" "3.0.0"
+<<<<<<< HEAD
 >>>>>>>>> Temporary merge branch 2
 "react-input-autosize@^3.0.0":
   "integrity" "sha512-nL9uS7jEs/zu8sqwFE5MAPx6pPkNAriACQ2rGLlqmKr2sPGtN7TXTyDdQt4lbNXVx7Uzadb40x8qotIuru6Rhg=="
   "resolved" "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-3.0.0.tgz"
   "version" "3.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     prop-types "^15.5.8"
 
@@ -13458,6 +13848,7 @@ regenerate@^1.4.2:
   "integrity" "sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg=="
   "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz"
   "version" "0.13.11"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "regenerator-runtime@^0.13.10":
 =========
@@ -13466,6 +13857,8 @@ regenerate@^1.4.2:
   "integrity" "sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg=="
   "resolved" "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz"
   "version" "0.13.11"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 regenerator-transform@^0.15.0:
   version "0.15.1"
@@ -13540,11 +13933,14 @@ remove-trailing-separator@^1.0.1:
   "integrity" "sha512-MsvtOrfG9ZcrOwAW+Qi+F6HbD0CWXEh9ou77uOb7FM2WPhwT7smM833PzanhJLsgXjN89Ir6V2PczXNnMpwKhw=="
   "resolved" "https://registry.npmjs.org/request/-/request-2.88.2.tgz"
   "version" "2.88.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "request@^2.44.0", "request@^2.88.0":
   "integrity" "sha512-MsvtOrfG9ZcrOwAW+Qi+F6HbD0CWXEh9ou77uOb7FM2WPhwT7smM833PzanhJLsgXjN89Ir6V2PczXNnMpwKhw=="
   "resolved" "https://registry.npmjs.org/request/-/request-2.88.2.tgz"
   "version" "2.88.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     css-select "^4.1.3"
     dom-converter "^0.2.0"
@@ -13558,12 +13954,15 @@ remove-trailing-separator@^1.0.1:
   "integrity" "sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q=="
   "resolved" "https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz"
   "version" "2.1.1"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "require-directory@^2.1.1":
   "integrity" "sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q=="
   "resolved" "https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz"
   "version" "2.1.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 repeat-string@^1.6.1:
   version "1.6.1"
@@ -13738,6 +14137,7 @@ rxjs@^6.3.3:
   "integrity" "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ=="
   "resolved" "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz"
   "version" "5.2.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "safe-buffer@^5.0.1", "safe-buffer@^5.1.0", "safe-buffer@^5.1.2", "safe-buffer@>=5.1.0", "safe-buffer@~5.2.0", "safe-buffer@5.2.1":
 =========
@@ -13746,6 +14146,8 @@ rxjs@^6.3.3:
   "integrity" "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ=="
   "resolved" "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz"
   "version" "5.2.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
@@ -13781,6 +14183,7 @@ safe-regex@^1.1.0:
   "integrity" "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg=="
   "resolved" "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
   "version" "2.1.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "safer-buffer@^2.0.2", "safer-buffer@^2.1.0", "safer-buffer@^2.1.2", "safer-buffer@>= 2.1.2 < 3", "safer-buffer@~2.1.0":
 =========
@@ -13789,6 +14192,8 @@ safe-regex@^1.1.0:
   "integrity" "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg=="
   "resolved" "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
   "version" "2.1.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 sane@^4.0.3:
   version "4.1.0"
@@ -14256,11 +14661,14 @@ slice-ansi@0.0.4:
   "integrity" "sha512-4qdtOGcBjral6YIBCWJ0ljFSKNLz9KkhbWtuGvUyRowl1kxfuE1x/Z/aJcaiilpb3do9bl5K7/1h9XC5wWpY/A=="
   "resolved" "https://registry.npmjs.org/slick/-/slick-1.12.2.tgz"
   "version" "1.12.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "slick@^1.12.2":
   "integrity" "sha512-4qdtOGcBjral6YIBCWJ0ljFSKNLz9KkhbWtuGvUyRowl1kxfuE1x/Z/aJcaiilpb3do9bl5K7/1h9XC5wWpY/A=="
   "resolved" "https://registry.npmjs.org/slick/-/slick-1.12.2.tgz"
   "version" "1.12.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -14268,12 +14676,15 @@ slice-ansi@0.0.4:
   "integrity" "sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg=="
   "resolved" "https://registry.npmjs.org/smart-buffer/-/smart-buffer-4.2.0.tgz"
   "version" "4.2.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "smart-buffer@^4.2.0":
   "integrity" "sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg=="
   "resolved" "https://registry.npmjs.org/smart-buffer/-/smart-buffer-4.2.0.tgz"
   "version" "4.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 snapdragon-util@^3.0.1:
   version "3.0.1"
@@ -14481,11 +14892,14 @@ sprintf-js@~1.0.2:
   "integrity" "sha512-/9HIEs1ZXGhSPE8X6Ccm7Nam1z8KcoCqPdI7ecm1N33EzAetWahvQWVqLZtaZQ+IDKX4IyA2o0gBzqIMkAagHQ=="
   "resolved" "https://registry.npmjs.org/sshpk/-/sshpk-1.17.0.tgz"
   "version" "1.17.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "sshpk@^1.7.0":
   "integrity" "sha512-/9HIEs1ZXGhSPE8X6Ccm7Nam1z8KcoCqPdI7ecm1N33EzAetWahvQWVqLZtaZQ+IDKX4IyA2o0gBzqIMkAagHQ=="
   "resolved" "https://registry.npmjs.org/sshpk/-/sshpk-1.17.0.tgz"
   "version" "1.17.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     escape-string-regexp "^2.0.0"
 
@@ -14495,12 +14909,15 @@ sprintf-js@~1.0.2:
   "integrity" "sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w=="
   "resolved" "https://registry.npmjs.org/stable/-/stable-0.1.8.tgz"
   "version" "0.1.8"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "stable@^0.1.8":
   "integrity" "sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w=="
   "resolved" "https://registry.npmjs.org/stable/-/stable-0.1.8.tgz"
   "version" "0.1.8"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 static-extend@^0.1.1:
   version "0.1.2"
@@ -14989,6 +15406,7 @@ throat@^5.0.0:
   "integrity" "sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg=="
   "resolved" "https://registry.npmjs.org/through/-/through-2.3.8.tgz"
   "version" "2.3.8"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "through@^2.3.4", "through@^2.3.6":
 =========
@@ -14997,6 +15415,8 @@ throat@^5.0.0:
   "integrity" "sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg=="
   "resolved" "https://registry.npmjs.org/through/-/through-2.3.8.tgz"
   "version" "2.3.8"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 through2@^2.0.1:
   version "2.0.5"
@@ -15138,11 +15558,14 @@ tough-cookie@^4.0.0:
   "integrity" "sha512-nlLsUzgm1kfLXSXfRZMc1KLAugd4hqJHDTvc2hDIwS3mZAfMEuMbc03SujMF+GEcpaX/qboeycw6iO8JwVv2+g=="
   "resolved" "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.5.0.tgz"
   "version" "2.5.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "tough-cookie@~2.5.0":
   "integrity" "sha512-nlLsUzgm1kfLXSXfRZMc1KLAugd4hqJHDTvc2hDIwS3mZAfMEuMbc03SujMF+GEcpaX/qboeycw6iO8JwVv2+g=="
   "resolved" "https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.5.0.tgz"
   "version" "2.5.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     punycode "^2.1.0"
 
@@ -15152,12 +15575,15 @@ tough-cookie@^4.0.0:
   "integrity" "sha512-15Ih7phfcdP5YxqiB+iDtLoaTz4Nd35+IiAv0kQ5FNKHzXgdWqPoTIqEDDJmXceQt4JZk6lVPT8lnDlPpGDppw=="
   "resolved" "https://registry.npmjs.org/tr46/-/tr46-2.1.0.tgz"
   "version" "2.1.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "tr46@^2.1.0":
   "integrity" "sha512-15Ih7phfcdP5YxqiB+iDtLoaTz4Nd35+IiAv0kQ5FNKHzXgdWqPoTIqEDDJmXceQt4JZk6lVPT8lnDlPpGDppw=="
   "resolved" "https://registry.npmjs.org/tr46/-/tr46-2.1.0.tgz"
   "version" "2.1.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     punycode "^2.1.1"
 
@@ -15259,11 +15685,14 @@ tsutils@^3.21.0:
   "integrity" "sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA=="
   "resolved" "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz"
   "version" "0.14.5"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "tweetnacl@^0.14.3", "tweetnacl@~0.14.0":
   "integrity" "sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA=="
   "resolved" "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz"
   "version" "0.14.5"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -15271,12 +15700,15 @@ tsutils@^3.21.0:
   "integrity" "sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg=="
   "resolved" "https://registry.npmjs.org/type-check/-/type-check-0.3.2.tgz"
   "version" "0.3.2"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "type-check@~0.3.2":
   "integrity" "sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg=="
   "resolved" "https://registry.npmjs.org/type-check/-/type-check-0.3.2.tgz"
   "version" "0.3.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     prelude-ls "^1.2.1"
 
@@ -15410,11 +15842,14 @@ union-value@^1.0.0:
   "integrity" "sha512-Gw+zz50YNKPDKXs+9d+aKAjVwpjNwqzvNpLigIruT4HA9lMZNdMqs9x07kKHB/L9WRzqp4+DlTU5s4wG2esdoA=="
   "resolved" "https://registry.npmjs.org/uniq/-/uniq-1.0.1.tgz"
   "version" "1.0.1"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "uniq@^1.0.0":
   "integrity" "sha512-Gw+zz50YNKPDKXs+9d+aKAjVwpjNwqzvNpLigIruT4HA9lMZNdMqs9x07kKHB/L9WRzqp4+DlTU5s4wG2esdoA=="
   "resolved" "https://registry.npmjs.org/uniq/-/uniq-1.0.1.tgz"
   "version" "1.0.1"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -15422,12 +15857,15 @@ union-value@^1.0.0:
   "integrity" "sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg=="
   "resolved" "https://registry.npmjs.org/universalify/-/universalify-0.2.0.tgz"
   "version" "0.2.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "universalify@^0.2.0":
   "integrity" "sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg=="
   "resolved" "https://registry.npmjs.org/universalify/-/universalify-0.2.0.tgz"
   "version" "0.2.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 universalify@^2.0.0:
   version "2.0.0"
@@ -15555,11 +15993,14 @@ utila@~0.4:
   "integrity" "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
   "version" "3.4.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "uuid@^3.3.2":
   "integrity" "sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
   "version" "3.4.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -15567,12 +16008,15 @@ utila@~0.4:
   "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "uuid@^8.1.0", "uuid@^8.3.0", "uuid@^8.3.2":
   "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 v8-compile-cache-lib@^3.0.1:
   version "3.0.1"
@@ -15602,11 +16046,14 @@ v8-to-istanbul@^8.1.0:
   "integrity" "sha512-dyCZnv3aCey7yfTgIqdZanKl7xWAEEKCbgmR7SKqyK6QT/Z07ROactrgD1eA37C69ODRj7rNOjzKWVPh0EUjBA=="
   "resolved" "https://registry.npmjs.org/valid-data-url/-/valid-data-url-2.0.0.tgz"
   "version" "2.0.0"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "valid-data-url@^2.0.0":
   "integrity" "sha512-dyCZnv3aCey7yfTgIqdZanKl7xWAEEKCbgmR7SKqyK6QT/Z07ROactrgD1eA37C69ODRj7rNOjzKWVPh0EUjBA=="
   "resolved" "https://registry.npmjs.org/valid-data-url/-/valid-data-url-2.0.0.tgz"
   "version" "2.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -15614,12 +16061,15 @@ v8-to-istanbul@^8.1.0:
   "integrity" "sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew=="
   "resolved" "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz"
   "version" "3.0.4"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "validate-npm-package-license@^3.0.1":
   "integrity" "sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew=="
   "resolved" "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz"
   "version" "3.0.4"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
@@ -15649,6 +16099,7 @@ vary@~1.1.2:
   "resolved" "https://registry.npmjs.org/void-elements/-/void-elements-3.1.0.tgz"
   "version" "3.1.0"
 >>>>>>>>> Temporary merge branch 2
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "verror@1.10.0":
   "integrity" "sha512-ZZKSmDAEFOijERBLkmYfJ+vmk3w+7hOLYDNkRCuRuMJGEmqYNCNLyBBFwWKVMhfwaEF3WOd0Zlw86U/WC/+nYw=="
@@ -15664,6 +16115,8 @@ vary@~1.1.2:
   "resolved" "https://registry.npmjs.org/void-elements/-/void-elements-3.1.0.tgz"
   "version" "3.1.0"
 >>>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 w3c-hr-time@^1.0.2:
   version "1.0.2"
@@ -15730,6 +16183,7 @@ wcwidth@^1.0.1:
     "safer-buffer" "^2.1.2"
     "valid-data-url" "^2.0.0"
     "xtend" "^4.0.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "web-resource-inliner@^4.2.1":
   "integrity" "sha512-agVAgRhOOi4GVlvKK34oM23tDgH8390HfLnZY2HZl8OFBwKNvUJkH7t89AT2iluQP8w9VHAAKX6Z8EN7/9tqKA=="
@@ -15745,6 +16199,8 @@ wcwidth@^1.0.1:
     "safer-buffer" "^2.1.2"
     "valid-data-url" "^2.0.0"
     "xtend" "^4.0.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -15752,12 +16208,15 @@ wcwidth@^1.0.1:
   "integrity" "sha512-zCeQ+bOjWjJbXv5ZL0r8Py3XP2doCQMZXNKlBGfUjPAVZWokApdeF/kFlK1peuKlCt8sL9TFkKzyXE9/cmNJQA=="
   "resolved" "https://registry.npmjs.org/web-vitals/-/web-vitals-3.1.0.tgz"
   "version" "3.1.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "web-vitals@^3.0.4":
   "integrity" "sha512-zCeQ+bOjWjJbXv5ZL0r8Py3XP2doCQMZXNKlBGfUjPAVZWokApdeF/kFlK1peuKlCt8sL9TFkKzyXE9/cmNJQA=="
   "resolved" "https://registry.npmjs.org/web-vitals/-/web-vitals-3.1.0.tgz"
   "version" "3.1.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 webidl-conversions@^4.0.2:
   version "4.0.2"
@@ -16204,6 +16663,7 @@ workbox-recipes@6.5.4:
   "integrity" "sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ=="
   "resolved" "https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz"
   "version" "4.0.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "xtend@^4.0.2", "xtend@~4.0.1":
 =========
@@ -16212,6 +16672,8 @@ workbox-recipes@6.5.4:
   "integrity" "sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ=="
   "resolved" "https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz"
   "version" "4.0.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 workbox-strategies@6.5.4:
   version "6.5.4"
@@ -16233,11 +16695,14 @@ workbox-streams@6.5.4:
   "integrity" "sha512-ncTzHV7NvsQZkYe1DW7cbDLm0YpzHmZF5r/iyP3ZnQtMiJ+pjzisCiMNI+Sj+xQF5pXhSHxSB3uDbsBTzY/c2A=="
   "resolved" "https://registry.npmjs.org/yallist/-/yallist-2.1.2.tgz"
   "version" "2.1.2"
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
 "yallist@^2.1.2":
   "integrity" "sha512-ncTzHV7NvsQZkYe1DW7cbDLm0YpzHmZF5r/iyP3ZnQtMiJ+pjzisCiMNI+Sj+xQF5pXhSHxSB3uDbsBTzY/c2A=="
   "resolved" "https://registry.npmjs.org/yallist/-/yallist-2.1.2.tgz"
   "version" "2.1.2"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 =========
 >>>>>>>>> Temporary merge branch 2
@@ -16245,12 +16710,15 @@ workbox-streams@6.5.4:
   "integrity" "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="
   "resolved" "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
   "version" "4.0.0"
+<<<<<<< HEAD
 =========
 >>>>>>>>> Temporary merge branch 2
 "yallist@^4.0.0":
   "integrity" "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="
   "resolved" "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
   "version" "4.0.0"
+=======
+>>>>>>> 0d9078d (Merged PR 4587: Section templates with page builder)
 
 workbox-window@6.5.4:
   version "6.5.4"

@@ -80,6 +80,7 @@ export const Page: CollectionConfig = {
     // },
   ],
 
+
   hooks: {
     beforeLogin: [
       (args) => {
