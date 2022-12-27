@@ -80,7 +80,7 @@ export default buildConfig({
           Component: Templates,
         },
         {
-          path: '/collections/themes',
+          path: '/collections/themes-style',
           Component: DesignSystem,
           exact: true,
           strict: true,

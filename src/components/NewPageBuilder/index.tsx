@@ -2,48 +2,77 @@ import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
 // import './CustomGrapes.css';
-import '../PageBuilder/index.scss';
+// import '../PageBuilder/index.scss';
 import './index.scss';
 import plugin2 from 'grapesjs-project-manager';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 import Basics from 'grapesjs-blocks-basic';
 import { Eyebrow } from 'payload/components/elements';
+import { useStepNav } from 'payload/components/hooks';
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
+  const { setStepNav } = useStepNav();
   const [headingText, setHeadingText] = React.useState<string>('abc');
   // console.log('test of editor', editorState);
   const testRef = useRef();
   const myFunction = () => {
     console.log('*****************myFunction***************');
   };
-
+  useEffect(() => {
+    setStepNav([
+      {
+        label: 'Sections Templates',
+        url: '/collections/global-theme-settings/theme-builder/section',
+      },
+    ]);
+  }, [setStepNav]);
   React.useEffect(() => {
-    const myFirstBlock = (editor) => {
-      var blockManager = editor.BlockManager;
-      // 'my-first-block' is the ID of the block
-      blockManager.add('my-first-block', {
-        label: 'Heading',
-        content: {
-          type: 'text',
-          tagName: 'text',
-          draggable: true,
-          attributes: { class: 'container' },
-          style: { 'background-color': '#ffffff' },
-          content: `<input type="text" placeholder="Add Your Text here New Input"
-          
-          
-          id="self-test" onfocus="myFunction" />`,
-          // content: '<div>Hello test</div>',
-        },
-      });
-    };
+    // const myFirstBlock = (editor) => {
+    //   var blockManager = editor.BlockManager;
+    //   // 'my-first-block' is the ID of the block
+    //   blockManager.add('my-first-block', {
+    //     label: 'Heading',
+    //     content: {
+    //       type: 'text',
+    //       tagName: 'text',
+    //       draggable: true,
+    //       attributes: { class: 'container' },
+    //       style: { 'background-color': '#ffffff' },
+    //       content: `<input type="text" placeholder="Add Your Text here New Input"
+
+    //       id="self-test" onfocus="myFunction" />`,
+    //       // content: '<div>Hello test</div>',
+    //     },
+    //   });
+    // };
 
     const editor = GrapesJS.init({
       container: '#editor',
       plugins: [plugin1, Basics],
+      storageManager: {
+        type: 'local',
+        autoload: true,
+        options: {
+          storeComponents: true,
+          storeStyles: true,
+          storeHtml: true,
+          storeCss: true,
+          local: {
+            key: 'gts',
+          },
+        },
+      },
+      canvas: {
+        styles: ['../index.scss'],
+      },
+      fromElement: true,
+      layerManager: {
+        showWrapper: false,
+        hideTextnode: true,
+      },
 
       // blockManager: {
       //   appendTo: '.myblocks',
@@ -69,89 +98,103 @@ const NewPageBuilder = () => {
       //   ],
       // }
 
-      styleManager: {
-        appendTo: '.styles-container',
+      // styleManager: {
+      //   appendTo: '.styles-container',
 
-        sectors: [
-          {
-            // name: 'Global Colors Collection',
-            highlightChanged: true,
-            stylePrefix: 'ts-', // Prefix for all class names
-            open: true,
-            buildProps: ['background-color', 'color', 'color'],
-            properties: [
-              {
-                type: 'color',
-                name: 'Primary',
-                property: 'background-color',
-                default: '#e6e6e6',
-                attributes: {
-                  'data-type': 'background-color',
-                },
-              },
-            ],
-          },
-        ],
-      },
+      //   sectors: [
+      //     {
+      //       // name: 'Global Colors Collection',
+      //       highlightChanged: true,
+      //       stylePrefix: 'ts-', // Prefix for all class names
+      //       open: true,
+      //       buildProps: ['background-color', 'color', 'color'],
+      //       properties: [
+      //         {
+      //           type: 'color',
+      //           name: 'Primary',
+      //           property: 'background-color',
+      //           default: '#e6e6e6',
+      //           attributes: {
+      //             'data-type': 'background-color',
+      //           },
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
     });
-    const panelManager = editor.Panels;
-    var newPanel = panelManager.addPanel({
-      id: 'panelOne',
-      className: 'btn-toggles-borders-panelOne',
-      style: { color: 'red' },
-      visible: true,
-      buttons: [
-        {
-          id: 'visibility',
-          active: true,
-          className: 'btn-toggle-borders-panelOne panel-btn',
-          label: `<div class="preview"> <div><svg class= "preview-icon"  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="VisibilityIcon"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>  </div> <div class = "preview-text">Preview</div>`,
-          command: 'preview',
-        },
-        {
-          id: 'visibility2',
-          active: true,
-          className: 'pg-builder-save-btn save-panel-btn',
-          label: 'save',
-        },
-        {
-          id: 'visibility3',
-          active: true,
-          className: 'pg-builder-save-btn publish-btn',
-          label: `<div>  <div>Publish</div> </div>`,
-          content: 'image',
-        },
-      ],
-    });
-    var newPanel2 = panelManager.addPanel({
-      id: 'panelTwo',
-      className: 'btn-toggles-borders-panelTwo',
-      style: { color: 'red' },
-      visible: true,
-      buttons: [
-        {
-          id: 'history',
-          active: true,
-          className: 'btn-toggle-borders-panelTwo',
-          label: `<div class="history"> <div><svg fill="#3a4152" class= "history-icon" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="TimerIcon"><path d="M9 1h6v2H9zm10.03 6.39 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM13 14h-2V8h2v6z"></path></svg></div>`,
-          command: 'history',
-        },
-        {
-          id: 'setting',
-          active: true,
-          className: 'pg-setting-navbar',
-          label:
-            ' <div class ="setting"><svg class ="setting-icon" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SettingsIcon"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path></svg></div>',
+    // const panelManager = editor.Panels;
+    // var newPanel = panelManager.addPanel({
+    //   id: 'panelOne',
+    //   className: 'btn-toggles-borders-panelOne',
+    //   style: { color: 'red' },
+    //   visible: true,
+    //   buttons: [
+    //     {
+    //       id: 'visibility',
+    //       active: true,
+    //       className: 'btn-toggle-borders-panelOne panel-btn',
+    //       label: `<div class="preview"> <div><svg class= "preview-icon"  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="VisibilityIcon"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>  </div> <div class = "preview-text">Preview</div>`,
+    //       command: 'preview',
+    //     },
+    //     {
+    //       id: 'visibility2',
+    //       active: true,
+    //       className: 'pg-builder-save-btn save-panel-btn',
+    //       label: 'save',
+    //     },
+    //     {
+    //       id: 'visibility3',
+    //       active: true,
+    //       className: 'pg-builder-save-btn publish-btn',
+    //       label: `<div>  <div>Publish</div> </div>`,
+    //       content: 'image',
+    //     },
+    //   ],
+    // });
+    // var newPanel2 = panelManager.addPanel({
+    //   id: 'panelTwo',
+    //   className: 'btn-toggles-borders-panelTwo',
+    //   style: { color: 'red' },
+    //   visible: true,
+    //   buttons: [
+    //     {
+    //       id: 'history',
+    //       active: true,
+    //       className: 'btn-toggle-borders-panelTwo',
+    //       label: `<div class="history"> <div><svg fill="#3a4152" class= "history-icon" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="TimerIcon"><path d="M9 1h6v2H9zm10.03 6.39 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM13 14h-2V8h2v6z"></path></svg></div>`,
+    //       command: 'history',
+    //     },
+    //     {
+    //       id: 'setting',
+    //       active: true,
+    //       className: 'pg-setting-navbar',
+    //       label:
+    //         ' <div class ="setting"><svg class ="setting-icon" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SettingsIcon"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path></svg></div>',
 
-          content: 'image',
-        },
-      ],
-    });
+    //       content: 'image',
+    //     },
+    //   ],
+    // });
 
     setEditorState(editor);
-    //   editor.onReady((clb) => {
-    //     console.log('Editor is ready');
-    //   });
+    editor.onReady((clb) => {
+      console.log('Editor is ready');
+      const openBl = editor.Panels.getButton('views', 'open-blocks');
+      editor.on('load', () => openBl?.set('active', true));
+
+      // On component change show the Style Manager
+      editor.on('component:selected', () => {
+        const openSmBtn = editor.Panels.getButton('views', 'open-sm');
+        const openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+
+        // Don't switch when the Layer Manager is on or
+        // there is no selected component
+        if (!openLayersBtn || !openLayersBtn.get('active')) {
+          openSmBtn?.set('active', true);
+        }
+      });
+    });
 
     // editor.DomComponents.addType('text', {
     //   model: {
@@ -996,32 +1039,31 @@ const NewPageBuilder = () => {
   }, [setEditorState]);
   console.log('document.activeElement', document.activeElement.tagName);
 
-  useEffect(() => {
-    if (testRef) {
-      // debugger;
-      console.log(document.getElementById('self-test'), 'testRef', testRef);
-      let ftext = document.getElementById('self-test');
-      if (ftext) {
-        // @ts-ignore
-        console.log('ftext', ftext);
-        // ftext?.value= 'test111';
-      }
-      // ftext?.value ="test";
-      let setext = document.getElementById('self-inner-test');
-      //  setext.innerText="second test";
-      if (setext) {
-        // @ts-ignore
-        console.log('setext', setext);
+  // useEffect(() => {
+  //   if (testRef) {
+  //     // debugger;
+  //     console.log(document.getElementById('self-test'), 'testRef', testRef);
+  //     let ftext = document.getElementById('self-test');
+  //     if (ftext) {
+  //       // @ts-ignore
+  //       console.log('ftext', ftext);
+  //       // ftext?.value= 'test111';
+  //     }
+  //     // ftext?.value ="test";
+  //     let setext = document.getElementById('self-inner-test');
+  //     //  setext.innerText="second test";
+  //     if (setext) {
+  //       // @ts-ignore
+  //       console.log('setext', setext);
 
-        // setext.innerText="second test";
-      }
-    }
-  }, [testRef]);
+  //       // setext.innerText="second test";
+  //     }
+  //   }
+  // }, [testRef]);
 
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="styles-container"></div>
       <div id="editor"></div>
     </div>
   );
