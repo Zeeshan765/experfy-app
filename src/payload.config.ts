@@ -1,18 +1,21 @@
+import { Page } from "./payload-types";
 import dotenv from "dotenv";
 import path from "path";
 import { buildConfig } from "payload/config";
 import BasicPortalIdentityCollection from "./collections/BasicPortalIdentity";
 import DesignSystemCollection from "./collections/DesignSystemCollection";
+import IconCollection from "./collections/IconCollection";
 import Media from "./collections/Media";
 import MenusCollection from "./collections/MenusCollection";
 import NewPageBuilderCollection from "./collections/NewPageBuilder";
-import PagesCollection from "./collections/Page";
 import PageBuilderCollection from "./collections/PageBuilder";
-import TemplateLibraryCollection from "./collections/TemplateLibaryCollection";
+import PagesCollection from "./collections/Page";
+import PhotoCollection from "./collections/PhotoCollection";
 import TemplatesCollection from "./collections/TemplatesCollection";
 import ThemeCollection from "./collections/ThemeCollection";
 import Users from "./collections/Users";
 import BasicPortalIdentityPage from "./components/BasicPortalPage";
+import Menus from "./components/Menus";
 import AfterNav from "./components/Nav/AfterNav";
 import ExperfyLogo from "./components/Nav/AppLogo";
 import BeforeNav from "./components/Nav/BeforeNav";
@@ -23,7 +26,9 @@ import PageBuilder from "./components/PageBuilder/SectionTemplates";
 import PortalIdentity from "./components/PortalIdentity";
 import TemplatesLibrary from "./components/TemplateLibrary";
 import Templates from "./components/Templates";
+import Themes from "./components/Themes";
 import MyProvider from "./MyProvider";
+import TemplateLibraryCollection from "./collections/TemplateLibaryCollection";
 
 dotenv.config();
 
@@ -79,10 +84,10 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
-        {
-          path: "/collections/templates",
-          Component: Templates,
-        },
+        // {
+        //   path: "/collections/templates",
+        //   Component: Templates,
+        // },
         {
           path: "/collections/themes",
           Component: DesignSystem,
@@ -118,7 +123,7 @@ export default buildConfig({
     saveMissing: true,
     fallbackLng: "en",
   },
-
+  debug: true,
   cors: "*",
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),

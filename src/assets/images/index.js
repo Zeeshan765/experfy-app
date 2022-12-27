@@ -1,0 +1,16 @@
+export const header= require('./section_card/header.png');
+export const footer= require('./section_card/footer.png');
+export const benefits = require('./section_card/benefits_or_peks.png');
+export const custom_build= require('./section_card/custom_build.png');
+export const departments = require('./section_card/departments.png');
+export  const guidelines = require('./section_card/guidelines.png');
+export const image_and_text = require('./section_card/image_and_text.png');
+export const image_banner = require('./section_card/image_banner.png');
+export const image_gallery = require('./section_card/image_gallery.png');
+export const location = require('./section_card/location.png');
+export const metrics_numbers = require('./section_card/metrics_numbers.png');
+export const paragraph = require('./section_card/paragraph.png');
+export const practice_areas = require('./section_card/practice_areas.png');
+export const talent_cloud_candidates = require('./section_card/talent_cloud_candidates.png');
+export const testimonial = require('./section_card/testimonial.png');
+export const video = require('./section_card/video.png');

@@ -3,6 +3,7 @@ import { Button, Eyebrow } from 'payload/components/elements';
 import { useConfig } from 'payload/components/utilities';
 import React, { useState } from 'react';
 import TextInput from '../../../blocks/TextInput';
+import TextArea from '../../../blocks/TextArea';
 import { Form } from 'payload/components/forms';
 
 export default function SeoSettings(props) {
@@ -51,13 +52,21 @@ export default function SeoSettings(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
+          <TextInput
               path={'meta_description'}
               label="Meta Description"
               display={propsdata?.meta_description}
               required={false}
               placeHolder="Provide Description of your career Portal"
-            />
+            />  
+            {/* <TextArea
+              path={'meta_description'}
+              label="Meta Description"
+              display={propsdata?.meta_description}
+              required={false}
+              placeHolder="Provide Description of your career Portal"
+              rows={4}
+            /> */}
           </div>
         </div>
 

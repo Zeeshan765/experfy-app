@@ -5,7 +5,7 @@ import TemplatesLibrary from "../components/TemplateLibrary";
   slug: "templates-library",
   labels: {
     singular: "Template Library",
-    plural: "Template Library",
+    plural: "Template Librarys",
   },
   // access: {
   //   read: () => true,
@@ -15,6 +15,7 @@ import TemplatesLibrary from "../components/TemplateLibrary";
     read: () => true,
     create: () => true,
     update: () => true,
+    delete: () => true,
   },
   admin: {
     components: {
@@ -24,7 +25,15 @@ import TemplatesLibrary from "../components/TemplateLibrary";
     },
   },
   fields: [
-
+// {
+//       type:'ui',
+//         admin:{
+//           components: {
+//               Field: TemplatesLibrary,
+//               Cell: TemplatesLibrary,
+//             },
+//       }
+// }
   ],
 };
 export default TemplateLibraryCollection;

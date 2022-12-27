@@ -17,7 +17,29 @@ const useStyles = makeStyles({
     padding: '1.5rem 2rem 0',
     uppercase: 'false',
   },
-  
+  tabList: {
+    '& .MuiTab-root': {
+      fontSize: '20px',
+      fontWeight: 500,
+      fontFamily: 'proxima-nova',
+      letterSpacing: '.1px',
+      textTransform: 'none',
+      paddingLeft: 0,
+      paddingRight: 0,
+      marginRight: '48px',
+      minWidth: '60px',
+      maxWidth: '360px',
+      color: '#4ba4da',
+      '&.Mui-selected': {
+        color: '#4a5162',
+      },
+    },
+    '& .MuiTabs-indicator': {
+      height: '4px',
+      borderRadius: '2px',
+      backgroundColor: '#4a5162',
+    },
+  },
 });
 
 function TabPanel(props) {
@@ -51,18 +73,15 @@ function a11yProps(index) {
 }
 
 const PortalIdentity: React.FC = (props) => {
-
-
-
-    const {
-        adminPortal,
-        setAdminPortal,
-        brands,
-        setBrands,
-        seo_setting,
-        setSeo_Setting,
-    } = useContext(Context);
-//@ts-ignore
+  const {
+    adminPortal,
+    setAdminPortal,
+    brands,
+    setBrands,
+    seo_setting,
+    setSeo_Setting,
+  } = useContext(Context);
+  //@ts-ignore
   const { id } = useParams();
   const [propsdata, setPropsdata] = useState('');
 
@@ -92,7 +111,6 @@ const PortalIdentity: React.FC = (props) => {
     }
   };
 
-
   useEffect(() => {
     id?.length > 0 && getUserData();
   }, [id]);
@@ -103,25 +121,15 @@ const PortalIdentity: React.FC = (props) => {
       <div className="main__content">
         <Box>
           <Box className={classes.mainTabs}>
-            <Tabs value={value} onChange={handleChange} aria-label="tabs">
-              <Tab
-                style={{ fontWeight: '600', fontSize: '1rem' }}
-                label="Basic Information"
-                
-                {...a11yProps(0)}
-              />
-              <Tab
-                style={{ fontWeight: '600', fontSize: '1rem' }}
-                label="SEO Settings"
-                
-                {...a11yProps(1)}
-              />
-              <Tab
-                style={{ fontWeight: '600', fontSize: '1rem' }}
-                label="Brands"
-                
-                {...a11yProps(2)}
-              />
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="tabs"
+              className={classes.tabList}
+            >
+              <Tab disableRipple label="Basic Information" {...a11yProps(0)} />
+              <Tab disableRipple label="SEO Settings" {...a11yProps(1)} />
+              <Tab disableRipple label="Brands" {...a11yProps(2)} />
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
@@ -151,5 +159,5 @@ const PortalIdentity: React.FC = (props) => {
       </div>
     </DefaultTemplate>
   );
-}
+};
 export default PortalIdentity;

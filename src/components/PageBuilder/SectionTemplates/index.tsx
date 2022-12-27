@@ -85,6 +85,76 @@ const NewPageBuilder = () => {
           ],
         },
       },
+      // canvas: {
+      //   styles: ['../index.scss'],
+      // },
+      // styleManager: {
+      //   sectors: [
+      //     {
+      //       name: 'General',
+      //       open: false,
+      //       buildProps: ['display', 'position'],
+      //     },
+      //     {
+      //       name: 'Dimension',
+      //       open: false,
+      //       buildProps: ['width', 'height', 'margin', 'padding'],
+      //     },
+      //     {
+      //       name: 'Decorations',
+      //       open: false,
+      //       buildProps: ['background-color'],
+      //     },
+      //   ],
+      //   clearProperties: false,
+      //   appendTo: '.styles-container',
+      // },
+
+      // panels: {
+      //   defaults: [
+      //     {
+      //       id: 'panel-switcher',
+      //       el: '.panel__left',
+      //       active: true,
+      //       label: 'General Styles',
+      //       enable: true,
+      //     },
+      //     {
+      //       id: 'save',
+      //       el: '.panel__top',
+      //       visible: true,
+      //       label: 'Save',
+      //       toggle: false,
+      //       buttons: [
+      //         {
+      //           id: 'save',
+      //           className: 'fa fa-floppy-o',
+      //           command: 'save',
+      //           attributes: {
+      //             title: 'Save',
+      //           },
+      //         },
+      //       ],
+      //     },
+      //     // {
+      //     //   id: 'open-templates',
+      //     //   className: 'fa fa-folder-o',
+      //     //   attributes: {
+      //     //     title: 'Open projects and templates'
+      //     //   },
+      //     //   command: 'open-templates', //Open modal
+      //     // },
+      //     // {
+      //     //   id: 'open-pages',
+      //     //   className: 'fa fa-file-o',
+      //     //   attributes: {
+      //     //     title: 'Take Screenshot'
+      //     //   },
+      //     //   command: 'open-pages',
+      //     //   toggle: false,
+      //     // }
+      //   ],
+      // },
     });
    
   }, []);
