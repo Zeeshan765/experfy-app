@@ -70,6 +70,8 @@ const DesignSystem: React.FC = () => {
         options: {
           storeCss: true,
           storeStyles: true,
+          storeHtml: true,
+          storeComponents: true,
           local: {
             key: 'gts',
           },

@@ -9,17 +9,26 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 import Basics from 'grapesjs-blocks-basic';
 import { Eyebrow } from 'payload/components/elements';
+import { useStepNav } from 'payload/components/hooks';
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
+  const { setStepNav } = useStepNav();
   const [headingText, setHeadingText] = React.useState<string>('abc');
   // console.log('test of editor', editorState);
   const testRef = useRef();
   const myFunction = () => {
     console.log('*****************myFunction***************');
   };
-
+  useEffect(() => {
+    setStepNav([
+      {
+        label: 'Sections Templates',
+        url: '/collections/global-theme-settings/theme-builder/section',
+      },
+    ]);
+  }, [setStepNav]);
   React.useEffect(() => {
     // const myFirstBlock = (editor) => {
     //   var blockManager = editor.BlockManager;
@@ -43,6 +52,27 @@ const NewPageBuilder = () => {
     const editor = GrapesJS.init({
       container: '#editor',
       plugins: [plugin1, Basics],
+      storageManager: {
+        type: 'local',
+        autoload: true,
+        options: {
+          storeComponents: true,
+          storeStyles: true,
+          storeHtml: true,
+          storeCss: true,
+          local: {
+            key: 'gts',
+          },
+        },
+      },
+      canvas: {
+        styles: ['../index.scss'],
+      },
+      fromElement: true,
+      layerManager: {
+        showWrapper: false,
+        hideTextnode: true,
+      },
 
       // blockManager: {
       //   appendTo: '.myblocks',
@@ -148,9 +178,23 @@ const NewPageBuilder = () => {
     // });
 
     setEditorState(editor);
-    //   editor.onReady((clb) => {
-    //     console.log('Editor is ready');
-    //   });
+    editor.onReady((clb) => {
+      console.log('Editor is ready');
+      const openBl = editor.Panels.getButton('views', 'open-blocks');
+      editor.on('load', () => openBl?.set('active', true));
+
+      // On component change show the Style Manager
+      editor.on('component:selected', () => {
+        const openSmBtn = editor.Panels.getButton('views', 'open-sm');
+        const openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+
+        // Don't switch when the Layer Manager is on or
+        // there is no selected component
+        if (!openLayersBtn || !openLayersBtn.get('active')) {
+          openSmBtn?.set('active', true);
+        }
+      });
+    });
 
     // editor.DomComponents.addType('text', {
     //   model: {
