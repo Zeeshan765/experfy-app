@@ -183,7 +183,6 @@ const NewPageBuilder = () => {
       console.log('Editor is ready');
       const openBl = editor.Panels.getButton('views', 'open-blocks');
       editor.on('load', () => openBl?.set('active', true));
-
       // On component change show the Style Manager
       editor.on('component:selected', () => {
         const openSmBtn = editor.Panels.getButton('views', 'open-sm');
@@ -196,28 +195,6 @@ const NewPageBuilder = () => {
         }
       });
     });
-
-    // editor.DomComponents.addType('text', {
-    //   model: {
-    //     defaults: {
-    //       traits: [
-    //         {
-    //           type: 'text',
-    //           name: 'map-location',
-    //           label: 'Location',
-    //           placeholder: 'Enter your location ',
-    //         },
-    //         {
-    //           type: 'text',
-    //           name: 'map-title',
-    //           label: 'Title',
-    //           placeholder: 'Enter your title ',
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
-
     editor.DomComponents.addType('text', {
       model: {
         defaults: {
@@ -802,30 +779,118 @@ const NewPageBuilder = () => {
         },
       },
     });
+
+    // editor.DomComponents.addType('text', {
+    //   model: {
+    //     defaults: {
+    //       traits: [
+    //         {
+    //           type: 'text',
+    //           name: 'text_id',
+    //           label: 'Id',
+    //           placeholder: 'Enter your Id ',
+    //           className: 'custom-text',
+    //         },
+    //         {
+    //           type: 'text',
+    //           name: 'text_title',
+    //           label: 'Title',
+    //           placeholder: 'Enter your title ',
+    //           className: 'custom-text',
+    //         },
+    //       ],
+    //     },
+
+    //     init() {
+    //       this.on('change:attributes', this.updateAttributes);
+    //     },
+    //     updateAttributes() {
+    //       console.log('input changed', this.getAttributes());
+    //       //@ts-ignore
+    //       const { id, text_id, text_title } = this.getAttributes();
+
+    //       console.log('-----------------');
+
+    //       console.log('id', id);
+    //       console.log('text_id', text_id);
+    //       console.log('text_title', text_title);
+    //       console.log('------------------');
+
+    //       const div = document.getElementById(id);
+    //       console.log('div', div);
+    //       // // ✅ Change (replace) the text of the element
+    //       div.textContent = text_title;
+
+    //       // // ✅ Change (replace) the content with HTML
+    //       // div.innerHTML = `<span style="background-color: lime">Replacement HTML</span>`;
+    //     },
+    //   },
+    // });
+
+    const component = editor?.getSelected(); // Component selected in canvas
+    const traits = component?.get('traits');
+    // console.log('traits', traits);
+
+    // traits?.forEach((trait) => console.log(trait.props()));
+
+    // editor.TraitManager.addType('text', {
+    //   // ...
+
+    //   // Update the component based on element changes
+    //   // `elInput` is the result HTMLElement you get from `createInput`
+    //   onEvent({ elInput, component, event }) {
+    //     // console.log('elInput, component, event', elInput, component, event);
+    //     const inputType = elInput.querySelector('.footer_huk');
+    //     console.log('inputType', inputType);
+
+    //     let href = '';
+
+    //     switch (inputType.value) {
+    //       case 'url':
+    //         const valUrl = elInput.querySelector('.href-next__url').value;
+    //         href = valUrl;
+    //         break;
+    //       case 'email':
+    //         const valEmail = elInput.querySelector('.href-next__email').value;
+    //         const valSubj = elInput.querySelector(
+    //           '.href-next__email-subject'
+    //         ).value;
+    //         href = `mailto:${valEmail}${valSubj ? `?subject=${valSubj}` : ''}`;
+    //         break;
+    //     }
+
+    //     component.addAttributes({ href });
+    //   },
+
+    //   onUpdate({ elInput, component }) {
+    //     console.log('   ', elInput, component);
+    //   },
+    // });
+    setElementCreate(true);
   }, [setEditorState]);
   console.log('document.activeElement', document.activeElement.tagName);
 
-  // useEffect(() => {
-  //   if (testRef) {
-  //     // debugger;
-  //     console.log(document.getElementById('self-test'), 'testRef', testRef);
-  //     let ftext = document.getElementById('self-test');
-  //     if (ftext) {
-  //       // @ts-ignore
-  //       console.log('ftext', ftext);
-  //       // ftext?.value= 'test111';
-  //     }
-  //     // ftext?.value ="test";
-  //     let setext = document.getElementById('self-inner-test');
-  //     //  setext.innerText="second test";
-  //     if (setext) {
-  //       // @ts-ignore
-  //       console.log('setext', setext);
+  useEffect(() => {
+    if (testRef) {
+      // debugger;
+      console.log(document.getElementById('self-test'), 'testRef', testRef);
+      let ftext = document.getElementById('self-test');
+      if (ftext) {
+        // @ts-ignore
+        console.log('ftext', ftext);
+        // ftext?.value= 'test111';
+      }
+      // ftext?.value ="test";
+      let setext = document.getElementById('self-inner-test');
+      //  setext.innerText="second test";
+      if (setext) {
+        // @ts-ignore
+        console.log('setext', setext);
 
-  //       // setext.innerText="second test";
-  //     }
-  //   }
-  // }, [testRef]);
+        // setext.innerText="second test";
+      }
+    }
+  }, [testRef]);
 
   return (
     <div className="main__content">
