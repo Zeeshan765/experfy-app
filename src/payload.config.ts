@@ -16,7 +16,7 @@ import BeforeNav from './components/Nav/BeforeNav';
 import NewPageBuilder from './components/NewPageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
 import PageBuilder from './components/PageBuilder/SectionTemplates';
-// import Pages from "./components/Pages";
+import Pages from './components/Pages';
 import PortalIdentity from './components/PortalIdentity';
 import Templates from './components/Templates';
 import MyProvider from './MyProvider';
