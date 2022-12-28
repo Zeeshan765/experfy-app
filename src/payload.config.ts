@@ -8,6 +8,7 @@ import MenusCollection from './collections/MenusCollection';
 import NewPageBuilderCollection from './collections/NewPageBuilder';
 import PagesCollection from './collections/Page';
 import PageBuilderCollection from './collections/PageBuilder';
+import SectionTemplateCollection from './collections/SectionTemplatesCollection';
 import ThemeCollection from './collections/ThemeCollection';
 import BasicPortalIdentityPage from './components/BasicPortalPage';
 import AfterNav from './components/Nav/AfterNav';
@@ -16,6 +17,7 @@ import BeforeNav from './components/Nav/BeforeNav';
 import NewPageBuilder from './components/NewPageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
 import PageBuilder from './components/PageBuilder/SectionTemplates';
+import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sections';
 import Pages from './components/Pages';
 import PortalIdentity from './components/PortalIdentity';
 import Templates from './components/Templates';
@@ -53,6 +55,7 @@ export default buildConfig({
           Component: PageBuilder,
           exact: true,
         },
+
         {
           path: '/collections/basic-portal-identity',
           Component: BasicPortalIdentityPage,
@@ -91,6 +94,12 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
+        {
+          path: '/collections/section-templates',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
       ],
       providers: [MyProvider],
     },
@@ -105,6 +114,7 @@ export default buildConfig({
     PagesCollection,
     Media,
     NewPageBuilderCollection,
+    SectionTemplateCollection,
   ],
   i18n: {
     supportedLngs: ['en', 'es'],

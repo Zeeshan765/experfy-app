@@ -1,69 +1,69 @@
 import GrapesJS from 'grapesjs';
 import React, { useEffect, useState } from 'react';
-// import PageManagerPlugin from 'grapesjs-project-manager'
-import Blocks from 'grapesjs-blocks-basic';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
-import ExperfyPlugin from '../ExperfyPlugin';
+import plugin from 'grapesjs-tailwind';
 import '../index.scss';
-import plugin1 from '../vendor/plugins/grapesjs-tailwind/src/index';
 
-const PageBuilder: React.FC = () => {
+const SectionPageBuilder: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
   useEffect(() => {
     setStepNav([
       {
-        label: 'Page Builder',
-        url: '/page-builder',
+        label: 'Section Templates',
+        url: '/collections/section-templates',
       },
     ]);
   }, [setStepNav]);
 
   useEffect(() => {
+    const escapeName = (name: string) =>
+      `${name}`.trim().replace(/([^a-z0-9\w-:/]+)/gi, '-');
+
     const editor = GrapesJS.init({
-      container: '#editor-row',
+      container: '#sections',
       fromElement: true,
-      plugins: [Blocks, plugin1],
+      selectorManager: true,
       height: '100%',
-      autorender: true,
-      storageManager: {
-        type: 'local',
-        autoload: true,
-        options: {
-          storeComponents: true,
-          storeStyles: true,
-          storeHtml: true,
-          storeCss: true,
-          local: {
-            key: 'gts',
-          },
+      plugins: [plugin],
+      pluginsOpts: {
+        [plugin]: {
+          defaultStyle: 2,
         },
       },
-      canvas: {
-        styles: ['../index.scss'],
-      },
-      styleManager: {
-        sectors: [
+      domComponents: {
+        components: [
           {
-            name: 'General',
-            open: false,
-            buildProps: ['display', 'position'],
-          },
-          {
-            name: 'Dimension',
-            open: false,
-            buildProps: ['width', 'height', 'margin', 'padding'],
-          },
-          {
-            name: 'Decorations',
-            open: false,
-            buildProps: ['background-color'],
+            type: 'default',
+            content: 'Section',
+            draggable: true,
+            droppable: true,
           },
         ],
+      },
+      styleManager: {
+        appendTo: '.styles-container',
+        sectors: [],
         clearProperties: false,
+      },
+      blockManager: {
+        appendTo: '.sections-container',
+        blocks: [
+          {
+            id: 'section',
+            label: 'Section',
+            appendOnClick: true,
+          },
+        ],
+      },
+      traitManager: {
         appendTo: '.styles-container',
       },
+
+      storageManager: true,
+
+      canvas: {},
 
       panels: {
         defaults: [
@@ -115,6 +115,8 @@ const PageBuilder: React.FC = () => {
     setEditor(editor);
     editor.onReady((clb) => {
       console.log('Editor is ready');
+      console.log(editor.BlockManager.getConfig());
+      Text(editor);
     });
   }, [setEditor]);
 
@@ -124,6 +126,7 @@ const PageBuilder: React.FC = () => {
       <div className="editor-row">
         <div className="panel__left">
           <div className="styles-container"></div>
+          <div className="sections-container"></div>
         </div>
         <div className="editor-canvas">
           <div id="sections"></div>
@@ -133,7 +136,7 @@ const PageBuilder: React.FC = () => {
   );
 };
 
-export default PageBuilder;
+export default SectionPageBuilder;
 
 function Text(editor: GrapesJS.Editor) {
   editor.DomComponents.addType('text', {
