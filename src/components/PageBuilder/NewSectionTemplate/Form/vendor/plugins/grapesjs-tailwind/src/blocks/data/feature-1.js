@@ -1,6 +1,6 @@
 export const source = `
-<section class="text-gray-600 body-font">
-   <div class="container px-5 py-24 mx-auto" style="text-align: center;">
+
+   <div class="container id= "form_1"   px-5 py-24 mx-auto" style="text-align: center;">
       <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-5" style="font-size:42px;
       font-weight:500;">Add your heading title here</h1>
         <p style="font-size:21px; line-height:1.5; font-weight:400;">Use the from module in order to reﬂect what information you want to collect.</p>
@@ -53,5 +53,5 @@ export const source = `
       </form>
 
    </div>
-</section>
+
 `;

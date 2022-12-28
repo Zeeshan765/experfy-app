@@ -1,6 +1,6 @@
 // NOTE hide tabs until they are supported
 export const source = `
-<section class="text-gray-600 body-font">
+<section class="text-gray-600 body-font" id= "number_1">
    <div class="container mx-auto px-24 py-24 text-center" style="width: 70%;
       margin: auto;">
       <div class="text-center">

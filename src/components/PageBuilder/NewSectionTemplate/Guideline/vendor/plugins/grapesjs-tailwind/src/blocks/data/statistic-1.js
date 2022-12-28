@@ -1,6 +1,6 @@
 export const source = `
-<section class="text-gray-600 body-font">
-   <div class="container mx-auto px-24 py-24 text-center" style="width: 70%;
+
+   <div class="container  id= "guideline_1" mx-auto px-24 py-24 text-center" style="width: 70%;
       margin: auto;">
       <div class="text-center">
          <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900" style="font-size: 42px;">Add your heading title here</h1>
@@ -77,5 +77,5 @@ export const source = `
          </div>
       </div>
    </div>
-</section>
+
 `;

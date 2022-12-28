@@ -1,5 +1,5 @@
 export const source = `
-<section class="text-gray-600 body-font">
+<section  id= "image_text_1"   class="text-gray-600 body-font">
 <div class="container p-24 mx-auto flex flex-wrap" style="align-items: center;">
 <div style="width:50%; padding: 30px;">
    <h1 class="m-2" style="font-size: 38px;

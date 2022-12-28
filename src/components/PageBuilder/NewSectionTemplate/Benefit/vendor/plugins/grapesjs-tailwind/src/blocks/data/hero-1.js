@@ -1,5 +1,5 @@
 export const source = `
-<section class="text-gray-600 body-font">
+<section  id= "benefit_1" class="text-gray-600 body-font">
    <div class="container mx-auto px-24 py-24 text-center" style="width: 70%;
       margin: auto;">
       <div class="text-center">
