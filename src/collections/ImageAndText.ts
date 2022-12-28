@@ -2,7 +2,7 @@ import { CollectionConfig } from 'payload/types';
 import ImgText from '../components/PageBuilder/NewSectionTemplate/ImageAndText';
 
 const ImgTextCollection: CollectionConfig = {
-  slug: 'image_text',
+  slug: 'image_and_text',
   access: {
     read: () => true,
     create: () => false,

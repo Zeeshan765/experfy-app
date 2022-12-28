@@ -135,7 +135,7 @@ export default buildConfig({
         },
 
         {
-          path: '/collections/number',
+          path: '/collections/metrics_number',
           Component: Number,
         },
         {
@@ -160,7 +160,7 @@ export default buildConfig({
         },
 
         {
-          path: '/collections/image_text',
+          path: '/collections/image_and_text',
           Component: ImgText,
         },
         {

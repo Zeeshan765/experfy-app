@@ -2,7 +2,7 @@ import { CollectionConfig } from 'payload/types';
 import Number from '../components/PageBuilder/NewSectionTemplate/Number';
 
 const NumberCollection: CollectionConfig = {
-  slug: 'number',
+  slug: 'metrics_number',
   access: {
     read: () => true,
     create: () => false,
