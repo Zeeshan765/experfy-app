@@ -45,6 +45,11 @@ import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sectio
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
 import Templates from './components/Templates';
+import MyProvider from './MyProvider';
+import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
+import ImgTextCollection from './collections/ImageAndText';
+import PracticeArea from './components/PageBuilder/NewSectionTemplate/PracticeArea';
+import PracticeAreaCollection from './collections/PracticeArea';
 
 dotenv.config();
 
@@ -210,13 +215,15 @@ export default buildConfig({
           path: '/collections/location',
           Component: Location,
         },
-        
+
         {
           path: '/collections/image_text',
           Component: ImgText,
         },
-        
-        
+        {
+          path: '/collections/practice_area',
+          Component: PracticeArea,
+        },
       ],
     },
   },
