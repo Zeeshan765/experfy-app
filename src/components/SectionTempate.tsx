@@ -26,97 +26,97 @@ const SectionTemplate = () => {
       id: 1,
       image: custom_build,
       link: "/admin/collections/page-builder",
-      name: "Header",
+      name: "custom build",
     },
     {
       id: 2,
       image: header,
-      link: "/admin",
-      name: "Footer",
+      link: "/admin/collections/header",
+      name: "Header",
     },
     {
       id: 3,
       image: footer,
-      link: "/admin",
-      name: "Image Banner",
+      link: "/admin/collections/footer",
+      name: "Footer",
     },
     {
       id: 4,
       image: image_and_text,
-      link: "/admin",
-      name: "Benefits",
+      link: "/admin/collections/image_and_text",
+      name: "image and text",
     },
     {
       id: 5,
       image: video,
-      link: "/admin",
-      name: "content",
+      link: "/admin/collections/video",
+      name: "video",
     },
     {
       id: 6,
       image: benefits,
-      link: "/admin",
-      name: "Department",
+      link: "/admin/collections/benefits",
+      name: "benefits",
     },
     {
       id: 7,
       image: image_banner,
-      link: "/admin",
-      name: "Guidelines",
+      link: "/admin/collections/image_banner",
+      name: "image banner",
     },
     {
       id: 8,
       image: image_gallery,
-      link: "/admin",
-      name: "Images",
+      link: "/admin/collections/image_gallery",
+      name: "image gallery",
     },
     {
       id: 9,
       image: departments,
-      link: "/admin",
-      name: "Jobs",
+      link: "/admin/collections/departments",
+      name: "departments",
     },
     {
       id: 10,
       image: guidelines,
-      link: "/admin",
-      name: "Location",
+      link: "/admin/collections/guidelines",
+      name: "guidelines",
     },
     {
       id: 11,
       image: location,
-      link: "/admin",
-      name: "Metrics",
+      link: "/admin/collections/location",
+      name: "location",
     },
     {
       id: 12,
       image: metrics_numbers,
-      link: "/admin",
-      name: "Paragraph",
+      link: "/admin/collections/metrics_numbers",
+      name: "metrics numbers",
     },
     {
       id: 13,
       image: paragraph,
-      link: "/admin",
-      name: "Practice_areas",
+      link: "/admin/collections/paragraph",
+      name: "paragraph",
     },
     {
       id: 14,
       image: practice_areas,
-      link: "/admin",
-      name: "Talent Clouds",
+      link: "/admin/collections/practice_areas",
+      name: "practice areas",
     },
     {
       id: 15,
       image: talent_cloud_candidates,
-      link: "/admin",
-      name: "Testimonial",
+      link: "/admin/collections/talent_cloud_candidates",
+      name: "talent cloud candidates",
     },
     {
       id: 16,
       image: testimonial,
-      link: "/admin",
-      name: "Video",
+      link: "/admin/collections/testimonial",
+      name: "testimonial",
     },
   ];
   return (
@@ -133,7 +133,7 @@ const SectionTemplate = () => {
         >
         {templateList.map(({ id, image, name, link }) => (
           <Grid item sm={3} alignItems="center">
-            {/* <Link to={link} > */}
+            <Link to={link} >
             <div
               key={id}
               style={{
@@ -148,7 +148,7 @@ const SectionTemplate = () => {
               <img src={image} alt={name} style={{ width: "100%" }} />
             </div>
             {/* <FaceLessModel data={{ id, image, name }} /> */}
-            {/* </Link>  */}
+            </Link> 
           </Grid>
         ))}
       </Grid>
