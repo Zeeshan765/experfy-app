@@ -5,8 +5,10 @@ import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
 import BenefitCollection from './collections/Benefit';
 import DesignSystemCollection from './collections/DesignSystemCollection';
 import FooterCollection from './collections/Footer';
+import FormCollection from './collections/Form';
 import GuidelineCollection from './collections/Guideline';
 import HeaderCollection from './collections/Header';
+import LocationCollection from './collections/Location';
 import Media from './collections/Media';
 import MenusCollection from './collections/MenusCollection';
 import NewPageBuilderCollection from './collections/NewPageBuilder';
@@ -14,12 +16,8 @@ import NumberCollection from './collections/Number';
 import PagesCollection from './collections/Page';
 import PageBuilderCollection from './collections/PageBuilder';
 import ParagraphCollection from './collections/Paragraph';
-import TemplatesCollection from './collections/TemplatesCollection';
 import TestimonialCollection from './collections/Testimonial';
 import ThemeCollection from './collections/ThemeCollection';
-import FormCollection from './collections/Form';
-import LocationCollection from './collections/Location';
-import Users from './collections/Users';
 import BasicPortalIdentityPage from './components/BasicPortalPage';
 import AfterNav from './components/Nav/AfterNav';
 import ExperfyLogo from './components/Nav/AppLogo';
@@ -37,11 +35,13 @@ import Paragraph from './components/PageBuilder/NewSectionTemplate/Paragraph';
 import Testimonial from './components/PageBuilder/NewSectionTemplate/Testimonial';
 import PageBuilder from './components/PageBuilder/SectionTemplates';
 // import Pages from "./components/Pages";
+import ImgTextCollection from './collections/ImageAndText';
+import PracticeAreaCollection from './collections/PracticeArea';
+import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
+import PracticeArea from './components/PageBuilder/NewSectionTemplate/PracticeArea';
 import PortalIdentity from './components/PortalIdentity';
 import Templates from './components/Templates';
 import MyProvider from './MyProvider';
-import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
-import ImgTextCollection from './collections/ImageAndText';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sections';
 
 dotenv.config();
@@ -164,6 +164,10 @@ export default buildConfig({
           Component: ImgText,
         },
         {
+          path: '/collections/practice_area',
+          Component: PracticeArea,
+        },
+        {
           path: '/collections/footer',
           Component: Footer,
         },
@@ -229,6 +233,7 @@ export default buildConfig({
     FormCollection,
     LocationCollection,
     ImgTextCollection,
+    PracticeAreaCollection,
   ],
   i18n: {
     supportedLngs: ['en', 'es'],
