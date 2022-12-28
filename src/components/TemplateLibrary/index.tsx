@@ -1,4 +1,5 @@
 import React from "react";
+import PageTheme from "../pagebuilderTemplate";
 import PageTemplate from "../PageTemplate";
 import SectionTemplate from "../SectionTempate";
 
@@ -9,8 +10,9 @@ const TemplatesLibrary = () => {
     <div style={{ background: "#fff" }}>
       <div
         style={{
-          padding: "8px 2rem",
-          borderBottom:'1px solid gray',
+          padding: "8px 3rem",
+          // borderBottom:'1px solid gray',
+          boxShadow: "1px 1px 3px 0px #000",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -18,7 +20,7 @@ const TemplatesLibrary = () => {
         }}
       >
         <div>
-          <label htmlFor="type" style={{ display: "block" }}>
+          <label htmlFor="type" style={{ display: "block",margin:'0px' }}>
             Templete Library
           </label>
           <select name="type"  onChange={(e)=>setTemplate(e.target.value)} >
@@ -28,7 +30,7 @@ const TemplatesLibrary = () => {
         </div>
 
         <div>
-          <label htmlFor="search" style={{ display: "block" }}>
+          <label htmlFor="search" style={{ display: "block",margin:'0px' }}>
             Search Page
           </label>
           <input
@@ -38,7 +40,7 @@ const TemplatesLibrary = () => {
             style={{
               width: "300px",
               border: "1px solid gray",
-              boxShadow: "1px 1px 3px 0px #000",
+              boxShadow: "0px 0.25px 1px 0px #000",
               background: "#fff",
               borderRadius: "8px",
             }}
@@ -46,6 +48,7 @@ const TemplatesLibrary = () => {
         </div>
       </div>
      {template==="Pages"&& <PageTemplate />}
+     {/* {template==="Pages"&& <PageTheme />} */}
      {template==="Section"&& <SectionTemplate /> }
     </div>
   );

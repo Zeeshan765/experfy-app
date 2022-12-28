@@ -18,6 +18,7 @@ import {
   testimonial,
 } from "../assets/images";
 import { Link } from "react-router-dom";
+import { Grid } from "@material-ui/core";
 import FaceLessModel from "./Model";
 const SectionTemplate = () => {
   const templateList = [
@@ -120,29 +121,25 @@ const SectionTemplate = () => {
   ];
   return (
     <div style={{}}>
-      <div style={{ width: "100%", margin: "auto",padding:'0 18px' }}>
+      <div style={{ width: "100%", margin: "auto",padding:'0 3rem' }}>
         <p style={{ margin: 0, fontSize: "16px", fontWeight: "600",marginTop:'8px' }}>
           Start customizing your portal
         </p>
       </div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          gap: "2rem",
-        }}
-      >
+      <Grid
+         container spacing={2} 
+         style={{margin:'auto',width:'95%'}}
+          
+        >
         {templateList.map(({ id, image, name, link }) => (
-          <div>
+          <Grid item sm={3} alignItems="center">
             {/* <Link to={link} > */}
             <div
               key={id}
               style={{
-                width: "250px",
-                boxShadow: "1px 1px 3px 0px #000000",
-                margin: "16px 8px ",
+                width: "100%",
+                boxShadow: "0px 0.5px 2px -1px #000000",
+                // margin: "16px 8px ",
                 borderRadius: "6px",
                 objectFit: "contain",
                 padding: "2px",
@@ -152,9 +149,9 @@ const SectionTemplate = () => {
             </div>
             {/* <FaceLessModel data={{ id, image, name }} /> */}
             {/* </Link>  */}
-          </div>
+          </Grid>
         ))}
-      </div>
+      </Grid>
     </div>
   );
 };

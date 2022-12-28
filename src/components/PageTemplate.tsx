@@ -8,6 +8,7 @@ import job_overview from "../assets/images/templates/job_overview.png";
 import join from "../assets/images/templates/join.png";
 import tc_overview from "../assets/images/templates/tc_overview.png";
 import FaceLessModel from "./Model";
+import { Grid } from "@material-ui/core";
 
 const PageTemplate=()=>{
     const pageList = [
@@ -54,27 +55,24 @@ const PageTemplate=()=>{
           name: "TC Overview",
         },
       ];
-return(
-    <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems:'center',
-            justifyContent: "center",
-          }}
+return(<>
+ <Grid
+         container spacing={2} 
+         style={{margin:'auto',width:'95%'}}
+          // sx={{
+          //   margin: "2rem",
+          // }}
         >
           {pageList.map(({ id, image, name, link }) => (
-            <div
+            <Grid item sm={3} alignItems="center" 
               key={id}
               style={{
-                width: "300px",
-                height: "250px",
-                margin: "16px 8px ",
+                width: "100%",
                 borderRadius: "8px",
                 display: "flex",
                 alignItems: "center",
+                // boxShadow:'0px 1px 3px 0px #000000',
                 flexDirection: "column",
-                padding: "8px",
               }}
             >
               <div
@@ -86,15 +84,68 @@ return(
                 }}
               >
                 {" "}
-                <h5 style={{ color: "#000" }}>{name}</h5>
-                <FaceLessModel
-                  data={{ id, image, name }}
-                />
+                <p
+                  style={{
+                    color: "#000",
+                    fontWeight: "500",
+                    fontSize: "1.2rem",
+                    margin: "0px",
+                  }}
+                >
+                  {name}
+                </p>
+                <FaceLessModel data={{ id, image, name }} />
               </div>
-              <img src={image} alt={name} style={{ width: "100%" }} />
-            </div>
+              <img
+                src={image}
+                alt={name}
+                style={{ width: "100%", borderRadius: "4px",boxShadow: "0px 0.5px 2px -1px #000000",background:'#f0f0f0' }}
+                // #e6f1e682
+              />
+            </Grid>
           ))}
-        </div>
+        </Grid>
+     </>
+    // <Grid container spacing={2}
+    //       // style={{
+    //       //   display: "flex",
+    //       //   flexWrap: "wrap",
+    //       //   alignItems:'center',
+    //       //   justifyContent: "center",
+    //       // }}
+    //     >
+    //       {pageList.map(({ id, image, name, link }) => (
+    //         <Grid item md={3} 
+    //           // key={id}
+    //           style={{
+    //             width: "100%",
+    //             // height: "250px",
+    //             margin: "16px 8px ",
+    //             borderRadius: "8px",
+    //             display: "flex",
+    //             alignItems: "center",
+    //             flexDirection: "column",
+    //             padding: "8px",
+    //           }}
+    //         >
+    //           <div
+    //             style={{
+    //               display: "flex",
+    //               alignItems: "center",
+    //               justifyContent: "space-between",
+    //               width: "100%",
+    //             }}
+    //           >
+    //             {" "}
+    //             <h5 style={{ color: "#000" }}>{name}</h5>
+    //             <FaceLessModel
+    //               data={{ id, image, name }}
+    //             />
+    //           </div>
+    //           <img src={image} alt={name} style={{ width: "100%" }} />
+    //         </Grid>
+    //       ))}
+    //     </Grid>
 )
 }
 export default PageTemplate;

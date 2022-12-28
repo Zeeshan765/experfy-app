@@ -27,7 +27,8 @@ const FaceLessModel = ({ data }) => {
         fullWidth={true}
         style={{ background: "#fff" }}
       >
-        <DialogTitle style={{ borderBottom: "1px solid gray" }}>
+        <DialogTitle sx={{boxShadow: 3}}
+         >
           <div
             style={{
               display: "flex",
