@@ -173,6 +173,50 @@ export default buildConfig({
           path: '/collections/paragraph',
           Component: Paragraph,
         },
+        {
+          path: '/collections/footer',
+          Component: Footer,
+        },
+        {
+          path: '/collections/header',
+          Component: Header,
+        },
+        {
+          path: '/collections/paragraph',
+          Component: Paragraph,
+        },
+
+        {
+          path: '/collections/number',
+          Component: Number,
+        },
+        {
+          path: '/collections/testimonial',
+          Component: Testimonial,
+        },
+        {
+          path: '/collections/benefit',
+          Component: Benefit,
+        },
+        {
+          path: '/collections/guideline',
+          Component: Guideline,
+        },
+        {
+          path: '/collections/form',
+          Component: Form,
+        },
+        {
+          path: '/collections/location',
+          Component: Location,
+        },
+        
+        {
+          path: '/collections/image_text',
+          Component: ImgText,
+        },
+        
+        
       ],
     },
   },
