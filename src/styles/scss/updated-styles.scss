@@ -351,6 +351,7 @@ p {
   &>.eyebrow {
     &:first-child {
       padding: 1.75rem 2rem !important;
+      background-color: #fff !important;
 
       .eyebrow__wrap {
         &.gutter--left {
@@ -445,9 +446,9 @@ p {
 
 // Render Fields
 
-.render-fields {
-  .radio-group--layout-horizontal {}
-}
+// .render-fields {
+
+// }
 
 // Sidebar
 
@@ -683,7 +684,6 @@ p {
 }
 
 .Global {
-
   #nav-design-system,
   #nav-themes {
     display: flex;
@@ -692,29 +692,51 @@ p {
   }
 
   #nav-design-system {
-
     &:hover,
     &:focus,
     &.active {
       &:before {
         background-image: url("/src/assets/images/sidebar/design_system_active.svg") !important;
-      }
+      }  
     }
   }
 
   #nav-themes {
-
     &:hover,
     &:focus,
     &.active {
       &:before {
         background-image: url("/src/assets/images/sidebar/theme_style_active.svg") !important;
-      }
+      }  
     }
   }
 
   .nav-group__content {
     border-bottom: 1px solid #d3dbe3 !important;
     padding: 8px 0;
+  }
+}
+
+// Group Fields
+
+.group-field {
+  &--within-collapsible {
+    margin-top: 0 !important;
+  }  
+
+  .group-field__title {
+    font-size: 20px;
+  }
+}
+
+// Upload Card 
+
+.upload-card {
+  .thumbnail {
+
+  }
+
+  &__filename {
+
   }
 }
