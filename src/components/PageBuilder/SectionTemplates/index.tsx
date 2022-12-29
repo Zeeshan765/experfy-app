@@ -3,13 +3,11 @@ import React from 'react';
 import "../index.scss";
 import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
 
-const NewPageBuilder = () => {
+const SectionTemplate = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
   
 
   React.useEffect(() => {
-   
-
     const editor = GrapesJS.init({
       container: '#editor-row',
       fromElement: true,
@@ -210,7 +208,7 @@ const NewPageBuilder = () => {
 
 
 };
-export default NewPageBuilder;
+export default SectionTemplate;
 
 
 
