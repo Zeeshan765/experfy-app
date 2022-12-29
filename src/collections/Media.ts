@@ -93,10 +93,7 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) => {
-          console.log('Icon siblingData===', siblingData?.mediaType);
-          return siblingData?.mediaType === 'icon';
-        },
+        condition: (_, siblingData) =>  siblingData?.mediaType === 'icon',
       },
     },
 
@@ -106,13 +103,7 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) => {
-          console.log(
-            'Photo SiblingData===',
-            siblingData?.mediaType === 'Photo' ?? false
-          );
-          return siblingData?.mediaType === 'photo';
-        },
+        condition: (_, siblingData) => siblingData?.mediaType === 'photo',
       },
     },
     {
@@ -121,14 +112,7 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) => {
-          console.log(
-            'Video siblingData===',
-            siblingData?.mediaType === 'Video' ?? false
-          );
-
-          return siblingData?.mediaType === 'video';
-        },
+        condition: (_, siblingData) =>  siblingData?.mediaType === 'video',
       },
     },
     {

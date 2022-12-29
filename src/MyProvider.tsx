@@ -1,10 +1,11 @@
-import React, { createContext, useState, useContext } from 'react';
-import dotenv from 'dotenv';
-import { BrowserRouter } from 'react-router-dom';
-import { useConfig } from 'payload/components/utilities';
-import ExperfyNavbar from './components/Nav/ExperfyNavBar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
+import React, { createContext, useState, useContext } from "react";
+import dotenv from "dotenv";
+import { BrowserRouter } from "react-router-dom";
+import { useConfig } from "payload/components/utilities";
+import ExperfyNavbar from "./components/Nav/ExperfyNavBar";
+import { Provider } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Store from "./reducer/store";
 
 export const Context = createContext({} as any);
 
@@ -14,7 +15,7 @@ const MyProvider: React.FC<any> = ({ children }) => {
   } = useConfig();
 
   const [adminPortal, setAdminPortal] = useState({});
-  const [brands, setBrands] = useState(['hey']);
+  const [brands, setBrands] = useState(["hey"]);
   const [seo_setting, setSeo_Setting] = useState({});
 
   const value = {
@@ -58,10 +59,12 @@ const MyProvider: React.FC<any> = ({ children }) => {
   // getTokenApi();
 
   return (
-    <BrowserRouter>
-      <ExperfyNavbar />
-      <Context.Provider value={value}>{children}</Context.Provider>
-    </BrowserRouter>
+    <Provider store={Store}>
+      <BrowserRouter>
+        <ExperfyNavbar />
+        <Context.Provider value={value}>{children}</Context.Provider>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

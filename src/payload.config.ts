@@ -23,7 +23,6 @@ import DesignSystem from "./components/PageBuilder/DesignSystem";
 import PageBuilder from "./components/PageBuilder/SectionTemplates";
 import PortalIdentity from "./components/PortalIdentity";
 import TemplatesLibrary from "./components/TemplateLibrary";
-import Templates from "./components/Templates";
 import Themes from "./components/Themes";
 import MyProvider from "./MyProvider";
 import TemplateLibraryCollection from "./collections/TemplateLibaryCollection";
@@ -85,7 +84,7 @@ export default buildConfig({
         },
         {
           path: '/collections/templates',
-          Component: Templates,
+          Component: TemplatesLibrary,
         },
         {
           path: '/collections/themes-style',
