@@ -1,3 +1,4 @@
+// @ts-ignore
 import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';

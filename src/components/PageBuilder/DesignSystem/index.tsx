@@ -93,6 +93,7 @@ const DesignSystem: React.FC = () => {
           storeStyles: true,
           storeHtml: true,
           storeComponents: true,
+
           local: {
             key: 'gts',
             checkLocal: true,
