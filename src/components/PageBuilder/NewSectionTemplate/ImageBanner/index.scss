@@ -1,0 +1,262 @@
+$primaryColor: var(--theme-bg);
+$secondaryColor: var(--theme-text);
+$tertiaryColor: var(--theme-primary);
+$quaternaryColor: var(--theme-primary);
+$fontFace: var(--font-body);
+$fontSize: 0.9rem;
+$fontSizeS: 0.9rem;
+$mainFont: "proxima-nova", sans-serif;
+$fontPath: "../../assets/fonts/proxima-nova";
+$fontName: "proximanova-bold-webfont";
+@import "grapesjs/src/styles/scss/main.scss";
+//--------------------------------------- //
+//--------- new page builder css --------//
+//--------------------------------------- //
+
+.gjs-title {
+    padding: 18px 0px 18px 50px !important;
+    margin: 5px 15px !important;
+    border: 1px solid #d5dbe0 !important;
+    height: auto !important;
+    border-radius: 5px !important;
+    position: relative !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    background-color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+
+    .gjs-caret-icon {
+        position: absolute !important;
+        right: 30px !important;
+        content: "";
+        width: 16px;
+        height: 16px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-image: url("../../assets/images/eye.svg") !important;
+    }
+
+    .fa-caret-right:before {
+        display: none !important;
+    }
+
+    .fa-caret-down:before {
+        display: none !important;
+    }
+}
+
+.gjs-title::before {
+    background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
+    position: absolute;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+    z-index: 11111;
+    left: 20px;
+}
+
+.gjs-title::after {
+    background-image: url("../../assets/images/handle.svg") !important;
+    position: absolute;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    content: "";
+    z-index: 11111;
+    right: 10px;
+}
+
+// --------------------------------------
+// top panal options
+// --------------------------------------
+
+// .gjs-pn-options{
+//   justify-content: center !important;
+//   .gjs-pn-btn{
+//     border: 1px solid #d5dbe0 !important;
+//   }
+// }
+
+.gjs-pn-devices-c {
+    right: 25% !important;
+    top: 2% !important;
+    width: 5% !important;
+    padding: 0px !important;
+
+    .gjs-device-label {
+        display: none !important;
+    }
+}
+
+.gjs-pn-panels .gjs-pn-options {
+    display: none !important;
+}
+
+.gjs-pn-commands .gjs-pn-btn {
+    display: none !important;
+}
+
+.preview-text {
+    margin-left: 10px !important;
+}
+
+.preview-icon {
+    height: 20px !important;
+}
+
+.preview {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    line-height: 0.7 !important;
+}
+
+.history {
+    display: flex !important;
+    /* width: 90px; */
+    justify-content: center !important;
+    align-items: center !important;
+    line-height: 0 !important;
+}
+
+.history-icon {
+    height: 20px !important;
+    color: #858585 !important;
+}
+
+.history-text {
+    margin-left: 10px !important;
+}
+
+.gjs-pn-panelTwo .gjs-pn-buttons {
+    justify-content: end !important;
+}
+
+.setting {
+    display: flex !important;
+    /* width: 90px; */
+    justify-content: center !important;
+    align-items: center !important;
+    line-height: 0 !important;
+}
+
+.setting-icon {
+    height: 20px !important;
+    color: #858585 !important;
+}
+
+.gjs-pn-panels .gjs-pn-panelOne {
+    background-color: transparent !important;
+    position: absolute !important;
+    right: 2% !important;
+    top: 1.5% !important;
+}
+
+.gjs-pn-panels .gjs-pn-panelTwo {
+    background-color: transparent !important;
+    position: absolute !important;
+    right: 30% !important;
+    top: 2% !important;
+    display: block;
+    padding: 0px !important;
+}
+
+.pg-builder-save-btn {
+    background-color: #ffffff !important;
+    border-radius: 5px !important;
+    font-size: 16px !important;
+    color: #3a4152 !important;
+    border: 1px solid #ebebed !important;
+    padding: 10px 30px !important;
+    text-transform: capitalize !important;
+}
+
+.save-panel-btn {
+    background-color: #4ba4da !important;
+    border-radius: 5px !important;
+    font-size: 16px;
+    color: #ffffff !important;
+    border: 1px solid transparent !important;
+    padding: 10px 30px !important;
+}
+
+.pg-setting-navbar {
+    background-color: #ffffff !important;
+    border-radius: 5px !important;
+    font-size: 20px !important;
+    color: #3a4152;
+    border: 1px solid #ebebed !important;
+    padding: 10px !important;
+    margin-right: 0px !important;
+}
+
+.btn-toggle-borders-panelOne {
+    background-color: #ffffff !important;
+    border-radius: 5px !important;
+    font-size: 16px !important;
+    color: #3a4152;
+    border: 1px solid #ebebed !important;
+    padding: 11px 15px !important;
+}
+
+.btn-toggle-borders-panelTwo {
+    background-color: #ffffff !important;
+    border-radius: 5px !important;
+    font-size: 20px !important;
+    color: #3a4152;
+    border: 1px solid #ebebed !important;
+    padding: 10px !important;
+    box-shadow: none !important;
+    margin-right: 0px !important;
+}
+
+.gjs-pn-devices-c .gjs-pn-btn:first-child {
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
+}
+
+.gjs-pn-devices-c .gjs-pn-btn:last-child {
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
+}
+
+.gjs-pn-views-container {
+    left: 0 !important;
+    background-color: #ffffff !important;
+    top: 100px !important;
+    /* width: 19% !important; */
+}
+
+.gjs-pn-views {
+    left: 0 !important;
+    top: 80px !important;
+    color: #fff;
+    background-color: #787878 !important;
+    border-bottom: 0px !important;
+
+    /* width: 19% !important; */
+    .gjs-pn-buttons {
+        color: #fff !important;
+    }
+}
+
+.gjs-pn-commands {
+    right: 0 !important;
+    left: unset !important;
+    height: 80px !important;
+    width: 100% !important;
+    background-color: #ffffff !important;
+}
+
+.gjs-one-bg gjs-two-color {
+    .gjs-cv-canvas {
+        /* width: 81% !important; */
+        right: 0 !important;
+        height: 100% !important;
+        top: 80px !important;
+    }
+}

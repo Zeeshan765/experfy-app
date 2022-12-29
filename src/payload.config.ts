@@ -17,7 +17,6 @@ import NumberCollection from './collections/Number';
 import PagesCollection from './collections/Page';
 import PageBuilderCollection from './collections/PageBuilder';
 import ParagraphCollection from './collections/Paragraph';
-import PracticeAreaCollection from './collections/PracticeArea';
 import SectionTemplateCollection from './collections/SectionTemplatesCollection';
 import TemplatesCollection from './collections/TemplatesCollection';
 import TestimonialCollection from './collections/Testimonial';
@@ -34,11 +33,9 @@ import Footer from './components/PageBuilder/NewSectionTemplate/Footer';
 import Form from './components/PageBuilder/NewSectionTemplate/Form';
 import Guideline from './components/PageBuilder/NewSectionTemplate/Guideline';
 import Header from './components/PageBuilder/NewSectionTemplate/Header';
-import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
 import Location from './components/PageBuilder/NewSectionTemplate/Location';
 import MetricNumbers from './components/PageBuilder/NewSectionTemplate/Number';
 import Paragraph from './components/PageBuilder/NewSectionTemplate/Paragraph';
-import PracticeArea from './components/PageBuilder/NewSectionTemplate/PracticeArea';
 import Testimonial from './components/PageBuilder/NewSectionTemplate/Testimonial';
 import PageBuilder from './components/PageBuilder/SectionTemplates';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sections';
@@ -47,9 +44,14 @@ import TemplatesLibrary from './components/TemplateLibrary';
 import Templates from './components/Templates';
 import MyProvider from './MyProvider';
 import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
-import ImgTextCollection from './collections/ImageAndText';
 import PracticeArea from './components/PageBuilder/NewSectionTemplate/PracticeArea';
 import PracticeAreaCollection from './collections/PracticeArea';
+import Department from './components/PageBuilder/NewSectionTemplate/Department';
+import DepartmentCollection from './collections/Department';
+import TalentCloud from './components/PageBuilder/NewSectionTemplate/TalentCloud';
+import TalentCloudCollection from './collections/TalentCloud';
+import ImageBanner from './components/PageBuilder/NewSectionTemplate/ImageBanner';
+import ImageBannerCollection from './collections/ImageBanner';
 
 dotenv.config();
 
@@ -193,7 +195,7 @@ export default buildConfig({
 
         {
           path: '/collections/metrics_number',
-          Component: Number,
+          Component: MetricNumbers,
         },
         {
           path: '/collections/testimonial',
@@ -224,6 +226,18 @@ export default buildConfig({
           path: '/collections/practice_area',
           Component: PracticeArea,
         },
+        {
+          path: '/collections/department',
+          Component: Department,
+        },
+        {
+          path: '/collections/talent_cloud',
+          Component: TalentCloud,
+        },
+        {
+          path: '/collections/image_banner',
+          Component: ImageBanner,
+        },
       ],
     },
   },
@@ -250,6 +264,9 @@ export default buildConfig({
     SectionTemplateCollection,
     PracticeAreaCollection,
     Users,
+    DepartmentCollection,
+    TalentCloudCollection,
+    ImageBannerCollection,
   ],
   i18n: {
     supportedLngs: ['en', 'es'],
