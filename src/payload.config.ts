@@ -1,16 +1,15 @@
 import dotenv from 'dotenv';
 import path from 'path';
-import { Form } from 'payload/components/forms';
 import { buildConfig } from 'payload/config';
 import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
 import BenefitCollection from './collections/Benefit';
-import Benefit from './collections/Benefit';
 import DesignSystemCollection from './collections/DesignSystemCollection';
 import FooterCollection from './collections/Footer';
 import FormCollection from './collections/Form';
 import GuidelineCollection from './collections/Guideline';
-import Guideline from './collections/Guideline';
-
+import HeaderCollection from './collections/Header';
+import ImgTextCollection from './collections/ImageAndText';
+import LocationCollection from './collections/Location';
 import Media from './collections/Media';
 import MenusCollection from './collections/MenusCollection';
 import NewPageBuilderCollection from './collections/NewPageBuilder';
@@ -19,9 +18,7 @@ import PagesCollection from './collections/Page';
 import PageBuilderCollection from './collections/PageBuilder';
 import ParagraphCollection from './collections/Paragraph';
 import PracticeAreaCollection from './collections/PracticeArea';
-import PracticeArea from './collections/PracticeArea';
 import TestimonialCollection from './collections/Testimonial';
-import Testimonial from './collections/Testimonial';
 import ThemeCollection from './collections/ThemeCollection';
 import BasicPortalIdentityPage from './components/BasicPortalPage';
 import AfterNav from './components/Nav/AfterNav';
@@ -29,9 +26,17 @@ import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import NewPageBuilder from './components/NewPageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
+import Benefit from './components/PageBuilder/NewSectionTemplate/Benefit';
 import Footer from './components/PageBuilder/NewSectionTemplate/Footer';
+import Form from './components/PageBuilder/NewSectionTemplate/Form';
+import Guideline from './components/PageBuilder/NewSectionTemplate/Guideline';
 import Header from './components/PageBuilder/NewSectionTemplate/Header';
 import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
+import Location from './components/PageBuilder/NewSectionTemplate/Location';
+import MetricNumber from './components/PageBuilder/NewSectionTemplate/Number';
+import Paragraph from './components/PageBuilder/NewSectionTemplate/Paragraph';
+import PracticeArea from './components/PageBuilder/NewSectionTemplate/PracticeArea';
+import Testimonial from './components/PageBuilder/NewSectionTemplate/Testimonial';
 import PageBuilder from './components/PageBuilder/SectionTemplates';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sections';
 import PortalIdentity from './components/PortalIdentity';
@@ -135,7 +140,7 @@ export default buildConfig({
 
         {
           path: '/collections/metrics_number',
-          Component: Number,
+          Component: MetricNumber,
         },
         {
           path: '/collections/testimonial',
@@ -177,36 +182,6 @@ export default buildConfig({
         {
           path: '/collections/paragraph',
           Component: Paragraph,
-        },
-
-        {
-          path: '/collections/number',
-          Component: Number,
-        },
-        {
-          path: '/collections/testimonial',
-          Component: Testimonial,
-        },
-        {
-          path: '/collections/benefit',
-          Component: Benefit,
-        },
-        {
-          path: '/collections/guideline',
-          Component: Guideline,
-        },
-        {
-          path: '/collections/form',
-          Component: Form,
-        },
-        {
-          path: '/collections/location',
-          Component: Location,
-        },
-
-        {
-          path: '/collections/image_text',
-          Component: ImgText,
         },
       ],
       providers: [MyProvider],

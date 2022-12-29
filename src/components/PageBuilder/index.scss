@@ -24,15 +24,6 @@ $fontName: "proximanova-bold-webfont";
   flex-wrap: nowrap;
   height: 100%;
 }
-  
-  
-  
-  
-
-
-
-
-
 
 
 .gjs-cv-canvas {
@@ -42,6 +33,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-pn-panel,
 .gjs-pn-views {
   width: 20% !important;
+  border-right: 1px solid #d3dbe3;
   box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
 }
 
@@ -174,9 +166,9 @@ $fontName: "proximanova-bold-webfont";
   left: 20% !important;
 }
 
-// .gjs-pn-views-container {
-//   left: 0;
-// }
+.gjs-pn-views-container {
+  left: 0;
+}
 
 .gjs-traits-label {
   font-weight: 600 !important;
