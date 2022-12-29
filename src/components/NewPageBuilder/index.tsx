@@ -1,3 +1,4 @@
+// @ts-ignore
 import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
@@ -830,6 +831,8 @@ const NewPageBuilder = () => {
     <div className="main__content">
       <Eyebrow />
       <div id="editor"></div>
+      <div className="myblocks"></div>
+      <div className="styles-container"></div>
     </div>
   );
 };

@@ -24,10 +24,10 @@ $fontName: "proximanova-bold-webfont";
   flex-wrap: nowrap;
   height: 100%;
 }
-
-
-
-
+  
+  
+  
+  
 
 
 
@@ -48,8 +48,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-pn-views-container {
   width: 20% !important;
   overflow: auto;
-  box-shadow: 0rem 0rem 1rem var(--theme-elevation-300) !important;
-  left: 0px !important;
+  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
 }
 
 .gjs-selected {
@@ -67,7 +66,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-pn-commands {
-  width: 20% !important;
+  width: 100% !important;
 }
 
 .gjs-layer-vis {
@@ -113,9 +112,9 @@ $fontName: "proximanova-bold-webfont";
   padding: 0.5rem !important;
   border-radius: 4px !important;
   margin: 2px !important;
-  box-shadow: 1px 1px 0 0 var(--theme-elevation-100) !important;
-  background-color: var(--theme-bg) !important;
-  color: var(--theme-primary) !important;
+  box-shadow: 1px 1px 0 0 rgba(97, 97, 97, 0.3) !important;
+  background-color: #f1f3f5 !important;
+  color: var(--theme-primary);
 }
 
 .gjs-blocks-c {
@@ -210,7 +209,7 @@ $fontName: "proximanova-bold-webfont";
   display: block !important;
 
   .gjs-sm-composite {
-    border: 0.1rem solid var(--theme-elevation-200) !important;
+    border: 1px solid rgb(255 255 255 / 25%) !important;
   }
 }
 
@@ -258,8 +257,8 @@ $fontName: "proximanova-bold-webfont";
   width: 100%;
   height: 3px;
   cursor: pointer;
-  background: var(--theme-bg);
-  border: 0px solid var(--theme-elevation-100);
+  background: #cacaca;
+  border: 0px solid #000101;
 }
 
 .gjs-field-range input[type="range"]::-webkit-slider-thumb {
@@ -268,15 +267,19 @@ $fontName: "proximanova-bold-webfont";
   border-radius: 100px;
   cursor: pointer;
   -webkit-appearance: none;
-  background: var(--theme-primary) !important;
+  background: #48a3d7 !important;
   border: none;
+}
+
+.currentColor {
+  currentcolor: #d0d0d0 !important;
 }
 
 .gjs-select {
   .gjs-sel-arrow {
     .gjs-d-s-arrow {
       border-left: 4px solid transparent;
-      border-top: 5px solid var(--theme-elevation-150);
+      border-top: 5px solid rgba(0, 0, 0, 0.7);
     }
   }
 }
