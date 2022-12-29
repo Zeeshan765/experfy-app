@@ -3,19 +3,18 @@ $primaryColor: var(--theme-bg);
 $secondaryColor: var(--theme-text);
 $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
-$tagBg: var(--theme-primary);
+$tagBg: var(--theme-bg);
 $fontFace: var(--font-body);
 $fontSize: 0.9rem;
 $fontSizeS: 0.9rem;
 $mainFont: "proxima-nova", sans-serif;
 $fontPath: "../../assets/fonts/proxima-nova";
 $fontName: "proximanova-bold-webfont";
-
 @import "grapesjs/src/styles/scss/main.scss";
 
 .editor-canvas {
   flex-grow: 1;
-  background-color: var(--theme-bg);
+  background-color: #f1f3f5;
 }
 
 .editor-row {
@@ -26,33 +25,27 @@ $fontName: "proximanova-bold-webfont";
   height: 100%;
 }
 
+
 .gjs-cv-canvas {
   width: 80% !important;
 }
 
-// .gjs-pn-panel,
-// .gjs-pn-views {
-//   width: 20% !important;
-//   box-shadow: 0 0 10px var(--theme-elevation-300) !important;
-//   position: relative !important;
-//   font-size: x-large !important;
-//   font-weight: 400 !important;
-//   color: var(--theme-elevation-0) !important;
-//   padding: 0 !important;
-// }
-
-
+.gjs-pn-panel,
+.gjs-pn-views {
+  width: 20% !important;
+  border-right: 1px solid #d3dbe3;
+  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
+}
 
 .gjs-pn-views-container {
   width: 20% !important;
   overflow: auto;
-  box-shadow: 0rem 0rem 1rem var(--theme-elevation-300) !important;
-  left: 0px !important;
+  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
 }
 
 .gjs-selected {
-  outline: 4px solid var(--theme-primary) !important;
-  outline-offset: -4px !important;
+  outline: 2px solid var(--theme-primary) !important;
+  outline-offset: -2px !important;
 }
 
 .gjs-sm-properties {
@@ -61,11 +54,11 @@ $fontName: "proximanova-bold-webfont";
   font-size: 1rem !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  background-color: var(--theme-elevation-0)
+  background-color: #fff !important;
 }
 
 .gjs-pn-commands {
-  width: 20% !important;
+  width: 100% !important;
 }
 
 .gjs-layer-vis {
@@ -85,10 +78,12 @@ $fontName: "proximanova-bold-webfont";
   color: var(--theme-text) !important;
   font-size: 1rem !important;
   height: 4rem !important;
-  background-color: var(--theme-bg) !important;
+  // background-color: var(--theme-bg) !important;
+  background-color: #fff !important;
   flex-direction: row-reverse !important;
   justify-content: start !important;
-  border-bottom: 2px solid var(--theme-elevation-50) !important
+  border-bottom: 1px solid #d3dbe3 !important;
+  // border-bottom: 2px solid var(--theme-elevation-50) !important
 }
 
 .gjs-sm-field input,
@@ -109,9 +104,9 @@ $fontName: "proximanova-bold-webfont";
   padding: 0.5rem !important;
   border-radius: 4px !important;
   margin: 2px !important;
-  box-shadow: 1px 1px 0 0 var(--theme-elevation-100) !important;
-  background-color: var(--theme-bg) !important;
-  color: var(--theme-primary) !important;
+  box-shadow: 1px 1px 0 0 rgba(97, 97, 97, 0.3) !important;
+  background-color: #f1f3f5 !important;
+  color: var(--theme-primary);
 }
 
 .gjs-blocks-c {
@@ -171,11 +166,9 @@ $fontName: "proximanova-bold-webfont";
   left: 20% !important;
 }
 
-// .gjs-pn-views-container {
-//   left: 0;
-// }
-
-
+.gjs-pn-views-container {
+  left: 0;
+}
 
 .gjs-traits-label {
   font-weight: 600 !important;
@@ -188,6 +181,7 @@ $fontName: "proximanova-bold-webfont";
 // .gjs-pn-buttons{
 // display: none !important;
 // }
+//
 // --------------------------------------------------------//
 // ----------------global theme setting -------------------//
 // --------------------------------------------------------//
@@ -207,7 +201,7 @@ $fontName: "proximanova-bold-webfont";
   display: block !important;
 
   .gjs-sm-composite {
-    border: 0.1rem solid var(--theme-elevation-200) !important;
+    border: 1px solid rgb(255 255 255 / 25%) !important;
   }
 }
 
@@ -255,8 +249,8 @@ $fontName: "proximanova-bold-webfont";
   width: 100%;
   height: 3px;
   cursor: pointer;
-  background: var(--theme-bg);
-  border: 0px solid var(--theme-elevation-100);
+  background: #cacaca;
+  border: 0px solid #000101;
 }
 
 .gjs-field-range input[type="range"]::-webkit-slider-thumb {
@@ -265,16 +259,19 @@ $fontName: "proximanova-bold-webfont";
   border-radius: 100px;
   cursor: pointer;
   -webkit-appearance: none;
-  background: var(--theme-primary) !important;
+  background: #48a3d7 !important;
   border: none;
 }
 
+.currentColor {
+  currentcolor: #d0d0d0 !important;
+}
 
 .gjs-select {
   .gjs-sel-arrow {
     .gjs-d-s-arrow {
       border-left: 4px solid transparent;
-      border-top: 5px solid var(--theme-elevation-150);
+      border-top: 5px solid rgba(0, 0, 0, 0.7);
     }
   }
 }
@@ -295,10 +292,10 @@ $fontName: "proximanova-bold-webfont";
   }
 }
 
-.gjs-sm-sector-title {
-  position: relative !important;
-  padding: 9px 10px 9px 15px !important;
-}
+// .gjs-sm-sector-title {
+//   position: relative !important;
+//   padding: 9px 10px 9px 15px !important;
+// }
 
 .gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg") !important;
@@ -309,9 +306,34 @@ $fontName: "proximanova-bold-webfont";
   content: "";
 }
 
+.gjs-block {
+  .gjs-block-label {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+  }
+
+  .gjs-block__media svg {
+    height: 45px !important;
+  }
+}
+
+.gjs-sm-sector-title {
+  position: relative !important;
+  padding: 9px 10px 9px 15px !important;
+}
+
+.gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg");
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
+
 .gjs-sm-sector__global_fonts_collection .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg") !important;
-  background-size: 100%;
+  background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg");
+  background-size: 100% 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -370,4 +392,96 @@ $fontName: "proximanova-bold-webfont";
   height: 16px;
   background-repeat: no-repeat;
   content: "";
+}
+
+.gjs-sm-sector__design_system,
+.gjs-sm-sector__theme_styles {
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+
+  .gjs-sm-sector-title {
+    cursor: default;
+    background-color: #f1f3f5 !important;
+  }
+
+  .gjs-sm-sector-label {
+    font-size: 15px !important;
+    text-transform: uppercase !important;
+  }
+
+  .gjs-sm-sector-caret {
+    display: none;
+  }
+
+  .gjs-sm-properties {
+    display: none;
+  }
+
+  &.gjs-sm-open {
+    border-bottom: none !important;
+  }
+}
+
+.gjs-pn-global-style {
+  height: 100%;
+  width: 360px;
+
+  .gjs-sm-sector-title {
+    .gjs-sm-sector-label {
+      font-size: 16px;
+      letter-spacing: .1px;
+    }
+  }
+
+  .gjs-sm-sector-caret {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+
+    svg {
+      color: #bcbec4;
+    }
+  }
+}
+
+.gjs-sm-clear {
+  svg {
+    vertical-align: top;
+  }
+}
+
+.gjs-pn-save {
+  background-color: #4ba4da !important;
+
+  .gjs-pn-btn {
+    color: #fff !important;
+  }
+}
+
+
+.change-theme-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.change-theme-button:focus {
+  /* background-color: yellow; */
+  outline: none;
+  box-shadow: 0 0 0 2pt #c5c5c575;
+}
+
+
+/* Make blocks full width */
+.gjs-block {
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: auto !important;
+}
+
+/* Fit icons properly */
+.gjs-block svg {
+  width: 100%;
 }

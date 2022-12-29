@@ -61,19 +61,23 @@ const DesignSystem: React.FC = () => {
       container: '#gjs',
       height: '0%',
       fromElement: true,
+      showOffsets: true,
+      noticeOnUnload: 2,
+
       storageManager: {
-        type: 'local',
+        type: 'indexeddb',
         autosave: true,
         autoload: true,
-
         stepsBeforeSave: 2,
         options: {
           storeCss: true,
           storeStyles: true,
           storeHtml: true,
           storeComponents: true,
+
           local: {
             key: 'gts',
+            checkLocal: true,
           },
         },
       },
@@ -126,8 +130,11 @@ const DesignSystem: React.FC = () => {
 
       styleManager: {
         appendTo: '.styles-container',
-        hideNotStylable: false,
         sectors: [
+          {
+            name: 'DESIGN SYSTEM',
+            open: false,
+          },
           {
             name: 'Global Colors Collection',
             open: !showTheme ? true : false,
@@ -138,21 +145,16 @@ const DesignSystem: React.FC = () => {
                 name: 'Primary',
                 property: 'background-color',
                 default: '#e6e6e6',
-                attributes: {
-                  'data-type': 'background-color',
-                },
               },
               {
                 type: 'color',
                 name: 'Secondary',
                 property: 'color',
                 default: '#4aa4da',
-                attributes: {
-                  'data-type': 'color',
-                },
               },
             ],
           },
+
           {
             name: 'Global Fonts Collection',
             open: !showTheme ? true : false,
@@ -178,8 +180,6 @@ const DesignSystem: React.FC = () => {
               {
                 type: 'slider',
                 name: 'Font Size',
-                ResizeObserverSize: 'font-size',
-                ResizeObserver: true,
                 property: 'font-size',
                 units: ['px', 'rem'],
               },
@@ -195,7 +195,7 @@ const DesignSystem: React.FC = () => {
                 type: 'slider',
                 name: 'Letter Spacing',
                 property: 'letter-spacing',
-                default: '0 px',
+                default: 0,
                 units: ['px', 'rem'],
               },
               {
@@ -205,7 +205,7 @@ const DesignSystem: React.FC = () => {
                 property: 'line-height',
                 ResizeObserver: true,
                 default: '1',
-                units: ['px', 'em', 'rem'],
+                units: ['px', 'rem'],
               },
               {
                 type: 'select',
@@ -259,57 +259,8 @@ const DesignSystem: React.FC = () => {
           },
 
           {
-            name: 'Theme Style',
+            name: 'THEME STYLE',
             open: false,
-            buildProps: ['border-radius', 'border', 'box-shadow'],
-            properties: [
-              {
-                type: 'integer',
-                name: 'Border Radius',
-                property: 'border-radius',
-                default: '0',
-                units: ['px', '%'],
-              },
-              {
-                type: 'integer',
-                name: 'Border Width',
-                property: 'border-width',
-                default: '0',
-                units: ['px', '%'],
-              },
-              {
-                type: 'select',
-                name: 'Border Style',
-                property: 'border-style',
-                default: 'solid',
-                options: [
-                  { value: 'solid', name: 'Solid' },
-                  { value: 'dotted', name: 'Dotted' },
-                  { value: 'dashed', name: 'Dashed' },
-                  { value: 'double', name: 'Double' },
-                  { value: 'groove', name: 'Groove' },
-                  { value: 'ridge', name: 'Ridge' },
-                  { value: 'inset', name: 'Inset' },
-                  { value: 'outset', name: 'Outset' },
-                  { value: 'none', name: 'None' },
-                  { value: 'hidden', name: 'Hidden' },
-                ],
-              },
-
-              {
-                type: 'select',
-                name: 'Box Shadow',
-                property: 'box-shadow',
-                default: 'none',
-                options: [
-                  { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
-                ],
-              },
-            ],
-            active: false,
           },
           {
             name: 'Buttons',
@@ -321,7 +272,6 @@ const DesignSystem: React.FC = () => {
               'text-color',
               'background-color',
               'border',
-
               'padding',
             ],
             properties: [
@@ -337,17 +287,14 @@ const DesignSystem: React.FC = () => {
               {
                 type: 'select',
                 name: 'Font Family',
-                property: 'button-font-family',
+                property: 'font-family',
 
                 options: fontsList,
-                attributes: {
-                  'data-type': 'font-family',
-                },
               },
               {
                 type: 'select',
                 name: 'Text Shadow',
-                property: 'button-text-shadow',
+                property: 'text-shadow',
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
@@ -355,18 +302,12 @@ const DesignSystem: React.FC = () => {
                   { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
                   { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
                 ],
-                attributes: {
-                  'data-type': 'text-shadow',
-                },
               },
               {
                 type: 'color',
                 name: 'Text Color',
-                property: 'text-color',
+                property: 'color',
                 default: '#4aa4da',
-                attributes: {
-                  'data-type': 'color',
-                },
               },
               {
                 type: 'color',
@@ -374,9 +315,6 @@ const DesignSystem: React.FC = () => {
                 name: 'Background Color',
                 property: 'background-color',
                 default: '#4aa4da',
-                attributes: {
-                  'data-type': 'background-color',
-                },
               },
 
               {
@@ -405,9 +343,6 @@ const DesignSystem: React.FC = () => {
                 name: 'Border Color',
                 property: 'border-color',
                 default: '#4aa4da',
-                attributes: {
-                  'data-type': 'border-color',
-                },
               },
               {
                 type: 'slider',
@@ -478,8 +413,8 @@ const DesignSystem: React.FC = () => {
                 type: 'integer',
                 name: 'Background Position',
                 property: 'background-position',
-                default: 'X Y',
-                units: ['px', 'em', 'rem'],
+                default: '0 0',
+                units: ['px', 'rem'],
               },
             ],
           },
@@ -565,7 +500,7 @@ const DesignSystem: React.FC = () => {
               {
                 type: 'color',
                 name: 'Color',
-                property: 'text-color',
+                property: 'color',
                 default: '#4a5162',
               },
               {
@@ -637,7 +572,24 @@ const DesignSystem: React.FC = () => {
 
     setEditor(editor);
     editor.onReady((clb) => {
-      editor.Canvas.getBody().style.backgroundColor = '#fff';
+      console.log('Editor is ready');
+      editor.StyleManager.addType('input-text', {
+        create: function (prop) {
+          console.log(prop);
+          var input = document.createElement('input');
+          input.type = 'text';
+          input.value = prop.get();
+          input.onchange = function (e) {
+            prop.set(e.target.value);
+          };
+          return input;
+        },
+        update: function (prop, el) {
+          el.value = prop.get();
+        },
+      });
+
+      // Use `$${var}` to avoid escaping
     });
   }, [setEditor]);
 

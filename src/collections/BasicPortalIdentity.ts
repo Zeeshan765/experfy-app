@@ -1,4 +1,4 @@
-import {
+ import {
   CollectionBeforeChangeHook,
   CollectionBeforeReadHook,
   CollectionConfig,
@@ -33,6 +33,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       hasMany: false,
       // required: true,
       // required: true,
+    
     },
     {
       label: "Portal Name",

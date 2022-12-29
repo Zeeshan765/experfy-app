@@ -41,5 +41,6 @@ const ClassSwitch: React.FC<Type> = ({ ...props }) => {
       </Stack>
     </FormGroup>
   );
-};
+}
+
 export default ClassSwitch;

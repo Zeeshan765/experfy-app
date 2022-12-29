@@ -1,162 +1,157 @@
-import React from 'react';
+import React from "react";
 import {
-  default as card1,
-  default as card10,
-  default as card11,
-  default as card12,
-  default as card13,
-  default as card14,
-  default as card15,
-  default as card16,
-  default as card17,
-  default as card2,
-  default as card3,
-  default as card4,
-  default as card5,
-  default as card6,
-  default as card7,
-  default as card8,
-  default as card9,
-} from '../assets/images/sections/images.png';
-import { Modal } from '@faceless-ui/modal';
+  header,
+  footer,
+  custom_build,
+  video,
+  image_and_text,
+  image_banner,
+  image_gallery,
+  benefits,
+  departments,
+  guidelines,
+  location,
+  metrics_numbers,
+  paragraph,
+  practice_areas,
+  talent_cloud_candidates,
+  testimonial,
+} from "../assets/images";
+import { Link } from "react-router-dom";
+import { Grid } from "@material-ui/core";
+import FaceLessModel from "./Model";
 const SectionTemplate = () => {
   const templateList = [
     {
       id: 1,
-      image: card2,
-      link: '/admin/collections/page-builder',
-      name: 'Header',
+      image: custom_build,
+      link: "/admin/collections/page-builder",
+      name: "custom build",
     },
     {
       id: 2,
-      image: card1,
-      link: '/admin',
-      name: 'Footer',
+      image: header,
+      link: "/admin/collections/header",
+      name: "Header",
     },
     {
       id: 3,
-      image: card3,
-      link: '/admin',
-      name: 'Image Banner',
+      image: footer,
+      link: "/admin/collections/footer",
+      name: "Footer",
     },
     {
       id: 4,
-      image: card4,
-      link: '/admin',
-      name: 'Benefits',
+      image: image_and_text,
+      link: "/admin/collections/image_and_text",
+      name: "image and text",
     },
     {
       id: 5,
-      image: card5,
-      link: '/admin',
-      name: 'content',
+      image: video,
+      link: "/admin/collections/video",
+      name: "video",
     },
     {
       id: 6,
-      image: card6,
-      link: '/admin',
-      name: 'Department',
+      image: benefits,
+      link: "/admin/collections/benefits",
+      name: "benefits",
     },
     {
       id: 7,
-      image: card7,
-      link: '/admin',
-      name: 'Guidelines',
+      image: image_banner,
+      link: "/admin/collections/image_banner",
+      name: "image banner",
     },
     {
       id: 8,
-      image: card8,
-      link: '/admin',
-      name: 'Images',
+      image: image_gallery,
+      link: "/admin/collections/image_gallery",
+      name: "image gallery",
     },
     {
       id: 9,
-      image: card9,
-      link: '/admin',
-      name: 'Jobs',
+      image: departments,
+      link: "/admin/collections/departments",
+      name: "departments",
     },
     {
       id: 10,
-      image: card10,
-      link: '/admin',
-      name: 'Location',
+      image: guidelines,
+      link: "/admin/collections/guidelines",
+      name: "guidelines",
     },
     {
       id: 11,
-      image: card11,
-      link: '/admin',
-      name: 'Metrics',
+      image: location,
+      link: "/admin/collections/location",
+      name: "location",
     },
     {
       id: 12,
-      image: card12,
-      link: '/admin',
-      name: 'Paragraph',
+      image: metrics_numbers,
+      link: "/admin/collections/metrics_numbers",
+      name: "metrics numbers",
     },
     {
       id: 13,
-      image: card13,
-      link: '/admin',
-      name: 'Practice_areas',
+      image: paragraph,
+      link: "/admin/collections/paragraph",
+      name: "paragraph",
     },
     {
       id: 14,
-      image: card14,
-      link: '/admin',
-      name: 'Talent Clouds',
+      image: practice_areas,
+      link: "/admin/collections/practice_areas",
+      name: "practice areas",
     },
     {
       id: 15,
-      image: card15,
-      link: '/admin',
-      name: 'Testimonial',
+      image: talent_cloud_candidates,
+      link: "/admin/collections/talent_cloud_candidates",
+      name: "talent cloud candidates",
     },
     {
       id: 16,
-      image: card16,
-      link: '/admin',
-      name: 'Video',
-    },
-    {
-      id: 17,
-      image: card17,
-      link: '/admin',
-      name: 'Talent Clouds',
+      image: testimonial,
+      link: "/admin/collections/testimonial",
+      name: "testimonial",
     },
   ];
   return (
-    <div>
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-evenly',
-        }}
-      >
-        {templateList.map(({ id, image, name, link }) => {
-          return (
-            <div>
-              {/* <Link to={link} > */}
-              <div
-                key={id}
-                style={{
-                  width: '200px',
-                  boxShadow: '1px 1px 3px 0px #000000',
-                  margin: '16px 8px ',
-                  borderRadius: '6px',
-                  objectFit: 'contain',
-                  padding: '2px',
-                }}
-              >
-                <img src={image} alt={name} style={{ width: '100%' }} />
-              </div>
-
-              <Modal title={name} slug={'show-sections'}></Modal>
-              {/* </Link>  */}
-            </div>
-          );
-        })}
+    <div style={{}}>
+      <div style={{ width: "100%", margin: "auto",padding:'0 3rem' }}>
+        <p style={{ margin: 0, fontSize: "16px", fontWeight: "600",marginTop:'8px' }}>
+          Start customizing your portal
+        </p>
       </div>
+      <Grid
+         container spacing={2} 
+         style={{margin:'auto',width:'95%'}}
+          
+        >
+        {templateList.map(({ id, image, name, link }) => (
+          <Grid item sm={3} alignItems="center">
+            <Link to={link} >
+            <div
+              key={id}
+              style={{
+                width: "100%",
+                boxShadow: "0px 0.5px 2px -1px #000000",
+                // margin: "16px 8px ",
+                borderRadius: "6px",
+                objectFit: "contain",
+                padding: "2px",
+              }}
+            >
+              <img src={image} alt={name} style={{ width: "100%" }} />
+            </div>
+            {/* <FaceLessModel data={{ id, image, name }} /> */}
+            </Link> 
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 };

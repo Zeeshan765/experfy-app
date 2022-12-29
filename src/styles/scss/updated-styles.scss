@@ -351,6 +351,7 @@ p {
   &>.eyebrow {
     &:first-child {
       padding: 1.75rem 2rem !important;
+      background-color: #fff !important;
 
       .eyebrow__wrap {
         &.gutter--left {
@@ -426,7 +427,7 @@ p {
   }
 
   &__collection-actions {
-    display: none !important;
+    // display: block !important;
   }
 
   &__document-actions {
@@ -445,9 +446,9 @@ p {
 
 // Render Fields
 
-.render-fields {
-  .radio-group--layout-horizontal {}
-}
+// .render-fields {
+
+// }
 
 // Sidebar
 
@@ -717,4 +718,24 @@ p {
     border-bottom: 1px solid #d3dbe3 !important;
     padding: 8px 0;
   }
+}
+
+// Group Fields
+
+.group-field {
+  &--within-collapsible {
+    margin-top: 0 !important;
+  }
+
+  .group-field__title {
+    font-size: 20px;
+  }
+}
+
+// Upload Card 
+
+.upload-card {
+  .thumbnail {}
+
+  &__filename {}
 }
