@@ -1,15 +1,8 @@
-import { useConfig } from "payload/components/utilities";
-import React from "react";
-import { NavLink } from "react-router-dom";
-import MediaLibraryIcon from "../../../assets/images/sidebar/media_library.svg";
-import MenusIcon from "../../../assets/images/sidebar/menus.svg";
-import PagesIcon from "../../../assets/images/sidebar/pages.svg";
-import PortalIdentityIcon from "../../../assets/images/sidebar/portal_identity.svg";
-import TemplateLibraryIcon from "../../../assets/images/sidebar/template_library.svg";
-import ThemesIcon from "../../../assets/images/sidebar/themes.svg";
-import UsersIcon from "../../../assets/images/sidebar/users.svg";
-
-const baseClass = "nav-group";
+import { useConfig } from 'payload/components/utilities';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+  
+const baseClass = 'nav-group';
 
 const AfterNav: React.FC = () => {
   const {

@@ -28,7 +28,7 @@ export const source = `
    <div class="container mx-auto flex flex-wrap flex-col md:flex-row items-center space-x-4 space-y-4">
       <div class="box-icon" style="
          height:175px;
-         width:160px
+         width:160px;
          text-align: center;
          min-height: 4.5rem;
          align-items: center;
@@ -155,7 +155,7 @@ export const source = `
 
       <div class="box-icon" style="
          height:175px;
-         width:160px
+         width:160px;
          text-align: center;
          min-height: 4.5rem;
          align-items: center;
@@ -263,7 +263,7 @@ export const source = `
 
       <div class="box-icon" style="
          height:175px;
-         width:160px
+         width:160px;
          text-align: center;
          min-height: 4.5rem;
          align-items: center;
@@ -303,7 +303,7 @@ export const source = `
 
       <div class="box-icon" style="
                height:175px;
-               width:160px
+               width:160px;
                text-align: center;
                min-height: 4.5rem;
                align-items: center;
@@ -414,7 +414,7 @@ export const source = `
 
             <div class="box-icon" style="
             height:175px;
-            width:160px
+            width:160px;
             text-align: center;
             min-height: 4.5rem;
             align-items: center;
@@ -454,7 +454,7 @@ export const source = `
 
             <div class="box-icon" style="
             height:175px;
-            width:160px
+            width:160px;
             text-align: center;
             min-height: 4.5rem;
             align-items: center;
@@ -506,7 +506,7 @@ export const source = `
                <div class="box-icon" style="
                height:175px;
                height:175px;
-               width:160px
+               width:160px;
                text-align: center;
                min-height: 4.5rem;
                align-items: center;
@@ -538,7 +538,7 @@ export const source = `
 
           <div class="box-icon" style="
            height:175px;
-            width:160px
+            width:160px;
             text-align: center;
             min-height: 4.5rem;
             align-items: center;
@@ -580,7 +580,7 @@ export const source = `
 
          <div class="box-icon" style="
          height:175px;
-            width:160px
+            width:160px;
             text-align: center;
             min-height: 4.5rem;
             align-items: center;
@@ -633,7 +633,7 @@ export const source = `
 
 <div class="box-icon" style="
 height:175px;
-            width:160px
+            width:160px;
             text-align: center;
             min-height: 4.5rem;
             align-items: center;
@@ -714,7 +714,7 @@ background-color: #fff" >
 
 <div class="box-icon" style="
 height:175px;
-            width:160px
+            width:160px;
             text-align: center;
             min-height: 4.5rem;
             align-items: center;
