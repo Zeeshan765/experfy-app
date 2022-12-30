@@ -266,31 +266,31 @@ $fontName: "proximanova-bold-webfont";
 // -------- new page builder layers manager -----------
 // ----------------------------------------------------
 .gjs-layer {
-    .gjs-layer-vis {
-        right: 50px !important;
-        top: 20px !important;
-        left: auto !important;
-    }
+  .gjs-layer-vis {
+    right: 50px !important;
+    top: 20px !important;
+    left: auto !important;
+  }
 
     .gjs-layer-count {
         display: none !important;
     }
 
-    .gjs-one-bg {
-        .gjs-layer-title {
-            padding: 18px 0px 18px 50px !important;
-            margin: 5px 15px !important;
-            border: 1px solid #d5dbe0 !important;
-            height: auto !important;
-            border-radius: 5px !important;
-            position: relative !important;
-            font-weight: 600 !important;
-            font-size: 15px !important;
-            background-color: #fff !important;
-            display: flex !important;
-            align-items: center !important;
-            letter-spacing: 1px;
-            text-align: left;
+  .gjs-one-bg {
+    .gjs-layer-title {
+      padding: 18px 0px 18px 50px !important;
+      margin: 5px 15px !important;
+      border: 1px solid #d5dbe0 !important;
+      height: auto !important;
+      border-radius: 5px !important;
+      position: relative !important;
+      font-weight: 600 !important;
+      font-size: 15px !important;
+      background-color: #fff !important;
+      display: flex !important;
+      align-items: center !important;
+      letter-spacing: 1px;
+      text-align: left;
 
             .gjs-layer-title-inn {
                 .gjs-no-app {

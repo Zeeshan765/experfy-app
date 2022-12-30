@@ -1,4 +1,4 @@
-import {
+ import {
   CollectionBeforeChangeHook,
   CollectionBeforeReadHook,
   CollectionConfig,

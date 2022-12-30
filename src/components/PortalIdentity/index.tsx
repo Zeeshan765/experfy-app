@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     '& .MuiTab-root': {
       fontSize: '20px',
       fontWeight: 500,
-      fontFamily: 'proxima-nova',
+      fontFamily: "proxima-nova",
       letterSpacing: '.1px',
       textTransform: 'none',
       paddingLeft: 0,
@@ -32,15 +32,15 @@ const useStyles = makeStyles({
       maxWidth: '360px',
       color: '#4ba4da',
       '&.Mui-selected': {
-        color: '#4a5162',
-      },
+        color: '#4a5162'
+      }
     },
     '& .MuiTabs-indicator': {
       height: '4px',
       borderRadius: '2px',
-      backgroundColor: '#4a5162',
-    },
-  },
+      backgroundColor: '#4a5162'
+    }
+  }
 });
 
 function TabPanel(props) {

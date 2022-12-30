@@ -223,215 +223,68 @@ const NewPageBuilder = () => {
         defaults: {
           traits: [
             {
-              type: 'input-next',
-              name: 'input',
-              label: 'New input',
+              type: 'text',
+              name: 'text-title',
+              label: 'Title',
+              placeholder: 'Enter your title ',
+              className: 'custom-text',
             },
-          ],
-        },
-      },
-    });
-
-    editor.TraitManager.addType('input-next', {
-      noLabel: true,
-
-      // Return a simple HTML string or an HTML element
-      createInput({ trait }) {
-        // Create a new element container add some content
-        const el = document.createElement('div');
-        el.innerHTML = ` <input class="href-next__url" placeholder="Insert Your Text Here" id="self-inner-test" ref=testRef  />`;
-
-        // Let's make our content alive
-
-        const inputsUrl = el.querySelector('.href-next__url');
-        inputsUrl.addEventListener('change', (ev) => {
-          //@ts-ignore
-          console.log('ev.target.value==============', ev.target.value);
-          // switch (ev.target.value) {
-          //   case 'url':
-          //     //@ts-ignore
-          //     inputsUrl.style.display = '';
-          //     //@ts-ignore
-          //     inputsEmail.style.display = 'none';
-          //     break;
-          //   case 'email':
-          //     //@ts-ignore
-          //     inputsUrl.style.display = 'none';
-          //     //@ts-ignore
-          //     inputsEmail.style.display = '';
-          //     break;
-          // }
-        });
-
-        return el;
-      },
-
-      // Update the component based element changes
-      onEvent({ elInput, component }) {
-        // `elInput` is the result HTMLElement you get from `createInput`
-        // const inputType = elInput.querySelector('.href-next__url');
-        // let href = '';
-        //@ts-ignore
-
-        const value = elInput.querySelector('.href-next__url').value;
-        console.log('newVal=============', value);
-
-        // switch (inputType.value) {
-        //   case 'url':
-        //     //@ts-ignore
-        //     const valUrl = elInput.querySelector('.href-next__url').value;
-        //     href = valUrl;
-        //     break;
-        //   case 'email':
-        //     //@ts-ignore
-        //     const valEmail = elInput.querySelector('.href-next__email').value;
-        //     //@ts-ignore
-        //     const valSubj = elInput.querySelector(  '.href-next__email-subject').value;
-        //     href = `mailto:${valEmail}${valSubj ? `?subject=${valSubj}` : ''}`;
-        //     break;
-        //     default:
-        //       const value = elInput.querySelector('href-next__url-inputs').value;
-        // }
-
-        component.addAttributes({ value });
-      },
-
-      onUpdate({ elInput, component }) {
-        console.log('component', component);
-        const newVal = component.getAttributes().value || '';
-        const inputType = elInput.querySelector('.href-next__url');
-
-        //  let type = 'url';
-        console.log('Show', newVal);
-
-        //   if (href.indexOf('mailto:') === 0) {
-        //     const inputEmail = elInput.querySelector('.href-next__email');
-        //     const inputSubject = elInput.querySelector(
-        //       '.href-next__email-subject'
-        //     );
-        //     const mailTo = href.replace('mailto:', '').split('?');
-        //     const email = mailTo[0];
-        //     const params = (mailTo[1] || '').split('&').reduce((acc, item) => {
-        //       const items = item.split('=');
-        //       acc[items[0]] = items[1];
-        //       return acc;
-        //     }, {});
-        //     type = 'email';
-        //     //@ts-ignore
-        //     inputEmail.value = email || '';
-        //     //@ts-ignore
-        //     inputSubject.value = params.subject || '';
-        //   } else {
-        //     //@ts-ignore
-        //     elInput.querySelector('.href-next__url').value = href;
-        //   }
-        //   //@ts-ignore
-        //   inputType.value = type;
-        //   inputType.dispatchEvent(new CustomEvent('change'));
-        // },
-      },
-    });
-
-    editor.DomComponents.addType('test', {
-      model: {
-        init() {
-          this.listenTo(this, 'change:attributes:linkTitle', () =>
-            console.log('linkTitle', this.getAttributes()['linkTitle'])
-          );
-        },
-        defaults: {
-          attributes: {
-            linkTitle: '',
-          },
-          style: {
-            padding: '25px',
-            margin: '25px',
-          },
-          traits: [
             {
               type: 'text',
-              name: 'linkTitle',
-              changeProp: false,
-              label: 'Link Title',
+              name: 'text-link',
+              label: 'Link',
+              placeholder: 'Paste URL or Type ',
+              class: 'custom-link',
+            },
+            {
+              type: 'select',
+              name: 'text-size',
+              label: 'Size',
+              default: 'default',
+              options: [
+                { id: 'default', name: 'Default' },
+                { id: 'small', name: 'Small' },
+                { id: 'medium', name: 'Medium' },
+                { id: 'large', name: 'Large' },
+                { id: 'xl', name: 'XL' },
+                { id: 'xxl', name: 'XXL' },
+              ],
+            },
+
+            {
+              type: 'select',
+              name: 'text-html-tag',
+              label: 'HTML Tag',
+              default: 'h1',
+              options: [
+                { id: 'h1', name: 'H1' },
+                { id: 'h2', name: 'H2' },
+                { id: 'h3', name: 'H3' },
+                { id: 'h4', name: 'H4' },
+                { id: 'h5', name: 'H5' },
+                { id: 'h6', name: 'H6' },
+                { id: 'div', name: 'div' },
+                { id: 'span', name: 'span' },
+                { id: 'p', name: 'p' },
+              ],
+            },
+            {
+              type: 'select',
+              name: 'text-alignment',
+              label: 'Alignment',
+              default: 'left',
+              options: [
+                { id: 'left', name: 'Left' },
+                { id: 'center', name: 'Center' },
+                { id: 'right', name: 'Right' },
+                { id: 'justified', name: 'Justified' },
+              ],
             },
           ],
         },
       },
-      view: {
-        init() {
-          const oldValue = this.model.getAttributes()['linkTitle'];
-          console.log('linkTitle2: ', oldValue);
-          this.model.addAttributes({ linkTitle: oldValue + ' Changed!' });
-        },
-      },
     });
 
-    // editor.DomComponents.addType('text', {
-    //   model: {
-    //     defaults: {
-    //       traits: [
-    //         {
-    //           type: 'text',
-    //           name: 'text-title',
-    //           label: 'Title',
-    //           placeholder: 'Enter your title ',
-    //           className: 'custom-text',
-    //         },
-    //         {
-    //           type: 'text',
-    //           name: 'text-link',
-    //           label: 'Link',
-    //           placeholder: 'Paste URL or Type ',
-    //           class: 'custom-link',
-    //         },
-    //         {
-    //           type: 'select',
-    //           name: 'text-size',
-    //           label: 'Size',
-    //           default: 'default',
-    //           options: [
-    //             { id: 'default', name: 'Default' },
-    //             { id: 'small', name: 'Small' },
-    //             { id: 'medium', name: 'Medium' },
-    //             { id: 'large', name: 'Large' },
-    //             { id: 'xl', name: 'XL' },
-    //             { id: 'xxl', name: 'XXL' },
-    //           ],
-    //         },
-
-    //         {
-    //           type: 'select',
-    //           name: 'text-html-tag',
-    //           label: 'HTML Tag',
-    //           default: 'h1',
-    //           options: [
-    //             { id: 'h1', name: 'H1' },
-    //             { id: 'h2', name: 'H2' },
-    //             { id: 'h3', name: 'H3' },
-    //             { id: 'h4', name: 'H4' },
-    //             { id: 'h5', name: 'H5' },
-    //             { id: 'h6', name: 'H6' },
-    //             { id: 'div', name: 'div' },
-    //             { id: 'span', name: 'span' },
-    //             { id: 'p', name: 'p' },
-    //           ],
-    //         },
-    //         {
-    //           type: 'select',
-    //           name: 'text-alignment',
-    //           label: 'Alignment',
-    //           default: 'left',
-    //           options: [
-    //             { id: 'left', name: 'Left' },
-    //             { id: 'center', name: 'Center' },
-    //             { id: 'right', name: 'Right' },
-    //             { id: 'justified', name: 'Justified' },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
     //Trait for Map
     editor.DomComponents.addType('map', {
       model: {
@@ -949,94 +802,6 @@ const NewPageBuilder = () => {
         },
       },
     });
-
-    // editor.DomComponents.addType('text', {
-    //   model: {
-    //     defaults: {
-    //       traits: [
-    //         {
-    //           type: 'text',
-    //           name: 'text_id',
-    //           label: 'Id',
-    //           placeholder: 'Enter your Id ',
-    //           className: 'custom-text',
-    //         },
-    //         {
-    //           type: 'text',
-    //           name: 'text_title',
-    //           label: 'Title',
-    //           placeholder: 'Enter your title ',
-    //           className: 'custom-text',
-    //         },
-    //       ],
-    //     },
-
-    //     init() {
-    //       this.on('change:attributes', this.updateAttributes);
-    //     },
-    //     updateAttributes() {
-    //       console.log('input changed', this.getAttributes());
-    //       //@ts-ignore
-    //       const { id, text_id, text_title } = this.getAttributes();
-
-    //       console.log('-----------------');
-
-    //       console.log('id', id);
-    //       console.log('text_id', text_id);
-    //       console.log('text_title', text_title);
-    //       console.log('------------------');
-
-    //       const div = document.getElementById(id);
-    //       console.log('div', div);
-    //       // // ✅ Change (replace) the text of the element
-    //       div.textContent = text_title;
-
-    //       // // ✅ Change (replace) the content with HTML
-    //       // div.innerHTML = `<span style="background-color: lime">Replacement HTML</span>`;
-    //     },
-    //   },
-    // });
-
-    const component = editor?.getSelected(); // Component selected in canvas
-    const traits = component?.get('traits');
-    // console.log('traits', traits);
-
-    // traits?.forEach((trait) => console.log(trait.props()));
-
-    // editor.TraitManager.addType('text', {
-    //   // ...
-
-    //   // Update the component based on element changes
-    //   // `elInput` is the result HTMLElement you get from `createInput`
-    //   onEvent({ elInput, component, event }) {
-    //     // console.log('elInput, component, event', elInput, component, event);
-    //     const inputType = elInput.querySelector('.footer_huk');
-    //     console.log('inputType', inputType);
-
-    //     let href = '';
-
-    //     switch (inputType.value) {
-    //       case 'url':
-    //         const valUrl = elInput.querySelector('.href-next__url').value;
-    //         href = valUrl;
-    //         break;
-    //       case 'email':
-    //         const valEmail = elInput.querySelector('.href-next__email').value;
-    //         const valSubj = elInput.querySelector(
-    //           '.href-next__email-subject'
-    //         ).value;
-    //         href = `mailto:${valEmail}${valSubj ? `?subject=${valSubj}` : ''}`;
-    //         break;
-    //     }
-
-    //     component.addAttributes({ href });
-    //   },
-
-    //   onUpdate({ elInput, component }) {
-    //     console.log('   ', elInput, component);
-    //   },
-    // });
-    setElementCreate(true);
   }, [setEditorState]);
   console.log('document.activeElement', document.activeElement.tagName);
 

@@ -1,16 +1,10 @@
 import React from "react";
-import { useGetMediaQuery } from "../../reducer/features/services";
 import PageTheme from "../pagebuilderTemplate";
 import PageTemplate from "../PageTemplate";
 import SectionTemplate from "../SectionTempate";
 
 const TemplatesLibrary = () => {
   const [template, setTemplate] = React.useState("Pages");
-  
-  //@ts-ignore
-  // const{data,isLoading}=useGetMediaQuery();
-  // const {data}=useGetByIdQuery(1);
-  // console.log("list data============",data);
   
   return (
     <div style={{ background: "#fff" }}>
