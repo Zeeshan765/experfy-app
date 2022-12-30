@@ -684,7 +684,6 @@ p {
 }
 
 .Global {
-
   #nav-design-system,
   #nav-themes {
     display: flex;
@@ -693,24 +692,22 @@ p {
   }
 
   #nav-design-system {
-
     &:hover,
     &:focus,
     &.active {
       &:before {
         background-image: url("/src/assets/images/sidebar/design_system_active.svg") !important;
-      }
+      }  
     }
   }
 
   #nav-themes {
-
     &:hover,
     &:focus,
     &.active {
       &:before {
         background-image: url("/src/assets/images/sidebar/theme_style_active.svg") !important;
-      }
+      }  
     }
   }
 

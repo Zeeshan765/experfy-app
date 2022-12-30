@@ -14,7 +14,7 @@ $fontName: "proximanova-bold-webfont";
 
 .editor-canvas {
   flex-grow: 1;
-  background-color: #f1f3f5;
+  background-color: var(--theme-bg);
 }
 
 .editor-row {
@@ -24,8 +24,7 @@ $fontName: "proximanova-bold-webfont";
   flex-wrap: nowrap;
   height: 100%;
 }
-
-
+  
 .gjs-cv-canvas {
   width: 80% !important;
 }
@@ -40,7 +39,8 @@ $fontName: "proximanova-bold-webfont";
 .gjs-pn-views-container {
   width: 20% !important;
   overflow: auto;
-  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
+  box-shadow: 0rem 0rem 1rem var(--theme-elevation-300) !important;
+  left: 0px !important;
 }
 
 .gjs-selected {
@@ -54,7 +54,7 @@ $fontName: "proximanova-bold-webfont";
   font-size: 1rem !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  background-color: #fff !important;
+  background-color: var(--theme-elevation-0)
 }
 
 .gjs-pn-commands {
@@ -201,7 +201,7 @@ $fontName: "proximanova-bold-webfont";
   display: block !important;
 
   .gjs-sm-composite {
-    border: 1px solid rgb(255 255 255 / 25%) !important;
+    border: 0.1rem solid var(--theme-elevation-200) !important;
   }
 }
 
@@ -263,10 +263,6 @@ $fontName: "proximanova-bold-webfont";
   border: none;
 }
 
-.currentColor {
-  currentcolor: #d0d0d0 !important;
-}
-
 .gjs-select {
   .gjs-sel-arrow {
     .gjs-d-s-arrow {
@@ -315,7 +311,7 @@ $fontName: "proximanova-bold-webfont";
   .gjs-block__media svg {
     height: 45px !important;
   }
-}
+} 
 
 .gjs-sm-sector-title {
   position: relative !important;
@@ -397,7 +393,6 @@ $fontName: "proximanova-bold-webfont";
 .gjs-sm-sector__design_system,
 .gjs-sm-sector__theme_styles {
   cursor: default;
-  -webkit-user-select: none;
   user-select: none;
 
   .gjs-sm-sector-title {
@@ -409,7 +404,7 @@ $fontName: "proximanova-bold-webfont";
     font-size: 15px !important;
     text-transform: uppercase !important;
   }
-
+  
   .gjs-sm-sector-caret {
     display: none;
   }
@@ -420,10 +415,10 @@ $fontName: "proximanova-bold-webfont";
 
   &.gjs-sm-open {
     border-bottom: none !important;
-  }
+  }  
 }
 
-.gjs-pn-global-style {
+.gjs-pn-global-style { 
   height: 100%;
   width: 360px;
 
@@ -442,8 +437,8 @@ $fontName: "proximanova-bold-webfont";
     svg {
       color: #bcbec4;
     }
-  }
-}
+  }  
+}  
 
 .gjs-sm-clear {
   svg {
@@ -457,31 +452,4 @@ $fontName: "proximanova-bold-webfont";
   .gjs-pn-btn {
     color: #fff !important;
   }
-}
-
-
-.change-theme-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin: 5px;
-}
-
-.change-theme-button:focus {
-  /* background-color: yellow; */
-  outline: none;
-  box-shadow: 0 0 0 2pt #c5c5c575;
-}
-
-
-/* Make blocks full width */
-.gjs-block {
-  padding: 0 !important;
-  width: 100% !important;
-  min-height: auto !important;
-}
-
-/* Fit icons properly */
-.gjs-block svg {
-  width: 100%;
 }

@@ -469,22 +469,6 @@ div.react-select {
       }
     }
 
-    li {
-      padding-right: 0;
-
-      >label {
-        margin-bottom: 0;
-      }
-    }
-
-    li {
-      padding-right: 0;
-
-      >label {
-        margin-bottom: 0;
-      }
-    }
-
     li+li {
       margin-left: 48px;
     }
@@ -512,34 +496,33 @@ div.react-select {
     flex-direction: column;
     // padding-top: 0px !important;
 
-    .field-type {
+    .field-type{
       // padding-left: 24px;
       // padding-right: 24px;
     }
 
-    .radio-group--layout-horizontal {
-      border-bottom: 1px solid #d1dbe3;
-      // padding: 1.5rem 2rem 0;
-      padding: 24px 32px 0;
-      margin-right: -32px;
-      margin-left: -32px;
-
-      ul {
-        li {
-          padding-right: 0px !important;
-        }
-      }
-
-      .radio-group--group {
-        label {
-          margin-bottom: 0px !important;
-
-          .radio-input {
-            margin: 0px !important;
-          }
-        }
-      }
-    }
+    // .radio-group--layout-horizontal{
+    //   border-bottom: 1px solid #d1dbe3;
+    //   // padding: 1.5rem 2rem 0;
+    //   padding: 24px 32px 0;
+    //   margin-right: -32px;
+    //   margin-left: -32px;
+      
+    //   ul{
+    //     li{
+    //       padding-right: 0px !important;
+    //     }
+    //   }
+  
+    //   .radio-group--group{
+    //     label{
+    //       margin-bottom: 0px !important;
+    //       .radio-input{
+    //         margin: 0px !important;
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   .collection-edit__header {
