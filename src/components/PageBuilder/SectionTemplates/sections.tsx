@@ -4,7 +4,6 @@ import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import plugin from 'grapesjs-tailwind';
 import '../index.scss';
-import SectionTemplate from '../NewSectionTemplate/SectionTemplate';
 
 const SectionPageBuilder: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -114,7 +113,9 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     setEditor(editor);
-    editor.onReady(() => {
+    editor.onReady((clb) => {
+      console.log('Editor is ready');
+      console.log(editor.BlockManager.getConfig());
       Text(editor);
     });
   }, [setEditor]);
@@ -129,7 +130,6 @@ const SectionPageBuilder: React.FC = () => {
         </div>
         <div className="editor-canvas">
           <div id="sections"></div>
-          <SectionTemplate />
         </div>
       </div>
     </div>

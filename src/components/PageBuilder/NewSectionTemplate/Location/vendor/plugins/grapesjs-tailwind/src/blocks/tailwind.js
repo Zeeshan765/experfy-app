@@ -28,7 +28,15 @@ const sources = [
     category: 'Location',
     order: 1
   },
-
+  {
+    id: 'step-block-3',
+    class: 'full-width-image location',
+    label: q3s,
+    name: 'location',
+    content: q3,
+    category: 'Location',
+    order: 1
+  },
  
 ];
 
@@ -36,6 +44,7 @@ export default (editor, options = {}) => {
   const bm = editor.Blocks;
 
   sources.forEach((s) => {
+    // console.log('zeeshan', s)
     bm.add(s.id, {
       label: s.label,
       attributes: { class: s.class },

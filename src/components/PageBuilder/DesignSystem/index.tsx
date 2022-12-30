@@ -132,7 +132,7 @@ const DesignSystem: React.FC = () => {
         appendTo: '.styles-container',
         sectors: [
           {
-            name: 'DESIGN SYSTEM',
+            name: 'Design System',
             open: false,
           },
           {

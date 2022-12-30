@@ -3,12 +3,14 @@ import path from 'path';
 import { buildConfig } from 'payload/config';
 import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
 import BenefitCollection from './collections/Benefit';
+import DepartmentCollection from './collections/Department';
 import DesignSystemCollection from './collections/DesignSystemCollection';
 import FooterCollection from './collections/Footer';
 import FormCollection from './collections/Form';
 import GuidelineCollection from './collections/Guideline';
 import HeaderCollection from './collections/Header';
 import ImgTextCollection from './collections/ImageAndText';
+import ImageBannerCollection from './collections/ImageBanner';
 import LocationCollection from './collections/Location';
 import Media from './collections/Media';
 import MenusCollection from './collections/MenusCollection';
@@ -17,7 +19,9 @@ import NumberCollection from './collections/Number';
 import PagesCollection from './collections/Page';
 import PageBuilderCollection from './collections/PageBuilder';
 import ParagraphCollection from './collections/Paragraph';
+import PracticeAreaCollection from './collections/PracticeArea';
 import SectionTemplateCollection from './collections/SectionTemplatesCollection';
+import TalentCloudCollection from './collections/TalentCloud';
 import TemplatesCollection from './collections/TemplatesCollection';
 import TestimonialCollection from './collections/Testimonial';
 import ThemeCollection from './collections/ThemeCollection';
@@ -33,32 +37,23 @@ import Footer from './components/PageBuilder/NewSectionTemplate/Footer';
 import Form from './components/PageBuilder/NewSectionTemplate/Form';
 import Guideline from './components/PageBuilder/NewSectionTemplate/Guideline';
 import Header from './components/PageBuilder/NewSectionTemplate/Header';
+import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
 import Location from './components/PageBuilder/NewSectionTemplate/Location';
 import MetricNumbers from './components/PageBuilder/NewSectionTemplate/Number';
 import Paragraph from './components/PageBuilder/NewSectionTemplate/Paragraph';
+import PracticeArea from './components/PageBuilder/NewSectionTemplate/PracticeArea';
 import Testimonial from './components/PageBuilder/NewSectionTemplate/Testimonial';
-
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sections';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
 import Templates from './components/Templates';
-import MyProvider from './MyProvider';
-import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
-import PracticeArea from './components/PageBuilder/NewSectionTemplate/PracticeArea';
-import PracticeAreaCollection from './collections/PracticeArea';
-import Department from './components/PageBuilder/NewSectionTemplate/Department';
-import DepartmentCollection from './collections/Department';
-import TalentCloud from './components/PageBuilder/NewSectionTemplate/TalentCloud';
-import TalentCloudCollection from './collections/TalentCloud';
-import ImageBanner from './components/PageBuilder/NewSectionTemplate/ImageBanner';
-import ImageBannerCollection from './collections/ImageBanner';
 
 dotenv.config();
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
-    user: Users.slug,
+    // user: Users.slug,
     css: path.resolve(__dirname, './styles/scss/index.scss'),
     components: {
       graphics: {
@@ -134,7 +129,6 @@ export default buildConfig({
           path: '/collections/paragraph',
           Component: Paragraph,
         },
-
         {
           path: '/collections/metrics_number',
           Component: MetricNumbers,
@@ -159,7 +153,6 @@ export default buildConfig({
           path: '/collections/location',
           Component: Location,
         },
-
         {
           path: '/collections/image_and_text',
           Component: ImgText,
@@ -179,64 +172,6 @@ export default buildConfig({
         {
           path: '/collections/paragraph',
           Component: Paragraph,
-        },
-        {
-          path: '/collections/footer',
-          Component: Footer,
-        },
-        {
-          path: '/collections/header',
-          Component: Header,
-        },
-        {
-          path: '/collections/paragraph',
-          Component: Paragraph,
-        },
-
-        {
-          path: '/collections/metrics_number',
-          Component: MetricNumbers,
-        },
-        {
-          path: '/collections/testimonial',
-          Component: Testimonial,
-        },
-        {
-          path: '/collections/benefit',
-          Component: Benefit,
-        },
-        {
-          path: '/collections/guideline',
-          Component: Guideline,
-        },
-        {
-          path: '/collections/form',
-          Component: Form,
-        },
-        {
-          path: '/collections/location',
-          Component: Location,
-        },
-
-        {
-          path: '/collections/image_and_text',
-          Component: ImgText,
-        },
-        {
-          path: '/collections/practice_area',
-          Component: PracticeArea,
-        },
-        {
-          path: '/collections/department',
-          Component: Department,
-        },
-        {
-          path: '/collections/talent_cloud',
-          Component: TalentCloud,
-        },
-        {
-          path: '/collections/image_banner',
-          Component: ImageBanner,
         },
       ],
     },
@@ -251,6 +186,17 @@ export default buildConfig({
     PagesCollection,
     Media,
     NewPageBuilderCollection,
+    FooterCollection,
+    HeaderCollection,
+    ParagraphCollection,
+    NumberCollection,
+    TestimonialCollection,
+    BenefitCollection,
+    GuidelineCollection,
+    FormCollection,
+    LocationCollection,
+    ImgTextCollection,
+    PracticeAreaCollection,
     FooterCollection,
     HeaderCollection,
     ParagraphCollection,

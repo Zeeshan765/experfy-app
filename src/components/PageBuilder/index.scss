@@ -14,7 +14,7 @@ $fontName: "proximanova-bold-webfont";
 
 .editor-canvas {
   flex-grow: 1;
-  background-color: var(--theme-bg);
+  background-color: #f1f3f5;
 }
 
 .editor-row {
@@ -24,7 +24,8 @@ $fontName: "proximanova-bold-webfont";
   flex-wrap: nowrap;
   height: 100%;
 }
-  
+
+
 .gjs-cv-canvas {
   width: 80% !important;
 }
@@ -39,8 +40,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-pn-views-container {
   width: 20% !important;
   overflow: auto;
-  box-shadow: 0rem 0rem 1rem var(--theme-elevation-300) !important;
-  left: 0px !important;
+  box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
 }
 
 .gjs-selected {
@@ -54,7 +54,7 @@ $fontName: "proximanova-bold-webfont";
   font-size: 1rem !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  background-color: var(--theme-elevation-0)
+  background-color: #fff !important;
 }
 
 .gjs-pn-commands {
@@ -201,7 +201,7 @@ $fontName: "proximanova-bold-webfont";
   display: block !important;
 
   .gjs-sm-composite {
-    border: 0.1rem solid var(--theme-elevation-200) !important;
+    border: 1px solid rgb(255 255 255 / 25%) !important;
   }
 }
 
@@ -263,6 +263,10 @@ $fontName: "proximanova-bold-webfont";
   border: none;
 }
 
+.currentColor {
+  currentcolor: #d0d0d0 !important;
+}
+
 .gjs-select {
   .gjs-sel-arrow {
     .gjs-d-s-arrow {
@@ -313,6 +317,31 @@ $fontName: "proximanova-bold-webfont";
   }
 } 
 
+// .gjs-sm-sector-title {
+//   position: relative !important;
+//   padding: 9px 10px 9px 15px !important;
+// }
+
+.gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg");
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
+
+.gjs-block {
+  .gjs-block-label {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+  }
+
+  .gjs-block__media svg {
+    height: 45px !important;
+  }
+}
+
 .gjs-sm-sector-title {
   position: relative !important;
   padding: 9px 10px 9px 15px !important;
@@ -336,14 +365,14 @@ $fontName: "proximanova-bold-webfont";
   content: "";
 }
 
-.gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-  background-size: 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
-}
+// .gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
+//   background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
+//   background-size: 100%;
+//   width: 16px;
+//   height: 16px;
+//   background-repeat: no-repeat;
+//   content: "";
+// }
 
 .gjs-sm-sector__buttons .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
@@ -391,8 +420,9 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-sm-sector__design_system,
-.gjs-sm-sector__theme_styles {
+.gjs-sm-sector__theme_style {
   cursor: default;
+  -webkit-user-select: none;
   user-select: none;
 
   .gjs-sm-sector-title {
@@ -404,7 +434,7 @@ $fontName: "proximanova-bold-webfont";
     font-size: 15px !important;
     text-transform: uppercase !important;
   }
-  
+
   .gjs-sm-sector-caret {
     display: none;
   }
@@ -415,12 +445,12 @@ $fontName: "proximanova-bold-webfont";
 
   &.gjs-sm-open {
     border-bottom: none !important;
-  }  
+  }
 }
 
-.gjs-pn-global-style { 
+.gjs-pn-global-style {
   height: 100%;
-  width: 360px;
+  width: 360px !important;
 
   .gjs-sm-sector-title {
     .gjs-sm-sector-label {
@@ -437,8 +467,8 @@ $fontName: "proximanova-bold-webfont";
     svg {
       color: #bcbec4;
     }
-  }  
-}  
+  }
+}
 
 .gjs-sm-clear {
   svg {
@@ -452,4 +482,31 @@ $fontName: "proximanova-bold-webfont";
   .gjs-pn-btn {
     color: #fff !important;
   }
+}
+
+
+.change-theme-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.change-theme-button:focus {
+  /* background-color: yellow; */
+  outline: none;
+  box-shadow: 0 0 0 2pt #c5c5c575;
+}
+
+
+/* Make blocks full width */
+.gjs-block {
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: auto !important;
+}
+
+/* Fit icons properly */
+.gjs-block svg {
+  width: 100%;
 }

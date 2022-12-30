@@ -7,30 +7,32 @@ import { source as h3s } from './data/icons/header-3';
 import { source as h4 } from './data/header-4';
 import { source as h4s } from './data/icons/header-4';
 
+
 const sources = [
+  
   {
     id: 'header-block-1',
     class: 'full-width-image header',
     label: h1s,
     content: h1,
-    category: 'Headers',
-    order: 1,
+    category: 'Header',
+  
   },
   {
     id: 'header-block-2',
-    class: 'full-width-image header',
+    class: '',
     label: h2s,
     content: h2,
     category: 'Header',
-    order: 1,
+    
   },
   {
     id: 'header-block-3',
-    class: 'full-width-image header',
+    class: '',
     label: h3s,
     content: h3,
     category: 'Header',
-    order: 1,
+    // order: 1
   },
   // {
   //   id: 'header-block-4',
@@ -40,6 +42,7 @@ const sources = [
   //   category: 'Header',
   //   // order: 1
   // },
+  
 ];
 
 export default (editor, options = {}) => {
@@ -51,7 +54,7 @@ export default (editor, options = {}) => {
       attributes: { class: s.class },
       content: s.content,
       category: { label: s.category, open: s.category === 'Blog' },
-      class: s?.class,
-    });
-  });
-};
+      class:  s?.class
+    })
+  })
+}
