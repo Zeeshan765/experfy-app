@@ -37,7 +37,7 @@ import Location from './components/PageBuilder/NewSectionTemplate/Location';
 import MetricNumbers from './components/PageBuilder/NewSectionTemplate/Number';
 import Paragraph from './components/PageBuilder/NewSectionTemplate/Paragraph';
 import Testimonial from './components/PageBuilder/NewSectionTemplate/Testimonial';
-import PageBuilder from './components/PageBuilder/SectionTemplates';
+
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sections';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
@@ -69,11 +69,11 @@ export default buildConfig({
       afterNavLinks: [AfterNav],
 
       routes: [
-        {
-          path: '/collections/page-builder',
-          Component: PageBuilder,
-          exact: true,
-        },
+        // {
+        //   path: '/collections/page-builder',
+        //   Component: PageBuilder,
+        //   exact: true,
+        // },
         {
           path: '/collections/basic-portal-identity',
           Component: BasicPortalIdentityPage,
