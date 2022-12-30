@@ -4,9 +4,10 @@ import { Eyebrow } from 'payload/components/elements';
 import { DefaultTemplate } from 'payload/components/templates';
 import PropTypes from 'prop-types';
 import React from 'react';
+import FormSelect from '../../blocks/FormSelect';
 import TextInput from '../../blocks/TextInput';
 import PageTemplate from '../PageTemplate';
-import SectionTemplate from '../SectionTmplate';
+import SectionTemplate from '../SectionTemplate';
 
 const useStyles = makeStyles({
   mainTabs: {
@@ -99,16 +100,6 @@ const TemplatesLibrary = () => {
           <TabPanel value={value} index={0}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6} md={6}>
-                {/* <div>
-                  <label htmlFor="search" style={{ display: "block",margin:'0px' }}>
-                    Search Template
-                  </label>
-                  <input
-                    type="text"
-                    name="search"
-                    placeholder="Search Page"
-                  />
-                </div> */}
                 <TextInput
                   path={''}
                   label="Search Template"
@@ -117,18 +108,17 @@ const TemplatesLibrary = () => {
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3}>
-                <label htmlFor="type">Templete Library</label>
-                <select
-                  name="type"
-                  onChange={(e) => setTemplate(e.target.value)}
-                >
-                  <option value="Pages">Pages</option>
-                  <option value="Section">Section</option>
-                </select>
+                <FormSelect
+                  path={'page_type'}
+                  label="Template Library"
+                  setTouched={setTouched}
+                  name={'page_type'}
+                  type={'select'}
+                  options={['Pages', 'Section']}
+                />
               </Grid>
             </Grid>
             {template === 'Pages' && <PageTemplate />}
-            {/* {template==="Pages"&& <PageTheme />} */}
             {template === 'Section' && <SectionTemplate />}
           </TabPanel>
         </Box>

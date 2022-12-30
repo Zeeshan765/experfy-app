@@ -53,7 +53,7 @@ dotenv.config();
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
-    // user: Users.slug,
+    user: Users.slug,
     css: path.resolve(__dirname, './styles/scss/index.scss'),
     components: {
       graphics: {
@@ -196,18 +196,6 @@ export default buildConfig({
     FormCollection,
     LocationCollection,
     ImgTextCollection,
-    PracticeAreaCollection,
-    FooterCollection,
-    HeaderCollection,
-    ParagraphCollection,
-    NumberCollection,
-    TestimonialCollection,
-    BenefitCollection,
-    GuidelineCollection,
-    FormCollection,
-    LocationCollection,
-    ImgTextCollection,
-    SectionTemplateCollection,
     PracticeAreaCollection,
     Users,
     DepartmentCollection,
