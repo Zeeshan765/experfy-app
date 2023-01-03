@@ -1,5 +1,3 @@
-// @ts-ignore
-
 import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
@@ -48,7 +46,8 @@ const NewPageBuilder = () => {
     // };
 
     const editor = GrapesJS.init({
-      container: '#editor',
+      container: '.editor',
+
       plugins: [plugin1, Basics],
       storageManager: {
         type: 'local',
@@ -65,34 +64,30 @@ const NewPageBuilder = () => {
       },
       fromElement: true,
       layerManager: {
+        appendTo: '.styles-container',
         showWrapper: true,
-        hideTextnode: true,
       },
       styleManager: {
         appendTo: '.styles-container',
         sectors: [],
       },
+      showDevices: true,
+      showOffsets: true,
+      showOffsetsSelected: true,
+      commands: {
+        defaults: [
+          {
+            id: 'open-layers',
+            command: 'open-layers',
+          },
+        ],
+      },
+
       panels: {
         defaults: [
           {
-            id: 'layers',
-            el: '.styles-container',
-            // Make the panel resizable
-            resizable: {
-              maxDim: 350,
-              minDim: 200,
-              tc: 0, // Top handler
-              cl: 1, // Left handler
-              cr: 0, // Right handler
-              bc: 0, // Bottom handler
-              // Being a flex child we need to change `flex-basis` property
-              // instead of the `width` (default)
-              keyWidth: 'flex-basis',
-            },
-          },
-          {
             id: 'panel-switcher',
-            el: '.styles-container',
+            el: '.panel__top',
             buttons: [
               {
                 id: 'show-layers',
@@ -108,6 +103,14 @@ const NewPageBuilder = () => {
                 active: true,
                 className: 'fa fa-paint-brush',
                 command: 'open-styles',
+                visible: true,
+                toggle: true,
+              },
+              {
+                id: 'show-blocks',
+                active: false,
+                className: 'fa fa-th-large',
+                command: 'open-blocks',
                 visible: true,
                 toggle: true,
               },
@@ -226,19 +229,19 @@ const NewPageBuilder = () => {
     setEditorState(editor);
     editor.onReady((clb) => {
       console.log('Editor is ready');
-      const openBl = editor.Panels.getButton('views', 'open-blocks');
-      editor.on('load', () => openBl?.set('active', true));
-      // On component change show the Style Manager
-      editor.on('component:selected', () => {
-        const openSmBtn = editor.Panels.getButton('views', 'open-sm');
-        const openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+    });
+    const openBl = editor.Panels.getButton('views', 'open-blocks');
+    editor.on('load', () => openBl?.set('active', true));
+    // On component change show the Style Manager
+    editor.on('component:selected', () => {
+      const openSmBtn = editor.Panels.getButton('views', 'open-sm');
+      const openLayersBtn = editor.Panels.getButton('views', 'open-layers');
 
-        // Don't switch when the Layer Manager is on or
-        // there is no selected component
-        if (!openLayersBtn || !openLayersBtn.get('active')) {
-          openSmBtn?.set('active', true);
-        }
-      });
+      // Don't switch when the Layer Manager is on or
+      // there is no selected component
+      if (!openLayersBtn || !openLayersBtn.get('active')) {
+        openSmBtn?.set('active', true);
+      }
     });
     editor.DomComponents.addType('text', {
       model: {
@@ -504,104 +507,6 @@ const NewPageBuilder = () => {
       },
     });
 
-    // editor.DomComponents.addType('button', {
-    //   model: {
-    //     defaults: {
-    //       traits: [
-    //         {
-    //           type: 'select',
-    //           name: 'btn-type',
-    //           label: 'Type',
-    //           default: 'default',
-    //           options: [
-    //             { id: 'default', name: 'Default' },
-    //             { id: 'info', name: 'Info' },
-    //             { id: 'success', name: 'Success' },
-    //             { id: 'warning', name: 'Warning ' },
-    //             { id: 'danger', name: 'Danger' },
-    //           ],
-    //         },
-    //         {
-    //           type: 'text',
-    //           name: 'btn-text',
-    //           label: 'Text',
-    //           placeholder: 'Click Here',
-    //         },
-    //         {
-    //           type: 'text',
-    //           name: 'btn-link',
-    //           label: 'Link',
-    //           placeholder: '#',
-    //         },
-    //         {
-    //           type: 'select',
-    //           name: 'btn-alignment',
-    //           label: 'Alignment',
-    //           default: 'left',
-    //           options: [
-    //             { id: 'left', name: 'Left' },
-    //             { id: 'center', name: 'Center' },
-    //             { id: 'right', name: 'Right' },
-    //             { id: 'justified', name: 'Justified' },
-    //           ],
-    //         },
-
-    //         {
-    //           type: 'select',
-    //           name: 'btn-size',
-    //           label: 'Size',
-    //           default: 'medium',
-    //           options: [
-    //             { id: 'extrasmall', name: 'Extra Small' },
-    //             { id: 'small', name: 'Small' },
-    //             { id: 'medium', name: 'Medium' },
-    //             { id: 'large', name: 'Large' },
-    //             { id: 'extralarge', name: 'Extra Large' },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
-
-    //Trait for Icon
-    // editor.DomComponents.addType('icon', {
-    //   model: {
-    //     defaults: {
-    //       traits: [
-    //         {
-    //           type: 'select',
-    //           name: 'icon-view',
-    //           label: 'View',
-    //           default: 'default',
-    //           options: [
-    //             { id: 'default', name: 'Default' },
-    //             { id: 'stacked', name: 'Stacked' },
-    //             { id: 'framed', name: 'Framed' },
-    //           ],
-    //         },
-    //         {
-    //           type: 'text',
-    //           name: 'icon-link',
-    //           label: 'Link',
-    //           placeholder: 'https://your-link.com',
-    //         },
-    //         {
-    //           type: 'select',
-    //           name: 'icon-alignment',
-    //           label: 'Alignment',
-    //           default: 'left',
-    //           options: [
-    //             { id: 'left', name: 'Left' },
-    //             { id: 'center', name: 'Center' },
-    //             { id: 'right', name: 'Right' },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
-
     //Trait for Testimonial
     editor.DomComponents.addType('testimonial', {
       model: {
@@ -825,29 +730,29 @@ const NewPageBuilder = () => {
       },
     });
   }, [setEditorState]);
-  console.log('document.activeElement', document.activeElement.tagName);
+  // console.log('document.activeElement', document.activeElement.tagName);
 
-  useEffect(() => {
-    if (testRef) {
-      // debugger;
-      console.log(document.getElementById('self-test'), 'testRef', testRef);
-      let ftext = document.getElementById('self-test');
-      if (ftext) {
-        // @ts-ignore
-        console.log('ftext', ftext);
-        // ftext?.value= 'test111';
-      }
-      // ftext?.value ="test";
-      let setext = document.getElementById('self-inner-test');
-      //  setext.innerText="second test";
-      if (setext) {
-        // @ts-ignore
-        console.log('setext', setext);
+  // useEffect(() => {
+  //   if (testRef) {
+  //     // debugger;
+  //     console.log(document.getElementById('self-test'), 'testRef', testRef);
+  //     let ftext = document.getElementById('self-test');
+  //     if (ftext) {
+  //       // @ts-ignore
+  //       console.log('ftext', ftext);
+  //       // ftext?.value= 'test111';
+  //     }
+  //     // ftext?.value ="test";
+  //     let setext = document.getElementById('self-inner-test');
+  //     //  setext.innerText="second test";
+  //     if (setext) {
+  //       // @ts-ignore
+  //       console.log('setext', setext);
 
-        // setext.innerText="second test";
-      }
-    }
-  }, [testRef]);
+  //       // setext.innerText="second test";
+  //     }
+  //   }
+  // }, [testRef]);
 
   return (
     <div className="main__content">
@@ -857,7 +762,7 @@ const NewPageBuilder = () => {
           <div className="panel__top"></div>
           <div className="styles-container"></div>
         </div>
-        <div id="editor"> </div>
+        <div className="editor"> </div>
       </div>
     </div>
   );

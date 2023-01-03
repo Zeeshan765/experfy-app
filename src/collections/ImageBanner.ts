@@ -10,7 +10,6 @@ const ImageBannerCollection: CollectionConfig = {
   admin: {
     components: {
       views: {
-        Edit: ImageBanner,
         List: ImageBanner,
       },
     },

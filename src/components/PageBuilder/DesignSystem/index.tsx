@@ -51,7 +51,7 @@ const DesignSystem: React.FC = () => {
     setStepNav([
       {
         label: 'Global Theme Settings',
-        url: '/collections/global-theme-settings',
+        url: '/collections/global-theme-settings/design-system',
       },
     ]);
   }, [setStepNav]);

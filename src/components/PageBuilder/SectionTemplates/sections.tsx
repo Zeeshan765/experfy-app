@@ -1,23 +1,22 @@
 import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
-import Header from '../NewSectionTemplate/Header/vendor/plugins/grapesjs-tailwind/src/index';
-import Footer from '../NewSectionTemplate/Footer/vendor/plugins/grapesjs-tailwind/src/index';
-import PracticeArea from '../NewSectionTemplate/PracticeArea/vendor/plugins/grapesjs-tailwind/src/index';
-import Testimonial from '../NewSectionTemplate/Testimonial/vendor/plugins/grapesjs-tailwind/src/index';
+import tailwind from 'grapesjs-tailwind';
 import Benefit from '../NewSectionTemplate/Benefit/vendor/plugins/grapesjs-tailwind/src/index';
-import Guideline from '../NewSectionTemplate/Guideline/vendor/plugins/grapesjs-tailwind/src/index';
-import ImageAndText from '../NewSectionTemplate/ImageAndText/vendor/plugins/grapesjs-tailwind/src/index';
 import ImageBanner from '../NewSectionTemplate/Department/vendor/plugins/grapesjs-tailwind/src/index';
+import Footer from '../NewSectionTemplate/Footer/vendor/plugins/grapesjs-tailwind/src/index';
+import Guideline from '../NewSectionTemplate/Guideline/vendor/plugins/grapesjs-tailwind/src/index';
+import Header from '../NewSectionTemplate/Header/vendor/plugins/grapesjs-tailwind/src/index';
+import ImageAndText from '../NewSectionTemplate/ImageAndText/vendor/plugins/grapesjs-tailwind/src/index';
 import Location from '../NewSectionTemplate/Location/vendor/plugins/grapesjs-tailwind/src/index';
 import Number from '../NewSectionTemplate/Number/vendor/plugins/grapesjs-tailwind/src/index';
 import Paragraph from '../NewSectionTemplate/Paragraph/vendor/plugins/grapesjs-tailwind/src/index';
+import PracticeArea from '../NewSectionTemplate/PracticeArea/vendor/plugins/grapesjs-tailwind/src/index';
 import TalentCloud from '../NewSectionTemplate/TalentCloud/vendor/plugins/grapesjs-tailwind/src/index';
+import Testimonial from '../NewSectionTemplate/Testimonial/vendor/plugins/grapesjs-tailwind/src/index';
 
 import indexedDB from 'grapesjs-indexeddb';
-import grapesjsProjectManager from 'grapesjs-project-manager';
-import grapesjsForms from 'grapesjs-plugin-forms';
-// import queryString from 'query-string';
+import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import SectionTemplate from '../../SectionTemplate';
 import '../index.scss';
@@ -42,8 +41,7 @@ const SectionPageBuilder: React.FC = () => {
     'testimonial',
     'video',
   ];
-  const section = ''; //queryString.parse(window.location.search).section.toString();
-  const showSections = false; //sections.includes(section) ? true : false;
+  let showSections = false;
   useEffect(() => {
     setStepNav([
       {
@@ -61,22 +59,23 @@ const SectionPageBuilder: React.FC = () => {
       showOffsets: true,
       showOffsetsSelected: true,
       plugins: [
-        Header,
-        Footer,
-        PracticeArea,
-        Testimonial,
-        Benefit,
-        Guideline,
-        ImageAndText,
-        ImageBanner,
-        Location,
-        Number,
-        Paragraph,
-        TalentCloud,
+        tailwind,
+        // Header,
+        // Footer,
+        // PracticeArea,
+        // Testimonial,
+        // Benefit,
+        // Guideline,
+        // ImageAndText,
+        // ImageBanner,
+        // Location,
+        // Number,
+        // Paragraph,
+        // TalentCloud,
         indexedDB,
       ],
       blockManager: {
-        appendTo: '.blocks',
+        appendTo: '#blocks',
         blocks: [],
       },
 
@@ -84,30 +83,67 @@ const SectionPageBuilder: React.FC = () => {
         defaults: [
           {
             id: 'open-layers',
-            run: (editor, sender) => {
-              sender.set('active', 0);
+            getRowEl(editor: GrapesJS.Editor) {
+              return editor.getContainer().closest('.editor-row');
+            },
+            getLayersEl(row) {
+              return row.querySelector('.layers-container');
+            },
+
+            run(editor: GrapesJS.Editor, sender: any) {
+              const lmEl = this.getLayersEl(this.getRowEl(editor));
+              lmEl.style.display = '';
+            },
+            stop(editor, sender) {
+              const lmEl = this.getLayersEl(this.getRowEl(editor));
+              lmEl.style.display = 'none';
             },
           },
           {
             id: 'open-sm',
-            run: (editor, sender) => {
-              editor.StyleManager.open();
+            etRowEl(editor: GrapesJS.Editor) {
+              return editor.getContainer().closest('.editor-row');
+            },
+            getStyleEl(row: any) {
+              return row.querySelector('.styles-container');
+            },
+
+            run(editor: GrapesJS.Editor, sender: any) {
+              const smEl = this.getStyleEl(this.getRowEl(editor));
+              smEl.style.display = '';
+            },
+            stop(editor: GrapesJS.Editor, sender: any) {
+              const smEl = this.getStyleEl(this.getRowEl(editor));
+              smEl.style.display = 'none';
             },
           },
           {
             id: 'open-tm',
-            run: (editor, sender) => {
-              editor.TraitManager.open();
+            run: (editor: GrapesJS.Editor, sender: any) => {
+              // editor.TraitManager.open();
             },
           },
           {
             id: 'open-blocks',
-            run: (editor, sender) => {
-              editor.BlockManager.open();
+            run: (editor: GrapesJS.Editor, sender: any) => {
+              // editor.BlockManager.open();
+            },
+          },
+          {
+            id: 'store-data',
+            run(editor: GrapesJS.Editor) {
+              editor.store({
+                type: 'local',
+                key: 'sections-',
+                autosave: true,
+                autoload: true,
+                stepsBeforeSave: 1,
+              });
             },
           },
         ],
       },
+
       // blockManager: {
       //   appendTo: '.blocks',
       //   blocks: [],
@@ -118,6 +154,7 @@ const SectionPageBuilder: React.FC = () => {
       // },
       styleManager: {
         appendTo: '.styles-container',
+
         sectors: [
           {
             name: 'General',
@@ -219,7 +256,7 @@ const SectionPageBuilder: React.FC = () => {
       panels: {
         defaults: [
           {
-            id: 'layers',
+            id: 'back',
             el: '.panel__top',
             buttons: [
               {
@@ -260,11 +297,17 @@ const SectionPageBuilder: React.FC = () => {
     // );
     // editor.BlockManager.add('blog', editor.BlockManager.get('blog-block-3'));
     // editor.BlockManager.add('blog', editor.BlockManager.get('blog-block-4'));
-
+    const section = location.href ? location.href : '';
+    if (sections.includes(section)) {
+      editor.Commands.run('open-blocks');
+    } else {
+      showSections = false;
+      editor.Commands.run('open-styles');
+    }
     setEditor(editor);
-    editor.onReady((clb) => {
-      console.log('editor ready');
-    });
+    // editor.onReady((clb) => {
+    //   console.log('editor ready');
+    // });
   }, [setEditor]);
 
   return (
@@ -272,12 +315,17 @@ const SectionPageBuilder: React.FC = () => {
       <Eyebrow />
       <div className="editor-row">
         <div className="panel__left">
-          <div className="panel__top"></div>
-          <div className="blocks"></div>
+          <div className="panel__top">
+            <div className="panel__basic-actions"></div>
+            <div className="panel__devices"></div>
+            <div className="panel__switcher"></div>
+          </div>
+          <div className="layers-container"></div>
+          <div className="styles-container"></div>
+          <div id="blocks"></div>
         </div>
-        {showSections && <div id="sections"></div>}
-        <div className="main__builder">
-          <SectionTemplate />
+        <div className="editor-canvas">
+          <div id="sections"></div>
         </div>
       </div>
     </div>

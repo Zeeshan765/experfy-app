@@ -10,7 +10,6 @@ const LocationCollection: CollectionConfig = {
   admin: {
     components: {
       views: {
-        Edit: Location,
         List: Location,
       },
     },

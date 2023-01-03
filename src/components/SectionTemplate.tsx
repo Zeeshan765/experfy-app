@@ -68,14 +68,14 @@ const SectionTemplate: React.FC = () => {
     {
       id: 1,
       image: custom_build,
-      link: '/admin/collections/page-builder',
+      link: '/admin/collections/new-page-builder',
       name: 'Custom Build',
       text: '',
     },
     {
       id: 2,
       image: header,
-      link: '/admin/collections/section-templates?header',
+      link: '/admin/collections/header',
       name: 'Header',
       text: '',
     },
@@ -96,7 +96,7 @@ const SectionTemplate: React.FC = () => {
     {
       id: 5,
       image: video,
-      link: '/admin/collections/video',
+      link: '/admin/collections/video-collection',
       name: 'Video',
       text: 'Add a banner image with text and a button. This is a section usually on top portion of the site and is used to emphasize highlight certain messaging.',
     },
@@ -124,7 +124,7 @@ const SectionTemplate: React.FC = () => {
     {
       id: 9,
       image: departments,
-      link: '/admin/collections/departments',
+      link: '/admin/collections/department',
       name: 'Departments',
       text: 'Add a banner image with text and a button. This is a section usually on top portion of the site and is used to emphasize highlight certain messaging.',
     },
