@@ -1,16 +1,16 @@
 // @ts-ignore
+
 import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
 // import './CustomGrapes.css';
-// import '../PageBuilder/index.scss';
 import './index.scss';
-import plugin2 from 'grapesjs-project-manager';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 import Basics from 'grapesjs-blocks-basic';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
+
+import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
+import '../PageBuilder/index.scss';
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -66,13 +66,58 @@ const NewPageBuilder = () => {
           },
         },
       },
-      canvas: {
-        styles: ['../index.scss'],
-      },
       fromElement: true,
       layerManager: {
-        showWrapper: false,
+        showWrapper: true,
         hideTextnode: true,
+      },
+      styleManager: {
+        appendTo: '.styles-container',
+      },
+      panels: {
+        defaults: [
+          {
+            id: 'layers',
+            el: '.panel__top',
+            // Make the panel resizable
+            resizable: {
+              maxDim: 350,
+              minDim: 200,
+              tc: 0, // Top handler
+              cl: 1, // Left handler
+              cr: 0, // Right handler
+              bc: 0, // Bottom handler
+              // Being a flex child we need to change `flex-basis` property
+              // instead of the `width` (default)
+              keyWidth: 'flex-basis',
+            },
+          },
+          {
+            id: 'panel-switcher',
+            el: '.panel__top',
+            buttons: [
+              {
+                id: 'show-layers',
+                active: false,
+                label: 'Layers',
+                command: 'show-layers',
+                // Once activated disable the possibility to turn it off
+                toggle: true,
+              },
+              {
+                id: 'show-style',
+                active: true,
+                label: 'Styles',
+                command: 'show-styles',
+                toggle: true,
+              },
+            ],
+          },
+        ],
+      },
+      blockManager: {
+        appendTo: '.styles-container',
+        blocks: [],
       },
 
       // blockManager: {
@@ -807,9 +852,13 @@ const NewPageBuilder = () => {
   return (
     <div className="main__content">
       <Eyebrow />
-      <div id="editor"></div>
-      <div className="myblocks"></div>
-      <div className="styles-container"></div>
+      <div className="editor-row">
+        <div className="panel__left">
+          <div className="panel__top"></div>
+          <div className="styles-container"></div>
+        </div>
+        <div id="editor"> </div>
+      </div>
     </div>
   );
 };

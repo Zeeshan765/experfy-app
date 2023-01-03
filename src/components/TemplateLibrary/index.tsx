@@ -1,10 +1,11 @@
 import { Box, Grid, Tab, Tabs, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Eyebrow } from 'payload/components/elements';
+import SelectInput from '../../blocks/FormSelect';
+import { useStepNav } from 'payload/components/hooks';
 import { DefaultTemplate } from 'payload/components/templates';
 import PropTypes from 'prop-types';
 import React from 'react';
-import FormSelect from '../../blocks/FormSelect';
 import TextInput from '../../blocks/TextInput';
 import PageTemplate from '../PageTemplate';
 import SectionTemplate from '../SectionTemplate';
@@ -71,8 +72,27 @@ function a11yProps(index) {
   };
 }
 
-const TemplatesLibrary = () => {
-  const [template, setTemplate] = React.useState('Pages');
+const TemplatesLibrary: React.FC = () => {
+  const [template, setTemplate] = React.useState('sections');
+  const { setStepNav } = useStepNav();
+
+  React.useEffect(() => {
+    if (template === 'sections') {
+      setStepNav([
+        {
+          label: 'Sections',
+          url: 'collections/templates-library/sections',
+        },
+      ]);
+    } else if (template === 'pages') {
+      setStepNav([
+        {
+          label: 'Pages',
+          url: 'collections/templates-library/pages',
+        },
+      ]);
+    }
+  }, [template, setStepNav]);
 
   const classes = useStyles();
   const [touched, setTouched] = React.useState('');
@@ -108,12 +128,12 @@ const TemplatesLibrary = () => {
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3}>
-                <FormSelect
+                <SelectInput
+                  type="select"
                   path={'page_type'}
                   label="Template Library"
                   setTouched={setTouched}
                   name={'page_type'}
-                  type={'select'}
                   options={['Pages', 'Section']}
                 />
               </Grid>

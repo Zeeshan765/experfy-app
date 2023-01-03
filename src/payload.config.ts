@@ -201,6 +201,7 @@ export default buildConfig({
     DepartmentCollection,
     TalentCloudCollection,
     ImageBannerCollection,
+    SectionTemplateCollection,
   ],
   i18n: {
     supportedLngs: ['en', 'es'],

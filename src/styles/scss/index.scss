@@ -92,7 +92,9 @@ body {
 
   &__builder {
     height: 100%;
-    // padding-left: 23.75rem;
+    padding-left: 20rem;
+    padding-right: 2rem;
+
   }
 }
 
@@ -115,7 +117,7 @@ body {
     font-size: 24px;
     max-width: unset;
   }
-  
+
   a {
     span {
       font-weight: 400;
@@ -364,7 +366,7 @@ div.react-select {
   margin-right: 10px;
 }
 
-.Global #nav-themes::before {
+.Global #nav-themes-style::before {
   background-image: url("/src/assets/images/sidebar/theme_style.svg") !important;
   // background-size: 100% 100%;
   // width: 16px;

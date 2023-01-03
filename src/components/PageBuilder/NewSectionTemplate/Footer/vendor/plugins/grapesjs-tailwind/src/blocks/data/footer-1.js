@@ -144,13 +144,6 @@ export const source = `
    </div>
 
 
-
-
-
-
-
-
-
    <div class="bg-gray-100" style="background-color:#000000;
    padding:20px;">
       <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">

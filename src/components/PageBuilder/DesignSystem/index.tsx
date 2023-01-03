@@ -59,7 +59,7 @@ const DesignSystem: React.FC = () => {
   useEffect(() => {
     const editor = GrapesJS.init({
       container: '#gjs',
-      height: '0%',
+      height: '100%',
       fromElement: true,
       showOffsets: true,
       noticeOnUnload: 2,
@@ -580,7 +580,8 @@ const DesignSystem: React.FC = () => {
           input.type = 'text';
           input.value = prop.get();
           input.onchange = function (e) {
-            prop.set(e.target.value);
+            console.log(e.target);
+            // prop.set(e.target.value);
           };
           return input;
         },
@@ -598,16 +599,12 @@ const DesignSystem: React.FC = () => {
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="panel__top right">
-        <div className="panel__basic-actions"></div>
-      </div>
       <div className="editor-row">
         <div className="panel__left">
+          <div className="panel__top"></div>
           <div className="styles-container"></div>
         </div>
-        <div className="editor-canvas">
-          <div id="gjs"></div>
-        </div>
+        <div id="gjs"></div>
       </div>
     </div>
   );
