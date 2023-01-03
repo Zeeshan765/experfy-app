@@ -89,11 +89,10 @@ $fontName: "proximanova-bold-webfont";
 
 .gjs-category-title,
 .gjs-layer-title,
-// .gjs-block-category,
 .gjs-sm-sector-title {
-  font-weight: 500 !important;
+  font-weight: light !important;
   color: var(--theme-text) !important;
-  font-size: 1rem !important;
+  font-size: 15px;
   height: 4rem !important;
   background-color: var(--theme-elevation-0) !important;
   flex-direction: row-reverse !important;
@@ -101,6 +100,15 @@ $fontName: "proximanova-bold-webfont";
   border-bottom: 1px solid #d3dbe3 !important;
   position: relative !important;
   padding: 9px 10px 9px 15px !important;
+
+  // .fa-caret-right:before {
+  //   display: none !important;
+  // }
+
+  // .fa-caret-down:before {
+  //   display: none !important;
+  // }
+
   // border-bottom: 2px solid var(--theme-elevation-50) !important
 }
 
@@ -116,6 +124,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-layer-name {
   padding: 0.5rem !important;
 }
+
 
 .gjs-block {
   width: 30% !important;
@@ -437,8 +446,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-pn-global-style {
-  height: 100%;
-  width: 360px !important;
+  width: 100% !important;
 
   .gjs-sm-sector-title {
     .gjs-sm-sector-label {

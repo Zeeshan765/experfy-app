@@ -75,7 +75,7 @@ const SectionTemplate: React.FC = () => {
     {
       id: 2,
       image: header,
-      link: '/admin/collections/section-templates?section=header',
+      link: '/admin/collections/section-templates?header',
       name: 'Header',
       text: '',
     },
@@ -180,6 +180,8 @@ const SectionTemplate: React.FC = () => {
   ];
   return (
     <>
+      <Typography variant="h4">Section Templates</Typography>
+
       <Grid container mt={3} spacing={3} className={classes.sectionCardGrid}>
         {templateList.map(({ id, image, name, link, text }) => (
           <Grid item xs={6} sm={4} md={3} key={id}>

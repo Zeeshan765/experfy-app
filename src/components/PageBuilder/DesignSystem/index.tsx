@@ -62,7 +62,26 @@ const DesignSystem: React.FC = () => {
       height: '100%',
       fromElement: true,
       showOffsets: true,
-      noticeOnUnload: 2,
+
+      commands: {
+        defaults: [
+          {
+            id: 'save',
+            run: (editor, sender) => {
+              editor.store(editor.getCss());
+            },
+          },
+          {
+            id: 'open-templates',
+          },
+          {
+            id: 'open-pages',
+            run: (editor, sender) => {
+              console.log('open-pages');
+            },
+          },
+        ],
+      },
 
       storageManager: {
         type: 'indexeddb',
@@ -74,7 +93,6 @@ const DesignSystem: React.FC = () => {
           storeStyles: true,
           storeHtml: true,
           storeComponents: true,
-
           local: {
             key: 'gts',
             checkLocal: true,
@@ -84,30 +102,41 @@ const DesignSystem: React.FC = () => {
 
       panels: {
         defaults: [
-          {
-            id: 'global-style',
-            el: '.panel__left',
-            active: true,
-            label: 'Global Theme Settings',
-            enable: true,
-          },
-          {
-            id: 'save',
-            el: '.panel__top',
-            visible: true,
-            label: 'Save',
-            toggle: false,
-            buttons: [
-              {
-                id: 'save',
-                className: 'fa fa-floppy-o',
-                command: 'save',
-                attributes: {
-                  title: 'Save',
-                },
-              },
-            ],
-          },
+          // {
+          //   id: 'open-styles',
+          //   el: '.styles-container',
+          //   active: false,
+          //   visible: true,
+          //   command: 'open-sm',
+          //   toggle: true,
+          //   buttons: [
+          //     {
+          //       id: 'open-styles',
+          //       className: 'fa fa-cog',
+          //       command: 'open-styles',
+          //       attributes: {
+          //         title: 'Global Theme Settings',
+          //       },
+          //     },
+          //   ],
+          // },
+          // {
+          //   id: 'save',
+          //   el: '.panel__top',
+          //   visible: true,
+          //   toggle: true,
+          //   commands: 'save',
+          //   buttons: [
+          //     {
+          //       id: 'save',
+          //       className: 'fa fa-floppy-o',
+          //       command: 'save',
+          //       attributes: {
+          //         title: 'Save',
+          //       },
+          //     },
+          //   ],
+          // },
           // {
           //   id: 'open-templates',
           //   className: 'fa fa-folder-o',
@@ -129,6 +158,8 @@ const DesignSystem: React.FC = () => {
       },
 
       styleManager: {
+        showComputed: true,
+
         appendTo: '.styles-container',
         sectors: [
           {

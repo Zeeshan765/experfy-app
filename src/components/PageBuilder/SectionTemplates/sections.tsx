@@ -1,7 +1,22 @@
 import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
-import plugin from '../vendor/plugins/grapesjs-tailwind/src';
+import Header from '../NewSectionTemplate/Header/vendor/plugins/grapesjs-tailwind/src/index';
+import Footer from '../NewSectionTemplate/Footer/vendor/plugins/grapesjs-tailwind/src/index';
+import PracticeArea from '../NewSectionTemplate/PracticeArea/vendor/plugins/grapesjs-tailwind/src/index';
+import Testimonial from '../NewSectionTemplate/Testimonial/vendor/plugins/grapesjs-tailwind/src/index';
+import Benefit from '../NewSectionTemplate/Benefit/vendor/plugins/grapesjs-tailwind/src/index';
+import Guideline from '../NewSectionTemplate/Guideline/vendor/plugins/grapesjs-tailwind/src/index';
+import ImageAndText from '../NewSectionTemplate/ImageAndText/vendor/plugins/grapesjs-tailwind/src/index';
+import ImageBanner from '../NewSectionTemplate/Department/vendor/plugins/grapesjs-tailwind/src/index';
+import Location from '../NewSectionTemplate/Location/vendor/plugins/grapesjs-tailwind/src/index';
+import Number from '../NewSectionTemplate/Number/vendor/plugins/grapesjs-tailwind/src/index';
+import Paragraph from '../NewSectionTemplate/Paragraph/vendor/plugins/grapesjs-tailwind/src/index';
+import TalentCloud from '../NewSectionTemplate/TalentCloud/vendor/plugins/grapesjs-tailwind/src/index';
+
+import indexedDB from 'grapesjs-indexeddb';
+import grapesjsProjectManager from 'grapesjs-project-manager';
+import grapesjsForms from 'grapesjs-plugin-forms';
 // import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import SectionTemplate from '../../SectionTemplate';
@@ -27,13 +42,13 @@ const SectionPageBuilder: React.FC = () => {
     'testimonial',
     'video',
   ];
-  const section = 'header'; //queryString.parse(window.location.search).section.toString();
-  const showSections = true; //sections.includes(section) ? true : false;
+  const section = ''; //queryString.parse(window.location.search).section.toString();
+  const showSections = false; //sections.includes(section) ? true : false;
   useEffect(() => {
     setStepNav([
       {
         label: 'Section Templates',
-        url: '/collections/section-templates',
+        url: '/collections/global-theme-settings/section-templates',
       },
     ]);
   }, [setStepNav]);
@@ -45,40 +60,58 @@ const SectionPageBuilder: React.FC = () => {
       storageManager: true,
       showOffsets: true,
       showOffsetsSelected: true,
-      plugins: [plugin],
-      pluginsOpts: {
-        plugin: {
-          // options
-        },
-      },
+      plugins: [
+        Header,
+        Footer,
+        PracticeArea,
+        Testimonial,
+        Benefit,
+        Guideline,
+        ImageAndText,
+        ImageBanner,
+        Location,
+        Number,
+        Paragraph,
+        TalentCloud,
+        indexedDB,
+      ],
       blockManager: {
-        appendTo: '.styles-container',
+        appendTo: '.blocks',
         blocks: [],
       },
+
       commands: {
         defaults: [
           {
-            id: 'undo',
-            run: (editor) => editor.UndoManager.undo(),
-            stop: (editor) => editor.UndoManager.undo(),
+            id: 'open-layers',
+            run: (editor, sender) => {
+              sender.set('active', 0);
+            },
           },
           {
-            id: 'redo',
-            run: (editor) => editor.UndoManager.redo(),
-            stop: (editor) => editor.UndoManager.redo(),
+            id: 'open-sm',
+            run: (editor, sender) => {
+              editor.StyleManager.open();
+            },
           },
           {
-            id: 'open-style-manager',
-            run: (editor: GrapesJS.Editor) => editor.StyleManager.open(),
-            stop: (editor: GrapesJS.Editor) => editor.StyleManager.close(),
+            id: 'open-tm',
+            run: (editor, sender) => {
+              editor.TraitManager.open();
+            },
           },
           {
             id: 'open-blocks',
-            run: (editor: GrapesJS.Editor) => editor.BlockManager.open(),
-            stop: (editor: GrapesJS.Editor) => editor.BlockManager.close(),
+            run: (editor, sender) => {
+              editor.BlockManager.open();
+            },
           },
         ],
       },
+      // blockManager: {
+      //   appendTo: '.blocks',
+      //   blocks: [],
+      // },
 
       // traitManager: {
       //   appendTo: '.styles-container',
@@ -87,12 +120,20 @@ const SectionPageBuilder: React.FC = () => {
         appendTo: '.styles-container',
         sectors: [
           {
-            name: 'Headers',
+            name: 'General',
             open: false,
-            buildProps: ['position', 'text'],
+            buildProps: [
+              'float',
+              'display',
+              'position',
+              'top',
+              'right',
+              'left',
+              'bottom',
+            ],
           },
           {
-            name: 'Footers',
+            name: 'Flex',
             open: false,
             buildProps: [
               'flex-direction',
@@ -133,58 +174,96 @@ const SectionPageBuilder: React.FC = () => {
               'text-decoration',
               'text-shadow',
             ],
-          },
-          {
-            name: 'Decorations',
-            open: false,
-            buildProps: [
-              'border-radius-c',
-              'background-color',
-              'border-radius',
-              'border',
-              'box-shadow',
-              'background',
+            properties: [
+              {
+                property: 'text-align',
+                list: [
+                  { value: 'left', className: 'fa fa-align-left' },
+                  { value: 'center', className: 'fa fa-align-center' },
+                  { value: 'right', className: 'fa fa-align-right' },
+                  { value: 'justify', className: 'fa fa-align-justify' },
+                ],
+              },
+              {
+                property: 'text-decoration',
+                list: [
+                  { value: 'none', className: 'fa fa-times' },
+                  { value: 'underline', className: 'fa fa-underline' },
+                  { value: 'line-through', className: 'fa fa-strikethrough' },
+                ],
+              },
+              {
+                name: 'Decorations',
+                open: false,
+
+                buildProps: [
+                  'border-radius-c',
+                  'background-color',
+                  'border-radius',
+                  'border',
+                  'box-shadow',
+                  'background',
+                ],
+              },
+
+              {
+                name: 'Extra',
+                open: false,
+                buildProps: ['transition', 'perspective', 'transform'],
+              },
             ],
           },
         ],
       },
+
       panels: {
         defaults: [
           {
-            id: 'panel-switcher',
+            id: 'layers',
             el: '.panel__top',
-            active: true,
-            label: 'General Styles',
-            enable: true,
-            attributes: {
-              title: 'Style',
-            },
-          },
-          {
-            id: 'back',
-            el: '.panel__top',
-            visible: true,
-            label: 'Back',
-            toggle: false,
             buttons: [
               {
                 id: 'back',
-                label: 'Back',
+                active: false,
+                visible: true,
                 className: 'fa fa-arrow-left',
+                command: 'back',
+                attributes: { label: 'Sections' },
               },
             ],
           },
         ],
       },
     });
+
+    // editor.BlockManager.getConfig().appendTo = '.blocks';
+    // editor.BlockManager.add('blog-block-1', {
+    //   label: 'Blog Block 1',
+    //   category: 'Blog',
+    //   content: plugin.templates.blogBlock1,
+    // });
+
+    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-1'));
+    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-2'));
+    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-3'));
+    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-4'));
+    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-5'));
+    // // const blocks = editor.BlockManager.remove(
+    // editor.BlockManager.remove(
+    //   editor.BlockManager.getConfig().blocks.map((block) => block)
+    // );
+    // editor.BlockManager.getCategories().remove((model) => model.id == 'Blog');
+
+    // editor.BlockManager.add(
+    //   'blog-block-1',
+    //   editor.BlockManager.get('blog-block-2')
+    // );
+    // editor.BlockManager.add('blog', editor.BlockManager.get('blog-block-3'));
+    // editor.BlockManager.add('blog', editor.BlockManager.get('blog-block-4'));
+
     setEditor(editor);
-    editor.onReady(() => {
-      if (section === 'header') {
-        // editor.addComponents(plugin.block.header);
-      }
-      editor.on('component:selected', (component) => {
-        console.log(component.attributes);
-      });
+    editor.onReady((clb) => {
+      console.log('editor ready');
     });
   }, [setEditor]);
 
@@ -194,151 +273,14 @@ const SectionPageBuilder: React.FC = () => {
       <div className="editor-row">
         <div className="panel__left">
           <div className="panel__top"></div>
-          <div className="styles-container"></div>
+          <div className="blocks"></div>
         </div>
-        {showSections ? <div id="sections"></div> : <SectionTemplate />}
+        {showSections && <div id="sections"></div>}
+        <div className="main__builder">
+          <SectionTemplate />
+        </div>
       </div>
     </div>
   );
 };
-
 export default SectionPageBuilder;
-
-// function Text(editor: GrapesJS.Editor) {
-//   editor.DomComponents.addType('text', {
-//     model: {
-//       defaults: {
-//         traits: [
-//           {
-//             type: 'text',
-//             name: 'text-title',
-//             label: 'Title',
-//             placeholder: 'Enter your title ',
-//           },
-//           {
-//             type: 'text',
-//             name: 'text-link',
-//             label: 'Link',
-//             placeholder: 'Paste URL or Type ',
-//           },
-//           {
-//             type: 'select',
-//             name: 'text-size',
-//             label: 'Size',
-//             default: 'default',
-//             options: [
-//               { id: 'default', name: 'Default' },
-//               { id: 'small', name: 'Small' },
-//               { id: 'medium', name: 'Medium' },
-//               { id: 'large', name: 'Large' },
-//               { id: 'xl', name: 'XL' },
-//               { id: 'xxl', name: 'XXL' },
-//             ],
-//           },
-
-//           {
-//             type: 'select',
-//             name: 'text-html-tag',
-//             label: 'HTML Tag',
-//             default: 'h1',
-//             options: [
-//               { id: 'h1', name: 'H1' },
-//               { id: 'h2', name: 'H2' },
-//               { id: 'h3', name: 'H3' },
-//               { id: 'h4', name: 'H4' },
-//               { id: 'h5', name: 'H5' },
-//               { id: 'h6', name: 'H6' },
-//               { id: 'div', name: 'div' },
-//               { id: 'span', name: 'span' },
-//               { id: 'p', name: 'p' },
-//             ],
-//           },
-//           {
-//             type: 'select',
-//             name: 'text-alignment',
-//             label: 'Alignment',
-//             default: 'left',
-//             options: [
-//               { id: 'left', name: 'Left' },
-//               { id: 'center', name: 'Center' },
-//               { id: 'right', name: 'Right' },
-//               { id: 'justified', name: 'Justified' },
-//             ],
-//           },
-//         ],
-//       },
-//     },
-//   });
-//   //Trait for Map
-//   editor.DomComponents.addType('map', {
-//     model: {
-//       defaults: {
-//         traits: [
-//           {
-//             type: 'text',
-//             name: 'map-location',
-//             label: 'Location',
-//             placeholder: 'Enter your location ',
-//           },
-//         ],
-//       },
-//     },
-//   });
-
-//   //Trait for Image
-//   editor.DomComponents.addType('image', {
-//     model: {
-//       defaults: {
-//         traits: [
-//           {
-//             type: 'select',
-//             name: 'image-size',
-//             label: 'Size',
-//             default: 'large',
-//             options: [
-//               { id: 'thumbnail', name: 'Thumbnail- 150 x 150' },
-//               { id: 'medium', name: 'Medium- 300 x 300' },
-//               { id: 'medium-large', name: 'Medium Large-  768 x 0' },
-//               { id: 'large', name: 'Large- 1024 x 1024 ' },
-//               { id: 'custom', name: 'Custom' },
-//               { id: 'full', name: 'Full' },
-//             ],
-//           },
-//           {
-//             type: 'select',
-//             name: 'image-alignment',
-//             label: 'Alignment',
-//             default: 'left',
-//             options: [
-//               { id: 'left', name: 'Left' },
-//               { id: 'center', name: 'Center' },
-//               { id: 'right', name: 'Right' },
-//             ],
-//           },
-//           {
-//             type: 'select',
-//             name: 'image-caption',
-//             label: 'Caption',
-//             default: 'none',
-//             options: [
-//               { id: 'none', name: 'None' },
-//               { id: 'attachment', name: 'Attachment Caption' },
-//               { id: 'custom', name: 'Custom Caption' },
-//             ],
-//           },
-//           {
-//             type: 'select',
-//             name: 'image-link',
-//             label: 'Link',
-//             default: 'none',
-//             options: [
-//               { id: 'none', name: 'None' },
-//               { id: 'media ', name: 'Media File' },
-//               { id: 'curl', name: 'Custom URL' },
-//             ],
-//           },
-//         ],
-//       },
-//     },
-//   });
-// }

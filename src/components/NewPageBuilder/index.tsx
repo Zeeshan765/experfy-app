@@ -4,13 +4,12 @@ import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
 // import './CustomGrapes.css';
-import './index.scss';
 import Basics from 'grapesjs-blocks-basic';
+import plugin1 from 'grapesjs-tailwind';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
-
-import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 import '../PageBuilder/index.scss';
+import './index.scss';
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -19,13 +18,11 @@ const NewPageBuilder = () => {
   const [headingText, setHeadingText] = React.useState<string>('abc');
   // console.log('test of editor', editorState);
   const testRef = useRef();
-  const myFunction = () => {
-    console.log('*****************myFunction***************');
-  };
+  const myFunction = () => {};
   useEffect(() => {
     setStepNav([
       {
-        label: 'Sections Templates',
+        label: 'Page Builder',
         url: '/collections/global-theme-settings/theme-builder/section',
       },
     ]);
@@ -73,12 +70,13 @@ const NewPageBuilder = () => {
       },
       styleManager: {
         appendTo: '.styles-container',
+        sectors: [],
       },
       panels: {
         defaults: [
           {
             id: 'layers',
-            el: '.panel__top',
+            el: '.styles-container',
             // Make the panel resizable
             resizable: {
               maxDim: 350,
@@ -94,21 +92,23 @@ const NewPageBuilder = () => {
           },
           {
             id: 'panel-switcher',
-            el: '.panel__top',
+            el: '.styles-container',
             buttons: [
               {
                 id: 'show-layers',
                 active: false,
-                label: 'Layers',
-                command: 'show-layers',
+                visible: true,
+                command: 'open-layers',
+                className: 'fa fa-bars',
                 // Once activated disable the possibility to turn it off
                 toggle: true,
               },
               {
                 id: 'show-style',
                 active: true,
-                label: 'Styles',
-                command: 'show-styles',
+                className: 'fa fa-paint-brush',
+                command: 'open-styles',
+                visible: true,
                 toggle: true,
               },
             ],
