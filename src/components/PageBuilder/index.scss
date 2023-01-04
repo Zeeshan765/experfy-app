@@ -1,4 +1,6 @@
 // @import "grapesjs/src/styles/scss/_gjs_variables.scss";
+
+
 $primaryColor: var(--theme-bg);
 $secondaryColor: var(--theme-text);
 $tertiaryColor: var(--theme-primary);
@@ -27,14 +29,28 @@ $fontName: "proximanova-bold-webfont";
 
 
 .gjs-cv-canvas {
-  width: 80% !important;
+  top: 0% !important;
+  width: 100% !important;
 }
 
-.gjs-pn-panel,
+.gjs-pn-panel {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  position: relative !important;
+  padding: 0px !important;
+  height: 40px;
+  color: var(--theme-elevation-0) !important;
+  background: var(--theme-primary) !important;
+}
+
 .gjs-pn-views {
   width: 20% !important;
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text);
   border-right: 1px solid #d3dbe3;
   box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
+  left: 0 !important;
 }
 
 .gjs-pn-views-container {
@@ -57,9 +73,9 @@ $fontName: "proximanova-bold-webfont";
   background-color: #fff !important;
 }
 
-.gjs-pn-commands {
-  width: 100% !important;
-}
+// .gjs-pn-commands {
+//   width: 100% !important;
+// }
 
 .gjs-layer-vis {
   width: 30px !important;
@@ -70,19 +86,28 @@ $fontName: "proximanova-bold-webfont";
   min-width: 20% !important;
 }
 
-// .gjs-category-title,
+.gjs-category-title,
 .gjs-layer-title,
-// .gjs-block-category,
 .gjs-sm-sector-title {
-  font-weight: 500 !important;
+  font-weight: light !important;
   color: var(--theme-text) !important;
-  font-size: 1rem !important;
+  font-size: 15px;
   height: 4rem !important;
-  // background-color: var(--theme-bg) !important;
-  background-color: #fff !important;
+  background-color: var(--theme-elevation-0) !important;
   flex-direction: row-reverse !important;
   justify-content: start !important;
   border-bottom: 1px solid #d3dbe3 !important;
+  position: relative !important;
+  padding: 9px 10px 9px 15px !important;
+
+  // .fa-caret-right:before {
+  //   display: none !important;
+  // }
+
+  // .fa-caret-down:before {
+  //   display: none !important;
+  // }
+
   // border-bottom: 2px solid var(--theme-elevation-50) !important
 }
 
@@ -99,6 +124,7 @@ $fontName: "proximanova-bold-webfont";
   padding: 0.5rem !important;
 }
 
+
 .gjs-block {
   width: 30% !important;
   padding: 0.5rem !important;
@@ -106,7 +132,7 @@ $fontName: "proximanova-bold-webfont";
   margin: 2px !important;
   box-shadow: 1px 1px 0 0 rgba(97, 97, 97, 0.3) !important;
   background-color: #f1f3f5 !important;
-  color: var(--theme-primary);
+  color: var(--theme-primary) !important;
 }
 
 .gjs-blocks-c {
@@ -125,8 +151,8 @@ $fontName: "proximanova-bold-webfont";
 .gjs-block-label {
   font-size: 0.65rem !important;
   font-weight: 600 !important;
-  font-family: var(--font-body);
-  color: var(--theme-text);
+  font-family: var(--font-body) !important;
+  color: var(--theme-text) !important;
 }
 
 .gjs-field {
@@ -153,7 +179,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-field-integer input {
-  padding-right: 30px;
+  padding-right: 30px !important;
   width: 120px !important;
 
 }
@@ -162,9 +188,9 @@ $fontName: "proximanova-bold-webfont";
   font-size: 1rem !important;
 }
 
-.gjs-cv-canvas {
-  left: 20% !important;
-}
+// .gjs-cv-canvas {
+//   left: 20% !important;
+// }
 
 .gjs-pn-views-container {
   left: 0;
@@ -190,11 +216,12 @@ $fontName: "proximanova-bold-webfont";
   width: 100% !important;
   display: flex !important;
   justify-content: space-between !important;
-  padding: 0 10px;
+  padding: 0 10px !important;
 }
 
 .gjs-pn-buttons {
-  background-color: var(--theme-bg);
+  background-color: var(--theme-primary) !important;
+  width: 20%;
 }
 
 .gjs-sm-property__border {
@@ -241,8 +268,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-category-open,
 .gjs-block-category.gjs-open,
 .gjs-sm-sector.gjs-sm-open {
-  // border-bottom: 1px solid var(--theme-elevation-900) !important;
-  border-bottom: 2px solid var(--theme-elevation-50) !important
+  border-bottom: 2px solid var(--theme-elevation-50) !important;
 }
 
 .gjs-field-range input[type="range"]::-webkit-slider-runnable-track {
@@ -263,10 +289,6 @@ $fontName: "proximanova-bold-webfont";
   border: none;
 }
 
-.currentColor {
-  currentcolor: #d0d0d0 !important;
-}
-
 .gjs-select {
   .gjs-sel-arrow {
     .gjs-d-s-arrow {
@@ -277,7 +299,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .full-width-image .gjs-block-label svg {
-  width: 100%;
+  width: 100% !important;
   height: 100% !important;
 }
 
@@ -317,10 +339,34 @@ $fontName: "proximanova-bold-webfont";
   }
 }
 
-.gjs-sm-sector-title {
-  position: relative !important;
-  padding: 9px 10px 9px 15px !important;
+
+.gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg");
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
 }
+
+
+
+
+.gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
+  background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg");
+  background-size: 100% 100%;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+}
+
+
+
+// .gjs-sm-sector-title {
+//   position: relative !important;
+//   padding: 9px 10px 9px 15px !important;
+// }
 
 .gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg");
@@ -340,14 +386,14 @@ $fontName: "proximanova-bold-webfont";
   content: "";
 }
 
-.gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-  background-size: 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: "";
-}
+// .gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
+//   background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
+//   background-size: 100%;
+//   width: 16px;
+//   height: 16px;
+//   background-repeat: no-repeat;
+//   content: "";
+// }
 
 .gjs-sm-sector__buttons .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
@@ -395,7 +441,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-sm-sector__design_system,
-.gjs-sm-sector__theme_styles {
+.gjs-sm-sector__theme_style {
   cursor: default;
   -webkit-user-select: none;
   user-select: none;
@@ -411,11 +457,11 @@ $fontName: "proximanova-bold-webfont";
   }
 
   .gjs-sm-sector-caret {
-    display: none;
+    display: none !important;
   }
 
   .gjs-sm-properties {
-    display: none;
+    display: none !important;
   }
 
   &.gjs-sm-open {
@@ -424,8 +470,7 @@ $fontName: "proximanova-bold-webfont";
 }
 
 .gjs-pn-global-style {
-  height: 100%;
-  width: 360px;
+  width: 100% !important;
 
   .gjs-sm-sector-title {
     .gjs-sm-sector-label {
@@ -478,7 +523,7 @@ $fontName: "proximanova-bold-webfont";
 .gjs-block {
   padding: 0 !important;
   width: 100% !important;
-  min-height: auto !important;
+  height: auto !important;
 }
 
 /* Fit icons properly */

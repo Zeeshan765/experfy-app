@@ -1,4 +1,5 @@
 import GrapesJS from 'grapesjs';
+import { Eyebrow } from 'payload/components/elements';
 import React from 'react';
 import '../../index.scss';
 import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
@@ -83,10 +84,15 @@ const PracticeArea = () => {
   }, []);
 
   return (
-    <div className="main">
-      <div id="editor"></div>
-      <div className="myblocks"></div>
-      <div className="styles-container"></div>
+    <div className="main__content">
+      <Eyebrow />
+      <div className="editor-row">
+        <div className="panel__left">
+          <div className="panel__top"></div>
+          <div className="styles-container"></div>
+        </div>
+        <div id="editor"></div>
+      </div>
     </div>
   );
 };

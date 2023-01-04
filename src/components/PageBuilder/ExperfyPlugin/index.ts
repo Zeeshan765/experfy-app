@@ -79,7 +79,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
   opts: Partial<PluginOptions> = {}
 ) => {
   const config: RequiredPluginOptions = {
-    blocks: [],
+    blocks: ['header', 'footer', 'testimonial', 'benefit', 'practice-area'],
     block: () => ({}),
     modalImportTitle: 'Import',
     modalImportButton: 'Import',

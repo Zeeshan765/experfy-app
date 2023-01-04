@@ -13,62 +13,28 @@ $fontName: "proximanova-bold-webfont";
 //--------- new page builder css --------//
 //--------------------------------------- //
 
-.gjs-title {
-    padding: 18px 0px 18px 50px !important;
-    margin: 5px 15px !important;
-    border: 1px solid #d5dbe0 !important;
-    height: auto !important;
-    border-radius: 5px !important;
-    position: relative !important;
-    font-weight: 600 !important;
-    font-size: 15px !important;
-    background-color: #fff !important;
-    display: flex !important;
-    align-items: center !important;
+// .gjs-title {
+//     padding: 18px 0px 18px 50px !important;
+//     margin: 5px 15px !important;
+//     border: 1px solid #d5dbe0 !important;
+//     height: auto !important;
+//     border-radius: 5px !important;
+//     position: relative !important;
+//     font-weight: 600 !important;
+//     font-size: 15px !important;
+//     background-color: #fff !important;
+//     display: flex !important;
+//     align-items: center !important;
 
-    .gjs-caret-icon {
-        position: absolute !important;
-        right: 30px !important;
-        content: "";
-        width: 16px;
-        height: 16px;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        background-image: url("../../assets/images/eye.svg") !important;
-    }
 
-    .fa-caret-right:before {
-        display: none !important;
-    }
+//     .fa-caret-right:before {
+//         display: none !important;
+//     }
 
-    .fa-caret-down:before {
-        display: none !important;
-    }
-}
-
-.gjs-title::before {
-    background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
-    position: absolute;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-    z-index: 11111;
-    left: 20px;
-}
-
-.gjs-title::after {
-    background-image: url("../../assets/images/handle.svg") !important;
-    position: absolute;
-    background-size: 100% 100%;
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    content: "";
-    z-index: 11111;
-    right: 10px;
-}
+//     .fa-caret-down:before {
+//         display: none !important;
+//     }
+// }
 
 // --------------------------------------
 // top panal options
@@ -266,31 +232,31 @@ $fontName: "proximanova-bold-webfont";
 // -------- new page builder layers manager -----------
 // ----------------------------------------------------
 .gjs-layer {
-  .gjs-layer-vis {
-    right: 50px !important;
-    top: 20px !important;
-    left: auto !important;
-  }
+    .gjs-layer-vis {
+        right: 50px !important;
+        top: 20px !important;
+        left: auto !important;
+    }
 
     .gjs-layer-count {
         display: none !important;
     }
 
-  .gjs-one-bg {
-    .gjs-layer-title {
-      padding: 18px 0px 18px 50px !important;
-      margin: 5px 15px !important;
-      border: 1px solid #d5dbe0 !important;
-      height: auto !important;
-      border-radius: 5px !important;
-      position: relative !important;
-      font-weight: 600 !important;
-      font-size: 15px !important;
-      background-color: #fff !important;
-      display: flex !important;
-      align-items: center !important;
-      letter-spacing: 1px;
-      text-align: left;
+    .gjs-one-bg {
+        .gjs-layer-title {
+            padding: 18px 0px 18px 50px !important;
+            margin: 5px 15px !important;
+            border: 1px solid #d5dbe0 !important;
+            height: auto !important;
+            border-radius: 5px !important;
+            position: relative !important;
+            font-weight: 600 !important;
+            font-size: 15px !important;
+            background-color: #fff !important;
+            display: flex !important;
+            align-items: center !important;
+            letter-spacing: 1px;
+            text-align: left;
 
             .gjs-layer-title-inn {
                 .gjs-no-app {

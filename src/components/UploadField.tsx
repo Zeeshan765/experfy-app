@@ -1,11 +1,12 @@
-import React from "react";
-const UplodField = (props) => {
-  console.log("test of props===============>>>>",props);
+import { TextInput } from 'payload/components/forms';
+import React from 'react';
+const UploadField = (props) => {
+  console.log('test of props===============>>>>', props);
   return (
     <>
       {/* <h2>hello test</h2> */}
-      <input type="file" name="custom image"  style={{border:'1px solid red', padding:'5px 20px'}} />
+      <TextInput name="upload" path={'upload'} label={'Upload'} />
     </>
   );
 };
-export default UplodField;
+export default UploadField;

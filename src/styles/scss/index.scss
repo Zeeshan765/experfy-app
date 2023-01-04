@@ -92,7 +92,8 @@ body {
 
   &__builder {
     height: 100%;
-    // padding-left: 23.75rem;
+    width: 80%;
+    padding: 2rem;
   }
 }
 
@@ -113,6 +114,7 @@ body {
     overflow: unset;
     white-space: nowrap;
     font-size: 24px;
+    max-width: unset;
   }
   
 
@@ -364,7 +366,7 @@ div.react-select {
   margin-right: 10px;
 }
 
-.Global #nav-themes::before {
+.Global #nav-themes-style::before {
   background-image: url("/src/assets/images/sidebar/theme_style.svg") !important;
   // background-size: 100% 100%;
   // width: 16px;
@@ -518,18 +520,6 @@ div.react-select {
     }
 
     .radio-group--layout-horizontal {
-      border-bottom: 1px solid #d1dbe3;
-      // padding: 1.5rem 2rem 0;
-      padding: 24px 32px 0;
-      margin-right: -32px;
-      margin-left: -32px;
-
-      ul {
-        li {
-          padding-right: 0px !important;
-        }
-      }
-
       .radio-group--group {
         label {
           margin-bottom: 0px !important;

@@ -1,6 +1,6 @@
 import 'grapesjs/dist/css/grapes.min.css';
 import { CollectionConfig } from 'payload/types';
-import PageBuilder from '../components/PageBuilder/SectionTemplates';
+import PageBuilder from '../components/PageBuilder';
 
 const PageBuilderCollection: CollectionConfig = {
   slug: 'page-builder',

@@ -10,7 +10,6 @@ const HeaderCollection: CollectionConfig = {
   admin: {
     components: {
       views: {
-        Edit: Header,
         List: Header,
       },
     },
