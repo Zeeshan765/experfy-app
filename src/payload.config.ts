@@ -199,7 +199,7 @@ export default buildConfig({
     Users,
     DepartmentCollection,
     TalentCloudCollection,
-    ImageBannerCollection,
+    // ImageBannerCollection,
     SectionTemplateCollection,
   ],
   i18n: {
