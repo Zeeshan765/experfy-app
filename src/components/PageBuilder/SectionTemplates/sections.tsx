@@ -16,7 +16,6 @@ import TalentCloud from '../NewSectionTemplate/TalentCloud/vendor/plugins/grapes
 import Testimonial from '../NewSectionTemplate/Testimonial/vendor/plugins/grapesjs-tailwind/src/index';
 
 import indexedDB from 'grapesjs-indexeddb';
-import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import SectionTemplate from '../../SectionTemplate';
 import '../index.scss';
