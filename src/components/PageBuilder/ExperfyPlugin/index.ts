@@ -92,7 +92,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
     importViewerOptions: {},
     textCleanCanvas: 'Are you sure you want to clear the canvas?',
     showStylesOnChange: true,
-    useCustomTheme: true,
+    useCustomTheme: false,
     showGlobalStyles: true,
     ...opts,
   };

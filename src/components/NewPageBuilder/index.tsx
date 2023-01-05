@@ -338,6 +338,7 @@ const NewPageBuilder = () => {
     //             { id: 'p', name: 'p' },
     //           ],
     //         },
+
     //         {
     //           type: 'select',
     //           name: 'text-alignment',

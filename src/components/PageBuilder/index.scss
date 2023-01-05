@@ -131,13 +131,13 @@ $deviceBackground: #2f3d55;
   position: relative !important;
   padding: 9px 10px 9px 15px !important;
 
-  // .fa-caret-right:before {
-  //   display: none !important;
-  // }
+  .fa-caret-right:before {
+    display: none !important;
+  }
 
-  // .fa-caret-down:before {
-  //   display: none !important;
-  // }
+  .fa-caret-down:before {
+    display: none !important;
+  }
 
   border-bottom: 2px solid var(--theme-elevation-50) !important
 }
@@ -384,15 +384,6 @@ $deviceBackground: #2f3d55;
   background-repeat: no-repeat;
   content: "";
 }
-
-// .gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
-//   background-image: url("../../assets/images/global-theme-settings/sidebar/headings.svg") !important;
-//   background-size: 100%;
-//   width: 16px;
-//   height: 16px;
-//   background-repeat: no-repeat;
-//   content: "";
-// }
 
 .gjs-sm-sector__buttons .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
