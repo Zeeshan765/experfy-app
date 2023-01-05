@@ -9,6 +9,7 @@ import home from '../assets/images/templates/home.png';
 import job_overview from '../assets/images/templates/job_overview.png';
 import join from '../assets/images/templates/join.png';
 import tc_overview from '../assets/images/templates/tc_overview.png';
+import { MinimalTemplate } from 'payload/components/templates';
 import FaceLessModel from './Model';
 
 const useStyles = makeStyles({

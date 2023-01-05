@@ -4,17 +4,17 @@ $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
 $tagBg: var(--theme-bg);
 $fontFace: var(--font-body);
-$fontSize: 0.9rem;
-$fontSizeS: 0.9rem;
+$fontSize: 1rem;
+$fontSizeS: 0.85rem;
 $mainFont: "proxima-nova", sans-serif;
 $fontPath: "../../assets/fonts/proxima-nova";
 $fontName: "proximanova-bold-webfont";
-@import "grapesjs/src/styles/scss/main.scss";
+@import "grapesjs/src/styles/scss/main.scss";¡
 
 
 .editor-canvas {
   flex-grow: 1;
-  background-color: #f1f3f5;
+  background-color: var(--theme-bg);
   height: 100%;
   width: 100%;
   position: relative;
@@ -29,6 +29,7 @@ $fontName: "proximanova-bold-webfont";
 
 .editor-row {
   display: flex;
+  background-color: var(--theme-bg);
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: nowrap;
@@ -53,7 +54,7 @@ $fontName: "proximanova-bold-webfont";
 
 .panel__left {
   left: 0;
-  flex-basis: 20%;
+  flex-basis: 30rem;
   overflow-y: auto;
   border-right: var(--theme-elevation-150) 3px solid;
 
@@ -468,4 +469,73 @@ $fontName: "proximanova-bold-webfont";
   .gjs-pn-btn {
     color: #fff !important;
   }
+}
+
+
+.gjs-layer {
+  .gjs-layer-vis {
+    right: 50px !important;
+    top: 20px !important;
+    left: auto !important;
+  }
+
+  .gjs-layer-count {
+    display: none !important;
+  }
+
+
+  .gjs-layer-title {
+    padding: 18px 0px 18px 50px !important;
+    margin: 5px 15px !important;
+    border: 1px solid #d5dbe0 !important;
+    height: auto !important;
+    border-radius: 5px !important;
+    position: relative !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    background-color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    letter-spacing: 1px;
+    text-align: left;
+
+    .gjs-layer-title-inn {
+      .gjs-no-app {
+        height: auto !important;
+      }
+
+      .gjs-layer-caret {
+        display: none !important;
+      }
+
+      .gjs-layer-name {
+        padding: 0px !important;
+      }
+    }
+
+    &::before {
+      background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
+      position: absolute;
+      background-size: 100% 100%;
+      width: 16px;
+      height: 16px;
+      background-repeat: no-repeat;
+      content: "";
+      z-index: 11111;
+      left: 20px;
+    }
+
+    &::after {
+      background-image: url("../../assets/images/handle.svg") !important;
+      position: absolute;
+      background-size: 100% 100%;
+      width: 16px;
+      height: 16px;
+      background-repeat: no-repeat;
+      content: "";
+      z-index: 11111;
+      right: 10px;
+    }
+  }
+
 }

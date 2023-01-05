@@ -10,6 +10,7 @@ import FormCollection from './collections/Form';
 import GuidelineCollection from './collections/Guideline';
 import HeaderCollection from './collections/Header';
 import ImgTextCollection from './collections/ImageAndText';
+import ImageBannerCollection from './collections/ImageBanner';
 import LocationCollection from './collections/Location';
 import Media from './collections/Media';
 import MenusCollection from './collections/MenusCollection';
@@ -54,7 +55,6 @@ export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
     user: Users.slug,
-
     css: path.resolve(__dirname, './styles/scss/index.scss'),
     components: {
       graphics: {
@@ -201,7 +201,7 @@ export default buildConfig({
     Users,
     DepartmentCollection,
     TalentCloudCollection,
-    // ImageBannerCollection,
+    ImageBannerCollection,
     SectionTemplateCollection,
   ],
   i18n: {

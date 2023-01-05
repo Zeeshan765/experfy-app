@@ -1,10 +1,9 @@
-// @ts-ignore
 import GrapesJS from 'grapesjs';
-import React, { useEffect, useRef, useState } from 'react';
 import Basics from 'grapesjs-blocks-basic';
 import plugin1 from 'grapesjs-tailwind';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
+import React, { useEffect, useRef, useState } from 'react';
 import '../PageBuilder/index.scss';
 import './index.scss';
 const NewPageBuilder = () => {
@@ -25,7 +24,6 @@ const NewPageBuilder = () => {
   React.useEffect(() => {
     const editor = GrapesJS.init({
       container: '.editor',
-
       plugins: [plugin1, Basics],
       storageManager: {
         type: 'local',
@@ -42,185 +40,183 @@ const NewPageBuilder = () => {
       },
       fromElement: true,
       layerManager: {
-        appendTo: '.styles-container',
-        showWrapper: true,
+        appendTo: '.layers-container',
       },
       styleManager: {
         appendTo: '.styles-container',
-        sectors: [],
-      },
-      showDevices: true,
-      showOffsets: true,
-      showOffsetsSelected: true,
-      commands: {
-        defaults: [
-          {
-            id: 'open-layers',
-            command: 'open-layers',
-          },
-        ],
-      },
-
-      panels: {
-        defaults: [
-          {
-            id: 'panel-switcher',
-            el: '.panel__top',
-            buttons: [
-              {
-                id: 'show-layers',
-                active: false,
-                visible: true,
-                command: 'open-layers',
-                className: 'fa fa-bars',
-                // Once activated disable the possibility to turn it off
-                toggle: true,
-              },
-              {
-                id: 'show-style',
-                active: true,
-                className: 'fa fa-paint-brush',
-                command: 'open-styles',
-                visible: true,
-                toggle: true,
-              },
-              {
-                id: 'show-blocks',
-                active: false,
-                className: 'fa fa-th-large',
-                command: 'open-blocks',
-                visible: true,
-                toggle: true,
-              },
-            ],
-          },
-        ],
       },
       blockManager: {
         appendTo: '.blocks',
         blocks: [],
       },
-
-      // blockManager: {
-      //   appendTo: '.myblocks',
-      //   blocks: [
-      //     {
-      //       id: 'button',
-      //       label: 'Button',
-
-      //       // Use `image` component
-      //       content: {
-      //              type: "button",
-      //              tagName: 'button',
-      //              draggable: false,
-      //              attributes: { class: 'container'},
-      //              style: { 'background-color': '#ffffff' },
-      //              content: "Change Title",
-      //            },
-      //       // The component `image` is activatable (shows the Asset Manager).
-      //       // We want to activate it once dropped in the canvas.
-      //       activate: true,
-      //       // select: true, // Default with `activate: true`
-      //     }
-      //   ],
-      // }
-
-      // styleManager: {
-      //   appendTo: '.styles-container',
-
-      //   sectors: [
-      //     {
-      //       // name: 'Global Colors Collection',
-      //       highlightChanged: true,
-      //       stylePrefix: 'ts-', // Prefix for all class names
-      //       open: true,
-      //       buildProps: ['background-color', 'color', 'color'],
-      //       properties: [
-      //         {
-      //           type: 'color',
-      //           name: 'Primary',
-      //           property: 'background-color',
-      //           default: '#e6e6e6',
-      //           attributes: {
-      //             'data-type': 'background-color',
-      //           },
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
+      showDevices: false,
+      showOffsets: true,
+      showOffsetsSelected: true,
+      commands: {
+        defaults: [
+          {
+            id: 'save',
+            run(editor) {
+              editor.store();
+            },
+          },
+        ],
+      },
+      panels: {
+        defaults: [
+          {
+            id: 'panel-switcher',
+            el: '.panel__switcher',
+            buttons: [
+              {
+                id: 'show-layers',
+                className: 'fa fa-bars',
+                command: 'show-layers',
+                active: false,
+                toggle: true,
+                attributes: { title: 'Layers' },
+              },
+              {
+                id: 'show-style',
+                className: 'fa fa-paint-brush',
+                command: 'show-styles',
+                active: true,
+                toggle: true,
+                attributes: { title: 'Styles' },
+              },
+              {
+                id: 'show-traits',
+                className: 'fa fa-cog',
+                command: 'show-traits',
+                active: true,
+                toggle: true,
+                attributes: { title: 'Traits' },
+              },
+              {
+                id: 'show-blocks',
+                className: 'fa fa-th-large',
+                command: 'show-blocks',
+                active: true,
+                toggle: true,
+                attributes: { title: 'Blocks' },
+              },
+            ],
+          },
+          {
+            id: 'panel-top',
+            el: '.panel__top',
+            buttons: [
+              {
+                id: 'visibility',
+                active: true,
+                Label: 'Preview',
+                className: 'fa fa-eye',
+                command: 'sw-visibility',
+                attributes: { title: 'View Components' },
+              },
+              {
+                id: 'save',
+                className: 'btn btn--style-primary',
+                command: 'save',
+                label: 'Save',
+                attributes: { title: 'Save' },
+              },
+              {
+                id: 'publish',
+                className: 'radio',
+                command: 'publish',
+                label: 'Publish',
+                attributes: { title: 'Publish' },
+              },
+            ],
+          },
+        ],
+      },
     });
-    // const panelManager = editor.Panels;
-    // var newPanel = panelManager.addPanel({
-    //   id: 'panelOne',
-    //   className: 'btn-toggles-borders-panelOne',
-    //   style: { color: 'red' },
-    //   visible: true,
-    //   buttons: [
-    //     {
-    //       id: 'visibility',
-    //       active: true,
-    //       className: 'btn-toggle-borders-panelOne panel-btn',
-    //       label: `<div class="preview"> <div><svg class= "preview-icon"  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="VisibilityIcon"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>  </div> <div class = "preview-text">Preview</div>`,
-    //       command: 'preview',
-    //     },
-    //     {
-    //       id: 'visibility2',
-    //       active: true,
-    //       className: 'pg-builder-save-btn save-panel-btn',
-    //       label: 'save',
-    //     },
-    //     {
-    //       id: 'visibility3',
-    //       active: true,
-    //       className: 'pg-builder-save-btn publish-btn',
-    //       label: `<div>  <div>Publish</div> </div>`,
-    //       content: 'image',
-    //     },
-    //   ],
-    // });
-    // var newPanel2 = panelManager.addPanel({
-    //   id: 'panelTwo',
-    //   className: 'btn-toggles-borders-panelTwo',
-    //   style: { color: 'red' },
-    //   visible: true,
-    //   buttons: [
-    //     {
-    //       id: 'history',
-    //       active: true,
-    //       className: 'btn-toggle-borders-panelTwo',
-    //       label: `<div class="history"> <div><svg fill="#3a4152" class= "history-icon" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="TimerIcon"><path d="M9 1h6v2H9zm10.03 6.39 1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM13 14h-2V8h2v6z"></path></svg></div>`,
-    //       command: 'history',
-    //     },
-    //     {
-    //       id: 'setting',
-    //       active: true,
-    //       className: 'pg-setting-navbar',
-    //       label:
-    //         ' <div class ="setting"><svg class ="setting-icon" class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SettingsIcon"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path></svg></div>',
-
-    //       content: 'image',
-    //     },
-    //   ],
-    // });
 
     setEditorState(editor);
-    editor.onReady((clb) => {
-      console.log('Editor is ready');
-    });
-    const openBl = editor.Panels.getButton('views', 'open-blocks');
-    editor.on('load', () => openBl?.set('active', true));
-    // On component change show the Style Manager
-    editor.on('component:selected', () => {
-      const openSmBtn = editor.Panels.getButton('views', 'open-sm');
-      const openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+    editor.Commands.add('show-styles', {
+      getRowEl(editor) {
+        return editor.getContainer().closest('.editor-row');
+      },
+      getStyleEl(row) {
+        return row.querySelector('.styles-container');
+      },
+      run(editor, sender) {
+        const smEl = this.getStyleEl(this.getRowEl(editor));
+        smEl.style.display = '';
+      },
 
-      // Don't switch when the Layer Manager is on or
-      // there is no selected component
-      if (!openSmBtn || !openSmBtn.get('active')) {
-        openSmBtn?.set('active', true);
-      }
+      stop(editor, sender) {
+        const smEl = this.getStyleEl(this.getRowEl(editor));
+        smEl.style.display = 'none';
+      },
     });
+    editor.Commands.add('show-blocks', {
+      getRowEl(editor) {
+        return editor.getContainer().closest('.editor-row');
+      },
+      getBlocksEl(row) {
+        return row.querySelector('.blocks');
+      },
+
+      run(editor, sender) {
+        const smEl = this.getBlocksEl(this.getRowEl(editor));
+        smEl.style.display = '';
+      },
+      stop(editor, sender) {
+        const smEl = this.getBlocksEl(this.getRowEl(editor));
+        smEl.style.display = 'none';
+      },
+    });
+    editor.Commands.add('show-traits', {
+      getTraitsEl(editor) {
+        const row = editor.getContainer().closest('.editor-row');
+        return row.querySelector('.traits-container');
+      },
+      run(editor, sender) {
+        this.getTraitsEl(editor).style.display = '';
+      },
+      stop(editor, sender) {
+        this.getTraitsEl(editor).style.display = 'none';
+      },
+    });
+    editor.Commands.add('show-layers', {
+      getLayersEl(editor) {
+        const row = editor.getContainer().closest('.editor-row');
+        return row.querySelector('.layers-container');
+      },
+      run(editor, sender) {
+        this.getLayersEl(editor).style.display = '';
+      },
+      stop(editor, sender) {
+        this.getLayersEl(editor).style.display = 'none';
+      },
+    });
+    editor.on('component:selected', () => {
+      editor.Components.getWrapper()
+        .getTraits()
+        .forEach((trait) => {
+          trait.set('disabled', false);
+        });
+    });
+
+    editor.on('component:drag:end', () => {
+      editor.runCommand('show-styles');
+      editor.runCommand('show-traits');
+      editor.stopCommand('show-blocks');
+      editor.stopCommand('show-layers');
+    });
+
+    editor.onReady(() => {
+      editor.stopCommand('show-styles');
+      editor.runCommand('show-blocks');
+      editor.stopCommand('show-traits');
+      editor.stopCommand('show-layers');
+    });
+    // Don't switch when the Layer Manager is on or
+    // there is no selected component
+
     editor.DomComponents.addType('text', {
       model: {
         defaults: {
@@ -601,96 +597,6 @@ const NewPageBuilder = () => {
       },
     });
 
-    // // Trait for Inner Section
-    // editor.DomComponents.addType('inner-section', {
-    //   model: {
-    //     defaults: {
-    //       traits: [
-    //         {
-    //           type: 'select',
-    //           name: 'inner-section-content-width',
-    //           label: 'Content Width',
-    //           default: ' boxed',
-    //           options: [
-    //             { id: 'boxed', name: 'Boxed' },
-    //             { id: 'full', name: 'Full Width' },
-    //           ],
-    //         },
-    //         {
-    //           type: 'select',
-    //           name: 'inner-section-content-gap',
-    //           label: 'Column Gap',
-    //           default: 'default',
-    //           options: [
-    //             { id: 'default', name: 'Default' },
-    //             { id: 'nogap', name: 'No Gap' },
-    //             { id: 'extended', name: 'Extended' },
-
-    //             { id: 'narrow', name: 'Narrow' },
-    //             { id: 'wide', name: 'Wide' },
-    //             { id: 'wider', name: 'Wider' },
-    //             { id: 'custom', name: 'Custom' },
-    //           ],
-    //         },
-    //         {
-    //           type: 'select',
-    //           name: 'inner-section-content-height',
-    //           label: 'Height',
-    //           default: 'default',
-    //           options: [
-    //             { id: 'default', name: 'Default' },
-    //             { id: 'fit', name: 'Fit to Screen' },
-    //             { id: 'min', name: 'Min Height' },
-    //           ],
-    //         },
-    //         {
-    //           type: 'select',
-    //           name: 'inner-section-content-vertical-alignment',
-    //           label: 'Vertical Align',
-    //           default: 'default',
-    //           options: [
-    //             { id: 'default', name: 'Default' },
-    //             { id: 'top', name: 'Top' },
-    //             { id: 'middle', name: 'Middle' },
-    //             { id: 'bottom', name: 'Bottom' },
-    //             { id: 'between', name: 'Space Between' },
-    //             { id: 'around', name: 'Space Around' },
-    //             { id: 'evenly', name: 'Space Evenly' },
-
-    //           ],
-    //         },
-    //         {
-    //           type: 'select',
-    //           name: 'inner-section-content-overflow',
-    //           label: 'Overflow',
-    //           default: 'default',
-    //           options: [
-    //             { id: 'default', name: 'Default' },
-    //             { id: 'hidden', name: 'Hidden' },
-    //           ],
-    //         },
-    //         {
-    //           type: 'select',
-    //           name: 'inner-section-content-html-tag',
-    //           label: 'HTML Tag',
-    //           default: 'div',
-    //           options: [
-    //             { id: 'div', name: 'div' },
-    //             { id: 'section', name: 'section' },
-    //             { id: 'header', name: 'header' },
-    //             { id: 'footer', name: 'footer' },
-    //             { id: 'main', name: 'main' },
-    //             { id: 'article', name: 'article' },
-    //             { id: 'aside', name: 'aside' },
-    //             { id: 'nav', name: 'nav' },
-
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
-
     editor.DomComponents.addType('div', {
       model: {
         defaults: {
@@ -717,6 +623,7 @@ const NewPageBuilder = () => {
           <div className="panel__switcher"></div>
           <div className="styles-container"></div>
           <div className="traits-container"></div>
+          <div className="layers-container"></div>
           <div className="blocks"></div>
         </div>
         <div className="editor-canvas">
