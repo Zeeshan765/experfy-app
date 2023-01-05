@@ -29,6 +29,7 @@ import {
   testimonial,
   video,
 } from '../assets/images';
+import { Props } from '../utilities/types';
 
 const useStyles = makeStyles({
   sectionCardGrid: {
@@ -180,8 +181,6 @@ const SectionTemplate: React.FC = () => {
   ];
   return (
     <>
-      <Typography variant="h4">Section Templates</Typography>
-
       <Grid container mt={3} spacing={3} className={classes.sectionCardGrid}>
         {templateList.map(({ id, image, name, link, text }) => (
           <Grid item xs={6} sm={4} md={3} key={id}>

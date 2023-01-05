@@ -1,51 +1,28 @@
 // @ts-ignore
 import GrapesJS from 'grapesjs';
 import React, { useEffect, useRef, useState } from 'react';
-// import './grapes.min.css';
-// import './CustomGrapes.css';
 import Basics from 'grapesjs-blocks-basic';
 import plugin1 from 'grapesjs-tailwind';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import '../PageBuilder/index.scss';
 import './index.scss';
-
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
   const { setStepNav } = useStepNav();
   const [headingText, setHeadingText] = React.useState<string>('abc');
-  // console.log('test of editor', editorState);
   const testRef = useRef();
   const myFunction = () => {};
   useEffect(() => {
     setStepNav([
       {
         label: 'Page Builder',
-        url: '/collections/global-theme-settings/theme-builder/section',
+        url: '/collections/new-page-builder',
       },
     ]);
   }, [setStepNav]);
   React.useEffect(() => {
-    // const myFirstBlock = (editor) => {
-    //   var blockManager = editor.BlockManager;
-    //   // 'my-first-block' is the ID of the block
-    //   blockManager.add('my-first-block', {
-    //     label: 'Heading',
-    //     content: {
-    //       type: 'text',
-    //       tagName: 'text',
-    //       draggable: true,
-    //       attributes: { class: 'container' },
-    //       style: { 'background-color': '#ffffff' },
-    //       content: `<input type="text" placeholder="Add Your Text here New Input"
-
-    //       id="self-test" onfocus="myFunction" />`,
-    //       // content: '<div>Hello test</div>',
-    //     },
-    //   });
-    // };
-
     const editor = GrapesJS.init({
       container: '.editor',
 
@@ -120,7 +97,7 @@ const NewPageBuilder = () => {
         ],
       },
       blockManager: {
-        appendTo: '.styles-container',
+        appendTo: '.blocks',
         blocks: [],
       },
 
@@ -240,7 +217,7 @@ const NewPageBuilder = () => {
 
       // Don't switch when the Layer Manager is on or
       // there is no selected component
-      if (!openLayersBtn || !openLayersBtn.get('active')) {
+      if (!openSmBtn || !openSmBtn.get('active')) {
         openSmBtn?.set('active', true);
       }
     });
@@ -583,7 +560,6 @@ const NewPageBuilder = () => {
               label: 'Border Type',
               default: 'none',
               options: [
-                { id: 'none', name: 'None' },
                 { id: 'solid', name: 'Solid' },
                 { id: 'dashed', name: 'Dashed' },
                 { id: 'dotted', name: 'Dotted' },
@@ -610,7 +586,6 @@ const NewPageBuilder = () => {
               label: 'Border Type',
               default: 'none',
               options: [
-                { id: 'none', name: 'None' },
                 { id: 'solid', name: 'Solid' },
                 { id: 'dashed', name: 'Dashed' },
                 { id: 'dotted', name: 'Dotted' },
@@ -731,29 +706,6 @@ const NewPageBuilder = () => {
       },
     });
   }, [setEditorState]);
-  // console.log('document.activeElement', document.activeElement.tagName);
-
-  // useEffect(() => {
-  //   if (testRef) {
-  //     // debugger;
-  //     console.log(document.getElementById('self-test'), 'testRef', testRef);
-  //     let ftext = document.getElementById('self-test');
-  //     if (ftext) {
-  //       // @ts-ignore
-  //       console.log('ftext', ftext);
-  //       // ftext?.value= 'test111';
-  //     }
-  //     // ftext?.value ="test";
-  //     let setext = document.getElementById('self-inner-test');
-  //     //  setext.innerText="second test";
-  //     if (setext) {
-  //       // @ts-ignore
-  //       console.log('setext', setext);
-
-  //       // setext.innerText="second test";
-  //     }
-  //   }
-  // }, [testRef]);
 
   return (
     <div className="main__content">
@@ -761,12 +713,17 @@ const NewPageBuilder = () => {
       <div className="editor-row">
         <div className="panel__left">
           <div className="panel__top"></div>
+          <div className="panel__basic-actions"></div>
+          <div className="panel__switcher"></div>
           <div className="styles-container"></div>
+          <div className="traits-container"></div>
+          <div className="blocks"></div>
         </div>
-        <div className="editor"> </div>
+        <div className="editor-canvas">
+          <div className="editor"></div>
+        </div>
       </div>
     </div>
   );
 };
-
 export default NewPageBuilder;

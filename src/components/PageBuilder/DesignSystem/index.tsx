@@ -59,7 +59,7 @@ const DesignSystem: React.FC = () => {
   useEffect(() => {
     const editor = GrapesJS.init({
       container: '#gjs',
-      height: '100%',
+      height: '0%',
       fromElement: true,
       showOffsets: true,
 
@@ -84,7 +84,7 @@ const DesignSystem: React.FC = () => {
       },
 
       storageManager: {
-        type: 'indexeddb',
+        type: 'local',
         autosave: true,
         autoload: true,
         stepsBeforeSave: 2,

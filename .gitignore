@@ -120,6 +120,7 @@ extensions.json
 .yarn/install-state.gz
 .pnp.*
 .vscode/
-/.vscode/settings.json
 /src/media/
 *.png
+yarn.lock
+package-lock.json
