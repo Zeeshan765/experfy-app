@@ -1,7 +1,7 @@
 import { Box, Grid, Tab, Tabs, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Eyebrow } from 'payload/components/elements';
-import SelectInput from '../../blocks/FormSelect';
+import { SelectInput } from 'payload/components/forms';
 import { useStepNav } from 'payload/components/hooks';
 import { DefaultTemplate } from 'payload/components/templates';
 import PropTypes from 'prop-types';
@@ -73,7 +73,7 @@ function a11yProps(index) {
 }
 
 const TemplatesLibrary: React.FC = () => {
-  const [template, setTemplate] = React.useState('sections');
+  const [template, setTemplate] = React.useState('pages');
   const { setStepNav } = useStepNav();
 
   React.useEffect(() => {
@@ -123,23 +123,32 @@ const TemplatesLibrary: React.FC = () => {
                 <TextInput
                   path={''}
                   label="Search Template"
-                  placeHolder="Search or tag name of Icon"
+                  placeHolder="Type to search"
                   setTouched={setTouched}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3}>
                 <SelectInput
-                  type="select"
                   path={'page_type'}
                   label="Template Library"
-                  setTouched={setTouched}
+                  value={template}
+                  onChange={(e) => setTemplate(e.value.toString())}
                   name={'page_type'}
-                  options={['Pages', 'Section']}
+                  options={[
+                    {
+                      label: 'Pages',
+                      value: 'pages',
+                    },
+                    {
+                      label: 'Sections',
+                      value: 'sections',
+                    },
+                  ]}
                 />
               </Grid>
             </Grid>
-            {template === 'Pages' && <PageTemplate />}
-            {template === 'Section' && <SectionTemplate />}
+            {template === 'pages' && <PageTemplate />}
+            {template === 'sections' && <SectionTemplate />}
           </TabPanel>
         </Box>
       </div>

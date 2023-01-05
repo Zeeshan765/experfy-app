@@ -3,7 +3,7 @@ import commands from './commands';
 import blocks from './blocks';
 import panels from './panels';
 import BasicBlocks from 'grapesjs-blocks-basic';
-// import '../index.scss';
+import '../index.scss';
 
 export type PluginOptions = {
   /**
@@ -79,7 +79,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
   opts: Partial<PluginOptions> = {}
 ) => {
   const config: RequiredPluginOptions = {
-    blocks: ['header', 'footer', 'testimonial', 'benefit', 'practice-area'],
+    blocks: opts.blocks || [],
     block: () => ({}),
     modalImportTitle: 'Import',
     modalImportButton: 'Import',
@@ -88,10 +88,12 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
     importViewerOptions: {},
     textCleanCanvas: 'Are you sure you want to clear the canvas?',
     showStylesOnChange: true,
-    useCustomTheme: true,
+    useCustomTheme: false,
     showGlobalStyles: true,
     ...opts,
   };
+
+  console.log(config);
 
   // if (config.useCustomTheme && typeof window !== 'undefined') {
   //   const primaryColor = '#f9f9fa';

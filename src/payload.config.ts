@@ -30,6 +30,7 @@ import AfterNav from './components/Nav/AfterNav';
 import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import NewPageBuilder from './components/NewPageBuilder';
+import PageBuilder from './components/PageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
 import Benefit from './components/PageBuilder/NewSectionTemplate/Benefit';
 import Footer from './components/PageBuilder/NewSectionTemplate/Footer';
@@ -53,6 +54,7 @@ export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
     user: Users.slug,
+
     css: path.resolve(__dirname, './styles/scss/index.scss'),
     components: {
       graphics: {
@@ -63,11 +65,11 @@ export default buildConfig({
       afterNavLinks: [AfterNav],
 
       routes: [
-        // {
-        //   path: '/collections/page-builder',
-        //   Component: PageBuilder,
-        //   exact: true,
-        // },
+        {
+          path: '/collections/page-builder',
+          Component: PageBuilder,
+          exact: true,
+        },
         {
           path: '/collections/basic-portal-identity',
           Component: BasicPortalIdentityPage,
@@ -207,6 +209,7 @@ export default buildConfig({
     saveMissing: true,
     fallbackLng: 'en',
   },
+
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
