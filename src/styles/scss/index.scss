@@ -11,12 +11,17 @@
   --breakpoint-s-width: #{$breakpoint-s-width};
   --breakpoint-m-width: #{$breakpoint-m-width};
   --breakpoint-l-width: #{$breakpoint-l-width};
-  --scrollbar-width: 10px;
+  --scrollbar-width: 17px;
   --nav-width: #{base(12)};
   --nav-width-m: #{base(10)};
   --theme-bg: #f9f9fa;
+  --theme-border: #d2dbe2;
+  --theme-elevation-50: #f1f3f5;
+  --theme-elevation-150: var(--theme-border);
+  --theme-elevation-100: var(--theme-border);
   --theme-input-bg: var(--theme-elevation-0);
-  --theme-text: #4a5162;
+  --theme-text-light: #4a5162;
+  --theme-text-dark: #3a4152;
   --theme-primary: #48a3d7;
   --theme-baseline: #{$baseline-px};
   --theme-baseline-body-size: #{$baseline-body-size};
@@ -50,9 +55,13 @@
 body {
   background-color: var(--theme-bg);
   font-family: var(--font-body);
-  color: var(--theme-text);
+  color: var(--theme-text-light);
   font-weight: 400;
   font-size: 16px;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 // Page
@@ -81,7 +90,7 @@ body {
   }
 
   &__content {
-    height: calc(100% - 3.5rem);
+    height: calc(100% - 3rem);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -98,7 +107,7 @@ body {
 .template-default {
   .login__brand {
     svg {
-      color: var(--theme-text);
+      color: var(--theme-text-light);
       width: base(8);
       height: auto;
     }
@@ -107,7 +116,7 @@ body {
 
 .step-nav {
   span {
-    color: var(--theme-text);
+    color: var(--theme-text-light);
     text-overflow: unset;
     overflow: unset;
     white-space: nowrap;
@@ -128,13 +137,14 @@ body {
 }
 
 .eyebrow:before {
-  background-color: var(--theme-text);
+  background-color: var(--theme-text-dark);
   opacity: 0;
 }
 
 .eyebrow {
   background-color: var(--theme-elevation-0);
-  padding: 25px;
+  position: relative;
+  padding: 15px;
   font-weight: 500;
   font-size: large;
   border-bottom: var(--theme-elevation-150) 1px solid;
@@ -215,8 +225,7 @@ body {
 }
 
 .nav-group {
-  margin: 0px;
-  padding: 3px 0px;
+  margin: 2px;
 
   .nav-group__content {
     a {
@@ -228,19 +237,19 @@ body {
 
 .nav-group__label {
   font-weight: 500;
-  color: var(--theme-text);
+  color: var(--theme-text-light);
   font-size: 1.1rem;
 }
 
 .card {
-  background-color: #f1f3f5;
-  border: 1px solid var(--theme-elevation-150);
+  background-color: var(--theme-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 7px;
   padding: 20px;
 }
 
 .nav-group__toggle {
-  border-bottom: 1px solid var(--theme-bg);
+  border-bottom: 2px solid var(--theme-border);
   padding: 0.5rem 1rem 0.5rem 1.5rem;
   margin-top: 0px;
 }
@@ -280,11 +289,30 @@ div.react-select {
   div.rs__control {
     border-radius: 0.25rem;
     box-shadow: none !important;
-    min-height: 56px;
+    height: 48px;
     font-size: 16px !important;
     font-weight: 400;
   }
 }
+
+
+.btn--style-secondary {
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--theme-text-light);
+  background-color: var(--color-base-0);
+  border: 1px solid var(--theme-border);
+  padding: 0.7rem 1.3rem;
+  border-radius: 0.4rem;
+  box-shadow: none;
+
+  // &:hover {
+  //   background-color: var(--theme-primary);
+  //   color: var(--theme-elevation-0);
+  //   text-decoration: none;
+  // }
+}
+
 
 .btn--style-primary {
   background-color: var(--theme-primary);
@@ -293,12 +321,12 @@ div.react-select {
   padding: 10px 25px;
   border-radius: 5px;
   font-weight: 500;
-  font-size: large;
+  font-size: medium;
   border: none;
 }
 
 .btn--style-primary:not(.btn--disabled):hover {
-  color: #fff !important;
+  color: var(--theme-border) !important;
 }
 
 .btn-hover {
@@ -376,6 +404,18 @@ div.react-select {
   margin-right: 10px;
 }
 
+.Global #nav-section-templates::before {
+  background-image: url("/src/assets/images/sidebar/theme_style.svg") !important;
+  // background-size: 100% 100%;
+  // width: 16px;
+  // height: 16px;
+  background-repeat: no-repeat;
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
 // ------------------------------------------//
 // ------------ custom css ------------------//
 // -----------------------------------------//
@@ -427,7 +467,7 @@ div.react-select {
 
 .radio-group {
   #field-mediaType {
-    border-bottom: 1px solid #d1dbe3;
+    border-bottom: 1px solid var(--theme-elevation-50);
     padding: 8px 32px 0;
     margin-right: -32px;
     margin-left: -32px;

@@ -1,18 +1,20 @@
 import GrapesJS from 'grapesjs';
 import Basics from 'grapesjs-blocks-basic';
 import plugin1 from 'grapesjs-tailwind';
+
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useRef, useState } from 'react';
 import '../PageBuilder/index.scss';
-import './index.scss';
+
+import { toast } from 'react-toastify';
 const NewPageBuilder = () => {
-  const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
+  let [editor, setEditor] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
   const { setStepNav } = useStepNav();
   const [headingText, setHeadingText] = React.useState<string>('abc');
   const testRef = useRef();
-  const myFunction = () => {};
+
   useEffect(() => {
     setStepNav([
       {
@@ -22,23 +24,23 @@ const NewPageBuilder = () => {
     ]);
   }, [setStepNav]);
   React.useEffect(() => {
-    const editor = GrapesJS.init({
+    editor = GrapesJS.init({
       container: '.editor',
       plugins: [plugin1, Basics],
       storageManager: {
         type: 'local',
-        autoload: true,
+        onStore: true,
         options: {
           storeComponents: true,
           storeStyles: true,
           storeHtml: true,
           storeCss: true,
+
           local: {
             key: 'gts',
           },
         },
       },
-      fromElement: true,
       layerManager: {
         appendTo: '.layers-container',
       },
@@ -49,15 +51,35 @@ const NewPageBuilder = () => {
         appendTo: '.blocks',
         blocks: [],
       },
-      showDevices: false,
+
+      selectorManager: {
+        componentFirst: true,
+        appendTo: '.styles-container',
+      },
+      showDevices: true,
       showOffsets: true,
       showOffsetsSelected: true,
+      devicePreviewMode: true,
+
       commands: {
         defaults: [
           {
+            id: 'preview-fullscreen',
+            run() {
+              editor.runCommand('fullscreen');
+              editor.runCommand('preview');
+            },
+            stop() {
+              editor.stopCommand('fullscreen');
+              editor.stopCommand('preview');
+            },
+          },
+          {
             id: 'save',
-            run(editor) {
-              editor.store();
+            run() {
+              editor.store((options) => {
+                console.log(options);
+              });
             },
           },
         ],
@@ -72,8 +94,7 @@ const NewPageBuilder = () => {
                 id: 'show-layers',
                 className: 'fa fa-bars',
                 command: 'show-layers',
-                active: false,
-                toggle: true,
+                active: true,
                 attributes: { title: 'Layers' },
               },
               {
@@ -81,15 +102,14 @@ const NewPageBuilder = () => {
                 className: 'fa fa-paint-brush',
                 command: 'show-styles',
                 active: true,
-                toggle: true,
                 attributes: { title: 'Styles' },
               },
               {
                 id: 'show-traits',
                 className: 'fa fa-cog',
+                label: ' Traits',
                 command: 'show-traits',
                 active: true,
-                toggle: true,
                 attributes: { title: 'Traits' },
               },
               {
@@ -97,7 +117,6 @@ const NewPageBuilder = () => {
                 className: 'fa fa-th-large',
                 command: 'show-blocks',
                 active: true,
-                toggle: true,
                 attributes: { title: 'Blocks' },
               },
             ],
@@ -107,25 +126,46 @@ const NewPageBuilder = () => {
             el: '.panel__top',
             buttons: [
               {
-                id: 'visibility',
+                id: 'settings',
+                className: 'fa fa-cog btn--style-secondary',
+                command: 'open-settings',
+                attributes: { title: 'Settings' },
+              },
+              {
+                id: 'device-desktop',
+                className: 'fa fa-desktop btn--style-secondary',
+                command: 'toggle-devices',
                 active: true,
-                Label: 'Preview',
-                className: 'fa fa-eye',
-                command: 'sw-visibility',
-                attributes: { title: 'View Components' },
+                attributes: { title: 'Toggle Display' },
+              },
+              {
+                id: 'history',
+                className: 'fa fa-history btn--style-secondary',
+                command: 'undo',
+                attributes: { title: 'Undo' },
+              },
+
+              {
+                id: 'preview',
+                context: 'preview',
+                label: '\t\tPreview',
+                className: 'btn--style-secondary fa fa-eye',
+                command: 'preview-fullscreen',
+                attributes: { title: 'Preview' },
               },
               {
                 id: 'save',
-                className: 'btn btn--style-primary',
+                className: 'btn--style-primary',
                 command: 'save',
                 label: 'Save',
                 attributes: { title: 'Save' },
               },
               {
                 id: 'publish',
-                className: 'radio',
+                className: 'radio btn--style-secondary fa fa-check',
                 command: 'publish',
-                label: 'Publish',
+                label: ' Publish',
+                icon: 'fa fa-check',
                 attributes: { title: 'Publish' },
               },
             ],
@@ -134,7 +174,10 @@ const NewPageBuilder = () => {
       },
     });
 
-    setEditorState(editor);
+    setEditor(editor);
+
+    editor.DeviceManager.select('mobilePortrait');
+
     editor.Commands.add('show-styles', {
       getRowEl(editor) {
         return editor.getContainer().closest('.editor-row');
@@ -170,52 +213,64 @@ const NewPageBuilder = () => {
       },
     });
     editor.Commands.add('show-traits', {
-      getTraitsEl(editor) {
-        const row = editor.getContainer().closest('.editor-row');
+      getRowEl(editor) {
+        return editor.getContainer().closest('.editor-row');
+      },
+      getTraitsEl(row) {
         return row.querySelector('.traits-container');
       },
+
       run(editor, sender) {
-        this.getTraitsEl(editor).style.display = '';
+        const smEl = this.getTraitsEl(this.getRowEl(editor));
+        smEl.style.display = '';
       },
       stop(editor, sender) {
-        this.getTraitsEl(editor).style.display = 'none';
+        const smEl = this.getTraitsEl(this.getRowEl(editor));
+        smEl.style.display = 'none';
       },
     });
     editor.Commands.add('show-layers', {
-      getLayersEl(editor) {
-        const row = editor.getContainer().closest('.editor-row');
+      getRowEl(editor) {
+        return editor.getContainer().closest('.editor-row');
+      },
+      getLayersEl(row) {
         return row.querySelector('.layers-container');
       },
       run(editor, sender) {
-        this.getLayersEl(editor).style.display = '';
+        const smEl = this.getLayersEl(this.getRowEl(editor));
+        smEl.style.display = '';
       },
       stop(editor, sender) {
-        this.getLayersEl(editor).style.display = 'none';
+        const smEl = this.getLayersEl(this.getRowEl(editor));
+        smEl.style.display = 'none';
       },
     });
-    editor.on('component:selected', () => {
-      editor.Components.getWrapper()
-        .getTraits()
-        .forEach((trait) => {
-          trait.set('disabled', false);
-        });
+    editor.Commands.add('toggle-devices', {
+      run(editor, sender) {
+        const deviceManager = editor.DeviceManager;
+        const device = deviceManager.getSelected();
+        console.log(device);
+        const devices = deviceManager.getDevices();
+        const index = devices.indexOf(device);
+        const next = devices[index + 1] || devices[0];
+        deviceManager.select(next.id);
+      },
     });
 
-    editor.on('component:drag:end', () => {
+    editor.on('component:add', (component) => {
+      editor.StyleManager.select(component);
       editor.runCommand('show-styles');
-      editor.runCommand('show-traits');
       editor.stopCommand('show-blocks');
       editor.stopCommand('show-layers');
+      editor.stopCommand('show-traits');
     });
 
     editor.onReady(() => {
-      editor.stopCommand('show-styles');
       editor.runCommand('show-blocks');
-      editor.stopCommand('show-traits');
+      editor.stopCommand('show-styles');
       editor.stopCommand('show-layers');
+      editor.stopCommand('show-traits');
     });
-    // Don't switch when the Layer Manager is on or
-    // there is no selected component
 
     editor.DomComponents.addType('text', {
       model: {
@@ -611,15 +666,15 @@ const NewPageBuilder = () => {
         },
       },
     });
-  }, [setEditorState]);
+  }, [setEditor]);
 
   return (
     <div className="main__content">
       <Eyebrow />
+      <div className="panel__top"></div>
       <div className="editor-row">
+        <div className="panel__basic-actions"></div>
         <div className="panel__left">
-          <div className="panel__top"></div>
-          <div className="panel__basic-actions"></div>
           <div className="panel__switcher"></div>
           <div className="styles-container"></div>
           <div className="traits-container"></div>
