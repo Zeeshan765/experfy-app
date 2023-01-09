@@ -29,7 +29,6 @@ const NewPageBuilder = () => {
       plugins: [plugin1, Basics],
       storageManager: {
         type: 'local',
-        onStore: true,
         options: {
           storeComponents: true,
           storeStyles: true,
@@ -75,11 +74,11 @@ const NewPageBuilder = () => {
             },
           },
           {
-            id: 'save',
-            run() {
-              editor.store((options) => {
-                console.log(options);
-              });
+            id: 'save-editor',
+
+            run(editor) {
+              editor.store();
+              toast.success('Saved Successfully');
             },
           },
         ],
@@ -156,7 +155,7 @@ const NewPageBuilder = () => {
               {
                 id: 'save',
                 className: 'btn--style-primary',
-                command: 'save',
+                command: 'save-editor',
                 label: 'Save',
                 attributes: { title: 'Save' },
               },
@@ -179,10 +178,16 @@ const NewPageBuilder = () => {
     editor.DeviceManager.select('mobilePortrait');
 
     editor.Commands.add('show-styles', {
-      getRowEl(editor) {
+      getRowEl(editor: {
+        getContainer: () => {
+          (): any;
+          new (): any;
+          closest: { (arg0: string): any; new (): any };
+        };
+      }) {
         return editor.getContainer().closest('.editor-row');
       },
-      getStyleEl(row) {
+      getStyleEl(row: { querySelector: (arg0: string) => any }) {
         return row.querySelector('.styles-container');
       },
       run(editor, sender) {
@@ -196,10 +201,16 @@ const NewPageBuilder = () => {
       },
     });
     editor.Commands.add('show-blocks', {
-      getRowEl(editor) {
+      getRowEl(editor: {
+        getContainer: () => {
+          (): any;
+          new (): any;
+          closest: { (arg0: string): any; new (): any };
+        };
+      }) {
         return editor.getContainer().closest('.editor-row');
       },
-      getBlocksEl(row) {
+      getBlocksEl(row: { querySelector: (arg0: string) => any }) {
         return row.querySelector('.blocks');
       },
 
@@ -213,10 +224,16 @@ const NewPageBuilder = () => {
       },
     });
     editor.Commands.add('show-traits', {
-      getRowEl(editor) {
+      getRowEl(editor: {
+        getContainer: () => {
+          (): any;
+          new (): any;
+          closest: { (arg0: string): any; new (): any };
+        };
+      }) {
         return editor.getContainer().closest('.editor-row');
       },
-      getTraitsEl(row) {
+      getTraitsEl(row: { querySelector: (arg0: string) => any }) {
         return row.querySelector('.traits-container');
       },
 
@@ -230,10 +247,16 @@ const NewPageBuilder = () => {
       },
     });
     editor.Commands.add('show-layers', {
-      getRowEl(editor) {
+      getRowEl(editor: {
+        getContainer: () => {
+          (): any;
+          new (): any;
+          closest: { (arg0: string): any; new (): any };
+        };
+      }) {
         return editor.getContainer().closest('.editor-row');
       },
-      getLayersEl(row) {
+      getLayersEl(row: { querySelector: (arg0: string) => any }) {
         return row.querySelector('.layers-container');
       },
       run(editor, sender) {
