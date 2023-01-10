@@ -7,7 +7,7 @@ const NewPageBuilder = () => {
 
   React.useEffect(() => {
     const editor = GrapesJS.init({
-      container: '#editor-row',
+      container: '#editor',
       fromElement: true,
       plugins: [plugin1],
       height: '100%',

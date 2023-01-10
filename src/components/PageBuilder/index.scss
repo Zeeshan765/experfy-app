@@ -10,13 +10,15 @@ $mainFont: "proxima-nova", sans-serif;
 $fontPath: "../../assets/fonts/proxima-nova";
 $fontName: "proximanova-black-webfont";
 @import "grapesjs/src/styles/scss/main.scss";
+$deviceBackground: #2f3d55;
 
 .editor-canvas {
   flex-grow: 1;
-  background-color: var(--theme-elevation-0);
-  position: relative;
-  overflow: hidden;
-  // padding: 3rem;
+  padding: 5px;
+
+  border: var(--theme-border) 3px solid;
+  overflow-y: auto;
+
 }
 
 .editor-row {
@@ -25,13 +27,14 @@ $fontName: "proximanova-black-webfont";
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: wrap;
+  height: 100%;
+
 }
 
 .panel__top {
   right: 5rem;
   top: 1rem;
-  width: 45rem;
-  position: absolute;
+  display: block;
   z-index: var(--z-nav);
 }
 
@@ -46,16 +49,17 @@ $fontName: "proximanova-black-webfont";
 
 .panel__left {
   width: 23%;
+  height: 99%;
   overflow-y: auto;
-  border-right: var(--theme-elevation-150) 3px solid;
-  color: var(--theme-elevation-0) !important;
-
+  background-color: var(--theme-elevation-0) !important;
+  border-right: var(--theme-border) 1px solid;
 }
 
 .gjs-cv-canvas {
   top: 0;
-  width: 100% !important;
-  background-color: var(--theme-elevation-0);
+  width: 100%;
+  height: 100%;
+  background-color: #2f3d55;
 }
 
 .gjs-pn-panel {
@@ -69,7 +73,7 @@ $fontName: "proximanova-black-webfont";
   width: 23% !important;
   background-color: var(--theme-bg) !important;
   color: var(--theme-text);
-  border-right: 1px solid var(--theme-border);
+  border-right: 3px solid var(--theme-border);
   box-shadow: 0 0 2px rgb(233 233 233 / 40%) !important;
   left: 0 !important;
 }
@@ -116,26 +120,26 @@ $fontName: "proximanova-black-webfont";
 .gjs-category-title,
 .gjs-layer-title,
 .gjs-sm-sector-title {
-  font-weight: 500 !important;
-  color: var(--theme-text-dark) !important;
+  font-weight: 400 !important;
+  color: var(--theme-text-light) !important;
   font-size: 15px;
   height: 3.5rem !important;
   background-color: var(--theme-elevation-0) !important;
   flex-direction: row-reverse !important;
   justify-content: start !important;
-  border-bottom: 0px solid #d3dbe3 !important;
+  // border-bottom: 1px solid #d3dbe3 !important;
   position: relative !important;
   padding: 9px 10px 9px 15px !important;
 
-  .fa-caret-right:before {
-    display: none !important;
-  }
+  // .fa-caret-right:before {
+  //   display: none !important;
+  // }
 
-  .fa-caret-down:before {
-    display: none !important;
-  }
+  // .fa-caret-down:before {
+  //   display: none !important;
+  // }
 
-  // border-bottom: 2px solid var(--theme-elevation-50) !important
+  border-bottom: 2px solid var(--theme-elevation-50) !important
 }
 
 .gjs-sm-field input,
@@ -153,13 +157,16 @@ $fontName: "proximanova-black-webfont";
 
 
 .gjs-block {
-  // width: 30% !important;
-  padding: 0.5rem !important;
-  border-radius: 4px !important;
+  width: 80px;
+  height: 80px;
+  padding: 0px;
+  border-radius: 3px !important;
+  justify-content: center !important;
   margin: 2px !important;
-  box-shadow: 1px 1px 0 0 rgba(97, 97, 97, 0.3) !important;
-  background-color: #f1f3f5 !important;
+  background-color: var(--theme-bg) !important;
   color: var(--theme-primary) !important;
+  border-color: var(--theme-border);
+
 }
 
 .gjs-pn-options {
@@ -167,10 +174,12 @@ $fontName: "proximanova-black-webfont";
   top: 0% !important;
 }
 
-// .gjs-blocks-c {
-//   margin: 5px 10px;
-//   justify-content: space-evenly !important;
-// }
+.gjs-blocks-c {
+  background-color: var(--theme-elevation-0);
+  padding: 20px;
+  justify-content: center;
+
+}
 
 // .gjs-block__media {
 //   margin-bottom: 0px !important;
@@ -336,19 +345,23 @@ $fontName: "proximanova-black-webfont";
   }
 }
 
-.full-width-image .gjs-block-label svg {
-  width: 100% !important;
-  height: 100% !important;
-}
+// .full-width-image .gjs-block-label svg {
+//   width: 100% !important;
+//   height: 100% !important;
+// }
 
 .gjs-block {
   .gjs-block-label {
-    font-size: 1rem !important;
+
+    font-size: 11px !important;
     font-weight: 600 !important;
+    font-family: var(--font-body) !important;
+    color: var(--theme-text);
+
   }
 
   .gjs-block__media svg {
-    width: 100% !important;
+    width: 40px;
     height: auto;
   }
 }

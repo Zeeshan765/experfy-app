@@ -59,7 +59,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   font-optical-sizing: auto;
-  -webkit-font-smoothing: auto;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
@@ -90,7 +90,7 @@ body {
   }
 
   &__content {
-    height: calc(100% - 3rem);
+    height: calc(100% - 6rem);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -116,7 +116,7 @@ body {
 
 .step-nav {
   span {
-    color: var(--theme-text-light);
+    color: var(--theme-text-dark);
     text-overflow: unset;
     overflow: unset;
     white-space: nowrap;
@@ -237,7 +237,7 @@ body {
 
 .nav-group__label {
   font-weight: 500;
-  color: var(--theme-text-light);
+  color: var(--theme-text-dark);
   font-size: 1.1rem;
 }
 
@@ -405,8 +405,8 @@ div.react-select {
 }
 
 .Global #nav-section-templates::before {
-  background-image: url("/src/assets/images/sidebar/theme_style.svg") !important;
-  // background-size: 100% 100%;
+  background-image: url("/src/assets/images/sidebar/section.svg") !important;
+  background-size: 100% 100%;
   // width: 16px;
   // height: 16px;
   background-repeat: no-repeat;

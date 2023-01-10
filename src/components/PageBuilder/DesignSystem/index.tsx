@@ -60,9 +60,6 @@ const DesignSystem: React.FC = () => {
     const editor = GrapesJS.init({
       container: '#gjs',
       height: '0%',
-      fromElement: true,
-      showOffsets: true,
-
       commands: {
         defaults: [
           {

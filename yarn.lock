@@ -6377,7 +6377,7 @@ grapesjs-tui-image-editor@^1.0.1:
   resolved "https://registry.yarnpkg.com/grapesjs-tui-image-editor/-/grapesjs-tui-image-editor-1.0.1.tgz#ad63123800fd88e12f10709e8ddb1e585de95ee8"
   integrity sha512-6o4U7mXZ/3Gvu38Jzd8eBp00HXkrNAoVUNYfbZkmgDcuKJ8Db5blIq2hGNkpVHZombrTg5abLDnOZQtCdCHXCw==
 
-grapesjs@^0.20.1:
+grapesjs@^0.20.3:
   version "0.20.3"
   resolved "https://registry.yarnpkg.com/grapesjs/-/grapesjs-0.20.3.tgz#aabd761e73be1cf0b5abeeccfc586882c739d426"
   integrity sha512-meh23e3UqnccpNILptWREa1jzwgIUgvODz0E5W+2f76862ksOqleM382ERxdKtAMMukEdSJFC9Ks4fHqGpi9lw==
@@ -9280,10 +9280,10 @@ pause@0.0.1:
   resolved "https://registry.yarnpkg.com/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
   integrity sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==
 
-payload@^1.4.1:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/payload/-/payload-1.5.2.tgz#a51a8ef42f7110f85bf3f5468ae60c53c1acf4aa"
-  integrity sha512-D54VCw/2ptY8F6od0hXu59r3+t6dNf5RI5Y1l8HfoiPZJLPJ3ho2JXE4zLmGkf/esKW5lEH33N5WqA8jcohcNw==
+payload@^1.5.3:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/payload/-/payload-1.5.4.tgz#bf15cfa758c5c8b2f73656f7e1c60035e5042020"
+  integrity sha512-Oo2HgTl+kGzyiU+wHT0NHHMpJWUYysRh2kTyZ2ejF/6IC5+bBJ4H47EBr+4dGItCJ3Z9GD2fns1pnKFGcYGkEQ==
   dependencies:
     "@date-io/date-fns" "^2.10.6"
     "@dnd-kit/core" "^6.0.5"
