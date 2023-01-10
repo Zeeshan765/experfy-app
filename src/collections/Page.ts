@@ -1,18 +1,21 @@
 import { CollectionConfig } from 'payload/types';
+import PageBuilder from '../components/NewPageBuilder';
+import Templates from '../components/TemplateLibrary';
+import Payload from 'payload';
 
 export type Type = {
   title: string;
   slug: string;
-  pageType?: "scratch" | "template";
+  pageType?: 'scratch' | 'template';
 };
 
 export const Page: CollectionConfig = {
-  slug: "pages",
+  slug: 'pages',
   versions: true,
 
   admin: {
-    useAsTitle: "title",
-    defaultColumns: ["title", "pageType", "updatedAt"],
+    useAsTitle: 'title',
+    defaultColumns: ['title', 'pageType', 'updatedAt'],
   },
 
   access: {
@@ -23,37 +26,37 @@ export const Page: CollectionConfig = {
   },
   fields: [
     {
-      name: "title",
-      label: "Page Title",
-      type: "text",
+      name: 'title',
+      label: 'Page Title',
+      type: 'text',
       required: true,
     },
     {
-      name: "author",
-      label: "Author",
-      type: "relationship",
-      relationTo: "users",
+      name: 'author',
+      label: 'Author',
+      type: 'relationship',
+      relationTo: 'users',
       hasMany: false,
       required: true,
     },
     {
-      name: "pageType",
-      label: "Page Type",
-      type: "radio",
+      name: 'pageType',
+      label: 'Page Type',
+      type: 'radio',
       required: true,
       defaultValue: 'scratch',
       admin: {
-        layout: "vertical",
-        description: "Choose how you want to create this page",
+        layout: 'vertical',
+        description: 'Choose how you want to create this page',
       },
       options: [
         {
-          label: "Create from scratch",
-          value: "scratch",
+          label: 'Create from scratch',
+          value: 'scratch',
         },
         {
-          label: "Use a template",
-          value: "template",
+          label: 'Use a template',
+          value: 'template',
         },
       ],
     },
@@ -63,14 +66,20 @@ export const Page: CollectionConfig = {
       label: 'Template',
       admin: {
         condition: (data) => data.pageType === 'template',
+        components: {
+          Field: Templates,
+        },
       },
     },
     {
-      name: 'template',
-      type: 'relationship',
-      relationTo: 'new-page-builder',
+      name: 'from_scratch',
+      type: 'ui',
+      label: 'Untitled',
       admin: {
         condition: (data) => data.pageType === 'scratch',
+        components: {
+          Field: PageBuilder,
+        },
       },
     },
   ],
@@ -81,6 +90,9 @@ export const Page: CollectionConfig = {
         console.log('before login called', args);
       },
     ],
+    afterChange: [(args) => {
+      
+    }],
     afterLogin: [
       (args) => {
         console.log('After Login Called', args);

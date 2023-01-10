@@ -10,6 +10,7 @@ import FormCollection from './collections/Form';
 import GuidelineCollection from './collections/Guideline';
 import HeaderCollection from './collections/Header';
 import ImgTextCollection from './collections/ImageAndText';
+import ImageBannerCollection from './collections/ImageBanner';
 import LocationCollection from './collections/Location';
 import Media from './collections/Media';
 import MenusCollection from './collections/MenusCollection';
@@ -179,7 +180,6 @@ export default buildConfig({
   },
   collections: [
     BasicPortalIdentityCollection,
-    PageBuilderCollection,
     TemplatesCollection,
     DesignSystemCollection,
     ThemeCollection,
@@ -187,21 +187,7 @@ export default buildConfig({
     PagesCollection,
     Media,
     NewPageBuilderCollection,
-    FooterCollection,
-    HeaderCollection,
-    ParagraphCollection,
-    NumberCollection,
-    TestimonialCollection,
-    BenefitCollection,
-    GuidelineCollection,
-    FormCollection,
-    LocationCollection,
-    ImgTextCollection,
-    PracticeAreaCollection,
     Users,
-    DepartmentCollection,
-    TalentCloudCollection,
-    // ImageBannerCollection,
     SectionTemplateCollection,
   ],
   i18n: {

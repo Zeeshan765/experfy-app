@@ -11,6 +11,7 @@ import { makeStyles } from '@mui/styles';
 import { title } from 'process';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MinimalTemplate } from 'payload/components/templates';
 import {
   benefits,
   custom_build,

@@ -60,9 +60,6 @@ const DesignSystem: React.FC = () => {
     const editor = GrapesJS.init({
       container: '#gjs',
       height: '0%',
-      fromElement: true,
-      showOffsets: true,
-
       commands: {
         defaults: [
           {
@@ -206,7 +203,6 @@ const DesignSystem: React.FC = () => {
                 type: 'select',
                 name: 'Font Family',
                 property: 'font-family',
-                ResizeObserver: true,
                 options: fontsList,
               },
               {
@@ -219,7 +215,6 @@ const DesignSystem: React.FC = () => {
                 type: 'select',
                 name: 'Font Weight',
                 property: 'font-weight',
-                ResizeObserver: true,
                 default: 'normal',
                 options: fontWeight,
               },
@@ -635,6 +630,8 @@ const DesignSystem: React.FC = () => {
         <div className="panel__left">
           <div className="panel__top"></div>
           <div className="styles-container"></div>
+          <div className="panel__basic-actions"></div>
+          <div className="panel__switcher"></div>
         </div>
         <div id="gjs"></div>
       </div>

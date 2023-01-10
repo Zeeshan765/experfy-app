@@ -5,7 +5,7 @@
     }
   ],
   "settings": {
-    "cSpell.words": ["Autoload", "Experfy", "grapesjs"],
+    "cSpell.words": ["Autoload", "Experfy", "grapesjs", "Toastify"],
     "editor.suggest.showStatusBar": true
   },
   "launch": {

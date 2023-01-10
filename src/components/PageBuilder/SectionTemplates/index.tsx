@@ -1,16 +1,13 @@
 import GrapesJS from 'grapesjs';
 import React from 'react';
-import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
+import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
-  
 
   React.useEffect(() => {
-   
-
     const editor = GrapesJS.init({
-      container: '#editor-row',
+      container: '#editor',
       fromElement: true,
       plugins: [plugin1],
       height: '100%',
@@ -52,14 +49,10 @@ const NewPageBuilder = () => {
         clearProperties: false,
         appendTo: '.styles-container',
       },
-
     });
-   
+
     setEditorState(editor);
 
-
-
-   
     editor.DomComponents.addType('text', {
       model: {
         defaults: {
@@ -196,9 +189,8 @@ const NewPageBuilder = () => {
       //   ],
       // },
     });
-   
   }, []);
-  
+
   return (
     <div className="main">
       <div id="editor"></div>
@@ -206,16 +198,5 @@ const NewPageBuilder = () => {
       <div className="styles-container"></div>
     </div>
   );
-
-
 };
 export default NewPageBuilder;
-
-
-
-
-
-
-
-
-

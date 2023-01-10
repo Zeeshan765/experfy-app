@@ -35,7 +35,7 @@ const NewPageBuilder = () => {
   };
 
   const editor = GrapesJS.init({
-    container: '#editor',
+    container: '#sections',
     plugins: [plugin1, Basics],
     panels: { defaults: [] },
   });
