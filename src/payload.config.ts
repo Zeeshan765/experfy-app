@@ -7,6 +7,7 @@ import Media from './collections/Media';
 import MenusCollection from './collections/MenusCollection';
 import NewPageBuilderCollection from './collections/NewPageBuilder';
 import PagesCollection from './collections/Page';
+import PageTemplateCollection from './collections/PageTemplate';
 import SectionTemplateCollection from './collections/SectionTemplatesCollection';
 import TemplatesCollection from './collections/TemplatesCollection';
 import ThemeCollection from './collections/ThemeCollection';
@@ -192,6 +193,7 @@ export default buildConfig({
     ThemeCollection,
     MenusCollection,
     PagesCollection,
+    PageTemplateCollection,
     Media,
     NewPageBuilderCollection,
     Users,

@@ -49,6 +49,8 @@
   }
 }
 
+
+
 // Body
 //---------------------------------------------
 
@@ -115,6 +117,8 @@ body {
 }
 
 .step-nav {
+  width: 100%;
+
   span {
     color: var(--theme-text-dark);
     text-overflow: unset;

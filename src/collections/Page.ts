@@ -1,5 +1,5 @@
 import { CollectionConfig } from 'payload/types';
-import PageBuilder from '../components/NewPageBuilder';
+import FaceLessModel from '../components/Model';
 import Templates from '../components/TemplateLibrary';
 import Payload from 'payload';
 
@@ -69,6 +69,28 @@ export const Page: CollectionConfig = {
         condition: (data) => data.pageType === 'template',
       },
     },
+    {
+      name: 'htmlCode',
+      type: 'relationship',
+      relationTo: 'users',
+      hasMany: false,
+      access: {
+        //  read: (): boolean => false, // Everyone can read Pages'
+      },
+      admin: {
+        // components: {
+        //   Field: FaceLessModel ,
+        // },
+      },
+    },
+    // {
+    //   name: "template",
+    //   type: "relationship",
+    //   relationTo: "new-page-builder",
+    //   admin: {
+    //     condition: (data) => data.pageType === "scratch",
+    //       },
+    // },
   ],
 
   hooks: {

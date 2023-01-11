@@ -8,10 +8,10 @@ import { useStyles } from './style';
 import { Button } from 'payload/components/elements';
 
 const FaceLessModel = ({ data }) => {
-  const classes = useStyles();
-  const { id, name, image } = data;
+  const { id, name, image } = data??{}; 
 
   const [subModelopen, setSubModelOpen] = React.useState(false);
+  const [htmlCode, setHtmlCode] = React.useState('<h1>hello</h1>');
   const { toggleModal } = useModal();
 
   const handleOpen = () => {
@@ -20,9 +20,13 @@ const FaceLessModel = ({ data }) => {
   const handleClose = () => {
     setSubModelOpen(false);
   };
+   const createPageHandler = () => {
+    handleClose();
+   }
 
   return (
-    <>
+    <div>
+      {/* <input name="htmlCode" value={htmlCode}/> */}
       <Dialog
         open={subModelopen}
         onClose={handleClose}
@@ -31,12 +35,40 @@ const FaceLessModel = ({ data }) => {
         fullWidth={true}
         className={classes.previewModal}
       >
-        <DialogTitle>
-          <div className={classes.previewModalHeader}>
-            <div className={classes.previewModalHeaderContent}>
-              <a
-                onClick={handleClose}
-                className={classes.previewModalHeaderBack}
+        <DialogTitle sx={{boxShadow: 3}}
+         >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "95%",
+              margin: "0px auto",
+            }}
+          >
+            <p
+              onClick={handleClose}
+              style={{
+                cursor: "pointer",
+                margin: "0px",
+                fontSize: "16px",
+                fontWeight: "600",
+              }}
+            >
+              <ArrowBackIosIcon />
+              Back to page
+            </p>
+            <div style={{display:"flex",gap:'1rem'}}>
+              <button
+              onClick={createPageHandler}
+                style={{
+                  background: "skyblue",
+                  color: "#fff",
+                  padding: "0.5rem 1rem",
+                  border: "0px",
+                  borderRadius: "6px",
+                  lineHeight:'normal' ,
+                }}
               >
                 <ArrowBackIosIcon />
                 Back to page

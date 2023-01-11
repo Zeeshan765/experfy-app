@@ -12,7 +12,20 @@ import { toast } from 'react-toastify';
 const NewPageBuilder: React.FC<GrapesJS.Editor> = () => {
   let [editor, setEditor] = React.useState<GrapesJS.Editor>();
 
+  const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
+  const [elementCreate, setElementCreate] = useState(false);
+  const [pagePayload, setPagePayload] = useState<any>({
+    title: 'sample',
+    author: '',
+  });
   const { setStepNav } = useStepNav();
+  const [headingText, setHeadingText] = React.useState<string>('abc');
+  // console.log('test of editor', editorState);
+  const testRef = useRef();
+  const checkData = () => {
+    const data = JSON.parse(localStorage.getItem('page_code'));
+    console.log('test data********=======', data);
+  };
 
   useEffect(() => {
     setStepNav([
@@ -83,7 +96,7 @@ const NewPageBuilder: React.FC<GrapesJS.Editor> = () => {
           storeCss: true,
 
           local: {
-            key: 'gts',
+            key: 'page_code',
           },
         },
       },
@@ -280,6 +293,7 @@ const NewPageBuilder: React.FC<GrapesJS.Editor> = () => {
 
   return (
     <div className="main__content">
+      {/* <button onClick={checkData}>checkData</button> */}
       <Eyebrow />
       <div className="panel__top"></div>
       <div className="editor-row">
