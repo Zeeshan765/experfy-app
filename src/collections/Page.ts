@@ -1,5 +1,6 @@
 import { CollectionConfig } from "payload/types";
 import PageTheme from "../components/pagebuilderTemplate";
+import FaceLessModel from "../components/Model";
 // import PageBuilder from '../components/PageBuilder/SectionTemplates';
 // import PageTheme from '../components/PageBuilderTemplate';
 export type Type = {
@@ -70,6 +71,20 @@ export const Page: CollectionConfig = {
         },
       },
     },
+    {
+      name:'htmlCode',
+      type:'relationship',
+      relationTo: "users",
+      hasMany: false,
+      access:{
+  //  read: (): boolean => false, // Everyone can read Pages'
+      },
+      admin:{
+        // components: {
+        //   Field: FaceLessModel ,
+        // },
+      }
+      },
     // {
     //   name: "template",
     //   type: "relationship",

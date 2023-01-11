@@ -5,9 +5,10 @@ import { Dialog, DialogTitle } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 const FaceLessModel = ({ data }) => {
-  const { id, name, image } = data;
+  const { id, name, image } = data??{}; 
 
   const [subModelopen, setSubModelOpen] = React.useState(false);
+  const [htmlCode, setHtmlCode] = React.useState('<h1>hello</h1>');
   const { toggleModal } = useModal();
 
   const handleOpen = () => {
@@ -16,9 +17,13 @@ const FaceLessModel = ({ data }) => {
   const handleClose = () => {
     setSubModelOpen(false);
   };
+   const createPageHandler = () => {
+    handleClose();
+   }
 
   return (
     <div>
+      {/* <input name="htmlCode" value={htmlCode}/> */}
       <Dialog
         open={subModelopen}
         onClose={handleClose}
@@ -52,6 +57,7 @@ const FaceLessModel = ({ data }) => {
             </p>
             <div style={{display:"flex",gap:'1rem'}}>
               <button
+              onClick={createPageHandler}
                 style={{
                   background: "skyblue",
                   color: "#fff",

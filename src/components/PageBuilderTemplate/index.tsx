@@ -13,6 +13,7 @@ import { Grid } from "@material-ui/core";
 import PageTemplate from "../PageTemplate";
 const PageTheme = () => {
   const [open, setOpen] = React.useState(false);
+  const [search, setSearch] = React.useState("");
   const history = useHistory();
 
   const themeList = [
@@ -59,11 +60,16 @@ const PageTheme = () => {
       name: "TC Overview",
     },
   ];
+  // ======Methods===== //
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleSeach = (e) => {
+    const { value } = e.target;
+    setSearch(value);
   };
   useEffect(() => {
     handleOpen();
@@ -152,6 +158,8 @@ const PageTheme = () => {
               type="text"
               name="search"
               placeholder="Search Page"
+              onChange={handleSeach}
+            value={search}
               style={{
                 width: "350px",
                 lineHeight: "2rem",
@@ -164,7 +172,7 @@ const PageTheme = () => {
             />{" "}
           </div>
         </div>
-        <PageTemplate />
+        <PageTemplate search={search} />
       </div>
     </Dialog>
   );

@@ -1,32 +1,40 @@
 // @ts-ignore
-import GrapesJS from 'grapesjs';
-import React, { useEffect, useRef, useState } from 'react';
+import GrapesJS from "grapesjs";
+import React, { useEffect, useRef, useState } from "react";
 // import './grapes.min.css';
 // import './CustomGrapes.css';
 // import '../PageBuilder/index.scss';
-import './index.scss';
-import plugin2 from 'grapesjs-project-manager';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
-import Basics from 'grapesjs-blocks-basic';
-import { Eyebrow } from 'payload/components/elements';
-import { useStepNav } from 'payload/components/hooks';
+import "./index.scss";
+import plugin2 from "grapesjs-project-manager";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
+import Basics from "grapesjs-blocks-basic";
+import { Eyebrow } from "payload/components/elements";
+import { useStepNav } from "payload/components/hooks";
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
+  const [pagePayload, setPagePayload] = useState<any>({
+    title: "sample",
+    author:'',
+  });
   const { setStepNav } = useStepNav();
-  const [headingText, setHeadingText] = React.useState<string>('abc');
+  const [headingText, setHeadingText] = React.useState<string>("abc");
   // console.log('test of editor', editorState);
   const testRef = useRef();
-  const myFunction = () => {
-    console.log('*****************myFunction***************');
+  const checkData = () => {
+    const data = JSON.parse(localStorage.getItem("page_code"));
+    console.log(
+      "test data********=======",data
+    );
   };
+
   useEffect(() => {
     setStepNav([
       {
-        label: 'Sections Templates',
-        url: '/collections/global-theme-settings/theme-builder/section',
+        label: "Sections Templates",
+        url: "/collections/global-theme-settings/theme-builder/section",
       },
     ]);
   }, [setStepNav]);
@@ -51,23 +59,24 @@ const NewPageBuilder = () => {
     // };
 
     const editor = GrapesJS.init({
-      container: '#editor',
+      container: "#editor",
       plugins: [plugin1, Basics],
       storageManager: {
-        type: 'local',
+        type: "local",
         autoload: true,
         options: {
           storeComponents: true,
           storeStyles: true,
           storeHtml: true,
           storeCss: true,
+
           local: {
-            key: 'gts',
+            key: "page_code",
           },
         },
       },
       canvas: {
-        styles: ['../index.scss'],
+        styles: ["../index.scss"],
       },
       fromElement: true,
       layerManager: {
@@ -123,36 +132,72 @@ const NewPageBuilder = () => {
       //     },
       //   ],
       // },
+
+      //   if (testRef) {
+      //     // debugger;
+      //     console.log(document.getElementById('self-test'), 'testRef', testRef);
+      //     let ftext = document.getElementById('self-test');
+      //     if (ftext) {
+      //       // @ts-ignore
+      //       console.log('ftext', ftext);
+      //       // ftext?.value= 'test111';
+      //     }
+      //     // ftext?.value ="test";
+      //     let setext = document.getElementById('self-inner-test');
+      //     //  setext.innerText="second test";
+      //     if (setext) {
+      //       // @ts-ignore
+      //       console.log('setext', setext);
+
+      //       // setext.innerText="second test";
+      //     }
+      //   }
+      // }, [testRef]);
     });
-    // const panelManager = editor.Panels;
-    // var newPanel = panelManager.addPanel({
-    //   id: 'panelOne',
-    //   className: 'btn-toggles-borders-panelOne',
-    //   style: { color: 'red' },
-    //   visible: true,
-    //   buttons: [
-    //     {
-    //       id: 'visibility',
-    //       active: true,
-    //       className: 'btn-toggle-borders-panelOne panel-btn',
-    //       label: `<div class="preview"> <div><svg class= "preview-icon"  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="VisibilityIcon"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>  </div> <div class = "preview-text">Preview</div>`,
-    //       command: 'preview',
-    //     },
-    //     {
-    //       id: 'visibility2',
-    //       active: true,
-    //       className: 'pg-builder-save-btn save-panel-btn',
-    //       label: 'save',
-    //     },
-    //     {
-    //       id: 'visibility3',
-    //       active: true,
-    //       className: 'pg-builder-save-btn publish-btn',
-    //       label: `<div>  <div>Publish</div> </div>`,
-    //       content: 'image',
-    //     },
-    //   ],
-    // });
+ editor.Panels.addPanel({
+      id: 'panelOne',
+      className: 'btn-toggles-borders-panelOne',
+      visible: true,
+      buttons: [
+        // {
+        //   id: 'visibility',
+        //   active: true,
+        //   className: 'btn-toggle-borders-panelOne panel-btn',
+        //   label: `<div class="preview"> <div><svg class= "preview-icon"  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1om0hkc" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="VisibilityIcon"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>  </div> <div class = "preview-text">Preview</div>`,
+        //   command: 'preview',
+        // },
+        {
+          id: 'visibility2',
+          active: false,
+          className: 'pg-builder-save-btn save-panel-btn',
+          label: 'save as page',
+          command: {
+            run: function(editor, sender) {
+              checkData(); 
+            },
+            stop: function(editor) {
+              checkData();
+                       }
+          },
+          // Or simply like a function which will be evaluated as a single .run command
+          // command: function(editor) {
+          //   console.log('save as page=====command');
+           
+          // }
+        },
+        // {
+        //   id: 'visibility3',
+        //   active: true,
+        //   className: 'pg-builder-save-btn publish-btn',
+        //   label: `<div>  <div>Publish</div> </div>`,
+        //   content: 'image',
+        // },
+      ],
+    });
+    
+  // myPanel.onClick = function() {
+  //   myFunction();
+  // }
     // var newPanel2 = panelManager.addPanel({
     //   id: 'panelTwo',
     //   className: 'btn-toggles-borders-panelTwo',
@@ -180,19 +225,29 @@ const NewPageBuilder = () => {
 
     setEditorState(editor);
     editor.onReady((clb) => {
-      console.log('Editor is ready');
-      const openBl = editor.Panels.getButton('views', 'open-blocks');
-      editor.on('load', () => openBl?.set('active', true));
+      // const htmlWithCss = editor.runCommand('gjs-get-inlined-html');
+      const html = editor.getHtml();
+      const css = editor.getCss();
+      //  var htmlWithCss = editor.runCommand('gjs-get-inlined-html')
+      // console.log("Editor is ready===",html);
+      // console.log("Editor is ready===",css);
+      // console.log("htmlWithCss===",htmlWithCss,clb);
+      //  (function getInline() {
+      //     console.log("=========",editor.Commands.run('gts-get-inlined-html'))
+      //   })()
+      const openBl = editor.Panels.getButton("views", "open-blocks");
+      editor.on("load", () => openBl?.set("active", true));
+      // editor.on("onThumbnail", () => {});
 
       // On component change show the Style Manager
-      editor.on('component:selected', () => {
-        const openSmBtn = editor.Panels.getButton('views', 'open-sm');
-        const openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+      editor.on("component:selected", () => {
+        const openSmBtn = editor.Panels.getButton("views", "open-sm");
+        const openLayersBtn = editor.Panels.getButton("views", "open-layers");
 
         // Don't switch when the Layer Manager is on or
         // there is no selected component
-        if (!openLayersBtn || !openLayersBtn.get('active')) {
-          openSmBtn?.set('active', true);
+        if (!openLayersBtn || !openLayersBtn.get("active")) {
+          openSmBtn?.set("active", true);
         }
       });
     });
@@ -218,66 +273,66 @@ const NewPageBuilder = () => {
     //   },
     // });
 
-    editor.DomComponents.addType('text', {
+    editor.DomComponents.addType("text", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'text',
-              name: 'text-title',
-              label: 'Title',
-              placeholder: 'Enter your title ',
-              className: 'custom-text',
+              type: "text",
+              name: "text-title",
+              label: "Title",
+              placeholder: "Enter your title ",
+              className: "custom-text",
             },
             {
-              type: 'text',
-              name: 'text-link',
-              label: 'Link',
-              placeholder: 'Paste URL or Type ',
-              class: 'custom-link',
+              type: "text",
+              name: "text-link",
+              label: "Link",
+              placeholder: "Paste URL or Type ",
+              class: "custom-link",
             },
             {
-              type: 'select',
-              name: 'text-size',
-              label: 'Size',
-              default: 'default',
+              type: "select",
+              name: "text-size",
+              label: "Size",
+              default: "default",
               options: [
-                { id: 'default', name: 'Default' },
-                { id: 'small', name: 'Small' },
-                { id: 'medium', name: 'Medium' },
-                { id: 'large', name: 'Large' },
-                { id: 'xl', name: 'XL' },
-                { id: 'xxl', name: 'XXL' },
+                { id: "default", name: "Default" },
+                { id: "small", name: "Small" },
+                { id: "medium", name: "Medium" },
+                { id: "large", name: "Large" },
+                { id: "xl", name: "XL" },
+                { id: "xxl", name: "XXL" },
               ],
             },
 
             {
-              type: 'select',
-              name: 'text-html-tag',
-              label: 'HTML Tag',
-              default: 'h1',
+              type: "select",
+              name: "text-html-tag",
+              label: "HTML Tag",
+              default: "h1",
               options: [
-                { id: 'h1', name: 'H1' },
-                { id: 'h2', name: 'H2' },
-                { id: 'h3', name: 'H3' },
-                { id: 'h4', name: 'H4' },
-                { id: 'h5', name: 'H5' },
-                { id: 'h6', name: 'H6' },
-                { id: 'div', name: 'div' },
-                { id: 'span', name: 'span' },
-                { id: 'p', name: 'p' },
+                { id: "h1", name: "H1" },
+                { id: "h2", name: "H2" },
+                { id: "h3", name: "H3" },
+                { id: "h4", name: "H4" },
+                { id: "h5", name: "H5" },
+                { id: "h6", name: "H6" },
+                { id: "div", name: "div" },
+                { id: "span", name: "span" },
+                { id: "p", name: "p" },
               ],
             },
             {
-              type: 'select',
-              name: 'text-alignment',
-              label: 'Alignment',
-              default: 'left',
+              type: "select",
+              name: "text-alignment",
+              label: "Alignment",
+              default: "left",
               options: [
-                { id: 'left', name: 'Left' },
-                { id: 'center', name: 'Center' },
-                { id: 'right', name: 'Right' },
-                { id: 'justified', name: 'Justified' },
+                { id: "left", name: "Left" },
+                { id: "center", name: "Center" },
+                { id: "right", name: "Right" },
+                { id: "justified", name: "Justified" },
               ],
             },
           ],
@@ -286,15 +341,15 @@ const NewPageBuilder = () => {
     });
 
     //Trait for Map
-    editor.DomComponents.addType('map', {
+    editor.DomComponents.addType("map", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'text',
-              name: 'map-location',
-              label: 'Location',
-              placeholder: 'Enter your location ',
+              type: "text",
+              name: "map-location",
+              label: "Location",
+              placeholder: "Enter your location ",
             },
           ],
         },
@@ -302,64 +357,64 @@ const NewPageBuilder = () => {
     });
 
     //Trait for Image
-    editor.DomComponents.addType('image', {
+    editor.DomComponents.addType("image", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'select',
-              name: 'image-size',
-              label: 'Size',
-              default: 'large',
+              type: "select",
+              name: "image-size",
+              label: "Size",
+              default: "large",
               options: [
-                { id: 'thumbnail', name: 'Thumbnail- 150 x 150' },
-                { id: 'medium', name: 'Medium- 300 x 300' },
-                { id: 'medium-large', name: 'Medium Large-  768 x 0' },
-                { id: 'large', name: 'Large- 1024 x 1024 ' },
-                { id: 'custom', name: 'Custom' },
-                { id: 'full', name: 'Full' },
+                { id: "thumbnail", name: "Thumbnail- 150 x 150" },
+                { id: "medium", name: "Medium- 300 x 300" },
+                { id: "medium-large", name: "Medium Large-  768 x 0" },
+                { id: "large", name: "Large- 1024 x 1024 " },
+                { id: "custom", name: "Custom" },
+                { id: "full", name: "Full" },
               ],
             },
             {
-              type: 'select',
-              name: 'image-alignment',
-              label: 'Alignment',
-              default: 'left',
+              type: "select",
+              name: "image-alignment",
+              label: "Alignment",
+              default: "left",
               options: [
-                { id: 'left', name: 'Left' },
-                { id: 'center', name: 'Center' },
-                { id: 'right', name: 'Right' },
+                { id: "left", name: "Left" },
+                { id: "center", name: "Center" },
+                { id: "right", name: "Right" },
               ],
             },
             {
-              type: 'select',
-              name: 'image-caption',
-              label: 'Caption',
-              default: 'none',
+              type: "select",
+              name: "image-caption",
+              label: "Caption",
+              default: "none",
               options: [
-                { id: 'none', name: 'None' },
-                { id: 'attachment', name: 'Attachment Caption' },
-                { id: 'custom', name: 'Custom Caption' },
+                { id: "none", name: "None" },
+                { id: "attachment", name: "Attachment Caption" },
+                { id: "custom", name: "Custom Caption" },
               ],
             },
             {
-              type: 'select',
-              name: 'image-link',
-              label: 'Link To',
-              default: 'none',
+              type: "select",
+              name: "image-link",
+              label: "Link To",
+              default: "none",
               options: [
-                { id: 'none', name: 'None' },
-                { id: 'media ', name: 'Media File' },
-                { id: 'curl', name: 'Custom URL' },
+                { id: "none", name: "None" },
+                { id: "media ", name: "Media File" },
+                { id: "curl", name: "Custom URL" },
               ],
             },
 
             {
-              type: 'select',
-              name: 'image-order',
-              label: 'Order',
-              default: 'none',
-              options: [{ id: 'none', name: 'None' }],
+              type: "select",
+              name: "image-order",
+              label: "Order",
+              default: "none",
+              options: [{ id: "none", name: "None" }],
             },
           ],
         },
@@ -367,66 +422,66 @@ const NewPageBuilder = () => {
     });
 
     //Trait for Button
-    editor.DomComponents.addType('button', {
+    editor.DomComponents.addType("button", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'text',
-              name: 'btn-text',
-              label: 'Button Text',
-              placeholder: 'Button Label',
+              type: "text",
+              name: "btn-text",
+              label: "Button Text",
+              placeholder: "Button Label",
             },
             {
-              type: 'text',
-              name: 'btn-link',
-              label: 'Link',
-              placeholder: 'Paste URL or Type ',
+              type: "text",
+              name: "btn-link",
+              label: "Link",
+              placeholder: "Paste URL or Type ",
             },
             {
-              type: 'select',
-              name: 'btn-alignment',
-              label: 'Alignment',
-              default: 'left',
+              type: "select",
+              name: "btn-alignment",
+              label: "Alignment",
+              default: "left",
               options: [
-                { id: 'left', name: 'Left' },
-                { id: 'center', name: 'Center' },
-                { id: 'right', name: 'Right' },
+                { id: "left", name: "Left" },
+                { id: "center", name: "Center" },
+                { id: "right", name: "Right" },
               ],
             },
             {
-              type: 'select',
-              name: 'btn-size',
-              label: 'Button Size',
-              default: 'default',
+              type: "select",
+              name: "btn-size",
+              label: "Button Size",
+              default: "default",
               options: [
-                { id: 'default', name: 'Default' },
-                { id: 'xs', name: 'Extra Small' },
+                { id: "default", name: "Default" },
+                { id: "xs", name: "Extra Small" },
 
-                { id: 'small', name: 'Small' },
-                { id: 'medium', name: 'Medium' },
-                { id: 'large', name: 'Large' },
-                { id: 'xl', name: 'Extra Large' },
+                { id: "small", name: "Small" },
+                { id: "medium", name: "Medium" },
+                { id: "large", name: "Large" },
+                { id: "xl", name: "Extra Large" },
               ],
             },
             {
-              type: 'select',
-              name: 'image-link',
-              label: 'Link To',
-              default: 'none',
+              type: "select",
+              name: "image-link",
+              label: "Link To",
+              default: "none",
               options: [
-                { id: 'none', name: 'None' },
-                { id: 'media ', name: 'Media File' },
-                { id: 'curl', name: 'Custom URL' },
+                { id: "none", name: "None" },
+                { id: "media ", name: "Media File" },
+                { id: "curl", name: "Custom URL" },
               ],
             },
 
             {
-              type: 'select',
-              name: 'image-order',
-              label: 'Order',
-              default: 'none',
-              options: [{ id: 'none', name: 'None' }],
+              type: "select",
+              name: "image-order",
+              label: "Order",
+              default: "none",
+              options: [{ id: "none", name: "None" }],
             },
           ],
         },
@@ -434,47 +489,47 @@ const NewPageBuilder = () => {
     });
 
     //Trait for TextArea
-    editor.DomComponents.addType('textarea', {
+    editor.DomComponents.addType("textarea", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'text',
-              name: 'text-title',
-              label: 'Text',
-              placeholder: 'Insert Your Text Here',
+              type: "text",
+              name: "text-title",
+              label: "Text",
+              placeholder: "Insert Your Text Here",
             },
 
             {
-              type: 'select',
-              name: 'text-size',
-              label: 'Size',
-              default: 'default',
+              type: "select",
+              name: "text-size",
+              label: "Size",
+              default: "default",
               options: [
-                { id: 'default', name: 'Default' },
-                { id: 'small', name: 'Small' },
-                { id: 'medium', name: 'Medium' },
-                { id: 'large', name: 'Large' },
-                { id: 'xl', name: 'XL' },
-                { id: 'xxl', name: 'XXL' },
+                { id: "default", name: "Default" },
+                { id: "small", name: "Small" },
+                { id: "medium", name: "Medium" },
+                { id: "large", name: "Large" },
+                { id: "xl", name: "XL" },
+                { id: "xxl", name: "XXL" },
               ],
             },
 
             {
-              type: 'select',
-              name: 'text-html-tag',
-              label: 'HTML Tag',
-              default: 'h1',
+              type: "select",
+              name: "text-html-tag",
+              label: "HTML Tag",
+              default: "h1",
               options: [
-                { id: 'h1', name: 'H1' },
-                { id: 'h2', name: 'H2' },
-                { id: 'h3', name: 'H3' },
-                { id: 'h4', name: 'H4' },
-                { id: 'h5', name: 'H5' },
-                { id: 'h6', name: 'H6' },
-                { id: 'div', name: 'div' },
-                { id: 'span', name: 'span' },
-                { id: 'p', name: 'p' },
+                { id: "h1", name: "H1" },
+                { id: "h2", name: "H2" },
+                { id: "h3", name: "H3" },
+                { id: "h4", name: "H4" },
+                { id: "h5", name: "H5" },
+                { id: "h6", name: "H6" },
+                { id: "div", name: "div" },
+                { id: "span", name: "span" },
+                { id: "p", name: "p" },
               ],
             },
           ],
@@ -581,62 +636,62 @@ const NewPageBuilder = () => {
     // });
 
     //Trait for Testimonial
-    editor.DomComponents.addType('testimonial', {
+    editor.DomComponents.addType("testimonial", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'select',
-              name: 'testimonial-size',
-              label: 'Image Size',
-              default: 'full',
+              type: "select",
+              name: "testimonial-size",
+              label: "Image Size",
+              default: "full",
               options: [
-                { id: 'thumbnail', name: 'Thumbnail- 150 x 150' },
-                { id: 'medium', name: 'Medium- 300 x 300' },
-                { id: 'medium-large', name: 'Medium Large-  768 x 0' },
-                { id: 'large', name: 'Large- 1024 x 1024 ' },
-                { id: 'custom', name: 'Custom' },
-                { id: 'full', name: 'Full' },
+                { id: "thumbnail", name: "Thumbnail- 150 x 150" },
+                { id: "medium", name: "Medium- 300 x 300" },
+                { id: "medium-large", name: "Medium Large-  768 x 0" },
+                { id: "large", name: "Large- 1024 x 1024 " },
+                { id: "custom", name: "Custom" },
+                { id: "full", name: "Full" },
               ],
             },
             {
-              type: 'text',
-              name: 'testimonial-name',
-              label: 'Name',
-              placeholder: 'John Doe',
+              type: "text",
+              name: "testimonial-name",
+              label: "Name",
+              placeholder: "John Doe",
             },
 
             {
-              type: 'text',
-              name: 'testimonial-title',
-              label: 'Title',
-              placeholder: 'Designer',
+              type: "text",
+              name: "testimonial-title",
+              label: "Title",
+              placeholder: "Designer",
             },
             {
-              type: 'text',
-              name: 'testimonial-link',
-              label: 'Link',
-              placeholder: 'hhttps://your-link.com',
+              type: "text",
+              name: "testimonial-link",
+              label: "Link",
+              placeholder: "hhttps://your-link.com",
             },
             {
-              type: 'select',
-              name: 'testimonial-position',
-              label: 'Image Position',
-              default: 'aside',
+              type: "select",
+              name: "testimonial-position",
+              label: "Image Position",
+              default: "aside",
               options: [
-                { id: 'aside', name: 'Aside' },
-                { id: 'top', name: 'Top' },
+                { id: "aside", name: "Aside" },
+                { id: "top", name: "Top" },
               ],
             },
             {
-              type: 'select',
-              name: 'testimonial-alignment',
-              label: 'Alignment',
-              default: 'left',
+              type: "select",
+              name: "testimonial-alignment",
+              label: "Alignment",
+              default: "left",
               options: [
-                { id: 'left', name: 'Left' },
-                { id: 'center', name: 'Center' },
-                { id: 'right', name: 'Right' },
+                { id: "left", name: "Left" },
+                { id: "center", name: "Center" },
+                { id: "right", name: "Right" },
               ],
             },
           ],
@@ -645,25 +700,25 @@ const NewPageBuilder = () => {
     });
 
     //Trait for Header
-    editor.DomComponents.addType('header', {
+    editor.DomComponents.addType("header", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'select',
-              name: 'header-border',
-              label: 'Border Type',
-              default: 'none',
+              type: "select",
+              name: "header-border",
+              label: "Border Type",
+              default: "none",
               options: [
-                { id: 'none', name: 'None' },
-                { id: 'solid', name: 'Solid' },
-                { id: 'dashed', name: 'Dashed' },
-                { id: 'dotted', name: 'Dotted' },
-                { id: 'double', name: 'Double' },
-                { id: 'groove', name: 'Groove' },
-                { id: 'ridge', name: 'Ridge' },
-                { id: 'inset', name: 'Inset' },
-                { id: 'outset', name: 'Outset' },
+                { id: "none", name: "None" },
+                { id: "solid", name: "Solid" },
+                { id: "dashed", name: "Dashed" },
+                { id: "dotted", name: "Dotted" },
+                { id: "double", name: "Double" },
+                { id: "groove", name: "Groove" },
+                { id: "ridge", name: "Ridge" },
+                { id: "inset", name: "Inset" },
+                { id: "outset", name: "Outset" },
               ],
             },
           ],
@@ -672,25 +727,25 @@ const NewPageBuilder = () => {
     });
 
     //Trait for Footer
-    editor.DomComponents.addType('footer', {
+    editor.DomComponents.addType("footer", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'select',
-              name: 'footer-border',
-              label: 'Border Type',
-              default: 'none',
+              type: "select",
+              name: "footer-border",
+              label: "Border Type",
+              default: "none",
               options: [
-                { id: 'none', name: 'None' },
-                { id: 'solid', name: 'Solid' },
-                { id: 'dashed', name: 'Dashed' },
-                { id: 'dotted', name: 'Dotted' },
-                { id: 'double', name: 'Double' },
-                { id: 'groove', name: 'Groove' },
-                { id: 'ridge', name: 'Ridge' },
-                { id: 'inset', name: 'Inset' },
-                { id: 'outset', name: 'Outset' },
+                { id: "none", name: "None" },
+                { id: "solid", name: "Solid" },
+                { id: "dashed", name: "Dashed" },
+                { id: "dotted", name: "Dotted" },
+                { id: "double", name: "Double" },
+                { id: "groove", name: "Groove" },
+                { id: "ridge", name: "Ridge" },
+                { id: "inset", name: "Inset" },
+                { id: "outset", name: "Outset" },
               ],
             },
           ],
@@ -788,22 +843,30 @@ const NewPageBuilder = () => {
     //   },
     // });
 
-    editor.DomComponents.addType('div', {
+    editor.DomComponents.addType("div", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'text',
-              name: 'map-location',
-              label: 'Location',
-              placeholder: 'Enter your location ',
+              type: "text",
+              name: "map-location",
+              label: "Location",
+              placeholder: "Enter your location ",
             },
           ],
         },
       },
     });
+
+    // const htmlWithCss = editor.runCommand('gjs-get-inlined-html');
+    // const components = editor.getComponents();
+    //     const componentHTML = component.toHTML();
+    // const componentType = component.get('type'); // eg
+    //  console.log("Html and Css", Html, Css);
+    // console.log('hello test work========', htmlWithCss);
   }, [setEditorState]);
-  console.log('document.activeElement', document.activeElement.tagName);
+  // console.log("document.activeElement", document.activeElement.tagName);
+  // console.log("editorState======", editorState?.getHtml());
 
   // useEffect(() => {
   //   if (testRef) {
@@ -826,10 +889,15 @@ const NewPageBuilder = () => {
   //     }
   //   }
   // }, [testRef]);
+  //  const  Html = editor.getHtml();
+  // const Css = editor.getCss();
+  
 
   return (
     <div className="main__content">
+      {/* <button onClick={checkData}>checkData</button> */}
       <Eyebrow />
+      {/* <button onClick={checkData} >save</button> */}
       <div id="editor"></div>
       <div className="myblocks"></div>
       <div className="styles-container"></div>

@@ -16,6 +16,7 @@ import NewPageBuilderCollection from './collections/NewPageBuilder';
 import NumberCollection from './collections/Number';
 import PagesCollection from './collections/Page';
 import PageBuilderCollection from './collections/PageBuilder';
+import PageTemplateCollection from './collections/PageTemplate';
 import ParagraphCollection from './collections/Paragraph';
 import PracticeAreaCollection from './collections/PracticeArea';
 import TestimonialCollection from './collections/Testimonial';
@@ -195,6 +196,7 @@ export default buildConfig({
     ThemeCollection,
     MenusCollection,
     PagesCollection,
+    PageTemplateCollection , 
     Media,
     NewPageBuilderCollection,
     FooterCollection,
