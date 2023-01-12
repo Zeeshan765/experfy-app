@@ -26,9 +26,29 @@ const NewPageBuilder = () => {
     ]);
   }, [setStepNav]);
   React.useEffect(() => {
+    console.log('useEffect')
+    const sections = [
+      'header',
+      'footer',
+      'image-banner',
+      'image-gallery',
+      'image-and-text',
+      'paragraph',
+      'practice-areas',
+      'benefits',
+      'departments',
+      'guidelines',
+      'location',
+      'metrics-numbers',
+      'talent-cloud-candidates',
+      // 'testimonial',
+      'video',
+    ];
+    const ExperfyBlocks = (editor, options) => Experfy(editor, {...options, blocks:sections});
+
     editor = GrapesJS.init({
       container: '.editor',
-      plugins: [Experfy, Basics, Forms, NavBar],
+      plugins: [ExperfyBlocks, Basics, Forms, NavBar],
       pluginsOpts: {
         Basics: {
           flexGrid: true,

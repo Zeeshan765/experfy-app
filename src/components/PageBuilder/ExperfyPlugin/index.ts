@@ -80,10 +80,10 @@ export type RequiredPluginOptions = Required<PluginOptions>;
 
 const plugin: GrapesJS.Plugin<PluginOptions> = (
   editor,
-  opts: Partial<PluginOptions> = {}
+  opts: Partial<PluginOptions> = {},
 ) => {
   const config: RequiredPluginOptions = {
-    blocks: opts.blocks || [],
+    blocks: opts.blocks,
     block: () => ({}),
     modalImportTitle: 'Import',
     modalImportButton: 'Import',
@@ -99,7 +99,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
 
   console.log(config);
   // Load blocks
-  // blocks(editor, config);
+  blocks(editor, config);
 
   // Load commands
   commands(editor, config);

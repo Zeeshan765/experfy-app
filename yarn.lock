@@ -6353,6 +6353,11 @@ grapesjs-indexeddb@^1.0.4:
   resolved "https://registry.yarnpkg.com/grapesjs-indexeddb/-/grapesjs-indexeddb-1.0.4.tgz#ef80152ee889895819a57b1da15a7c4c46574081"
   integrity sha512-idm3NhnDYVCgMVLmFvU76uIoTumXa8TZGU5j5IadO9c96Q+H8zy5s1EC308ehPUkIaebSs8/KhZmforIPNELVw==
 
+grapesjs-navbar@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/grapesjs-navbar/-/grapesjs-navbar-1.0.1.tgz#428d874018858dbd3ad32f89a180a0e7e21f5e87"
+  integrity sha512-/4ixXo2TcP3ao/rJFRO4WSK47OVZ/2tmJu4qQhCMXReOZ34NpYcASP2KN94mIbg+AQrAh1CvhA3/mECJXZxGcg==
+
 grapesjs-plugin-forms@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/grapesjs-plugin-forms/-/grapesjs-plugin-forms-2.0.5.tgz#62d51bbb0aa8ad8d2f8339570c85706fbb955a96"

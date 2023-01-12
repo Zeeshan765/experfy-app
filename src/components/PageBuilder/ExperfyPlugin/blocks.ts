@@ -3,6 +3,7 @@ import { RequiredPluginOptions } from '.';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
+    console.log('opts', opts)
     opts.blocks.indexOf(id)! >= 0 &&
       editor.Blocks.add(id, {
         select: true,
@@ -33,7 +34,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('header', {
     label: 'Header',
     media: `<svg viewBox="0 0 24 24">`,
-    content: `<header class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
+    content: ` <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
        <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
@@ -55,132 +56,282 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
     </svg>`,
-    content: `<footer class="text-gray-600 body-font">
-    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-        <svg
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-          viewBox="0 0 24 24"
-        >
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
-        <span class="ml-3 text-xl">Experfy</span>
-      </a>
-      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-        © 2023 Experfy —
-        <a
-          href="https://experfy.com"
-          class="text-gray-600 ml-1"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          @experfy
-        </a>
-      </p>
-      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-        <a class="text-gray-500">
-          <svg
-            fill="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="w-5 h-5"
-            viewBox="0 0 24 24"
-          >
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-          </svg>
-        </a>
-        <a class="ml-3 text-gray-500">
-          <svg
-            fill="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="w-5 h-5"
-            viewBox="0 0 24 24"
-          >
-            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-          </svg>
-        </a>
-        <a class="ml-3 text-gray-500">
-          <svg
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="w-5 h-5"
-            viewBox="0 0 24 24"
-          >
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-          </svg>
-        </a>
-        <a class="ml-3 text-gray-500">
-          <svg
-            fill="currentColor"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="0"
-            class="w-5 h-5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="none"
-              d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-            ></path>
-            <circle cx="4" cy="4" r="2" stroke="none"></circle>
-          </svg>
-        </a>
-      </span>
+    content: `<footer id=footer_1 class="text-gray-600 body-font" style="background-color:#40526e; color:#ffffff;">
+    <div class="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col" style="padding:80px 0px 100px">
+       <div class="flex-grow flex md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+       <input type="text" id="sohail" name="sohail" value="sohail"class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+             <ul>
+             <li style="font-size: 16px;
+             color: #ffffff;
+             border: 2px dashed #ffffff;
+             padding: 10px 10px;
+             border-width: 2px;
+             font-weight: 400;
+             line-height: 1.5;
+             margin: 10px 0px;">Footer section allow you to add links and information for your users to easily locate.</li>
+             <li style="font-size: 16px;
+             color: #ffffff;
+             border: 2px dashed #ffffff;
+             padding: 10px 10px;
+             border-width: 2px;
+             font-weight: 400;
+             line-height: 1.5;
+             margin: 10px 0px;"><span>Address:</span> 0101 Address, OR, 77873</li>
+             <li style="font-size: 16px;
+             color: #ffffff;
+             border: 2px dashed #ffffff;
+             padding: 10px 10px;
+             border-width: 2px;
+             font-weight: 400;
+             line-height: 1.5;
+             margin: 10px 0px;"><span>Phone:</span> 010-000-1111</li>
+             <li style="font-size: 16px;
+             color: #ffffff;
+             border: 2px dashed #ffffff;
+             padding: 10px 10px;
+             border-width: 2px;
+             font-weight: 400;
+             line-height: 1.5;
+             margin: 10px 0px;"><span>Website:</span> wwww.companywebsite.com</li>
+             </ul>
+ 
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="font-size: 18px;
+             font-weight: 600;
+             color: #ffffff;
+             border: 2px dashed #ffffff;
+             padding:10px 10px;
+             border-width: 2px; font-size:22px; font-weight:600; color:#ffffff;
+             margin:0px;">Add Your Social Media Link</h2>
+             <div class="flex flex-wrap" style="justify-content:space-between;">
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
+             outline-offset: -2px;
+             width: 80px;
+             height: 80px;
+             object-fit: cover;
+             margin: 10px;" />
+             </div>
+             <button style="background-color:#4db081;
+             color:#ffffff;
+             padding:7px 15px;
+             border-radius:3px;
+             font-size:18px;
+             font-weight:500;
+             margin:20px auto;
+             display:flex;">Visit Instagram</button>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="font-size: 18px;
+             font-weight: 600;
+             color: #ffffff;
+             border: 2px dashed #ffffff;
+             padding:10px 10px;
+             border-width: 2px; font-size:22px; font-weight:600; color:#ffffff;
+             margin:0px;">Add Your Social Media Link</h2>
+          </div>
+       </div>
     </div>
-  </footer>`,
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    <div class="bg-gray-100" style="background-color:#000000;
+    padding:20px;">
+       <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+          <p class="text-gray-500 text-sm text-center sm:text-left" style="font-size: 18px;
+          color: #ffffff;
+          border: 2px dashed #ffffff;
+          padding: 10px 10px;
+          border-width: 2px;
+          font-weight: 400;
+          line-height: 1.5;
+          margin: 10px 0px;">Copyright © Company 2022, All rights reserved.</p>
+          <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+             <a class="text-gray-500" style="font-size: 18px;
+             color: #ffffff;
+             border: 2px dashed #ffffff;
+             padding: 10px 20px;
+             border-width: 2px;
+             font-weight: 400;
+             line-height: 1.5;
+             margin: 10px 10px;
+             text-transform: uppercase;">
+                Privacy Policy
+             </a>
+             <a class="ml-3 text-gray-500" style="font-size: 18px;
+             color: #ffffff;
+             border: 2px dashed #ffffff;
+             padding: 10px 20px;
+             border-width: 2px;
+             font-weight: 400;
+             line-height: 1.5;
+             margin: 10px 10px;
+             text-transform: uppercase;">
+                Terms of service
+             </a>
+             <a class="ml-3 text-gray-500" style="font-size: 18px;
+             color: #ffffff;
+             border: 2px dashed #ffffff;
+             padding: 10px 20px;
+             border-width: 2px;
+             font-weight: 400;
+             line-height: 1.5;
+             margin: 10px 10px;
+             text-transform: uppercase;">
+               Disclaimer
+             </a>
+          </span>
+       </div>
+    </div>
+ </footer>`,
   });
   addBlock('testimonial', {
     label: 'Testimonial',
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
     </svg>`,
-    content: `<section data-gjs-type= "testimonial" id= "testimonial_1" class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-       <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center" style="font-size:32px;">You are in Good</h1>
-       <div class="flex flex-wrap -m-4" style="justify-content:center;">
-          <div class="p-4 md:w-1/2" style="width:70%; display:flex;">
-          <a class="items-center" style="width: 50%;
-          text-align: center;
-          padding: 20px 10px;">
-          <img alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="height: 200px;
-          width: 200px;
-          margin: 20px auto;">
-          <span class="flex-grow flex flex-col"><span class="title-font font-medium text-gray-900" style="font-size:18px;
-          color:#1c628c;">Daniel Samarov</span><span class="text-gray-500 text-sm" style="    font-size: 14px;
-          color: #000;
-          margin: 10px;"><span style="font-weight:500;">Chief Data Scientist, DS Box</span> PhD, Statistics University of North</span></span></a>
-          <div class="h-full bg-gray-100 p-8 rounded" style="align-self: center;
-          align-content: center;
-          display: grid; background-color:#ffffff; border-left: 1px solid #ccc;
-          border-radius: 0px;">
-                <svg fill="#4ba4da" class="block w-5 h-5 text-gray-400 m-auto" viewBox="0 0 975.036 975.036">
-                   <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-                <p class="leading-relaxed my-8" style="text-align:center;font-size: 16px;
-                color: #000000;">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
-                <svg fill="#4ba4da" class="block w-5 h-5 text-gray-400 m-auto" viewBox="0 0 975.036 975.036">
-                   <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-                </div>
+    content: `<section  id= "benefit_1" class="text-gray-600 body-font">
+    <div class="container mx-auto px-24 py-24 text-center" style="width: 70%;
+       margin: auto;">
+       <div class="text-center">
+          <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900" style="font-size: 42px;">Add your heading title here</h1>
+          <h2 class="" style="font-size: 23px;">The beneﬁts module highlights the positive characteristics and values within your
+             company or business. Add perks, beneﬁts, or milestones.
+          </h2>
+       </div>
+       <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
+          <div class="benefit m-3 p-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
+          <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
+            <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+            </g>
+          </g>
+        </svg>
+        
+             <h1 class="my-5" style="font-size: 20px;
+                font-weight: 500;
+                color: #444;
+                text-align:center;">Beneﬁt 01</h1>
+             <p style="text-align:left; line-height: 1.7;">Lorem ipsum dolor sit amet. Est
+                porro distinctio eum eius odit ea
+                facere consequuntur.
+             </p>
+          </div>
+          <div class="benefit m-3 p-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
+          <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
+            <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+            </g>
+          </g>
+        </svg>
+        
+             <h1 class="my-5" style="font-size: 20px;
+                font-weight: 500;
+                color: #444;
+                text-align:center;">Beneﬁt 02</h1>
+             <p style="text-align:left; line-height: 1.7;">Lorem ipsum dolor sit amet. Est
+                porro distinctio eum eius odit ea
+                facere consequuntur.
+             </p>
+          </div>
+          <div class="benefit m-3 p-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
+          <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
+            <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+            </g>
+          </g>
+        </svg>
+        
+             <h1 class="my-5" style="font-size: 20px;
+                font-weight: 500;
+                color: #444;
+                text-align:center;">Beneﬁt 03</h1>
+             <p style="text-align:left; line-height: 1.7;">Lorem ipsum dolor sit amet. Est
+                porro distinctio eum eius odit ea
+                facere consequuntur.
+             </p>
           </div>
        </div>
     </div>
  </section>`,
   });
-  addBlock('benefit', {
+  addBlock('benefits', {
     label: 'Benefits',
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
@@ -196,7 +347,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
        <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
           <div class="benefit m-3 p-3">
-             <i class="fa fa-star"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
+          <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
+            <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+            </g>
+          </g>
+        </svg>
+        
              <h1 class="my-5" style="font-size: 20px;
                 font-weight: 500;
                 color: #444;
@@ -207,7 +365,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              </p>
           </div>
           <div class="benefit m-3 p-3">
-             <i class="fa fa-star"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
+          <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
+            <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+            </g>
+          </g>
+        </svg>
+        
              <h1 class="my-5" style="font-size: 20px;
                 font-weight: 500;
                 color: #444;
@@ -218,7 +383,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              </p>
           </div>
           <div class="benefit m-3 p-3">
-             <i class="fa fa-star"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
+          <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
+            <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+            </g>
+          </g>
+        </svg>
+        
              <h1 class="my-5" style="font-size: 20px;
                 font-weight: 500;
                 color: #444;

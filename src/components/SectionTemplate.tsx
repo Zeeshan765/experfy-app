@@ -77,14 +77,14 @@ const SectionTemplate: React.FC = () => {
     {
       id: 2,
       image: header,
-      link: '/admin/collections/header',
+      link: '/admin/collections/section-templates/header',
       name: 'Header',
       text: '',
     },
     {
       id: 3,
       image: footer,
-      link: '/admin/collections/footer',
+      link: '/admin/collections/section-templates/footer',
       name: 'Footer',
       text: '',
     },

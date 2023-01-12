@@ -19,10 +19,22 @@ import TalentCloud from '../NewSectionTemplate/TalentCloud/vendor/plugins/grapes
 // import Testimonial from '../NewSectionTemplate/Testimonial/vendor/plugins/grapesjs-tailwind/src';
 import blocks from '../../../blocks';
 import Categories from '../../../collections/Categories';
+import Experfy from '../ExperfyPlugin';
+import { useLocation } from 'react-router-dom';
+import {getSectors} from "./getSectors";
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
+  const { pathname } = useLocation();
+
+  // const [display, showDisplay] = useState([]);
+  //@ts-ignore
+  //  Experfy.blocks.map((item) => {
+  //   console.log("item", item)
+  //   // return item
+  //   });
+
   const sections = [
     'header',
     'footer',
@@ -41,6 +53,9 @@ const SectionPageBuilder: React.FC = () => {
     'video',
   ];
   let showSections = true;
+// let arr = [] for Duplication--->header1: arr,header2: arr,
+ 
+
 
   useEffect(() => {
     setStepNav([
@@ -52,6 +67,17 @@ const SectionPageBuilder: React.FC = () => {
   }, [setStepNav]);
 
   useEffect(() => {
+    console.log('SectionUseEffect', useEffect);
+
+    let arr = pathname.split('/');
+    let str = arr[arr.length - 1];
+    let isInclude = sections.includes(str);
+    // console.log('isInclude', isInclude);
+    let blocks = isInclude ? [str] : sections;
+    console.log('blocks', blocks);
+    const Blocks = (editor, options) =>
+      Experfy(editor, { ...options, blocks: blocks });
+
     editor = GrapesJS.init({
       container: '#sections',
       storageManager: false,
@@ -61,18 +87,19 @@ const SectionPageBuilder: React.FC = () => {
       avoidDefaults: true,
 
       plugins: [
-        Header,
-        Footer,
-        PracticeArea,
-        // Testimonial,
-        Benefit,
-        Guideline,
-        ImageAndText,
-        ImageBanner,
-        Location,
-        Number,
-        Paragraph,
-        TalentCloud,
+        Blocks,
+        // Header,
+        // Footer,
+        // PracticeArea,
+        // // Testimonial,
+        // Benefit,
+        // Guideline,
+        // ImageAndText,
+        // ImageBanner,
+        // Location,
+        // Number,
+        // Paragraph,
+        // TalentCloud,
       ],
 
       commands: {
@@ -173,6 +200,29 @@ const SectionPageBuilder: React.FC = () => {
       },
       styleManager: {
         appendTo: '.styles-container',
+        sectors: [
+          {
+            name: 'Headers',
+            open: false,
+            buildProps: ['position', 'text'],
+          },
+          {
+            name: 'Footers',
+            open: false,
+            buildProps: [
+              'flex-direction',
+              'flex-wrap',
+              'justify-content',
+              'align-items',
+              'align-content',
+              'order',
+              'flex-basis',
+              'flex-grow',
+              'flex-shrink',
+              'align-self',
+            ],
+          },
+        ],
       },
 
       // sectors: [
@@ -373,6 +423,8 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     editor.on('component:drag:end', () => {
+      console.log('component:drag:end');
+
       editor.runCommand('show-styles');
       editor.runCommand('show-traits');
       editor.stopCommand('show-blocks');
@@ -403,6 +455,20 @@ const SectionPageBuilder: React.FC = () => {
       stop(editor, sender) {
         this.getTraitsEl(editor).style.display = 'none';
       },
+    });
+
+    editor.on(`block:drag:stop`, (component, block) => {
+      // if component exists, means the drop was successful
+      console.log('component', component);
+      if (component) {
+        // component.addStyle({ color: 'red' }); // eg. update the style
+        // // Do you need the parent who contains this new added component??
+        // const parent = component.parent();
+
+        const cari = editor.StyleManager.getSectors();
+        cari.reset();
+        cari.add(getSectors(component.ccid));
+      }
     });
   }, [setEditor]);
 

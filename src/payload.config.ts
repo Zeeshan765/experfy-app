@@ -120,6 +120,18 @@ export default buildConfig({
           strict: true,
         },
         {
+          path: '/collections/section-templates/header',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: '/collections/section-templates/footer',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+        {
           path: '/collections/footer',
           Component: Footer,
         },
