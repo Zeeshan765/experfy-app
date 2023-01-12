@@ -51,7 +51,7 @@ const DesignSystem: React.FC = () => {
     setStepNav([
       {
         label: 'Global Theme Settings',
-        url: '/collections/global-theme-settings',
+        url: '/collections/global-theme-settings/design-system',
       },
     ]);
   }, [setStepNav]);
@@ -60,12 +60,28 @@ const DesignSystem: React.FC = () => {
     const editor = GrapesJS.init({
       container: '#gjs',
       height: '0%',
-      fromElement: true,
-      showOffsets: true,
-      noticeOnUnload: 2,
+      commands: {
+        defaults: [
+          {
+            id: 'save',
+            run: (editor, sender) => {
+              editor.store(editor.getCss());
+            },
+          },
+          {
+            id: 'open-templates',
+          },
+          {
+            id: 'open-pages',
+            run: (editor, sender) => {
+              console.log('open-pages');
+            },
+          },
+        ],
+      },
 
       storageManager: {
-        type: 'indexeddb',
+        type: 'local',
         autosave: true,
         autoload: true,
         stepsBeforeSave: 2,
@@ -84,30 +100,41 @@ const DesignSystem: React.FC = () => {
 
       panels: {
         defaults: [
-          {
-            id: 'global-style',
-            el: '.panel__left',
-            active: true,
-            label: 'Global Theme Settings',
-            enable: true,
-          },
-          {
-            id: 'save',
-            el: '.panel__top',
-            visible: true,
-            label: 'Save',
-            toggle: false,
-            buttons: [
-              {
-                id: 'save',
-                className: 'fa fa-floppy-o',
-                command: 'save',
-                attributes: {
-                  title: 'Save',
-                },
-              },
-            ],
-          },
+          // {
+          //   id: 'open-styles',
+          //   el: '.styles-container',
+          //   active: false,
+          //   visible: true,
+          //   command: 'open-sm',
+          //   toggle: true,
+          //   buttons: [
+          //     {
+          //       id: 'open-styles',
+          //       className: 'fa fa-cog',
+          //       command: 'open-styles',
+          //       attributes: {
+          //         title: 'Global Theme Settings',
+          //       },
+          //     },
+          //   ],
+          // },
+          // {
+          //   id: 'save',
+          //   el: '.panel__top',
+          //   visible: true,
+          //   toggle: true,
+          //   commands: 'save',
+          //   buttons: [
+          //     {
+          //       id: 'save',
+          //       className: 'fa fa-floppy-o',
+          //       command: 'save',
+          //       attributes: {
+          //         title: 'Save',
+          //       },
+          //     },
+          //   ],
+          // },
           // {
           //   id: 'open-templates',
           //   className: 'fa fa-folder-o',
@@ -129,10 +156,12 @@ const DesignSystem: React.FC = () => {
       },
 
       styleManager: {
+        showComputed: true,
+
         appendTo: '.styles-container',
         sectors: [
           {
-            name: 'DESIGN SYSTEM',
+            name: 'Design System',
             open: false,
           },
           {
@@ -174,7 +203,6 @@ const DesignSystem: React.FC = () => {
                 type: 'select',
                 name: 'Font Family',
                 property: 'font-family',
-                ResizeObserver: true,
                 options: fontsList,
               },
               {
@@ -187,7 +215,6 @@ const DesignSystem: React.FC = () => {
                 type: 'select',
                 name: 'Font Weight',
                 property: 'font-weight',
-                ResizeObserver: true,
                 default: 'normal',
                 options: fontWeight,
               },
@@ -580,7 +607,8 @@ const DesignSystem: React.FC = () => {
           input.type = 'text';
           input.value = prop.get();
           input.onchange = function (e) {
-            prop.set(e.target.value);
+            console.log(e.target);
+            // prop.set(e.target.value);
           };
           return input;
         },
@@ -598,16 +626,14 @@ const DesignSystem: React.FC = () => {
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="panel__top right">
-        <div className="panel__basic-actions"></div>
-      </div>
       <div className="editor-row">
         <div className="panel__left">
+          <div className="panel__top"></div>
           <div className="styles-container"></div>
+          <div className="panel__basic-actions"></div>
+          <div className="panel__switcher"></div>
         </div>
-        <div className="editor-canvas">
-          <div id="gjs"></div>
-        </div>
+        <div id="gjs"></div>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { createStyles } from '@material-ui/core';
 import { CollectionConfig } from 'payload/types';
 import SectionPageBuilder from '../components/PageBuilder/SectionTemplates/sections';
 
@@ -7,12 +8,17 @@ const SectionTemplateCollection: CollectionConfig = {
     plural: 'Section Templates',
   },
   slug: 'section-templates',
+
   access: {
     read: () => true,
     create: () => false,
   },
+
   admin: {
     group: 'Global Theme Settings',
+    useAsTitle: 'title',
+    description: 'Start customizing your portal',
+
     components: {
       views: {
         List: SectionPageBuilder,

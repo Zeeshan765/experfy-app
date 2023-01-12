@@ -1,15 +1,27 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"cSpell.words": [
-			"Autoload",
-			"Experfy",
-			"grapesjs"
-		],
-		"editor.suggest.showStatusBar": true
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "cSpell.words": ["Autoload", "Experfy", "grapesjs", "Toastify"],
+    "editor.suggest.showStatusBar": true
+  },
+  "launch": {
+    "configurations": [],
+    "compounds": [
+      {
+        "name": "Launch Edge Headless and attach DevTools",
+        "configurations": [
+          "Launch Microsoft Edge in headless mode",
+          "Open Edge DevTools"
+        ]
+      },
+      {
+        "name": "Launch Edge and attach DevTools",
+        "configurations": ["Launch Microsoft Edge", "Open Edge DevTools"]
+      }
+    ]
+  }
 }

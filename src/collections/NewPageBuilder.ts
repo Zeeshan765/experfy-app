@@ -1,5 +1,5 @@
 import { CollectionConfig } from 'payload/types';
-import PageBuilder from '../components/PageBuilder/SectionTemplates';
+import PageBuilder from '../components/PageBuilder';
 
 const NewPageBuilderCollection: CollectionConfig = {
   slug: 'new-page-builder',

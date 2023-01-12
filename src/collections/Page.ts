@@ -1,8 +1,12 @@
 import { CollectionConfig } from "payload/types";
 import PageTheme from "../components/pagebuilderTemplate";
 import FaceLessModel from "../components/Model";
-// import PageBuilder from '../components/PageBuilder/SectionTemplates';
-// import PageTheme from '../components/PageBuilderTemplate';
+import PageBuilder from "../components/PageBuilder/SectionTemplates";
+import Templates from "../components/Templates";
+// import SelectPage from "../components/selectPageCode.tsx";
+import Payload from "payload";
+import SelectPage from "../components/selectPageCode";
+
 export type Type = {
   title: string;
   slug: string;
@@ -67,63 +71,72 @@ export const Page: CollectionConfig = {
       admin: {
         condition: (data) => data.pageType === "template",
         components: {
-          Field: PageTheme,
+          Field: Templates,
         },
       },
     },
     {
-      name:'htmlCode',
-      type:'relationship',
-      relationTo: "users",
-      hasMany: false,
-      access:{
-  //  read: (): boolean => false, // Everyone can read Pages'
+      name: "from_scratch",
+      type: "ui",
+      label: "Untitled",
+      admin: {
+        condition: (data) => data.pageType === "scratch",
+        components: {
+          Field: PageBuilder,
+        },
       },
-      admin:{
-        // components: {
-        //   Field: FaceLessModel ,
-        // },
-      }
-      },
+    },
     // {
-    //   name: "template",
-    //   type: "relationship",
-    //   relationTo: "new-page-builder",
+    //   name: "selected_page",
+    //   label: "Select page",
+    //   type: "select",
+    //   required: true,
+    //   // defaultValue: "scratch",
     //   admin: {
-    //     condition: (data) => data.pageType === "scratch",
-    //       },
+    //     // layout: "vertical",
+    //     description: "Choose how you want to create this page",
+    //   },
+    //   options: [
+    //     {
+    //       label: 'Browse Jobs',
+    //       value: '1',
+    //      },
+    //     {
+    //       value: '2',
+    //       label: 'Category',
+    //     },
+    //     {
+    //       value: '3',
+    //       label: 'Error 404',
+    //     },
+    //     {
+    //       value: '4',
+    //       label: 'Home',
+    //     },
+    //     {
+    //       value: '5',
+    //        label: 'Job Overview',
+    //     },
+    //     {
+    //       value: '6',
+    //       label: 'Join',
+    //     },
+    //     {
+    //       value: '7',
+    //       label: 'TC Overview',
+    //     },
+    //   ],
     // },
+    {
+      name: "page_Id",
+      type: "ui",
+      admin: {
+        components: {
+          Field: SelectPage  ,
+        },
+      },
+    },
   ],
-
-
-  hooks: {
-    beforeLogin: [
-      (args) => {
-        console.log("before login called", args);
-      },
-    ],
-    afterLogin: [
-      (args) => {
-        console.log("After Login Called", args);
-      },
-    ],
-    afterLogout: [
-      (args) => {
-        console.log("After Logout Called", args);
-      },
-    ],
-
-    afterRefresh: [
-      (args) => {
-        console.log("After Refresh Called", args);
-      },
-    ],
-    afterMe: [
-      (args) => {
-        console.log("After Me Called", args);
-      },
-    ],
-  },
 };
 
 export default Page;

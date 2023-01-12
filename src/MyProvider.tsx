@@ -1,10 +1,11 @@
-import React, { createContext, useState, useContext } from 'react';
-import dotenv from 'dotenv';
-import { BrowserRouter } from 'react-router-dom';
-import { useConfig } from 'payload/components/utilities';
-import ExperfyNavbar from './components/Nav/ExperfyNavBar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
+// @ts-ignore
+import React, { createContext, useState, useContext } from "react";
+import dotenv from "dotenv";
+import { BrowserRouter } from "react-router-dom";
+import { useConfig } from "payload/components/utilities";
+import ExperfyNavbar from "./components/Nav/ExperfyNavBar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 
 export const Context = createContext({} as any);
 
@@ -14,8 +15,12 @@ const MyProvider: React.FC<any> = ({ children }) => {
   } = useConfig();
 
   const [adminPortal, setAdminPortal] = useState({});
-  const [brands, setBrands] = useState(['hey']);
+  const [brands, setBrands] = useState(["hey"]);
   const [seo_setting, setSeo_Setting] = useState({});
+  const [selectedPageId, setSelectedPageId] = useState("1234");
+  // const setSelectedPageId = (id) => {
+  //   setPageId(id);
+  // };
 
   const value = {
     adminPortal,
@@ -25,6 +30,8 @@ const MyProvider: React.FC<any> = ({ children }) => {
     seo_setting,
     setSeo_Setting,
     adminRoute,
+    setSelectedPageId,
+    selectedPageId,
   };
 
   // const LOGIN_URL = 'https://landing-ui-service.develop.experfy.com/login';
@@ -59,7 +66,7 @@ const MyProvider: React.FC<any> = ({ children }) => {
 
   return (
     <BrowserRouter>
-      <ExperfyNavbar />
+      {/* <ExperfyNavbar /> */}
       <Context.Provider value={value}>{children}</Context.Provider>
     </BrowserRouter>
   );
