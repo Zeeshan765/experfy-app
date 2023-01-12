@@ -35,6 +35,17 @@ export default (editor: grapesjs.Editor, config: RequiredPluginOptions) => {
     (e) => confirm(txtConfirm) && e.runCommand('core:canvas-clear', undefined)
   );
 
+  
+  Commands.add('toggle-devices', {
+    run(editor, sender) {
+      const deviceManager = editor.DeviceManager;
+      const device = deviceManager.getSelected();
+      const devices = deviceManager.getDevices();
+      const index = devices.indexOf(device);
+      const next = devices[index + 1] || devices[0];
+      deviceManager.select(next.id);
+    },
+  });
   Commands.add('show-styles', {
     getRowEl(editor) {
       return editor.getContainer().closest('.editor-row');
@@ -46,10 +57,25 @@ export default (editor: grapesjs.Editor, config: RequiredPluginOptions) => {
       const smEl = this.getStyleEl(this.getRowEl(editor));
       smEl.style.display = '';
     },
-
     stop(editor, sender) {
       const smEl = this.getStyleEl(this.getRowEl(editor));
       smEl.style.display = 'none';
+    },
+  });
+  Commands.add('hide-styles', {
+    getRowEl(editor) {
+      return editor.getContainer().closest('.editor-row');
+    },
+    getStyleEl(row) {
+      return row.querySelector('.styles-container');
+    },
+    run(editor, sender) {
+      const smEl = this.getStyleEl(this.getRowEl(editor));
+      smEl.style.display = 'none';
+    },
+    stop(editor, sender) {
+      const smEl = this.getStyleEl(this.getRowEl(editor));
+      smEl.style.display = '';
     },
   });
   Commands.add('show-blocks', {
@@ -64,26 +90,60 @@ export default (editor: grapesjs.Editor, config: RequiredPluginOptions) => {
       const smEl = this.getBlocksEl(this.getRowEl(editor));
       smEl.style.display = '';
     },
+
     stop(editor, sender) {
       const smEl = this.getBlocksEl(this.getRowEl(editor));
       smEl.style.display = 'none';
     },
   });
-  Commands.add('show-traits', {
+  Commands.add('hide-blocks', {
     getRowEl(editor) {
       return editor.getContainer().closest('.editor-row');
+    },
+    getBlocksEl(row) {
+      return row.querySelector('.blocks');
+    },
+
+    run(editor, sender) {
+      const smEl = this.getBlocksEl(this.getRowEl(editor));
+      smEl.style.display = 'none';
+    },
+    stop(editor, sender) {
+      const smEl = this.getBlocksEl(this.getRowEl(editor));
+      smEl.style.display = '';
+    },
+  });
+  Commands.add('show-traits', {
+    getRowEl(_editor) {
+      return _editor.getContainer().closest('.editor-row');
     },
     getTraitsEl(row) {
       return row.querySelector('.traits-container');
     },
 
-    run(editor, sender) {
-      const smEl = this.getTraitsEl(this.getRowEl(editor));
+    run(_editor, sender) {
+      const smEl = this.getTraitsEl(this.getRowEl(_editor));
       smEl.style.display = '';
     },
-    stop(editor, sender) {
-      const smEl = this.getTraitsEl(this.getRowEl(editor));
+    stop(_editor, sender) {
+      const smEl = this.getTraitsEl(this.getRowEl(_editor));
       smEl.style.display = 'none';
+    },
+  });
+  Commands.add('hide-traits', {
+    getRowEl(_editor) {
+      return _editor.getContainer().closest('.editor-row');
+    },
+    getTraitsEl(row) {
+      return row.querySelector('.traits-container');
+    },
+    run(_editor, sender) {
+      const smEl = this.getTraitsEl(this.getRowEl(_editor));
+      smEl.style.display = 'none';
+    },
+    stop(_editor, sender) {
+      const smEl = this.getTraitsEl(this.getRowEl(_editor));
+      smEl.style.display = '';
     },
   });
   Commands.add('show-layers', {
@@ -94,20 +154,26 @@ export default (editor: grapesjs.Editor, config: RequiredPluginOptions) => {
       return row.querySelector('.layers-container');
     },
     run(editor, sender) {
-      this.getLayersEl(editor).style.display = '';
+      const smEl = this.getLayersEl(this.getRowEl(editor));
+      smEl.style.display = '';
     },
     stop(editor, sender) {
-      this.getLayersEl(editor).style.display = 'none';
+      const smEl = this.getLayersEl(this.getRowEl(editor));
+      smEl.style.display = 'none';
     },
   });
-  Commands.add('toggle-devices', {
+  Commands.add('hide-layers', {
+    getRowEl(editor) {
+      return editor.getContainer().closest('.editor-row');
+    },
+    getLayersEl(row) {
+      return row.querySelector('.layers-container');
+    },
+
     run(editor, sender) {
-      const deviceManager = editor.DeviceManager;
-      const device = deviceManager.getSelected();
-      const devices = deviceManager.getDevices();
-      const index = devices.indexOf(device);
-      const next = devices[index + 1] || devices[0];
-      deviceManager.select(next.id);
+      const smEl = this.getLayersEl(this.getRowEl(editor));
+      smEl.style.display = 'none';
     },
   });
+
 };

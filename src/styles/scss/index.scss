@@ -297,20 +297,32 @@ div.react-select {
 
 
 .btn--style-secondary {
-  font-weight: 500;
-  font-size: 18px;
-  color: var(--theme-text-light);
-  background-color: var(--color-base-0);
-  border: 1px solid var(--theme-border);
-  padding: 0.7rem 1.3rem;
-  border-radius: 0.4rem;
-  box-shadow: none;
 
-  // &:hover {
-  //   background-color: var(--theme-primary);
-  //   color: var(--theme-elevation-0);
-  //   text-decoration: none;
-  // }
+  font-size: 17px !important;
+  color: var(--theme-text-light);
+  background-color: var(--theme-elevation-0);
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: none !important;
+  padding: 0.7rem 1rem;
+  border-radius: 0.4rem;
+
+  &:hover {
+    background-color: var(--theme-primary);
+    color: var(--theme-elevation-0);
+    text-decoration: none;
+  }
+
+  &:checked {
+    background-color: var(--theme-primary);
+    color: var(--theme-elevation-0);
+  }
+
+  &::selection {
+    background-color: var(--theme-primary);
+    color: var(--theme-elevation-0);
+  }
+
+
 }
 
 
@@ -460,10 +472,36 @@ div.react-select {
   }
 }
 
-.full-width-image {
-  width: 90% !important;
-  margin: 10px !important;
+// .full-width-image {
+//   width: 90% !important;
+//   margin: 10px !important;
+// }
+
+.back-blue-panel {
+  background-color: var(--theme-primary);
+  padding: 10px;
+  font-weight: 500;
+  color: var(--theme-elevation-0);
+  display: block;
+
+  :hover {
+    color: var(--theme-elevation-0);
+    text-decoration: none;
+  }
+
+
+  ::before {
+    content: "";
+    display: inline;
+    background-image: url('/src/assets/images/sidebar/pages.svg');
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+  }
 }
+
+
 
 .radio-group {
   #field-mediaType {

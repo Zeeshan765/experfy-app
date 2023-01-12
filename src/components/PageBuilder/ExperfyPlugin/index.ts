@@ -99,13 +99,13 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
 
   console.log(config);
   // Load blocks
-  blocks(editor, config);
+  // blocks(editor, config);
 
   // Load commands
   commands(editor, config);
 
   // Load panels
-  panels(editor, config);
+  // panels(editor, config);
 };
 
 export default plugin;

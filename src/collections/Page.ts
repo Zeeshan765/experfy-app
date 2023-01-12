@@ -62,24 +62,11 @@ export const Page: CollectionConfig = {
     },
     {
       name: 'template',
-      type: 'ui',
+      type: 'relationship',
+      relationTo: 'templates',
       label: 'Template',
       admin: {
         condition: (data) => data.pageType === 'template',
-        components: {
-          Field: Templates,
-        },
-      },
-    },
-    {
-      name: 'from_scratch',
-      type: 'ui',
-      label: 'Untitled',
-      admin: {
-        condition: (data) => data.pageType === 'scratch',
-        components: {
-          Field: PageBuilder,
-        },
       },
     },
   ],
@@ -90,9 +77,7 @@ export const Page: CollectionConfig = {
         console.log('before login called', args);
       },
     ],
-    afterChange: [(args) => {
-      
-    }],
+    afterChange: [(args) => {}],
     afterLogin: [
       (args) => {
         console.log('After Login Called', args);

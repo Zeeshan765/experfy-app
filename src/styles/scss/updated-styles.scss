@@ -317,7 +317,7 @@ ol {
     }
   }
 
-  &__label {}
+
 
   &--is-selected {
     .radio-input__styled-radio {
@@ -447,7 +447,7 @@ ol {
 
 
   &__collection-actions {
-    // display: block !important;
+    display: block !important;
   }
 
   &__document-actions {
@@ -785,8 +785,8 @@ ol {
 
 // Upload Card 
 
-.upload-card {
-  .thumbnail {}
+// .upload-card {
+//   .thumbnail {}
 
-  &__filename {}
-}
+//   &__filename {}
+// }

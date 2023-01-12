@@ -1,11 +1,11 @@
-import { CollectionConfig } from "payload/types";
-import TemplatesLibrary from "../components/TemplateLibrary";
+import { CollectionConfig } from 'payload/types';
+import TemplatesLibrary from '../components/TemplateLibrary';
 
- const TemplateLibraryCollection: CollectionConfig = {
-  slug: "templates-library",
+const TemplateLibraryCollection: CollectionConfig = {
+  slug: 'templates-library',
   labels: {
-    singular: "Template Library",
-    plural: "Template Librarys",
+    singular: 'Template Library',
+    plural: 'Template Libraries',
   },
   // access: {
   //   read: () => true,
@@ -13,27 +13,24 @@ import TemplatesLibrary from "../components/TemplateLibrary";
   // },
   access: {
     read: () => true,
-    create: () => true,
-    update: () => true,
-    delete: () => true,
+    create: () => false,
+    update: () => false,
+    delete: () => false,
   },
   admin: {
     components: {
       views: {
-        Edit: TemplatesLibrary,
+        List: TemplatesLibrary,
       },
     },
   },
   fields: [
-// {
-//       type:'ui',
-//         admin:{
-//           components: {
-//               Field: TemplatesLibrary,
-//               Cell: TemplatesLibrary,
-//             },
-//       }
-// }
+    {
+      name: 'type',
+      type: 'text',
+      label: 'Type',
+      
+    },
   ],
 };
 export default TemplateLibraryCollection;

@@ -1,4 +1,3 @@
-import { createStyles } from '@material-ui/core';
 import { CollectionConfig } from 'payload/types';
 import SectionPageBuilder from '../components/PageBuilder/SectionTemplates/sections';
 
@@ -25,7 +24,9 @@ const SectionTemplateCollection: CollectionConfig = {
       },
     },
   },
-  fields: [],
+  fields: [
+    
+  ],
 };
 
 export default SectionTemplateCollection;

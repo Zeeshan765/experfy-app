@@ -6,12 +6,13 @@ const PageBuilderCollection: CollectionConfig = {
   slug: 'page-builder',
   access: {
     read: () => true,
-    create: () => false,
+    create: () => true,
   },
   admin: {
     components: {
       views: {
         List: PageBuilder,
+        Edit: PageBuilder,
       },
     },
   },

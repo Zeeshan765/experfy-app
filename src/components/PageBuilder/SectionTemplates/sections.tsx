@@ -57,7 +57,6 @@ const SectionPageBuilder: React.FC = () => {
       storageManager: false,
       showOffsets: true,
       showDevices: false,
-      clearStyles: true,
       showOffsetsSelected: true,
       avoidDefaults: true,
 

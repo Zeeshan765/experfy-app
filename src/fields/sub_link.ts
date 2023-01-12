@@ -1,6 +1,5 @@
 import { Field } from 'payload/types';
 import { Type as PageType } from '../collections/Page';
-import sub_link from './sub_link';
 
 export type Type = {
   type: 'page' | 'custom';
@@ -66,12 +65,6 @@ const link: Field = {
           },
         },
       ],
-    },
-    {
-      name: 'subLinks',
-      label: 'Sub Links',
-      type: 'array',
-      fields: [sub_link],
     },
   ],
 };

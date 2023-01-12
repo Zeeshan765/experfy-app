@@ -2,7 +2,9 @@ import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../index.scss';
+import { useAuth, useConfig } from 'payload/components/utilities';
 
 const borderStyle = [
   { value: 'solid', name: 'Solid' },
@@ -39,6 +41,10 @@ const fontsList = [
 const DesignSystem: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
+  const {
+    admin: { user: userSlug },
+    routes: { admin },
+  } = useConfig();
 
   const url = location.href ? location.href : '';
   let showTheme = false;
@@ -51,7 +57,7 @@ const DesignSystem: React.FC = () => {
     setStepNav([
       {
         label: 'Global Theme Settings',
-        url: '/collections/global-theme-settings/design-system',
+        url: '/collections/design-system',
       },
     ]);
   }, [setStepNav]);
@@ -209,6 +215,7 @@ const DesignSystem: React.FC = () => {
                 type: 'slider',
                 name: 'Font Size',
                 property: 'font-size',
+                default: 16,
                 units: ['px', 'rem'],
               },
               {
@@ -231,14 +238,14 @@ const DesignSystem: React.FC = () => {
                 name: 'Line Height',
                 property: 'line-height',
                 ResizeObserver: true,
-                default: '1',
+                default: 1,
                 units: ['px', 'rem'],
               },
               {
                 type: 'select',
                 name: 'Text Align',
                 property: 'text-align',
-                default: 'left',
+                default: '',
                 ResizeObserver: true,
                 options: [
                   { value: 'left', name: 'Left' },
@@ -294,9 +301,9 @@ const DesignSystem: React.FC = () => {
             open: showTheme,
             buildProps: [
               'css-class',
-              'button-font-family',
-              'button-text-shadow',
-              'text-color',
+              'font-family',
+              'text-shadow',
+              'color',
               'background-color',
               'border',
               'padding',
@@ -315,7 +322,6 @@ const DesignSystem: React.FC = () => {
                 type: 'select',
                 name: 'Font Family',
                 property: 'font-family',
-
                 options: fontsList,
               },
               {
@@ -345,7 +351,7 @@ const DesignSystem: React.FC = () => {
               },
 
               {
-                type: 'slider',
+                type: 'integer',
                 name: 'Border Radius',
                 property: 'border-radius',
                 default: 0,
@@ -372,7 +378,7 @@ const DesignSystem: React.FC = () => {
                 default: '#4aa4da',
               },
               {
-                type: 'slider',
+                type: 'integer',
                 name: 'Padding',
                 property: 'padding',
                 default: 0,
@@ -628,6 +634,9 @@ const DesignSystem: React.FC = () => {
       <Eyebrow />
       <div className="editor-row">
         <div className="panel__left">
+          <div className="back-blue-panel fa fa-arrow-left">
+            <Link to={`${admin}/`}> Global Theme Settings</Link>
+          </div>
           <div className="panel__top"></div>
           <div className="styles-container"></div>
           <div className="panel__basic-actions"></div>
