@@ -49,7 +49,7 @@ const SectionPageBuilder: React.FC = () => {
     'location',
     'metrics-numbers',
     'talent-cloud-candidates',
-    // 'testimonial',
+    'testimonial',
     'video',
   ];
   let showSections = true;

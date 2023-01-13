@@ -24,7 +24,7 @@ const obj = {
           },
           {
             name: 'Logo',
-            open: false,
+            open: true,
             buildProps: [
               'border-radius',
               'border-width',
@@ -101,7 +101,7 @@ const obj = {
 
           {
             name: 'Border',
-            open: false,
+            open: true,
             buildProps: [
               'border-radius',
               'border-width',
@@ -111,7 +111,7 @@ const obj = {
           },
           {
             name: 'Divider',
-            open: false,
+            open: true,
             properties: [
               {
                 type: 'color',
@@ -140,7 +140,7 @@ const obj = {
           },
           {
             name: 'Social Media',
-            open: false,
+            open: true,
             buildProps: [
               'border-radius',
               'border-style',
@@ -210,7 +210,7 @@ const obj = {
           },
           {
             name: 'Image Gallery',
-            open: false,
+            open: true,
             buildProps: ['border-radius', 'border-width', 'border-color'],
             properties: [
               {
@@ -241,7 +241,7 @@ const obj = {
           },
           {
             name: 'Gallery Caption',
-            open: false,
+            open: true,
             properties: [
               {
                 type: 'select',
@@ -287,7 +287,7 @@ const obj = {
 
           {
             name: 'Button Border',
-            open: false,
+            open: true,
             buildProps: [
               'border-radius',
               'border-width',
@@ -298,7 +298,7 @@ const obj = {
           },
           {
             name: 'Icon List',
-            open: false,
+            open: true,
             properties: [
               {
                 type: 'slider',
@@ -321,7 +321,7 @@ const obj = {
           },
           {
             name: 'Social Media Icons',
-            open: false,
+            open: true,
             buildProps: ['border-radius', 'border-style'],
             properties: [
               {
@@ -361,7 +361,7 @@ const obj = {
           },
           {
             name: 'Logo',
-            open: false,
+            open: true,
             buildProps: [
               'border-radius',
               'border-width',
@@ -438,7 +438,7 @@ const obj = {
 
           {
             name: 'Divider',
-            open: false,
+            open: true,
             properties: [
               {
                 type: 'color',
@@ -489,7 +489,7 @@ const obj = {
           },
           {
             name: 'Icon',
-            open: false,
+            open: true,
             properties: [
               {
                 type: "color",

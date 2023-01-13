@@ -132,61 +132,83 @@ export default buildConfig({
           strict: true,
         },
         {
-          path: '/collections/footer',
-          Component: Footer,
+          path: '/collections/section-templates/benefits',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/header',
-          Component: Header,
+          path: '/collections/section-templates/practice-areas',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/paragraph',
-          Component: Paragraph,
+          path: '/collections/section-templates/video',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/metrics_number',
-          Component: MetricNumbers,
+          path: '/collections/section-templates/guidelines',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/testimonial',
-          Component: Testimonial,
+          path: '/collections/section-templates/location',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
+        {
+          path: '/collections/section-templates/paragraph',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
+        {
+          path: '/collections/section-templates/metrics-numbers',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+        
+        {
+          path: '/collections/section-templates/image-banner',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
+        {
+          path: '/collections/section-templates/image-and-text',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+        
+        {
+          path: '/collections/section-templates/talent-cloud-candidates',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/benefit',
-          Component: Benefit,
+          path: '/collections/section-templates/testimonial',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
-        {
-          path: '/collections/guideline',
-          Component: Guideline,
-        },
+       
         {
           path: '/collections/form',
           Component: Form,
         },
-        {
-          path: '/collections/location',
-          Component: Location,
-        },
-        {
-          path: '/collections/image_and_text',
-          Component: ImgText,
-        },
-        {
-          path: '/collections/practice_area',
-          Component: PracticeArea,
-        },
-        {
-          path: '/collections/footer',
-          Component: Footer,
-        },
-        {
-          path: '/collections/header',
-          Component: Header,
-        },
-        {
-          path: '/collections/paragraph',
-          Component: Paragraph,
-        },
+       
+       
       ],
     },
   },

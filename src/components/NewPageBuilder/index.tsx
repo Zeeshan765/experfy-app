@@ -24,7 +24,7 @@ const NewPageBuilder = () => {
     ]);
   }, [setStepNav]);
   React.useEffect(() => {
-    console.log('useEffect');
+    
     const sections = [
       'header',
       'footer',
