@@ -350,7 +350,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
     </svg>`,
-    content: `<div class="box-section" id = "practice_area_1">
+    content: `<section id="practice_area_1" class="text-gray-600 body-font">
+    <div class="box-section">
     <h1 style="color: #4a5162;
        font-family: ProximaNova,sans-serif;
        line-height: 1.2;
@@ -1077,7 +1078,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                    </div>
  
     </div>
- </div>`,
+ </div>
+ </section>`,
   });
   addBlock('video', {
     label: 'Video',
@@ -1103,7 +1105,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('guidelines', {
     label: 'Guidelines',
     media: `<svg viewBox="0 0 24 24">`,
-    content: ` <div id=guideline_1 class="container  mx-auto px-24 py-24 text-center" style="width: 70%;
+    content: ` <section  id= "guideline_1" class="text-gray-600 body-font">
+    <div id=guideline_1 class="container  mx-auto px-24 py-24 text-center" style="width: 70%;
       margin: auto;">
       <div class="text-center">
         <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900" style="font-size: 42px;">Add your heading title here</h1>
@@ -1179,7 +1182,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             </p>
         </div>
       </div>
-  </div>`,
+  </div>
+  </section>`,
   });
   addBlock('location', {
     label: 'Location',
@@ -1302,7 +1306,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('talent-cloud-candidates', {
     label: 'Talent Cloud',
     media: `<svg viewBox="0 0 24 24">`,
-        content: `<section class="text-gray-600 body-font">
+        content: `<section id="talent_1" class="text-gray-600 body-font">
         <div class="container p-24 mx-auto flex flex-wrap" style="align-items: center;">
         <div style="width:50%; padding: 30px;">
            <h1 class="m-2" style="font-size: 38px;
