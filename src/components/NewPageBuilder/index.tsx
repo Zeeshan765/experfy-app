@@ -12,10 +12,8 @@ import '../PageBuilder/index.scss';
 import { toast } from 'react-toastify';
 const NewPageBuilder = () => {
   let [editor, setEditor] = React.useState<GrapesJS.Editor>();
-  const [elementCreate, setElementCreate] = useState(false);
+
   const { setStepNav } = useStepNav();
-  const [headingText, setHeadingText] = React.useState<string>('abc');
-  const testRef = useRef();
 
   useEffect(() => {
     setStepNav([
@@ -26,7 +24,7 @@ const NewPageBuilder = () => {
     ]);
   }, [setStepNav]);
   React.useEffect(() => {
-    console.log('useEffect')
+    console.log('useEffect');
     const sections = [
       'header',
       'footer',
@@ -44,21 +42,40 @@ const NewPageBuilder = () => {
       // 'testimonial',
       'video',
     ];
-    const ExperfyBlocks = (editor, options) => Experfy(editor, {...options, blocks:sections});
+    const ExperfyBlocks = (editor, options) =>
+      Experfy(editor, { ...options, blocks: sections });
 
     editor = GrapesJS.init({
       container: '.editor',
-      plugins: [ExperfyBlocks, Basics, Forms, NavBar],
-      pluginsOpts: {
-        Basics: {
-          flexGrid: true,
-          addBasicStyle: true,
-        },
-        NavBar: {
-          block: ['navbar'],
-          label: 'Header',
-        },
-      },
+      plugins: [
+        (editor) =>
+          NavBar(editor, {
+            label: 'Header',
+            block: {
+              category: 'Header',
+            },
+          }),
+        ExperfyBlocks,
+        (editor) =>
+          Basics(editor, {
+            blocks: [
+              'column1',
+              'column2',
+              'column3',
+              'column3-7',
+              'text',
+              'link',
+              'image',
+              'video',
+              'map',
+            ],
+            flexGrid: true,
+            addBasicStyle: true,
+            rowHeight: 75,
+          }),
+        Forms,
+      ],
+
       storageManager: {
         type: 'local',
         options: {
@@ -217,7 +234,7 @@ const NewPageBuilder = () => {
       },
     });
 
-    // setEditor(editor);
+    setEditor(editor);
 
     const openBl = editor.Panels.getButton('panel__switcher', 'show-blocks');
     editor.on('load', () => openBl?.set('active', true));
@@ -231,6 +248,29 @@ const NewPageBuilder = () => {
       editor.StyleManager.select(component);
       editor.runCommand('show-styles');
     });
+
+    ///now it will only update text from traits
+    editor.on('component:selected', (component) => {
+      if (component.get('type') == 'text') {
+        editor.runCommand('show-traits');
+        if (component.get('traits').models[0].get('value').length == 0) {
+          component.view.model.getEl().innerHTML = 'Insert text here';
+        }
+
+        component.set(
+          'content',
+          component.get('traits').models[0].get('value') //TODO we need to update trait as we are using ID for now.
+        );
+      }
+    });
+    editor.on('component:update', (component) => {
+      if (component.get('type') == 'text') {
+        component.view.model.getEl().innerHTML = component
+          .get('traits')
+          .models[0].get('value');
+      }
+    });
+
     // editor.on('component:select', (component) => {
     //   editor.StyleManager.select(component);
     //   editor.runCommand('show-styles');

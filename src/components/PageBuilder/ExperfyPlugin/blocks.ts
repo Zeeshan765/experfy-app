@@ -3,7 +3,7 @@ import { RequiredPluginOptions } from '.';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
-    console.log('opts', opts)
+    console.log('opts', opts);
     opts.blocks.indexOf(id)! >= 0 &&
       editor.Blocks.add(id, {
         select: true,
@@ -13,26 +13,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       });
   };
 
-  addBlock('link-block', {
-    label: 'Link Block',
-    media: `<svg viewBox="0 0 24 24">
-      <path fill="currentColor" d="M3.9,12C3.9,10.29 5.29,8.9 7,8.9H11V7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H11V15.1H7C5.29,15.1 3.9,13.71 3.9,12M8,13H16V11H8V13M17,7H13V8.9H17C18.71,8.9 20.1,10.29 20.1,12C20.1,13.71 18.71,15.1 17,15.1H13V17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7Z"></path>
-    </svg>`,
-    content: {
-      type: 'link',
-      editable: true,
-      droppable: true,
-      style: {
-        display: 'inline-block',
-        padding: '5px',
-        'min-height': '50px',
-        'min-width': '50px',
-      },
-    },
-  });
-
   addBlock('header', {
     label: 'Header',
+    category: 'Header',
     media: `<svg viewBox="0 0 24 24">`,
     content: ` <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -60,7 +43,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <div class="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col" style="padding:80px 0px 100px">
        <div class="flex-grow flex md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-       <input type="text" id="sohail" name="sohail" value="sohail"class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
+       <input type="text" id="input" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
              <ul>
              <li style="font-size: 16px;
              color: #ffffff;
@@ -199,14 +182,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
        </div>
     </div>
- 
- 
- 
- 
- 
- 
- 
- 
+
  
     <div class="bg-gray-100" style="background-color:#000000;
     padding:20px;">
