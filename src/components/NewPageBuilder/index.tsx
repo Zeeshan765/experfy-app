@@ -24,7 +24,6 @@ const NewPageBuilder = () => {
     ]);
   }, [setStepNav]);
   React.useEffect(() => {
-    
     const sections = [
       'header',
       'footer',
@@ -129,9 +128,10 @@ const NewPageBuilder = () => {
           },
           {
             id: 'save-editor',
-            run(editor: { store: () => GrapesJS.Editor }) {
-              const store = editor.store();
-              toast.success('Changes saved successfully');
+            async run(editor: GrapesJS.Editor) {
+              const data = await editor.store(null);
+              console.log('data', data);
+              toast.success('Page have been saved successfully');
             },
           },
         ],
