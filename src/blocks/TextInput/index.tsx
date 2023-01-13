@@ -34,6 +34,9 @@ const TextInput: React.FC<CustomTextField> = ({
   name,
   index,
   brand,
+  defaultValue,
+  hidden,
+  onChange,
   ...rest
 }) => {
   const [error, setError] = useState();
@@ -64,7 +67,7 @@ const TextInput: React.FC<CustomTextField> = ({
         value={value}
         placeholder={placeHolder}
         readOnly={rest?.readOnly}
-        onChange={setValue}
+        onChange={onChange??setValue}
         // @ts-ignore
         showError={'showError'}
         error={error}

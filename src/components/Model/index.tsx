@@ -96,43 +96,11 @@ const FaceLessModel = ({ data, templateModelClose }) => {
         </DialogTitle>
         {/* <Modal slug="my-modal" > */}
         <DialogContent>
-          <div 
-            className={classes.previewModalContent}
-            key={id}>
-            <img
-              src={image}
-              alt={name}
-            />
-            {/* <div style={{width:'100%', display: "flex", alignItems: "center",justifyContent:'right' }}>
-              {" "}
-              <button
-                style={{
-                  color: "green",
-                  border: "none",
-                  background: "none",
-                  fontWeight: 600,
-                }}
-                onClick={handleClose}
-              >
-                Select
-              </button>
-              <button
-                style={{
-                  color: "red",
-                  border: "none",
-                  background: "none",
-                  fontWeight: 600,
-                }}
-                onClick={handleClose}
-              >
-                cancle
-              </button>
-            </div> */}
+          <div className={classes.previewModalContent} key={id}>
+            <img src={image} alt={name} />
           </div>
         </DialogContent>  
       </Dialog>
-      {/* </Modal> */}
-      {/* <ModalToggler slug="my-modal">Toggle</ModalToggler> */}
       <button
         onClick={handleOpen}
         type="button"

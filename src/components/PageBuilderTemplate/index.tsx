@@ -106,7 +106,6 @@ const PageTheme = () => {
           </p>
           <a
                 onClick={handleClose}
-                // className={classes.previewModalHeaderClose}
                 style={{color:'#fff', backgroundColor:'#dfdfdf',padding:'8px',borderRadius:'15%' }}
               >
                 <CloseIcon  />
