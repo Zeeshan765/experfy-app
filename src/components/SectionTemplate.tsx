@@ -147,7 +147,7 @@ const SectionTemplate: React.FC = () => {
     {
       id: 12,
       image: metrics_numbers,
-      link: '/admin/collections/section-templates/metrics_numbers',
+      link: '/admin/collections/section-templates/metrics-numbers',
       name: 'Metrics/Numbers',
       text: '',
     },
