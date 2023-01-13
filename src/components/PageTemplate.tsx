@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const PageTemplate: React.FC = ({ search }) => {
+const PageTemplate: React.FC = ({ search ,templateModelClose}) => {
   const classes = useStyles();
   const pageList = [
     {
@@ -123,7 +123,7 @@ const PageTemplate: React.FC = ({ search }) => {
                   >
                     {name}
                   </p>
-                  <FaceLessModel data={{ id, image, name }} />
+                  <FaceLessModel data={{ id, image, name }} templateModelClose={templateModelClose} />
                 </div>
                 <img
                   src={image}
@@ -171,7 +171,7 @@ const PageTemplate: React.FC = ({ search }) => {
                   >
                     {name}
                   </p>
-                  <FaceLessModel data={{ id, image, name }} />
+                  <FaceLessModel data={{ id, image, name }} templateModelClose={templateModelClose}/>
                 </div>
                 <img
                   src={image}

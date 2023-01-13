@@ -9,10 +9,10 @@ import { useStyles } from "./style";
 import { Button } from "payload/components/elements";
 import { Context } from "../../MyProvider";
 
-const FaceLessModel = ({ data }) => {
+const FaceLessModel = ({ data, templateModelClose }) => {
   const classes = useStyles();
   const { id, name, image } = data;
-  const {setSelectedPageId} = useContext(Context);
+  const { setSelectedPageId } = useContext(Context);
 
   const [subModelopen, setSubModelOpen] = useState(false);
   const { toggleModal } = useModal();
@@ -23,8 +23,9 @@ const FaceLessModel = ({ data }) => {
     setSubModelOpen(false);
   };
   const createPageHandler = () => {
-    setSelectedPageId(id);    
+    setSelectedPageId(id);
     handleClose();
+    templateModelClose();
   };
 
   return (
@@ -70,8 +71,9 @@ const FaceLessModel = ({ data }) => {
               <a
                 onClick={handleClose}
                 className={classes.previewModalHeaderClose}
+                style={{color:'#fff', backgroundColor:'#dfdfdf',padding:'8px',borderRadius:'15%' }}
               >
-                <CloseIcon />
+                <CloseIcon  />
               </a>
             </div>
           </div>

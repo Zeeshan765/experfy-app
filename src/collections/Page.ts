@@ -2,10 +2,9 @@ import { CollectionConfig } from "payload/types";
 import PageTheme from "../components/pagebuilderTemplate";
 import FaceLessModel from "../components/Model";
 import PageBuilder from "../components/PageBuilder/SectionTemplates";
-import Templates from "../components/Templates";
-// import SelectPage from "../components/selectPageCode.tsx";
 import Payload from "payload";
 import SelectPage from "../components/selectPageCode";
+import PageTemplate from "../components/PageTemplate";
 
 export type Type = {
   title: string;
@@ -71,7 +70,7 @@ export const Page: CollectionConfig = {
       admin: {
         condition: (data) => data.pageType === "template",
         components: {
-          Field: Templates,
+          Field: PageTheme,
         },
       },
     },
@@ -86,47 +85,6 @@ export const Page: CollectionConfig = {
         },
       },
     },
-    // {
-    //   name: "selected_page",
-    //   label: "Select page",
-    //   type: "select",
-    //   required: true,
-    //   // defaultValue: "scratch",
-    //   admin: {
-    //     // layout: "vertical",
-    //     description: "Choose how you want to create this page",
-    //   },
-    //   options: [
-    //     {
-    //       label: 'Browse Jobs',
-    //       value: '1',
-    //      },
-    //     {
-    //       value: '2',
-    //       label: 'Category',
-    //     },
-    //     {
-    //       value: '3',
-    //       label: 'Error 404',
-    //     },
-    //     {
-    //       value: '4',
-    //       label: 'Home',
-    //     },
-    //     {
-    //       value: '5',
-    //        label: 'Job Overview',
-    //     },
-    //     {
-    //       value: '6',
-    //       label: 'Join',
-    //     },
-    //     {
-    //       value: '7',
-    //       label: 'TC Overview',
-    //     },
-    //   ],
-    // },
     {
       name: "page_Id",
       type: "ui",

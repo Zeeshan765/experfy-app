@@ -10,6 +10,7 @@ import join from "../../assets/images/templates/join.png";
 import tc_overview from "../../assets/images/templates/tc_overview.png";
 import FaceLessModel from "../Model";
 import { Grid } from "@material-ui/core";
+import CloseIcon from "@mui/icons-material/Close";
 import PageTemplate from "../PageTemplate";
 const PageTheme = () => {
   const [open, setOpen] = React.useState(false);
@@ -103,18 +104,14 @@ const PageTheme = () => {
           <p style={{ font: "16px", fontWeight: "600", margin: "0px" }}>
             Plase select your template for your page{" "}
           </p>
-          <p
-            onClick={handleClose}
-            style={{
-              font: "16px",
-              fontWeight: "600",
-              margin: "0px",
-              cursor: "pointer",
-            }}
-          >
-            X
-          </p>
-        </div>
+          <a
+                onClick={handleClose}
+                // className={classes.previewModalHeaderClose}
+                style={{color:'#fff', backgroundColor:'#dfdfdf',padding:'8px',borderRadius:'15%' }}
+              >
+                <CloseIcon  />
+              </a>
+              </div>
       </DialogTitle>
       <div style={{ background: "#fff" }}>
         <div
@@ -172,7 +169,7 @@ const PageTheme = () => {
             />{" "}
           </div>
         </div>
-        <PageTemplate search={search} />
+        <PageTemplate search={search} templateModelClose={handleClose} />
       </div>
     </Dialog>
   );
