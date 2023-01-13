@@ -1,10 +1,8 @@
 import { CollectionConfig } from "payload/types";
 import PageTheme from "../components/pagebuilderTemplate";
-import FaceLessModel from "../components/Model";
 import PageBuilder from "../components/PageBuilder/SectionTemplates";
 import Payload from "payload";
 import SelectPage from "../components/selectPageCode";
-import PageTemplate from "../components/PageTemplate";
 
 export type Type = {
   title: string;

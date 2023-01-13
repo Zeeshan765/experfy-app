@@ -64,7 +64,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SectionTemplate: React.FC = () => {
+const SectionTemplate: React.FC = ({search}) => {
   const classes = useStyles();
   const templateList = [
     {
@@ -183,8 +183,9 @@ const SectionTemplate: React.FC = () => {
   return (
     <>
       <Grid container mt={3} spacing={3} className={classes.sectionCardGrid}>
-        {templateList.map(({ id, image, name, link, text }) => (
-          <Grid item xs={6} sm={4} md={3} key={id}>
+        {templateList.map(({ id, image, name, link, text }) => (<>
+       {!search?( 
+       <Grid item xs={6} sm={4} md={3} key={id}>
             <LinkTag
               component={Link}
               to={link}
@@ -206,8 +207,35 @@ const SectionTemplate: React.FC = () => {
               {/* <img src={image} alt={name} style={{ width: "100%" }} /> */}
               {/* <FaceLessModel data={{ id, image, name }} /> */}
             </LinkTag>
-          </Grid>
-        ))}
+          </Grid>):(<>
+            {name.toLowerCase().includes(search.toLowerCase())&&(<>
+              <Grid item xs={6} sm={4} md={3} key={id}>
+              <LinkTag
+                component={Link}
+                to={link}
+                className={classes.sectionCardLink}
+              >
+                <Card className={classes.sectionCard}>
+                  <CardHeader title={name}></CardHeader>
+                  <CardMedia
+                    component="img"
+                    //@ts-ignore
+                    image={image}
+                    alt={title}
+                  ></CardMedia>
+                  <CardContent>
+                    {text && <Typography>{text}</Typography>}
+                  </CardContent>
+                </Card>
+  
+                {/* <img src={image} alt={name} style={{ width: "100%" }} /> */}
+                {/* <FaceLessModel data={{ id, image, name }} /> */}
+              </LinkTag>
+            </Grid>
+              </>)
+             }</>
+          )}  
+       </> ))}
       </Grid>
     </>
   );
