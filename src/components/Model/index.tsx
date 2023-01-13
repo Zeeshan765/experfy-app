@@ -7,8 +7,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useStyles } from './style';
 import { Button } from 'payload/components/elements';
 
-const FaceLessModel = ({ data }) => {
-  const { id, name, image } = data??{}; 
+const FaceLessModel = ({ data, templateModelClose }) => {
+  const classes = useStyles();
+  const { id, name, image } = data;
+  const { setSelectedPageId } = useContext(Context);
 
   const [subModelopen, setSubModelOpen] = React.useState(false);
   const [htmlCode, setHtmlCode] = React.useState('<h1>hello</h1>');
@@ -20,9 +22,11 @@ const FaceLessModel = ({ data }) => {
   const handleClose = () => {
     setSubModelOpen(false);
   };
-   const createPageHandler = () => {
+  const createPageHandler = () => {
+    setSelectedPageId(id);
     handleClose();
-   }
+    templateModelClose();
+  };
 
   return (
     <div>
@@ -83,8 +87,9 @@ const FaceLessModel = ({ data }) => {
               <a
                 onClick={handleClose}
                 className={classes.previewModalHeaderClose}
+                style={{color:'#fff', backgroundColor:'#dfdfdf',padding:'8px',borderRadius:'15%' }}
               >
-                <CloseIcon />
+                <CloseIcon  />
               </a>
             </div>
           </div>
