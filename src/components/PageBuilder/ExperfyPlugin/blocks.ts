@@ -1,5 +1,6 @@
 import type grapesjs from 'grapesjs';
 import { RequiredPluginOptions } from '.';
+import"./index.scss";
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
@@ -1346,10 +1347,11 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         <div class="container mx-auto px-4" style="padding:50px; background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/00/02/44/5056179b42b174f.jpg);">
    <div class="flex flex-wrap">
       <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
-         <h1 style="font-size: 32px;
-            color: #fff;
+         <h1 class="heading"
+         style="font-size: 32px;
             text-align: center;
             border: 2px dashed #fff;
+            color: #fff;
             padding: 10px 150px;
             font-weight: 500;
             width: max-content;

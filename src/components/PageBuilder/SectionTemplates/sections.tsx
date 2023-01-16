@@ -3,12 +3,7 @@ import indexedDB from 'grapesjs-indexeddb';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useState } from 'react';
 import { Eyebrow } from 'payload/components/elements';
-import SectionTemplate from '../../SectionTemplate';
 import '../index.scss';
-
-// import Testimonial from '../NewSectionTemplate/Testimonial/vendor/plugins/grapesjs-tailwind/src';
-import blocks from '../../../blocks';
-import Categories from '../../../collections/Categories';
 import Experfy from '../ExperfyPlugin';
 import { useLocation } from 'react-router-dom';
 import { getSectors } from './getSectors';
@@ -18,12 +13,7 @@ const SectionPageBuilder: React.FC = () => {
   const { setStepNav } = useStepNav();
   const { pathname } = useLocation();
 
-  // const [display, showDisplay] = useState([]);
-  //@ts-ignore
-  //  Experfy.blocks.map((item) => {
-  //   console.log("item", item)
-  //   // return item
-  //   });
+ 
 
   const sections = [
     'header',
@@ -60,9 +50,9 @@ const SectionPageBuilder: React.FC = () => {
     let arr = pathname.split('/');
     let str = arr[arr.length - 1];
     let isInclude = sections.includes(str);
-    // console.log('isInclude', isInclude);
+    
     let blocks = isInclude ? [str] : sections;
-    console.log('blocks', blocks);
+   
     const Blocks = (editor, options) =>
       Experfy(editor, { ...options, blocks: blocks });
 
@@ -76,18 +66,6 @@ const SectionPageBuilder: React.FC = () => {
 
       plugins: [
         Blocks,
-        // Header,
-        // Footer,
-        // PracticeArea,
-        // // Testimonial,
-        // Benefit,
-        // Guideline,
-        // ImageAndText,
-        // ImageBanner,
-        // Location,
-        // Number,
-        // Paragraph,
-        // TalentCloud,
       ],
 
       commands: {
