@@ -1,4 +1,7 @@
 import type grapesjs from 'grapesjs';
+
+import { ReactComponentElement as footer } from 'react';
+
 import { RequiredPluginOptions } from '.';
 import"./index.scss";
 
@@ -14,33 +17,43 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       });
   };
 
-  addBlock('header', {
-    label: 'Header',
-    category: 'Header',
-    media: `<svg viewBox="0 0 24 24">`,
-    content: ` <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-       <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
-       <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
-       <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50ae81"/>
-     </svg>
-          <span class="ml-3 text-xl" style="color:#ffffff; font-weight:700; font-size:28px;">Logo</span>
-       </a>
-       <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-       <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Home</a>
-       <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">About</a>
-       <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Services</a>
-       <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Contact</a></nav>
-    </div>
- </header>`,
-  });
+  //   addBlock('header', {
+  //     label: 'Header',
+  //     category: 'Header',
+  //     media: `<svg viewBox="0 0 24 24">`,
+  //     content: ` <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
+  //     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+  //        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+  //        <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
+  //        <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
+  //        <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50ae81"/>
+  //      </svg>
+  //           <span class="ml-3 text-xl" style="color:#ffffff; font-weight:700; font-size:28px;">Logo</span>
+  //        </a>
+  //        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+  //        <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Home</a>
+  //        <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">About</a>
+  //        <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Services</a>
+  //        <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Contact</a></nav>
+  //     </div>
+  //  </header>`,
+  //   });
   addBlock('footer', {
     label: 'Footer',
-    media: `<svg viewBox="0 0 24 24">
-        <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
-    </svg>`,
-    content: `<footer id=footer_1 class="text-gray-600 body-font" style="background-color:#40526e; color:#ffffff;">
+    category: 'Header & Footer Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g id="Group_55105" data-name="Group 55105" transform="translate(0 2.344)">
+      <g id="Group_53875" data-name="Group 53875" transform="translate(0 -2.344)">
+        <g id="Group_53874" data-name="Group 53874" transform="translate(0 0)">
+          <g id="noun-website-1440662">
+            <path id="Path_169139" data-name="Path 169139" d="M109.762,63.159a3.222,3.222,0,0,1-.889,2.232,2.977,2.977,0,0,1-2.146.924H92.637a2.977,2.977,0,0,1-2.146-.924,3.222,3.222,0,0,1-.889-2.232v-12.4a3.222,3.222,0,0,1,.889-2.232,2.977,2.977,0,0,1,2.146-.924h14.09a2.977,2.977,0,0,1,2.146.924,3.222,3.222,0,0,1,.889,2.232Zm-1.3-12.4h0a1.842,1.842,0,0,0-.508-1.276,1.7,1.7,0,0,0-1.226-.528H92.637a1.7,1.7,0,0,0-1.226.528,1.842,1.842,0,0,0-.508,1.276v8.1h17.559Zm0,9.454H90.9v2.947a1.842,1.842,0,0,0,.508,1.276,1.7,1.7,0,0,0,1.226.528h14.09a1.7,1.7,0,0,0,1.226-.528,1.842,1.842,0,0,0,.508-1.276Z" transform="translate(-89.602 -47.601)" fill="#48a3d7"/>
+          </g>
+        </g>
+      </g>
+      <rect id="Rectangle_35089" data-name="Rectangle 35089" width="16.139" height="1.924" rx="0.962" transform="translate(2 12.334)" fill="#48a3d7"/>
+    </g>
+  </svg>`,
+    content: `<footer id="footer_1" class="text-gray-600 body-font" style="background-color:#40526e; color:#ffffff;">
     <div class="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col" style="padding:80px 0px 100px">
        <div class="flex-grow flex md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
@@ -48,36 +61,28 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              <ul>
              <li style="font-size: 16px;
              color: #ffffff;
-             border: 2px dashed #ffffff;
              padding: 10px 10px;
-             border-width: 2px;
              font-weight: 400;
              line-height: 1.5;
              margin: 10px 0px;">Footer section allow you to add links and information for your users to easily locate.</li>
              <li style="font-size: 16px;
              color: #ffffff;
-             border: 2px dashed #ffffff;
              padding: 10px 10px;
-             border-width: 2px;
              font-weight: 400;
              line-height: 1.5;
              margin: 10px 0px;"><span>Address:</span> 0101 Address, OR, 77873</li>
              <li style="font-size: 16px;
              color: #ffffff;
-             border: 2px dashed #ffffff;
              padding: 10px 10px;
-             border-width: 2px;
              font-weight: 400;
              line-height: 1.5;
              margin: 10px 0px;"><span>Phone:</span> 010-000-1111</li>
              <li style="font-size: 16px;
              color: #ffffff;
-             border: 2px dashed #ffffff;
              padding: 10px 10px;
-             border-width: 2px;
              font-weight: 400;
              line-height: 1.5;
-             margin: 10px 0px;"><span>Website:</span> wwww.companywebsite.com</li>
+             margin: 10px 0px;"><span>Website:</span> wwww.company-website.com</li>
              </ul>
  
           </div>
@@ -85,7 +90,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="font-size: 18px;
              font-weight: 600;
              color: #ffffff;
-             border: 2px dashed #ffffff;
              padding:10px 10px;
              border-width: 2px; font-size:22px; font-weight:600; color:#ffffff;
              margin:0px;">Add Your Social Media Link</h2>
@@ -176,7 +180,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="font-size: 18px;
              font-weight: 600;
              color: #ffffff;
-             border: 2px dashed #ffffff;
              padding:10px 10px;
              border-width: 2px; font-size:22px; font-weight:600; color:#ffffff;
              margin:0px;">Add Your Social Media Link</h2>
@@ -190,7 +193,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p class="text-gray-500 text-sm text-center sm:text-left" style="font-size: 18px;
           color: #ffffff;
-          border: 2px dashed #ffffff;
           padding: 10px 10px;
           border-width: 2px;
           font-weight: 400;
@@ -199,7 +201,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
              <a class="text-gray-500" style="font-size: 18px;
              color: #ffffff;
-             border: 2px dashed #ffffff;
              padding: 10px 20px;
              border-width: 2px;
              font-weight: 400;
@@ -210,7 +211,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              </a>
              <a class="ml-3 text-gray-500" style="font-size: 18px;
              color: #ffffff;
-             border: 2px dashed #ffffff;
              padding: 10px 20px;
              border-width: 2px;
              font-weight: 400;
@@ -221,7 +221,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              </a>
              <a class="ml-3 text-gray-500" style="font-size: 18px;
              color: #ffffff;
-             border: 2px dashed #ffffff;
              padding: 10px 20px;
              border-width: 2px;
              font-weight: 400;
@@ -237,12 +236,20 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('testimonial', {
     label: 'Testimonial',
-    media: `<svg viewBox="0 0 24 24">
-        <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
-    </svg>`,
+    category: 'Custom Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g id="noun-testimonial-1065389" transform="translate(-73.647 -37.379)">
+      <path id="Path_169430" data-name="Path 169430" d="M184.376,89.6a12.294,12.294,0,0,0-2.19.2.633.633,0,0,0,.227,1.245,11.026,11.026,0,0,1,1.964-.175c5.332,0,9.671,3.812,9.671,8.5a7.778,7.778,0,0,1-1.967,5.136.631.631,0,0,0-.143.531l.59,3.135-3.165-1.073a.63.63,0,0,0-.412,0,17.849,17.849,0,0,1-4.573.768c-5.332,0-9.67-3.812-9.67-8.5a.633.633,0,1,0-1.265,0c0,5.383,4.905,9.763,10.936,9.763a19.124,19.124,0,0,0,4.78-.768l3.99,1.354a.64.64,0,0,0,.2.033.632.632,0,0,0,.622-.75l-.735-3.9a8.987,8.987,0,0,0,2.077-5.727c0-5.383-4.907-9.762-10.937-9.762Z" transform="translate(-94.969 -49.7)" fill="#48a3d7"/>
+      <path id="Path_169431" data-name="Path 169431" d="M82.455,48.369a.506.506,0,0,0,.734-.533l-.578-3.368,2.448-2.386a.506.506,0,0,0-.281-.863L81.4,40.727l-1.514-3.066a.506.506,0,0,0-.908,0l-1.513,3.066-3.382.492a.506.506,0,0,0-.281.863l2.447,2.386-.577,3.368a.506.506,0,0,0,.734.533l3.024-1.589Z" fill="#48a3d7"/>
+      <path id="Path_169432" data-name="Path 169432" d="M299.29,209.74h-9.42a.633.633,0,0,0,0,1.265h9.42a.633.633,0,1,0,0-1.265Z" transform="translate(-205.165 -164.026)" fill="#48a3d7"/>
+      <path id="Path_169433" data-name="Path 169433" d="M299.931,278.257a.633.633,0,0,0-.633-.633h-9.42a.633.633,0,0,0,0,1.266h9.42a.632.632,0,0,0,.633-.633Z" transform="translate(-205.173 -228.627)" fill="#48a3d7"/>
+      <path id="Path_169434" data-name="Path 169434" d="M289.871,345.51a.633.633,0,0,0,0,1.266h3.812a.633.633,0,0,0,0-1.266Z" transform="translate(-205.165 -293.23)" fill="#48a3d7"/>
+    </g>
+  </svg>
+  `,
     content: `<section data-gjs-type= "testimonial" id= "testimonial_1" class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
-       <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center" style="font-size:32px;">You are in Good</h1>
+       <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center" testimonial-title style="font-size:32px;">You are in Good</h1>
        <div class="flex flex-wrap -m-4" style="justify-content:center;">
           <div class="p-4 md:w-1/2" style="width:70%; display:flex;">
           <a class="items-center" style="width: 50%;
@@ -275,16 +282,25 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('benefits', {
     label: 'Benefits',
-    media: `<svg viewBox="0 0 24 24">
-        <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
-    </svg>`,
+    category: 'Custom Elements',
+    media: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+    <g>
+     <title>Layer 1</title>
+     <g id="noun-health-insurance-1893284">
+      <path id="Path_169632" data-name="Path 169632" d="m8.286,22.33901l0.209,0.14l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.771,18.771 0 0 0 2.967,-10.75l0,-0.314l-0.279,-0.035a11.443,11.443 0 0 1 -4.258,-1.326a11.685,11.685 0 0 1 -3.8,-3.351l-0.279,-0.314l-0.279,0.349a12.267,12.267 0 0 1 -7.923,4.642l-0.314,0.035l0,0.314a18.6,18.6 0 0 0 3,10.925a18.058,18.058 0 0 0 5.27,5.27l-0.003,0zm-4.363,-11.483a0.35,0.35 0 0 1 0.349,-0.349l3.141,0l0,-3.141a0.35,0.35 0 0 1 0.349,-0.349l1.745,0a0.35,0.35 0 0 1 0.349,0.349l0,3.141l3.142,0a0.35,0.35 0 0 1 0.349,0.349l0,1.745a0.35,0.35 0 0 1 -0.349,0.349l-3.141,0l0,3.141a0.35,0.35 0 0 1 -0.349,0.349l-1.745,0a0.35,0.35 0 0 1 -0.349,-0.349l0,-3.141l-3.141,0a0.35,0.35 0 0 1 -0.349,-0.349l-0.001,-1.745z" fill="#48a3d7"/>
+      <path id="Path_169633" data-name="Path 169633" d="m20.536,5.026l-0.279,-0.035a12.53,12.53 0 0 1 -4.293,-1.326a11.933,11.933 0 0 1 -3.281,-2.618l-0.768,-1.047l-1.815,1.815l0,0.384a11.757,11.757 0 0 0 2.653,2.059a10.888,10.888 0 0 0 4.153,1.291l0.593,0.07l0,0.593a19.216,19.216 0 0 1 -3.037,10.925a18.581,18.581 0 0 1 -3.455,3.944l0.838,0.558l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.772,18.772 0 0 0 2.967,-10.75l0.035,-0.278z" fill="#48a3d7"/>
+      <path id="Path_169634" data-name="Path 169634" d="m29.82099,11.23901z"/>
+     </g>
+    </g>
+   
+   </svg>`,
     content: `<section  id= "benefit_1" class="text-gray-600 body-font">
     <div class="container mx-auto px-24 py-24 text-center" style="width: 70%;
        margin: auto;">
        <div class="text-center">
           <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900" style="font-size: 42px;">Add your heading title here</h1>
-          <h2 class="" style="font-size: 23px;">The beneﬁts module highlights the positive characteristics and values within your
-             company or business. Add perks, beneﬁts, or milestones.
+          <h2 class="" style="font-size: 23px;">The benefits module highlights the positive characteristics and values within your
+             company or business. Add perks, benefits, or milestones.
           </h2>
        </div>
        <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
@@ -300,7 +316,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              <h1 class="my-5" style="font-size: 20px;
                 font-weight: 500;
                 color: #444;
-                text-align:center;">Beneﬁt 01</h1>
+                text-align:center;">Benefit 01</h1>
              <p style="text-align:left; line-height: 1.7;">Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
@@ -318,7 +334,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              <h1 class="my-5" style="font-size: 20px;
                 font-weight: 500;
                 color: #444;
-                text-align:center;">Beneﬁt 02</h1>
+                text-align:center;">Benefit 02</h1>
              <p style="text-align:left; line-height: 1.7;">Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
@@ -336,7 +352,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              <h1 class="my-5" style="font-size: 20px;
                 font-weight: 500;
                 color: #444;
-                text-align:center;">Beneﬁt 03</h1>
+                text-align:center;">Benefit 03</h1>
              <p style="text-align:left; line-height: 1.7;">Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
@@ -348,9 +364,47 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('practice-areas', {
     label: 'Practice Area',
-    media: `<svg viewBox="0 0 24 24">
-        <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
-    </svg>`,
+    category: 'Custom Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g id="Group_54808" data-name="Group 54808" transform="translate(-43 -598.05)">
+      <g id="Group_53871" data-name="Group 53871" transform="translate(3 8)">
+        <g id="Group_53870" data-name="Group 53870">
+          <g id="Group_53869" data-name="Group 53869">
+            <g id="Group_53868" data-name="Group 53868" transform="translate(-2.221 124)">
+              <g id="Layer_2" data-name="Layer 2" transform="translate(42.221 466.05)">
+                <g id="Layer_2-2" data-name="Layer 2" transform="translate(0 0)">
+                  <g id="Group_53866" data-name="Group 53866">
+                    <path id="Path_33104" data-name="Path 33104" d="M21.192,22.1H1.857A2.035,2.035,0,0,1,0,19.927V2.175A2.035,2.035,0,0,1,1.857,0H21.192a2.035,2.035,0,0,1,1.857,2.175V19.927A2.035,2.035,0,0,1,21.192,22.1ZM1.857,1.7a.448.448,0,0,0-.409.479V19.927a.448.448,0,0,0,.409.479H21.192a.449.449,0,0,0,.405-.479V2.175a.449.449,0,0,0-.405-.479Z" transform="translate(0 0)" fill="#48a3d7"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g id="Ellipse_8546" data-name="Ellipse 8546" transform="translate(48 603)" fill="#48a3d7" stroke="#4a5162" stroke-width="1">
+        <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+        <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+      </g>
+      <g id="Ellipse_8547" data-name="Ellipse 8547" transform="translate(56 603)" fill="#48a3d7" stroke="#4a5162" stroke-width="1">
+        <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+        <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+      </g>
+      <g id="Ellipse_8548" data-name="Ellipse 8548" transform="translate(56 611)" fill="#48a3d7" stroke="#4a5162" stroke-width="1">
+        <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+        <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+      </g>
+      <g id="Ellipse_8549" data-name="Ellipse 8549" transform="translate(48 611)" fill="#48a3d7" stroke="#4a5162" stroke-width="1">
+        <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+        <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+      </g>
+      <g id="Ellipse_8550" data-name="Ellipse 8550" transform="translate(52 607)" fill="#48a3d7" stroke="#4a5162" stroke-width="1">
+        <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+        <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+      </g>
+    </g>
+  </svg>
+  `,
     content: `<section id="practice_area_1" class="text-gray-600 body-font">
     <div class="box-section">
     <h1 style="color: #4a5162;
@@ -420,22 +474,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              <h2 style="color: #fff">AI & Machine Learning</h2>
           </div>
        </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
        <div class="box-icon" style="
           height:175px;
           width:200px
@@ -478,15 +517,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              </div>
  
        </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
        <div class="box-icon" style="
           height:175px;
           width:160px
@@ -508,13 +539,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <h2>Cloud Computing</h2>
           </div>
        </div>
- 
- 
- 
- 
- 
- 
- 
+
           <div class="box-icon" style="
              height:175px;
                 width:200px
@@ -585,16 +610,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
        </div>
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
        <div class="box-icon" style="
           height:175px;
           width:160px
@@ -628,13 +643,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
        </div>
  
- 
- 
- 
- 
- 
- 
- 
        <div class="box-icon" style="
                 height:175px;
                 width:160px
@@ -655,23 +663,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                                  <path id="Path_16980" data-name="Path 16980" d="M144.668,281.949l6.436,3.2-6.436,3.2v2.264l9.135-4.686v-1.557l-9.135-4.684Zm0,0" transform="translate(-124.63 -255.208)" fill="#3074a4"/>
                                </g>
                              </svg>
-                             
- 
+                            
                    </div>
- 
- 
- 
              <div>
           <h2>Software/Web Development</h2>
           </div>
        </div>
- 
- 
- 
- 
- 
- 
- 
  
        <div class="box-icon" style="
             height:175px;
@@ -720,32 +717,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                                     </g>
                                   </g>
                                 </svg>
-                                
- 
                          </div>
- 
- 
- 
- 
+
          <div>
           <h2>QA</h2>
           </div>
        </div>
-       
-    
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
              <div class="box-icon" style="
              height:175px;
              width:160px
@@ -775,16 +753,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                 <h2>UX/UI Design</h2>
                 </div>
                 </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
              <div class="box-icon" style="
              height:175px;
@@ -819,24 +787,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                             </div>
                             </div>
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
                 <div class="box-icon" style="
                 height:175px;
                 height:175px;
@@ -895,23 +846,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  <h2>Internet of Things</h2>
  </div>
  </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
           <div class="box-icon" style="
           height:175px;
              width:160px
@@ -946,24 +881,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                             <h2>BlockChain</h2>
                             </div>
                             </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  <div class="box-icon" style="
  height:175px;
@@ -1028,24 +945,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                                </div>
                                </div>
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  <div class="box-icon" style="
  height:175px;
              width:160px
@@ -1084,7 +983,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('video', {
     label: 'Video',
-    media: `<svg viewBox="0 0 24 24">`,
+    category: 'Custom Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="21.79" height="14.526" viewBox="0 0 21.79 14.526">
+    <g id="noun-video-1635751" transform="translate(-125.996 -130.66)">
+      <path id="Path_169518" data-name="Path 169518" d="M213.375,130.66H202.48a1.822,1.822,0,0,0-1.816,1.816v10.895a1.822,1.822,0,0,0,1.816,1.816h10.895a1.822,1.822,0,0,0,1.816-1.816V132.476A1.822,1.822,0,0,0,213.375,130.66Zm-7.036,9.987V135.2l4.086,2.724Z" transform="translate(-71.036)" fill="#48a3d7"/>
+      <path id="Path_169519" data-name="Path 169519" d="M128.266,168H126.9a.911.911,0,0,0-.908.908v9.079a.911.911,0,0,0,.908.908h1.362Z" transform="translate(0 -35.524)" fill="#48a3d7"/>
+      <path id="Path_169520" data-name="Path 169520" d="M527.34,178.9H528.7a.911.911,0,0,0,.908-.908V168.91A.911.911,0,0,0,528.7,168H527.34Z" transform="translate(-381.824 -35.526)" fill="#48a3d7"/>
+    </g>
+  </svg>
+  `,
     content: ` <section id=video_1 class="text-gray-600 body-font">
     <div class="container mx-auto px-24 py-24 text-center" style="width: 80%;
        margin: auto;">
@@ -1105,7 +1012,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('guidelines', {
     label: 'Guidelines',
-    media: `<svg viewBox="0 0 24 24">`,
+    category: 'Custom Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g id="noun-guide-4435112" transform="translate(-159.45 -28.378)">
+      <path id="Path_169439" data-name="Path 169439" d="M336.444,48.669h-1.516c-.18,0-.325-.1-.325-.214v-24.9L335.4,22.5a.412.412,0,0,1,.581,0l.793,1.056v24.9c0,.118-.146.214-.325.214Z" transform="translate(-161.139 6)" fill="#48a3d7"/>
+      <path id="Path_169440" data-name="Path 169440" d="M387.083,112.9h-9.832a.649.649,0,0,1-.65-.65v-5.2a.65.65,0,0,1,.65-.65h9.832a.651.651,0,0,1,.542.29l1.865,2.779a.329.329,0,0,1,0,.36l-1.854,2.779a.649.649,0,0,1-.542.29Z" transform="translate(-199.889 -72.818)" fill="#48a3d7"/>
+      <path id="Path_169441" data-name="Path 169441" d="M155.9,210.9h9.834a.65.65,0,0,0,.65-.65v-5.2a.65.65,0,0,0-.65-.65H155.9a.65.65,0,0,0-.542.29L153.5,207.47a.329.329,0,0,0,0,.36l1.854,2.779a.649.649,0,0,0,.539.29Z" transform="translate(6 -165.826)" fill="#48a3d7"/>
+    </g>
+  </svg>
+  `,
     content: ` <section  id= "guideline_1" class="text-gray-600 body-font">
     <div id=guideline_1 class="container  mx-auto px-24 py-24 text-center" style="width: 70%;
       margin: auto;">
@@ -1188,8 +1103,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('location', {
     label: 'Location',
-    media: `<svg viewBox="0 0 24 24">`,
-    content: ` <section  id= "location_1" class="text-gray-600 body-font">
+    category: 'Custom Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <path id="noun-location-4491946" d="M168.4,30.763a8.653,8.653,0,0,0-6.33-2.469,8.807,8.807,0,0,0-8.484,8.613,8.6,8.6,0,0,0,1.731,5.313c.16.239,4.292,5.985,5.668,7.892a1.577,1.577,0,0,0,1.268.652h.007a1.576,1.576,0,0,0,1.265-.64c.64-.869,5.624-7.683,5.755-7.848l.021-.028h0a8.835,8.835,0,0,0,1.741-5.23,8.658,8.658,0,0,0-2.642-6.256ZM162.317,41.03a3.893,3.893,0,1,1,2.748-1.14A3.888,3.888,0,0,1,162.317,41.03Z" transform="translate(-153.589 -28.289)" fill="#48a3d7"/>
+  </svg>
+  `,
+    content: `<section  id= "location_1" class="text-gray-600 body-font">
       <div class="container p-24 mx-auto flex flex-wrap">
         <div style="width:50%;">
             <h1 class="m-2" style="font-size: 38px;
@@ -1240,13 +1159,33 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('paragraph', {
     label: 'Paragraph',
-    media: `<svg viewBox="0 0 24 24">`,
+    category: 'Custom Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g id="Group_55522" data-name="Group 55522" transform="translate(-26 -1185)">
+      <rect id="Rectangle_36059" data-name="Rectangle 36059" width="9" height="2" rx="1" transform="translate(26 1185)" fill="#48a3d7"/>
+      <rect id="Rectangle_36060" data-name="Rectangle 36060" width="9" height="2" rx="1" transform="translate(26 1189)" fill="#48a3d7"/>
+      <rect id="Rectangle_36061" data-name="Rectangle 36061" width="9" height="2" rx="1" transform="translate(26 1193)" fill="#48a3d7"/>
+      <rect id="Rectangle_36062" data-name="Rectangle 36062" width="9" height="2" rx="1" transform="translate(26 1197)" fill="#48a3d7"/>
+      <rect id="Rectangle_36063" data-name="Rectangle 36063" width="9" height="2" rx="1" transform="translate(37 1185)" fill="#48a3d7"/>
+      <rect id="Rectangle_36064" data-name="Rectangle 36064" width="9" height="2" rx="1" transform="translate(37 1189)" fill="#48a3d7"/>
+      <rect id="Rectangle_36065" data-name="Rectangle 36065" width="9" height="2" rx="1" transform="translate(37 1193)" fill="#48a3d7"/>
+      <rect id="Rectangle_36066" data-name="Rectangle 36066" width="9" height="2" rx="1" transform="translate(37 1197)" fill="#48a3d7"/>
+    </g>
+  </svg>
+  `,
     content: `<section  id= "paragraph_1" class="text-gray-600 body-font"><div class="container  px-5 py-24 mx-auto flex flex-wrap"><div class="flex w-full mb-20 flex-wrap"><h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">Master Cleanse Reliac Heirloom</h1><p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p></div><div class="flex flex-wrap md:-m-2 -m-1"><div class="flex flex-wrap w-1/2"><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/500x300"></div><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/501x301"></div><div class="md:p-2 p-1 w-full"><img alt="gallery" class="w-full h-full object-cover object-center block" src="https://dummyimage.com/600x360"></div></div><div class="flex flex-wrap w-1/2"><div class="md:p-2 p-1 w-full"><img alt="gallery" class="w-full h-full object-cover object-center block" src="https://dummyimage.com/601x361"></div><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/502x302"></div><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/503x303"></div></div></div></div></section>`,
   });
 
   addBlock('metrics-numbers', {
     label: 'Numbers',
-    media: `<svg viewBox="0 0 24 24">`,
+    category: 'Custom Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g id="noun-metrics-4041242" transform="translate(-70 -81.367)">
+      <path id="Path_169485" data-name="Path 169485" d="M80.035,81.367a10.055,10.055,0,0,0-9.124,14.238H89.159a10.055,10.055,0,0,0-9.124-14.238Zm-.6,1.837h1.191v1.745H79.439Zm-5.865,8.818H71.833V90.828h1.741Zm1.486-4.741-1.238-1.24.842-.845,1.238,1.24Zm4.975,6.376A1.757,1.757,0,0,1,78.282,91.9a45.3,45.3,0,0,1,1.179-4.989.6.6,0,0,1,1.148,0A45.324,45.324,0,0,1,81.788,91.9,1.756,1.756,0,0,1,80.035,93.658Zm4.975-6.376-.842-.845,1.238-1.24.842.845Zm3.228,4.741H86.5V90.828h1.741Z" fill="#48a3d7"/>
+      <path id="Path_169486" data-name="Path 169486" d="M334.32,307.642a.562.562,0,0,0,1.124,0,22.67,22.67,0,0,0-.562-2.516A22.657,22.657,0,0,0,334.32,307.642Z" transform="translate(-254.847 -215.739)" fill="#48a3d7"/>
+    </g>
+  </svg>
+  `,
     content: `<section class="text-gray-600 body-font" id= "number_1">
         <div class="container mx-auto px-24 py-24 text-center" style="width: 70%;
           margin: auto;">
@@ -1306,43 +1245,47 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
   addBlock('talent-cloud-candidates', {
     label: 'Talent Cloud',
-    media: `<svg viewBox="0 0 24 24">`,
-    content: `<div class="container mx-auto px-4" style="padding:50px; background-color:#399918;">
-        <div class="flex" style="align-items:center; margin:50px;">
-         <div class="w-full md:w-4/12 px-4 mr-auto ml-auto" style="height:300px;">
-           <img src="https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_960_720.png" alt="..." class="max-w-full rounded-lg" style="height: 100%;
-           width: 100%;
-           object-fit: contain;">
-         </div>
-       
-        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
-              <h1 style="font-size: 34px;
-              color:#fff;
-              text-align:left;
-              font-weight:500;
-              letter-spacing:1px;">Join Talent Clouds</h1>
-              <p style="font-size:18px;
-                 color: #fff;
-                 text-align:left;
-                 line-height:1.6;
-                 margin-top:10px;
-                 font-weight:300;">You can apply to be considered for the opportunities that match your skills, interests and availability. 
-                 </p>
-                 <p style="font-size:18px;
-                 color: #fff;
-                 text-align:left;
-                 line-height:1.6;
-                 margin-top:10px;
-                 font-weight:300;">Most opportunities are remote, but some travel may be required depending on the project need.
-              </p>
-           </div>
+    category: 'Custom Elements',
+    media: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+    <g>
+     <title>Layer 1</title>
+     <path fill="#48a3d7" d="m24.96,47.04l0,0zm-22.08,-26.88a2.875,2.875 0 0 0 2.7,-1.92l4.02,0a0.96,0.96 0 0 0 0.96,-0.96l0,-2.88l1.92,0l0,4.977a2.88,2.88 0 1 0 1.92,0l0,-4.977l1.92,0l0,2.88a0.96,0.96 0 0 0 0.96,0.96l4.02,0a2.88,2.88 0 1 0 0,-1.92l-3.06,0l0,-1.92a5.76,5.76 0 0 0 0.19,-11.517a5.76,5.76 0 0 0 -9.98,0a5.76,5.76 0 0 0 0.19,11.517l0,1.92l-3.057,0a2.875,2.875 0 1 0 -2.7,3.84l-0.003,0z" data-name="Path 169437" id="Path_169437"/>
+    </g>
+   
+   </svg>`,
+    content: `<section id="talent_1" class="text-gray-600 body-font">
+        <div class="container p-24 mx-auto flex flex-wrap" style="align-items: center;">
+        <div style="width:50%; padding: 30px;">
+           <h1 class="m-2" style="font-size: 38px;
+              font-weight: 500;">Add your heading title here</h1>
+           <h2 class="m-2 mb-5" style="font-size: 24px;
+              font-weight: 400;
+              line-height: 1.3">The Image and Text module is a place where you can
+              visually show your user or client aspects of your
+              company or product.
+           </h2>
+        </div>
+        <div style="width:50%; padding: 30px;">
+           <img class="object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
+              height: 400px;">
+              <figcaption style="padding: 30px;
+              text-align: center;
+              font-weight: 500;
+              font-size: 24px;
+              background-color: #f8f8fa;
+              border-radius: 0px 0px 5px 5px;">Caption Example</figcaption>
+        </div>
         </div>
      </div>`,
   });
 
   addBlock('image-banner', {
     label: 'Image Banner',
-    media: `<svg viewBox="0 0 24 24">`,
+    category: 'Custom Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <path id="Path_170799" data-name="Path 170799" d="M90.466,39.2H70.632a.633.633,0,0,0-.633.633V56.5a.633.633,0,0,0,.633.633H90.466A.633.633,0,0,0,91.1,56.5V39.832A.633.633,0,0,0,90.466,39.2ZM83.292,54.417a.442.442,0,0,1-.434.4H72.264a.382.382,0,0,1-.366-.4v-.053a.382.382,0,0,1,.366-.4H82.857a.442.442,0,0,1,.434.4Zm-11.04-2.98H82.479a.414.414,0,0,1,.405.382V51.9a.414.414,0,0,1-.405.382H72.252A.369.369,0,0,1,71.9,51.9v-.079a.369.369,0,0,1,.354-.383ZM71.9,49.353V49.3a.382.382,0,0,1,.366-.4h9.617a.4.4,0,0,1,.393.4v.053a.4.4,0,0,1-.393.4H72.264A.382.382,0,0,1,71.9,49.353Zm17.251,4.822-.672.5a.283.283,0,0,1-.168.056.272.272,0,0,1-.043,0,.284.284,0,0,1-.185-.113l-1.355-1.869-.778.573a.282.282,0,0,1-.442-.163l-.958-4.085a.282.282,0,0,1,.414-.31l3.645,2.078a.282.282,0,0,1,.031.469l-.788.6,1.359,1.876a.281.281,0,0,1-.06.392Zm.472-8.225a.633.633,0,0,1-.633.633H72.109a.633.633,0,0,1-.633-.633V41.941a.633.633,0,0,1,.633-.633h16.88a.633.633,0,0,1,.633.633Z" transform="translate(-69.999 -39.199)" fill="#48a3d7"/>
+  </svg>
+  `,
     content: `<section id="image_banner_1" class="text-gray-600 body-font">
         <div class="container mx-auto px-4" style="padding:50px; background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/00/02/44/5056179b42b174f.jpg);">
    <div class="flex flex-wrap">
@@ -1350,8 +1293,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
          <h1 class="heading"
          style="font-size: 32px;
             text-align: center;
-            border: 2px dashed #fff;
-            color: #fff;
             padding: 10px 150px;
             font-weight: 500;
             width: max-content;
@@ -1359,7 +1300,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
          <p style="font-size:16px;
             color: #fff;
             text-align:left;
-            border:2px dashed #fff;
             padding:15px 25px;
             ine-height:1.6;
             font-weight:300;
@@ -1386,7 +1326,16 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
   addBlock('image-and-text', {
     label: 'Image and Text',
-    media: `<svg viewBox="0 0 24 24">`,
+    category: 'Custom Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g id="noun-text-3077363" transform="translate(-115.076 16.359)">
+      <path id="Path_169248" data-name="Path 169248" d="M212.386,142.24H202.112a1.074,1.074,0,1,0,0,2.148h10.274a1.074,1.074,0,0,0,0-2.148Z" transform="translate(-81.21 -153.195)" fill="#48a3d7"/>
+      <path id="Path_169249" data-name="Path 169249" d="M212.386,254.24H202.112a1.074,1.074,0,0,0,0,2.148h10.274a1.074,1.074,0,0,0,0-2.148Z" transform="translate(-81.21 -260.525)" fill="#48a3d7"/>
+      <path id="Path_169250" data-name="Path 169250" d="M209.024,366.24h-6.912a1.074,1.074,0,1,0,0,2.148H209a1.087,1.087,0,0,0,1.074-1.074,1.038,1.038,0,0,0-1.051-1.074Z" transform="translate(-81.21 -367.855)" fill="#48a3d7"/>
+      <path id="Path_169251" data-name="Path 169251" d="M102.515,24.641H87.664A3.657,3.657,0,0,0,84,28.307V42.27a3.657,3.657,0,0,0,3.666,3.666h14.851a3.657,3.657,0,0,0,3.666-3.666V28.307a3.657,3.657,0,0,0-3.666-3.666Zm1.518,17.629a1.515,1.515,0,0,1-1.518,1.518H87.664a1.515,1.515,0,0,1-1.518-1.518V28.307a1.515,1.515,0,0,1,1.518-1.518h14.851a1.515,1.515,0,0,1,1.518,1.518Z" transform="translate(31.078 -41)" fill="#48a3d7"/>
+    </g>
+  </svg>
+  `,
     content: `<section  id= "image_text_1"   class="text-gray-600 body-font">
         <div class="container p-24 mx-auto flex flex-wrap" style="align-items: center;">
         <div style="width:50%; padding: 30px;">

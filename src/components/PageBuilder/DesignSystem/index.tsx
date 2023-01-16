@@ -185,6 +185,12 @@ const DesignSystem: React.FC = () => {
                 type: 'color',
                 name: 'Secondary',
                 property: 'color',
+                default: '#4a5162',
+              },
+              {
+                type: 'color',
+                name: 'Accent Color',
+                property: 'accent-color',
                 default: '#4aa4da',
               },
             ],
@@ -242,51 +248,51 @@ const DesignSystem: React.FC = () => {
                 units: ['px', 'rem'],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Align',
                 property: 'text-align',
                 default: '',
                 ResizeObserver: true,
                 options: [
-                  { value: 'left', name: 'Left' },
-                  { value: 'center', name: 'Center' },
-                  { value: 'right', name: 'Right' },
-                  { value: 'justify', name: 'Justify' },
+                  { value: 'left', name: 'L' },
+                  { value: 'center', name: 'C' },
+                  { value: 'right', name: 'R' },
+                  { value: 'justify', name: 'J' },
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Shadow',
                 property: 'text-shadow',
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
+                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'S' },
+                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'M' },
+                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'B' },
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Transform',
                 property: 'text-transform',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'uppercase', name: 'Uppercase' },
-                  { value: 'lowercase', name: 'Lowercase' },
-                  { value: 'capitalize', name: 'Capitalize' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'uppercase', name: 'AA' },
+                  { value: 'lowercase', name: 'aa' },
+                  { value: 'capitalize', name: 'Aa' },
                 ],
               },
             ],
@@ -325,15 +331,15 @@ const DesignSystem: React.FC = () => {
                 options: fontsList,
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Shadow',
                 property: 'text-shadow',
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
+                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'S' },
+                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'M' },
+                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'B' },
                 ],
               },
               {
@@ -431,9 +437,9 @@ const DesignSystem: React.FC = () => {
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
+                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'S' },
+                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'M' },
+                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'B' },
                 ],
               },
               {
@@ -499,14 +505,14 @@ const DesignSystem: React.FC = () => {
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
               {
@@ -549,9 +555,9 @@ const DesignSystem: React.FC = () => {
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
             ],
@@ -592,38 +598,15 @@ const DesignSystem: React.FC = () => {
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
             ],
           },
         ],
       },
-    });
-
-    setEditor(editor);
-    editor.onReady((clb) => {
-      console.log('Editor is ready');
-      editor.StyleManager.addType('input-text', {
-        create: function (prop) {
-          console.log(prop);
-          var input = document.createElement('input');
-          input.type = 'text';
-          input.value = prop.get();
-          input.onchange = function (e) {
-            console.log(e.target);
-            // prop.set(e.target.value);
-          };
-          return input;
-        },
-        update: function (prop, el) {
-          el.value = prop.get();
-        },
-      });
-
-      // Use `$${var}` to avoid escaping
     });
   }, [setEditor]);
 

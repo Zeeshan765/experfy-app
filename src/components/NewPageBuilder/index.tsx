@@ -7,7 +7,6 @@ import NavBar from 'grapesjs-navbar';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useRef, useState } from 'react';
-import '../PageBuilder/index.scss';
 
 import { toast } from 'react-toastify';
 const NewPageBuilder = () => {
@@ -42,37 +41,37 @@ const NewPageBuilder = () => {
       'video',
     ];
     const ExperfyBlocks = (editor, options) =>
-      Experfy(editor, { ...options, blocks: sections });
+      Experfy(editor, {
+        ...options,
+        blocks: sections,
+        showPanelsOnLoad: false,
+      });
 
     editor = GrapesJS.init({
       container: '.editor',
       plugins: [
+        ExperfyBlocks,
         (editor) =>
           NavBar(editor, {
             label: 'Header',
             block: {
-              category: 'Header',
+              category: 'Header & Footer Elements',
             },
           }),
-        ExperfyBlocks,
         (editor) =>
           Basics(editor, {
-            blocks: [
-              'column1',
-              'column2',
-              'column3',
-              'column3-7',
-              'text',
-              'link',
-              'image',
-              'video',
-              'map',
-            ],
+            blocks: ['text', 'link', 'image', 'video', 'map'],
+            category: 'Basic Elements',
             flexGrid: true,
             addBasicStyle: true,
             rowHeight: 75,
           }),
-        Forms,
+        (editor) =>
+          Forms(editor, {
+            blocks: ['input', 'textarea', 'select', 'button', 'checkbox'],
+            category: 'Basic Elements',
+          }),
+        ,
       ],
 
       storageManager: {
@@ -155,14 +154,12 @@ const NewPageBuilder = () => {
                 className: 'fa fa-bars',
                 command: 'show-layers',
                 active: false,
-
                 attributes: { title: 'Layers' },
               },
               {
                 id: 'show-style',
                 className: 'fa fa-paint-brush',
                 command: 'show-styles',
-
                 active: false,
                 attributes: { title: 'Styles' },
               },
@@ -172,8 +169,8 @@ const NewPageBuilder = () => {
                 className: 'fa fa-cog',
                 label: ' Traits',
                 command: 'show-traits',
+                visible: false,
                 active: false,
-
                 attributes: { title: 'Traits' },
               },
             ],

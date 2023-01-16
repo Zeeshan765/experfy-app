@@ -2,7 +2,6 @@ import type GrapesJS from 'grapesjs';
 import commands from './commands';
 import blocks from './blocks';
 import panels from './panels';
-import BasicBlocks from 'grapesjs-blocks-basic';
 import '../index.scss';
 
 export type PluginOptions = {
@@ -74,13 +73,19 @@ export type PluginOptions = {
    * @default true
    */
   showGlobalStyles?: boolean;
+
+  /*
+   * Show panels on load
+   *  @default false
+   * */
+  showPanelsOnLoad?: boolean;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
 
 const plugin: GrapesJS.Plugin<PluginOptions> = (
   editor,
-  opts: Partial<PluginOptions> = {},
+  opts: Partial<PluginOptions> = {}
 ) => {
   const config: RequiredPluginOptions = {
     blocks: opts.blocks,
@@ -94,10 +99,10 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
     showStylesOnChange: true,
     useCustomTheme: false,
     showGlobalStyles: true,
+    showPanelsOnLoad: false,
     ...opts,
   };
 
-  console.log(config);
   // Load blocks
   blocks(editor, config);
 

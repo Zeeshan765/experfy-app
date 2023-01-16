@@ -1,23 +1,29 @@
 const obj = {
   header_1: [
     {
+      name: 'Header',
+      open: true,
+      buildProps: [
+        'background',
+        'border',
+        'font-family',
+        'font-size',
+        'font-weight',
+        'letter-spacing',
+        'line-height',
+        'text-align',
+        'text-shadow',
+        'text-transform',
+      ],
       properties: [
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
-          },
-        },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'text-color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
+            'data-target': 'header_1',
           },
         },
       ],
@@ -25,60 +31,83 @@ const obj = {
     {
       name: 'Logo',
       open: true,
-      buildProps: [
-        'border-radius',
-        'border-width',
-        'border-color',
-        'border-style',
-      ],
+      buildProps: ['border'],
+
       properties: [
         {
           type: 'slider',
           name: 'Width',
           property: 'width',
-          default: '14',
-          units: ['px', 'rem', 'em', 'vm'],
+          default: '100%',
+          min: 0,
+          max: 100,
+          units: ['%'],
         },
-        {
-          type: 'slider',
-          name: 'Border Type',
-          property: 'border-type',
-          default: '2',
-        },
+
         {
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
-          default: '2',
+          default: 1,
+          step: 0.1,
+          min: 0,
+          max: 1,
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Blur',
-          property: 'blur',
-          default: '2',
+          property: 'backdrop-filter',
+          options: [
+            { value: 'blur(0px)', name: '0px' },
+            { value: 'blur(2px)', name: '2px' },
+            { value: 'blur(4px)', name: '4px' },
+            { value: 'blur(6px)', name: '6px' },
+            { value: 'blur(8px)', name: '8px' },
+            { value: 'blur(10px)', name: '10px' },
+          ],
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Brightness',
-          property: 'brightness',
-          default: '2',
+          property: 'backdrop-filter',
+          default: `brightness(100%)`,
+          options: [
+            { value: 'brightness(100%)', name: '100%' },
+            { value: 'brightness(75%)', name: '75%' },
+            { value: 'brightness(50%)', name: '50%' },
+            { value: 'brightness(25%)', name: '25%' },
+            { value: 'brightness(0%)', name: '0%' },
+          ],
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Contrast',
-          property: 'contrast',
-          default: '2',
+          property: 'backdrop-filter',
+          options: [
+            { value: 'contrast(100%)', name: '100%' },
+            { value: 'contrast(75%)', name: '75%' },
+            { value: 'contrast(50%)', name: '50%' },
+            { value: 'contrast(25%)', name: '25%' },
+            { value: 'contrast(0%)', name: '0%' },
+          ],
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Saturation',
-          property: 'saturation',
-          default: '2',
+          property: 'backdrop-filter',
+          default: 'saturate(100%)',
+          options: [
+            { value: 'saturate(100%)', name: '100%' },
+            { value: 'saturate(75%)', name: '75%' },
+            { value: 'saturate(50%)', name: '50%' },
+            { value: 'saturate(25%)', name: '25%' },
+            { value: 'saturate(0%)', name: '0%' },
+          ],
         },
         {
           type: 'select',
           name: 'Hover Text Animation',
-          property: 'hover-text-animation',
+          property: 'animation-name',
           default: 'none',
           options: [
             { value: 'none', name: 'None' },
@@ -93,8 +122,9 @@ const obj = {
         {
           type: 'slider',
           name: 'Transition Duration',
-          property: 'transition-duration',
-          default: '2',
+          property: 'animation-duration',
+          default: '1s',
+          units: ['s'],
         },
       ],
     },
@@ -102,12 +132,7 @@ const obj = {
     {
       name: 'Border',
       open: true,
-      buildProps: [
-        'border-radius',
-        'border-width',
-        'border-color',
-        'border-style',
-      ],
+      buildProps: ['border'],
     },
     {
       name: 'Divider',
@@ -116,35 +141,44 @@ const obj = {
         {
           type: 'color',
           name: 'Color',
-          property: 'divider-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-target': 'divider',
           },
         },
         {
           type: 'slider',
           name: 'Weight',
-          property: 'divider-weight',
-          default: '1',
+          property: 'height',
+          default: '1px',
+          attributes: {
+            'data-type': 'height',
+            'data-target': 'divider',
+          },
         },
         {
           type: 'slider',
           name: 'Gap',
-          property: 'divider-gap',
-          default: '15',
+          property: 'gap',
+          default: '0px',
+          units: 'px',
+          attributes: {
+            'data-type': 'gap',
+          },
         },
       ],
     },
     {
       name: 'Social Media',
       open: true,
-      buildProps: ['border-radius', 'border-style'],
+      buildProps: ['border'],
       properties: [
         {
           type: 'color',
           name: 'Color',
-          property: 'social-media-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
@@ -153,26 +187,34 @@ const obj = {
         {
           type: 'slider',
           name: 'Size',
-          property: 'social-media-size',
-          default: '1',
+          property: 'width',
+          default: '14px',
+          attributes: {
+            'data-type': 'width',
+            'data-target': 'social-media',
+          },
         },
         {
           type: 'slider',
           name: 'Padding',
-          property: 'social-media-padding',
-          default: '1',
+          property: 'padding',
+          buildProps: ['padding'],
+          default: '10px',
+          units: 'px',
         },
         {
           type: 'slider',
           name: 'Spacing',
-          property: 'social-media-spacing',
-          default: '5',
+          property: 'letter-spacing',
+          default: '5px',
+          units: 'px',
         },
         {
           type: 'slider',
           name: 'Rows Gap',
-          property: 'social-media-rows-gap',
-          default: '1',
+          property: 'gap',
+          default: '10px',
+          units: 'px',
         },
       ],
     },
@@ -183,19 +225,19 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
           },
         },
         {
-          type: 'color',
+          type: 'select',
           name: 'Typography',
-          property: 'color-typo',
+          property: 'font-family',
           default: '#4aa4da',
           attributes: {
-            'data-type': 'color',
+            'data-type': 'font-family',
           },
         },
       ],
@@ -208,8 +250,9 @@ const obj = {
         {
           type: 'slider',
           name: 'Spacing',
-          property: 'opacity',
-          default: '1',
+          property: 'gap',
+          default: '10px',
+          units: 'px',
         },
         {
           type: 'select',
@@ -239,14 +282,14 @@ const obj = {
           type: 'select',
           name: 'Display',
           property: 'display',
-          default: 'show',
+          default: '',
           options: [
-            { value: 'show', name: 'Show' },
-            { value: 'hide', name: 'Hide' },
+            { value: '', name: 'Show' },
+            { value: 'none', name: 'Hide' },
           ],
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Alignment',
           property: 'text-align',
           default: 'left',
@@ -259,16 +302,16 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
           },
         },
         {
-          type: 'color',
+          type: 'select',
           name: 'Typography',
-          property: 'typo-color',
+          property: 'font-family',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
@@ -295,13 +338,14 @@ const obj = {
         {
           type: 'slider',
           name: 'Space Between',
-          property: 'space-between-Icon',
-          default: '1',
+          property: 'gap',
+          default: '10px',
+          units: 'px',
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Alignment',
-          property: 'icon-align',
+          property: 'align-items',
           default: 'left',
           options: [
             { value: 'left', name: 'Left' },
@@ -319,7 +363,7 @@ const obj = {
         {
           type: 'color',
           name: 'Color',
-          property: 'social-media-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
@@ -328,26 +372,34 @@ const obj = {
         {
           type: 'slider',
           name: 'Size',
-          property: 'social-media-size',
-          default: '1',
+          property: 'width',
+          default: '14px',
+          units: 'px',
+          attributes: {
+            'data-type': 'width',
+            'data-target': 'social-media',
+          },
         },
         {
           type: 'slider',
           name: 'Padding',
-          property: 'social-media-padding',
-          default: '1',
+          property: 'padding',
+          default: '10px',
+          units: 'px',
         },
         {
           type: 'slider',
           name: 'Spacing',
-          property: 'social-media-spacing',
-          default: '5',
+          property: 'words-spacing',
+          default: '5px',
+          units: 'px',
         },
         {
           type: 'slider',
           name: 'Rows Gap',
-          property: 'social-media-rows-gap',
-          default: '1',
+          property: 'gap',
+          default: '10px',
+          units: 'px',
         },
       ],
     },
@@ -365,49 +417,51 @@ const obj = {
           type: 'slider',
           name: 'Width',
           property: 'width',
-          default: '14',
-          units: ['px', 'rem', 'em', 'vm'],
+          default: '14px',
+          units: ['px', 'rem'],
         },
         {
-          type: 'slider',
+          type: 'select',
           name: 'Border Type',
-          property: 'border-type',
-          default: '2',
+          property: 'border-style',
         },
         {
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
-          default: '2',
+          min: 0.1,
+          max: 1,
+          steps: 0.1,
         },
         {
           type: 'slider',
           name: 'Blur',
-          property: 'blur',
-          default: '2',
+          property: 'backdrop-filter: blur(0px)',
+          value: 'blur(0px)',
+          default: '0px',
         },
         {
           type: 'slider',
           name: 'Brightness',
-          property: 'brightness',
-          default: '2',
+          property: 'backdrop-filter:brightness',
+          default: '1',
         },
         {
           type: 'slider',
           name: 'Contrast',
-          property: 'contrast',
-          default: '2',
+          property: 'backdrop-filter:contrast',
+          default: '1',
         },
         {
           type: 'slider',
           name: 'Saturation',
-          property: 'saturation',
-          default: '2',
+          property: 'backdrop-filter:saturation',
+          default: '1',
         },
         {
           type: 'select',
           name: 'Hover Text Animation',
-          property: 'hover-text-animation',
+          property: 'animation',
           default: 'none',
           options: [
             { value: 'none', name: 'None' },
@@ -422,8 +476,8 @@ const obj = {
         {
           type: 'slider',
           name: 'Transition Duration',
-          property: 'transition-duration',
-          default: '2',
+          property: 'animation-duration',
+          default: '1',
         },
       ],
     },
@@ -435,7 +489,7 @@ const obj = {
         {
           type: 'color',
           name: 'Color',
-          property: 'divider-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
@@ -444,14 +498,13 @@ const obj = {
         {
           type: 'slider',
           name: 'Weight',
-          property: 'divider-weight',
+          property: 'width',
           default: '1',
         },
         {
           type: 'slider',
           name: 'Gap',
-          property: 'divider-gap',
-          default: '15',
+          property: 'gap',
         },
       ],
     },
@@ -462,17 +515,16 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
           },
         },
         {
-          type: 'color',
+          type: 'select',
           name: 'Typography',
-          property: 'typo-color',
-          default: '#4aa4da',
+          property: 'font-family',
           attributes: {
             'data-type': 'color',
           },
@@ -486,18 +538,17 @@ const obj = {
         {
           type: 'color',
           name: 'Primary Color',
-          property: 'background-color',
+          property: 'color',
           default: '#e6e6e6',
           attributes: {
-            'data-type': 'background-color',
+            'data-type': 'color',
           },
         },
 
         {
           type: 'slider',
           name: 'Icon Size',
-          property: 'icon-size',
-          default: '0',
+          property: 'width',
         },
         {
           type: 'slider',
@@ -517,32 +568,34 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'content-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'content-color',
+            'data-target': '.testimonial-content',
           },
         },
         {
-          type: 'color',
+          type: 'composite',
           name: 'Typography',
-          property: 'content-typography',
+          property: 'font',
           default: '#4aa4da',
           attributes: {
-            'data-type': 'color',
+            'data-type': 'font',
           },
         },
         {
           type: 'slider',
           name: 'Blur',
-          property: 'content-blur',
+          property: 'backdrop:filter: blur',
           default: '10',
         },
 
         {
           type: 'slider',
           name: 'Horizontal',
-          property: 'content-horizontal',
+          property: 'horizontal',
           default: '0',
         },
         {
@@ -561,9 +614,12 @@ const obj = {
         {
           type: 'slider',
           name: 'Image Size',
-          property: 'image-size',
-          default: '1',
-          units: ['px', 'rem', 'em', 'vm'],
+          property: 'width',
+          attributes: {
+            'data-type': 'image',
+            'data-attribute': 'image-size',
+            'data-target': '.testimonial-image',
+          },
         },
       ],
     },
@@ -575,26 +631,36 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'name-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'name-color',
+            'data-target': '.testimonial-name',
           },
         },
         {
-          type: 'color',
+          type: 'composite',
           name: 'Typography',
-          property: 'name-typography',
+          property: 'font',
           default: '#4aa4da',
           attributes: {
-            'data-type': 'color',
+            'data-type': 'font',
+            'data-attribute': 'name-typography',
+            'data-target': '.testimonial-name',
           },
         },
         {
           type: 'slider',
           name: 'Blur',
-          property: 'name-blur',
+          property: 'backdrop:filter: blur',
           default: '10',
+
+          attributes: {
+            'data-type': 'backdrop-filter: blur',
+            'data-attribute': 'name-blur',
+            'data-target': '.testimonial-image',
+          },
         },
 
         {
@@ -618,16 +684,18 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'title-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'heading-color',
+            'data-target': '.testimonial-title',
           },
         },
         {
-          type: 'color',
+          type: 'composite',
           name: 'Typography',
-          property: 'title-typography',
+          property: 'font',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
@@ -1297,14 +1365,14 @@ const obj = {
         {
           type: 'color',
           name: 'Bullet Point Color',
-          property: 'bullet-color',
+          property: 'color',
           default: '#FFC0CB',
         },
 
         {
           type: 'slider',
           name: 'Bullet Point Size',
-          property: 'bullet-point-size',
+          property: 'font-size',
           default: '15',
         },
         {
@@ -1351,47 +1419,47 @@ const obj = {
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
           default: 'default',
           options: [
             {
               value: 'default',
-              name: 'Default',
+              name: '&#8416',
             },
             {
               value: 'italic',
-              name: 'Italic',
+              name: `<i>I</i>`,
             },
             {
-              value: 'normal',
-              name: 'Normal',
+              value: 'bold',
+              name: '<b>B</b>',
             },
           ],
         },
 
         {
-          type: 'select',
-          name: ' Transform',
+          type: 'radio',
+          name: 'Transform',
           property: 'text-transform',
           default: 'default',
           options: [
-            { value: 'default', name: 'Default' },
-            { value: 'uppercase', name: 'Uppercase' },
-            { value: 'lowercase', name: 'Lowercase' },
-            { value: 'capitalize', name: 'Capitalize' },
+            { value: 'default', name: '&#8416' },
+            { value: 'uppercase', name: 'AA' },
+            { value: 'lowercase', name: 'aa' },
+            { value: 'capitalize', name: 'Aa' },
           ],
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Decoration',
           property: 'text-decoration',
           default: 'default',
           options: [
-            { value: 'default', name: 'Default' },
-            { value: 'underline', name: 'Underline' },
-            { value: 'line-through', name: 'Line Through' },
+            { value: 'default', name: `&#8416` },
+            { value: 'underline', name: `&#xf0cd` },
+            { value: 'line-through', name: `S` },
           ],
         },
       ],
@@ -1404,54 +1472,54 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'loc-color',
+          property: 'color',
           default: '#4aa4da',
         },
         {
-          type: 'color',
+          type: 'select',
           name: 'Typography',
-          property: 'typo-color',
-          default: '#4aa4da',
+          property: 'font-family',
         },
       ],
     },
     {
       name: 'Icon List',
-      open: false,
+      open: true,
       properties: [
         {
           type: 'slider',
           name: 'Icon Size',
-          property: 'icon-size',
-          default: '1',
+          property: 'height',
         },
         {
           type: 'slider',
           name: 'Icon Rotate',
-          property: 'icon-rotate',
-          default: '1',
+          property: 'transform:rotate',
+          default: '0.5',
+          min: '0',
+          max: '1',
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Alignment',
           property: 'text-align',
           default: 'left',
           options: [
             { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
+            { value: 'center', name: '&#9776' },
             { value: 'right', name: 'Right' },
           ],
         },
         {
           type: 'color',
           name: 'Text Cover',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
         },
         {
           type: 'color',
           name: 'Hover Cover',
-          property: 'hover-color',
+          property: ':hover',
           default: '#4aa4da',
         },
         {
@@ -1462,8 +1530,8 @@ const obj = {
         },
         {
           type: 'color',
-          name: 'List Typoraphy',
-          property: 'list-color',
+          name: 'List Typography',
+          property: 'color',
           default: '#4aa4da',
         },
       ],
@@ -1475,10 +1543,10 @@ const obj = {
         {
           type: 'color',
           name: 'Primary Color',
-          property: 'background-color',
+          property: 'color',
           default: '#e6e6e6',
           attributes: {
-            'data-type': 'background-color',
+            'data-type': 'color',
           },
         },
 
