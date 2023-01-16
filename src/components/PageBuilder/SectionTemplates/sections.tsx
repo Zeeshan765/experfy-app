@@ -5,23 +5,13 @@ import React, { useEffect, useState } from 'react';
 import { Eyebrow } from 'payload/components/elements';
 import SectionTemplate from '../../SectionTemplate';
 import '../index.scss';
-import Benefit from '../NewSectionTemplate/Benefit/vendor/plugins/grapesjs-tailwind/src';
-import ImageBanner from '../NewSectionTemplate/Department/vendor/plugins/grapesjs-tailwind/src';
-import Footer from '../NewSectionTemplate/Footer/vendor/plugins/grapesjs-tailwind/src';
-import Guideline from '../NewSectionTemplate/Guideline/vendor/plugins/grapesjs-tailwind/src';
-import Header from '../NewSectionTemplate/Header/vendor/plugins/grapesjs-tailwind/src';
-import ImageAndText from '../NewSectionTemplate/ImageAndText/vendor/plugins/grapesjs-tailwind/src';
-import Location from '../NewSectionTemplate/Location/vendor/plugins/grapesjs-tailwind/src';
-import Number from '../NewSectionTemplate/Number/vendor/plugins/grapesjs-tailwind/src';
-import Paragraph from '../NewSectionTemplate/Paragraph/vendor/plugins/grapesjs-tailwind/src';
-import PracticeArea from '../NewSectionTemplate/PracticeArea/vendor/plugins/grapesjs-tailwind/src';
-import TalentCloud from '../NewSectionTemplate/TalentCloud/vendor/plugins/grapesjs-tailwind/src';
+
 // import Testimonial from '../NewSectionTemplate/Testimonial/vendor/plugins/grapesjs-tailwind/src';
 import blocks from '../../../blocks';
 import Categories from '../../../collections/Categories';
 import Experfy from '../ExperfyPlugin';
 import { useLocation } from 'react-router-dom';
-import {getSectors} from "./getSectors";
+import { getSectors } from './getSectors';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -53,9 +43,7 @@ const SectionPageBuilder: React.FC = () => {
     'video',
   ];
   let showSections = true;
-// let arr = [] for Duplication--->header1: arr,header2: arr,
- 
-
+  // let arr = [] for Duplication--->header1: arr,header2: arr,
 
   useEffect(() => {
     setStepNav([
