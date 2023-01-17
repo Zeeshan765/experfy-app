@@ -1,5 +1,5 @@
 import { CollectionConfig } from "payload/types";
-import PageTheme from "../components/pagebuilderTemplate";
+import PageTheme from "../components/PageBuilderTemplate";
 import PageBuilder from "../components/PageBuilder/SectionTemplates";
 import Payload from "payload";
 import SelectPage from "../components/selectPageCode";

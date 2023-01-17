@@ -1,5 +1,5 @@
 import { CollectionConfig } from "payload/types";
-import PageTheme from "../components/pagebuilderTemplate";
+import PageTheme from "../components/PageBuilderTemplate";
 import FaceLessModel from "../components/Model";
 import PageBuilder from '../components/PageBuilder/SectionTemplates';
 import Templates from "../components/Templates";
