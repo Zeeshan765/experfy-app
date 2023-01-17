@@ -24,13 +24,6 @@ const TemplateLibraryCollection: CollectionConfig = {
       },
     },
   },
-  fields: [
-    {
-      name: 'type',
-      type: 'text',
-      label: 'Type',
-      
-    },
-  ],
+  fields: [],
 };
 export default TemplateLibraryCollection;

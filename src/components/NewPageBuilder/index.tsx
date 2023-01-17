@@ -9,7 +9,7 @@ import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { toast } from 'react-toastify';
-const NewPageBuilder = () => {
+const NewPageBuilder: React.FC<GrapesJS.Editor> = () => {
   let [editor, setEditor] = React.useState<GrapesJS.Editor>();
 
   const { setStepNav } = useStepNav();
@@ -37,7 +37,7 @@ const NewPageBuilder = () => {
       'location',
       'metrics-numbers',
       'talent-cloud-candidates',
-      // 'testimonial',
+      'testimonial',
       'video',
     ];
     const ExperfyBlocks = (editor, options) =>
@@ -110,7 +110,31 @@ const NewPageBuilder = () => {
       },
       showOffsets: true,
       multipleSelection: true,
-      showToolbar: true,
+      showToolbar: false,
+
+      domComponents: {
+        stylePrefix: 'gjs-',
+        wrapper: {
+          removable: false,
+          traits: [
+            {
+              type: 'text',
+              name: 'text_content',
+              label: 'Content',
+            },
+          ],
+        },
+        components: [
+          {
+            type: 'text',
+            content: 'Text',
+            style: {
+              padding: '10px',
+            },
+            removable: false,
+          },
+        ],
+      },
 
       commands: {
         defaults: [
@@ -231,10 +255,10 @@ const NewPageBuilder = () => {
       },
     });
 
-    setEditor(editor);
+    // setEditor(editor);
 
-    const openBl = editor.Panels.getButton('panel__switcher', 'show-blocks');
-    editor.on('load', () => openBl?.set('active', true));
+    // const openBl = editor.Panels.getButton('panel__switcher', 'show-blocks');
+    // editor.on('load', () => openBl?.set('active', true));
     editor.onReady(() => {
       editor.runCommand('hide-styles');
       editor.runCommand('hide-traits');
@@ -246,32 +270,12 @@ const NewPageBuilder = () => {
       editor.runCommand('show-styles');
     });
 
-    ///now it will only update text from traits
     editor.on('component:selected', (component) => {
       if (component.get('type') == 'text') {
         editor.runCommand('show-traits');
-        if (component.get('traits').models[0].get('value').length == 0) {
-          component.view.model.getEl().innerHTML = 'Insert text here';
-        }
-
-        component.set(
-          'content',
-          component.get('traits').models[0].get('value') //TODO we need to update trait as we are using ID for now.
-        );
+        component.components(component.get('traits').models[1].get('value'));
       }
     });
-    editor.on('component:update', (component) => {
-      if (component.get('type') == 'text') {
-        component.view.model.getEl().innerHTML = component
-          .get('traits')
-          .models[0].get('value');
-      }
-    });
-
-    // editor.on('component:select', (component) => {
-    //   editor.StyleManager.select(component);
-    //   editor.runCommand('show-styles');
-    // });
   }, [setEditor]);
 
   return (
