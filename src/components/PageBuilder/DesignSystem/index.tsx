@@ -431,7 +431,7 @@ const DesignSystem: React.FC = () => {
                 default: 'transparent',
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Border Shadow',
                 property: 'box-shadow',
                 default: 'none',
@@ -493,7 +493,7 @@ const DesignSystem: React.FC = () => {
               },
 
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Align',
                 property: 'text-align',
                 default: 'left',
@@ -550,7 +550,7 @@ const DesignSystem: React.FC = () => {
                 options: fontWeight,
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
@@ -593,7 +593,7 @@ const DesignSystem: React.FC = () => {
               },
 
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',

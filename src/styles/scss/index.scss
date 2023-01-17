@@ -307,18 +307,18 @@ div.react-select {
   border-radius: 0.4rem;
 
   &:hover {
-    background-color: var(--theme-primary);
+    background-color: var(--theme-text-light);
     color: var(--theme-elevation-0);
     text-decoration: none;
   }
 
   &:checked {
-    background-color: var(--theme-primary);
+    background-color: var(--theme-text-light);
     color: var(--theme-elevation-0);
   }
 
   &::selection {
-    background-color: var(--theme-primary);
+    background-color: var(--theme-text-light);
     color: var(--theme-elevation-0);
   }
 

@@ -4,6 +4,7 @@ import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Experfy from '../ExperfyPlugin';
+import NavBar from 'grapesjs-navbar';
 import { getSectors } from './getSectors';
 
 const SectionPageBuilder: React.FC = () => {
@@ -41,26 +42,23 @@ const SectionPageBuilder: React.FC = () => {
   }, [setStepNav]);
 
   useEffect(() => {
-    console.log('SectionUseEffect', useEffect);
-
     let arr = pathname.split('/');
     let str = arr[arr.length - 1];
     let isInclude = sections.includes(str);
 
     let blocks = isInclude ? [str] : sections;
-    console.log('blocks', blocks);
     const Blocks = (editor: GrapesJS.Editor, options: any) =>
       Experfy(editor, { ...options, blocks: blocks });
 
     editor = GrapesJS.init({
       container: '#sections',
-      storageManager: true,
+      storageManager: false,
       showOffsets: true,
       showDevices: false,
       showOffsetsSelected: true,
       avoidDefaults: true,
 
-      plugins: [Blocks],
+      plugins: [Blocks, NavBar],
 
       panels: {
         defaults: [
@@ -150,13 +148,36 @@ const SectionPageBuilder: React.FC = () => {
     // const openBl = editor.Panels.getButton('views', '.blocks');
     // editor.on('load', () => openBl.set('active', true));
 
-    if (blocks.length === 1) {
-      showSections = false;
-      const block = editor.BlockManager.get('footer_1');
-      editor.BlockManager.render(block);
-    }
+    editor.on('load', () => {
+      if (blocks.length === 1) {
+        editor.runCommand('show-styles');
+        editor.runCommand('show-traits');
+        editor.stopCommand('stop-blocks');
+        const block = editor.BlockManager.get(blocks[0]);
+        const component = editor.addComponents(block.get('content'));
+        editor.select(component[0]);
+        component[0].set('activeOnRender', true);
+        component[0].set('removable', false);
+        component[0].set('draggable', false);
+        component[0].set('droppable', false);
+        component[0].set('stylable', true);
+        component[0].set('copyable', false);
+        component[0].set('layerable', false);
 
-    editor.on('run:core:component-select', () =>
+        // if component exists, means the drop was successful
+        if (component) {
+          const sectors = editor.StyleManager.getSectors();
+          sectors.reset();
+          sectors.add(getSectors(component[0].ccid));
+        }
+      } else {
+        editor.runCommand('show-blocks');
+        editor.runCommand('hide-traits');
+        editor.runCommand('hide-styles');
+      }
+    });
+
+    editor.on('run:component-select', () =>
       editor.Components.getWrapper()
         .getTraits()
         .forEach((trait) => {
@@ -167,35 +188,7 @@ const SectionPageBuilder: React.FC = () => {
     editor.on('component:drag:end', () => {
       editor.runCommand('show-styles');
       editor.runCommand('show-traits');
-      editor.stopCommand('show-blocks');
-    });
-
-    // On component change show the Style Manager
-    editor.on('component:selected', () => {
-      editor.runCommand('show-styles');
-      editor.runCommand('show-traits');
-      editor.stopCommand('show-blocks');
-    });
-    editor.onReady(() => {
-      editor.stopCommand('show-styles');
-      editor.runCommand('show-blocks');
-      editor.stopCommand('show-traits');
-    });
-    // Don't switch when the Layer Manager is on or
-    // there is no selected component
-
-    editor.on(`block:drag:stop`, (component, block) => {
-      // if component exists, means the drop was successful
-      console.log('component', component);
-      if (component) {
-        // component.addStyle({ color: 'red' }); // eg. update the style
-        // // Do you need the parent who contains this new added component??
-        // const parent = component.parent();
-
-        const cari = editor.StyleManager.getSectors();
-        cari.reset();
-        cari.add(getSectors(component.ccid));
-      }
+      editor.stopCommand('stop-blocks');
     });
   }, [setEditor]);
 
