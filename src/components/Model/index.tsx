@@ -30,6 +30,7 @@ const FaceLessModel = ({ data, templateModelClose }) => {
 
   return (
     <>
+      {/* <input name="htmlCode" value={htmlCode}/> */}
       <Dialog
         open={subModelopen}
         onClose={handleClose}

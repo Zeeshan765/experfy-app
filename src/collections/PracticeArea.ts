@@ -1,5 +1,5 @@
 import { CollectionConfig } from 'payload/types';
-import PracticeArea from '../components/PageBuilder/NewSectionTemplate/PracticeArea';
+// import PracticeArea from '../components/PageBuilder/NewSectionTemplate/PracticeArea';
 
 const PracticeAreaCollection: CollectionConfig = {
   slug: 'practice_area',
@@ -10,8 +10,8 @@ const PracticeAreaCollection: CollectionConfig = {
   admin: {
     components: {
       views: {
-        Edit: PracticeArea,
-        List: PracticeArea,
+        // Edit: PracticeArea ,
+        // List: PracticeArea,
       },
     },
   },

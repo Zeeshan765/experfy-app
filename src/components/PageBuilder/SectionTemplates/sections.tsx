@@ -1,28 +1,17 @@
 import GrapesJS from 'grapesjs';
-import indexedDB from 'grapesjs-indexeddb';
+import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useState } from 'react';
-import { Eyebrow } from 'payload/components/elements';
-import SectionTemplate from '../../SectionTemplate';
-import '../index.scss';
-import Benefit from '../NewSectionTemplate/Benefit/vendor/plugins/grapesjs-tailwind/src';
-import ImageBanner from '../NewSectionTemplate/Department/vendor/plugins/grapesjs-tailwind/src';
-import Footer from '../NewSectionTemplate/Footer/vendor/plugins/grapesjs-tailwind/src';
-import Guideline from '../NewSectionTemplate/Guideline/vendor/plugins/grapesjs-tailwind/src';
-import Header from '../NewSectionTemplate/Header/vendor/plugins/grapesjs-tailwind/src';
-import ImageAndText from '../NewSectionTemplate/ImageAndText/vendor/plugins/grapesjs-tailwind/src';
-import Location from '../NewSectionTemplate/Location/vendor/plugins/grapesjs-tailwind/src';
-import Number from '../NewSectionTemplate/Number/vendor/plugins/grapesjs-tailwind/src';
-import Paragraph from '../NewSectionTemplate/Paragraph/vendor/plugins/grapesjs-tailwind/src';
-import PracticeArea from '../NewSectionTemplate/PracticeArea/vendor/plugins/grapesjs-tailwind/src';
-import TalentCloud from '../NewSectionTemplate/TalentCloud/vendor/plugins/grapesjs-tailwind/src';
-// import Testimonial from '../NewSectionTemplate/Testimonial/vendor/plugins/grapesjs-tailwind/src';
-import blocks from '../../../blocks';
-import Categories from '../../../collections/Categories';
+import { useLocation } from 'react-router-dom';
+import Experfy from '../ExperfyPlugin';
+import NavBar from 'grapesjs-navbar';
+import { getSectors } from './getSectors';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
+  const { pathname } = useLocation();
+
   const sections = [
     'header',
     'footer',
@@ -37,10 +26,11 @@ const SectionPageBuilder: React.FC = () => {
     'location',
     'metrics-numbers',
     'talent-cloud-candidates',
-    // 'testimonial',
+    'testimonial',
     'video',
   ];
   let showSections = true;
+  // let arr = [] for Duplication--->header1: arr,header2: arr,
 
   useEffect(() => {
     setStepNav([
@@ -52,71 +42,26 @@ const SectionPageBuilder: React.FC = () => {
   }, [setStepNav]);
 
   useEffect(() => {
+    let arr = pathname.split('/');
+    let str = arr[arr.length - 1];
+    let isInclude = sections.includes(str);
+
+    let blocks = isInclude ? [str] : sections;
+    const Blocks = (editor: GrapesJS.Editor, options: any) =>
+      Experfy(editor, { ...options, blocks: blocks });
+
     editor = GrapesJS.init({
       container: '#sections',
       storageManager: false,
       showOffsets: true,
       showDevices: false,
-      clearStyles: true,
       showOffsetsSelected: true,
       avoidDefaults: true,
 
-      plugins: [
-        Header,
-        Footer,
-        PracticeArea,
-        // Testimonial,
-        Benefit,
-        Guideline,
-        ImageAndText,
-        ImageBanner,
-        Location,
-        Number,
-        Paragraph,
-        TalentCloud,
-      ],
+      plugins: [Blocks, NavBar],
 
-      commands: {
-        defaults: [],
-      },
       panels: {
         defaults: [
-          // {
-          //   id: 'commands',
-          //   el: '.panel__top',
-          //   buttons: [
-          //     {
-          //       id: 'undo',
-          //       className: 'fa fa-undo',
-          //       command: 'undo',
-          //       attributes: { title: 'Undo' },
-          //     },
-          //     {
-          //       id: 'redo',
-          //       className: 'fa fa-repeat',
-          //       command: 'redo',
-          //       attributes: { title: 'Redo' },
-          //     },
-          //   ],
-          // },
-          // {
-          //   id: 'options',
-          //   el: '.panel__basic-actions',
-          // buttons: [
-          //   {
-          //     id: 'visibility',
-          //     className: 'fa fa-eye',
-          //     command: 'sw-visibility',
-          //     attributes: { title: 'View Components' },
-          //   },
-          //   {
-          //     id: 'export',
-          //     className: 'fa fa-code',
-          //     command: 'gjs-get-inlined-html',
-          //     attributes: { title: 'Export' },
-          //   },
-          // ],
-          //  },
           {
             id: 'panel-switcher',
             el: '.panel__switcher',
@@ -134,8 +79,6 @@ const SectionPageBuilder: React.FC = () => {
                 command: 'show-styles',
                 active: true,
                 toggle: true,
-                runDefaultCommand: true,
-                stopDefaultCommand: true,
                 attributes: { title: 'Styles' },
               },
               {
@@ -143,7 +86,7 @@ const SectionPageBuilder: React.FC = () => {
                 className: 'fa fa-cog',
                 command: 'show-traits',
                 active: true,
-                toggle: true,
+                togglable: true,
                 attributes: { title: 'Traits' },
               },
               {
@@ -152,8 +95,6 @@ const SectionPageBuilder: React.FC = () => {
                 command: 'show-blocks',
                 active: true,
                 toggle: true,
-                runDefaultCommand: true,
-                stopDefaultCommand: true,
                 attributes: { title: 'Blocks' },
               },
             ],
@@ -174,135 +115,9 @@ const SectionPageBuilder: React.FC = () => {
       },
       styleManager: {
         appendTo: '.styles-container',
+        sectors: getSectors(blocks),
       },
-
-      // sectors: [
-      //  {
-      //     name: 'General',
-      //     open: false,
-      //     buildProps: [
-      //       'background-color',
-      //       'background-image',
-      //       'background-repeat',
-      //       'background-position',
-      //       'background-attachment',
-      //       'background-size',
-      //       'box-shadow',
-      //       'border-radius',
-      //       'border',
-      //       'border-width',
-      //       'border-style',
-      //       'border-color',
-      //       'float',
-      //       'display',
-      //       'position',
-      //       'top',
-      //       'right',
-      //       'left',
-      //       'bottom',
-      //     ],
-      //   },
-      //   {
-      //     name: 'Flex',
-      //     open: false,
-      //     buildProps: ['flex-direction', 'flex-wrap', 'justify-content'],
-      //   },
-      //   {
-      //     name: 'Dimension',
-      //     open: false,
-      //     buildProps: [
-      //       'width',
-      //       'height',
-      //       'max-width',
-      //       'min-height',
-      //       'margin',
-      //       'padding',
-      //     ],
-      //   },
-      //   {
-      //     name: 'Typography',
-      //     open: false,
-      //     buildProps: [
-      //       'font-family',
-      //       'font-size',
-      //       'font-weight',
-      //       'letter-spacing',
-      //       'color',
-      //       'line-height',
-      //       'text-align',
-      //       'text-decoration',
-      //       'text-shadow',
-      //     ],
-      //     properties: [
-      //       {
-      //         property: 'text-align',
-      //         list: [
-      //           { value: 'left', className: 'fa fa-align-left' },
-      //           { value: 'center', className: 'fa fa-align-center' },
-      //           { value: 'right', className: 'fa fa-align-right' },
-      //           { value: 'justify', className: 'fa fa-align-justify' },
-      //         ],
-      //       },
-      //       {
-      //         property: 'text-decoration',
-      //         list: [
-      //           { value: 'none', className: 'fa fa-times' },
-      //           { value: 'underline', className: 'fa fa-underline' },
-      //           { value: 'line-through', className: 'fa fa-strikethrough' },
-      //         ],
-      //       },
-      //       {
-      //         name: 'Decorations',
-      //         open: false,
-      //         commands: [
-      //           {
-      //             name: 'Add text shadow',
-      //             property: 'text-shadow',
-      //             defaults: '0px 0px 1px #000',
-      //           },
-      //         ],
-      //         buildProps: [
-      //           'opacity',
-      //           'border-radius',
-      //           'border',
-      //           'box-shadow',
-      //         ],
-      //       },
-      //       {
-      //         name: 'Extra',
-      //         open: false,
-      //         buildProps: ['transition', 'perspective', 'transform'],
-      //       },
-      //     ],
-      //   },
-      // ],
-      // },
     });
-
-    // editor.BlockManager.getConfig().appendTo = '.blocks';
-    // editor.BlockManager.add('blog-block-1', {
-    //   label: 'Blog Block 1',
-    //   category: 'Blog',
-    //   content: plugin.templates.blogBlock1,
-    // });
-
-    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-1'));
-    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-2'));
-    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-3'));
-    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-4'));
-    // editor.BlockManager.remove(editor.BlockManager.get('blog-block-5'));
-    // // const blocks = editor.BlockManager.remove(
-    // editor.BlockManager.remove(
-    //   editor.BlockManager.getConfig().blocks.map((block) => block)
-    // );
-    // editor.BlockManager.getCategories().remove((model) => model.id == 'Blog');
-
-    // editor.BlockManager.add(
-    //   'blog-block-1',
-    //   editor.BlockManager.get('blog-block-2')
-    // );
-    // editor.BlockManager.add('blog', editor.BlockManager.get('blog-block-3'));
-    // editor.BlockManager.add('blog', editor.BlockManager.get('blog-block-4'));
 
     setEditor(editor);
 
@@ -328,82 +143,52 @@ const SectionPageBuilder: React.FC = () => {
     //     },
     //   ],
     // });
-    editor.Commands.add('show-styles', {
-      getRowEl(editor) {
-        return editor.getContainer().closest('.editor-row');
-      },
-      getStyleEl(row) {
-        return row.querySelector('.styles-container');
-      },
-      run(editor, sender) {
-        const smEl = this.getStyleEl(this.getRowEl(editor));
-        smEl.style.display = '';
-      },
-
-      stop(editor, sender) {
-        const smEl = this.getStyleEl(this.getRowEl(editor));
-        smEl.style.display = 'none';
-      },
-    });
-    editor.Commands.add('show-blocks', {
-      getRowEl(editor) {
-        return editor.getContainer().closest('.editor-row');
-      },
-      getBlocksEl(row) {
-        return row.querySelector('.blocks');
-      },
-
-      run(editor, sender) {
-        const smEl = this.getBlocksEl(this.getRowEl(editor));
-        smEl.style.display = '';
-      },
-      stop(editor, sender) {
-        const smEl = this.getBlocksEl(this.getRowEl(editor));
-        smEl.style.display = 'none';
-      },
-    });
+    // need to add a command to toggle preview mode
 
     // const openBl = editor.Panels.getButton('views', '.blocks');
     // editor.on('load', () => openBl.set('active', true));
-    editor.on('run:core:component-select', () => {
+
+    editor.on('load', () => {
+      if (blocks.length === 1) {
+        editor.runCommand('show-styles');
+        editor.runCommand('show-traits');
+        editor.stopCommand('stop-blocks');
+        const block = editor.BlockManager.get(blocks[0]);
+        const component = editor.addComponents(block.get('content'));
+        editor.select(component[0]);
+        component[0].set('activeOnRender', true);
+        component[0].set('removable', false);
+        component[0].set('draggable', false);
+        component[0].set('droppable', false);
+        component[0].set('stylable', true);
+        component[0].set('copyable', false);
+        component[0].set('layerable', false);
+
+        // if component exists, means the drop was successful
+        if (component) {
+          const sectors = editor.StyleManager.getSectors();
+          sectors.reset();
+          sectors.add(getSectors(component[0].ccid));
+        }
+      } else {
+        editor.runCommand('show-blocks');
+        editor.runCommand('hide-traits');
+        editor.runCommand('hide-styles');
+      }
+    });
+
+    editor.on('run:component-select', () =>
       editor.Components.getWrapper()
         .getTraits()
         .forEach((trait) => {
           trait.set('disabled', false);
-        });
-    });
+        })
+    );
 
     editor.on('component:drag:end', () => {
       editor.runCommand('show-styles');
       editor.runCommand('show-traits');
-      editor.stopCommand('show-blocks');
-    });
-
-    // On component change show the Style Manager
-    editor.on('component:selected', () => {
-      editor.runCommand('show-styles');
-      editor.runCommand('show-traits');
-      editor.stopCommand('show-blocks');
-    });
-    editor.onReady(() => {
-      editor.stopCommand('show-styles');
-      editor.runCommand('show-blocks');
-      editor.stopCommand('show-traits');
-    });
-    // Don't switch when the Layer Manager is on or
-    // there is no selected component
-
-    editor.Commands.add('show-traits', {
-      getTraitsEl(editor) {
-        const row = editor.getContainer().closest('.editor-row');
-        return row.querySelector('.traits-container');
-      },
-      run(editor, sender) {
-        this.getTraitsEl(editor).style.display = '';
-      },
-      stop(editor, sender) {
-        this.getTraitsEl(editor).style.display = 'none';
-      },
+      editor.stopCommand('stop-blocks');
     });
   }, [setEditor]);
 

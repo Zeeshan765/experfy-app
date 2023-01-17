@@ -11,7 +11,7 @@ const NewPageBuilder = () => {
       fromElement: true,
       plugins: [plugin1],
       height: '100%',
-      autorender: true,
+      autorender: false,
       storageManager: {
         type: 'local',
         autoload: true,

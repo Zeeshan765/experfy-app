@@ -81,7 +81,7 @@ const Department = () => {
         },
       },
     });
-  }, []);
+  }, [setEditorState]);
 
   return (
     <div className="main__content">

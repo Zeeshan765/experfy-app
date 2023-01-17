@@ -29,12 +29,12 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
     },
     {
       id: 'devices-c',
+      visible: opts.showPanelsOnLoad,
       buttons: [
         {
           id: cmdDeviceDesktop,
           command: cmdDeviceDesktop,
           active: true,
-          visible: false,
           label: `<svg ${iconStyle} viewBox="0 0 24 24">
             <path fill="currentColor" d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V20H8V22H16V20H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z" />
         </svg>`,
@@ -42,7 +42,6 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
         {
           id: cmdDeviceTablet,
           command: cmdDeviceTablet,
-          visible: false,
           label: `<svg ${iconStyle} viewBox="0 0 24 24">
             <path fill="currentColor" d="M19,18H5V6H19M21,4H3C1.89,4 1,4.89 1,6V18A2,2 0 0,0 3,20H21A2,2 0 0,0 23,18V6C23,4.89 22.1,4 21,4Z" />
         </svg>`,
@@ -58,12 +57,12 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
     },
     {
       id: 'options',
+      visible: opts.showPanelsOnLoad,
       buttons: [
         {
           id: showFrames,
           command: showFrames,
           context: showFrames,
-          visible: false,
           active: true, // active by default
           label: `<svg ${iconStyle} viewBox="0 0 24 24">
         <path fill="currentColor" d="M15,5H17V3H15M15,21H17V19H15M11,5H13V3H11M19,5H21V3H19M19,9H21V7H19M19,21H21V19H19M19,13H21V11H19M19,17H21V15H19M3,5H5V3H3M3,9H5V7H3M3,13H5V11H3M3,17H5V15H3M3,21H5V19H3M11,21H13V19H11M7,21H9V19H7M7,5H9V3H7V5Z" />
@@ -136,6 +135,7 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
     },
     {
       id: 'views',
+      visible: opts.showPanelsOnLoad,
       buttons: [
         {
           id: openStyles,

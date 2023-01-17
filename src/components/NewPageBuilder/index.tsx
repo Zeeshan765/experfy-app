@@ -11,9 +11,13 @@ import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
 import Basics from "grapesjs-blocks-basic";
 import { Eyebrow } from "payload/components/elements";
 import { useStepNav } from "payload/components/hooks";
-import axios from "axios";
 
-import { toast } from 'react-toastify';
+import Experfy from "../PageBuilder/ExperfyPlugin";
+import Forms from "grapesjs-plugin-forms";
+import NavBar from "grapesjs-navbar";
+import axios from 'axios';
+
+import { toast } from "react-toastify";
 const NewPageBuilder = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
@@ -25,44 +29,89 @@ const NewPageBuilder = () => {
   const [headingText, setHeadingText] = React.useState<string>("abc");
   // console.log('test of editor', editorState);
   const testRef = useRef();
+
+const clearLocalStorage=()=>{
+  localStorage.removeItem('page_code');
+}
+
   const checkData = () => {
     const data = localStorage.getItem("page_code");
-    console.log(
-      "test data********=======",data
-    );
-axios.post('http://localhost:3001/api/page-Template',{
-  title:'title',pageAssets:data
-})
-.then(res=>{
-  console.log('res',res);                                   
-  toast.success('Changes saved successfully');
-})
-.catch(err=>{
-  console.log('err',err);
-  
-})
-
+    console.log("test data********=======", typeof data);
+    axios
+      .post("http://localhost:3001/api/page-Template", {
+        title: "title",
+        pageCode: data,
+      })
+      .then((res) => {
+        console.log("res", res);
+        clearLocalStorage();
+        toast.success("Changes saved successfully");
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
   };
 
   useEffect(() => {
     setStepNav([
       {
-        label: 'Page Builder',
-        url: '/collections/new-page-builder',
+        label: "Page Builder",
+        url: "/collections/new-page-builder",
       },
     ]);
   }, [setStepNav]);
   React.useEffect(() => {
+    const sections = [
+      "header",
+      "footer",
+      "image-banner",
+      "image-gallery",
+      "image-and-text",
+      "paragraph",
+      "practice-areas",
+      "benefits",
+      "departments",
+      "guidelines",
+      "location",
+      "metrics-numbers",
+      "talent-cloud-candidates",
+      "testimonial",
+      "video",
+    ];
+    const ExperfyBlocks = (editor, options) =>
+      Experfy(editor, {
+        ...options,
+        blocks: sections,
+        showPanelsOnLoad: false,
+      });
+
     editor = GrapesJS.init({
-      container: '.editor',
-      plugins: [plugin1, Basics],
-      pluginsOpts: {
-        Basics: {
-          blocks: ['text', 'link', 'image', 'video', 'map'],
-          flexGrid: true,
-          addBasicStyle: true,
-        },
-      },
+      container: ".editor",
+      plugins: [
+        ExperfyBlocks,
+        (editor) =>
+          NavBar(editor, {
+            label: "Header",
+            block: {
+              category: "Header & Footer Elements",
+            },
+          }),
+        (editor) =>
+          Basics(editor, {
+            blocks: ["text", "link", "image", "video", "map"],
+            category: "Basic Elements",
+            flexGrid: true,
+            addBasicStyle: true,
+            rowHeight: 75,
+          }),
+        (editor) =>
+          Forms(editor, {
+            blocks: ["input", "textarea", "select", "button", "checkbox"],
+            category: "Basic Elements",
+          }),
+        ,
+      ],
+
       storageManager: {
         type: "local",
         autoload: true,
@@ -82,50 +131,72 @@ axios.post('http://localhost:3001/api/page-Template',{
       },
       fromElement: true,
       layerManager: {
-        appendTo: '.layers-container',
+        appendTo: ".layers-container",
       },
       styleManager: {
-        appendTo: '.styles-container',
+        appendTo: ".styles-container",
         showComputed: true,
         highlightComputed: true,
         highlightChanged: true,
       },
       blockManager: {
-        appendTo: '.blocks',
+        appendTo: ".blocks",
         blocks: [],
       },
-      components: 'Image',
 
       selectorManager: {
         // componentFirst: true,
-        appendTo: '.styles-container',
+        appendTo: ".styles-container",
       },
       traitManager: {
-        appendTo: '.traits-container',
+        appendTo: ".traits-container",
       },
       showOffsets: true,
       multipleSelection: true,
-      showToolbar: true,
+      showToolbar: false,
+
+      domComponents: {
+        stylePrefix: "gjs-",
+        wrapper: {
+          removable: false,
+          traits: [
+            {
+              type: "text",
+              name: "text_content",
+              label: "Content",
+            },
+          ],
+        },
+        components: [
+          {
+            type: "text",
+            content: "Text",
+            style: {
+              padding: "10px",
+            },
+            removable: false,
+          },
+        ],
+      },
 
       commands: {
         defaults: [
           {
-            id: 'preview-fullscreen',
+            id: "preview-fullscreen",
             run() {
-              editor.runCommand('preview');
-              editor.runCommand('fullscreen');
+              editor.runCommand("preview");
+              editor.runCommand("fullscreen");
             },
             stop() {
-              editor.stopCommand('fullscreen');
-              editor.stopCommand('preview');
+              editor.stopCommand("fullscreen");
+              editor.stopCommand("preview");
             },
           },
           {
-            id: 'save-editor',
+            id: "save-editor",
             run(editor: { store: () => GrapesJS.Editor }) {
               const store = editor.store();
               checkData();
-          
             },
           },
         ],
@@ -133,95 +204,92 @@ axios.post('http://localhost:3001/api/page-Template',{
       panels: {
         defaults: [
           {
-            id: 'panel-switcher',
-            el: '.panel__switcher',
+            id: "panel__switcher",
+            el: ".panel__switcher",
             buttons: [
               {
-                id: 'show-blocks',
-                className: 'fa fa-th-large',
-                command: 'show-blocks',
-                active: true,
-                togglable: false,
-                attributes: { title: 'Blocks' },
+                id: "show-blocks",
+                className: "fa fa-th-large",
+                command: "show-blocks",
+                active: false,
+
+                attributes: { title: "Blocks" },
               },
               {
-                id: 'show-layers',
-                className: 'fa fa-bars',
-                command: 'show-layers',
+                id: "show-layers",
+                className: "fa fa-bars",
+                command: "show-layers",
                 active: false,
-                togglable: false,
-                attributes: { title: 'Layers' },
+                attributes: { title: "Layers" },
               },
               {
-                id: 'show-style',
-                className: 'fa fa-paint-brush',
-                command: 'show-styles',
-                togglable: false,
+                id: "show-style",
+                className: "fa fa-paint-brush",
+                command: "show-styles",
                 active: false,
-                attributes: { title: 'Styles' },
+                attributes: { title: "Styles" },
               },
 
               {
-                id: 'show-traits',
-                className: 'fa fa-cog',
-                label: ' Traits',
-                command: 'show-traits',
+                id: "show-traits",
+                className: "fa fa-cog",
+                label: " Traits",
+                command: "show-traits",
+                visible: false,
                 active: false,
-                togglable: false,
-                attributes: { title: 'Traits' },
+                attributes: { title: "Traits" },
               },
             ],
           },
           {
-            id: 'panel-top',
-            el: '.panel__top',
+            id: "panel-top",
+            el: ".panel__top",
             buttons: [
               {
-                id: 'settings',
-                className: 'fa fa-cog btn--style-secondary',
-                command: 'sw-visibility',
+                id: "settings",
+                className: "fa fa-cog btn--style-secondary",
+                command: "sw-visibility",
                 active: true,
-
-                attributes: { title: 'Settings' },
+                attributes: { title: "Settings" },
               },
               {
-                id: 'device-desktop',
-                className: 'fa fa-desktop btn--style-secondary',
-                command: 'toggle-devices',
-                attributes: { title: 'Toggle Display' },
+                id: "device-desktop",
+                className: "fa fa-desktop btn--style-secondary",
+                command: "toggle-devices",
+                attributes: { title: "Toggle Display" },
               },
               {
-                id: 'history',
-                className: 'fa fa-history btn--style-secondary',
-                command: 'undo',
+                id: "history",
+                className: "fa fa-history btn--style-secondary",
+                command: "undo",
                 togglable: true,
-                attributes: { title: 'Undo' },
+                attributes: { title: "Undo" },
               },
 
               {
-                id: 'preview',
-                context: 'preview',
-                label: '\t\tPreview',
-                className: 'fa fa-eye btn--style-secondary',
-                command: 'preview-fullscreen',
+                id: "preview",
+                context: "preview",
+                label: "\t\tPreview",
+                className: "fa fa-eye btn--style-secondary",
+                command: "preview-fullscreen",
 
-                attributes: { title: 'Preview' },
+                attributes: { title: "Preview" },
               },
               {
-                id: 'save',
-                className: 'btn--style-primary',
-                command: 'save-editor',
-                label: 'Save',
-                attributes: { title: 'Save' },
+                id: "save",
+                className: "btn--style-primary",
+                command: "save-editor",
+                label: "Save",
+                attributes: { title: "Save" },
               },
               {
-                id: 'publish',
-                className: 'radio btn--style-secondary fa fa-check',
-                command: 'publish',
-                label: ' Publish',
+                id: "publish",
+                className: "radio btn--style-secondary fa fa-check",
+                command: "publish",
+                label: " Publish",
                 togglable: false,
-                icon: 'fa fa-check',
-                attributes: { title: 'Publish' },
+                icon: "fa fa-check",
+                attributes: { title: "Publish" },
               },
             ],
           },
@@ -231,97 +299,18 @@ axios.post('http://localhost:3001/api/page-Template',{
 
     // setEditor(editor);
 
-    editor.Commands.add('show-styles', {
-      getRowEl(editor) {
-        return editor.getContainer().closest('.editor-row');
-      },
-      getStyleEl(row) {
-        return row.querySelector('.styles-container');
-      },
-      run(editor, sender) {
-        const smEl = this.getStyleEl(this.getRowEl(editor));
-        smEl.style.display = '';
-      },
-
-      stop(editor, sender) {
-        const smEl = this.getStyleEl(this.getRowEl(editor));
-        smEl.style.display = 'none';
-      },
-    });
-    editor.Commands.add('show-blocks', {
-      getRowEl(editor) {
-        return editor.getContainer().closest('.editor-row');
-      },
-      getBlocksEl(row) {
-        return row.querySelector('.blocks');
-      },
-
-      run(editor, sender) {
-        const smEl = this.getBlocksEl(this.getRowEl(editor));
-        smEl.style.display = '';
-      },
-      stop(editor, sender) {
-        const smEl = this.getBlocksEl(this.getRowEl(editor));
-        smEl.style.display = 'none';
-      },
-    });
-    editor.Commands.add('show-traits', {
-      getRowEl(_editor) {
-        return _editor.getContainer().closest('.editor-row');
-      },
-      getTraitsEl(row) {
-        return row.querySelector('.traits-container');
-      },
-
-      run(_editor, sender) {
-        const smEl = this.getTraitsEl(this.getRowEl(_editor));
-        smEl.style.display = '';
-      },
-      stop(_editor, sender) {
-        const smEl = this.getTraitsEl(this.getRowEl(_editor));
-        smEl.style.display = 'none';
-      },
-    });
-    editor.Commands.add('show-layers', {
-      getRowEl(editor) {
-        return editor.getContainer().closest('.editor-row');
-      },
-      getLayersEl(row) {
-        return row.querySelector('.layers-container');
-      },
-      run(editor, sender) {
-        const smEl = this.getLayersEl(this.getRowEl(editor));
-        smEl.style.display = '';
-      },
-      stop(editor, sender) {
-        const smEl = this.getLayersEl(this.getRowEl(editor));
-        smEl.style.display = 'none';
-      },
-    });
-
-    editor.Commands.add('toggle-devices', {
-      run(editor, sender) {
-        // editor.Canvas.getFrameEl().style.background = 'darkblue';
-        const deviceManager = editor.DeviceManager;
-        const device = deviceManager.getSelected();
-        const devices = deviceManager.getDevices();
-        const index = devices.indexOf(device);
-        const next = devices[index + 1] || devices[0];
-        deviceManager.select(next.id);
-      },
-    });
-
+    // const openBl = editor.Panels.getButton('panel__switcher', 'show-blocks');
+    // editor.on('load', () => openBl?.set('active', true));
     editor.onReady(() => {
-      console.log('editor ready');
-      editor.runCommand('show-styles');
-      editor.runCommand('show-traits');
-      editor.runCommand('show-layers');
+      editor.runCommand("hide-styles");
+      editor.runCommand("hide-traits");
+      editor.runCommand("hide-layers");
     });
 
-    // editor.on('component:add', (component) => {
-    //   editor.StyleManager.select(component);
-    //   editor.runCommand('show-styles');
-    // });
+    editor.on("component:add", (component) => {
+      editor.StyleManager.select(component);
+      editor.runCommand("show-styles");
+    });
 
     // editor.DomComponents.addType('text', {
     //   model: {
@@ -1074,44 +1063,16 @@ axios.post('http://localhost:3001/api/page-Template',{
       },
     });
 
-    // const htmlWithCss = editor.runCommand('gjs-get-inlined-html');
-    // const components = editor.getComponents();
-    //     const componentHTML = component.toHTML();
-    // const componentType = component.get('type'); // eg
-    //  console.log("Html and Css", Html, Css);
-    // console.log('hello test work========', htmlWithCss);
+    editor.on("component:selected", (component) => {
+      if (component.get("type") == "text") {
+        editor.runCommand("show-traits");
+        component.components(component.get("traits").models[1].get("value"));
+      }
+    });
   }, [setEditorState]);
-  // console.log("document.activeElement", document.activeElement.tagName);
-  // console.log("editorState======", editorState?.getHtml());
-
-  // useEffect(() => {
-  //   if (testRef) {
-  //     // debugger;
-  //     console.log(document.getElementById('self-test'), 'testRef', testRef);
-  //     let ftext = document.getElementById('self-test');
-  //     if (ftext) {
-  //       // @ts-ignore
-  //       console.log('ftext', ftext);
-  //       // ftext?.value= 'test111';
-  //     }
-  //     // ftext?.value ="test";
-  //     let setext = document.getElementById('self-inner-test');
-  //     //  setext.innerText="second test";
-  //     if (setext) {
-  //       // @ts-ignore
-  //       console.log('setext', setext);
-
-  //       // setext.innerText="second test";
-  //     }
-  //   }
-  // }, [testRef]);
-  //  const  Html = editor.getHtml();
-  // const Css = editor.getCss();
-  
 
   return (
     <div className="main__content">
-      {/* <button onClick={checkData}>checkData</button> */}
       <Eyebrow />
       <div className="panel__top"></div>
       <div className="editor-row">

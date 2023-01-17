@@ -2,7 +2,6 @@ import type GrapesJS from 'grapesjs';
 import commands from './commands';
 import blocks from './blocks';
 import panels from './panels';
-import BasicBlocks from 'grapesjs-blocks-basic';
 import '../index.scss';
 
 export type PluginOptions = {
@@ -74,6 +73,12 @@ export type PluginOptions = {
    * @default true
    */
   showGlobalStyles?: boolean;
+
+  /*
+   * Show panels on load
+   *  @default false
+   * */
+  showPanelsOnLoad?: boolean;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
@@ -83,7 +88,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
   opts: Partial<PluginOptions> = {}
 ) => {
   const config: RequiredPluginOptions = {
-    blocks: opts.blocks || [],
+    blocks: opts.blocks,
     block: () => ({}),
     modalImportTitle: 'Import',
     modalImportButton: 'Import',
@@ -94,10 +99,10 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
     showStylesOnChange: true,
     useCustomTheme: false,
     showGlobalStyles: true,
+    showPanelsOnLoad: false,
     ...opts,
   };
 
-  console.log(config);
   // Load blocks
   blocks(editor, config);
 
@@ -105,7 +110,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
   commands(editor, config);
 
   // Load panels
-  panels(editor, config);
+  // panels(editor, config);
 };
 
 export default plugin;
