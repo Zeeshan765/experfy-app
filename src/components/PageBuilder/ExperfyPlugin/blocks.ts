@@ -1252,30 +1252,41 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section id="talent_1" class="text-gray-600 body-font">
-        <div class="container p-24 mx-auto flex flex-wrap" style="align-items: center;">
-        <div style="width:50%; padding: 30px;">
-           <h1 class="m-2" style="font-size: 38px;
-              font-weight: 500;">Add your heading title here</h1>
-           <h2 class="m-2 mb-5" style="font-size: 24px;
-              font-weight: 400;
-              line-height: 1.3">The Image and Text module is a place where you can
-              visually show your user or client aspects of your
-              company or product.
-           </h2>
-        </div>
-        <div style="width:50%; padding: 30px;">
-           <img class="object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
-              height: 400px;">
-              <figcaption style="padding: 30px;
-              text-align: center;
-              font-weight: 500;
-              font-size: 24px;
-              background-color: #f8f8fa;
-              border-radius: 0px 0px 5px 5px;">Caption Example</figcaption>
-        </div>
-        </div>
-     </div>`,
+    content: `<section  id= "talent_1">
+    
+<div class="container mx-auto px-4" style="padding:50px; background-color:#399918;">
+    <div class="flex" style="align-items:center; margin:50px;">
+     <div class="w-full md:w-4/12 px-4 mr-auto ml-auto" style="height:300px;">
+       <img src="https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_960_720.png" alt="..." class="max-w-full rounded-lg" style="height: 100%;
+       width: 100%;
+       object-fit: contain;">
+     </div>
+   
+    <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+          <h1 style="font-size: 34px;
+          color:#fff;
+          text-align:left;
+          font-weight:500;
+          letter-spacing:1px;">Join Talent Clouds</h1>
+          <p style="font-size:18px;
+             color: #fff;
+             text-align:left;
+             line-height:1.6;
+             margin-top:10px;
+             font-weight:300;">You can apply to be considered for the opportunities that match your skills, interests and availability. 
+             </p>
+             <p style="font-size:18px;
+             color: #fff;
+             text-align:left;
+             line-height:1.6;
+             margin-top:10px;
+             font-weight:300;">Most opportunities are remote, but some travel may be required depending on the project need.
+          </p>
+       </div>
+    </div>
+ </div>
+ </section> 
+ `,
   });
 
   addBlock('image-banner', {
