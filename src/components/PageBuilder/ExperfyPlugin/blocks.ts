@@ -3,7 +3,7 @@ import type grapesjs from 'grapesjs';
 import { ReactComponentElement as footer } from 'react';
 
 import { RequiredPluginOptions } from '.';
-import './index.scss';
+import { SectionStyle as style } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
@@ -16,27 +16,27 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       });
   };
 
-  //   addBlock('header', {
-  //     label: 'Header',
-  //     category: 'Header',
-  //     media: `<svg viewBox="0 0 24 24">`,
-  //     content: ` <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
-  //     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-  //        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-  //        <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
-  //        <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
-  //        <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50ae81"/>
-  //      </svg>
-  //           <span class="ml-3 text-xl" style="color:#ffffff; font-weight:700; font-size:28px;">Logo</span>
-  //        </a>
-  //        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-  //        <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Home</a>
-  //        <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">About</a>
-  //        <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Services</a>
-  //        <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Contact</a></nav>
-  //     </div>
-  //  </header>`,
-  //   });
+  addBlock('header', {
+    label: 'Header',
+    category: 'Header & Footer Elements',
+    media: `<svg viewBox="0 0 24 24">`,
+    content: ` <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
+      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+         <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+         <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
+         <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
+         <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50ae81"/>
+       </svg>
+            <span class="ml-3 text-xl" style="color:#ffffff; font-weight:700; font-size:28px;">Logo</span>
+         </a>
+         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+         <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Home</a>
+         <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">About</a>
+         <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Services</a>
+         <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Contact</a></nav>
+      </div>
+   </header>`,
+  });
   addBlock('footer', {
     label: 'Footer',
     category: 'Header & Footer Elements',
@@ -1335,29 +1335,24 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section  id= "image_text_1"   class="text-gray-600 body-font">
-        <div class="container p-24 mx-auto flex flex-wrap" style="align-items: center;">
-        <div style="width:50%; padding: 30px;">
-           <h1 class="m-2" style="font-size: 38px;
-              font-weight: 500;">Add your heading title here</h1>
-           <h2 class="m-2 mb-5" style="font-size: 24px;
-              font-weight: 400;
-              line-height: 1.3">The Image and Text module is a place where you can
+    content: `<section  id= "image_text_1">
+        <div class=".main_container">
+        <div>
+           <h1 class="main_heading" >Add your heading title here</h1>
+           <h2 class="sub_heading">The Image and Text module is a place where you can
               visually show your user or client aspects of your
               company or product.
            </h2>
         </div>
-        <div style="width:50%; padding: 30px;">
-           <img class="object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
-              height: 400px;">
-              <figcaption style="padding: 30px;
-              text-align: center;
-              font-weight: 500;
-              font-size: 24px;
-              background-color: #f8f8fa;
-              border-radius: 0px 0px 5px 5px;">Caption Example</figcaption>
+        <div class="img_container">
+           <img class="img_container img" src="https://dummyimage.com/1200x500" alt="step">
+              <figcaption class="figure_caption" >Caption Example</figcaption>
         </div>
         </div>
-        </section>`,
+        </section>
+        ${style}
+        
+        
+        `,
   });
 };

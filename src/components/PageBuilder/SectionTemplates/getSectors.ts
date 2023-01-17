@@ -1233,21 +1233,15 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'main-color',
+            'data-target': '.main_heading .sub_heading',
           },
         },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'color-typo',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
+    
       ],
     },
     {
@@ -1258,24 +1252,33 @@ const obj = {
         {
           type: 'slider',
           name: 'Spacing',
-          property: 'opacity',
+          property: 'padding',
+          attributes: {
+            'data-type': 'padding',
+            'data-attribute': 'image-padding',
+            'data-target': '.img_container img',
+          },
           default: '1',
+          units: ['px', 'em', 'rem'],
         },
         {
           type: 'select',
           name: 'Border Type',
           property: 'border-style',
           default: 'solid',
+          attributes: {
+            'data-type': 'border-style',
+            'data-attribute': 'image-border-style',
+            'data-target': '.img_container img',
+          },
           options: [
             { value: 'solid', name: 'Solid' },
             { value: 'dotted', name: 'Dotted' },
             { value: 'dashed', name: 'Dashed' },
             { value: 'double', name: 'Double' },
             { value: 'groove', name: 'Groove' },
-            { value: 'ridge', name: 'Ridge' },
             { value: 'inset', name: 'Inset' },
             { value: 'outset', name: 'Outset' },
-            { value: 'none', name: 'None' },
             { value: 'hidden', name: 'Hidden' },
           ],
         },
@@ -1290,9 +1293,14 @@ const obj = {
           name: 'Display',
           property: 'display',
           default: 'show',
+          attributes: {
+            'data-type': 'display',
+            'data-attribute': 'gallery-display',
+            'data-target': '.figure_caption',
+          },
           options: [
-            { value: 'show', name: 'Show' },
-            { value: 'hide', name: 'Hide' },
+            { value: 'block', name: 'Show' },
+            { value: 'none', name: 'Hide' },
           ],
         },
         {
@@ -1300,6 +1308,11 @@ const obj = {
           name: 'Alignment',
           property: 'text-align',
           default: 'left',
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'gallery-text-align',
+            'data-target': '.figure_caption',
+          },
           options: [
             { value: 'left', name: 'Left' },
             { value: 'center', name: 'Center' },
@@ -1309,21 +1322,15 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'gallery-color',
+            'data-target': '.figure_caption',
           },
         },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'typo-color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
+     
       ],
     },
   ],
