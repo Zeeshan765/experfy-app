@@ -1,13 +1,13 @@
 // @ts-ignore
-import React, { memo, useState, useEffect, useContext } from "react";
-import { useModal } from "@faceless-ui/modal";
-import { Modal, ModalToggler } from "@faceless-ui/modal";
-import { Dialog, DialogContent, DialogTitle } from "@mui/material";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import CloseIcon from "@mui/icons-material/Close";
-import { useStyles } from "./style";
-import { Button } from "payload/components/elements";
-import { Context } from "../../MyProvider";
+import React, { memo, useState, useEffect, useContext } from 'react';
+import { useModal } from '@faceless-ui/modal';
+import { Modal, ModalToggler } from '@faceless-ui/modal';
+import { Dialog, DialogContent, DialogTitle } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import CloseIcon from '@mui/icons-material/Close';
+import { useStyles } from './style';
+import { Button } from 'payload/components/elements';
+import { Context } from '../../MyProvider';
 
 const FaceLessModel = ({ data, templateModelClose }) => {
   const classes = useStyles();
@@ -42,20 +42,20 @@ const FaceLessModel = ({ data, templateModelClose }) => {
         <DialogTitle sx={{ boxShadow: 3 }}>
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              width: "95%",
-              margin: "0px auto",
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              width: '95%',
+              margin: '0px auto',
             }}
           >
             <p
               onClick={handleClose}
               style={{
-                cursor: "pointer",
-                margin: "0px",
-                fontSize: "16px",
-                fontWeight: "600",
+                cursor: 'pointer',
+                margin: '0px',
+                fontSize: '16px',
+                fontWeight: '600',
               }}
             >
               <ArrowBackIosIcon />
@@ -72,9 +72,14 @@ const FaceLessModel = ({ data, templateModelClose }) => {
               <a
                 onClick={handleClose}
                 className={classes.previewModalHeaderClose}
-                style={{color:'#fff', backgroundColor:'#dfdfdf',padding:'8px',borderRadius:'15%' }}
+                style={{
+                  color: '#fff',
+                  backgroundColor: '#dfdfdf',
+                  padding: '8px',
+                  borderRadius: '15%',
+                }}
               >
-                <CloseIcon  />
+                <CloseIcon />
               </a>
             </div>
           </div>
