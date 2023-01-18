@@ -1241,7 +1241,6 @@ const obj = {
             'data-target': '.main_heading .sub_heading',
           },
         },
-    
       ],
     },
     {
@@ -1330,7 +1329,6 @@ const obj = {
             'data-target': '.figure_caption',
           },
         },
-     
       ],
     },
   ],

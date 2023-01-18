@@ -149,7 +149,7 @@ const SectionPageBuilder: React.FC = () => {
     // editor.on('load', () => openBl.set('active', true));
 
     editor.on('load', () => {
-      if (blocks.length === 1) {
+      if (blocks.length === 1 && editor) {
         editor.runCommand('show-styles');
         editor.runCommand('show-traits');
         editor.stopCommand('stop-blocks');
@@ -171,14 +171,14 @@ const SectionPageBuilder: React.FC = () => {
           sectors.add(getSectors(component[0].ccid));
         }
       } else {
-        editor.runCommand('show-blocks');
-        editor.runCommand('hide-traits');
-        editor.runCommand('hide-styles');
+        editor?.runCommand('show-blocks');
+        editor?.runCommand('hide-traits');
+        editor?.runCommand('hide-styles');
       }
     });
 
     editor.on('run:component-select', () =>
-      editor.Components.getWrapper()
+      editor?.Components.getWrapper()
         .getTraits()
         .forEach((trait) => {
           trait.set('disabled', false);
@@ -186,9 +186,9 @@ const SectionPageBuilder: React.FC = () => {
     );
 
     editor.on('component:drag:end', () => {
-      editor.runCommand('show-styles');
-      editor.runCommand('show-traits');
-      editor.stopCommand('stop-blocks');
+      editor?.runCommand('show-styles');
+      editor?.runCommand('show-traits');
+      editor?.stopCommand('stop-blocks');
     });
   }, [setEditor]);
 

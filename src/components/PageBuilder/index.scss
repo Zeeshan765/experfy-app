@@ -9,8 +9,9 @@ $fontSizeS: 0.85rem;
 $mainFont: "proxima-nova", sans-serif;
 $fontPath: "../../assets/fonts/proxima-nova";
 $fontName: "proximanova-black-webfont";
-@import "grapesjs/src/styles/scss/main.scss";
 $deviceBackground: #2f3d55;
+@import "grapesjs/src/styles/scss/main.scss";
+
 
 .editor-canvas {
   flex-grow: 1;
@@ -505,13 +506,26 @@ $deviceBackground: #2f3d55;
   }
 }
 
-.gjs-pn-save {
-  background-color: #4ba4da !important;
 
-  .gjs-pn-btn {
-    color: #fff !important;
+.gjs-pn-btn {
+
+
+  svg {
+    vertical-align: top;
+    padding-bottom: 2px;
+    height: 24px;
+    width: 24px;
   }
 }
+
+#preview {
+  svg {
+    width: 16px;
+    height: 20px;
+    padding-bottom: 0px;
+  }
+}
+
 
 
 .gjs-layer {
