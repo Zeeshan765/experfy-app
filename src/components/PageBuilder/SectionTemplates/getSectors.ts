@@ -16,7 +16,7 @@ const obj = {
         'background-color',
       ],
       attributes: {
-        'data-target': '.header-div',
+        'data-target': '.header-div .header-navabr a',
       },
 
       properties: [
@@ -40,7 +40,8 @@ const obj = {
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
-            'data-target': 'header_1',
+            'data-attribute':'header-text-color',
+            'data-target': '.header-logo-text',
           },
         },
       ],
@@ -58,7 +59,12 @@ const obj = {
           default: '100%',
           min: 0,
           max: 100,
-          units: ['%'],
+          units: ['%','px'],
+          attributes: {
+            'data-type': 'width',
+            'data-attribute':'header-logo-width',
+            'data-target': '.logo',
+          },
         },
 
         {
@@ -69,6 +75,11 @@ const obj = {
           step: 0.1,
           min: 0,
           max: 1,
+          attributes: {
+            'data-type': 'opacity',
+            'data-attribute':'header-logo-opacity',
+            'data-target': '.logo',
+          },
         },
         {
           type: 'radio',
@@ -82,6 +93,11 @@ const obj = {
             { value: 'blur(8px)', name: '8px' },
             { value: 'blur(10px)', name: '10px' },
           ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-blur',
+            'data-target': '.logo',
+          },
         },
         {
           type: 'radio',
@@ -95,6 +111,11 @@ const obj = {
             { value: 'brightness(25%)', name: '25%' },
             { value: 'brightness(0%)', name: '0%' },
           ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-brightness',
+            'data-target': '.logo',
+          },
         },
         {
           type: 'radio',
@@ -107,6 +128,11 @@ const obj = {
             { value: 'contrast(25%)', name: '25%' },
             { value: 'contrast(0%)', name: '0%' },
           ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-contrast',
+            'data-target': '.logo',
+          },
         },
         {
           type: 'radio',
@@ -120,6 +146,11 @@ const obj = {
             { value: 'saturate(25%)', name: '25%' },
             { value: 'saturate(0%)', name: '0%' },
           ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-saturation',
+            'data-target': '.logo',
+          },
         },
         {
           type: 'select',
@@ -538,14 +569,14 @@ const obj = {
             'data-type': 'color',
           },
         },
-        {
-          type: 'select',
-          name: 'Typography',
-          property: 'font-family',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
+        // {
+        //   type: 'select',
+        //   name: 'Typography',
+        //   property: 'font-family',
+        //   attributes: {
+        //     'data-type': 'color',
+        //   },
+        // },
       ],
     },
     {

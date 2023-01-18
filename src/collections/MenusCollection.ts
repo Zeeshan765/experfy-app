@@ -25,6 +25,20 @@ const Menu: CollectionConfig = {
       required: true,
     },
     {
+      name: 'section',
+      type: 'select',
+      options: [
+        {
+          value: 'header',
+          label: 'Header',
+        },
+        {
+          value: 'footer',
+          label: 'Footer',
+        },
+      ],
+    },
+    {
       name: 'nav',
       label: 'Navigation',
       type: 'array',

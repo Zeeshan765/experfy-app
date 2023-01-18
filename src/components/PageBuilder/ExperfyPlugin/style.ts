@@ -141,4 +141,55 @@ export const SectionStyle = `<style>
 /* /////////////////////////////////////////////
 /////////// Benefits style //////////
 /////////////////////////////////////////// */
+
+.benefits-container{
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  }
+  .benefits-title-div{
+    text-align: center;
+  }
+  .benefits-title-div h1{
+    font-size: 42px;
+    margin-bottom: 0.5rem;
+  color: #111827;
+  line-height: 2.25rem;
+  font-weight: 500;
+  }
+  .benefits-title-div h2{
+    font-size: 20px;
+    font-weight: 300;
+  }
+  .benefits-title-div p {
+    text-align: center;
+  }
+  .benefits-option-section{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  }
+  .benefits-option-section .benefit-holder{
+    padding: 0.75rem;
+    margin: 0.75rem;
+  }
+    .benefits-option-section .benefit-holder h1{
+      font-size: 20px;
+      font-weight: 600;
+      color: #444;
+      text-align:center;
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+      }
+      .benefits-option-section .benefit-holder p{
+        text-align:left;
+        line-height: 1.7;
+      }
+
+
+    /* /////////////////////////////////////////////
+    ////////////Talent CLoud style //////////*/
+
+    
 </style>`;

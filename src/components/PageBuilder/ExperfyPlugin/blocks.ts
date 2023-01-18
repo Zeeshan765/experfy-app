@@ -24,7 +24,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <header id=header_1 class="header-div">
     <div class="header-container">
     <a  class="logo-link">
-    <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
+    <svg id="noun-logo-2121439" class="logo" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
     <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50AE81" fill-rule="evenodd"/>
     <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50AE81"/>
   </svg>
@@ -282,31 +282,29 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </section>`,
   });
-  addBlock('benefits', {
-    label: 'Benefits',
-    category: 'Section Modules',
+  addBlock("benefits", {
+    label: "Benefits",
+    category: "Section Modules",
     media: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
     <g>
      <title>Layer 1</title>
      <g id="noun-health-insurance-1893284">
-      <path id="Path_169632" data-name="Path 169632" d="m8.286,22.33901l0.209,0.14l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.771,18.771 0 0 0 2.967,-10.75l0,-0.314l-0.279,-0.035a11.443,11.443 0 0 1 -4.258,-1.326a11.685,11.685 0 0 1 -3.8,-3.351l-0.279,-0.314l-0.279,0.349a12.267,12.267 0 0 1 -7.923,4.642l-0.314,0.035l0,0.314a18.6,18.6 0 0 0 3,10.925a18.058,18.058 0 0 0 5.27,5.27l-0.003,0zm-4.363,-11.483a0.35,0.35 0 0 1 0.349,-0.349l3.141,0l0,-3.141a0.35,0.35 0 0 1 0.349,-0.349l1.745,0a0.35,0.35 0 0 1 0.349,0.349l0,3.141l3.142,0a0.35,0.35 0 0 1 0.349,0.349l0,1.745a0.35,0.35 0 0 1 -0.349,0.349l-3.141,0l0,3.141a0.35,0.35 0 0 1 -0.349,0.349l-1.745,0a0.35,0.35 0 0 1 -0.349,-0.349l0,-3.141l-3.141,0a0.35,0.35 0 0 1 -0.349,-0.349l-0.001,-1.745z" fill="#4a5162"/>
-      <path id="Path_169633" data-name="Path 169633" d="m20.536,5.026l-0.279,-0.035a12.53,12.53 0 0 1 -4.293,-1.326a11.933,11.933 0 0 1 -3.281,-2.618l-0.768,-1.047l-1.815,1.815l0,0.384a11.757,11.757 0 0 0 2.653,2.059a10.888,10.888 0 0 0 4.153,1.291l0.593,0.07l0,0.593a19.216,19.216 0 0 1 -3.037,10.925a18.581,18.581 0 0 1 -3.455,3.944l0.838,0.558l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.772,18.772 0 0 0 2.967,-10.75l0.035,-0.278z" fill="#4a5162"/>
+      <path id="Path_169632" data-name="Path 169632" d="m8.286,22.33901l0.209,0.14l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.771,18.771 0 0 0 2.967,-10.75l0,-0.314l-0.279,-0.035a11.443,11.443 0 0 1 -4.258,-1.326a11.685,11.685 0 0 1 -3.8,-3.351l-0.279,-0.314l-0.279,0.349a12.267,12.267 0 0 1 -7.923,4.642l-0.314,0.035l0,0.314a18.6,18.6 0 0 0 3,10.925a18.058,18.058 0 0 0 5.27,5.27l-0.003,0zm-4.363,-11.483a0.35,0.35 0 0 1 0.349,-0.349l3.141,0l0,-3.141a0.35,0.35 0 0 1 0.349,-0.349l1.745,0a0.35,0.35 0 0 1 0.349,0.349l0,3.141l3.142,0a0.35,0.35 0 0 1 0.349,0.349l0,1.745a0.35,0.35 0 0 1 -0.349,0.349l-3.141,0l0,3.141a0.35,0.35 0 0 1 -0.349,0.349l-1.745,0a0.35,0.35 0 0 1 -0.349,-0.349l0,-3.141l-3.141,0a0.35,0.35 0 0 1 -0.349,-0.349l-0.001,-1.745z" fill="#4A5162"/>
+      <path id="Path_169633" data-name="Path 169633" d="m20.536,5.026l-0.279,-0.035a12.53,12.53 0 0 1 -4.293,-1.326a11.933,11.933 0 0 1 -3.281,-2.618l-0.768,-1.047l-1.815,1.815l0,0.384a11.757,11.757 0 0 0 2.653,2.059a10.888,10.888 0 0 0 4.153,1.291l0.593,0.07l0,0.593a19.216,19.216 0 0 1 -3.037,10.925a18.581,18.581 0 0 1 -3.455,3.944l0.838,0.558l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.772,18.772 0 0 0 2.967,-10.75l0.035,-0.278z" fill="#4A5162"/>
       <path id="Path_169634" data-name="Path 169634" d="m29.82099,11.23901z"/>
      </g>
     </g>
-   
    </svg>`,
-    content: `<section  id= "benefit_1" class="text-gray-600 body-font">
-    <div class="container mx-auto px-24 py-24 text-center" style="width: 70%;
-       margin: auto;">
-       <div class="text-center">
-          <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900" style="font-size: 42px;">Add your heading title here</h1>
-          <h2 class="" style="font-size: 23px;">The benefits module highlights the positive characteristics and values within your
+    content: `<section  id= "benefit_1" class="benefits-main-wrapper">
+    <div class="benefits-container" >
+       <div class="benefits-title-div">
+          <h1>Add your heading title here</h1>
+          <h2>The benefits module highlights the positive characteristics and values within your
              company or business. Add perks, benefits, or milestones.
           </h2>
        </div>
-       <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
-          <div class="benefit m-3 p-3">
+       <div class="benefits-option-section">
+          <div class="benefit-holder">
           <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
@@ -314,17 +312,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             </g>
           </g>
         </svg>
-        
-             <h1 class="my-5" style="font-size: 20px;
-                font-weight: 500;
-                color: #444;
-                text-align:center;">Benefit 01</h1>
-             <p style="text-align:left; line-height: 1.7;">Lorem ipsum dolor sit amet. Est
+             <h1>Benefit 01</h1>
+             <p>Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
              </p>
           </div>
-          <div class="benefit m-3 p-3">
+          <div class="benefits-option-section">
+          <div class="benefit-holder">
           <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
@@ -332,17 +327,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             </g>
           </g>
         </svg>
-        
-             <h1 class="my-5" style="font-size: 20px;
-                font-weight: 500;
-                color: #444;
-                text-align:center;">Benefit 02</h1>
-             <p style="text-align:left; line-height: 1.7;">Lorem ipsum dolor sit amet. Est
+             <h1>Benefit 01</h1>
+             <p>Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
              </p>
           </div>
-          <div class="benefit m-3 p-3">
+          <div class="benefits-option-section">
+          <div class="benefit-holder">
           <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
@@ -350,19 +342,17 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             </g>
           </g>
         </svg>
-        
-             <h1 class="my-5" style="font-size: 20px;
-                font-weight: 500;
-                color: #444;
-                text-align:center;">Benefit 03</h1>
-             <p style="text-align:left; line-height: 1.7;">Lorem ipsum dolor sit amet. Est
+             <h1>Benefit 01</h1>
+             <p>Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
              </p>
           </div>
        </div>
     </div>
- </section>`,
+ </section>
+ ${style}
+ `,
   });
   addBlock('practice-areas', {
     label: 'Practice Area',
