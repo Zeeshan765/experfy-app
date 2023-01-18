@@ -16,26 +16,29 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       });
   };
 
-  addBlock('header', {
-    label: 'Header',
-    category: 'Header & Footer Elements',
+  addBlock("header", {
+    label: "Header",
+    category: "Header & Footer Elements",
     media: `<svg viewBox="0 0 24 24">`,
-    content: ` <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
-      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-         <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-         <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
-         <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
-         <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50ae81"/>
-       </svg>
-            <span class="ml-3 text-xl" style="color:#ffffff; font-weight:700; font-size:28px;">Logo</span>
-         </a>
-         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-         <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Home</a>
-         <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">About</a>
-         <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Services</a>
-         <a class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">Contact</a></nav>
-      </div>
-   </header>`,
+    content: `
+    <header id=header_1 class="header-div">
+    <div class="header-container">
+    <a  class="logo-link">
+    <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
+    <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50AE81" fill-rule="evenodd"/>
+    <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50AE81"/>
+  </svg>
+       <span class="header-logo-text">Logo</span>
+    </a>
+    <nav class="header-navabr">
+    <a>Home</a>
+    <a>About</a>
+    <a>Services</a>
+    <a>Contact</a></nav>
+    </div>
+   </header>
+   ${style}
+   `,
   });
   addBlock('footer', {
     label: 'Footer',
@@ -1175,71 +1178,45 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: `<section  id= "paragraph_1" class="text-gray-600 body-font"><div class="container  px-5 py-24 mx-auto flex flex-wrap"><div class="flex w-full mb-20 flex-wrap"><h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">Master Cleanse Reliac Heirloom</h1><p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p></div><div class="flex flex-wrap md:-m-2 -m-1"><div class="flex flex-wrap w-1/2"><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/500x300"></div><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/501x301"></div><div class="md:p-2 p-1 w-full"><img alt="gallery" class="w-full h-full object-cover object-center block" src="https://dummyimage.com/600x360"></div></div><div class="flex flex-wrap w-1/2"><div class="md:p-2 p-1 w-full"><img alt="gallery" class="w-full h-full object-cover object-center block" src="https://dummyimage.com/601x361"></div><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/502x302"></div><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/503x303"></div></div></div></div></section>`,
   });
 
-  addBlock('metrics-numbers', {
-    label: 'Numbers',
-    category: 'Section Modules',
+  addBlock("metrics-numbers", {
+    label: "Numbers",
+    category: "Section Modules",
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <g id="noun-metrics-4041242" transform="translate(-70 -81.367)">
-      <path id="Path_169485" data-name="Path 169485" d="M80.035,81.367a10.055,10.055,0,0,0-9.124,14.238H89.159a10.055,10.055,0,0,0-9.124-14.238Zm-.6,1.837h1.191v1.745H79.439Zm-5.865,8.818H71.833V90.828h1.741Zm1.486-4.741-1.238-1.24.842-.845,1.238,1.24Zm4.975,6.376A1.757,1.757,0,0,1,78.282,91.9a45.3,45.3,0,0,1,1.179-4.989.6.6,0,0,1,1.148,0A45.324,45.324,0,0,1,81.788,91.9,1.756,1.756,0,0,1,80.035,93.658Zm4.975-6.376-.842-.845,1.238-1.24.842.845Zm3.228,4.741H86.5V90.828h1.741Z" fill="#4a5162"/>
-      <path id="Path_169486" data-name="Path 169486" d="M334.32,307.642a.562.562,0,0,0,1.124,0,22.67,22.67,0,0,0-.562-2.516A22.657,22.657,0,0,0,334.32,307.642Z" transform="translate(-254.847 -215.739)" fill="#4a5162"/>
+      <path id="Path_169485" data-name="Path 169485" d="M80.035,81.367a10.055,10.055,0,0,0-9.124,14.238H89.159a10.055,10.055,0,0,0-9.124-14.238Zm-.6,1.837h1.191v1.745H79.439Zm-5.865,8.818H71.833V90.828h1.741Zm1.486-4.741-1.238-1.24.842-.845,1.238,1.24Zm4.975,6.376A1.757,1.757,0,0,1,78.282,91.9a45.3,45.3,0,0,1,1.179-4.989.6.6,0,0,1,1.148,0A45.324,45.324,0,0,1,81.788,91.9,1.756,1.756,0,0,1,80.035,93.658Zm4.975-6.376-.842-.845,1.238-1.24.842.845Zm3.228,4.741H86.5V90.828h1.741Z" fill="#4A5162"/>
+      <path id="Path_169486" data-name="Path 169486" d="M334.32,307.642a.562.562,0,0,0,1.124,0,22.67,22.67,0,0,0-.562-2.516A22.657,22.657,0,0,0,334.32,307.642Z" transform="translate(-254.847 -215.739)" fill="#4A5162"/>
     </g>
   </svg>
   `,
-    content: `<section class="text-gray-600 body-font" id= "number_1">
-        <div class="container mx-auto px-24 py-24 text-center" style="width: 70%;
-          margin: auto;">
-          <div class="text-center">
-              <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900" style="font-size: 42px;">Add your heading title here</h1>
-              <h2 class="" style="font-size: 23px;">The numbers module allows you to showcase your company’s metrics and
+    content: `<section class="main_wrapper" id= "number_1">
+        <div class="number-container-div">
+        <div class="title-div">
+              <h1>Add your heading title here</h1>
+              <h2>The numbers module allows you to showcase your company’s metrics and
                 statistical accomplishments
               </h2>
           </div>
-          <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center" style="justify-content: space-between;">
-              <div class="benefit m-3 p-3" style="border: 3px solid #196932;
-                border-radius: 100%;
-                width: 200px;
-                height: 200px;">
+          <div class="number-percentagges-section">
+              <div class="benefit percentage-info">
                 <i class="fa fa-star"></i>
-                <h1 class="my-5" style="font-size: 34px;
-                    font-weight: 500;
-                    color: #444;
-                    text-align:center;">10 <span style="font-weight:300; color: #717171;"> % </span></h1>
-                <p style="text-align: center;
-                    line-height: 1.5;
-                    font-size: 14px;
-                    font-weight: 500;">INSERT STATISTIC INFORMATION</p>
+                <h1 class="" >10 <span> % </span></h1>
+                <p >INSERT STATISTIC INFORMATION</p>
               </div>
-              <div class="benefit m-3 p-3" style="border: 3px solid #196932;
-                border-radius: 100%;
-                width: 200px;
-                height: 200px;">
+              <div class="benefit percentage-info">
                 <i class="fa fa-star"></i>
-                <h1 class="my-5" style="font-size: 34px;
-                    font-weight: 500;
-                    color: #444;
-                    text-align:center;">10 <span style="font-weight:300; color: #717171;"> % </span></h1>
-                <p style="text-align: center;
-                    line-height: 1.5;
-                    font-size: 14px;
-                    font-weight: 500;">INSERT STATISTIC INFORMATION</p>
+                <h1 class="" >10 <span> % </span></h1>
+                <p >INSERT STATISTIC INFORMATION</p>
               </div>
-              <div class="benefit m-3 p-3" style="border: 3px solid #196932;
-                border-radius: 100%;
-                width: 200px;
-                height: 200px;">
-                <i class="fa fa-star"></i>
-                <h1 class="my-5" style="font-size: 34px;
-                    font-weight: 500;
-                    color: #444;
-                    text-align:center;">10 <span style="font-weight:300; color: #717171;"> % </span></h1>
-                <p style="text-align: center;
-                    line-height: 1.5;
-                    font-size: 14px;
-                    font-weight: 500;">INSERT STATISTIC INFORMATION</p>
+              <div class="benefit percentage-info">
+              <i class="fa fa-star"></i>
+              <h1 class="" >10 <span> % </span></h1>
+              <p >INSERT STATISTIC INFORMATION</p>
+            </div>
               </div>
           </div>
-        </div>
-    </section> `,
+    </section>
+    ${style}
+    `,
   });
 
   addBlock('talent-cloud-candidates', {
