@@ -29,7 +29,6 @@ import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sectio
 import PortalIdentity from './components/PortalIdentity';
 import selectPageCode from './components/selectPageCode.tsx';
 import TemplatesLibrary from './components/TemplateLibrary';
-import Templates from './components/Templates';
 import MyProvider from './MyProvider';
 
 dotenv.config();
@@ -78,7 +77,7 @@ export default buildConfig({
         },
         {
           path: '/collections/templates',
-          Component: Templates,
+          Component: TemplatesLibrary,
         },
         {
           path: '/collections/themes-style',
@@ -88,7 +87,7 @@ export default buildConfig({
         },
         {
           path: '/collections/new-page-builder',
-          Component: NewPageBuilder,
+          Component: NewPageBuilder ,
           exact: true,
           strict: true,
         },

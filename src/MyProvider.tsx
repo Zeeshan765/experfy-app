@@ -4,8 +4,9 @@ import dotenv from "dotenv";
 import { BrowserRouter } from "react-router-dom";
 import { useConfig } from "payload/components/utilities";
 import ExperfyNavbar from "./components/Nav/ExperfyNavBar";
+import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
+import Store from "./reducer/store";
 
 export const Context = createContext({} as any);
 
@@ -17,8 +18,8 @@ const MyProvider: React.FC<any> = ({ children }) => {
   const [adminPortal, setAdminPortal] = useState({});
   const [brands, setBrands] = useState(["hey"]);
   const [seo_setting, setSeo_Setting] = useState({});
-  const [selectedPageId, setSelectedPageId] = useState("1234");
-  // const setSelectedPageId = (id) => {
+  const [selectedPageCode, setSelectedPageCode] = useState("1234");
+  // const setSelectedPageCode = (id) => {
   //   setPageId(id);
   // };
 
@@ -30,8 +31,8 @@ const MyProvider: React.FC<any> = ({ children }) => {
     seo_setting,
     setSeo_Setting,
     adminRoute,
-    setSelectedPageId,
-    selectedPageId,
+    setSelectedPageCode,
+    selectedPageCode,
   };
 
   // const LOGIN_URL = 'https://landing-ui-service.develop.experfy.com/login';
@@ -65,10 +66,12 @@ const MyProvider: React.FC<any> = ({ children }) => {
   // getTokenApi();
 
   return (
-    <BrowserRouter>
-      {/* <ExperfyNavbar /> */}
-      <Context.Provider value={value}>{children}</Context.Provider>
-    </BrowserRouter>
+    <Provider store={Store}>
+      <BrowserRouter>
+        <ExperfyNavbar />
+        <Context.Provider value={value}>{children}</Context.Provider>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

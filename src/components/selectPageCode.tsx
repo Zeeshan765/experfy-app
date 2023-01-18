@@ -7,14 +7,14 @@ import { Context } from "../MyProvider";
 type Props = { path: string };
 
 const SelectPage = ({ path }) => {
-  const { selectedPageId } = useContext(Context);
+  const { selectedPageCode } = useContext(Context);
 
   return (
     <div>
       <TextInput
         path={"page_Id"}
         required={true}
-        defaultValue={selectedPageId}
+        defaultValue={selectedPageCode}
         hidden={true}
       />
     </div>

@@ -1,8 +1,8 @@
 import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import React from 'react';
-import '../../index.scss';
 import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
+import '../../index.scss';
 
 const ImageBanner = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -47,7 +47,6 @@ const ImageBanner = () => {
                 { id: 'xxl', name: 'XXL' },
               ],
             },
-
             {
               type: 'select',
               name: 'text-html-tag',

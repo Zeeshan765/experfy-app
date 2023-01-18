@@ -12,7 +12,7 @@ import { Context } from '../../MyProvider';
 const FaceLessModel = ({ data, templateModelClose }) => {
   const classes = useStyles();
   const { id, name, image } = data;
-  const { setSelectedPageId } = useContext(Context);
+  const { setSelectedPageCode } = useContext(Context);
 
   const [subModelopen, setSubModelOpen] = useState(false);
   const { toggleModal } = useModal();
@@ -23,7 +23,7 @@ const FaceLessModel = ({ data, templateModelClose }) => {
     setSubModelOpen(false);
   };
   const createPageHandler = () => {
-    setSelectedPageId(id);
+    setSelectedPageCode(id);
     handleClose();
     templateModelClose();
   };
