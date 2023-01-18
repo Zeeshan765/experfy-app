@@ -4,7 +4,6 @@ const obj = {
       name: 'Header',
       open: true,
       buildProps: [
-        'background',
         'border',
         'font-family',
         'font-size',
@@ -13,9 +12,27 @@ const obj = {
         'line-height',
         'text-align',
         'text-shadow',
-        'text-transform',
+        
+        'background-color',
       ],
+      attributes: {
+        'data-target': '.header-div',
+      },
+
       properties: [
+        // {
+        //   type: 'backgound-color',
+        //   name: 'Background Color',
+        //   property: 'backgound-color',
+        //   // default: '#4aa4da',
+        //   attributes: {
+        //     'data-type': 'backgound-color',
+        //     'data-attribute':'header-background-color',
+        //     'data-target': '.header-div',
+        //   },
+        // },
+
+
         {
           type: 'color',
           name: 'Text Color',
@@ -923,15 +940,21 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'number-heading-color',
+            'data-target': '.number-container-div h1 .number-container-div h2 ',
+          },
+           
         },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'typo-color',
-          default: '#4aa4da',
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Typography',
+        //   property: 'typo-color',
+        //   default: '#4aa4da',
+        // },
       ],
     },
 
@@ -942,8 +965,14 @@ const obj = {
         {
           type: 'color',
           name: 'Number',
-          property: 'number-color',
+          property: 'color',
           default: '#4aa4da',
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'number-value-color',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+          },
+           
         },
         {
           type: 'select',
@@ -986,6 +1015,11 @@ const obj = {
             },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
+          attributes: {
+            'data-type': 'font-family',
+            'data-attribute': 'number-value-font',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+          },
         },
         {
           type: 'select',
@@ -997,6 +1031,11 @@ const obj = {
             { value: 'bold', name: 'Bold' },
             { value: 'normal', name: 'Normal' },
           ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'number-value-weight',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+          },
         },
         {
           type: 'select',
@@ -1022,7 +1061,7 @@ const obj = {
         {
           type: 'select',
           name: ' Transform',
-          property: 'text-transform',
+          property: 'transform',
           default: 'default',
           options: [
             { value: 'default', name: 'Default' },
@@ -1030,17 +1069,29 @@ const obj = {
             { value: 'lowercase', name: 'Lowercase' },
             { value: 'capitalize', name: 'Capitalize' },
           ],
+          attributes: {
+            'data-type': 'transform',
+            'data-attribute': 'number-value-transform',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+          },
         },
         {
           type: 'select',
           name: 'Decoration',
+          
           property: 'text-decoration',
+
           default: 'default',
           options: [
             { value: 'default', name: 'Default' },
             { value: 'underline', name: 'Underline' },
             { value: 'line-through', name: 'Line Through' },
           ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'number-value-decoration',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+          },
         },
       ],
     },
@@ -1050,12 +1101,15 @@ const obj = {
       properties: [
         {
           type: 'color',
-          name: 'Text Color',
-          property: 'desc-color',
+          name: 'Color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'number-description-color',
+            'data-target': '.number-percentagges-section .percentage-info p',
           },
+           
         },
         {
           type: 'select',
@@ -1098,6 +1152,11 @@ const obj = {
             },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
+          attributes: {
+            'data-type': 'font-family',
+            'data-attribute': 'number-description-font',
+            'data-target': '.number-percentagges-section .percentage-info p',
+          },
         },
         {
           type: 'slider',
@@ -1105,6 +1164,11 @@ const obj = {
           property: 'font-size',
           default: 14,
           units: ['px', 'em', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'number-description-font-size',
+            'data-target': '.number-percentagges-section .percentage-info p',
+          },
         },
         {
           type: 'select',
@@ -1116,6 +1180,11 @@ const obj = {
             { value: 'bold', name: 'Bold' },
             { value: 'normal', name: 'Normal' },
           ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'number-description-weight',
+            'data-target': '.number-percentagges-section .percentage-info p',
+          },
         },
         {
           type: 'select',
@@ -1136,6 +1205,11 @@ const obj = {
               name: 'Normal',
             },
           ],
+          attributes: {
+            'data-type': 'font-style',
+            'data-attribute': 'number-description-style',
+            'data-target': '.number-percentagges-section .percentage-info p',
+          },
         },
 
         {
@@ -1149,6 +1223,11 @@ const obj = {
             { value: 'lowercase', name: 'Lowercase' },
             { value: 'capitalize', name: 'Capitalize' },
           ],
+          attributes: {
+            'data-type': 'text-transform',
+            'data-attribute': 'number-description-transform',
+            'data-target': '.number-percentagges-section .percentage-info p',
+          },
         },
         {
           type: 'select',
@@ -1160,6 +1239,11 @@ const obj = {
             { value: 'underline', name: 'Underline' },
             { value: 'line-through', name: 'Line Through' },
           ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'number-description-decoration',
+            'data-target': '.number-percentagges-section .percentage-info p',
+          },
         },
         {
           type: 'slider',
@@ -1167,6 +1251,11 @@ const obj = {
           property: 'letter-spacing',
           default: '0 px',
           units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'number-description-letter-spacing',
+            'data-target': '.number-percentagges-section .percentage-info p',
+          },
         },
         {
           type: 'slider',
@@ -1175,15 +1264,13 @@ const obj = {
           ResizeObserver: true,
           default: '1',
           units: ['px', 'em', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'number-description-line-height',
+            'data-target': '.number-percentagges-section .percentage-info p',
+          },
         },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: '1',
-          units: ['px', 'em', 'rem'],
-        },
+      
       ],
     },
 
@@ -1199,6 +1286,9 @@ const obj = {
         'padding',
         'text-align',
       ],
+      attributes: {
+        'data-target': '.benefit percentage-info',
+      },
     },
   ],
   paragraph_1: [
