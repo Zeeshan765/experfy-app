@@ -3,6 +3,8 @@ import PageTheme from "../components/PageBuilderTemplate";
 import PageBuilder from "../components/PageBuilder/SectionTemplates";
 import Payload from "payload";
 import SelectPage from "../components/selectPageCode";
+import NewPageBuilder from "../components/NewPageBuilder";
+import NewPageBuilderModel from "../components/Model/NewPageBuilder";
 
 export type Type = {
   title: string;
@@ -45,7 +47,7 @@ export const Page: CollectionConfig = {
       label: "Page Type",
       type: "radio",
       required: true,
-      defaultValue: "scratch",
+      // defaultValue: "scratch",
       admin: {
         layout: "vertical",
         description: "Choose how you want to create this page",
@@ -79,7 +81,7 @@ export const Page: CollectionConfig = {
       admin: {
         condition: (data) => data.pageType === "scratch",
         components: {
-          Field: PageBuilder,
+          Field: NewPageBuilderModel,
         },
       },
     },

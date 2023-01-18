@@ -1,6 +1,6 @@
 // @ts-ignore
 import GrapesJS from "grapesjs";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 // import './grapes.min.css';
 // import './CustomGrapes.css';
 // import '../PageBuilder/index.scss';
@@ -15,10 +15,11 @@ import { useStepNav } from "payload/components/hooks";
 import Experfy from "../PageBuilder/ExperfyPlugin";
 import Forms from "grapesjs-plugin-forms";
 import NavBar from "grapesjs-navbar";
-import axios from 'axios';
+import axios from "axios";
 
 import { toast } from "react-toastify";
-const NewPageBuilder = () => {
+import { Context } from "../../MyProvider";
+const NewPageBuilder = ({ status, handleClose }) => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
   // const [pagePayload, setPagePayload] = useState<any>({
@@ -26,30 +27,39 @@ const NewPageBuilder = () => {
   //   author:'',
   // });
   const { setStepNav } = useStepNav();
+
+  const { setSelectedPageCode } = useContext(Context);
   const [headingText, setHeadingText] = React.useState<string>("abc");
-  // console.log('test of editor', editorState);
+  console.log("test of editor");
   const testRef = useRef();
 
-const clearLocalStorage=()=>{
-  localStorage.removeItem('page_code');
-}
+  const clearLocalStorage = () => {
+    localStorage.removeItem("page_code");
+  };
 
-  const checkData = () => {
+  const dataHandlear = () => {
     const data = localStorage.getItem("page_code");
-    console.log("test data********=======", typeof data);
-    axios
-      .post("http://localhost:3001/api/page-Template", {
-        title: "title",
-        pageCode: data,
-      })
-      .then((res) => {
-        console.log("res", res);
-        clearLocalStorage();
-        toast.success("Changes saved successfully");
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
+    if (status === "NewFromPage") {
+      handleClose();
+      setSelectedPageCode(data);
+      clearLocalStorage();
+    } else {
+      axios
+        .post("http://localhost:3001/api/page-Template", {
+          title: "title",
+          pageCode: data,
+        })
+        .then((res) => {
+          clearLocalStorage();
+          toast.success("Changes saved successfully");
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+
+      handleClose();
+      setSelectedPageCode("12");
+    }
   };
 
   useEffect(() => {
@@ -196,7 +206,7 @@ const clearLocalStorage=()=>{
             id: "save-editor",
             run(editor: { store: () => GrapesJS.Editor }) {
               const store = editor.store();
-              checkData();
+              dataHandlear();
             },
           },
         ],
