@@ -1346,8 +1346,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section  id= "image_text_1">
-        <div class=".main_container">
+    content: `<section id="image_text_1">
+        <div class="main_container">
         <div>
            <h1 class="main_heading" >Add your heading title here</h1>
            <h2 class="sub_heading">The Image and Text module is a place where you can

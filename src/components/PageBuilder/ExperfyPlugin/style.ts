@@ -29,7 +29,7 @@ margin: 0 auto;
   margin-bottom: 5px;
 }
 .figure_caption {
-  paddding: 30px;
+  padding: 30px;
   text-align: center;
   font-size: 24px;
   font-weight: 500;
@@ -47,4 +47,4 @@ margin: 0 auto;
     object-position: center;
     }
 
-</style>`
+</style>`;
