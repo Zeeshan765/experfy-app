@@ -10,7 +10,6 @@ const TestimonialCollection: CollectionConfig = {
   admin: {
     components: {
       views: {
-        Edit: Testimonial,
         List: Testimonial,
       },
     },

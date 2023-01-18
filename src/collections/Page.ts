@@ -1,7 +1,9 @@
 import { CollectionConfig } from "payload/types";
-import PageTheme from "../components/pagebuilderTemplate";
-// import PageBuilder from '../components/PageBuilder/SectionTemplates';
-// import PageTheme from '../components/PageBuilderTemplate';
+import PageTheme from "../components/PageBuilderTemplate";
+import PageBuilder from "../components/PageBuilder/SectionTemplates";
+import Payload from "payload";
+import SelectPage from "../components/selectPageCode";
+
 export type Type = {
   title: string;
   slug: string;
@@ -70,44 +72,27 @@ export const Page: CollectionConfig = {
         },
       },
     },
-    // {
-    //   name: "template",
-    //   type: "relationship",
-    //   relationTo: "new-page-builder",
-    //   admin: {
-    //     condition: (data) => data.pageType === "scratch",
-    //       },
-    // },
+    {
+      name: "from_scratch",
+      type: "ui",
+      label: "Untitled",
+      admin: {
+        condition: (data) => data.pageType === "scratch",
+        components: {
+          Field: PageBuilder,
+        },
+      },
+    },
+    {
+      name: "page_Id",
+      type: "ui",
+      admin: {
+        components: {
+          Field: SelectPage  ,
+        },
+      },
+    },
   ],
-
-  hooks: {
-    beforeLogin: [
-      (args) => {
-        console.log("before login called", args);
-      },
-    ],
-    afterLogin: [
-      (args) => {
-        console.log("After Login Called", args);
-      },
-    ],
-    afterLogout: [
-      (args) => {
-        console.log("After Logout Called", args);
-      },
-    ],
-
-    afterRefresh: [
-      (args) => {
-        console.log("After Refresh Called", args);
-      },
-    ],
-    afterMe: [
-      (args) => {
-        console.log("After Me Called", args);
-      },
-    ],
-  },
 };
 
 export default Page;

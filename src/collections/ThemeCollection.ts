@@ -1,17 +1,20 @@
-import { CollectionConfig, GlobalConfig } from "payload/types";
-import DesignSystem from "../components/PageBuilder/DesignSystem";
+import { CollectionConfig, GlobalConfig } from 'payload/types';
+import DesignSystem from '../components/PageBuilder/DesignSystem';
 
 const ThemeCollection: CollectionConfig = {
   labels: {
-    singular: "Theme Style",
-    plural: "Theme Styles",
+    singular: 'Theme Style',
+    plural: 'Theme Styles',
   },
-  slug: "themes",
+  access: {
+    read: () => true,
+    create: () => false,
+  },
+  slug: 'themes-style',
   admin: {
-    group: "Global Theme Settings",
+    group: 'Global Theme Settings',
     components: {
       views: {
-        Edit: DesignSystem,
         List: DesignSystem,
       },
     },

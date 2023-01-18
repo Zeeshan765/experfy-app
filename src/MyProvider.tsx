@@ -1,3 +1,4 @@
+// @ts-ignore
 import React, { createContext, useState, useContext } from "react";
 import dotenv from "dotenv";
 import { BrowserRouter } from "react-router-dom";
@@ -17,6 +18,10 @@ const MyProvider: React.FC<any> = ({ children }) => {
   const [adminPortal, setAdminPortal] = useState({});
   const [brands, setBrands] = useState(["hey"]);
   const [seo_setting, setSeo_Setting] = useState({});
+  const [selectedPageId, setSelectedPageId] = useState("1234");
+  // const setSelectedPageId = (id) => {
+  //   setPageId(id);
+  // };
 
   const value = {
     adminPortal,
@@ -26,6 +31,8 @@ const MyProvider: React.FC<any> = ({ children }) => {
     seo_setting,
     setSeo_Setting,
     adminRoute,
+    setSelectedPageId,
+    selectedPageId,
   };
 
   // const LOGIN_URL = 'https://landing-ui-service.develop.experfy.com/login';

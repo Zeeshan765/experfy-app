@@ -10,9 +10,11 @@ import join from "../../assets/images/templates/join.png";
 import tc_overview from "../../assets/images/templates/tc_overview.png";
 import FaceLessModel from "../Model";
 import { Grid } from "@material-ui/core";
+import CloseIcon from "@mui/icons-material/Close";
 import PageTemplate from "../PageTemplate";
 const PageTheme = () => {
   const [open, setOpen] = React.useState(false);
+  const [search, setSearch] = React.useState("");
   const history = useHistory();
 
   const themeList = [
@@ -59,11 +61,16 @@ const PageTheme = () => {
       name: "TC Overview",
     },
   ];
+  // ======Methods===== //
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleSeach = (e) => {
+    const { value } = e.target;
+    setSearch(value);
   };
   useEffect(() => {
     handleOpen();
@@ -97,18 +104,13 @@ const PageTheme = () => {
           <p style={{ font: "16px", fontWeight: "600", margin: "0px" }}>
             Plase select your template for your page{" "}
           </p>
-          <p
-            onClick={handleClose}
-            style={{
-              font: "16px",
-              fontWeight: "600",
-              margin: "0px",
-              cursor: "pointer",
-            }}
-          >
-            X
-          </p>
-        </div>
+          <a
+                onClick={handleClose}
+                style={{color:'#fff', backgroundColor:'#dfdfdf',padding:'8px',borderRadius:'15%' }}
+              >
+                <CloseIcon  />
+              </a>
+              </div>
       </DialogTitle>
       <div style={{ background: "#fff" }}>
         <div
@@ -152,6 +154,8 @@ const PageTheme = () => {
               type="text"
               name="search"
               placeholder="Search Page"
+              onChange={handleSeach}
+            value={search}
               style={{
                 width: "350px",
                 lineHeight: "2rem",
@@ -164,7 +168,7 @@ const PageTheme = () => {
             />{" "}
           </div>
         </div>
-        <PageTemplate />
+        <PageTemplate search={search} templateModelClose={handleClose} />
       </div>
     </Dialog>
   );

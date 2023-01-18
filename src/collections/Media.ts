@@ -64,7 +64,6 @@ export const Media: CollectionConfig = {
     read: (): boolean => true, // Everyone can read Pages
     update: () => true,
     create: () => true,
-    delete: () => true,
   },
   fields: [
     {

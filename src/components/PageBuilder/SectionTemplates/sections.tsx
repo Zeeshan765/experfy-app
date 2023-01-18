@@ -1,122 +1,194 @@
 import GrapesJS from 'grapesjs';
-import React, { useEffect, useState } from 'react';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
-import plugin from 'grapesjs-tailwind';
-import '../index.scss';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import Experfy from '../ExperfyPlugin';
+import NavBar from 'grapesjs-navbar';
+import { getSectors } from './getSectors';
 
 const SectionPageBuilder: React.FC = () => {
-  const [editor, setEditor] = useState<GrapesJS.Editor>();
+  let [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
+  const { pathname } = useLocation();
+
+  const sections = [
+    'header',
+    'footer',
+    'image-banner',
+    'image-gallery',
+    'image-and-text',
+    'paragraph',
+    'practice-areas',
+    'benefits',
+    'departments',
+    'guidelines',
+    'location',
+    'metrics-numbers',
+    'talent-cloud-candidates',
+    'testimonial',
+    'video',
+  ];
+  let showSections = true;
+  // let arr = [] for Duplication--->header1: arr,header2: arr,
+
   useEffect(() => {
     setStepNav([
       {
         label: 'Section Templates',
-        url: '/collections/section-templates',
+        url: '/collections/global-theme-settings/section-templates',
       },
     ]);
   }, [setStepNav]);
 
   useEffect(() => {
-    const escapeName = (name: string) =>
-      `${name}`.trim().replace(/([^a-z0-9\w-:/]+)/gi, '-');
+    let arr = pathname.split('/');
+    let str = arr[arr.length - 1];
+    let isInclude = sections.includes(str);
 
-    const editor = GrapesJS.init({
+    let blocks = isInclude ? [str] : sections;
+    const Blocks = (editor: GrapesJS.Editor, options: any) =>
+      Experfy(editor, { ...options, blocks: blocks });
+
+    editor = GrapesJS.init({
       container: '#sections',
-      fromElement: true,
-      selectorManager: true,
-      height: '100%',
-      plugins: [plugin],
-      pluginsOpts: {
-        [plugin]: {
-          defaultStyle: 2,
-        },
-      },
-      domComponents: {
-        components: [
-          {
-            type: 'default',
-            content: 'Section',
-            draggable: true,
-            droppable: true,
-          },
-        ],
-      },
-      styleManager: {
-        appendTo: '.styles-container',
-        sectors: [],
-        clearProperties: false,
-      },
-      blockManager: {
-        appendTo: '.sections-container',
-        blocks: [
-          {
-            id: 'section',
-            label: 'Section',
-            appendOnClick: true,
-          },
-        ],
-      },
-      traitManager: {
-        appendTo: '.styles-container',
-      },
+      storageManager: false,
+      showOffsets: true,
+      showDevices: false,
+      showOffsetsSelected: true,
+      avoidDefaults: true,
 
-      storageManager: true,
-
-      canvas: {},
+      plugins: [Blocks, NavBar],
 
       panels: {
         defaults: [
           {
             id: 'panel-switcher',
-            el: '.panel__left',
-            active: true,
-            label: 'General Styles',
-            enable: true,
-          },
-          {
-            id: 'save',
-            el: '.panel__top',
-            visible: true,
-            label: 'Save',
-            toggle: false,
+            el: '.panel__switcher',
             buttons: [
+              // {
+              //   id: 'show-layers',
+              //   className: 'fa fa-bars',
+              //   command: 'show-layers',
+              //   active: false,
+              //   attributes: { title: 'Layers' },
+              // },
               {
-                id: 'save',
-                className: 'fa fa-floppy-o',
-                command: 'save',
-                attributes: {
-                  title: 'Save',
-                },
+                id: 'show-style',
+                className: 'fa fa-paint-brush',
+                command: 'show-styles',
+                active: true,
+                toggle: true,
+                attributes: { title: 'Styles' },
+              },
+              {
+                id: 'show-traits',
+                className: 'fa fa-cog',
+                command: 'show-traits',
+                active: true,
+                togglable: true,
+                attributes: { title: 'Traits' },
+              },
+              {
+                id: 'show-blocks',
+                className: 'fa fa-th-large',
+                command: 'show-blocks',
+                active: true,
+                toggle: true,
+                attributes: { title: 'Blocks' },
               },
             ],
           },
-          // {
-          //   id: 'open-templates',
-          //   className: 'fa fa-folder-o',
-          //   attributes: {
-          //     title: 'Open projects and templates'
-          //   },
-          //   command: 'open-templates', //Open modal
-          // },
-          // {
-          //   id: 'open-pages',
-          //   className: 'fa fa-file-o',
-          //   attributes: {
-          //     title: 'Take Screenshot'
-          //   },
-          //   command: 'open-pages',
-          //   toggle: false,
-          // }
         ],
+      },
+
+      blockManager: {
+        appendTo: '.blocks',
+        blocks: [],
+      },
+      layers: false,
+      traitManager: {
+        appendTo: '.traits-container',
+      },
+      selectorManager: {
+        appendTo: '.styles-container',
+      },
+      styleManager: {
+        appendTo: '.styles-container',
+        sectors: getSectors(blocks),
       },
     });
 
     setEditor(editor);
-    editor.onReady((clb) => {
-      console.log('Editor is ready');
-      console.log(editor.BlockManager.getConfig());
-      Text(editor);
+
+    // editor.Panels.addPanel({
+    //   id: 'actions',
+    //   el: '.panel__top',
+    //   buttons: [
+    //     {
+    //       id: 'show-styles',
+    //       active: true,
+    //       className: 'fa fa-paint-brush',
+    //       toggle: false,
+    //       command: 'show-styles',
+    //       attributes: { title: 'Open Style Manager' },
+    //     },
+    //     {
+    //       id: 'show-blocks',
+    //       active: true,
+    //       className: 'fa fa-th-large',
+    //       toggle: false,
+    //       command: 'show-blocks',
+    //       attributes: { title: 'Open Blocks' },
+    //     },
+    //   ],
+    // });
+    // need to add a command to toggle preview mode
+
+    // const openBl = editor.Panels.getButton('views', '.blocks');
+    // editor.on('load', () => openBl.set('active', true));
+
+    editor.on('load', () => {
+      if (blocks.length === 1) {
+        editor.runCommand('show-styles');
+        editor.runCommand('show-traits');
+        editor.stopCommand('stop-blocks');
+        const block = editor.BlockManager.get(blocks[0]);
+        const component = editor.addComponents(block.get('content'));
+        editor.select(component[0]);
+        component[0].set('activeOnRender', true);
+        component[0].set('removable', false);
+        component[0].set('draggable', false);
+        component[0].set('droppable', false);
+        component[0].set('stylable', true);
+        component[0].set('copyable', false);
+        component[0].set('layerable', false);
+
+        // if component exists, means the drop was successful
+        if (component) {
+          const sectors = editor.StyleManager.getSectors();
+          sectors.reset();
+          sectors.add(getSectors(component[0].ccid));
+        }
+      } else {
+        editor.runCommand('show-blocks');
+        editor.runCommand('hide-traits');
+        editor.runCommand('hide-styles');
+      }
+    });
+
+    editor.on('run:component-select', () =>
+      editor.Components.getWrapper()
+        .getTraits()
+        .forEach((trait) => {
+          trait.set('disabled', false);
+        })
+    );
+
+    editor.on('component:drag:end', () => {
+      editor.runCommand('show-styles');
+      editor.runCommand('show-traits');
+      editor.stopCommand('stop-blocks');
     });
   }, [setEditor]);
 
@@ -125,154 +197,21 @@ const SectionPageBuilder: React.FC = () => {
       <Eyebrow />
       <div className="editor-row">
         <div className="panel__left">
+          <div className="panel__top"></div>
+          <div className="panel__basic-actions"></div>
+          <div className="panel__switcher"></div>
           <div className="styles-container"></div>
-          <div className="sections-container"></div>
+          <div className="traits-container"></div>
+          <div className="blocks"></div>
         </div>
+
         <div className="editor-canvas">
           <div id="sections"></div>
+          {/* <h3>Start customizing your portal </h3> */}
+          {/* <SectionTemplate /> */}
         </div>
       </div>
     </div>
   );
 };
-
 export default SectionPageBuilder;
-
-function Text(editor: GrapesJS.Editor) {
-  editor.DomComponents.addType('text', {
-    model: {
-      defaults: {
-        traits: [
-          {
-            type: 'text',
-            name: 'text-title',
-            label: 'Title',
-            placeholder: 'Enter your title ',
-          },
-          {
-            type: 'text',
-            name: 'text-link',
-            label: 'Link',
-            placeholder: 'Paste URL or Type ',
-          },
-          {
-            type: 'select',
-            name: 'text-size',
-            label: 'Size',
-            default: 'default',
-            options: [
-              { id: 'default', name: 'Default' },
-              { id: 'small', name: 'Small' },
-              { id: 'medium', name: 'Medium' },
-              { id: 'large', name: 'Large' },
-              { id: 'xl', name: 'XL' },
-              { id: 'xxl', name: 'XXL' },
-            ],
-          },
-
-          {
-            type: 'select',
-            name: 'text-html-tag',
-            label: 'HTML Tag',
-            default: 'h1',
-            options: [
-              { id: 'h1', name: 'H1' },
-              { id: 'h2', name: 'H2' },
-              { id: 'h3', name: 'H3' },
-              { id: 'h4', name: 'H4' },
-              { id: 'h5', name: 'H5' },
-              { id: 'h6', name: 'H6' },
-              { id: 'div', name: 'div' },
-              { id: 'span', name: 'span' },
-              { id: 'p', name: 'p' },
-            ],
-          },
-          {
-            type: 'select',
-            name: 'text-alignment',
-            label: 'Alignment',
-            default: 'left',
-            options: [
-              { id: 'left', name: 'Left' },
-              { id: 'center', name: 'Center' },
-              { id: 'right', name: 'Right' },
-              { id: 'justified', name: 'Justified' },
-            ],
-          },
-        ],
-      },
-    },
-  });
-  //Trait for Map
-  editor.DomComponents.addType('map', {
-    model: {
-      defaults: {
-        traits: [
-          {
-            type: 'text',
-            name: 'map-location',
-            label: 'Location',
-            placeholder: 'Enter your location ',
-          },
-        ],
-      },
-    },
-  });
-
-  //Trait for Image
-  editor.DomComponents.addType('image', {
-    model: {
-      defaults: {
-        traits: [
-          {
-            type: 'select',
-            name: 'image-size',
-            label: 'Size',
-            default: 'large',
-            options: [
-              { id: 'thumbnail', name: 'Thumbnail- 150 x 150' },
-              { id: 'medium', name: 'Medium- 300 x 300' },
-              { id: 'medium-large', name: 'Medium Large-  768 x 0' },
-              { id: 'large', name: 'Large- 1024 x 1024 ' },
-              { id: 'custom', name: 'Custom' },
-              { id: 'full', name: 'Full' },
-            ],
-          },
-          {
-            type: 'select',
-            name: 'image-alignment',
-            label: 'Alignment',
-            default: 'left',
-            options: [
-              { id: 'left', name: 'Left' },
-              { id: 'center', name: 'Center' },
-              { id: 'right', name: 'Right' },
-            ],
-          },
-          {
-            type: 'select',
-            name: 'image-caption',
-            label: 'Caption',
-            default: 'none',
-            options: [
-              { id: 'none', name: 'None' },
-              { id: 'attachment', name: 'Attachment Caption' },
-              { id: 'custom', name: 'Custom Caption' },
-            ],
-          },
-          {
-            type: 'select',
-            name: 'image-link',
-            label: 'Link',
-            default: 'none',
-            options: [
-              { id: 'none', name: 'None' },
-              { id: 'media ', name: 'Media File' },
-              { id: 'curl', name: 'Custom URL' },
-            ],
-          },
-        ],
-      },
-    },
-  });
-}

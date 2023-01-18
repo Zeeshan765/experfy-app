@@ -10,7 +10,6 @@ const ImgTextCollection: CollectionConfig = {
   admin: {
     components: {
       views: {
-        Edit: ImgText,
         List: ImgText,
       },
     },

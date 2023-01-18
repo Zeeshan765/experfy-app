@@ -14,7 +14,21 @@ const TemplatesCollection: CollectionConfig = {
       },
     },
   },
-  fields: [],
+  fields: [
+    {
+
+      name: "title",
+      label: "Title",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "type",
+      label: "Type",
+      type: "text",
+      required: true,
+    },
+  ],
 };
 
 export default TemplatesCollection;

@@ -1,19 +1,59 @@
-import GrapesJS from "grapesjs";
-import React from "react";
-import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
+import GrapesJS from 'grapesjs';
+import React from 'react';
+import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 
 const NewPageBuilder = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
 
   React.useEffect(() => {
     const editor = GrapesJS.init({
-      container: "#editor",
+      container: '#editor',
+      fromElement: true,
       plugins: [plugin1],
+      height: '100%',
+      autorender: false,
+      storageManager: {
+        type: 'local',
+        autoload: true,
+        options: {
+          storeComponents: true,
+          storeStyles: true,
+          storeHtml: true,
+          storeCss: true,
+          local: {
+            key: 'gts',
+          },
+        },
+      },
+      canvas: {
+        styles: ['../index.scss'],
+      },
+      styleManager: {
+        sectors: [
+          {
+            name: 'General',
+            open: false,
+            buildProps: ['display', 'position'],
+          },
+          {
+            name: 'Dimension',
+            open: false,
+            buildProps: ['width', 'height', 'margin', 'padding'],
+          },
+          {
+            name: 'Decorations',
+            open: false,
+            buildProps: ['background-color'],
+          },
+        ],
+        clearProperties: false,
+        appendTo: '.styles-container',
+      },
     });
 
     setEditorState(editor);
 
-    editor.DomComponents.addType("text", {
+    editor.DomComponents.addType('text', {
       model: {
         defaults: {
           traits: [

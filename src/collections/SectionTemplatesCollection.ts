@@ -7,19 +7,26 @@ const SectionTemplateCollection: CollectionConfig = {
     plural: 'Section Templates',
   },
   slug: 'section-templates',
+
   access: {
     read: () => true,
     create: () => false,
   },
+
   admin: {
     group: 'Global Theme Settings',
+    useAsTitle: 'title',
+    description: 'Start customizing your portal',
+
     components: {
       views: {
         List: SectionPageBuilder,
       },
     },
   },
-  fields: [],
+  fields: [
+    
+  ],
 };
 
 export default SectionTemplateCollection;

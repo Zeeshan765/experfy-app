@@ -92,12 +92,7 @@ const PortalIdentity: React.FC = (props) => {
   function handleChange(event, newValue) {
     setValue(newValue);
   }
-
-  const breadcrumbs = [
-    <Link key="1">Pepsi Careers</Link>,
-    <Typography key="2">Portal Identity</Typography>,
-  ];
-
+  
   const getUserData = async () => {
     try {
       const res = await fetch(

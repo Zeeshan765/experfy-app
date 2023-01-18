@@ -2,7 +2,9 @@ import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../index.scss';
+import { useAuth, useConfig } from 'payload/components/utilities';
 
 const borderStyle = [
   { value: 'solid', name: 'Solid' },
@@ -39,6 +41,10 @@ const fontsList = [
 const DesignSystem: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
+  const {
+    admin: { user: userSlug },
+    routes: { admin },
+  } = useConfig();
 
   const url = location.href ? location.href : '';
   let showTheme = false;
@@ -51,7 +57,7 @@ const DesignSystem: React.FC = () => {
     setStepNav([
       {
         label: 'Global Theme Settings',
-        url: '/collections/global-theme-settings',
+        url: '/collections/design-system',
       },
     ]);
   }, [setStepNav]);
@@ -60,12 +66,28 @@ const DesignSystem: React.FC = () => {
     const editor = GrapesJS.init({
       container: '#gjs',
       height: '0%',
-      fromElement: true,
-      showOffsets: true,
-      noticeOnUnload: 2,
+      commands: {
+        defaults: [
+          {
+            id: 'save',
+            run: (editor, sender) => {
+              editor.store(editor.getCss());
+            },
+          },
+          {
+            id: 'open-templates',
+          },
+          {
+            id: 'open-pages',
+            run: (editor, sender) => {
+              console.log('open-pages');
+            },
+          },
+        ],
+      },
 
       storageManager: {
-        type: 'indexeddb',
+        type: 'local',
         autosave: true,
         autoload: true,
         stepsBeforeSave: 2,
@@ -84,30 +106,41 @@ const DesignSystem: React.FC = () => {
 
       panels: {
         defaults: [
-          {
-            id: 'global-style',
-            el: '.panel__left',
-            active: true,
-            label: 'Global Theme Settings',
-            enable: true,
-          },
-          {
-            id: 'save',
-            el: '.panel__top',
-            visible: true,
-            label: 'Save',
-            toggle: false,
-            buttons: [
-              {
-                id: 'save',
-                className: 'fa fa-floppy-o',
-                command: 'save',
-                attributes: {
-                  title: 'Save',
-                },
-              },
-            ],
-          },
+          // {
+          //   id: 'open-styles',
+          //   el: '.styles-container',
+          //   active: false,
+          //   visible: true,
+          //   command: 'open-sm',
+          //   toggle: true,
+          //   buttons: [
+          //     {
+          //       id: 'open-styles',
+          //       className: 'fa fa-cog',
+          //       command: 'open-styles',
+          //       attributes: {
+          //         title: 'Global Theme Settings',
+          //       },
+          //     },
+          //   ],
+          // },
+          // {
+          //   id: 'save',
+          //   el: '.panel__top',
+          //   visible: true,
+          //   toggle: true,
+          //   commands: 'save',
+          //   buttons: [
+          //     {
+          //       id: 'save',
+          //       className: 'fa fa-floppy-o',
+          //       command: 'save',
+          //       attributes: {
+          //         title: 'Save',
+          //       },
+          //     },
+          //   ],
+          // },
           // {
           //   id: 'open-templates',
           //   className: 'fa fa-folder-o',
@@ -129,10 +162,12 @@ const DesignSystem: React.FC = () => {
       },
 
       styleManager: {
+        showComputed: true,
+
         appendTo: '.styles-container',
         sectors: [
           {
-            name: 'DESIGN SYSTEM',
+            name: 'Design System',
             open: false,
           },
           {
@@ -150,6 +185,12 @@ const DesignSystem: React.FC = () => {
                 type: 'color',
                 name: 'Secondary',
                 property: 'color',
+                default: '#4a5162',
+              },
+              {
+                type: 'color',
+                name: 'Accent Color',
+                property: 'accent-color',
                 default: '#4aa4da',
               },
             ],
@@ -174,20 +215,19 @@ const DesignSystem: React.FC = () => {
                 type: 'select',
                 name: 'Font Family',
                 property: 'font-family',
-                ResizeObserver: true,
                 options: fontsList,
               },
               {
                 type: 'slider',
                 name: 'Font Size',
                 property: 'font-size',
+                default: 16,
                 units: ['px', 'rem'],
               },
               {
                 type: 'select',
                 name: 'Font Weight',
                 property: 'font-weight',
-                ResizeObserver: true,
                 default: 'normal',
                 options: fontWeight,
               },
@@ -204,55 +244,55 @@ const DesignSystem: React.FC = () => {
                 name: 'Line Height',
                 property: 'line-height',
                 ResizeObserver: true,
-                default: '1',
+                default: 1,
                 units: ['px', 'rem'],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Align',
                 property: 'text-align',
-                default: 'left',
+                default: '',
                 ResizeObserver: true,
                 options: [
-                  { value: 'left', name: 'Left' },
-                  { value: 'center', name: 'Center' },
-                  { value: 'right', name: 'Right' },
-                  { value: 'justify', name: 'Justify' },
+                  { value: 'left', name: 'L' },
+                  { value: 'center', name: 'C' },
+                  { value: 'right', name: 'R' },
+                  { value: 'justify', name: 'J' },
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Shadow',
                 property: 'text-shadow',
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
+                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'S' },
+                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'M' },
+                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'B' },
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Transform',
                 property: 'text-transform',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'uppercase', name: 'Uppercase' },
-                  { value: 'lowercase', name: 'Lowercase' },
-                  { value: 'capitalize', name: 'Capitalize' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'uppercase', name: 'AA' },
+                  { value: 'lowercase', name: 'aa' },
+                  { value: 'capitalize', name: 'Aa' },
                 ],
               },
             ],
@@ -267,9 +307,9 @@ const DesignSystem: React.FC = () => {
             open: showTheme,
             buildProps: [
               'css-class',
-              'button-font-family',
-              'button-text-shadow',
-              'text-color',
+              'font-family',
+              'text-shadow',
+              'color',
               'background-color',
               'border',
               'padding',
@@ -288,19 +328,18 @@ const DesignSystem: React.FC = () => {
                 type: 'select',
                 name: 'Font Family',
                 property: 'font-family',
-
                 options: fontsList,
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Shadow',
                 property: 'text-shadow',
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
+                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'S' },
+                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'M' },
+                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'B' },
                 ],
               },
               {
@@ -318,7 +357,7 @@ const DesignSystem: React.FC = () => {
               },
 
               {
-                type: 'slider',
+                type: 'integer',
                 name: 'Border Radius',
                 property: 'border-radius',
                 default: 0,
@@ -345,7 +384,7 @@ const DesignSystem: React.FC = () => {
                 default: '#4aa4da',
               },
               {
-                type: 'slider',
+                type: 'integer',
                 name: 'Padding',
                 property: 'padding',
                 default: 0,
@@ -392,15 +431,15 @@ const DesignSystem: React.FC = () => {
                 default: 'transparent',
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Border Shadow',
                 property: 'box-shadow',
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
+                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'S' },
+                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'M' },
+                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'B' },
                 ],
               },
               {
@@ -454,7 +493,7 @@ const DesignSystem: React.FC = () => {
               },
 
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Align',
                 property: 'text-align',
                 default: 'left',
@@ -466,14 +505,14 @@ const DesignSystem: React.FC = () => {
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
               {
@@ -511,14 +550,14 @@ const DesignSystem: React.FC = () => {
                 options: fontWeight,
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
             ],
@@ -554,42 +593,20 @@ const DesignSystem: React.FC = () => {
               },
 
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
             ],
           },
         ],
       },
-    });
-
-    setEditor(editor);
-    editor.onReady((clb) => {
-      console.log('Editor is ready');
-      editor.StyleManager.addType('input-text', {
-        create: function (prop) {
-          console.log(prop);
-          var input = document.createElement('input');
-          input.type = 'text';
-          input.value = prop.get();
-          input.onchange = function (e) {
-            prop.set(e.target.value);
-          };
-          return input;
-        },
-        update: function (prop, el) {
-          el.value = prop.get();
-        },
-      });
-
-      // Use `$${var}` to avoid escaping
     });
   }, [setEditor]);
 
@@ -598,16 +615,17 @@ const DesignSystem: React.FC = () => {
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="panel__top right">
-        <div className="panel__basic-actions"></div>
-      </div>
       <div className="editor-row">
         <div className="panel__left">
+          <div className="back-blue-panel fa fa-arrow-left">
+            <Link to={`${admin}/`}> Global Theme Settings</Link>
+          </div>
+          <div className="panel__top"></div>
           <div className="styles-container"></div>
+          <div className="panel__basic-actions"></div>
+          <div className="panel__switcher"></div>
         </div>
-        <div className="editor-canvas">
-          <div id="gjs"></div>
-        </div>
+        <div id="gjs"></div>
       </div>
     </div>
   );
