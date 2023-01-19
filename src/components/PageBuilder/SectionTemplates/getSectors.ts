@@ -582,16 +582,22 @@ const obj = {
     {
       name: 'Icon',
       open: true,
+      buildProps: ['fill'],
+      attributes: {
+        'data-attribute': 'benefit-Icon-color',
+        'data-target': '.benefit-holder svg ',
+      },
       properties: [
-        {
-          type: 'color',
-          name: 'Primary Color',
-          property: 'color',
-          default: '#e6e6e6',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Primary Color',
+          
+        //   property: 'fill',
+        //   default: '#e6e6e6',
+        //   attributes: {
+        //     'data-type': 'color',
+        //   },
+        // },
 
         {
           type: 'slider',
