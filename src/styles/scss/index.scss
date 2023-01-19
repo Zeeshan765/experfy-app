@@ -485,26 +485,19 @@ div.react-select {
 
 .back-blue-panel {
   background-color: var(--theme-primary);
-  padding: 10px;
+  padding: 10px 0px 10px 0px;
+  margin-bottom: 10px;
   font-weight: 500;
+  font-size: 17px;
+  text-align: center;
   color: var(--theme-elevation-0);
-  display: block;
+  display: flex;
+  justify-content: space-evenly;
 
   :hover {
     color: var(--theme-elevation-0);
-    text-decoration: none;
   }
 
-
-  ::before {
-    content: "";
-    display: inline;
-    background-image: url('/src/assets/images/sidebar/pages.svg');
-    width: 16px;
-    height: 16px;
-    background-repeat: no-repeat;
-    margin-right: 10px;
-  }
 }
 
 

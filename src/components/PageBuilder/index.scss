@@ -31,10 +31,10 @@ $deviceBackground: #2f3d55;
   height: 100%;
 
 }
-  
-  
-  
-  
+
+
+
+
 
 
 
@@ -55,7 +55,8 @@ $deviceBackground: #2f3d55;
 
 .panel__switcher {
   position: relative !important;
-  background: var(--theme-primary) !important;
+  padding-bottom: 10px;
+
 }
 
 .panel__left {
@@ -508,12 +509,12 @@ $deviceBackground: #2f3d55;
 
 
 .gjs-pn-btn {
-
+  font-size: 14px;
 
   svg {
     vertical-align: top;
     padding-bottom: 2px;
-    height: 24px;
+    height: 20px;
     width: 24px;
   }
 }

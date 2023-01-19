@@ -56,10 +56,16 @@ const SectionPageBuilder: React.FC = () => {
       showOffsets: true,
       showDevices: false,
       showOffsetsSelected: true,
-      avoidDefaults: true,
 
       plugins: [Blocks, NavBar],
-
+      pluginsOpts: {
+        [NavBar]: {
+          label: 'Header',
+          block: {
+            category: 'Header & Footer Elements',
+          },
+        },
+      },
       panels: {
         defaults: [
           {
@@ -77,7 +83,7 @@ const SectionPageBuilder: React.FC = () => {
                 id: 'show-style',
                 className: 'fa fa-paint-brush',
                 command: 'show-styles',
-                active: true,
+                active: false,
                 toggle: true,
                 attributes: { title: 'Styles' },
               },
@@ -85,7 +91,7 @@ const SectionPageBuilder: React.FC = () => {
                 id: 'show-traits',
                 className: 'fa fa-cog',
                 command: 'show-traits',
-                active: true,
+                active: false,
                 togglable: true,
                 attributes: { title: 'Traits' },
               },
@@ -149,6 +155,8 @@ const SectionPageBuilder: React.FC = () => {
     // editor.on('load', () => openBl.set('active', true));
 
     editor.on('load', () => {
+      // if component exists, means the drop was successful
+
       if (blocks.length === 1 && editor) {
         editor.runCommand('show-styles');
         editor.runCommand('show-traits');
@@ -163,21 +171,21 @@ const SectionPageBuilder: React.FC = () => {
         component[0].set('stylable', true);
         component[0].set('copyable', false);
         component[0].set('layerable', false);
-
-        // if component exists, means the drop was successful
-        if (component) {
-          const sectors = editor.StyleManager.getSectors();
-          sectors.reset();
-          sectors.add(getSectors(component[0].ccid));
-        }
       } else {
         editor?.runCommand('show-blocks');
         editor?.runCommand('hide-traits');
         editor?.runCommand('hide-styles');
       }
     });
-
-    editor.on('run:component-select', () =>
+    editor.on('component:add', (component) => {
+      if (component) {
+        component.set('activeOnRender', true);
+        const sectors = editor?.StyleManager.getSectors();
+        sectors.reset();
+        sectors.add(getSectors(component.ccid));
+      }
+    });
+    editor.on('component:selected', () =>
       editor?.Components.getWrapper()
         .getTraits()
         .forEach((trait) => {

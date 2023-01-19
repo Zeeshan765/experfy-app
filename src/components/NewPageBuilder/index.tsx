@@ -1,22 +1,21 @@
 // @ts-ignore
 import GrapesJS from 'grapesjs';
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
 // import './CustomGrapes.css';
 // import '../PageBuilder/index.scss';
-import './index.scss';
-import plugin2 from 'grapesjs-project-manager';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 import Basics from 'grapesjs-blocks-basic';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
+import './index.scss';
 
-import Experfy from '../PageBuilder/ExperfyPlugin';
-import Forms from 'grapesjs-plugin-forms';
-import NavBar from 'grapesjs-navbar';
 import axios from 'axios';
+import NavBar from 'grapesjs-navbar';
+import Forms from 'grapesjs-plugin-forms';
+import Experfy from '../PageBuilder/ExperfyPlugin';
 
+import { useConfig } from 'payload/components/utilities';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Context } from '../../MyProvider';
 const NewPageBuilder = ({ status, handleClose }) => {
@@ -27,7 +26,10 @@ const NewPageBuilder = ({ status, handleClose }) => {
   //   author:'',
   // });
   const { setStepNav } = useStepNav();
-
+  const {
+    admin: { user: userSlug },
+    routes: { admin },
+  } = useConfig();
   const { setSelectedPageCode } = useContext(Context);
   const [headingText, setHeadingText] = React.useState<string>('abc');
   console.log('test of editor');
@@ -218,100 +220,104 @@ const NewPageBuilder = ({ status, handleClose }) => {
             buttons: [
               {
                 id: 'show-blocks',
-                className: 'fa fa-th-large',
+                label: 'Elements',
                 command: 'show-blocks',
-                active: false,
-
+                active: true,
+                togglable: false,
                 attributes: { title: 'Blocks' },
               },
               {
                 id: 'show-layers',
-                className: 'fa fa-bars',
+                label: 'Sections',
                 command: 'show-layers',
                 active: false,
+                togglable: false,
                 attributes: { title: 'Layers' },
               },
               {
                 id: 'show-style',
-                className: 'fa fa-paint-brush',
+                label: 'Style',
                 command: 'show-styles',
                 active: false,
+                togglable: false,
                 attributes: { title: 'Styles' },
               },
 
               {
                 id: 'show-traits',
-                className: 'fa fa-cog',
+                label: 'Content',
                 command: 'show-traits',
                 visible: false,
                 active: false,
+                togglable: false,
                 attributes: { title: 'Traits' },
               },
             ],
           },
-          {
-            id: 'panel-top',
-            el: '.panel__top',
-            buttons: [
-              {
-                id: 'settings',
-                className: 'fa fa-cog btn--style-secondary',
-                command: 'sw-visibility',
-                active: true,
-                tag: 'button',
-                attributes: { title: 'Settings' },
-              },
-              {
-                id: 'device-desktop',
-                className: 'fa fa-desktop btn--style-secondary',
-                command: 'toggle-devices',
-                tag: 'button',
-                attributes: { title: 'Toggle Display' },
-              },
-              {
-                id: 'history',
-                tag: 'button',
-                className: 'fa fa-history btn--style-secondary',
-                command: 'undo',
-                attributes: { title: 'Undo' },
-              },
+          // {
+          //   id: 'panel-top',
+          //   el: '.panel__top',
+          //   buttons: [
+          //     {
+          //       id: 'settings',
+          //       className: 'fa fa-cog btn--style-secondary',
+          //       command: 'sw-visibility',
+          //       active: true,
+          //       tag: 'button',
+          //       attributes: { title: 'Settings' },
+          //     },
+          //     {
+          //       id: 'device-desktop',
+          //       className: 'fa fa-desktop btn--style-secondary',
+          //       command: 'toggle-devices',
+          //       tagName: 'button',
+          //       attributes: { title: 'Toggle Display' },
+          //     },
+          //     {
+          //       id: 'history',
+          //       tag: 'button',
+          //       className: 'fa fa-history btn--style-secondary',
+          //       command: 'undo',
+          //       attributes: { title: 'Undo' },
+          //     },
 
-              {
-                id: 'preview',
-                tagName: 'button',
-                label:
-                  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg> Preview',
-                className: 'btn--style-secondary',
-                command: 'preview-fullscreen',
-                attributes: {
-                  title: 'Preview',
-                  id: 'preview',
-                },
-              },
-              {
-                id: 'save',
-                className: 'btn--style-primary',
-                command: 'save-editor',
-                label: 'Save',
-                attributes: { title: 'Save' },
-              },
-              {
-                id: 'publish',
-                tag: 'radio',
-                className: 'btn--style-secondary',
-                command: 'publish',
-                label:
-                  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M192 64C86 64 0 150 0 256S86 448 192 448H384c106 0 192-86 192-192s-86-192-192-192H192zM384 352c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z" fill="#78c493"/></svg> Publish',
-                togglable: false,
-                attributes: { title: 'Publish' },
-              },
-            ],
-          },
+          //     {
+          //       id: 'preview',
+          //       tagName: 'button',
+          //       label:
+          //         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg> Preview',
+          //       className: 'btn--style-secondary',
+          //       command: 'preview-fullscreen',
+          //       attributes: {
+          //         title: 'Preview',
+          //         id: 'preview',
+          //       },
+          //     },
+          //     {
+          //       id: 'save',
+          //       className: 'btn--style-primary',
+          //       command: 'save-editor',
+          //       label: 'Save',
+          //       tagName: 'button',
+          //       attributes: { title: 'Save' },
+          //     },
+          //     {
+          //       id: 'publish',
+          //       tagName: 'button',
+          //       className: 'btn--style-secondary',
+          //       command: 'publish',
+          //       label:
+          //         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M192 64C86 64 0 150 0 256S86 448 192 448H384c106 0 192-86 192-192s-86-192-192-192H192zM384 352c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z" fill="#78c493"/></svg> Publish',
+          //       attributes: { title: 'Publish' },
+          //     },
+          //   ],
+          // },
         ],
       },
     });
 
     editor.onReady(() => {
+      editor?.runCommand('show-blocks');
       editor?.runCommand('hide-styles');
       editor?.runCommand('hide-traits');
       editor?.runCommand('hide-layers');
@@ -320,6 +326,9 @@ const NewPageBuilder = ({ status, handleClose }) => {
     editor.on('component:add', (component) => {
       editor?.StyleManager.select(component);
       editor?.runCommand('show-styles');
+      editor?.runCommand('hide-blocks');
+      editor?.runCommand('hide-layers');
+      editor?.runCommand('hide-traits');
     });
 
     editor.on('component:selected', (component) => {
@@ -327,6 +336,11 @@ const NewPageBuilder = ({ status, handleClose }) => {
         editor?.runCommand('show-traits');
         if (component.get('traits').models[1].get('value'))
           component.components(component.get('traits').models[1].get('value'));
+      } else {
+        editor?.runCommand('show-styles');
+        editor?.runCommand('hide-traits');
+        editor?.runCommand('hide-blocks');
+        editor?.runCommand('hide-layers');
       }
     });
     editor.on('component:update', (component) => {
@@ -343,7 +357,13 @@ const NewPageBuilder = ({ status, handleClose }) => {
       <div className="editor-row">
         <div className="panel__basic-actions"></div>
         <div className="panel__left">
-          <div className="panel__switcher"></div>
+          <div className="panel__switcher">
+            <div className="back-blue-panel">
+              <span>&#10094;</span>
+              <Link to={`${admin}/`}>Page Builder</Link>
+              <span>&#9783;</span>
+            </div>
+          </div>
           <div className="styles-container"></div>
           <div className="traits-container"></div>
           <div className="layers-container"></div>

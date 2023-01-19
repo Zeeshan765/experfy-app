@@ -110,7 +110,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
   commands(editor, config);
 
   // Load panels
-  // panels(editor, config);
+  panels(editor, config);
 };
 
 export default plugin;

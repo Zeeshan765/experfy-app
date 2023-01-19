@@ -63,24 +63,18 @@ const DesignSystem: React.FC = () => {
   }, [setStepNav]);
 
   useEffect(() => {
-    const editor = GrapesJS.init({
+    let editor = GrapesJS.init({
       container: '#gjs',
-      height: '0%',
+      fromElement: true,
+      avoidDefaults: true,
+      el: '#gjs',
+
       commands: {
         defaults: [
           {
             id: 'save',
-            run: (editor, sender) => {
+            run: (editor: GrapesJS.Editor) => {
               editor.store(editor.getCss());
-            },
-          },
-          {
-            id: 'open-templates',
-          },
-          {
-            id: 'open-pages',
-            run: (editor, sender) => {
-              console.log('open-pages');
             },
           },
         ],
@@ -104,66 +98,7 @@ const DesignSystem: React.FC = () => {
         },
       },
 
-      panels: {
-        defaults: [
-          // {
-          //   id: 'open-styles',
-          //   el: '.styles-container',
-          //   active: false,
-          //   visible: true,
-          //   command: 'open-sm',
-          //   toggle: true,
-          //   buttons: [
-          //     {
-          //       id: 'open-styles',
-          //       className: 'fa fa-cog',
-          //       command: 'open-styles',
-          //       attributes: {
-          //         title: 'Global Theme Settings',
-          //       },
-          //     },
-          //   ],
-          // },
-          // {
-          //   id: 'save',
-          //   el: '.panel__top',
-          //   visible: true,
-          //   toggle: true,
-          //   commands: 'save',
-          //   buttons: [
-          //     {
-          //       id: 'save',
-          //       className: 'fa fa-floppy-o',
-          //       command: 'save',
-          //       attributes: {
-          //         title: 'Save',
-          //       },
-          //     },
-          //   ],
-          // },
-          // {
-          //   id: 'open-templates',
-          //   className: 'fa fa-folder-o',
-          //   attributes: {
-          //     title: 'Open projects and templates'
-          //   },
-          //   command: 'open-templates', //Open modal
-          // },
-          // {
-          //   id: 'open-pages',
-          //   className: 'fa fa-file-o',
-          //   attributes: {
-          //     title: 'Take Screenshot'
-          //   },
-          //   command: 'open-pages',
-          //   toggle: false,
-          // }
-        ],
-      },
-
       styleManager: {
-        showComputed: true,
-
         appendTo: '.styles-container',
         sectors: [
           {
@@ -180,6 +115,7 @@ const DesignSystem: React.FC = () => {
                 name: 'Primary',
                 property: 'background-color',
                 default: '#e6e6e6',
+                attributes: { class: 'gjs-fonts gjs-f-b1' },
               },
               {
                 type: 'color',
@@ -617,8 +553,10 @@ const DesignSystem: React.FC = () => {
       <Eyebrow />
       <div className="editor-row">
         <div className="panel__left">
-          <div className="back-blue-panel fa fa-arrow-left">
-            <Link to={`${admin}/`}> Global Theme Settings</Link>
+          <div className="back-blue-panel">
+            <span>&#10094;</span>
+            <Link to={`${admin}/`}>Global Theme Settings</Link>
+            <span>&#9783;</span>
           </div>
           <div className="panel__top"></div>
           <div className="styles-container"></div>
