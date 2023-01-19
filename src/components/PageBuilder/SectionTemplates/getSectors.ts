@@ -632,7 +632,7 @@ const obj = {
           attributes: {
             'data-type': 'color',
             'data-attribute': 'content-color',
-            'data-target': '.testimonial-content',
+            'data-target': '.section-title',
           },
         },
         {
@@ -695,7 +695,7 @@ const obj = {
           attributes: {
             'data-type': 'color',
             'data-attribute': 'name-color',
-            'data-target': '.testimonial-name',
+            'data-target': '.slider-content-main-div .left-container h2',
           },
         },
         {
@@ -744,11 +744,11 @@ const obj = {
           type: 'color',
           name: 'Text Color',
           property: 'color',
-          default: '#4aa4da',
+          default: '#ffff',
           attributes: {
             'data-type': 'color',
             'data-attribute': 'heading-color',
-            'data-target': '.testimonial-title',
+            'data-target': '.user-detail-label',
           },
         },
         {
@@ -1407,8 +1407,7 @@ const obj = {
     },
   ],
 
-  image_banner_1: [],
-  image_text_1: [
+  image_banner_1: [
     {
       properties: [
         {
@@ -1419,7 +1418,25 @@ const obj = {
           attributes: {
             'data-type': 'color',
             'data-attribute': 'main-color',
-            'data-target': '.main_heading .sub_heading',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+    
+      ],
+    },
+  ],
+  image_text_1: [
+    {
+      properties: [
+        {
+          type: 'color',
+          name: 'Text Color',
+          property: 'color',
+          default: '#171414',
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'Img-main-color',
+            'data-target': '.main_heading  .sub_heading',
           },
         },
     
