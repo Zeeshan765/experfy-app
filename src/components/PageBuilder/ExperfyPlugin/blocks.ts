@@ -289,36 +289,44 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <g>
      <title>Layer 1</title>
      <g id="noun-health-insurance-1893284">
-      <path id="Path_169632" data-name="Path 169632" d="m8.286,22.33901l0.209,0.14l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.771,18.771 0 0 0 2.967,-10.75l0,-0.314l-0.279,-0.035a11.443,11.443 0 0 1 -4.258,-1.326a11.685,11.685 0 0 1 -3.8,-3.351l-0.279,-0.314l-0.279,0.349a12.267,12.267 0 0 1 -7.923,4.642l-0.314,0.035l0,0.314a18.6,18.6 0 0 0 3,10.925a18.058,18.058 0 0 0 5.27,5.27l-0.003,0zm-4.363,-11.483a0.35,0.35 0 0 1 0.349,-0.349l3.141,0l0,-3.141a0.35,0.35 0 0 1 0.349,-0.349l1.745,0a0.35,0.35 0 0 1 0.349,0.349l0,3.141l3.142,0a0.35,0.35 0 0 1 0.349,0.349l0,1.745a0.35,0.35 0 0 1 -0.349,0.349l-3.141,0l0,3.141a0.35,0.35 0 0 1 -0.349,0.349l-1.745,0a0.35,0.35 0 0 1 -0.349,-0.349l0,-3.141l-3.141,0a0.35,0.35 0 0 1 -0.349,-0.349l-0.001,-1.745z" fill="#4A5162"/>
-      <path id="Path_169633" data-name="Path 169633" d="m20.536,5.026l-0.279,-0.035a12.53,12.53 0 0 1 -4.293,-1.326a11.933,11.933 0 0 1 -3.281,-2.618l-0.768,-1.047l-1.815,1.815l0,0.384a11.757,11.757 0 0 0 2.653,2.059a10.888,10.888 0 0 0 4.153,1.291l0.593,0.07l0,0.593a19.216,19.216 0 0 1 -3.037,10.925a18.581,18.581 0 0 1 -3.455,3.944l0.838,0.558l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.772,18.772 0 0 0 2.967,-10.75l0.035,-0.278z" fill="#4A5162"/>
+      <path id="Path_169632" data-name="Path 169632" d="m8.286,22.33901l0.209,0.14l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.771,18.771 0 0 0 2.967,-10.75l0,-0.314l-0.279,-0.035a11.443,11.443 0 0 1 -4.258,-1.326a11.685,11.685 0 0 1 -3.8,-3.351l-0.279,-0.314l-0.279,0.349a12.267,12.267 0 0 1 -7.923,4.642l-0.314,0.035l0,0.314a18.6,18.6 0 0 0 3,10.925a18.058,18.058 0 0 0 5.27,5.27l-0.003,0zm-4.363,-11.483a0.35,0.35 0 0 1 0.349,-0.349l3.141,0l0,-3.141a0.35,0.35 0 0 1 0.349,-0.349l1.745,0a0.35,0.35 0 0 1 0.349,0.349l0,3.141l3.142,0a0.35,0.35 0 0 1 0.349,0.349l0,1.745a0.35,0.35 0 0 1 -0.349,0.349l-3.141,0l0,3.141a0.35,0.35 0 0 1 -0.349,0.349l-1.745,0a0.35,0.35 0 0 1 -0.349,-0.349l0,-3.141l-3.141,0a0.35,0.35 0 0 1 -0.349,-0.349l-0.001,-1.745z" fill="#4a5162"/>
+      <path id="Path_169633" data-name="Path 169633" d="m20.536,5.026l-0.279,-0.035a12.53,12.53 0 0 1 -4.293,-1.326a11.933,11.933 0 0 1 -3.281,-2.618l-0.768,-1.047l-1.815,1.815l0,0.384a11.757,11.757 0 0 0 2.653,2.059a10.888,10.888 0 0 0 4.153,1.291l0.593,0.07l0,0.593a19.216,19.216 0 0 1 -3.037,10.925a18.581,18.581 0 0 1 -3.455,3.944l0.838,0.558l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.772,18.772 0 0 0 2.967,-10.75l0.035,-0.278z" fill="#4a5162"/>
       <path id="Path_169634" data-name="Path 169634" d="m29.82099,11.23901z"/>
      </g>
     </g>
+   
    </svg>`,
     content: `<section  id= "benefit_1" class="benefits-main-wrapper">
     <div class="benefits-container" >
+
        <div class="benefits-title-div">
           <h1>Add your heading title here</h1>
           <h2>The benefits module highlights the positive characteristics and values within your
              company or business. Add perks, benefits, or milestones.
           </h2>
        </div>
+    
        <div class="benefits-option-section">
+
           <div class="benefit-holder">
-          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
-          <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
-            <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
-              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
-            </g>
-          </g>
-        </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
+              <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
+                <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
+                  <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
+                </g>
+              </g>
+             </svg>
+        
              <h1>Benefit 01</h1>
              <p>Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
              </p>
           </div>
+
+
           <div class="benefits-option-section">
+
           <div class="benefit-holder">
           <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
@@ -327,13 +335,16 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             </g>
           </g>
         </svg>
+        
              <h1>Benefit 01</h1>
              <p>Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
              </p>
           </div>
+
           <div class="benefits-option-section">
+
           <div class="benefit-holder">
           <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885" style="margin:auto">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
@@ -342,12 +353,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             </g>
           </g>
         </svg>
+        
              <h1>Benefit 01</h1>
              <p>Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
              </p>
           </div>
+
        </div>
     </div>
  </section>
@@ -973,9 +986,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  </div>
  </section>`,
   });
-  addBlock('video', {
-    label: 'Video',
-    category: 'Section Modules',
+  addBlock("video", {
+    label: "Video",
+    category: "Section Modules",
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="21.79" height="14.526" viewBox="0 0 21.79 14.526">
     <g id="noun-video-1635751" transform="translate(-125.996 -130.66)">
       <path id="Path_169518" data-name="Path 169518" d="M213.375,130.66H202.48a1.822,1.822,0,0,0-1.816,1.816v10.895a1.822,1.822,0,0,0,1.816,1.816h10.895a1.822,1.822,0,0,0,1.816-1.816V132.476A1.822,1.822,0,0,0,213.375,130.66Zm-7.036,9.987V135.2l4.086,2.724Z" transform="translate(-71.036)" fill="#4a5162"/>
@@ -984,27 +997,28 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: ` <section id=video_1 class="text-gray-600 body-font">
-    <div class="container mx-auto px-24 py-24 text-center" style="width: 80%;
-       margin: auto;">
-       <div class="text-center">
-          <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900" style="font-size: 42px;">Add your heading title here</h1>
-          <h2 class="" style="font-size: 23px;">The Video Module is a place where you can visually show your user or client
+    content: ` <section id=video_1 class="video-main-wrapper">
+    <div class="video-container-main-div">
+       <div class="video-header">
+          <h1>Add your heading title here</h1>
+          <p>The Video Module is a place where you can visually show your user or client
           aspects of your company or product.
-          </h2>
+          </p>
        </div>
-       <div class="container mx-auto" style="padding:50px 0px; width:65%;">
+       <div class="video-div">
           
        <video width="100%" height="auto" controls>
        </video>
            
        </div>
     </div>
- </section>`,
+ </section>
+ ${style}
+ `,
   });
-  addBlock('guidelines', {
-    label: 'Guidelines',
-    category: 'Section Modules',
+  addBlock("guidelines", {
+    label: "Guidelines",
+    category: "Section Modules",
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <g id="noun-guide-4435112" transform="translate(-159.45 -28.378)">
       <path id="Path_169439" data-name="Path 169439" d="M336.444,48.669h-1.516c-.18,0-.325-.1-.325-.214v-24.9L335.4,22.5a.412.412,0,0,1,.581,0l.793,1.056v24.9c0,.118-.146.214-.325.214Z" transform="translate(-161.139 6)" fill="#4a5162"/>
@@ -1013,85 +1027,57 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: ` <section  id= "guideline_1" class="text-gray-600 body-font">
-    <div id=guideline_1 class="container  mx-auto px-24 py-24 text-center" style="width: 70%;
-      margin: auto;">
-      <div class="text-center">
-        <h1 class="title-font sm:text-4xl text-3xl mb-2 font-medium text-gray-900" style="font-size: 42px;">Add your heading title here</h1>
-        <h2 class="" style="font-size: 23px;">The guideline module allows you to give directions or lead users to use a product,
+    content: ` <section  id= "guideline_1" class="guideline-main-wrapper">
+    <div id=guideline_1 class="guideline-container">
+      <div class="guideline-header-section">
+        <h1>Add your heading title here</h1>
+        <h2>The guideline module allows you to give directions or lead users to use a product,
             perform an action, or lead them to a Call-to-action.
         </h2>
       </div>
-      <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
-        <div class="benefit m-3 p-3">
-            <div class="flex">
-              <h3 style="height: 35px;
-                  display: flex;
-                  width: 35px;
-                  justify-content: center;
-                  align-items: center;
-                  background-color: #5aa772;
-                  color: #fff;
-                  margin-right: 10px;
-                  border-radius: 100%;">1</h3>
-              <h1 style="font-size: 20px;
-                  font-weight: 500;
-                  color: #444;
-                  text-align:left;
-                  line-height: 1.8;">Add Step Title</h1>
+      <div class="guidline-option">
+      
+      <div class="guideline">
+            <div class="heading">
+              <h3>1</h3>
+              <h1>Add Step Title</h1>
             </div>
-            <p style="text-align:left; line-height: 1.7; padding: 10px;">Add information in steps in
+            <p >Add information in steps in
               order to explain what the user
               should do next
             </p>
         </div>
-        <div class="benefit m-3 p-3">
-            <div class="flex">
-              <h3 style="height: 35px;
-                  display: flex;
-                  width: 35px;
-                  justify-content: center;
-                  align-items: center;
-                  background-color: #5aa772;
-                  color: #fff;
-                  margin-right: 10px;
-                  border-radius: 100%;">1</h3>
-              <h1 style="font-size: 20px;
-                  font-weight: 500;
-                  color: #444;
-                  text-align:left;
-                  line-height: 1.8;">Add Step Title</h1>
-            </div>
-            <p style="text-align:left; line-height: 1.7; padding: 10px;">Add information in steps in
-              order to explain what the user
-              should do next
-            </p>
+      
+        <div class="guideline">
+        <div class="heading">
+          <h3>1</h3>
+          <h1>Add Step Title</h1>
         </div>
-        <div class="benefit m-3 p-3">
-            <div class="flex">
-              <h3 style="height: 35px;
-                  display: flex;
-                  width: 35px;
-                  justify-content: center;
-                  align-items: center;
-                  background-color: #5aa772;
-                  color: #fff;
-                  margin-right: 10px;
-                  border-radius: 100%;">1</h3>
-              <h1 style="font-size: 20px;
-                  font-weight: 500;
-                  color: #444;
-                  text-align:left;
-                  line-height: 1.8;">Add Step Title</h1>
-            </div>
-            <p style="text-align:left; line-height: 1.7; padding: 10px;">Add information in steps in
-              order to explain what the user
-              should do next
-            </p>
-        </div>
+        <p >Add information in steps in
+          order to explain what the user
+          should do next
+        </p>
+    </div>
+
+    <div class="guideline">
+    <div class="heading">
+      <h3>1</h3>
+      <h1>Add Step Title</h1>
+    </div>
+    <p >Add information in steps in
+      order to explain what the user
+      should do next
+    </p>
+</div>
+
+
+
+
       </div>
   </div>
-  </section>`,
+  </section>
+  ${style}
+  `,
   });
   addBlock('location', {
     label: 'Location',
@@ -1149,9 +1135,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
   </section>`,
   });
-  addBlock('paragraph', {
-    label: 'Paragraph',
-    category: 'Section Modules',
+  addBlock("paragraph", {
+    label: "Paragraph",
+    category: "Section Modules",
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <g id="Group_55522" data-name="Group 55522" transform="translate(-26 -1185)">
       <rect id="Rectangle_36059" data-name="Rectangle 36059" width="9" height="2" rx="1" transform="translate(26 1185)" fill="#4a5162"/>
@@ -1165,7 +1151,17 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section  id= "paragraph_1" class="text-gray-600 body-font"><div class="container  px-5 py-24 mx-auto flex flex-wrap"><div class="flex w-full mb-20 flex-wrap"><h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">Master Cleanse Reliac Heirloom</h1><p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p></div><div class="flex flex-wrap md:-m-2 -m-1"><div class="flex flex-wrap w-1/2"><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/500x300"></div><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/501x301"></div><div class="md:p-2 p-1 w-full"><img alt="gallery" class="w-full h-full object-cover object-center block" src="https://dummyimage.com/600x360"></div></div><div class="flex flex-wrap w-1/2"><div class="md:p-2 p-1 w-full"><img alt="gallery" class="w-full h-full object-cover object-center block" src="https://dummyimage.com/601x361"></div><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/502x302"></div><div class="md:p-2 p-1 w-1/2"><img alt="gallery" class="w-full object-cover h-full object-center block" src="https://dummyimage.com/503x303"></div></div></div></div></section>`,
+    content: `<section  id= "paragraph_1" class="main-paragraph-wrapper">
+       <div class="paragraph-container">
+          <h1 class="font-medium title-font text-gray-900 mb-4">Master Cleanse Reliac Heirloom</h1>
+          <p>Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+          Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+          Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+          Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
+       </div>
+ </section>
+ ${style}
+ `,
   });
 
   addBlock("metrics-numbers", {
@@ -1209,9 +1205,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  addBlock('talent-cloud-candidates', {
-    label: 'Talent Cloud',
-    category: 'Section Modules',
+  addBlock("talent-cloud-candidates", {
+    label: "Talent Cloud",
+    category: "Section Modules",
     media: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
     <g>
      <title>Layer 1</title>
@@ -1221,38 +1217,23 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    </svg>`,
     content: `<section  id= "talent_1">
     
-<div class="container mx-auto px-4" style="padding:50px; background-color:#399918;">
-    <div class="flex" style="align-items:center; margin:50px;">
-     <div class="w-full md:w-4/12 px-4 mr-auto ml-auto" style="height:300px;">
-       <img src="https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_960_720.png" alt="..." class="max-w-full rounded-lg" style="height: 100%;
-       width: 100%;
-       object-fit: contain;">
+<div class="talent-cloud-main-wrapper" >
+    <div class="talent-cloud-container">
+     <div class="img-holder">
+       <img src="https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_960_720.png" alt="...">
      </div>
    
-    <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
-          <h1 style="font-size: 34px;
-          color:#fff;
-          text-align:left;
-          font-weight:500;
-          letter-spacing:1px;">Join Talent Clouds</h1>
-          <p style="font-size:18px;
-             color: #fff;
-             text-align:left;
-             line-height:1.6;
-             margin-top:10px;
-             font-weight:300;">You can apply to be considered for the opportunities that match your skills, interests and availability. 
+    <div class="content-div">
+          <h1>Join Talent Clouds</h1>
+          <p >You can apply to be considered for the opportunities that match your skills, interests and availability. 
              </p>
-             <p style="font-size:18px;
-             color: #fff;
-             text-align:left;
-             line-height:1.6;
-             margin-top:10px;
-             font-weight:300;">Most opportunities are remote, but some travel may be required depending on the project need.
+             <p>Most opportunities are remote, but some travel may be required depending on the project need.
           </p>
        </div>
     </div>
  </div>
  </section> 
+    ${style}
  `,
   });
 
