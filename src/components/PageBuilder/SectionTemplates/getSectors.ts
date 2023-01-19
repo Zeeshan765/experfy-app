@@ -582,22 +582,21 @@ const obj = {
     {
       name: 'Icon',
       open: true,
-      buildProps: ['fill'],
-      attributes: {
-        'data-attribute': 'benefit-Icon-color',
-        'data-target': '.benefit-holder svg ',
-      },
+      // buildProps: ['fill'],
+      
       properties: [
-        // {
-        //   type: 'color',
-        //   name: 'Primary Color',
+        {
+          type: 'color',
+          name: 'Primary Color',
           
-        //   property: 'fill',
-        //   default: '#e6e6e6',
-        //   attributes: {
-        //     'data-type': 'color',
-        //   },
-        // },
+          property: 'fill',
+          default: '#4aa4da',
+          attributes: {
+            'data-type': 'fill',
+            'data-attribute': 'benefit-Icon-color',
+            'data-target': '.benefit-holder svg ',
+          },
+        },
 
         {
           type: 'slider',
@@ -609,6 +608,12 @@ const obj = {
           name: 'Padding',
           property: 'padding',
           default: '0',
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'padding',
+            'data-attribute': 'benefit-Icon-padding',
+            'data-target': '.benefit-holder svg ',
+          },
         },
       ],
     },
@@ -922,14 +927,21 @@ const obj = {
         {
           type: 'select',
           name: 'Aspect Ratio',
-          property: 'aspect-ratio',
+          
+          property: 'padding-top',
           default: '16:9',
           options: [
-            { value: '16:9', name: '16:9' },
-            { value: '4:3', name: '4:3' },
-            { value: '1:1', name: '1:1' },
+            { value: '56.29%', name: '16:9' },
+            { value: '75%', name: '4:3' },
+            { value: '100%', name: '1:1' },
           ],
+          attributes: {
+            'data-type': 'padding-top',
+            'data-attribute': 'video-aspect-ratio',
+            'data-target': '.video-div video ',
+          },
         },
+      
       ],
     },
     {
@@ -937,35 +949,75 @@ const obj = {
       open: false,
       properties: [
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Blur',
-          property: 'css-filter-blur',
-          default: '0',
+          property: 'filter',
+          options: [
+            { value: 'blur(0px)', name: '0px' },
+            { value: 'blur(2px)', name: '2px' },
+            { value: 'blur(4px)', name: '4px' },
+            { value: 'blur(6px)', name: '6px' },
+            { value: 'blur(8px)', name: '8px' },
+            { value: 'blur(10px)', name: '10px' },
+          ],
+          attributes: {
+            'data-type': 'blur',
+            'data-attribute': 'video-blur',
+            'data-target': '.video-div video ',
+          },
         },
-
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Brightness',
-          property: 'css-filter-brightness',
-          default: '100',
+          property: 'filter',
+          default: `brightness(100%)`,
+          options: [
+            { value: 'brightness(100%)', name: '100%' },
+            { value: 'brightness(75%)', name: '75%' },
+            { value: 'brightness(50%)', name: '50%' },
+            { value: 'brightness(25%)', name: '25%' },
+            { value: 'brightness(0%)', name: '0%' },
+          ],
+          attributes: {
+            'data-type': 'brightness',
+            'data-attribute': 'video-brightness',
+            'data-target': '.video-div video ',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Contrast',
-          property: 'css-filter-contrast',
-          default: '100',
+          property: 'filter',
+          options: [
+            { value: 'contrast(100%)', name: '100%' },
+            { value: 'contrast(75%)', name: '75%' },
+            { value: 'contrast(50%)', name: '50%' },
+            { value: 'contrast(25%)', name: '25%' },
+            { value: 'contrast(0%)', name: '0%' },
+          ],
+          attributes: {
+            'data-type': 'filter',
+            'data-attribute': 'video-contrast',
+            'data-target': '.video-div video ',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Saturation',
-          property: 'css-filter-saturation',
-          default: '100',
-        },
-        {
-          type: 'slider',
-          name: 'Hue',
-          property: 'css-filter-hue',
-          default: '0',
+          property: 'filter',
+          default: 'saturate(100%)',
+          options: [
+            { value: 'saturate(100%)', name: '100%' },
+            { value: 'saturate(75%)', name: '75%' },
+            { value: 'saturate(50%)', name: '50%' },
+            { value: 'saturate(25%)', name: '25%' },
+            { value: 'saturate(0%)', name: '0%' },
+          ],
+          attributes: {
+            'data-type': 'filter',
+            'data-attribute': 'video-saturation',
+            'data-target': '.video-div video ',
+          },
         },
       ],
     },
@@ -1334,21 +1386,23 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'paragraph-text-color',
+            'data-target': '.paragraph-container h1 .paragraph-container p',
           },
         },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'typo-color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Typography',
+        //   property: 'typo-color',
+        //   default: '#4aa4da',
+        //   attributes: {
+        //     'data-type': 'color',
+        //   },
+        // },
       ],
     },
   ],
@@ -1466,21 +1520,23 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'guidelines-text-color',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
           },
         },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'text-color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Typography',
+        //   property: 'text-color',
+        //   default: '#4aa4da',
+        //   attributes: {
+        //     'data-type': 'color',
+        //   },
+        // },
       ],
     },
     {
@@ -1493,12 +1549,21 @@ const obj = {
         'box-shadow',
         'padding',
       ],
+      attributes: {
+            'data-target': '.guidline-option',
+          },
       properties: [
         {
           type: 'color',
           name: 'Bullet Point Color',
           property: 'color',
           default: '#FFC0CB',
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'guidelines-bullet-color',
+            'data-target': '.heading h3',
+          },
+
         },
 
         {
