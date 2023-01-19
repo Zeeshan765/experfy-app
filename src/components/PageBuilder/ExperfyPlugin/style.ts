@@ -1,48 +1,55 @@
 export const SectionStyle = `<style>
 
 .main_container {
-  padding: 6rem;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
   margin: 0 auto;
-}
-.heading_container {
-  width: 50%;
-  padding: 30px;
+  padding: 4rem 4rem;
+  align-items: center;
 }
 
-.main_heading {
-  color: #171414;
-  font-size: 38px;
-  font-weight: 500;
-  margin: 2px;
+.main_container .content-section{
+  width: 50%;
+  margin:20px 20px;
 }
-.sub_heading {
+
+.main_container .content-section .main_heading {
   color: #171414;
-  font-size: 24px;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.main_container .content-section .sub_heading {
+  color: #171414;
+  font-size: 22px;
   font-weight: 400;
   line-height: 1.3;
-  margin: 2px;
   margin-bottom: 5px;
 }
-.figure_caption {
-  padding: 30px;
+
+.main_container .image-text-image-section{
+  width: 50%;
+  margin:20px 20px;
+}
+
+.main_container .image-text-image-section .img_container {
+  width: 100%;
+  height: 100%;
+  padding: 30px 30px;
+}
+
+.main_container .image-text-image-section .img_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: center;
+}
+
+.main_container .image-text-image-section .img_container .figure_caption {
+  padding: 20px 30px;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   background-color: #f8f8fa;
   border-radius: 0px 0px 5px 5px;
-}
-.img_container {
-  width: 50%;
-  padding: 30px;
-}
-
-.img_container img {
-  width: 100%;
-  height: 400px;
-  object-position: center;
 }
 
 /* /////////////////////////////////////////////
@@ -426,4 +433,226 @@ display: flex;
     line-height: 1.625; 
   }
 
+  /* /////////////////////////////////////////////
+  /////////// image banner style //////////
+ /////////////////////////////////////////// */
+ 
+
+  .image-banner-wrapper .main-banner-container{
+    background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/00/02/44/5056179b42b174f.jpg);
+    padding:40px 40px;
+  }
+  .bannar-content h1{
+    font-size: 32px;
+    text-align: center;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .bannar-content p{
+    font-size:16px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-align:left;
+    padding:10px 25px;
+    line-height:1.6;
+    font-weight:300;
+    margin: 0px auto 20px;
+  }
+
+  .bannar-btn-div{
+    text-align:center
+  }
+
+  .button-annar{
+    background-color:#3aa17d;
+    color:#fff;
+    padding:13px 60px;
+    border-radius:3px;
+    font-weight:400;
+    font-size:16px;"
+    border:none;
+    outline:none;
+  }
+  .button-annar:focus{
+    border:none;
+    outline:none ;
+  }
+
+
+  /* /////////////////////////////////////////////
+  /////////// location style //////////
+ /////////////////////////////////////////// */
+
+  .location-main-wrapper{
+
+  }
+
+  .location-main-wrapper .location-container{
+    display: flex; 
+    padding: 3rem 3rem; 
+  }
+
+  .address-content-main-holder{
+    width:50%;
+    padding: 40px 30px;
+  }
+  .address-content-main-holder h1{
+    font-size: 38px;
+    font-weight: 500;
+    margin:0px;
+  }
+
+  .address-content-main-holder h2{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  .address-content-div{
+    display: flex; 
+    align-items: center;
+  }
+
+ .address-content-div .address-text-div p{
+    font-size: 20px;
+    padding-left: 20px;
+    margin:10px 0px
+  }
+  .address-map-div{
+    width:50%;
+    padding: 0px 20px;
+  }
+
+
+
+  /* /////////////////////////////////////////////
+  /////////// testimonial style //////////
+ /////////////////////////////////////////// */
+
+  .testimonial-main-wrapper .testimonial-container{
+    padding-left: 1.25rem;
+    padding-right: 1.25rem; 
+    padding-top: 6rem;
+    padding-bottom: 6rem; 
+    margin-left: auto;
+    margin-right: auto; 
+  }
+  .testimonial-main-wrapper .testimonial-container .section-title{
+    font-size:32px;
+    text-align:center;
+    margin-bottom: 3rem; 
+    color: #111827; 
+    font-weight: 500; 
+  }
+
+  .testimonial-container .slider-content-main-div{
+    width:85%; 
+    margin: auto;
+    display: flex;
+    padding: 30px 30px;
+    justify-content: center;
+    background-color: #fff;
+  }
+
+  .img-container{
+    height: 170px;
+    width: 170px;
+  }
+  .img-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .slider-content-main-div .left-container{
+    text-align: center;
+    margin: 0px 20px;
+  }
+
+  .slider-content-main-div .left-container h2{
+    font-size:18px;
+    color:#1c628c;
+    font-weight: 500; 
+  }
+
+  .slider-content-main-div .left-container .user-details{
+    font-size: 14px;
+    color: #000;
+    margin: 10px;
+    line-height: 1.25rem; 
+  }
+
+  .slider-content-main-div .divider{
+    border-right: 1px solid #ccc;
+  }
+  .slider-content-main-div .left-container .user-details .user-detail-label{
+    font-weight: 600;
+  }
+
+
+  .slider-content-main-div .slider-text-div{
+    align-self: center;
+    align-content: center; 
+    text-align: center;
+    margin: 0px 20px;
+  }
+
+  .slider-text-div p{
+    text-align:center;
+    font-size: 16px;
+    color: #000000;
+  }
+
+
+
+  /* /////////////////////////////////////////////
+  /////////// paractice Area style //////////
+ /////////////////////////////////////////// */
+
+ .main-paractice-wrapper{
+
+ }
+
+ .main-paractice-wrapper .section-title{
+  color: #4a5162;
+  font-family: ProximaNova,sans-serif;
+  line-height: 1.2;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+ }
+
+ .main-paractice-wrapper .paractice-area-container{
+  // display: flex; 
+  // margin-left: auto;
+  // margin-right: auto; 
+  // margin-left: 1rem; 
+  // margin-top: 1rem; 
+  // flex-direction: column; 
+  // flex-wrap: wrap; 
+  // align-items: center; 
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 1em;
+ }
+
+ .box-icon-text-holder{
+   height:150px;
+   width:150px;
+   text-align: center;
+   min-height: 4.5rem;
+   align-items: center;
+   justify-content: center;  
+   border: 1px solid #d1dbe3;
+   padding: 2rem 1rem;
+   border-radius: 0.25rem;
+   background-color: #82b891
+ }
+
+
+ 
 </style>`;
