@@ -1,16 +1,20 @@
+// import React, { useContext } from "react";
 import { CollectionConfig } from "payload/types";
 import PageTheme from "../components/PageBuilderTemplate";
 import PageBuilder from "../components/PageBuilder/SectionTemplates";
 import Payload from "payload";
 import SelectPage from "../components/selectPageCode";
 import NewPageBuilder from "../components/NewPageBuilder";
+import { Context } from "../MyProvider";
 import NewPageBuilderModel from "../components/Model/NewPageBuilder";
+import { json } from "stream/consumers";
 
 export type Type = {
   title: string;
   slug: string;
   pageType?: "scratch" | "template";
 };
+// const {setPageAttributes }=useContext(Context);
 
 export const Page: CollectionConfig = {
   slug: "pages",
@@ -33,6 +37,12 @@ export const Page: CollectionConfig = {
       label: "Page Title",
       type: "text",
       required: true,
+      // hooks: {
+      //   beforeValidate: [(args) => console.log("title before validate", args)],
+      //   beforeChange: [(args) => console.log("title before change", args)],
+      //   afterChange: [(args) => console.log("title after change", args)],
+      //   afterRead: [(args) => console.log("title after read", args)],
+      // },
     },
     {
       name: "author",
@@ -41,16 +51,35 @@ export const Page: CollectionConfig = {
       relationTo: "users",
       hasMany: false,
       required: true,
+      // hooks: {
+      //   beforeValidate: [(args) => console.log("author before  validate", args)],
+      //   beforeChange: [(args) => console.log("author before change", args)],
+      //   afterChange: [(args) => console.log("author after change", args)],
+      //   afterRead: [(args) => console.log("author after read", args)],
+
+      // },
     },
     {
       name: "pageType",
       label: "Page Type",
       type: "radio",
       required: true,
-      // defaultValue: "scratch",
+      access: {
+        read: () => true,
+        create: () => true,
+        update: () => true,
+      },
       admin: {
         layout: "vertical",
         description: "Choose how you want to create this page",
+        condition: (data) => {
+          // setPageAttributes({title:data.title,author:data.author});
+          if(data.title && data.author){
+          // @ts-ignore
+          localStorage.setItem("pageAttribute", JSON.stringify( data));
+          }
+          return data.title && data.author;
+        },
       },
       options: [
         {
@@ -90,7 +119,7 @@ export const Page: CollectionConfig = {
       type: "ui",
       admin: {
         components: {
-          Field: SelectPage  ,
+          Field: SelectPage,
         },
       },
     },
