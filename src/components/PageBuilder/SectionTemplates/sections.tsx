@@ -164,6 +164,123 @@ const SectionPageBuilder: React.FC = () => {
         appendTo: '.styles-container',
         sectors: getSectors(blocks),
       },
+      commands: {
+        defaults: [
+          {
+            id: "preview-fullscreen",
+            run() {
+              editor.runCommand("preview");
+              editor.runCommand("fullscreen");
+            },
+            stop() {
+              editor.stopCommand("fullscreen");
+              editor.stopCommand("preview");
+            },
+          },
+          {
+            id: "save-editor",
+            run(editor: { store: () => GrapesJS.Editor }) {
+              const store = editor.store();
+              // checkData();
+            },
+          },
+        ],
+      },
+      //@ts-ignore
+      panels: {
+        defaults: [
+          {
+            id: "panel__switcher",
+            el: ".panel__switcher",
+            buttons: [
+              {
+                id: "show-blocks",
+                className: "fa fa-th-large",
+                command: "show-blocks",
+                active: false,
+
+                attributes: { title: "Blocks" },
+              },
+              {
+                id: "show-layers",
+                className: "fa fa-bars",
+                command: "show-layers",
+                active: false,
+                attributes: { title: "Layers" },
+              },
+              {
+                id: "show-style",
+                className: "fa fa-paint-brush",
+                command: "show-styles",
+                active: false,
+                attributes: { title: "Styles" },
+              },
+
+              {
+                id: "show-traits",
+                className: "fa fa-cog",
+                label: " Traits",
+                command: "show-traits",
+                visible: false,
+                active: false,
+                attributes: { title: "Traits" },
+              },
+            ],
+          },
+          {
+            id: "panel-top",
+            el: ".panel__top",
+            buttons: [
+              {
+                id: "settings",
+                className: "fa fa-cog btn--style-secondary",
+                command: "sw-visibility",
+                active: true,
+                attributes: { title: "Settings" },
+              },
+              {
+                id: "device-desktop",
+                className: "fa fa-desktop btn--style-secondary",
+                command: "toggle-devices",
+                attributes: { title: "Toggle Display" },
+              },
+              {
+                id: "history",
+                className: "fa fa-history btn--style-secondary",
+                command: "undo",
+                togglable: true,
+                attributes: { title: "Undo" },
+              },
+
+              {
+                id: "preview",
+                context: "preview",
+                label: "\t\tPreview",
+                className: "fa fa-eye btn--style-secondary",
+                command: "preview-fullscreen",
+
+                attributes: { title: "Preview" },
+              },
+              {
+                id: "save",
+                className: "btn--style-primary",
+                command: "save-editor",
+                label: "Save",
+                attributes: { title: "Save" },
+              },
+              {
+                id: "publish",
+                className: "radio btn--style-secondary fa fa-check",
+                command: "publish",
+                label: " Publish",
+                togglable: false,
+                icon: "fa fa-check",
+                attributes: { title: "Publish" },
+              },
+            ],
+          },
+        ],
+      },
     });
 
     setEditor(editor);
