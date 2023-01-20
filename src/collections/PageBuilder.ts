@@ -1,4 +1,3 @@
-// import 'grapesjs/dist/css/grapes.min.css';
 import { CollectionConfig } from 'payload/types';
 import PageBuilder from '../components/PageBuilder';
 
@@ -7,12 +6,12 @@ const PageBuilderCollection: CollectionConfig = {
   access: {
     read: () => true,
     create: () => true,
+    update: () => false,
   },
   admin: {
     components: {
       views: {
         List: PageBuilder,
-        Edit: PageBuilder,
       },
     },
   },

@@ -1,9 +1,6 @@
-import type grapesjs from "grapesjs";
-
-import { ReactComponentElement as footer } from "react";
-
-import { RequiredPluginOptions } from ".";
-import { SectionStyle as style } from "./style";
+import type grapesjs from 'grapesjs';
+import { RequiredPluginOptions } from '.';
+import { SectionStyle as style } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
@@ -16,9 +13,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       });
   };
 
-  addBlock("header", {
-    label: "Header",
-    category: "Header & Footer Elements",
+  addBlock('header', {
+    label: 'Header',
+    category: 'Header & Footer Elements',
     media: `<svg viewBox="0 0 24 24">`,
     content: ` 
 
@@ -46,9 +43,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    `,
   });
 
-  addBlock("footer", {
-    label: "Footer",
-    category: "Header & Footer Elements",
+  addBlock('footer', {
+    label: 'Footer',
+    category: 'Header & Footer Elements',
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <g id="Group_55105" data-name="Group 55105" transform="translate(0 2.344)">
       <g id="Group_53875" data-name="Group 53875" transform="translate(0 -2.344)">
@@ -242,9 +239,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </footer>`,
   });
-  addBlock("testimonial", {
-    label: "Testimonial",
-    category: "Section Modules",
+  addBlock('testimonial', {
+    label: 'Testimonial',
+    category: 'Section Modules',
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <g id="noun-testimonial-1065389" transform="translate(-73.647 -37.379)">
       <path id="Path_169430" data-name="Path 169430" d="M184.376,89.6a12.294,12.294,0,0,0-2.19.2.633.633,0,0,0,.227,1.245,11.026,11.026,0,0,1,1.964-.175c5.332,0,9.671,3.812,9.671,8.5a7.778,7.778,0,0,1-1.967,5.136.631.631,0,0,0-.143.531l.59,3.135-3.165-1.073a.63.63,0,0,0-.412,0,17.849,17.849,0,0,1-4.573.768c-5.332,0-9.67-3.812-9.67-8.5a.633.633,0,1,0-1.265,0c0,5.383,4.905,9.763,10.936,9.763a19.124,19.124,0,0,0,4.78-.768l3.99,1.354a.64.64,0,0,0,.2.033.632.632,0,0,0,.622-.75l-.735-3.9a8.987,8.987,0,0,0,2.077-5.727c0-5.383-4.907-9.762-10.937-9.762Z" transform="translate(-94.969 -49.7)" fill="#4a5162"/>
@@ -255,7 +252,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section data-gjs-type= "testimonial" id= "testimonial_1" class="testimonial-main-wrapper">
+    content: `<testimonial data-gjs-type= "testimonial" id= "testimonial_1" class="testimonial-main-wrapper">
     <div class="testimonial-container">
        <h1 class="section-title">You are in Good</h1>   
           <div class="slider-content-main-div">
@@ -288,13 +285,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
        </div>
    
- </section>
+ </testimonial>
  ${style}
  `,
   });
-  addBlock("benefits", {
-    label: "Benefits",
-    category: "Section Modules",
+  addBlock('benefits', {
+    label: 'Benefits',
+    category: 'Section Modules',
     media: `<svg fill="#159576" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
     <g>
      <title>Layer 1</title>
@@ -306,7 +303,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section  id= "benefit_1" class="benefits-main-wrapper">
+    content: `<benefits  id= "benefit_1" class="benefits-main-wrapper">
     <div class="benefits-container" >
 
        <div class="benefits-title-div">
@@ -373,13 +370,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
        </div>
     </div>
- </section>
+ </benefits>
  ${style}
  `,
   });
-  addBlock("practice-areas", {
-    label: "Practice Area",
-    category: "Section Modules",
+  addBlock('practice-areas', {
+    label: 'Practice Area',
+    category: 'Section Modules',
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <g id="Group_54808" data-name="Group 54808" transform="translate(-43 -598.05)">
       <g id="Group_53871" data-name="Group 53871" transform="translate(3 8)">
@@ -420,7 +417,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section id="practice_area_1" class="main-paractice-wrapper">
+    content: `<practice_area id="practice_area_1" class="main-paractice-wrapper">
    
 
     <h1 class="section-title"> Practice Areas</h1>
@@ -879,13 +876,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
     </div>
 
- </section>
+ </practice_area>
   ${style}
  `,
   });
-  addBlock("video", {
-    label: "Video",
-    category: "Section Modules",
+  addBlock('video', {
+    label: 'Video',
+    category: 'Section Modules',
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="21.79" height="14.526" viewBox="0 0 21.79 14.526">
     <g id="noun-video-1635751" transform="translate(-125.996 -130.66)">
       <path id="Path_169518" data-name="Path 169518" d="M213.375,130.66H202.48a1.822,1.822,0,0,0-1.816,1.816v10.895a1.822,1.822,0,0,0,1.816,1.816h10.895a1.822,1.822,0,0,0,1.816-1.816V132.476A1.822,1.822,0,0,0,213.375,130.66Zm-7.036,9.987V135.2l4.086,2.724Z" transform="translate(-71.036)" fill="#4a5162"/>
@@ -895,7 +892,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   `,
     content: `
-    <section id=video_1 class="video-main-wrapper">
+    <section-video id=video_1 class="video-main-wrapper">
       <div class="video-container-main-div">
         <div class="video-header">
           <h1>Add your heading title here</h1>
@@ -905,14 +902,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <video width="100%" height="auto" controls></video>
         </div>
       </div>
-    </section>
+    </section-video>
  ${style}
  `,
- 
   });
-  addBlock("guidelines", {
-    label: "Guidelines",
-    category: "Section Modules",
+  addBlock('guidelines', {
+    label: 'Guidelines',
+    category: 'Section Modules',
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <g id="noun-guide-4435112" transform="translate(-159.45 -28.378)">
       <path id="Path_169439" data-name="Path 169439" d="M336.444,48.669h-1.516c-.18,0-.325-.1-.325-.214v-24.9L335.4,22.5a.412.412,0,0,1,.581,0l.793,1.056v24.9c0,.118-.146.214-.325.214Z" transform="translate(-161.139 6)" fill="#4a5162"/>
@@ -921,7 +917,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: ` <section  id= "guideline_1" class="guideline-main-wrapper">
+    content: ` <guideline  id= "guideline_1" class="guideline-main-wrapper">
     <div id=guideline_1 class="guideline-container">
       <div class="guideline-header-section">
         <h1>Add your heading title here</h1>
@@ -969,18 +965,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
       </div>
   </div>
-  </section>
+  </guideline>
   ${style}
   `,
   });
-  addBlock("location", {
-    label: "Location",
-    category: "Section Modules",
+  addBlock('location', {
+    label: 'Location',
+    category: 'Section Modules',
     media: `<svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="24" height="24" viewBox="0 0 24 24">
     <path id="noun-location-4491946" d="M168.4,30.763a8.653,8.653,0,0,0-6.33-2.469,8.807,8.807,0,0,0-8.484,8.613,8.6,8.6,0,0,0,1.731,5.313c.16.239,4.292,5.985,5.668,7.892a1.577,1.577,0,0,0,1.268.652h.007a1.576,1.576,0,0,0,1.265-.64c.64-.869,5.624-7.683,5.755-7.848l.021-.028h0a8.835,8.835,0,0,0,1.741-5.23,8.658,8.658,0,0,0-2.642-6.256ZM162.317,41.03a3.893,3.893,0,1,1,2.748-1.14A3.888,3.888,0,0,1,162.317,41.03Z" transform="translate(-153.589 -28.289)" fill="#4a5162"/>
   </svg>
   `,
-    content: `<section  id= "location_1" class="location-main-wrapper">
+    content: `<section-location  id= "location_1" class="location-main-wrapper">
       <div class="location-container">
         <div class="address-content-main-holder">
             <h1 class="m-2">Add your heading title here</h1>
@@ -1042,13 +1038,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
               height: 400px;">
         </div>
       </div>
-  </section>
+  </section-location>
   ${style}
   `,
   });
-  addBlock("paragraph", {
-    label: "Paragraph",
-    category: "Section Modules",
+  addBlock('paragraph', {
+    label: 'Paragraph',
+    category: 'Section Modules',
     media: `<svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="24" height="24" viewBox="0 0 24 24">
     <g id="Group_55522" data-name="Group 55522" transform="translate(-26 -1185)">
       <rect id="Rectangle_36059" data-name="Rectangle 36059" width="9" height="2" rx="1" transform="translate(26 1185)" fill="#4a5162"/>
@@ -1062,7 +1058,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section  id= "paragraph_1" class="main-paragraph-wrapper">
+    content: `<paragraph  id= "paragraph_1" class="main-paragraph-wrapper">
        <div class="paragraph-container">
           <h1 class="font-medium title-font text-gray-900 mb-4">Master Cleanse Reliac Heirloom</h1>
           <p>Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
@@ -1070,14 +1066,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
        </div>
- </section>
+ </paragraph>
  ${style}
  `,
   });
 
-  addBlock("metrics-numbers", {
-    label: "Numbers",
-    category: "Section Modules",
+  addBlock('metrics-numbers', {
+    label: 'Numbers',
+    category: 'Section Modules',
     media: `<svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="24" height="24" viewBox="0 0 24 24">
     <g id="noun-metrics-4041242" transform="translate(-70 -81.367)">
       <path id="Path_169485" data-name="Path 169485" d="M80.035,81.367a10.055,10.055,0,0,0-9.124,14.238H89.159a10.055,10.055,0,0,0-9.124-14.238Zm-.6,1.837h1.191v1.745H79.439Zm-5.865,8.818H71.833V90.828h1.741Zm1.486-4.741-1.238-1.24.842-.845,1.238,1.24Zm4.975,6.376A1.757,1.757,0,0,1,78.282,91.9a45.3,45.3,0,0,1,1.179-4.989.6.6,0,0,1,1.148,0A45.324,45.324,0,0,1,81.788,91.9,1.756,1.756,0,0,1,80.035,93.658Zm4.975-6.376-.842-.845,1.238-1.24.842.845Zm3.228,4.741H86.5V90.828h1.741Z" fill="#4a5162"/>
@@ -1085,7 +1081,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section class="main_wrapper" id= "number_1">
+    content: `<numbers class="main_wrapper" id= "number_1">
         <div class="number-container-div">
           
         <div class="title-div">
@@ -1117,15 +1113,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
               </div>
           </div>
-    </section> 
+    </numbers> 
     
     ${style}
     `,
   });
 
-  addBlock("talent-cloud-candidates", {
-    label: "Talent Cloud",
-    category: "Section Modules",
+  addBlock('talent-cloud-candidates', {
+    label: 'Talent Cloud',
+    category: 'Section Modules',
     media: `<svg  fill="#159576" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
     <g>
      <title>Layer 1</title>
@@ -1133,7 +1129,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section  id= "talent_1">
+    content: `<talent id= "talent_1">
     
 <div class="talent-cloud-main-wrapper" >
     <div class="talent-cloud-container">
@@ -1150,19 +1146,19 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
     </div>
  </div>
- </section> 
+ </talent> 
     ${style}
  `,
   });
 
-  addBlock("image-banner", {
-    label: "Image Banner",
-    category: "Section Modules",
+  addBlock('image-banner', {
+    label: 'Image Banner',
+    category: 'Section Modules',
     media: `<svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="24" height="24" viewBox="0 0 24 24">
     <path id="Path_170799" data-name="Path 170799" d="M90.466,39.2H70.632a.633.633,0,0,0-.633.633V56.5a.633.633,0,0,0,.633.633H90.466A.633.633,0,0,0,91.1,56.5V39.832A.633.633,0,0,0,90.466,39.2ZM83.292,54.417a.442.442,0,0,1-.434.4H72.264a.382.382,0,0,1-.366-.4v-.053a.382.382,0,0,1,.366-.4H82.857a.442.442,0,0,1,.434.4Zm-11.04-2.98H82.479a.414.414,0,0,1,.405.382V51.9a.414.414,0,0,1-.405.382H72.252A.369.369,0,0,1,71.9,51.9v-.079a.369.369,0,0,1,.354-.383ZM71.9,49.353V49.3a.382.382,0,0,1,.366-.4h9.617a.4.4,0,0,1,.393.4v.053a.4.4,0,0,1-.393.4H72.264A.382.382,0,0,1,71.9,49.353Zm17.251,4.822-.672.5a.283.283,0,0,1-.168.056.272.272,0,0,1-.043,0,.284.284,0,0,1-.185-.113l-1.355-1.869-.778.573a.282.282,0,0,1-.442-.163l-.958-4.085a.282.282,0,0,1,.414-.31l3.645,2.078a.282.282,0,0,1,.031.469l-.788.6,1.359,1.876a.281.281,0,0,1-.06.392Zm.472-8.225a.633.633,0,0,1-.633.633H72.109a.633.633,0,0,1-.633-.633V41.941a.633.633,0,0,1,.633-.633h16.88a.633.633,0,0,1,.633.633Z" transform="translate(-69.999 -39.199)"/>
   </svg>
   `,
-    content: `<section id="image_banner_1" class="image-banner-wrapper">
+    content: `<banner id="image_banner_1" class="image-banner-wrapper">
         <div class="main-banner-container">
       <div class="bannar-wrap">
       <div class="bannar-content">
@@ -1181,14 +1177,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
    </div>
 </div>
-        </section>
+        </banner>
         ${style}
         `,
   });
 
-  addBlock("image-and-text", {
-    label: "Image and Text",
-    category: "Section Modules",
+  addBlock('image-and-text', {
+    label: 'Image & Text',
+    category: 'Section Modules',
     media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <g id="noun-text-3077363" transform="translate(-115.076 16.359)">
       <path id="Path_169248" data-name="Path 169248" d="M212.386,142.24H202.112a1.074,1.074,0,1,0,0,2.148h10.274a1.074,1.074,0,0,0,0-2.148Z" transform="translate(-81.21 -153.195)" fill="#4a5162"/>
@@ -1198,7 +1194,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section  id= "image_text_1">
+    content: `<image_text  id= "image_text_1">
         <div class="main_container">
         <div class="content-section">
            <h1 class="main_heading" >Add your heading title here</h1>
@@ -1215,9 +1211,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
      
         </div>
-        </section>
+        </image_text>
         ${style}
-        
         
         `,
   });

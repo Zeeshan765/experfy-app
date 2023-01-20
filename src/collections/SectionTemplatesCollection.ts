@@ -1,5 +1,5 @@
 import { CollectionConfig } from 'payload/types';
-import SectionPageBuilder from '../components/PageBuilder/SectionTemplates/sections';
+import SectionPageBuilder from '../components/PageBuilder/SectionTemplates';
 
 const SectionTemplateCollection: CollectionConfig = {
   labels: {
@@ -24,9 +24,7 @@ const SectionTemplateCollection: CollectionConfig = {
       },
     },
   },
-  fields: [
-    
-  ],
+  fields: [],
 };
 
 export default SectionTemplateCollection;

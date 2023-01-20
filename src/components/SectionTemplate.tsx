@@ -11,7 +11,6 @@ import { makeStyles } from '@mui/styles';
 import { title } from 'process';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MinimalTemplate } from 'payload/components/templates';
 import {
   benefits,
   custom_build,
@@ -30,7 +29,6 @@ import {
   testimonial,
   video,
 } from '../assets/images';
-import { Props } from '../utilities/types';
 
 const useStyles = makeStyles({
   sectionCardGrid: {
@@ -63,8 +61,10 @@ const useStyles = makeStyles({
     },
   },
 });
-
-const SectionTemplate: React.FC = ({search }) => {
+type Props = {
+  search?: String;
+};
+const SectionTemplate: React.FC<Props> = ({ search }) => {
   const classes = useStyles();
   const templateList = [
     {
@@ -178,65 +178,70 @@ const SectionTemplate: React.FC = ({search }) => {
       link: '/admin/collections/section-templates/testimonial',
       name: 'Testimonial',
       text: 'To attract talent, add testimonials of employees ot talentCloud members who have worked for your company and have rave reviews of their experience.',
-
     },
   ];
   return (
     <>
       <Grid container mt={3} spacing={3} className={classes.sectionCardGrid}>
-        {templateList.map(({ id, image, name, link, text }) => (<>
-       {!search?( 
-       <Grid item xs={6} sm={4} md={3} key={id}>
-            <LinkTag
-              component={Link}
-              to={link}
-              className={classes.sectionCardLink}
-            >
-              <Card className={classes.sectionCard}>
-                <CardHeader title={name}></CardHeader>
-                <CardMedia
-                  component="img"
-                  //@ts-ignore
-                  image={image}
-                  alt={title}
-                ></CardMedia>
-                <CardContent>
-                  {text && <Typography>{text}</Typography>}
-                </CardContent>
-              </Card>
-
-              {/* <img src={image} alt={name} style={{ width: "100%" }} /> */}
-              {/* <FaceLessModel data={{ id, image, name }} /> */}
-            </LinkTag>
-          </Grid>):(<>
-            {name.toLowerCase().includes(search.toLowerCase())&&(<>
+        {templateList.map(({ id, image, name, link, text }) => (
+          <>
+            {!search ? (
               <Grid item xs={6} sm={4} md={3} key={id}>
-              <LinkTag
-                component={Link}
-                to={link}
-                className={classes.sectionCardLink}
-              >
-                <Card className={classes.sectionCard}>
-                  <CardHeader title={name}></CardHeader>
-                  <CardMedia
-                    component="img"
-                    //@ts-ignore
-                    image={image}
-                    alt={title}
-                  ></CardMedia>
-                  <CardContent>
-                    {text && <Typography>{text}</Typography>}
-                  </CardContent>
-                </Card>
-  
-                {/* <img src={image} alt={name} style={{ width: "100%" }} /> */}
-                {/* <FaceLessModel data={{ id, image, name }} /> */}
-              </LinkTag>
-            </Grid>
-              </>)
-             }</>
-          )}  
-       </> ))}
+                <LinkTag
+                  component={Link}
+                  to={link}
+                  className={classes.sectionCardLink}
+                >
+                  <Card className={classes.sectionCard}>
+                    <CardHeader title={name}></CardHeader>
+                    <CardMedia
+                      component="img"
+                      //@ts-ignore
+                      image={image}
+                      alt={title}
+                    ></CardMedia>
+                    <CardContent>
+                      {text && <Typography>{text}</Typography>}
+                    </CardContent>
+                  </Card>
+
+                  {/* <img src={image} alt={name} style={{ width: "100%" }} /> */}
+                  {/* <FaceLessModel data={{ id, image, name }} /> */}
+                </LinkTag>
+              </Grid>
+            ) : (
+              <>
+                {name.toLowerCase().includes(search.toLowerCase()) && (
+                  <>
+                    <Grid item xs={6} sm={4} md={3} key={id}>
+                      <LinkTag
+                        component={Link}
+                        to={link}
+                        className={classes.sectionCardLink}
+                      >
+                        <Card className={classes.sectionCard}>
+                          <CardHeader title={name}></CardHeader>
+                          <CardMedia
+                            component="img"
+                            //@ts-ignore
+                            image={image}
+                            alt={title}
+                          ></CardMedia>
+                          <CardContent>
+                            {text && <Typography>{text}</Typography>}
+                          </CardContent>
+                        </Card>
+
+                        {/* <img src={image} alt={name} style={{ width: "100%" }} /> */}
+                        {/* <FaceLessModel data={{ id, image, name }} /> */}
+                      </LinkTag>
+                    </Grid>
+                  </>
+                )}
+              </>
+            )}
+          </>
+        ))}
       </Grid>
     </>
   );

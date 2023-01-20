@@ -1,8 +1,9 @@
+import { getSectors } from './getSectors';
 import type GrapesJS from 'grapesjs';
 import commands from './commands';
 import blocks from './blocks';
 import panels from './panels';
-import '../index.scss';
+import './index.scss';
 
 export type PluginOptions = {
   /**
@@ -79,6 +80,11 @@ export type PluginOptions = {
    *  @default false
    * */
   showPanelsOnLoad?: boolean;
+  StyleManager?: any;
+  TraitsManager?: any;
+  BlockManager?: any;
+  LayerManager?: any;
+  SelectorManager?: any;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
@@ -89,7 +95,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
 ) => {
   const config: RequiredPluginOptions = {
     blocks: opts.blocks,
-    block: () => ({}),
+    block: (blockId: string) => ({}),
     modalImportTitle: 'Import',
     modalImportButton: 'Import',
     modalImportLabel: '',
@@ -97,9 +103,26 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
     importViewerOptions: {},
     textCleanCanvas: 'Are you sure you want to clear the canvas?',
     showStylesOnChange: true,
-    useCustomTheme: false,
+    useCustomTheme: true,
     showGlobalStyles: true,
     showPanelsOnLoad: false,
+    SelectorManager: {
+      appendTo: '.styles-container',
+    },
+    StyleManager: {
+      appendTo: '.styles-container',
+      sectors: [],
+    },
+    TraitsManager: {
+      appendTo: '.traits-container',
+    },
+    BlockManager: {
+      appendTo: '.blocks',
+    },
+    LayerManager: {
+      appendTo: '.layers-container',
+    },
+
     ...opts,
   };
 

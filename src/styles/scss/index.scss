@@ -1,7 +1,3 @@
-@import "./font-proxima-nova.scss";
-
-// Box Sizing
-//---------------------------------------------
 @import "~payload/scss";
 @import "font-proxima-nova";
 @import "updated-styles";
@@ -96,8 +92,6 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    // height: 100%;
-    // padding-left: 15.5rem;
   }
 
   &__builder {
@@ -267,8 +261,6 @@ body {
   margin: 30px 0px;
 }
 
-//}
-
 .field-type.text {
   margin-bottom: 1.9rem;
 
@@ -328,9 +320,7 @@ div.react-select {
     color: var(--theme-elevation-0);
   }
 
-
 }
-
 
 .btn--style-primary {
   background-color: var(--theme-primary);
@@ -412,9 +402,6 @@ div.react-select {
 
 .Global #nav-themes-style::before {
   background-image: url("/src/assets/images/sidebar/theme_style.svg") !important;
-  // background-size: 100% 100%;
-  // width: 16px;
-  // height: 16px;
   background-repeat: no-repeat;
   content: "";
   width: 16px;
@@ -425,8 +412,6 @@ div.react-select {
 .Global #nav-section-templates::before {
   background-image: url("/src/assets/images/sidebar/section.svg") !important;
   background-size: 100% 100%;
-  // width: 16px;
-  // height: 16px;
   background-repeat: no-repeat;
   content: "";
   width: 16px;
@@ -437,10 +422,6 @@ div.react-select {
 // ------------------------------------------//
 // ------------ custom css ------------------//
 // -----------------------------------------//
-// .nav-category {
-//   padding: 4rem;
-//   border-bottom: 1px solid var(--theme-elevation-150);
-// }
 
 .portals-identity {
   margin-top: 20px;
@@ -478,15 +459,10 @@ div.react-select {
   }
 }
 
-// .full-width-image {
-//   width: 90% !important;
-//   margin: 10px !important;
-// }
-
-.back-blue-panel {
+.back__panel {
   background-color: var(--theme-primary);
   padding: 10px 0px 10px 0px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: 500;
   font-size: 17px;
   text-align: center;
@@ -494,13 +470,14 @@ div.react-select {
   display: flex;
   justify-content: space-evenly;
 
-  :hover {
+  &:hover {
     color: var(--theme-elevation-0);
+    background-color: var(--theme-text-light);
+    text-decoration: none;
+
   }
 
 }
-
-
 
 .radio-group {
   #field-mediaType {
@@ -569,12 +546,6 @@ div.react-select {
 }
 
 .collection-edit__main {
-  // .gutter--left {
-  //   padding-left: 0px !important;
-  // }
-  // .gutter--right {
-  //   padding-right: 0px !important;
-  // }
 
   .collection-edit__edit {
     .radio-group--layout-horizontal {
@@ -587,12 +558,6 @@ div.react-select {
   .collection-edit__edit {
     display: flex;
     flex-direction: column;
-    // padding-top: 0px !important;
-
-    .field-type {
-      // padding-left: 24px;
-      // padding-right: 24px;
-    }
 
     .radio-group--layout-horizontal {
       .radio-group--group {

@@ -42,7 +42,6 @@ const DesignSystem: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
   const {
-    admin: { user: userSlug },
     routes: { admin },
   } = useConfig();
 
@@ -68,7 +67,7 @@ const DesignSystem: React.FC = () => {
       fromElement: true,
       avoidDefaults: true,
       el: '#gjs',
-
+      height: '0%',
       commands: {
         defaults: [
           {
@@ -553,7 +552,7 @@ const DesignSystem: React.FC = () => {
       <Eyebrow />
       <div className="editor-row">
         <div className="panel__left">
-          <div className="back-blue-panel">
+          <div className="back__panel">
             <span>&#10094;</span>
             <Link to={`${admin}/`}>Global Theme Settings</Link>
             <span>&#9783;</span>
