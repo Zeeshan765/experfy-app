@@ -11,7 +11,6 @@ import PageBuilderCollection from './collections/PageBuilder';
 import PageTemplateCollection from './collections/PageTemplate';
 import ParagraphCollection from './collections/Paragraph';
 import SectionTemplateCollection from './collections/SectionTemplatesCollection';
-// import selectPageCollection from './collections/selectPageCollection';
 import TalentCloudCollection from './collections/TalentCloud';
 import TemplatesCollection from './collections/TemplatesCollection';
 import ThemeCollection from './collections/ThemeCollection';
@@ -21,13 +20,12 @@ import AfterNav from './components/Nav/AfterNav';
 import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import NewPageBuilder from './components/NewPageBuilder';
-import PageBuilder from './components/PageBuilder';
+import PageBuilder from './components/NewPageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
 import Form from './components/PageBuilder/NewSectionTemplate/Form';
 import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sections';
 import PortalIdentity from './components/PortalIdentity';
-import selectPageCode from './components/selectPageCode.tsx';
 import TemplatesLibrary from './components/TemplateLibrary';
 import MyProvider from './MyProvider';
 
@@ -48,11 +46,7 @@ export default buildConfig({
       afterNavLinks: [AfterNav],
 
       routes: [
-        {
-          path: '/collections/page-builder',
-          Component: PageBuilder,
-          exact: true,
-        },
+      
         {
           path: '/collections/basic-portal-identity',
           Component: BasicPortalIdentityPage,
@@ -213,10 +207,10 @@ export default buildConfig({
         //   path: '/collections/paragraph',
         //   Component: Paragraph ,
         // },
-        {
-          path:'collections/pages/create',
-          Component:selectPageCode,
-        }
+        // {
+        //   path:'collections/pages/create',
+        //   Component:selectPageCode,
+        // }
       ],
       providers: [MyProvider]
     },

@@ -60,9 +60,8 @@ const NewPageBuilderModel = () => {
           <p style={{ font: "16px", fontWeight: "600", margin: "0px" }}>
             create page from scratch
           </p>
-          <a
-                onClick={handleClose}
-                style={{color:'#fff', backgroundColor:'#dfdfdf',padding:'8px',borderRadius:'15%' }}
+          <a  onClick={handleClose}
+              style={{color:'#fff', backgroundColor:'#dfdfdf',padding:'8px',borderRadius:'15%' }}
               >
                 <CloseIcon  />
               </a>

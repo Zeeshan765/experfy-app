@@ -1,3 +1,4 @@
+import CloseIcon from "@mui/icons-material/Close";
 import { Dialog, DialogTitle } from "@mui/material";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
@@ -8,10 +9,10 @@ import home from "../../assets/images/templates/home.png";
 import job_overview from "../../assets/images/templates/job_overview.png";
 import join from "../../assets/images/templates/join.png";
 import tc_overview from "../../assets/images/templates/tc_overview.png";
-import FaceLessModel from "../Model";
-import { Grid } from "@material-ui/core";
-import CloseIcon from "@mui/icons-material/Close";
+import {SelectField, TextField} from "payload/types";
+
 import PageTemplate from "../PageTemplate";
+import { SelectInput, TextInput } from "payload/components/forms";
 const PageTheme = () => {
   const [open, setOpen] = React.useState(false);
   const [search, setSearch] = React.useState("");
@@ -53,7 +54,7 @@ const PageTheme = () => {
       image: join,
       link: "/admin",
       name: "Join",
-    },
+    },  
     {
       id: 7,
       image: tc_overview,
@@ -101,12 +102,12 @@ const PageTheme = () => {
             width: "100%",
           }}
         >
-          <p style={{ font: "16px", fontWeight: "600", margin: "0px" }}>
-            Plase select your template for your page{" "}
-          </p>
+          
+            Please select your template for your page
+          
           <a
                 onClick={handleClose}
-                style={{color:'#fff', backgroundColor:'#dfdfdf',padding:'8px',borderRadius:'15%' }}
+                style={{color:'#000',padding:'8px' }}
               >
                 <CloseIcon  />
               </a>
@@ -115,59 +116,36 @@ const PageTheme = () => {
       <div style={{ background: "#fff" }}>
         <div
           style={{
-            padding: "16px 3rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
+            padding: "10px",
           }}
         >
-          <div>
-            <label
-              htmlFor="type"
-              style={{ display: "block", fontWeight: "600", fontSize: "1rem" }}
-            >
-              Page Template Type
-            </label>
-            <select
-              name="type"
-              title="Template Type"
-              placeholder="Default templates"
-            >
-              <option>Default templates</option>
-            </select>
-          </div>
+          
+            
+            <SelectInput
+              name={"template_type"}
+              label={"Template Type"}
+              width={"50%"}
+              defaultValue={"Default templates"}
+              options={[
+                  {
+                    label: "Default templates",
+                    value: "default-templates",
+                  },
+                ]}
+              path={"template_type"}
+            />
+              
 
-          <div>
-            <label
-              htmlFor="search"
-              style={{
-                display: "block",
-                fontWeight: "600",
-                margin: "0px",
-                fontSize: "1rem",
-              }}
-            >
-              Search Page
-            </label>
-            <input
-              type="text"
+            
+            <TextInput
               name="search"
-              placeholder="Search Page"
+              path="search"
+              label={"Search Page"}
+              width={"50%"}
               onChange={handleSeach}
-            value={search}
-              style={{
-                width: "350px",
-                lineHeight: "2rem",
-                border: "1px solid gray",
-                boxShadow: "1px 1px 3px 0px #000",
-                color: "gray",
-                background: "#fff",
-                borderRadius: "4px",
-              }}
-            />{" "}
+              value={search}
+            />
           </div>
-        </div>
         <PageTemplate search={search} templateModelClose={handleClose} />
       </div>
     </Dialog>

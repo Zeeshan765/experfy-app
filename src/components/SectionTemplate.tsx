@@ -64,7 +64,7 @@ const useStyles = makeStyles({
   },
 });
 
-const SectionTemplate: React.FC = ({search}) => {
+const SectionTemplate: React.FC = ({search }) => {
   const classes = useStyles();
   const templateList = [
     {

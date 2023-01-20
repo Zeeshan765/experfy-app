@@ -73,6 +73,7 @@
     "cross-env": "^7.0.3",
     "grapesjs-cli": "^3.0.1",
     "nodemon": "^2.0.20",
+    "prettier": "2.8.3",
     "ts-node": "^10.9.1",
     "tsc-silent": "^1.2.2",
     "typescript": "^4.8.4"

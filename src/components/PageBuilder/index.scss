@@ -12,11 +12,9 @@ $fontName: "proximanova-black-webfont";
 $deviceBackground: #2f3d55;
 @import "grapesjs/src/styles/scss/main.scss";
 
-
 .editor-canvas {
   flex-grow: 1;
   padding: 5px;
-
   border: var(--theme-border) 3px solid;
   overflow-y: auto;
 
@@ -31,16 +29,6 @@ $deviceBackground: #2f3d55;
   height: 100%;
 
 }
-
-
-
-
-
-
-
-
-
-
 
 .panel__top {
   right: 5rem;
@@ -116,22 +104,11 @@ $deviceBackground: #2f3d55;
   background-color: var(--theme-elevation-0) !important;
 }
 
-// .gjs-pn-commands {
-//   width: 100% !important;
-// }
-
-// .gjs-layer-vis {
-//   width: 30px !important;
-// }
-
 .gjs-label-wrp {
   width: 18% !important;
   min-width: 22% !important;
 }
 
-// .gjs-block-categories {
-//   flex-direction: column-reverse;
-// }
 .gjs-block-category .gjs-title,
 .gjs-category-title,
 .gjs-layer-title,
@@ -189,43 +166,12 @@ $deviceBackground: #2f3d55;
 
 }
 
-// .gjs-block__media {
-//   margin-bottom: 0px !important;
-// }
-
-// .gjs-sm-label {
-//   margin: 5px !important;
-// }
-
-// .gjs-block-label {
-//   font-size: 0.65rem !important;
-//   font-weight: 600 !important;
-//   font-family: var(--font-body) !important;
-//   color: var(--theme-text) !important;
-// }
-
 .gjs-field {
   border: solid 1px var(--theme-border) !important;
   background-color: var(--theme-elevation-0) !important;
   border-radius: 2px !important;
   // padding: 5px !important;
 }
-
-// .gjs-select select {
-//   // padding-right: 20px !important;
-//   // padding-left: 10px !important;
-//   padding-right: 0px !important;
-//   padding-left: 6px !important;
-//   /* display: inline-block; */
-//   width: 130px;
-//   vertical-align: sub;
-// }
-
-// .gjs-select select option {
-//   background-color: var(--theme-bg) !important;
-//   color: var(--theme-text-dark) !important;
-//   border: none !important;
-// }
 
 .gjs-field .gjs-d-s-arrow {
   right: 10px !important;
@@ -356,11 +302,6 @@ $deviceBackground: #2f3d55;
   }
 }
 
-// .full-width-image .gjs-block-label svg {
-//   width: 100% !important;
-//   height: 100% !important;
-// }
-
 .gjs-block {
   .gjs-block-label {
 
@@ -368,7 +309,6 @@ $deviceBackground: #2f3d55;
     font-weight: 600 !important;
     font-family: var(--font-body) !important;
     color: var(--theme-text);
-
   }
 
   .gjs-block__media svg {
@@ -376,7 +316,6 @@ $deviceBackground: #2f3d55;
     height: auto;
   }
 }
-
 
 .gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
   background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg") !important;
@@ -507,15 +446,29 @@ $deviceBackground: #2f3d55;
   }
 }
 
-
 .gjs-pn-btn {
   font-size: 14px;
+  border-right-color: var(--theme-border) !important;
+  border-bottom-color: var(--theme-border) !important;
+  border-right-width: 1px !important;
+  border-bottom-width: 1px !important;
+  border-right-style: solid !important;
+  border-bottom-style: solid !important;
+  padding-right: 10px !important;
 
   svg {
     vertical-align: top;
     padding-bottom: 2px;
     height: 20px;
     width: 24px;
+  }
+
+  &.gjs-pn-active {
+    background-color: var(--theme-elevation-0) !important;
+    border-bottom: var(--theme-primary) !important;
+    border-bottom-style: solid !important;
+    border-bottom-width: 4px !important;
+    box-shadow: 2px 2px solid var(--theme-elevation-0) !important;
   }
 }
 
@@ -527,8 +480,6 @@ $deviceBackground: #2f3d55;
   }
 }
 
-
-
 .gjs-layer {
   .gjs-layer-vis {
     right: 50px !important;
@@ -536,18 +487,12 @@ $deviceBackground: #2f3d55;
     left: auto !important;
   }
 
-  .gjs-layer-count {
-    // display: none !important;
-  }
-
   .gjs-layer-move {
     right: 20px;
     top: 15px;
   }
 
-
   .gjs-layer-title {
-
 
     padding: 18px 50px 18px 50px !important;
     margin: 5px 20px 5px 20px !important;
@@ -558,13 +503,10 @@ $deviceBackground: #2f3d55;
     display: flex !important;
     font-weight: 600 !important;
 
-
-
     .gjs-layer-title-inn {
       .gjs-no-app {
         height: auto !important;
       }
-
 
       .gjs-layer-name {
         padding: 0px !important;
@@ -579,7 +521,6 @@ $deviceBackground: #2f3d55;
       height: 16px;
       background-repeat: no-repeat;
       content: "";
-
       left: 20px;
     }
 

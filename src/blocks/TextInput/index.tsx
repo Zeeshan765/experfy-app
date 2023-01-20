@@ -34,9 +34,6 @@ const TextInput: React.FC<CustomTextField> = ({
   name,
   index,
   brand,
-  defaultValue,
-  hidden,
-  onChange,
   ...rest
 }) => {
   const [error, setError] = useState();
@@ -57,11 +54,11 @@ const TextInput: React.FC<CustomTextField> = ({
       setValue(display);
     }
   }, [display]);
-  useEffect(() => {
-    if (defaultValue) {
-      setValue(defaultValue);
-    }
-  }, [defaultValue]);
+  // useEffect(() => {
+  //   if (defaultValue) {
+  //     setValue(defaultValue);
+  //   }
+  // }, [defaultValue]);
   
   return (
     <div className={classes}>
@@ -69,14 +66,11 @@ const TextInput: React.FC<CustomTextField> = ({
       <input
         name={path}
         required={required}
-        value={defaultValue??value}
+        value={value}
         placeholder={placeHolder}
         readOnly={rest?.readOnly}
-        onChange={onChange??setValue}
-        // @ts-ignore
-        showError={'showError'}
-        hidden={hidden}
-        error={error}
+        onChange={onchange}
+        showError={showError}
         errormessage={errorMessage}
         onFocus={() => setTouched(path)}
         onBlur={() => setTouched('')}
