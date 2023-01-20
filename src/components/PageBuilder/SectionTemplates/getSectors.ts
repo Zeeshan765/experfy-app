@@ -1164,19 +1164,145 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'section-heading-color',
+            'data-target': '.section-title',
           },
         },
         {
-          type: 'color',
-          name: 'Typography',
-          property: 'typo-color',
-          default: '#4aa4da',
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
           attributes: {
-            'data-type': 'color',
+            'data-type': 'font-family',
+            'data-attribute': 'section-heading-font-family',
+            'data-target': '.section-title',
+            
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'section-heading-font-size',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'section-heading-font-weight',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'section-heading-letter-spacing',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'section-heading-line-height',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'center',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'section-heading-text-align',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'section-heading-text-decoration',
+            'data-target': '.section-title',
+
+            
+
           },
         },
       ],
@@ -1192,15 +1318,126 @@ const obj = {
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
           },
         },
         {
-          type: 'color',
-          name: 'Typography',
-          property: 'section-color',
-          default: '#4aa4da',
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
           },
         },
       ],

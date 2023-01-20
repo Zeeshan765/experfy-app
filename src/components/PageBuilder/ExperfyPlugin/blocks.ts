@@ -421,21 +421,23 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   `,
     content: `<section id="practice_area_1" class="main-paractice-wrapper">
-    <div class="box-section">
+   
 
     <h1 class="section-title"> Practice Areas</h1>
 
+    
+ 
     <div class="paractice-area-container">
     
-       <div class="box-icon-text-holder">
+      <div class="box-icon-text-holder box-active">
 
 
-          <div style="justify-content: center;display:flex;align-items:center">
+          <div class="box-icon-div ">
           
-          <svg width="44.534" height="55.892" xmlns="http://www.w3.org/2000/svg" data-name="Group 26409">
+          <svg width="43" height="54.648" xmlns="http://www.w3.org/2000/svg" data-name="Group 26409">
           <defs>
            <clipPath id="clip-path">
-            <rect id="Rectangle_12803" data-name="Rectangle 12803" width="44.534" height="55.892" fill="#3074a4"/>
+            <rect id="Rectangle_12803" data-name="Rectangle 12803" width="43" height="54.648" fill="#3074a4"/>
            </clipPath>
           </defs>
           <g>
@@ -477,26 +479,17 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </g>
          </svg>
 
-
           </div>
 
-          <div>
-             <h2 style="color: #fff">AI & Machine Learning</h2>
+          <div class="box-text-div">
+             <p >AI & Machine Learning</p>
           </div>
-       </div>
-
-
-
-
-
-
-
-
+      </div>
 
 
        <div class="box-icon-text-holder">
             
-                         <div style="justify-content: center;display:flex;align-items:center">
+                         <div class="box-icon-div">
                          <svg id="Group_26397" data-name="Group 26397" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56.33" height="54.648" viewBox="0 0 56.33 54.648">
                          <defs>
                            <clipPath id="clip-path">
@@ -522,8 +515,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                        
  
              </div>
-             <div>           
-              <h2>Big Data</h2>
+
+<div class="box-text-div">         
+              <p>Big Data</p>
              </div>
  
        </div>
@@ -533,20 +527,20 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
 
        <div class="box-icon-text-holder">
-                                  <div style="justify-content: center;display:flex;align-items:center">
+                                  <div class="box-icon-div">
                                   <svg id="Group_26399" data-name="Group 26399" xmlns="http://www.w3.org/2000/svg" width="58.908" height="37.533" viewBox="0 0 58.908 37.533">
                                   <path id="Path_17113" data-name="Path 17113" d="M135,301.813a10.827,10.827,0,0,0,9.2,10.575l1.844.144h36.813l1.844-.144a10.656,10.656,0,0,0,1.827-20.7A17.244,17.244,0,0,0,169.056,275a17.54,17.54,0,0,0-15.716,9.5,7.411,7.411,0,0,0-5.462-2.353,7.118,7.118,0,0,0-6.734,10.04A10.71,10.71,0,0,0,135,301.813Zm9.361-8.654-.89-2.316a3.338,3.338,0,0,1-.311-1.412,5.186,5.186,0,0,1,4.993-4.782,4.419,4.419,0,0,1,2.979,1.268l2.878,2,2.443-3.266a15.438,15.438,0,0,1,12.721-6.968c7.44,0,14.772,7.085,14.889,14.17v2.51l2.59.693a7.01,7.01,0,0,1,4.876,6.576c0,3.41-3.5,7.7-7.035,8.263H172.479v2.587h-2.7V300.438h5.385l-10.706-12.051-10.706,12.051h5.331v12.041h-2.667v-2.587H146.335l-1.228-.094c-3.531-.562-7.426-4.746-7.426-8.169,0-2.667,2.272-6.954,6.68-8.47Zm0,0" transform="translate(-135 -275)" fill="#3074a4" fill-rule="evenodd"/>
                                 </svg>
                                 
  
                          </div>
-          <div>
-          <h2>Cloud Computing</h2>
+                         <div class="box-text-div">
+          <p>Cloud Computing</p>
           </div>
        </div>
 
           <div class="box-icon-text-holder" >
-                               <div style="justify-content: center;display:flex;align-items:center">
+                               <div class="box-icon-div">
                                <svg id="Group_26412" data-name="Group 26412" xmlns="http://www.w3.org/2000/svg" width="64.503" height="36.139" viewBox="0 0 64.503 36.139">
                                <g id="Group_21457" data-name="Group 21457" transform="translate(17.733 0.033)">
                                  <path id="Path_17184" data-name="Path 17184" d="M167.809,11.775a10.321,10.321,0,0,1,9.143,10.251,18,18,0,0,1,3.866-11.174A18.066,18.066,0,0,0,167.809,4L166.3,7.888Z" transform="translate(-166.3 -4)" fill="#000000"/>
@@ -601,14 +595,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                              
  
                       </div>
-          <div>
-          <h2>DevOps</h2>
+                      <div class="box-text-div">
+          <p>DevOps</p>
           </div>
        </div>
  
        <div class="box-icon-text-holder">
          
-                                           <div style="justify-content: center;display:flex;align-items:center">
+                                           <div class="box-icon-div">
                                            <svg xmlns="http://www.w3.org/2000/svg" width="41.588" height="60.194" viewBox="0 0 41.588 60.194">
                                            <g id="Group_26300" data-name="Group 26300" transform="translate(0 0)">
                                              <g id="Group_21510" data-name="Group 21510" transform="translate(5.465 5.417)">
@@ -625,14 +619,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                                   </div>
  
  
-          <div>
-          <h2>Business Intelligence</h2>
+                                  <div class="box-text-div">
+          <p>Business Intelligence</p>
           </div>
        </div>
  
        <div class="box-icon-text-holder" >
          
-                               <div style="justify-content: center;display:flex;align-items:center">
+                               <div class="box-icon-div">
                                <svg xmlns="http://www.w3.org/2000/svg" width="39.006" height="49.1" viewBox="0 0 39.006 49.1">
                                <g id="Group_26413" data-name="Group 26413" transform="translate(0 0)">
                                  <path id="Path_16977" data-name="Path 16977" d="M152.006,242.5a1.5,1.5,0,0,0-1.5-1.5H120.914a1.5,1.5,0,0,0-1.5,1.5v7.287H114.5a1.5,1.5,0,0,0-1.5,1.5V288.6a1.5,1.5,0,0,0,1.5,1.5h24.183a.36.36,0,0,1,0-.052h5.411a1.5,1.5,0,0,0,1.5-1.5v-7.287H150.5a1.505,1.505,0,0,0,1.5-1.5V252.545h0Zm-3.013.237a.979.979,0,1,1-.979.979.978.978,0,0,1,.979-.979Zm-4.313,0a.979.979,0,1,1-.978.979.979.979,0,0,1,.978-.979Zm-4.288,0a.979.979,0,1,1-.979.979.979.979,0,0,1,.979-.979Zm3.915,45.81a.215.215,0,0,1-.215.212h-24.1c0,.018,0,.035-.005.052H114.5a.215.215,0,0,1-.213-.215V255.363h29.8a.771.771,0,0,0,.215-.032v.025l0,.008V265.39h0ZM133,252.5a.979.979,0,1,1,.979.979A.978.978,0,0,1,133,252.5Zm4.289,0a.98.98,0,1,1,.981.979.978.978,0,0,1-.981-.979Zm4.315,0a.979.979,0,1,1,.979.979.978.978,0,0,1-.979-.979Zm9.115,27.257a.213.213,0,0,1-.213.213h-4.913V251.287a1.5,1.5,0,0,0-1.5-1.5H120.7v-3.213h29.8a.754.754,0,0,0,.215-.03v.025l0,.005V256.6h.005v23.157Zm0,0" transform="translate(-113 -241)" fill="#3074a4"/>
@@ -643,8 +637,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                              </svg>
                             
                    </div>
-             <div>
-          <h2>Software/Web Development</h2>
+                   <div class="box-text-div">
+          <p>Software/Web Development</p>
           </div>
        </div>
  
@@ -652,7 +646,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
  
  
-                                  <div style="justify-content: center;display:flex;align-items:center">
+                                  <div class="box-icon-div">
                                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45.203" height="45.203" viewBox="0 0 45.203 45.203">
                                   <defs>
                                     <clipPath id="clip-path">
@@ -688,15 +682,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                                 </svg>
                          </div>
 
-         <div>
-          <h2>QA</h2>
+                         <div class="box-text-div">
+          <p>QA</p>
           </div>
        </div>
 
              <div class="box-icon-text-holder">
  
  
-                      <div style="justify-content: center;display:flex;align-items:center">
+                      <div class="box-icon-div">
                       <svg id="noun_UX_Wireframe_615287" data-name="noun_UX Wireframe_615287" xmlns="http://www.w3.org/2000/svg" width="45.877" height="45.877" viewBox="0 0 45.877 45.877">
                       <g id="Group_22021" data-name="Group 22021" transform="translate(0 0)">
                         <g id="Group_22020" data-name="Group 22020">
@@ -709,14 +703,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                     
  
           </div> 
-                <div>
-                <h2>UX/UI Design</h2>
+          <div class="box-text-div">
+                <p>UX/UI Design</p>
                 </div>
                 </div>
  
              <div class="box-icon-text-holder">
  
-                                  <div style="justify-content: center;display:flex;align-items:center">
+                                  <div class="box-icon-div">
                                   <svg id="Group_26415" data-name="Group 26415" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.233" height="53.419" viewBox="0 0 32.233 53.419">
                                   <defs>
                                     <clipPath id="clip-path">
@@ -733,8 +727,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
                          </div>
  
-                            <div>
-                            <h2>Mobile</h2>
+                         <div class="box-text-div">
+                            <p>Mobile</p>
                             </div>
                             </div>
  
@@ -742,7 +736,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                 <div class="box-icon-text-holder">
  
  
-                         <div style="justify-content: center;display:flex;align-items:center">
+                         <div class="box-icon-div">
                          <svg id="Group_26420" data-name="Group 26420" xmlns="http://www.w3.org/2000/svg" width="43.198" height="47.325" viewBox="0 0 43.198 47.325">
                          <path id="Path_17065" data-name="Path 17065" d="M146.274,275.3a6.053,6.053,0,0,0-12.107,0,5.955,5.955,0,0,0,3.988,5.64l-7.566,20.087h9.632V275.3l-.552,1.514a1.828,1.828,0,0,1-1.1-1.514,1.651,1.651,0,0,1,3.3,0,1.611,1.611,0,0,1-1.1,1.514l1.514,4.265a6.28,6.28,0,0,0,3.989-5.778Zm0,0" transform="translate(-118.622 -253.704)" fill="#3074a4"/>
                          <path id="Path_17066" data-name="Path 17066" d="M152.825,272.929a13.895,13.895,0,0,0-27.79,0,13.772,13.772,0,0,0,8.943,12.931l1.514-4.261a9.243,9.243,0,0,1-6.054-8.667,9.355,9.355,0,1,1,18.71,0A9.111,9.111,0,0,1,142.1,281.6l1.514,4.261a13.828,13.828,0,0,0,9.215-12.931Zm0,0" transform="translate(-117.331 -251.331)" fill="#3074a4"/>
@@ -751,8 +745,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                        
  
                          </div>
-                      <div>
-                      <h2>Marketing</h2>
+
+                         <div class="box-text-div">
+                      <p>Marketing</p>
                       </div>
                       </div>
  
@@ -764,7 +759,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
            <div class="box-icon-text-holder">
  
-                            <div style="justify-content: center;display:flex;align-items:center">
+                            <div class="box-icon-div">
                             <svg id="Group_26418" data-name="Group 26418" xmlns="http://www.w3.org/2000/svg" width="52.431" height="50.058" viewBox="0 0 52.431 50.058">
                             <g id="Group_22004" data-name="Group 22004" transform="translate(0 3.411)">
                               <path id="Path_18373" data-name="Path 18373" d="M323.431,404.67v13.169H271V404.67h3.57v-14.8l10.066-7.438v7.438l10.061-7.438v7.438l10.064-7.438v14.622h3.473l1.888-25.866h5.755l1.65,25.866H321.4v7.612Zm-35.995-5.687h-7.914v7.7h7.914Zm13.634,0h-7.915v7.7h7.915Zm13.806,0h-7.915v7.7h7.915Zm0,0" transform="translate(-271 -371.192)" fill="#3074a4"/>
@@ -774,14 +769,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                           
  
                    </div>
- <div>
- <h2>Internet of Things</h2>
+ <div class="box-text-div">
+ <p>Internet of Things</p>
  </div>
  </div>
 
           <div class="box-icon-text-holder" >
  
-                               <div style="justify-content: center;display:flex;align-items:center">
+                               <div class="box-icon-div">
                                <svg id="Group_26419" data-name="Group 26419" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54.117" height="52.052" viewBox="0 0 54.117 52.052">
                                <defs>
                                  <clipPath id="clip-path">
@@ -800,15 +795,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
  
  
-                            <div>
-                            <h2>BlockChain</h2>
+                      <div class="box-text-div">
+                            <p>BlockChain</p>
                             </div>
                             </div>
  
  <div class="box-icon-text-holder" >
  
  
-                               <div style="justify-content: center;display:flex;align-items:center">
+                               <div class="box-icon-div">
                                <svg id="noun_Robot_1870012" xmlns="http://www.w3.org/2000/svg" width="56.542" height="56.988" viewBox="0 0 56.542 56.988">
                                <g id="Group_21985" data-name="Group 21985" transform="translate(0 0)">
                                  <g id="Group_21984" data-name="Group 21984">
@@ -854,13 +849,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
  
  
-                               <div>
-                               <h2>Robotics Process Automation</h2>
+                               <div class="box-text-div">
+                               <p>Robotics Process Automation</p>
                                </div>
                                </div>
  
  <div class="box-icon-text-holder">
-                      <div style="justify-content: center;display:flex;align-items:center">
+                      <div class="box-icon-div">
                                   <svg id="Group_26421" data-name="Group 26421" xmlns="http://www.w3.org/2000/svg" width="40.835" height="49.653" viewBox="0 0 40.835 49.653">
              <g id="noun_security_protection_3347010" data-name="noun_security protection_3347010" transform="translate(0 0)">
                 <g id="Group_26312" data-name="Group 26312" transform="translate(0 0)">
@@ -876,14 +871,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
  
                       </div>
-                   <div>
-                   <h2>Cyber Security</h2>
+                      <div class="box-text-div">
+                   <p>Cyber Security</p>
                    </div>
                    </div>
                    </div>
  
     </div>
- </div>
+
  </section>
   ${style}
  `,
