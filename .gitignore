@@ -123,5 +123,4 @@ extensions.json
 /src/media/
 *.png
 yarn.lock
-*.json
-
+package-lock.json
