@@ -2,10 +2,10 @@ import GrapesJS from 'grapesjs';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 // import './grapes.min.css';
 // import './CustomGrapes.css';
-import '../PageBuilder/index.scss';
 import Basics from 'grapesjs-blocks-basic';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
+import '../PageBuilder/index.scss';
 // import './index.scss';
 
 import axios from 'axios';
@@ -17,7 +17,7 @@ import { useConfig } from 'payload/components/utilities';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Context } from '../../MyProvider';
-const NewPageBuilder = ({ status, handleClose }) => {
+const NewPageBuilder: React.FC = ({ status, handleClose }) => {
 	let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
 	const [elementCreate, setElementCreate] = useState(false);
 	// const [pagePayload, setPagePayload] = useState<any>({
@@ -32,11 +32,14 @@ const NewPageBuilder = ({ status, handleClose }) => {
 	const { setSelectedPageCode } = useContext(Context);
 	const [headingText, setHeadingText] = React.useState<string>('abc');
 	const testRef = useRef();
+	const { serverURL } = useConfig();
+	const apiEndpoint = `${serverURL}/api/media?locale=en&depth=0&fallback-locale=null`;
+
 	const clearLocalStorage = () => {
 		localStorage.removeItem('page_code');
 	};
 
-	const dataHandlear = () => {
+	const dataHandler = () => {
 		const data = localStorage.getItem('page_code');
 		if (status === 'NewFromPage') {
 			handleClose();
@@ -60,8 +63,53 @@ const NewPageBuilder = ({ status, handleClose }) => {
 			setSelectedPageCode('12');
 		}
 	};
-
-	useEffect(() => {
+	const uploadMedia = async (fileItem) => {
+		const {name, src} = fileItem
+		var file = new File([src], name);
+		try {
+		  // Create the form data for the request
+		  const formData = new FormData();
+		  formData.append('file', file);
+		  // formData.append('name', file.name);
+		  let item = {
+			keywords: 'Media',
+			mediaType: 'Photo',
+			description: 'test description',
+		  };
+		  formData.append('_payload', JSON.stringify(item));
+		  // Make the POST request
+		  await axios.post(apiEndpoint, formData, {
+			headers: {
+			  'Content-Type': 'multipart/form-data',
+			  // Authorization: `Bearer ${apiKey}`,
+			},
+		  });
+		} catch (error) {
+		  console.error(error);
+		  return error;
+		}
+	  };
+	
+	
+	  const addAssets = async () => {
+		const assetManager = editor.AssetManager;
+		axios
+		  .get(`${serverURL}/api/media`)
+		  .then((response) => {
+			const { docs } = response.data;
+			docs.forEach(({ url }) => {
+			  assetManager.add([
+				{
+				  src: url,
+				},
+			  ]);
+			});
+		  })
+		  .catch((error) => {
+			console.error(error);
+		  });
+	  };	
+	  useEffect(() => {
 		setStepNav([
 			{
 				label: 'Page Builder',
@@ -69,6 +117,7 @@ const NewPageBuilder = ({ status, handleClose }) => {
 			},
 		]);
 	}, [setStepNav]);
+
 	React.useEffect(() => {
 		const sections = [
 			'header',
@@ -191,7 +240,7 @@ const NewPageBuilder = ({ status, handleClose }) => {
 						id: 'save-editor',
 						run(editor: { store: () => GrapesJS.Editor }) {
 							const store = editor.store();
-							dataHandlear();
+							dataHandler();
 						},
 					},
 				],
@@ -314,6 +363,24 @@ const NewPageBuilder = ({ status, handleClose }) => {
 		// 	editor?.runCommand('hide-layers');
 		// 	editor?.runCommand('hide-traits');
 		// });
+		const addAssets = async () => {
+			const assetManager = editor?.AssetManager;
+			axios
+				.get(`${serverURL}/api/media`)
+				.then((response) => {
+					const { docs } = response.data;
+					docs.forEach(({ url }) => {
+						assetManager?.add([
+							{
+								src: url,
+							},
+						]);
+					});
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		};
 
 		editor.on('component:selected', (component) => {
 			if (component.get('type') == 'text') {
@@ -327,6 +394,34 @@ const NewPageBuilder = ({ status, handleClose }) => {
 		editor.on('component:update', (component) => {
 			if (component.get('type') == 'text') {
 				component.components(component.get('traits').models[1].get('value'));
+			}
+		});
+
+		editor.on('asset:add', (component) => {
+			if (component.attributes.src.includes(serverURL)) {
+				return;
+			}
+
+			const { src, width } = component.attributes;
+
+			if (width > 0) {
+				// binary file handling
+				fetch(src).then((response) => {
+					response.blob().then((fileBlob) => {
+						let file = new File([fileBlob], component.attributes.name);
+						uploadMedia({ src: file, name: component.attributes.name });
+					});
+				});
+			} else {
+				// url file handling
+				let arr = src.split('/');
+				let filename = arr[arr.length - 1];
+				fetch(src).then((response) => {
+					response.blob().then((fileBlob) => {
+						let file = new File([fileBlob], filename);
+						uploadMedia({ src: file, name: filename });
+					});
+				});
 			}
 		});
 	}, [setEditorState]);

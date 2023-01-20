@@ -26,9 +26,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     
     <div class="header-container">
     <a  class="logo-link">
-    <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
+    <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" fill="#159576"  width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
     <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
-    <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50ae81"/>
+    <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)"/>
   </svg>
        <span class="header-logo-text">Logo</span>
     </a>
@@ -295,7 +295,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock("benefits", {
     label: "Benefits",
     category: "Section Modules",
-    media: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+    media: `<svg fill="#159576" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
     <g>
      <title>Layer 1</title>
      <g id="noun-health-insurance-1893284">
@@ -319,10 +319,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        <div class="benefits-option-section">
 
           <div class="benefit-holder">
-          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
-              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
             </g>
           </g>
         </svg>
@@ -338,10 +338,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="benefits-option-section">
 
           <div class="benefit-holder">
-          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
-              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
             </g>
           </g>
         </svg>
@@ -356,10 +356,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="benefits-option-section">
 
           <div class="benefit-holder">
-          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 78.576 74.885">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
-              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
             </g>
           </g>
         </svg>
@@ -421,21 +421,23 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   `,
     content: `<section id="practice_area_1" class="main-paractice-wrapper">
-    <div class="box-section">
+   
 
     <h1 class="section-title"> Practice Areas</h1>
 
+    
+ 
     <div class="paractice-area-container">
     
-       <div class="box-icon-text-holder">
+      <div class="box-icon-text-holder box-active">
 
 
-          <div style="justify-content: center;display:flex;align-items:center">
+          <div class="box-icon-div ">
           
-          <svg width="44.534" height="55.892" xmlns="http://www.w3.org/2000/svg" data-name="Group 26409">
+          <svg width="43" height="54.648" xmlns="http://www.w3.org/2000/svg" data-name="Group 26409">
           <defs>
            <clipPath id="clip-path">
-            <rect id="Rectangle_12803" data-name="Rectangle 12803" width="44.534" height="55.892" fill="#3074a4"/>
+            <rect id="Rectangle_12803" data-name="Rectangle 12803" width="43" height="54.648" fill="#3074a4"/>
            </clipPath>
           </defs>
           <g>
@@ -477,26 +479,17 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </g>
          </svg>
 
-
           </div>
 
-          <div>
-             <h2 style="color: #fff">AI & Machine Learning</h2>
+          <div class="box-text-div">
+             <p >AI & Machine Learning</p>
           </div>
-       </div>
-
-
-
-
-
-
-
-
+      </div>
 
 
        <div class="box-icon-text-holder">
             
-                         <div style="justify-content: center;display:flex;align-items:center">
+                         <div class="box-icon-div">
                          <svg id="Group_26397" data-name="Group 26397" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56.33" height="54.648" viewBox="0 0 56.33 54.648">
                          <defs>
                            <clipPath id="clip-path">
@@ -522,8 +515,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                        
  
              </div>
-             <div>           
-              <h2>Big Data</h2>
+
+<div class="box-text-div">         
+              <p>Big Data</p>
              </div>
  
        </div>
@@ -533,20 +527,20 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
 
        <div class="box-icon-text-holder">
-                                  <div style="justify-content: center;display:flex;align-items:center">
+                                  <div class="box-icon-div">
                                   <svg id="Group_26399" data-name="Group 26399" xmlns="http://www.w3.org/2000/svg" width="58.908" height="37.533" viewBox="0 0 58.908 37.533">
                                   <path id="Path_17113" data-name="Path 17113" d="M135,301.813a10.827,10.827,0,0,0,9.2,10.575l1.844.144h36.813l1.844-.144a10.656,10.656,0,0,0,1.827-20.7A17.244,17.244,0,0,0,169.056,275a17.54,17.54,0,0,0-15.716,9.5,7.411,7.411,0,0,0-5.462-2.353,7.118,7.118,0,0,0-6.734,10.04A10.71,10.71,0,0,0,135,301.813Zm9.361-8.654-.89-2.316a3.338,3.338,0,0,1-.311-1.412,5.186,5.186,0,0,1,4.993-4.782,4.419,4.419,0,0,1,2.979,1.268l2.878,2,2.443-3.266a15.438,15.438,0,0,1,12.721-6.968c7.44,0,14.772,7.085,14.889,14.17v2.51l2.59.693a7.01,7.01,0,0,1,4.876,6.576c0,3.41-3.5,7.7-7.035,8.263H172.479v2.587h-2.7V300.438h5.385l-10.706-12.051-10.706,12.051h5.331v12.041h-2.667v-2.587H146.335l-1.228-.094c-3.531-.562-7.426-4.746-7.426-8.169,0-2.667,2.272-6.954,6.68-8.47Zm0,0" transform="translate(-135 -275)" fill="#3074a4" fill-rule="evenodd"/>
                                 </svg>
                                 
  
                          </div>
-          <div>
-          <h2>Cloud Computing</h2>
+                         <div class="box-text-div">
+          <p>Cloud Computing</p>
           </div>
        </div>
 
           <div class="box-icon-text-holder" >
-                               <div style="justify-content: center;display:flex;align-items:center">
+                               <div class="box-icon-div">
                                <svg id="Group_26412" data-name="Group 26412" xmlns="http://www.w3.org/2000/svg" width="64.503" height="36.139" viewBox="0 0 64.503 36.139">
                                <g id="Group_21457" data-name="Group 21457" transform="translate(17.733 0.033)">
                                  <path id="Path_17184" data-name="Path 17184" d="M167.809,11.775a10.321,10.321,0,0,1,9.143,10.251,18,18,0,0,1,3.866-11.174A18.066,18.066,0,0,0,167.809,4L166.3,7.888Z" transform="translate(-166.3 -4)" fill="#000000"/>
@@ -601,14 +595,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                              
  
                       </div>
-          <div>
-          <h2>DevOps</h2>
+                      <div class="box-text-div">
+          <p>DevOps</p>
           </div>
        </div>
  
        <div class="box-icon-text-holder">
          
-                                           <div style="justify-content: center;display:flex;align-items:center">
+                                           <div class="box-icon-div">
                                            <svg xmlns="http://www.w3.org/2000/svg" width="41.588" height="60.194" viewBox="0 0 41.588 60.194">
                                            <g id="Group_26300" data-name="Group 26300" transform="translate(0 0)">
                                              <g id="Group_21510" data-name="Group 21510" transform="translate(5.465 5.417)">
@@ -625,14 +619,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                                   </div>
  
  
-          <div>
-          <h2>Business Intelligence</h2>
+                                  <div class="box-text-div">
+          <p>Business Intelligence</p>
           </div>
        </div>
  
        <div class="box-icon-text-holder" >
          
-                               <div style="justify-content: center;display:flex;align-items:center">
+                               <div class="box-icon-div">
                                <svg xmlns="http://www.w3.org/2000/svg" width="39.006" height="49.1" viewBox="0 0 39.006 49.1">
                                <g id="Group_26413" data-name="Group 26413" transform="translate(0 0)">
                                  <path id="Path_16977" data-name="Path 16977" d="M152.006,242.5a1.5,1.5,0,0,0-1.5-1.5H120.914a1.5,1.5,0,0,0-1.5,1.5v7.287H114.5a1.5,1.5,0,0,0-1.5,1.5V288.6a1.5,1.5,0,0,0,1.5,1.5h24.183a.36.36,0,0,1,0-.052h5.411a1.5,1.5,0,0,0,1.5-1.5v-7.287H150.5a1.505,1.505,0,0,0,1.5-1.5V252.545h0Zm-3.013.237a.979.979,0,1,1-.979.979.978.978,0,0,1,.979-.979Zm-4.313,0a.979.979,0,1,1-.978.979.979.979,0,0,1,.978-.979Zm-4.288,0a.979.979,0,1,1-.979.979.979.979,0,0,1,.979-.979Zm3.915,45.81a.215.215,0,0,1-.215.212h-24.1c0,.018,0,.035-.005.052H114.5a.215.215,0,0,1-.213-.215V255.363h29.8a.771.771,0,0,0,.215-.032v.025l0,.008V265.39h0ZM133,252.5a.979.979,0,1,1,.979.979A.978.978,0,0,1,133,252.5Zm4.289,0a.98.98,0,1,1,.981.979.978.978,0,0,1-.981-.979Zm4.315,0a.979.979,0,1,1,.979.979.978.978,0,0,1-.979-.979Zm9.115,27.257a.213.213,0,0,1-.213.213h-4.913V251.287a1.5,1.5,0,0,0-1.5-1.5H120.7v-3.213h29.8a.754.754,0,0,0,.215-.03v.025l0,.005V256.6h.005v23.157Zm0,0" transform="translate(-113 -241)" fill="#3074a4"/>
@@ -643,8 +637,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                              </svg>
                             
                    </div>
-             <div>
-          <h2>Software/Web Development</h2>
+                   <div class="box-text-div">
+          <p>Software/Web Development</p>
           </div>
        </div>
  
@@ -652,7 +646,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
  
  
-                                  <div style="justify-content: center;display:flex;align-items:center">
+                                  <div class="box-icon-div">
                                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45.203" height="45.203" viewBox="0 0 45.203 45.203">
                                   <defs>
                                     <clipPath id="clip-path">
@@ -688,15 +682,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                                 </svg>
                          </div>
 
-         <div>
-          <h2>QA</h2>
+                         <div class="box-text-div">
+          <p>QA</p>
           </div>
        </div>
 
              <div class="box-icon-text-holder">
  
  
-                      <div style="justify-content: center;display:flex;align-items:center">
+                      <div class="box-icon-div">
                       <svg id="noun_UX_Wireframe_615287" data-name="noun_UX Wireframe_615287" xmlns="http://www.w3.org/2000/svg" width="45.877" height="45.877" viewBox="0 0 45.877 45.877">
                       <g id="Group_22021" data-name="Group 22021" transform="translate(0 0)">
                         <g id="Group_22020" data-name="Group 22020">
@@ -709,14 +703,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                     
  
           </div> 
-                <div>
-                <h2>UX/UI Design</h2>
+          <div class="box-text-div">
+                <p>UX/UI Design</p>
                 </div>
                 </div>
  
              <div class="box-icon-text-holder">
  
-                                  <div style="justify-content: center;display:flex;align-items:center">
+                                  <div class="box-icon-div">
                                   <svg id="Group_26415" data-name="Group 26415" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.233" height="53.419" viewBox="0 0 32.233 53.419">
                                   <defs>
                                     <clipPath id="clip-path">
@@ -733,8 +727,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
                          </div>
  
-                            <div>
-                            <h2>Mobile</h2>
+                         <div class="box-text-div">
+                            <p>Mobile</p>
                             </div>
                             </div>
  
@@ -742,7 +736,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                 <div class="box-icon-text-holder">
  
  
-                         <div style="justify-content: center;display:flex;align-items:center">
+                         <div class="box-icon-div">
                          <svg id="Group_26420" data-name="Group 26420" xmlns="http://www.w3.org/2000/svg" width="43.198" height="47.325" viewBox="0 0 43.198 47.325">
                          <path id="Path_17065" data-name="Path 17065" d="M146.274,275.3a6.053,6.053,0,0,0-12.107,0,5.955,5.955,0,0,0,3.988,5.64l-7.566,20.087h9.632V275.3l-.552,1.514a1.828,1.828,0,0,1-1.1-1.514,1.651,1.651,0,0,1,3.3,0,1.611,1.611,0,0,1-1.1,1.514l1.514,4.265a6.28,6.28,0,0,0,3.989-5.778Zm0,0" transform="translate(-118.622 -253.704)" fill="#3074a4"/>
                          <path id="Path_17066" data-name="Path 17066" d="M152.825,272.929a13.895,13.895,0,0,0-27.79,0,13.772,13.772,0,0,0,8.943,12.931l1.514-4.261a9.243,9.243,0,0,1-6.054-8.667,9.355,9.355,0,1,1,18.71,0A9.111,9.111,0,0,1,142.1,281.6l1.514,4.261a13.828,13.828,0,0,0,9.215-12.931Zm0,0" transform="translate(-117.331 -251.331)" fill="#3074a4"/>
@@ -751,8 +745,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                        
  
                          </div>
-                      <div>
-                      <h2>Marketing</h2>
+
+                         <div class="box-text-div">
+                      <p>Marketing</p>
                       </div>
                       </div>
  
@@ -764,7 +759,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
            <div class="box-icon-text-holder">
  
-                            <div style="justify-content: center;display:flex;align-items:center">
+                            <div class="box-icon-div">
                             <svg id="Group_26418" data-name="Group 26418" xmlns="http://www.w3.org/2000/svg" width="52.431" height="50.058" viewBox="0 0 52.431 50.058">
                             <g id="Group_22004" data-name="Group 22004" transform="translate(0 3.411)">
                               <path id="Path_18373" data-name="Path 18373" d="M323.431,404.67v13.169H271V404.67h3.57v-14.8l10.066-7.438v7.438l10.061-7.438v7.438l10.064-7.438v14.622h3.473l1.888-25.866h5.755l1.65,25.866H321.4v7.612Zm-35.995-5.687h-7.914v7.7h7.914Zm13.634,0h-7.915v7.7h7.915Zm13.806,0h-7.915v7.7h7.915Zm0,0" transform="translate(-271 -371.192)" fill="#3074a4"/>
@@ -774,14 +769,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                           
  
                    </div>
- <div>
- <h2>Internet of Things</h2>
+ <div class="box-text-div">
+ <p>Internet of Things</p>
  </div>
  </div>
 
           <div class="box-icon-text-holder" >
  
-                               <div style="justify-content: center;display:flex;align-items:center">
+                               <div class="box-icon-div">
                                <svg id="Group_26419" data-name="Group 26419" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54.117" height="52.052" viewBox="0 0 54.117 52.052">
                                <defs>
                                  <clipPath id="clip-path">
@@ -800,15 +795,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
  
  
-                            <div>
-                            <h2>BlockChain</h2>
+                      <div class="box-text-div">
+                            <p>BlockChain</p>
                             </div>
                             </div>
  
  <div class="box-icon-text-holder" >
  
  
-                               <div style="justify-content: center;display:flex;align-items:center">
+                               <div class="box-icon-div">
                                <svg id="noun_Robot_1870012" xmlns="http://www.w3.org/2000/svg" width="56.542" height="56.988" viewBox="0 0 56.542 56.988">
                                <g id="Group_21985" data-name="Group 21985" transform="translate(0 0)">
                                  <g id="Group_21984" data-name="Group 21984">
@@ -854,13 +849,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
  
  
-                               <div>
-                               <h2>Robotics Process Automation</h2>
+                               <div class="box-text-div">
+                               <p>Robotics Process Automation</p>
                                </div>
                                </div>
  
  <div class="box-icon-text-holder">
-                      <div style="justify-content: center;display:flex;align-items:center">
+                      <div class="box-icon-div">
                                   <svg id="Group_26421" data-name="Group 26421" xmlns="http://www.w3.org/2000/svg" width="40.835" height="49.653" viewBox="0 0 40.835 49.653">
              <g id="noun_security_protection_3347010" data-name="noun_security protection_3347010" transform="translate(0 0)">
                 <g id="Group_26312" data-name="Group 26312" transform="translate(0 0)">
@@ -876,14 +871,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
  
                       </div>
-                   <div>
-                   <h2>Cyber Security</h2>
+                      <div class="box-text-div">
+                   <p>Cyber Security</p>
                    </div>
                    </div>
                    </div>
  
     </div>
- </div>
+
  </section>
   ${style}
  `,
@@ -899,24 +894,21 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: ` <section id=video_1 class="video-main-wrapper">
-    <div class="video-container-main-div">
-       <div class="video-header">
+    content: `
+    <section id=video_1 class="video-main-wrapper">
+      <div class="video-container-main-div">
+        <div class="video-header">
           <h1>Add your heading title here</h1>
-          <p>The Video Module is a place where you can visually show your user or client
-          aspects of your company or product.
-          </p>
-       </div>
-       <div class="video-div">
-          
-       <video width="100%" height="auto" controls>
-       </video>
-           
-       </div>
-    </div>
- </section>
+          <p>The Video Module is a place where you can visually show your user or client aspects of your company or product.</p>
+        </div>
+        <div class="video-div">
+          <video width="100%" height="auto" controls></video>
+        </div>
+      </div>
+    </section>
  ${style}
  `,
+ 
   });
   addBlock("guidelines", {
     label: "Guidelines",
@@ -984,7 +976,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock("location", {
     label: "Location",
     category: "Section Modules",
-    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    media: `<svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="24" height="24" viewBox="0 0 24 24">
     <path id="noun-location-4491946" d="M168.4,30.763a8.653,8.653,0,0,0-6.33-2.469,8.807,8.807,0,0,0-8.484,8.613,8.6,8.6,0,0,0,1.731,5.313c.16.239,4.292,5.985,5.668,7.892a1.577,1.577,0,0,0,1.268.652h.007a1.576,1.576,0,0,0,1.265-.64c.64-.869,5.624-7.683,5.755-7.848l.021-.028h0a8.835,8.835,0,0,0,1.741-5.23,8.658,8.658,0,0,0-2.642-6.256ZM162.317,41.03a3.893,3.893,0,1,1,2.748-1.14A3.888,3.888,0,0,1,162.317,41.03Z" transform="translate(-153.589 -28.289)" fill="#4a5162"/>
   </svg>
   `,
@@ -999,10 +991,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
             <div class="address-content-div">
               <div class="address-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
+              <svg xmlns="http://www.w3.org/2000/svg"  fill="#159576" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
               <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
                 <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
-                  <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+                  <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
                 </g>
               </g>
             </svg>
@@ -1014,10 +1006,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
             <div class="address-content-div">
             <div class="address-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
             <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
               <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
-                <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+                <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
               </g>
             </g>
           </svg>
@@ -1030,10 +1022,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
           <div class="address-content-div">
           <div class="address-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
-              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)" fill="#159576"/>
+              <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
             </g>
           </g>
         </svg>
@@ -1057,7 +1049,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock("paragraph", {
     label: "Paragraph",
     category: "Section Modules",
-    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    media: `<svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="24" height="24" viewBox="0 0 24 24">
     <g id="Group_55522" data-name="Group 55522" transform="translate(-26 -1185)">
       <rect id="Rectangle_36059" data-name="Rectangle 36059" width="9" height="2" rx="1" transform="translate(26 1185)" fill="#4a5162"/>
       <rect id="Rectangle_36060" data-name="Rectangle 36060" width="9" height="2" rx="1" transform="translate(26 1189)" fill="#4a5162"/>
@@ -1086,7 +1078,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock("metrics-numbers", {
     label: "Numbers",
     category: "Section Modules",
-    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    media: `<svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="24" height="24" viewBox="0 0 24 24">
     <g id="noun-metrics-4041242" transform="translate(-70 -81.367)">
       <path id="Path_169485" data-name="Path 169485" d="M80.035,81.367a10.055,10.055,0,0,0-9.124,14.238H89.159a10.055,10.055,0,0,0-9.124-14.238Zm-.6,1.837h1.191v1.745H79.439Zm-5.865,8.818H71.833V90.828h1.741Zm1.486-4.741-1.238-1.24.842-.845,1.238,1.24Zm4.975,6.376A1.757,1.757,0,0,1,78.282,91.9a45.3,45.3,0,0,1,1.179-4.989.6.6,0,0,1,1.148,0A45.324,45.324,0,0,1,81.788,91.9,1.756,1.756,0,0,1,80.035,93.658Zm4.975-6.376-.842-.845,1.238-1.24.842.845Zm3.228,4.741H86.5V90.828h1.741Z" fill="#4a5162"/>
       <path id="Path_169486" data-name="Path 169486" d="M334.32,307.642a.562.562,0,0,0,1.124,0,22.67,22.67,0,0,0-.562-2.516A22.657,22.657,0,0,0,334.32,307.642Z" transform="translate(-254.847 -215.739)" fill="#4a5162"/>
@@ -1134,7 +1126,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock("talent-cloud-candidates", {
     label: "Talent Cloud",
     category: "Section Modules",
-    media: `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+    media: `<svg  fill="#159576" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
     <g>
      <title>Layer 1</title>
      <path fill="#4a5162" d="m24.96,47.04l0,0zm-22.08,-26.88a2.875,2.875 0 0 0 2.7,-1.92l4.02,0a0.96,0.96 0 0 0 0.96,-0.96l0,-2.88l1.92,0l0,4.977a2.88,2.88 0 1 0 1.92,0l0,-4.977l1.92,0l0,2.88a0.96,0.96 0 0 0 0.96,0.96l4.02,0a2.88,2.88 0 1 0 0,-1.92l-3.06,0l0,-1.92a5.76,5.76 0 0 0 0.19,-11.517a5.76,5.76 0 0 0 -9.98,0a5.76,5.76 0 0 0 0.19,11.517l0,1.92l-3.057,0a2.875,2.875 0 1 0 -2.7,3.84l-0.003,0z" data-name="Path 169437" id="Path_169437"/>
@@ -1166,8 +1158,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock("image-banner", {
     label: "Image Banner",
     category: "Section Modules",
-    media: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path id="Path_170799" data-name="Path 170799" d="M90.466,39.2H70.632a.633.633,0,0,0-.633.633V56.5a.633.633,0,0,0,.633.633H90.466A.633.633,0,0,0,91.1,56.5V39.832A.633.633,0,0,0,90.466,39.2ZM83.292,54.417a.442.442,0,0,1-.434.4H72.264a.382.382,0,0,1-.366-.4v-.053a.382.382,0,0,1,.366-.4H82.857a.442.442,0,0,1,.434.4Zm-11.04-2.98H82.479a.414.414,0,0,1,.405.382V51.9a.414.414,0,0,1-.405.382H72.252A.369.369,0,0,1,71.9,51.9v-.079a.369.369,0,0,1,.354-.383ZM71.9,49.353V49.3a.382.382,0,0,1,.366-.4h9.617a.4.4,0,0,1,.393.4v.053a.4.4,0,0,1-.393.4H72.264A.382.382,0,0,1,71.9,49.353Zm17.251,4.822-.672.5a.283.283,0,0,1-.168.056.272.272,0,0,1-.043,0,.284.284,0,0,1-.185-.113l-1.355-1.869-.778.573a.282.282,0,0,1-.442-.163l-.958-4.085a.282.282,0,0,1,.414-.31l3.645,2.078a.282.282,0,0,1,.031.469l-.788.6,1.359,1.876a.281.281,0,0,1-.06.392Zm.472-8.225a.633.633,0,0,1-.633.633H72.109a.633.633,0,0,1-.633-.633V41.941a.633.633,0,0,1,.633-.633h16.88a.633.633,0,0,1,.633.633Z" transform="translate(-69.999 -39.199)" fill="#4a5162"/>
+    media: `<svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="24" height="24" viewBox="0 0 24 24">
+    <path id="Path_170799" data-name="Path 170799" d="M90.466,39.2H70.632a.633.633,0,0,0-.633.633V56.5a.633.633,0,0,0,.633.633H90.466A.633.633,0,0,0,91.1,56.5V39.832A.633.633,0,0,0,90.466,39.2ZM83.292,54.417a.442.442,0,0,1-.434.4H72.264a.382.382,0,0,1-.366-.4v-.053a.382.382,0,0,1,.366-.4H82.857a.442.442,0,0,1,.434.4Zm-11.04-2.98H82.479a.414.414,0,0,1,.405.382V51.9a.414.414,0,0,1-.405.382H72.252A.369.369,0,0,1,71.9,51.9v-.079a.369.369,0,0,1,.354-.383ZM71.9,49.353V49.3a.382.382,0,0,1,.366-.4h9.617a.4.4,0,0,1,.393.4v.053a.4.4,0,0,1-.393.4H72.264A.382.382,0,0,1,71.9,49.353Zm17.251,4.822-.672.5a.283.283,0,0,1-.168.056.272.272,0,0,1-.043,0,.284.284,0,0,1-.185-.113l-1.355-1.869-.778.573a.282.282,0,0,1-.442-.163l-.958-4.085a.282.282,0,0,1,.414-.31l3.645,2.078a.282.282,0,0,1,.031.469l-.788.6,1.359,1.876a.281.281,0,0,1-.06.392Zm.472-8.225a.633.633,0,0,1-.633.633H72.109a.633.633,0,0,1-.633-.633V41.941a.633.633,0,0,1,.633-.633h16.88a.633.633,0,0,1,.633.633Z" transform="translate(-69.999 -39.199)"/>
   </svg>
   `,
     content: `<section id="image_banner_1" class="image-banner-wrapper">

@@ -13,13 +13,11 @@ export const SectionStyle = `<style>
 }
 
 .main_container .content-section .main_heading {
-  color: #171414;
   font-size: 36px;
   font-weight: 500;
   margin-bottom: 15px;
 }
 .main_container .content-section .sub_heading {
-  color: #171414;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.3;
@@ -45,7 +43,6 @@ export const SectionStyle = `<style>
 
 .main_container .image-text-image-section .img_container .figure_caption {
   padding: 20px 30px;
-  text-align: center;
   font-size: 20px;
   font-weight: 500;
   background-color: #f8f8fa;
@@ -400,9 +397,19 @@ display: flex;
   }
 
   .video-main-wrapper .video-container-main-div .video-div{
-    padding:50px 0px; 
-    width:65%;
-    margin: auto;
+    position: relative;
+    width:100%;
+    padding-top: 56.25%;  
+
+  }
+  .video-main-wrapper .video-container-main-div .video-div video{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+   bottom: 0;
   }
 
 
@@ -541,8 +548,7 @@ display: flex;
   .testimonial-main-wrapper .testimonial-container .section-title{
     font-size:32px;
     text-align:center;
-    margin-bottom: 3rem; 
-    color: #111827; 
+    margin-bottom: 3rem;  
     font-weight: 500; 
   }
 
@@ -579,7 +585,6 @@ display: flex;
 
   .slider-content-main-div .left-container .user-details{
     font-size: 14px;
-    color: #000;
     margin: 10px;
     line-height: 1.25rem; 
   }
@@ -602,7 +607,7 @@ display: flex;
   .slider-text-div p{
     text-align:center;
     font-size: 16px;
-    color: #000000;
+    
   }
 
 
@@ -610,49 +615,52 @@ display: flex;
   /* /////////////////////////////////////////////
   /////////// paractice Area style //////////
  /////////////////////////////////////////// */
-
  .main-paractice-wrapper{
+}
+.main-paractice-wrapper .section-title{
 
- }
-
- .main-paractice-wrapper .section-title{
-  color: #4a5162;
-  font-family: ProximaNova,sans-serif;
-  line-height: 1.2;
-  font-size: 2.5rem;
-  font-weight: 700;
+ font-family: ProximaNova,sans-serif;
+ line-height: 1.2;
+ 
+ text-align: center;
+}
+.main-paractice-wrapper .paractice-area-container{
+ display: grid;
+ grid-template-columns: repeat(7, 1fr);
+ // column-gap: 20px;
+ row-gap: 20px;
+ padding: 0px 50px;
+}
+.box-icon-text-holder{
+  height:130px;
+  width:130px;
+  margin: auto;
+  padding: 15px;
   text-align: center;
- }
-
- .main-paractice-wrapper .paractice-area-container{
-  // display: flex; 
-  // margin-left: auto;
-  // margin-right: auto; 
-  // margin-left: 1rem; 
-  // margin-top: 1rem; 
-  // flex-direction: column; 
-  // flex-wrap: wrap; 
-  // align-items: center; 
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 10px;
-  row-gap: 1em;
- }
-
- .box-icon-text-holder{
-   height:150px;
-   width:150px;
-   text-align: center;
-   min-height: 4.5rem;
-   align-items: center;
-   justify-content: center;  
-   border: 1px solid #d1dbe3;
-   padding: 2rem 1rem;
-   border-radius: 0.25rem;
-   background-color: #82b891
- }
-
-
+  border-radius: 0.25rem;
+  border: 1px solid #D1DBE3;
+ // background-color: #82B891;
+ background-color: #fff;
+ box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.box-icon-text-holder .box-icon-div{
+ justify-content: center;
+ display:flex;
+ align-items:center;
+ width:45px;
+ height:45px;
+ margin:auto
+}
+.box-icon-text-holder .box-text-div p{
+ color:#101010;
+ font-weight:600;
+ font-size:14px;
+}
+.box-active{
+ background-color: #82B891 !important;
+}
+.box-active .box-text-div p{
+ 
+}
  
 </style>`;

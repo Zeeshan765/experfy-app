@@ -281,11 +281,135 @@ const obj = {
         },
         {
           type: 'select',
-          name: 'Typography',
+          name: 'Font Family',
           property: 'font-family',
-          default: '#4aa4da',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
           attributes: {
             'data-type': 'font-family',
+            'data-attribute': 'content-font-family',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'content-font-size',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'content-font-weight',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'content-letter-spacing',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'content-line-height',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'content-text-align',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'content-text-decoration',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+            
+
           },
         },
       ],
@@ -567,16 +691,143 @@ const obj = {
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'benefit-text-color',
+            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
           },
         },
-        // {
-        //   type: 'select',
-        //   name: 'Typography',
-        //   property: 'font-family',
-        //   attributes: {
-        //     'data-type': 'color',
-        //   },
-        // },
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+          attributes: {
+            'data-type': 'font-family',
+            'data-attribute': 'benefit-font-family',
+            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+            
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'benefit-font-size',
+            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'benefit-font-weight',
+            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'benefit-letter-spacing',
+            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'benefit-line-height',
+            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'benefit-text-align',
+            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'benefit-text-decoration',
+            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+            
+
+          },
+        },
       ],
     },
     {
@@ -632,16 +883,140 @@ const obj = {
           attributes: {
             'data-type': 'color',
             'data-attribute': 'content-color',
-            'data-target': '.section-title',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
           },
         },
         {
-          type: 'composite',
-          name: 'Typography',
-          property: 'font',
-          default: '#4aa4da',
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
           attributes: {
-            'data-type': 'font',
+            'data-type': 'font-family',
+            'data-attribute': 'content-font-family',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'content-font-size',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'content-font-weight',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'content-letter-spacing',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'content-line-height',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'content-text-align',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'content-text-decoration',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+            
+
           },
         },
         {
@@ -744,11 +1119,10 @@ const obj = {
           type: 'color',
           name: 'Text Color',
           property: 'color',
-          default: '#ffff',
           attributes: {
             'data-type': 'color',
-            'data-attribute': 'heading-color',
-            'data-target': '.user-detail-label',
+            'data-attribute': 'content-color',
+            'data-target': '.section-title',
           },
         },
         {
@@ -790,19 +1164,145 @@ const obj = {
         {
           type: 'color',
           name: 'Text Color',
-          property: 'text-color',
+          property: 'color',
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'section-heading-color',
+            'data-target': '.section-title',
           },
         },
         {
-          type: 'color',
-          name: 'Typography',
-          property: 'typo-color',
-          default: '#4aa4da',
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
           attributes: {
-            'data-type': 'color',
+            'data-type': 'font-family',
+            'data-attribute': 'section-heading-font-family',
+            'data-target': '.section-title',
+            
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'section-heading-font-size',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'section-heading-font-weight',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'section-heading-letter-spacing',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'section-heading-line-height',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'center',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'section-heading-text-align',
+            'data-target': '.section-title',
+
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'section-heading-text-decoration',
+            'data-target': '.section-title',
+
+            
+
           },
         },
       ],
@@ -818,15 +1318,126 @@ const obj = {
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
           },
         },
         {
-          type: 'color',
-          name: 'Typography',
-          property: 'section-color',
-          default: '#4aa4da',
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'color',
+            'data-attribute': 'sub-section-heading-color',
+            'data-target': '.box-text-div p',
           },
         },
       ],
@@ -938,7 +1549,7 @@ const obj = {
           attributes: {
             'data-type': 'padding-top',
             'data-attribute': 'video-aspect-ratio',
-            'data-target': '.video-div video ',
+            'data-target': '.video-main-wrapper .video-container-main-div .video-div  ',
           },
         },
       
@@ -1036,14 +1647,128 @@ const obj = {
             'data-attribute': 'number-heading-color',
             'data-target': '.number-container-div h1 .number-container-div h2 ',
           },
-           
         },
-        // {
-        //   type: 'color',
-        //   name: 'Typography',
-        //   property: 'typo-color',
-        //   default: '#4aa4da',
-        // },
+          {
+            type: 'select',
+            name: 'Font Family',
+            property: 'font-family',
+            options: [
+              { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+              { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+              { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+              { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+              { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+              { value: 'Georgia, serif', name: 'Georgia' },
+              { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+              { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+              {
+                value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                name: 'Lucida Sans Unicode',
+              },
+              { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+              { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+              { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+              { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+            ],
+            attributes: {
+              'data-type': 'font-family',
+              'data-attribute': 'number-heading-font-family',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
+          },
+          {
+            type: 'slider',
+            name: 'Font Size',
+            property: 'font-size',
+            default: 16,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'font-size',
+              'data-attribute': 'number-heading-font-size',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
+          },
+          {
+            type: 'select',
+            name: 'Font Weight',
+            property: 'font-weight',
+            default: 'normal',
+            options:[
+              { value: 'light', name: 'light' },
+              { value: 'normal', name: 'Normal' },
+              { value: 'semi-bold', name: 'Semi Bold' },
+              { value: 'bold', name: 'Bold' },
+              { value: 'bolder', name: 'Bolder' },
+            ],
+            attributes: {
+              'data-type': 'font-weight',
+              'data-attribute': 'number-heading-font-weight',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
+          },
+          {
+            type: 'slider',
+            name: 'Letter Spacing',
+            property: 'letter-spacing',
+            default: 0,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'letter-spacing',
+              'data-attribute': 'number-heading-letter-spacing',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
+          },
+          {
+            type: 'slider',
+            label: 'Line Height',
+            name: 'Line Height',
+            property: 'line-height',
+            ResizeObserver: true,
+            default: 1,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'line-height',
+              'data-attribute': 'number-heading-line-height',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
+          },
+          {
+            type: 'select',
+            name: 'Text Align',
+            property: 'text-align',
+            default: 'left',
+            ResizeObserver: true,
+            options: [
+              { value: 'left', name: 'Left' },
+              { value: 'center', name: 'Center' },
+              { value: 'right', name: 'Right' },
+              { value: 'justify', name: 'Justify' },
+            ],
+            attributes: {
+              'data-type': 'text-align',
+              'data-attribute': 'number-heading-text-align',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
+          },
+          {
+            type: 'select',
+            name: 'Text Decoration',
+            property: 'text-decoration',
+            default: 'none',
+            options: [
+              { value: 'none', name: 'None' },
+              { value: 'underline', name: 'Underline' },
+              { value: 'line-through', name: 'Line Through' },
+            ],
+            attributes: {
+              'data-type': 'text-decoration',
+              'data-attribute': 'number-heading-text-decoration',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
+          },
+           
+        
+        
       ],
     },
 
@@ -1394,15 +2119,124 @@ const obj = {
             'data-target': '.paragraph-container h1 .paragraph-container p',
           },
         },
-        // {
-        //   type: 'color',
-        //   name: 'Typography',
-        //   property: 'typo-color',
-        //   default: '#4aa4da',
-        //   attributes: {
-        //     'data-type': 'color',
-        //   },
-        // },
+        
+          {
+            type: 'select',
+            name: 'Font Family',
+            property: 'font-family',
+            options: [
+              { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+              { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+              { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+              { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+              { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+              { value: 'Georgia, serif', name: 'Georgia' },
+              { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+              { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+              {
+                value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                name: 'Lucida Sans Unicode',
+              },
+              { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+              { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+              { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+              { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+            ],
+            attributes: {
+              'data-type': 'font-family',
+              'data-attribute': 'paragraph-heading-font-family',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
+          },
+          {
+            type: 'slider',
+            name: 'Font Size',
+            property: 'font-size',
+            default: 16,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'font-size',
+              'data-attribute': 'paragraph-heading-font-size',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
+          },
+          {
+            type: 'select',
+            name: 'Font Weight',
+            property: 'font-weight',
+            default: 'normal',
+            options:[
+              { value: 'light', name: 'light' },
+              { value: 'normal', name: 'Normal' },
+              { value: 'semi-bold', name: 'Semi Bold' },
+              { value: 'bold', name: 'Bold' },
+              { value: 'bolder', name: 'Bolder' },
+            ],
+            attributes: {
+              'data-type': 'font-weight',
+              'data-attribute': 'paragraph-heading-font-weight',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
+          },
+          {
+            type: 'slider',
+            name: 'Letter Spacing',
+            property: 'letter-spacing',
+            default: 0,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'letter-spacing',
+              'data-attribute': 'paragraph-heading-letter-spacing',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
+          },
+          {
+            type: 'slider',
+            label: 'Line Height',
+            name: 'Line Height',
+            property: 'line-height',
+            ResizeObserver: true,
+            default: 1,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'line-height',
+              'data-attribute': 'paragraph-heading-line-height',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
+          },
+          {
+            type: 'select',
+            name: 'Text Align',
+            property: 'text-align',
+            default: 'left',
+            ResizeObserver: true,
+            options: [
+              { value: 'left', name: 'Left' },
+              { value: 'center', name: 'Center' },
+              { value: 'right', name: 'Right' },
+            ],
+            attributes: {
+              'data-type': 'text-align',
+              'data-attribute': 'paragraph-heading-text-align',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
+          },
+          {
+            type: 'select',
+            name: 'Text Decoration',
+            property: 'text-decoration',
+            default: 'none',
+            options: [
+              { value: 'none', name: 'None' },
+              { value: 'underline', name: 'Underline' },
+              { value: 'line-through', name: 'Line Through' },
+            ],
+            attributes: {
+              'data-type': 'text-decoration',
+              'data-attribute': 'paragraph-heading-text-decoration',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
+          },
       ],
     },
   ],
@@ -1417,7 +2251,125 @@ const obj = {
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
-            'data-attribute': 'main-color',
+            'data-attribute': 'bannar-color',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+          attributes: {
+            'data-type': 'font-family',
+            'data-attribute': 'bannar-font-family',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'bannar-font-size',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'bannar-font-weight',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'bannar-letter-spacing',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'bannar-line-height',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'bannar-text-align',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'bannar-text-decoration',
             'data-target': '.bannar-content h1 .bannar-content p',
           },
         },
@@ -1432,13 +2384,132 @@ const obj = {
           type: 'color',
           name: 'Text Color',
           property: 'color',
-          default: '#171414',
+          default: ' #171414',
           attributes: {
             'data-type': 'color',
             'data-attribute': 'Img-main-color',
             'data-target': '.main_heading  .sub_heading',
           },
         },
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+          attributes: {
+            'data-type': 'font-family',
+            'data-attribute': 'main-font-family',
+            'data-target': '.main_heading .sub_heading',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'main-font-size',
+            'data-target': '.main_heading .sub_heading',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'main-font-weight',
+            'data-target': '.main_heading .sub_heading',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'main-letter-spacing',
+            'data-target': '.main_heading .sub_heading',
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'main-line-height',
+            'data-target': '.main_heading .sub_heading',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'main-text-align',
+            'data-target': '.main_heading .sub_heading',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'main-text-decoration',
+            'data-target': '.main_heading .sub_heading',
+          },
+        },
+    
       ],
     },
     {
@@ -1545,15 +2616,131 @@ const obj = {
             'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
           },
         },
-        // {
-        //   type: 'color',
-        //   name: 'Typography',
-        //   property: 'text-color',
-        //   default: '#4aa4da',
-        //   attributes: {
-        //     'data-type': 'color',
-        //   },
-        // },
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+          attributes: {
+            'data-type': 'font-family',
+            'data-attribute': 'guidelines-font-family',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'guidelines-font-size',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'guidelines-font-weight',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'guidelines-letter-spacing',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'guidelines-line-height',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'guidelines-text-align',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'guidelines-text-decoration',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
+          },
+        },
       ],
     },
     {
@@ -1573,12 +2760,12 @@ const obj = {
         {
           type: 'color',
           name: 'Bullet Point Color',
-          property: 'color',
+          property: 'baclgorund-color',
           default: '#FFC0CB',
           attributes: {
-            'data-type': 'color',
-            'data-attribute': 'guidelines-bullet-color',
-            'data-target': '.heading h3',
+            'data-type': 'background-color',
+            'data-attribute': 'guidelines-bullet-background-color',
+            'data-target': '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
           },
 
         },
@@ -1586,8 +2773,14 @@ const obj = {
         {
           type: 'slider',
           name: 'Bullet Point Size',
-          property: 'font-size',
+          property: 'width',
           default: '15',
+          units: ['px'],
+          attributes: {
+            'data-type': 'background-color',
+            'data-attribute': 'guidelines-bullet-background-color',
+            'data-target': '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
+          },
         },
         {
           type: 'select',
@@ -1691,8 +2884,121 @@ const obj = {
         },
         {
           type: 'select',
-          name: 'Typography',
+          name: 'Font Family',
           property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+          attributes: {
+            'data-type': 'font-family',
+            'data-attribute': 'bannar-font-family',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'font-size',
+            'data-attribute': 'bannar-font-size',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options:[
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+          attributes: {
+            'data-type': 'font-weight',
+            'data-attribute': 'bannar-font-weight',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'letter-spacing',
+            'data-attribute': 'bannar-letter-spacing',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+          attributes: {
+            'data-type': 'line-height',
+            'data-attribute': 'bannar-line-height',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: 'Left' },
+            { value: 'center', name: 'Center' },
+            { value: 'right', name: 'Right' },
+            { value: 'justify', name: 'Justify' },
+          ],
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'bannar-text-align',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+          attributes: {
+            'data-type': 'text-decoration',
+            'data-attribute': 'bannar-text-decoration',
+            'data-target': '.bannar-content h1 .bannar-content p',
+          },
         },
       ],
     },
@@ -1757,10 +3063,12 @@ const obj = {
         {
           type: 'color',
           name: 'Primary Color',
-          property: 'color',
+          property: 'fill',
           default: '#e6e6e6',
           attributes: {
-            'data-type': 'color',
+            'data-type': 'fill',
+            'data-attribute': 'icon-color',
+            'data-target': '.address-icon svg',
           },
         },
 
@@ -1775,6 +3083,12 @@ const obj = {
           name: 'Padding',
           property: 'padding',
           default: '0',
+          units: ['px'],
+          attributes: {
+            'data-type': 'fill',
+            'data-attribute': 'icon-color',
+            'data-target': '.address-icon svg',
+          },
         },
       ],
     },

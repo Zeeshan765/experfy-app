@@ -93,21 +93,21 @@ const SectionTemplate: React.FC = ({search }) => {
       image: image_and_text,
       link: '/admin/collections/section-templates/image-and-text',
       name: 'Image and Text',
-      text: 'Add a banner image with text and a button. This is a section usually on top portion of the site and is used to emphasize highlight certain messaging.',
+      text: 'Add an image and text to highlight and customize any section',
     },
     {
       id: 5,
       image: video,
       link: '/admin/collections/section-templates/video',
       name: 'Video',
-      text: '',
+      text: 'Add a video highlight and showcase anything particular about your company',
     },
     {
       id: 6,
       image: benefits,
       link: '/admin/collections/section-templates/benefits',
       name: 'Benefits',
-      text: '',
+      text: 'Add a banner image with text and a button. This is a section usually on top portion of the site and is used to emphasize highlight certain messaging.',
     },
     {
       id: 7,
@@ -135,28 +135,28 @@ const SectionTemplate: React.FC = ({search }) => {
       image: guidelines,
       link: '/admin/collections/section-templates/guidelines',
       name: 'Guidelines',
-      text: '',
+      text: 'Add a banner image with text and a button. This is a section usually on top portion of the site and is used to emphasize highlight certain messaging.',
     },
     {
       id: 11,
       image: location,
       link: '/admin/collections/section-templates/location',
       name: 'Location',
-      text: '',
+      text: 'Add a banner image with text and a button. This is a section usually on top portion of the site and is used to emphasize highlight certain messaging.',
     },
     {
       id: 12,
       image: metrics_numbers,
       link: '/admin/collections/section-templates/metrics-numbers',
       name: 'Metrics/Numbers',
-      text: '',
+      text: 'To attract talent, add testimonials of employees ot talentCloud members who have worked for your company and have rave reviews of their experience.',
     },
     {
       id: 13,
       image: paragraph,
       link: '/admin/collections/section-templates/paragraph',
       name: 'Paragraph',
-      text: '',
+      text: 'Add a banner image with text and a button. This is a section usually on top portion of the site and is used to emphasize highlight certain messaging.',
     },
     {
       id: 14,
@@ -177,7 +177,8 @@ const SectionTemplate: React.FC = ({search }) => {
       image: testimonial,
       link: '/admin/collections/section-templates/testimonial',
       name: 'Testimonial',
-      text: '',
+      text: 'To attract talent, add testimonials of employees ot talentCloud members who have worked for your company and have rave reviews of their experience.',
+
     },
   ];
   return (
