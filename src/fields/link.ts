@@ -1,69 +1,77 @@
-import { Field } from "payload/types";
-import { Type as PageType } from "../collections/Page";
+import { Field } from 'payload/types';
+import { Type as PageType } from '../collections/Page';
+import sub_link from './sub_link';
 
 export type Type = {
-  type: "page" | "custom";
+  type: 'page' | 'custom';
   label: string;
   page?: PageType;
   url?: string;
 };
 
 const link: Field = {
-  name: "link",
-  type: "group",
+  name: 'link',
+  type: 'group',
+
   fields: [
     {
-      name: "type",
-      type: "radio",
+      name: 'type',
+      type: 'radio',
       options: [
         {
-          label: "Page",
-          value: "page",
+          label: 'Page',
+          value: 'page',
         },
         {
-          label: "Custom URL",
-          value: "custom",
+          label: 'Custom URL',
+          value: 'custom',
         },
       ],
-      defaultValue: "page",
+      defaultValue: 'page',
       admin: {
-        layout: "horizontal",
+        layout: 'horizontal',
       },
     },
     {
-      type: "row",
+      type: 'row',
       fields: [
         {
-          name: "label",
-          label: "Label",
-          type: "text",
+          name: 'label',
+          label: 'Label',
+          type: 'text',
           required: true,
           admin: {
-            width: "50%",
+            width: '50%',
           },
         },
         {
-          name: "page",
-          label: "Page to link to",
-          type: "relationship",
-          relationTo: "pages",
+          name: 'page',
+          label: 'Page to link to',
+          type: 'relationship',
+          relationTo: 'pages',
           required: true,
           admin: {
-            condition: (_, siblingData) => siblingData?.type === "page",
-            width: "50%",
+            condition: (_, siblingData) => siblingData?.type === 'page',
+            width: '50%',
           },
         },
         {
-          name: "url",
-          label: "Custom URL",
-          type: "text",
+          name: 'url',
+          label: 'Custom URL',
+          type: 'text',
           required: true,
           admin: {
-            condition: (_, siblingData) => siblingData?.type === "custom",
-            width: "50%",
+            condition: (_, siblingData) => siblingData?.type === 'custom',
+            width: '50%',
           },
         },
       ],
+    },
+    {
+      name: 'subLinks',
+      label: 'Sub Links',
+      type: 'array',
+      fields: [sub_link],
     },
   ],
 };

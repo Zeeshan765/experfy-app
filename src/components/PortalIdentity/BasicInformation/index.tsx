@@ -43,7 +43,7 @@ export default function BasicInformation(props) {
         <div className="row">
           <div className="col-md-8">
             <TextInput
-              label={"Portal Name"}
+              label={"Portal Name jhjhj"}
               path={"career_portal_name"}
               minLength={3}
               required={true}

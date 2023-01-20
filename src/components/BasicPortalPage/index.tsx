@@ -20,7 +20,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography
+  Typography,
 } from '@mui/material';
 import { Button } from 'payload/components/elements';
 import { Form } from 'payload/components/forms';
@@ -120,13 +120,12 @@ const BasicPortalPage: React.FC = (props) => {
       history.push({
         pathname: `/admin/collections/portal-identity/${data.doc.id}`,
         //@ts-ignore
-
         param: data.doc.id,
       });
     }
   };
 
-  const handlenaviagte = () => {
+  const handleNavigate = () => {
     history.push({
       pathname: `/admin/collections/portal-identity/${id}`,
       //@ts-ignore

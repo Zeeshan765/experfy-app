@@ -121,6 +121,6 @@ extensions.json
 .pnp.*
 .vscode/
 /src/media/
-*.png
 yarn.lock
 package-lock.json
+

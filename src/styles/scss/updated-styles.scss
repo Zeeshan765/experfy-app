@@ -317,7 +317,7 @@ ol {
     }
   }
 
-  &__label {}
+
 
   &--is-selected {
     .radio-input__styled-radio {
@@ -447,7 +447,7 @@ ol {
 
 
   &__collection-actions {
-    // display: block !important;
+    display: block !important;
   }
 
   &__document-actions {
@@ -704,7 +704,7 @@ ol {
 .nav-group__toggle {
   display: flex;
   align-items: center;
-  padding: 16px 16px !important;
+  padding: 12px 16px !important;
   border-bottom: 1px solid var(--theme-border) !important;
 
   .nav-group__label {
@@ -723,7 +723,7 @@ ol {
   #nav-themes-style {
     display: flex;
     align-items: center;
-    padding: 12px 16px 12px 36px !important;
+    padding: 8px 16px 8px 36px !important;
 
     &:hover,
     &:focus {
@@ -785,8 +785,8 @@ ol {
 
 // Upload Card 
 
-.upload-card {
-  .thumbnail {}
+// .upload-card {
+//   .thumbnail {}
 
-  &__filename {}
-}
+//   &__filename {}
+// }

@@ -1,7 +1,3 @@
-// @import "./font-proxima-nova.scss";
-
-// Box Sizing
-//---------------------------------------------
 @import "~payload/scss";
 @import "font-proxima-nova";
 @import "updated-styles";
@@ -49,6 +45,8 @@
   }
 }
 
+
+
 // Body
 //---------------------------------------------
 
@@ -58,7 +56,7 @@ body {
   color: var(--theme-text-light);
   font-weight: 400;
   font-size: 16px;
-  font-optical-sizing: auto;
+  font-optical-sizing: antialiased;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -94,8 +92,6 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    // height: 100%;
-    // padding-left: 15.5rem;
   }
 
   &__builder {
@@ -115,6 +111,8 @@ body {
 }
 
 .step-nav {
+  width: 100%;
+
   span {
     color: var(--theme-text-dark);
     text-overflow: unset;
@@ -263,8 +261,6 @@ body {
   margin: 30px 0px;
 }
 
-//}
-
 .field-type.text {
   margin-bottom: 1.9rem;
 
@@ -295,24 +291,36 @@ div.react-select {
   }
 }
 
-
 .btn--style-secondary {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--theme-text-light);
-  background-color: var(--color-base-0);
-  border: 1px solid var(--theme-border);
-  padding: 0.7rem 1.3rem;
+  background-color: var(--theme-elevation-0);
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: none !important;
+  padding: 0.7rem 1rem;
   border-radius: 0.4rem;
-  box-shadow: none;
 
-  // &:hover {
-  //   background-color: var(--theme-primary);
-  //   color: var(--theme-elevation-0);
-  //   text-decoration: none;
-  // }
+
+  &:hover {
+    background-color: var(--theme-text-light);
+    color: var(--theme-elevation-0);
+    text-decoration: none;
+
+
+  }
+
+  &:checked {
+    background-color: var(--theme-text-light);
+    color: var(--theme-elevation-0);
+  }
+
+  &::selection {
+    background-color: var(--theme-text-light);
+    color: var(--theme-elevation-0);
+  }
+
 }
-
 
 .btn--style-primary {
   background-color: var(--theme-primary);
@@ -394,9 +402,6 @@ div.react-select {
 
 .Global #nav-themes-style::before {
   background-image: url("/src/assets/images/sidebar/theme_style.svg") !important;
-  // background-size: 100% 100%;
-  // width: 16px;
-  // height: 16px;
   background-repeat: no-repeat;
   content: "";
   width: 16px;
@@ -407,8 +412,6 @@ div.react-select {
 .Global #nav-section-templates::before {
   background-image: url("/src/assets/images/sidebar/section.svg") !important;
   background-size: 100% 100%;
-  // width: 16px;
-  // height: 16px;
   background-repeat: no-repeat;
   content: "";
   width: 16px;
@@ -419,10 +422,6 @@ div.react-select {
 // ------------------------------------------//
 // ------------ custom css ------------------//
 // -----------------------------------------//
-// .nav-category {
-//   padding: 4rem;
-//   border-bottom: 1px solid var(--theme-elevation-150);
-// }
 
 .portals-identity {
   margin-top: 20px;
@@ -460,9 +459,24 @@ div.react-select {
   }
 }
 
-.full-width-image {
-  width: 90% !important;
-  margin: 10px !important;
+.back__panel {
+  background-color: var(--theme-primary);
+  padding: 10px 0px 10px 0px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 17px;
+  text-align: center;
+  color: var(--theme-elevation-0);
+  display: flex;
+  justify-content: space-evenly;
+
+  &:hover {
+    color: var(--theme-elevation-0);
+    background-color: var(--theme-text-light);
+    text-decoration: none;
+
+  }
+
 }
 
 .radio-group {
@@ -532,12 +546,6 @@ div.react-select {
 }
 
 .collection-edit__main {
-  // .gutter--left {
-  //   padding-left: 0px !important;
-  // }
-  // .gutter--right {
-  //   padding-right: 0px !important;
-  // }
 
   .collection-edit__edit {
     .radio-group--layout-horizontal {
@@ -550,12 +558,6 @@ div.react-select {
   .collection-edit__edit {
     display: flex;
     flex-direction: column;
-    // padding-top: 0px !important;
-
-    .field-type {
-      // padding-left: 24px;
-      // padding-right: 24px;
-    }
 
     .radio-group--layout-horizontal {
       .radio-group--group {

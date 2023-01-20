@@ -2,52 +2,28 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { buildConfig } from 'payload/config';
 import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
-import BenefitCollection from './collections/Benefit';
-import DepartmentCollection from './collections/Department';
 import DesignSystemCollection from './collections/DesignSystemCollection';
-import FooterCollection from './collections/Footer';
-import FormCollection from './collections/Form';
-import GuidelineCollection from './collections/Guideline';
-import HeaderCollection from './collections/Header';
-import ImgTextCollection from './collections/ImageAndText';
-import ImageBannerCollection from './collections/ImageBanner';
-import LocationCollection from './collections/Location';
 import Media from './collections/Media';
 import MenusCollection from './collections/MenusCollection';
-import NewPageBuilderCollection from './collections/NewPageBuilder';
-import NumberCollection from './collections/Number';
-import PagesCollection from './collections/Page';
 import PageBuilderCollection from './collections/PageBuilder';
-import ParagraphCollection from './collections/Paragraph';
-import PracticeAreaCollection from './collections/PracticeArea';
+import PagesCollection from './collections/Page';
+import PageTemplateCollection from './collections/PageTemplate';
 import SectionTemplateCollection from './collections/SectionTemplatesCollection';
-import TalentCloudCollection from './collections/TalentCloud';
 import TemplatesCollection from './collections/TemplatesCollection';
-import TestimonialCollection from './collections/Testimonial';
 import ThemeCollection from './collections/ThemeCollection';
 import Users from './collections/UsersCollection';
 import BasicPortalIdentityPage from './components/BasicPortalPage';
 import AfterNav from './components/Nav/AfterNav';
 import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
-import NewPageBuilder from './components/NewPageBuilder';
 import PageBuilder from './components/PageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
-import Benefit from './components/PageBuilder/NewSectionTemplate/Benefit';
-import Footer from './components/PageBuilder/NewSectionTemplate/Footer';
 import Form from './components/PageBuilder/NewSectionTemplate/Form';
-import Guideline from './components/PageBuilder/NewSectionTemplate/Guideline';
-import Header from './components/PageBuilder/NewSectionTemplate/Header';
 import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
-import Location from './components/PageBuilder/NewSectionTemplate/Location';
-import MetricNumbers from './components/PageBuilder/NewSectionTemplate/Number';
-import Paragraph from './components/PageBuilder/NewSectionTemplate/Paragraph';
-import PracticeArea from './components/PageBuilder/NewSectionTemplate/PracticeArea';
-import Testimonial from './components/PageBuilder/NewSectionTemplate/Testimonial';
-import SectionPageBuilder from './components/PageBuilder/SectionTemplates/sections';
+import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
-import Templates from './components/Templates';
+import MyProvider from './MyProvider';
 
 dotenv.config();
 
@@ -66,11 +42,6 @@ export default buildConfig({
       afterNavLinks: [AfterNav],
 
       routes: [
-        {
-          path: '/collections/page-builder',
-          Component: PageBuilder,
-          exact: true,
-        },
         {
           path: '/collections/basic-portal-identity',
           Component: BasicPortalIdentityPage,
@@ -95,7 +66,7 @@ export default buildConfig({
         },
         {
           path: '/collections/templates',
-          Component: Templates,
+          Component: TemplatesLibrary,
         },
         {
           path: '/collections/themes-style',
@@ -104,8 +75,8 @@ export default buildConfig({
           strict: true,
         },
         {
-          path: '/collections/new-page-builder',
-          Component: NewPageBuilder,
+          path: '/collections/page-builder',
+          Component: PageBuilder,
           exact: true,
           strict: true,
         },
@@ -120,62 +91,99 @@ export default buildConfig({
           strict: true,
         },
         {
-          path: '/collections/footer',
-          Component: Footer,
+          path: '/collections/section-templates/header',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/header',
-          Component: Header,
+          path: '/collections/section-templates/footer',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/paragraph',
-          Component: Paragraph,
+          path: '/collections/section-templates/benefits',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/metrics_number',
-          Component: MetricNumbers,
+          path: '/collections/section-templates/practice-areas',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/testimonial',
-          Component: Testimonial,
+          path: '/collections/section-templates/video',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/benefit',
-          Component: Benefit,
+          path: '/collections/section-templates/guidelines',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
         {
-          path: '/collections/guideline',
-          Component: Guideline,
+          path: '/collections/section-templates/location',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
         },
+
+        {
+          path: '/collections/section-templates/paragraph',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
+        {
+          path: '/collections/section-templates/metrics-numbers',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
+        {
+          path: '/collections/section-templates/image-banner',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
+        {
+          path: '/collections/section-templates/image-and-text',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
+        {
+          path: '/collections/section-templates/talent-cloud-candidates',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: '/collections/section-templates/testimonial',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
         {
           path: '/collections/form',
           Component: Form,
         },
         {
-          path: '/collections/location',
-          Component: Location,
-        },
-        {
           path: '/collections/image_and_text',
           Component: ImgText,
         },
-        {
-          path: '/collections/practice_area',
-          Component: PracticeArea,
-        },
-        {
-          path: '/collections/footer',
-          Component: Footer,
-        },
-        {
-          path: '/collections/header',
-          Component: Header,
-        },
-        {
-          path: '/collections/paragraph',
-          Component: Paragraph,
-        },
       ],
+      providers: [MyProvider],
     },
   },
   collections: [
@@ -185,8 +193,9 @@ export default buildConfig({
     ThemeCollection,
     MenusCollection,
     PagesCollection,
+    PageTemplateCollection,
     Media,
-    NewPageBuilderCollection,
+    PageBuilderCollection,
     Users,
     SectionTemplateCollection,
   ],

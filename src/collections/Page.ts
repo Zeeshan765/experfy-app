@@ -1,7 +1,10 @@
 import { CollectionConfig } from 'payload/types';
-import PageBuilder from '../components/NewPageBuilder';
-import Templates from '../components/TemplateLibrary';
+import PageTheme from '../components/PageBuilderTemplate';
+import PageBuilder from '../components/PageBuilder/SectionTemplates';
 import Payload from 'payload';
+import SelectPage from '../components/selectPageCode';
+import NewPageBuilder from '../components/PageBuilder';
+import NewPageBuilderModel from '../components/Model/NewPageBuilder';
 
 export type Type = {
   title: string;
@@ -44,7 +47,7 @@ export const Page: CollectionConfig = {
       label: 'Page Type',
       type: 'radio',
       required: true,
-      defaultValue: 'scratch',
+      // defaultValue: "scratch",
       admin: {
         layout: 'vertical',
         description: 'Choose how you want to create this page',
@@ -67,7 +70,7 @@ export const Page: CollectionConfig = {
       admin: {
         condition: (data) => data.pageType === 'template',
         components: {
-          Field: Templates,
+          Field: PageTheme,
         },
       },
     },
@@ -78,43 +81,20 @@ export const Page: CollectionConfig = {
       admin: {
         condition: (data) => data.pageType === 'scratch',
         components: {
-          Field: PageBuilder,
+          Field: NewPageBuilderModel,
+        },
+      },
+    },
+    {
+      name: 'page_Id',
+      type: 'ui',
+      admin: {
+        components: {
+          Field: SelectPage,
         },
       },
     },
   ],
-
-  hooks: {
-    beforeLogin: [
-      (args) => {
-        console.log('before login called', args);
-      },
-    ],
-    afterChange: [(args) => {
-      
-    }],
-    afterLogin: [
-      (args) => {
-        console.log('After Login Called', args);
-      },
-    ],
-    afterLogout: [
-      (args) => {
-        console.log('After Logout Called', args);
-      },
-    ],
-
-    afterRefresh: [
-      (args) => {
-        console.log('After Refresh Called', args);
-      },
-    ],
-    afterMe: [
-      (args) => {
-        console.log('After Me Called', args);
-      },
-    ],
-  },
 };
 
 export default Page;

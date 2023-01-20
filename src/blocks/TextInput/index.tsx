@@ -54,7 +54,12 @@ const TextInput: React.FC<CustomTextField> = ({
       setValue(display);
     }
   }, [display]);
-
+  // useEffect(() => {
+  //   if (defaultValue) {
+  //     setValue(defaultValue);
+  //   }
+  // }, [defaultValue]);
+  
   return (
     <div className={classes}>
       <Label htmlFor={`field-${path}`} label={label} required={required} />
@@ -64,10 +69,8 @@ const TextInput: React.FC<CustomTextField> = ({
         value={value}
         placeholder={placeHolder}
         readOnly={rest?.readOnly}
-        onChange={setValue}
-        // @ts-ignore
-        showError={'showError'}
-        error={error}
+        onChange={onchange}
+        showError={showError}
         errormessage={errorMessage}
         onFocus={() => setTouched(path)}
         onBlur={() => setTouched('')}

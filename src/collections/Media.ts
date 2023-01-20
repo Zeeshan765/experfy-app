@@ -26,28 +26,29 @@ export const Media: CollectionConfig = {
 
   upload: {
     adminThumbnail: 'card',
-    imageSizes: [
-      {
-        name: 'card',
-        width: 640,
-        height: 480,
-      },
-      {
-        name: 'portrait',
-        width: 768,
-        height: 1024,
-      },
-      {
-        name: 'square',
-        width: 1200,
-        height: 1200,
-      },
-      {
-        name: 'feature',
-        width: 1024,
-        height: 576,
-      },
-    ],
+    //when we upload the image in grapes this cause some issue
+    // imageSizes: [
+    //   {
+    //     name: 'card',
+    //     width: 640,
+    //     height: 480,
+    //   },
+    //   {
+    //     name: 'portrait',
+    //     width: 768,
+    //     height: 1024,
+    //   },
+    //   {
+    //     name: 'square',
+    //     width: 1200,
+    //     height: 1200,
+    //   },
+    //   {
+    //     name: 'feature',
+    //     width: 1024,
+    //     height: 576,
+    //   },
+    // ],
     // adminThumbnail: '',
     // mimeTypes: (_,siblingData):String=>{
     //         console.log("image condation",siblingData);
@@ -64,7 +65,6 @@ export const Media: CollectionConfig = {
     read: (): boolean => true, // Everyone can read Pages
     update: () => true,
     create: () => true,
-    delete: () => true,
   },
   fields: [
     {
@@ -93,10 +93,7 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) => {
-          console.log('Icon siblingData===', siblingData?.mediaType);
-          return siblingData?.mediaType === 'icon';
-        },
+        condition: (_, siblingData) =>  siblingData?.mediaType === 'icon',
       },
     },
 
@@ -106,13 +103,7 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) => {
-          console.log(
-            'Photo SiblingData===',
-            siblingData?.mediaType === 'Photo' ?? false
-          );
-          return siblingData?.mediaType === 'photo';
-        },
+        condition: (_, siblingData) => siblingData?.mediaType === 'photo',
       },
     },
     {
@@ -121,14 +112,7 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) => {
-          console.log(
-            'Video siblingData===',
-            siblingData?.mediaType === 'Video' ?? false
-          );
-
-          return siblingData?.mediaType === 'video';
-        },
+        condition: (_, siblingData) =>  siblingData?.mediaType === 'video',
       },
     },
     {

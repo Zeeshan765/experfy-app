@@ -19,10 +19,9 @@ const useStyles = makeStyles({
   },
   tabList: {
     '& .MuiTab-root': {
-      fontSize: '20px',
+      fontSize: '18px',
       fontWeight: 500,
       fontFamily: 'proxima-nova',
-      letterSpacing: '.1px',
       textTransform: 'none',
       paddingLeft: 0,
       paddingRight: 0,
@@ -73,6 +72,7 @@ function a11yProps(index) {
 }
 
 const TemplatesLibrary: React.FC = () => {
+  const [search, setSearch] = React.useState('');
   const [template, setTemplate] = React.useState('pages');
   const { setStepNav } = useStepNav();
 
@@ -102,6 +102,12 @@ const TemplatesLibrary: React.FC = () => {
     setValue(newValue);
   }
 
+  const handleSeach = (e) => {
+    const { value } = e.target;
+    setSearch(value);
+  };
+  // console.log("test off",value);
+
   return (
     <DefaultTemplate>
       <Eyebrow />
@@ -125,6 +131,7 @@ const TemplatesLibrary: React.FC = () => {
                   label="Search Template"
                   placeHolder="Type to search"
                   setTouched={setTouched}
+                  onChange={handleSeach}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3}>
@@ -147,8 +154,8 @@ const TemplatesLibrary: React.FC = () => {
                 />
               </Grid>
             </Grid>
-            {template === 'pages' && <PageTemplate />}
-            {template === 'sections' && <SectionTemplate />}
+            {template === 'pages' && <PageTemplate search={search} />}
+            {template === 'sections' && <SectionTemplate search={search} />}
           </TabPanel>
         </Box>
       </div>

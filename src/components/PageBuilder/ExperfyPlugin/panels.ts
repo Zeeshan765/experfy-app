@@ -20,179 +20,158 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
   const { Panels } = editor;
   const config = editor.getConfig();
 
-  const iconStyle = 'style="display: block; max-width:24px"';
+  const row = editor.getContainer().closest('.editor-row');
 
   Panels.getPanels().reset([
     {
-      id: 'commands',
-      buttons: [{}],
-    },
-    {
-      id: 'devices-c',
-      buttons: [
-        {
-          id: cmdDeviceDesktop,
-          command: cmdDeviceDesktop,
-          active: true,
-          visible: false,
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V20H8V22H16V20H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z" />
-        </svg>`,
-        },
-        {
-          id: cmdDeviceTablet,
-          command: cmdDeviceTablet,
-          visible: false,
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M19,18H5V6H19M21,4H3C1.89,4 1,4.89 1,6V18A2,2 0 0,0 3,20H21A2,2 0 0,0 23,18V6C23,4.89 22.1,4 21,4Z" />
-        </svg>`,
-        },
-        {
-          id: cmdDeviceMobile,
-          command: cmdDeviceMobile,
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z" />
-        </svg>`,
-        },
-      ],
-    },
-    {
-      id: 'options',
-      buttons: [
-        {
-          id: showFrames,
-          command: showFrames,
-          context: showFrames,
-          visible: false,
-          active: true, // active by default
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-        <path fill="currentColor" d="M15,5H17V3H15M15,21H17V19H15M11,5H13V3H11M19,5H21V3H19M19,9H21V7H19M19,21H21V19H19M19,13H21V11H19M19,17H21V15H19M3,5H5V3H3M3,9H5V7H3M3,13H5V11H3M3,17H5V15H3M3,21H5V19H3M11,21H13V19H11M7,21H9V19H7M7,5H9V3H7V5Z" />
-    </svg>`,
-        },
-        {
-          id: preview,
-          context: preview,
-          active: false, // active by default
-          visible: false,
-          command: () => editor.runCommand(preview, undefined),
-          label: `<svg ${iconStyle} viewBox="0 0 24 24"><path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"></path></svg>`,
-        },
-        {
-          id: ful,
-          command: ful,
-          context: ful,
-          active: false, // active by default
-          visible: false,
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M5,5H10V7H7V10H5V5M14,5H19V10H17V7H14V5M17,14H19V19H14V17H17V14M10,17V19H5V14H7V17H10Z" />
-        </svg>`,
-        },
-        {
-          id: exportTemplate,
-          active: false,
-          visible: false,
-          command: () => editor.runCommand(exportTemplate, undefined),
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12.89,3L14.85,3.4L11.11,21L9.15,20.6L12.89,3M19.59,12L16,8.41V5.58L22.42,12L16,18.41V15.58L19.59,12M1.58,12L8,5.58V8.41L4.41,12L8,15.58V18.41L1.58,12Z" />
-        </svg>`,
-        },
-        {
-          id: 'undo',
-          active: false,
-          visible: false,
-          command: () => editor.runCommand('core:undo', undefined),
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M20 13.5C20 17.09 17.09 20 13.5 20H6V18H13.5C16 18 18 16 18 13.5S16 9 13.5 9H7.83L10.91 12.09L9.5 13.5L4 8L9.5 2.5L10.92 3.91L7.83 7H13.5C17.09 7 20 9.91 20 13.5Z" />
-        </svg>`,
-        },
-        {
-          id: 'redo',
-          active: false,
-          visible: false,
-          command: () => editor.runCommand('core:redo', undefined),
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M10.5 18H18V20H10.5C6.91 20 4 17.09 4 13.5S6.91 7 10.5 7H16.17L13.08 3.91L14.5 2.5L20 8L14.5 13.5L13.09 12.09L16.17 9H10.5C8 9 6 11 6 13.5S8 18 10.5 18Z" />
-        </svg>`,
-        },
-        {
-          id: cmdImport,
-          active: false,
-          visible: false,
-          command: () => editor.runCommand(cmdImport, undefined),
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
-        </svg>`,
-        },
-        {
-          id: clear,
-          active: false,
-          visible: false,
-          command: () => editor.runCommand(clear, undefined),
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-              <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-          </svg>`,
-        },
-      ],
-    },
-    {
-      id: 'views',
+      id: 'panel__switcher',
+      el: '.panel__switcher',
       buttons: [
         {
           id: openStyles,
-          command: openStyles,
+          label:
+            '<svg width="17.029" height="16.668" xmlns="http://www.w3.org/2000/svg"><g data-name="Group 56044"><g data-name="Group 56043"><g data-name="Group 56040"><g data-name="Group 56039"><path data-name="Path 170046" d="M8.696 3.624v4.724a1.268 1.268 0 11-.362 0V3.624h-.423l-2.809 6.672 1.741 2.089a.181.181 0 01.04.146l-.388 2.325h4.041l-.393-2.325a.181.181 0 01.039-.146l1.741-2.089-2.809-6.672h-.418z" fill="currentColor"/></g></g><path data-name="Path 170047" d="M6.433 15.218l-.242 1.449h4.645l-.241-1.449H6.433z" fill="#222e43"/></g><path data-name="Path 170048" d="M14.674 2.536h2.174a.181.181 0 00.181-.181V.181A.181.181 0 0016.848 0h-2.174a.181.181 0 00-.181.181v.906h-4.71V.181A.181.181 0 009.602 0H7.428a.181.181 0 00-.181.181v.906h-4.71V.181A.181.181 0 002.356 0H.181A.181.181 0 000 .181v2.174a.181.181 0 00.181.181h2.174a.181.181 0 00.181-.181v-.906h3.678a7.443 7.443 0 00-5.019 5.8H.181A.181.181 0 000 7.43v2.174a.181.181 0 00.181.181h2.174a.181.181 0 00.181-.181V7.427a.181.181 0 00-.181-.181h-.792a7.113 7.113 0 015.683-5.684v.792a.181.181 0 00.181.181h2.174a.181.181 0 00.181-.181v-.792a7.113 7.113 0 015.683 5.683h-.792a.181.181 0 00-.181.181V9.6a.181.181 0 00.181.181h2.174a.181.181 0 00.181-.181V7.427a.181.181 0 00-.181-.181h-1.01a7.443 7.443 0 00-5.019-5.8h3.678v.906a.181.181 0 00.181.181l-.003.003z" /></g></svg> Style',
+          command: 'core:open-styles',
           active: false,
-          visible: false,
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-            <path fill="currentColor" d="M20.71,4.63L19.37,3.29C19,2.9 18.35,2.9 17.96,3.29L9,12.25L11.75,15L20.71,6.04C21.1,5.65 21.1,5 20.71,4.63M7,14A3,3 0 0,0 4,17C4,18.31 2.84,19 2,19C2.92,20.22 4.5,21 6,21A4,4 0 0,0 10,17A3,3 0 0,0 7,14Z" />
-        </svg>`,
+          togglable: false,
+          attributes: { title: 'Styles' },
         },
+
         {
           id: openTraits,
-          command: openTraits,
+          label:
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24.363" height="16.236"><g data-name="Group 55325"><path data-name="Path 170708" d="M10.305 8.674H.542a.542.542 0 01-.541-.541V.541A.542.542 0 01.542 0h9.763a.542.542 0 01.541.541v7.591a.542.542 0 01-.541.542z"/><path data-name="Path 170709" d="M23.822 1.111H13.176a.541.541 0 010-1.083h10.646a.541.541 0 110 1.083z"/><path data-name="Path 170710" d="M23.822 4.892H13.176a.541.541 0 010-1.083h10.646a.541.541 0 110 1.083z"/><path data-name="Path 170711" d="M23.822 8.673H13.176a.541.541 0 010-1.083h10.646a.541.541 0 110 1.083z"/><path data-name="Path 170712" d="M23.822 12.455H.541a.541.541 0 110-1.083h23.28a.541.541 0 110 1.083z"/><path data-name="Path 170713" d="M23.822 16.235H.541a.541.541 0 110-1.083h23.28a.541.541 0 110 1.083z"/></g></svg> Content',
+          command: 'core:open-traits',
           active: false,
-          visible: false,
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-          <path fill="currentColor" d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
-      </svg>`,
-        },
-        {
-          id: openLayers,
-          command: openLayers,
-          active: false,
-          visible: false,
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-          <path fill="currentColor" d="M12,16L19.36,10.27L21,9L12,2L3,9L4.63,10.27M12,18.54L4.62,12.81L3,14.07L12,21.07L21,14.07L19.37,12.8L12,18.54Z" />
-      </svg>`,
+          togglable: false,
+          attributes: { title: 'Traits' },
         },
         {
           id: openBlocks,
+          label: 'Elements',
+          command: 'core:open-blocks',
+          active: true,
+          togglable: false,
+          attributes: { title: 'Blocks' },
+        },
+        {
+          id: openLayers,
+          label: 'Layers',
+          command: 'core:open-layers',
           active: false,
-          command: openBlocks,
-          visible: false,
-          label: `<svg ${iconStyle} viewBox="0 0 24 24">
-          <path fill="currentColor" d="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
-      </svg>`,
+          togglable: false,
+          attributes: { title: 'Layers' },
+        },
+      ],
+    },
+    {
+      id: 'panel-top',
+      el: '.panel__top',
+      buttons: [
+        {
+          id: 'settings',
+          className: 'fa fa-cog btn--style-secondary',
+          command: 'sw-visibility',
+          active: true,
+          tag: 'button',
+          attributes: { title: 'Settings' },
+        },
+        {
+          id: 'device-desktop',
+          className: 'fa fa-desktop btn--style-secondary',
+          command: 'toggle-devices',
+          tagName: 'button',
+          attributes: { title: 'Toggle Display' },
+        },
+        {
+          id: 'history',
+          className: 'fa fa-history btn--style-secondary',
+          command: 'undo',
+          attributes: { title: 'Undo' },
+        },
+
+        {
+          id: 'preview',
+          label:
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg> Preview',
+          className: 'btn--style-secondary',
+          command: 'preview',
+          attributes: {
+            title: 'Preview',
+            id: 'preview',
+          },
+        },
+        {
+          id: 'save',
+          className: 'btn--style-primary',
+          command: 'save-editor',
+          label: 'Save',
+          attributes: { title: 'Save' },
+        },
+        {
+          id: 'publish',
+          className: 'btn--style-secondary',
+          command: 'publish',
+          label:
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M192 64C86 64 0 150 0 256S86 448 192 448H384c106 0 192-86 192-192s-86-192-192-192H192zM384 352c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z" fill="#78c493"/></svg> Publish',
+          attributes: { title: 'Publish' },
         },
       ],
     },
   ]);
 
-  const openBl = Panels.getButton('views', openBlocks);
-  editor.on('load', () => openBl?.set('active', true));
+  const openSmBtn = Panels.getButton('panel__switcher', openStyles);
+  const openLayersBtn = Panels.getButton('panel__switcher', openLayers);
+  const openBlBtn = Panels.getButton('panel__switcher', openBlocks);
+  const openTraitsBtn = Panels.getButton('panel__switcher', openTraits);
+
+  editor.on('run:preview', () => {
+    editor.runCommand('fullscreen');
+  });
+  editor.on('stop:preview', () => {
+    editor.stopCommand('fullscreen');
+  });
+  //on panel change show the respective panel
+  editor.on('run:core:open-blocks', () => {
+    openBlBtn.set('active', true);
+    console.log(openBlBtn);
+    getStyleEl(editor, '.blocks').style.display = '';
+    getStyleEl(editor, '.styles-container').style.display = 'none';
+    getStyleEl(editor, '.layers-container').style.display = 'none';
+    getStyleEl(editor, '.traits-container').style.display = 'none';
+  });
+  editor.on('run:core:open-styles', () => {
+    openSmBtn.set('active', true);
+    getStyleEl(editor, '.styles-container').style.display = '';
+    getStyleEl(editor, '.blocks').style.display = 'none';
+    getStyleEl(editor, '.layers-container').style.display = 'none';
+    getStyleEl(editor, '.traits-container').style.display = 'none';
+  });
+  editor.on('run:core:open-layers', () => {
+    openLayersBtn.set('active', true);
+    getStyleEl(editor, '.layers-container').style.display = '';
+    getStyleEl(editor, '.styles-container').style.display = 'none';
+    getStyleEl(editor, '.blocks').style.display = 'none';
+    getStyleEl(editor, '.traits-container').style.display = 'none';
+  });
+  editor.on('run:core:open-traits', () => {
+    openTraitsBtn.set('active', true);
+    getStyleEl(editor, '.traits-container').style.display = '';
+    getStyleEl(editor, '.layers-container').style.display = 'none';
+    getStyleEl(editor, '.styles-container').style.display = 'none';
+    getStyleEl(editor, '.blocks').style.display = 'none';
+  });
 
   // On component change show the Style Manager
   opts.showStylesOnChange &&
-    editor.on('component:selected', () => {
-      const openSmBtn = Panels.getButton('views', openStyles);
-      const openLayersBtn = Panels.getButton('views', openLayers);
-
-      // Don't switch when the Layer Manager is on or
-      // there is no selected component
-      if (
-        (!openLayersBtn || !openLayersBtn.get('active')) &&
-        editor.getSelected()
-      ) {
-        openSmBtn?.set('active', true);
+    editor.on('component:selected', (component) => {
+      if (component && !openLayersBtn?.get('active')) {
+        editor.runCommand('core:open-styles');
       }
     });
 };
+
+function getStyleEl(editor: any, panel: string) {
+  const row = editor.getContainer().closest('.editor-row');
+  return row.querySelector(panel);
+}

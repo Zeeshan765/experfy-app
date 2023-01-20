@@ -2,7 +2,9 @@ import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../index.scss';
+import { useAuth, useConfig } from 'payload/components/utilities';
 
 const borderStyle = [
   { value: 'solid', name: 'Solid' },
@@ -39,6 +41,9 @@ const fontsList = [
 const DesignSystem: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
+  const {
+    routes: { admin },
+  } = useConfig();
 
   const url = location.href ? location.href : '';
   let showTheme = false;
@@ -51,30 +56,24 @@ const DesignSystem: React.FC = () => {
     setStepNav([
       {
         label: 'Global Theme Settings',
-        url: '/collections/global-theme-settings/design-system',
+        url: '/collections/design-system',
       },
     ]);
   }, [setStepNav]);
 
   useEffect(() => {
-    const editor = GrapesJS.init({
+    let editor = GrapesJS.init({
       container: '#gjs',
+      fromElement: true,
+      avoidDefaults: true,
+      el: '#gjs',
       height: '0%',
       commands: {
         defaults: [
           {
             id: 'save',
-            run: (editor, sender) => {
+            run: (editor: GrapesJS.Editor) => {
               editor.store(editor.getCss());
-            },
-          },
-          {
-            id: 'open-templates',
-          },
-          {
-            id: 'open-pages',
-            run: (editor, sender) => {
-              console.log('open-pages');
             },
           },
         ],
@@ -98,66 +97,7 @@ const DesignSystem: React.FC = () => {
         },
       },
 
-      panels: {
-        defaults: [
-          // {
-          //   id: 'open-styles',
-          //   el: '.styles-container',
-          //   active: false,
-          //   visible: true,
-          //   command: 'open-sm',
-          //   toggle: true,
-          //   buttons: [
-          //     {
-          //       id: 'open-styles',
-          //       className: 'fa fa-cog',
-          //       command: 'open-styles',
-          //       attributes: {
-          //         title: 'Global Theme Settings',
-          //       },
-          //     },
-          //   ],
-          // },
-          // {
-          //   id: 'save',
-          //   el: '.panel__top',
-          //   visible: true,
-          //   toggle: true,
-          //   commands: 'save',
-          //   buttons: [
-          //     {
-          //       id: 'save',
-          //       className: 'fa fa-floppy-o',
-          //       command: 'save',
-          //       attributes: {
-          //         title: 'Save',
-          //       },
-          //     },
-          //   ],
-          // },
-          // {
-          //   id: 'open-templates',
-          //   className: 'fa fa-folder-o',
-          //   attributes: {
-          //     title: 'Open projects and templates'
-          //   },
-          //   command: 'open-templates', //Open modal
-          // },
-          // {
-          //   id: 'open-pages',
-          //   className: 'fa fa-file-o',
-          //   attributes: {
-          //     title: 'Take Screenshot'
-          //   },
-          //   command: 'open-pages',
-          //   toggle: false,
-          // }
-        ],
-      },
-
       styleManager: {
-        showComputed: true,
-
         appendTo: '.styles-container',
         sectors: [
           {
@@ -174,11 +114,18 @@ const DesignSystem: React.FC = () => {
                 name: 'Primary',
                 property: 'background-color',
                 default: '#e6e6e6',
+                attributes: { class: 'gjs-fonts gjs-f-b1' },
               },
               {
                 type: 'color',
                 name: 'Secondary',
                 property: 'color',
+                default: '#4a5162',
+              },
+              {
+                type: 'color',
+                name: 'Accent Color',
+                property: 'accent-color',
                 default: '#4aa4da',
               },
             ],
@@ -209,6 +156,7 @@ const DesignSystem: React.FC = () => {
                 type: 'slider',
                 name: 'Font Size',
                 property: 'font-size',
+                default: 16,
                 units: ['px', 'rem'],
               },
               {
@@ -231,55 +179,55 @@ const DesignSystem: React.FC = () => {
                 name: 'Line Height',
                 property: 'line-height',
                 ResizeObserver: true,
-                default: '1',
+                default: 1,
                 units: ['px', 'rem'],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Align',
                 property: 'text-align',
-                default: 'left',
+                default: '',
                 ResizeObserver: true,
                 options: [
-                  { value: 'left', name: 'Left' },
-                  { value: 'center', name: 'Center' },
-                  { value: 'right', name: 'Right' },
-                  { value: 'justify', name: 'Justify' },
+                  { value: 'left', name: 'L' },
+                  { value: 'center', name: 'C' },
+                  { value: 'right', name: 'R' },
+                  { value: 'justify', name: 'J' },
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Shadow',
                 property: 'text-shadow',
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
+                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'S' },
+                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'M' },
+                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'B' },
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Transform',
                 property: 'text-transform',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'uppercase', name: 'Uppercase' },
-                  { value: 'lowercase', name: 'Lowercase' },
-                  { value: 'capitalize', name: 'Capitalize' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'uppercase', name: 'AA' },
+                  { value: 'lowercase', name: 'aa' },
+                  { value: 'capitalize', name: 'Aa' },
                 ],
               },
             ],
@@ -294,9 +242,9 @@ const DesignSystem: React.FC = () => {
             open: showTheme,
             buildProps: [
               'css-class',
-              'button-font-family',
-              'button-text-shadow',
-              'text-color',
+              'font-family',
+              'text-shadow',
+              'color',
               'background-color',
               'border',
               'padding',
@@ -315,19 +263,18 @@ const DesignSystem: React.FC = () => {
                 type: 'select',
                 name: 'Font Family',
                 property: 'font-family',
-
                 options: fontsList,
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Shadow',
                 property: 'text-shadow',
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
+                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'S' },
+                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'M' },
+                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'B' },
                 ],
               },
               {
@@ -345,7 +292,7 @@ const DesignSystem: React.FC = () => {
               },
 
               {
-                type: 'slider',
+                type: 'integer',
                 name: 'Border Radius',
                 property: 'border-radius',
                 default: 0,
@@ -372,7 +319,7 @@ const DesignSystem: React.FC = () => {
                 default: '#4aa4da',
               },
               {
-                type: 'slider',
+                type: 'integer',
                 name: 'Padding',
                 property: 'padding',
                 default: 0,
@@ -419,15 +366,15 @@ const DesignSystem: React.FC = () => {
                 default: 'transparent',
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Border Shadow',
                 property: 'box-shadow',
                 default: 'none',
                 options: [
                   { value: 'none', name: 'None' },
-                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Small' },
-                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Medium' },
-                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Big' },
+                  { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'S' },
+                  { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'M' },
+                  { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'B' },
                 ],
               },
               {
@@ -481,7 +428,7 @@ const DesignSystem: React.FC = () => {
               },
 
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Align',
                 property: 'text-align',
                 default: 'left',
@@ -493,14 +440,14 @@ const DesignSystem: React.FC = () => {
                 ],
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
               {
@@ -538,14 +485,14 @@ const DesignSystem: React.FC = () => {
                 options: fontWeight,
               },
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
             ],
@@ -581,43 +528,20 @@ const DesignSystem: React.FC = () => {
               },
 
               {
-                type: 'select',
+                type: 'radio',
                 name: 'Text Decoration',
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'line-through', name: 'Line Through' },
+                  { value: 'none', name: '&#8416' },
+                  { value: 'underline', name: 'U' },
+                  { value: 'line-through', name: 'S' },
                 ],
               },
             ],
           },
         ],
       },
-    });
-
-    setEditor(editor);
-    editor.onReady((clb) => {
-      console.log('Editor is ready');
-      editor.StyleManager.addType('input-text', {
-        create: function (prop) {
-          console.log(prop);
-          var input = document.createElement('input');
-          input.type = 'text';
-          input.value = prop.get();
-          input.onchange = function (e) {
-            console.log(e.target);
-            // prop.set(e.target.value);
-          };
-          return input;
-        },
-        update: function (prop, el) {
-          el.value = prop.get();
-        },
-      });
-
-      // Use `$${var}` to avoid escaping
     });
   }, [setEditor]);
 
@@ -628,6 +552,11 @@ const DesignSystem: React.FC = () => {
       <Eyebrow />
       <div className="editor-row">
         <div className="panel__left">
+          <div className="back__panel">
+            <span>&#10094;</span>
+            <Link to={`${admin}/`}>Global Theme Settings</Link>
+            <span>&#9783;</span>
+          </div>
           <div className="panel__top"></div>
           <div className="styles-container"></div>
           <div className="panel__basic-actions"></div>

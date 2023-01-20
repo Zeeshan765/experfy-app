@@ -1,5 +1,4 @@
-export const source = 
-`
+export const source = `
     
     <header data-gjs-type= "header" id="header_1" class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">

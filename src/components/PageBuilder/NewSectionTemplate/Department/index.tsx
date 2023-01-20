@@ -6,7 +6,7 @@ import plugin1 from './vendor/plugins/grapesjs-tailwind/src/index';
 
 const Department = () => {
   const [editorState, setEditorState] = React.useState<GrapesJS.Editor>();
-
+//@ts-ignore
   React.useEffect(() => {
     const editor = GrapesJS.init({
       container: '#editor',
@@ -81,7 +81,7 @@ const Department = () => {
         },
       },
     });
-  }, []);
+  }, [setEditorState]);
 
   return (
     <div className="main__content">

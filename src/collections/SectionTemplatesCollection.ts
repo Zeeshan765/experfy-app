@@ -1,6 +1,5 @@
-import { createStyles } from '@material-ui/core';
 import { CollectionConfig } from 'payload/types';
-import SectionPageBuilder from '../components/PageBuilder/SectionTemplates/sections';
+import SectionPageBuilder from '../components/PageBuilder/SectionTemplates';
 
 const SectionTemplateCollection: CollectionConfig = {
   labels: {
