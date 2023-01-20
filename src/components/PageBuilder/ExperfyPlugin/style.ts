@@ -13,13 +13,11 @@ export const SectionStyle = `<style>
 }
 
 .main_container .content-section .main_heading {
-  color: #171414;
   font-size: 36px;
   font-weight: 500;
   margin-bottom: 15px;
 }
 .main_container .content-section .sub_heading {
-  color: #171414;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.3;
@@ -45,7 +43,6 @@ export const SectionStyle = `<style>
 
 .main_container .image-text-image-section .img_container .figure_caption {
   padding: 20px 30px;
-  text-align: center;
   font-size: 20px;
   font-weight: 500;
   background-color: #f8f8fa;
@@ -400,9 +397,19 @@ display: flex;
   }
 
   .video-main-wrapper .video-container-main-div .video-div{
-    padding:50px 0px; 
-    width:65%;
-    margin: auto;
+    position: relative;
+    width:100%;
+    padding-top: 56.25%;  
+
+  }
+  .video-main-wrapper .video-container-main-div .video-div video{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+   bottom: 0;
   }
 
 
@@ -541,8 +548,7 @@ display: flex;
   .testimonial-main-wrapper .testimonial-container .section-title{
     font-size:32px;
     text-align:center;
-    margin-bottom: 3rem; 
-    color: #111827; 
+    margin-bottom: 3rem;  
     font-weight: 500; 
   }
 
@@ -579,7 +585,6 @@ display: flex;
 
   .slider-content-main-div .left-container .user-details{
     font-size: 14px;
-    color: #000;
     margin: 10px;
     line-height: 1.25rem; 
   }
@@ -602,7 +607,7 @@ display: flex;
   .slider-text-div p{
     text-align:center;
     font-size: 16px;
-    color: #000000;
+    
   }
 
 

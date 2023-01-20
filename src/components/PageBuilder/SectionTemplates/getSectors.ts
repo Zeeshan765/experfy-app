@@ -632,7 +632,7 @@ const obj = {
           attributes: {
             'data-type': 'color',
             'data-attribute': 'content-color',
-            'data-target': '.section-title',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
           },
         },
         {
@@ -744,11 +744,10 @@ const obj = {
           type: 'color',
           name: 'Text Color',
           property: 'color',
-          default: '#ffff',
           attributes: {
             'data-type': 'color',
-            'data-attribute': 'heading-color',
-            'data-target': '.user-detail-label',
+            'data-attribute': 'content-color',
+            'data-target': '.section-title',
           },
         },
         {
@@ -938,7 +937,7 @@ const obj = {
           attributes: {
             'data-type': 'padding-top',
             'data-attribute': 'video-aspect-ratio',
-            'data-target': '.video-div video ',
+            'data-target': '.video-main-wrapper .video-container-main-div .video-div  ',
           },
         },
       
@@ -1432,11 +1431,11 @@ const obj = {
           type: 'color',
           name: 'Text Color',
           property: 'color',
-          default: '#171414',
+          default: ' #171414',
           attributes: {
             'data-type': 'color',
-            'data-attribute': 'Img-main-color',
-            'data-target': '.main_heading  .sub_heading',
+            'data-attribute': 'main-color',
+            'data-target': '.main_heading .sub_heading',
           },
         },
     
@@ -1575,12 +1574,12 @@ const obj = {
         {
           type: 'color',
           name: 'Bullet Point Color',
-          property: 'color',
+          property: 'baclgorund-color',
           default: '#FFC0CB',
           attributes: {
-            'data-type': 'color',
-            'data-attribute': 'guidelines-bullet-color',
-            'data-target': '.heading h3',
+            'data-type': 'background-color',
+            'data-attribute': 'guidelines-bullet-background-color',
+            'data-target': '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
           },
 
         },
@@ -1588,8 +1587,14 @@ const obj = {
         {
           type: 'slider',
           name: 'Bullet Point Size',
-          property: 'font-size',
+          property: 'width',
           default: '15',
+          units: ['px'],
+          attributes: {
+            'data-type': 'background-color',
+            'data-attribute': 'guidelines-bullet-background-color',
+            'data-target': '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
+          },
         },
         {
           type: 'select',
@@ -1759,10 +1764,12 @@ const obj = {
         {
           type: 'color',
           name: 'Primary Color',
-          property: 'color',
+          property: 'fill',
           default: '#e6e6e6',
           attributes: {
-            'data-type': 'color',
+            'data-type': 'fill',
+            'data-attribute': 'icon-color',
+            'data-target': '.address-icon svg',
           },
         },
 
@@ -1777,6 +1784,12 @@ const obj = {
           name: 'Padding',
           property: 'padding',
           default: '0',
+          units: ['px'],
+          attributes: {
+            'data-type': 'fill',
+            'data-attribute': 'icon-color',
+            'data-target': '.address-icon svg',
+          },
         },
       ],
     },
