@@ -11,6 +11,8 @@ import plugin1 from "./vendor/plugins/grapesjs-tailwind/src/index";
 import Basics from "grapesjs-blocks-basic";
 import { Eyebrow } from "payload/components/elements";
 import { useStepNav } from "payload/components/hooks";
+import { useConfig } from "payload/components/utilities";
+import StepNav from "payload/dist/admin/components/elements/StepNav";
 
 import Experfy from "../PageBuilder/ExperfyPlugin";
 import Forms from "grapesjs-plugin-forms";
@@ -28,8 +30,9 @@ const NewPageBuilder = () => {
   const { setStepNav } = useStepNav();
   const [headingText, setHeadingText] = React.useState<string>("abc");
   // console.log('test of editor', editorState);
-  const testRef = useRef();
-
+ 
+  const { serverURL } = useConfig();
+const apiEndpoint = `${serverURL}/api/media?locale=en&depth=0&fallback-locale=null`;
 const clearLocalStorage=()=>{
   localStorage.removeItem('page_code');
 }
@@ -52,6 +55,53 @@ const clearLocalStorage=()=>{
       });
   };
 
+
+  const uploadMedia = async (fileItem) => {
+    const {name, src} = fileItem
+    var file = new File([src], name);
+    try {
+      // Create the form data for the request
+      const formData = new FormData();
+      formData.append('file', file);
+      // formData.append('name', file.name);
+      let item = {
+        keywords: 'Media',
+        mediaType: 'Photo',
+        description: 'test description',
+      };
+      formData.append('_payload', JSON.stringify(item));
+      // Make the POST request
+      await axios.post(apiEndpoint, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          // Authorization: `Bearer ${apiKey}`,
+        },
+      });
+    } catch (error) {
+      console.error(error);
+      return error;
+    }
+  };
+
+
+  const addAssets = async () => {
+    const assetManager = editor.AssetManager;
+    axios
+      .get(`${serverURL}/api/media`)
+      .then((response) => {
+        const { docs } = response.data;
+        docs.forEach(({ url }) => {
+          assetManager.add([
+            {
+              src: url,
+            },
+          ]);
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   useEffect(() => {
     setStepNav([
       {
@@ -306,6 +356,38 @@ const clearLocalStorage=()=>{
       editor.runCommand("hide-traits");
       editor.runCommand("hide-layers");
     });
+
+
+    editor.on('asset:add', (component) => {
+      if (component.attributes.src.includes(serverURL)) {
+        return;
+      }
+      
+      const {src, width} = component.attributes;
+
+      if (width > 0) {
+        // binary file handling
+          fetch(src).then((response) => {
+            response.blob().then((fileBlob) => {
+              let file = new File([fileBlob], component.attributes.name);
+              uploadMedia({src:file, name: component.attributes.name});
+            });
+          });
+      } else {
+        // url file handling
+        let arr = src.split('/');
+        let filename = arr[arr.length - 1];
+        fetch(src).then((response) => {
+          response.blob().then((fileBlob) => {
+            let file = new File([fileBlob], filename);
+            uploadMedia({src:file, name: filename});
+          });
+        });
+      }
+      
+    });
+
+
 
     editor.on("component:add", (component) => {
       editor.StyleManager.select(component);
@@ -1069,7 +1151,10 @@ const clearLocalStorage=()=>{
         component.components(component.get("traits").models[1].get("value"));
       }
     });
+  addAssets();
+  
   }, [setEditorState]);
+
 
   return (
     <div className="main__content">

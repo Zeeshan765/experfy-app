@@ -26,28 +26,29 @@ export const Media: CollectionConfig = {
 
   upload: {
     adminThumbnail: 'card',
-    imageSizes: [
-      {
-        name: 'card',
-        width: 640,
-        height: 480,
-      },
-      {
-        name: 'portrait',
-        width: 768,
-        height: 1024,
-      },
-      {
-        name: 'square',
-        width: 1200,
-        height: 1200,
-      },
-      {
-        name: 'feature',
-        width: 1024,
-        height: 576,
-      },
-    ],
+    //when we upload the image in grapes this cause some issue
+    // imageSizes: [
+    //   {
+    //     name: 'card',
+    //     width: 640,
+    //     height: 480,
+    //   },
+    //   {
+    //     name: 'portrait',
+    //     width: 768,
+    //     height: 1024,
+    //   },
+    //   {
+    //     name: 'square',
+    //     width: 1200,
+    //     height: 1200,
+    //   },
+    //   {
+    //     name: 'feature',
+    //     width: 1024,
+    //     height: 576,
+    //   },
+    // ],
     // adminThumbnail: '',
     // mimeTypes: (_,siblingData):String=>{
     //         console.log("image condation",siblingData);
