@@ -61,186 +61,62 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <rect id="Rectangle_35089" data-name="Rectangle 35089" width="16.139" height="1.924" rx="0.962" transform="translate(2 12.334)" fill="#4a5162"/>
     </g>
   </svg>`,
-    content: `<footer id="footer_1" class="text-gray-600 body-font" style="background-color:#40526e; color:#ffffff;">
-    <div class="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col" style="padding:80px 0px 100px">
-       <div class="flex-grow flex md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-       <input type="text" id="input" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
-             <ul>
-             <li style="font-size: 16px;
-             color: #ffffff;
-             padding: 10px 10px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 0px;">Footer section allow you to add links and information for your users to easily locate.</li>
-             <li style="font-size: 16px;
-             color: #ffffff;
-             padding: 10px 10px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 0px;"><span>Address:</span> 0101 Address, OR, 77873</li>
-             <li style="font-size: 16px;
-             color: #ffffff;
-             padding: 10px 10px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 0px;"><span>Phone:</span> 010-000-1111</li>
-             <li style="font-size: 16px;
-             color: #ffffff;
-             padding: 10px 10px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 0px;"><span>Website:</span> wwww.company-website.com</li>
+    content: `<footer id="footer_1" class="main-footer-wrapper">
+    <div class="footer-container">
+       <div class="footer-grid">
+
+       <div class="footer-address-section margin-class">
+       <h2 class="footer-titles">Add Your Title Here </h2>
+
+             <ul class="address-list">
+             <li class="title">Footer section allow you to add links and information for your users to easily locate.</li>
+
+             <li class="address"><span class="bold">Address:</span> 0101 Address, OR, 77873</li>
+
+             <li class="address"><span class="bold">Phone:</span> 010-000-1111</li>
+
+             <li class="address"><span class="bold">Website:</span> wwww.company-website.com</li>
              </ul>
- 
           </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="font-size: 18px;
-             font-weight: 600;
-             color: #ffffff;
-             padding:10px 10px;
-             border-width: 2px; font-size:22px; font-weight:600; color:#ffffff;
-             margin:0px;">Add Your Social Media Link</h2>
-             <div class="flex flex-wrap" style="justify-content:space-between;">
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
+
+          <div class="footer-images-section margin-class">
+             <h2 class="footer-titles">Add Your Social Media Link</h2>
+             <div class="images-holder">
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
              </div>
-             <button style="background-color:#4db081;
-             color:#ffffff;
-             padding:7px 15px;
-             border-radius:3px;
-             font-size:18px;
-             font-weight:500;
-             margin:20px auto;
-             display:flex;">Visit Instagram</button>
+             <button class="btn-footer">Visit Instagram</button>
           </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="font-size: 18px;
-             font-weight: 600;
-             color: #ffffff;
-             padding:10px 10px;
-             border-width: 2px; font-size:22px; font-weight:600; color:#ffffff;
-             margin:0px;">Add Your Social Media Link</h2>
+          <div  class="margin-class">
+             <h2 class="footer-titles">Add Your Social Media Link</h2>
           </div>
        </div>
     </div>
 
  
-    <div class="bg-gray-100" style="background-color:#000000;
-    padding:20px;">
-       <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p class="text-gray-500 text-sm text-center sm:text-left" style="font-size: 18px;
-          color: #ffffff;
-          padding: 10px 10px;
-          border-width: 2px;
-          font-weight: 400;
-          line-height: 1.5;
-          margin: 10px 0px;">Copyright © Company 2022, All rights reserved.</p>
-          <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-             <a class="text-gray-500" style="font-size: 18px;
-             color: #ffffff;
-             padding: 10px 20px;
-             border-width: 2px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 10px;
-             text-transform: uppercase;">
-                Privacy Policy
-             </a>
-             <a class="ml-3 text-gray-500" style="font-size: 18px;
-             color: #ffffff;
-             padding: 10px 20px;
-             border-width: 2px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 10px;
-             text-transform: uppercase;">
-                Terms of service
-             </a>
-             <a class="ml-3 text-gray-500" style="font-size: 18px;
-             color: #ffffff;
-             padding: 10px 20px;
-             border-width: 2px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 10px;
-             text-transform: uppercase;">
-               Disclaimer
-             </a>
-          </span>
+    <div class="site-credit-footer">
+       <div class="site-credit-footer-container">
+          <p class="credit-text">Copyright © Company 2022, All rights reserved.</p>
+          <ul>
+          <li><a>Privacy Policy</a></li>   
+          <li> <a>Terms of service</a></li>
+          <li><a>Disclaimer</a></li>
+          </ul>
        </div>
     </div>
- </footer>`,
+ </footer>
+ ${style}
+ `,
   });
   addBlock("testimonial", {
     label: "Testimonial",

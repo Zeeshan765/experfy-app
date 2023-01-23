@@ -274,9 +274,11 @@ const obj = {
           type: 'color',
           name: 'Text Color',
           property: 'color',
-          default: '#4aa4da',
+          default: ' #171414',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'footer-color',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -303,10 +305,8 @@ const obj = {
           ],
           attributes: {
             'data-type': 'font-family',
-            'data-attribute': 'content-font-family',
-            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
-            
-
+            'data-attribute': 'footer-font-family',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -317,10 +317,8 @@ const obj = {
           units: ['px', 'rem'],
           attributes: {
             'data-type': 'font-size',
-            'data-attribute': 'content-font-size',
-            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
-
-
+            'data-attribute': 'footer-font-size',
+           'data-target': '.footer-titles', 
           },
         },
         {
@@ -337,10 +335,8 @@ const obj = {
           ],
           attributes: {
             'data-type': 'font-weight',
-            'data-attribute': 'content-font-weight',
-            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
-
-
+            'data-attribute': 'footer-font-weight',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -351,10 +347,8 @@ const obj = {
           units: ['px', 'rem'],
           attributes: {
             'data-type': 'letter-spacing',
-            'data-attribute': 'content-letter-spacing',
-            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
-
-
+            'data-attribute': 'footer-letter-spacing',
+            'data-target': '.footer-titles',  
           },
         },
         {
@@ -367,10 +361,8 @@ const obj = {
           units: ['px', 'rem'],
           attributes: {
             'data-type': 'line-height',
-            'data-attribute': 'content-line-height',
-            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
-
-
+            'data-attribute': 'footer-line-height',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -383,14 +375,11 @@ const obj = {
             { value: 'left', name: 'Left' },
             { value: 'center', name: 'Center' },
             { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
           ],
           attributes: {
             'data-type': 'text-align',
-            'data-attribute': 'content-text-align',
-            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
-
-
+            'data-attribute': 'footer-text-align',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -405,42 +394,48 @@ const obj = {
           ],
           attributes: {
             'data-type': 'text-decoration',
-            'data-attribute': 'content-text-decoration',
-            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
-
-            
-
+            'data-attribute': 'footer-text-decoration',
+            'data-target': '.footer-titles .address', 
           },
         },
+    
       ],
     },
     {
       name: 'Image Gallery',
-      open: true,
+      open: false,
       buildProps: ['border-radius', 'border-width', 'border-color'],
       properties: [
         {
           type: 'slider',
           name: 'Spacing',
-          property: 'gap',
-          default: '10px',
-          units: 'px',
+          property: 'padding',
+          attributes: {
+            'data-type': 'padding',
+            'data-attribute': 'footer-image-padding',
+            'data-target': '.images-holder img',
+          },
+          default: '1',
+          units: ['px', 'em', 'rem'],
         },
         {
           type: 'select',
           name: 'Border Type',
           property: 'border-style',
           default: 'solid',
+          attributes: {
+            'data-type': 'border-style',
+            'data-attribute': 'footer-image-border-style',
+            'data-target': '.images-holder img',
+          },
           options: [
             { value: 'solid', name: 'Solid' },
             { value: 'dotted', name: 'Dotted' },
             { value: 'dashed', name: 'Dashed' },
             { value: 'double', name: 'Double' },
             { value: 'groove', name: 'Groove' },
-            { value: 'ridge', name: 'Ridge' },
             { value: 'inset', name: 'Inset' },
             { value: 'outset', name: 'Outset' },
-            { value: 'none', name: 'None' },
             { value: 'hidden', name: 'Hidden' },
           ],
         },
@@ -448,23 +443,33 @@ const obj = {
     },
     {
       name: 'Gallery Caption',
-      open: true,
+      open: false,
       properties: [
         {
           type: 'select',
           name: 'Display',
           property: 'display',
-          default: '',
+          default: 'show',
+          attributes: {
+            'data-type': 'display',
+            'data-attribute': 'gallery-display',
+            'data-target': '.figure_caption',
+          },
           options: [
-            { value: '', name: 'Show' },
+            { value: 'block', name: 'Show' },
             { value: 'none', name: 'Hide' },
           ],
         },
         {
-          type: 'radio',
+          type: 'select',
           name: 'Alignment',
           property: 'text-align',
           default: 'left',
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'gallery-text-align',
+            'data-target': '.figure_caption',
+          },
           options: [
             { value: 'left', name: 'Left' },
             { value: 'center', name: 'Center' },
@@ -478,162 +483,172 @@ const obj = {
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'gallery-color',
+            'data-target': '.figure_caption',
           },
         },
-        {
-          type: 'select',
-          name: 'Typography',
-          property: 'font-family',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
+     
       ],
     },
-
     {
       name: 'Button Border',
       open: true,
-      buildProps: [
-        'border-radius',
-        'border-width',
-        'border-style',
-        'border-color',
-        'box-shadow',
+      buildProps: ['border-radius', 'border-width',,'box-shadow'],
+      attributes: {
+        'data-target': '.btn-footer',
+      },
+      properties: [
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          default: 'solid',
+          attributes: {
+            'data-type': 'border-style',
+            'data-attribute': 'footer-button-border-style',
+            'data-target': '.btn-footer',
+          },
+          options: [
+            { value: 'solid', name: 'Solid' },
+            { value: 'dotted', name: 'Dotted' },
+            { value: 'dashed', name: 'Dashed' },
+            { value: 'double', name: 'Double' },
+            { value: 'groove', name: 'Groove' },
+            { value: 'inset', name: 'Inset' },
+            { value: 'outset', name: 'Outset' },
+
+          ],
+        },
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          default: ' #171414',
+          attributes: {
+            'data-type': 'border-color',
+            'data-attribute': 'footer-button-border-color',
+            'data-target': '.btn-footer', 
+          },
+        },
+       
+     
       ],
     },
     {
       name: 'Icon List',
-      open: true,
-      properties: [
-        {
-          type: 'slider',
-          name: 'Space Between',
-          property: 'gap',
-          default: '10px',
-          units: 'px',
-        },
-        {
-          type: 'radio',
-          name: 'Alignment',
-          property: 'align-items',
-          default: 'left',
-          options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-          ],
-        },
-      ],
-    },
-    {
-      name: 'Social Media Icons',
-      open: true,
-      buildProps: ['border-radius', 'border-style'],
-      properties: [
-        {
-          type: 'color',
-          name: 'Color',
-          property: 'color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Size',
-          property: 'width',
-          default: '14px',
-          units: 'px',
-          attributes: {
-            'data-type': 'width',
-            'data-target': 'social-media',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Padding',
-          property: 'padding',
-          default: '10px',
-          units: 'px',
-        },
-        {
-          type: 'slider',
-          name: 'Spacing',
-          property: 'words-spacing',
-          default: '5px',
-          units: 'px',
-        },
-        {
-          type: 'slider',
-          name: 'Rows Gap',
-          property: 'gap',
-          default: '10px',
-          units: 'px',
-        },
-      ],
+      open: false,
+
     },
     {
       name: 'Logo',
       open: true,
-      buildProps: [
-        'border-radius',
-        'border-width',
-        'border-color',
-        'border-style',
-      ],
+      buildProps: ['border'],
+
       properties: [
         {
           type: 'slider',
           name: 'Width',
           property: 'width',
-          default: '14px',
-          units: ['px', 'rem'],
+          default: '100%',
+          min: 0,
+          max: 100,
+          units: ['%','px'],
+          attributes: {
+            'data-type': 'width',
+            'data-attribute':'header-logo-width',
+            'data-target': '.logo',
+          },
         },
-        {
-          type: 'select',
-          name: 'Border Type',
-          property: 'border-style',
-        },
+
         {
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
-          min: 0.1,
+          default: 1,
+          step: 0.1,
+          min: 0,
           max: 1,
-          steps: 0.1,
+          attributes: {
+            'data-type': 'opacity',
+            'data-attribute':'header-logo-opacity',
+            'data-target': '.logo',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Blur',
-          property: 'backdrop-filter: blur(0px)',
-          value: 'blur(0px)',
-          default: '0px',
+          property: 'backdrop-filter',
+          options: [
+            { value: 'blur(0px)', name: '0px' },
+            { value: 'blur(2px)', name: '2px' },
+            { value: 'blur(4px)', name: '4px' },
+            { value: 'blur(6px)', name: '6px' },
+            { value: 'blur(8px)', name: '8px' },
+            { value: 'blur(10px)', name: '10px' },
+          ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-blur',
+            'data-target': '.logo',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Brightness',
-          property: 'backdrop-filter:brightness',
-          default: '1',
+          property: 'backdrop-filter',
+          default: `brightness(100%)`,
+          options: [
+            { value: 'brightness(100%)', name: '100%' },
+            { value: 'brightness(75%)', name: '75%' },
+            { value: 'brightness(50%)', name: '50%' },
+            { value: 'brightness(25%)', name: '25%' },
+            { value: 'brightness(0%)', name: '0%' },
+          ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-brightness',
+            'data-target': '.logo',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Contrast',
-          property: 'backdrop-filter:contrast',
-          default: '1',
+          property: 'backdrop-filter',
+          options: [
+            { value: 'contrast(100%)', name: '100%' },
+            { value: 'contrast(75%)', name: '75%' },
+            { value: 'contrast(50%)', name: '50%' },
+            { value: 'contrast(25%)', name: '25%' },
+            { value: 'contrast(0%)', name: '0%' },
+          ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-contrast',
+            'data-target': '.logo',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Saturation',
-          property: 'backdrop-filter:saturation',
-          default: '1',
+          property: 'backdrop-filter',
+          default: 'saturate(100%)',
+          options: [
+            { value: 'saturate(100%)', name: '100%' },
+            { value: 'saturate(75%)', name: '75%' },
+            { value: 'saturate(50%)', name: '50%' },
+            { value: 'saturate(25%)', name: '25%' },
+            { value: 'saturate(0%)', name: '0%' },
+          ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-saturation',
+            'data-target': '.logo',
+          },
         },
         {
           type: 'select',
           name: 'Hover Text Animation',
-          property: 'animation',
+          property: 'animation-name',
           default: 'none',
           options: [
             { value: 'none', name: 'None' },
@@ -649,14 +664,51 @@ const obj = {
           type: 'slider',
           name: 'Transition Duration',
           property: 'animation-duration',
-          default: '1',
+          default: '1s',
+          units: ['s'],
         },
       ],
     },
-
     {
       name: 'Divider',
       open: true,
+      properties: [
+        {
+          type: 'color',
+          name: 'Color',
+          property: 'color',
+          default: '#4aa4da',
+          attributes: {
+            'data-type': 'color',
+            'data-target': 'divider',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Weight',
+          property: 'height',
+          default: '1px',
+          attributes: {
+            'data-type': 'height',
+            'data-target': 'divider',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Gap',
+          property: 'gap',
+          default: '0px',
+          units: 'px',
+          attributes: {
+            'data-type': 'gap',
+          },
+        },
+      ],
+    },
+    {
+      name: 'Social Media',
+      open: true,
+      buildProps: ['border'],
       properties: [
         {
           type: 'color',
@@ -669,18 +721,40 @@ const obj = {
         },
         {
           type: 'slider',
-          name: 'Weight',
+          name: 'Size',
           property: 'width',
-          default: '1',
+          default: '14px',
+          attributes: {
+            'data-type': 'width',
+            'data-target': 'social-media',
+          },
         },
         {
           type: 'slider',
-          name: 'Gap',
+          name: 'Padding',
+          property: 'padding',
+          buildProps: ['padding'],
+          default: '10px',
+          units: 'px',
+        },
+        {
+          type: 'slider',
+          name: 'Spacing',
+          property: 'letter-spacing',
+          default: '5px',
+          units: 'px',
+        },
+        {
+          type: 'slider',
+          name: 'Rows Gap',
           property: 'gap',
+          default: '10px',
+          units: 'px',
         },
       ],
     },
   ],
+ 
   benefit_1: [
     {
       properties: [
