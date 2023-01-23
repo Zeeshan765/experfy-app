@@ -662,5 +662,132 @@ display: flex;
 .box-active .box-text-div p{
  
 }
+
+/* /////////////////////////////////////////////
+ ///////////  Footer style //////////
+/////////////////////////////////////////// */
+
+
+.main-footer-wrapper {
+  background-color:#40526e;
+  color:#ffffff;
+ }
+
+ .footer-container{
+  padding: 4.5rem 1.25rem; 
+}
+
+.footer-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 20px;
+}
+
+.footer-titles{
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 10px 10px;
+  border-width: 2px;
+  margin: 0px;
+ }
+
+.address-list{
+  list-style: none;
+  padding: 0px 10px;
+}
+
+.address-list .title{
+ font-size: 22px;
+ color: #ffffff;
+ font-weight: 400;
+ line-height: 1.5;
+ margin-bottom: 30px;
+}
+
+.address-list .address{
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 8px 0px;
+}
+
+ .address-list .address .bold{
+ font-weight: 600;
+ }
+
+.footer-images-section .images-holder{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+ }
+
+ .footer-images-section .images-holder img{
+  outline: 2px solid #3b97e3 !important;
+  outline-offset: -2px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin: 10px;
+ }
+
+ .btn-footer{
+  background-color:#4db081;
+  color:#ffffff;
+  padding:12px 20px;
+  border-radius:3px;
+  font-size:16px;
+  font-weight:500;
+  margin:20px auto;
+  display:flex;
+ }
+
+ .margin-class{
+  margin: 0px 10px;
+ }
+
+ .site-credit-footer{
+  background-color:#000000;
+  padding:20px 40px;
+ }
+
+ .site-credit-footer-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+ }
+
+ .site-credit-footer-container .credit-text{
+  font-size: 16px;
+  color: #ffffff;
+  padding: 10px 10px;
+  border-width: 2px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 10px 0px;
+ }
+ .site-credit-footer-container ul{
+  display: flex;
+ }
+
+ .site-credit-footer-container ul li{
+  margin: 0px 15px;
+ }
+ .site-credit-footer-container ul li:first-child{
+ list-style: none;
+}
+  
+}
+ .site-credit-footer-container ul a{
+  font-size: 18px;
+  color: #ffffff;
+  padding: 10px 0px;
+  border-width: 2px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+ }
  
 </style>`;
