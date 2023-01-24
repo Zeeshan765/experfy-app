@@ -162,7 +162,8 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
 
       storageManager: {
         type: 'local',
-        autoload: true,
+        autoload: false,
+        autosave: false,
         options: {
           storeComponents: true,
           storeStyles: true,
@@ -215,16 +216,63 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
         });
     };
 
+    editor.DomComponents.addType('text', {
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'text',
+              name: 'text-title',
+              label: 'Title',
+              placeholder: 'Enter your title ',
+              className: 'custom-text',
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'HTML Tag',
+              default: 'h1',
+              options: [
+                { id: 'h1', name: 'H1' },
+                { id: 'h2', name: 'H2' },
+                { id: 'h3', name: 'H3' },
+                { id: 'h4', name: 'H4' },
+                { id: 'h5', name: 'H5' },
+                { id: 'h6', name: 'H6' },
+                { id: 'div', name: 'div' },
+                { id: 'span', name: 'span' },
+                { id: 'p', name: 'p' },
+              ],
+            },
+          ],
+        },
+      },
+    });
+
+    //For Traits
     editor.on('component:selected', (component) => {
+      console.log('component:selected', component);
+      const { id } = component.attributes.attributes;
+      console.log('id', id);
+      console.log('type', component.get('content'));
       if (component.get('type') == 'text') {
         editor?.runCommand('core:open-traits');
-        if (component.get('traits').models[1].get('value'))
-          component.components(component.get('traits').models[1].get('value'));
+        if (component.get('traits').models[0].get('value'))
+          component.components(component.get('traits').models[0].get('value'));
       }
     });
     editor.on('component:update', (component) => {
-      if (component.get('type') == 'text')
-        component.components(component.get('traits').models[1].get('value'));
+      console.log('component:update', component);
+      console.log('type', component.get('type'));
+      console.log('hello world', component.get('traits'));
+      if (component.get('type') == 'text') {
+        component.components(component.get('traits').models[0].get('value'));
+        component.components(component.get('traits').models[1].get('class'));
+
+      // const block = editor.getSelected();
+      // console.log('block', block)
+      // block.setAttributes({ class: 'main_heading h3' });
+      }
     });
 
     editor.on('asset:add', (component) => {
@@ -253,17 +301,16 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       }
     });
 
-
-        //This is for all section templates Style Manager
-        editor.on(`block:drag:stop`, (component, block) => {
-          // if component exists, means the drop was successful
-          if (component) {
-        
-            const sectors = editor.StyleManager.getSectors();
-            sectors.reset();
-            sectors.add(getSectors(component.ccid));
-          }
-        });
+    //This is for all section templates Style Manager
+    editor.on(`block:drag:stop`, (component, block) => {
+      // if component exists, means the drop was successful
+      if (component) {
+        let ccid = component.ccid.split('-')[0];
+        const blocksector = editor.StyleManager.getSectors();
+        blocksector.reset();
+        blocksector.add(getSectors(ccid));
+      }
+    });
   }, [setEditorState]);
 
   return (

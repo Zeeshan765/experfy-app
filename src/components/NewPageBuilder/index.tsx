@@ -578,7 +578,7 @@ const clearLocalStorage=()=>{
 
             {
               type: "select",
-              name: "text-html-tag",
+              name: "class",
               label: "HTML Tag",
               default: "h1",
               options: [
@@ -787,7 +787,7 @@ const clearLocalStorage=()=>{
 
             {
               type: "select",
-              name: "text-html-tag",
+              name: "class",
               label: "HTML Tag",
               default: "h1",
               options: [
