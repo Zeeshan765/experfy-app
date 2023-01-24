@@ -1,7 +1,7 @@
-import React from "react";
-import browse_jobs from "../assets/images/templates/browse_jobs.png";
+import React from 'react';
+import browse_jobs from '../assets/images/templates/browse_jobs.png';
 // import browse_jobs from "../../assets/images/templates/browse_jobs.png";
-import { Card, CardHeader, CardMedia, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import category from '../assets/images/templates/category.png';
 import error_404 from '../assets/images/templates/error_404.png';
@@ -9,7 +9,6 @@ import home from '../assets/images/templates/home.png';
 import job_overview from '../assets/images/templates/job_overview.png';
 import join from '../assets/images/templates/join.png';
 import tc_overview from '../assets/images/templates/tc_overview.png';
-import { MinimalTemplate } from 'payload/components/templates';
 import FaceLessModel from './Model';
 
 const useStyles = makeStyles({
@@ -37,8 +36,11 @@ const useStyles = makeStyles({
     },
   },
 });
-
-const PageTemplate: React.FC = ({ search ,templateModelClose}) => {
+type Props = {
+  search?: string;
+  templateModelClose?: () => void;
+};
+const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
   const classes = useStyles();
   const pageList = [
     {
@@ -86,53 +88,55 @@ const PageTemplate: React.FC = ({ search ,templateModelClose}) => {
   ];
   return (
     <>
-      <Grid container spacing={2} style={{ margin: "auto", width: "95%" }}>
+      <Grid container spacing={2} style={{ margin: 'auto', width: '95%' }}>
         {pageList.map(({ id, image, name, link }) => (
           <>
-            {search === "" && (
+            {search === '' && (
               <Grid
                 item
                 sm={3}
                 alignItems="center"
                 key={id}
                 style={{
-                  width: "100%",
-                  borderRadius: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  // boxShadow:'0px 1px 3px 0px #000000',
-                  flexDirection: "column",
+                  width: '100%',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'column',
                 }}
               >
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "100%",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '100%',
                   }}
                 >
-                  {" "}
+                  {' '}
                   <p
                     style={{
-                      color: "#000",
-                      fontWeight: "500",
-                      fontSize: "1.2rem",
-                      margin: "0px",
+                      color: '#000',
+                      fontWeight: '500',
+                      fontSize: '1.2rem',
+                      margin: '0px',
                     }}
                   >
                     {name}
                   </p>
-                  <FaceLessModel data={{ id, image, name }} templateModelClose={templateModelClose} />
+                  <FaceLessModel
+                    data={{ id, image, name }}
+                    templateModelClose={templateModelClose}
+                  />
                 </div>
                 <img
                   src={image}
                   alt={name}
                   style={{
-                    width: "100%",
-                    borderRadius: "4px",
-                    boxShadow: "0px 0.5px 2px -1px #000000",
-                    background: "#f0f0f0",
+                    width: '100%',
+                    borderRadius: '4px',
+                    boxShadow: '0px 0.5px 2px -1px #000000',
+                    background: '#f0f0f0',
                   }}
                 />
               </Grid>
@@ -144,48 +148,50 @@ const PageTemplate: React.FC = ({ search ,templateModelClose}) => {
                 alignItems="center"
                 key={id}
                 style={{
-                  width: "100%",
-                  borderRadius: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  // boxShadow:'0px 1px 3px 0px #000000',
-                  flexDirection: "column",
+                  width: '100%',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'column',
                 }}
               >
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "100%",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '100%',
                   }}
                 >
-                  {" "}
+                  {' '}
                   <p
                     style={{
-                      color: "#000",
-                      fontWeight: "500",
-                      fontSize: "1.2rem",
-                      margin: "0px",
+                      color: '#000',
+                      fontWeight: '500',
+                      fontSize: '1.2rem',
+                      margin: '0px',
                     }}
                   >
                     {name}
                   </p>
-                  <FaceLessModel data={{ id, image, name }} templateModelClose={templateModelClose}/>
+                  <FaceLessModel
+                    data={{ id, image, name }}
+                    templateModelClose={templateModelClose}
+                  />
                 </div>
                 <img
                   src={image}
                   alt={name}
                   style={{
-                    width: "100%",
-                    borderRadius: "4px",
-                    boxShadow: "0px 0.5px 2px -1px #000000",
-                    background: "#f0f0f0",
+                    width: '100%',
+                    borderRadius: '4px',
+                    boxShadow: '0px 0.5px 2px -1px #000000',
+                    background: '#f0f0f0',
                   }}
                 />
               </Grid>
             ) : (
-              ""
+              ''
             )}
             {/* {
               (

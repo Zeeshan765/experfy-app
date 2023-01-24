@@ -1,20 +1,14 @@
-// import React, { useContext } from "react";
 import { CollectionConfig } from "payload/types";
 import PageTheme from "../components/PageBuilderTemplate";
-import PageBuilder from "../components/PageBuilder/SectionTemplates";
-import Payload from "payload";
+import PageBuildFromScratch from "../components/PageBuildFromScratch";
 import SelectPage from "../components/selectPageCode";
-import NewPageBuilder from "../components/NewPageBuilder";
-import { Context } from "../MyProvider";
-import NewPageBuilderModel from "../components/Model/NewPageBuilder";
-import { json } from "stream/consumers";
+import { setDataToLocalstorage } from "../utilities/localStorage";
 
 export type Type = {
   title: string;
   slug: string;
   pageType?: "scratch" | "template";
 };
-// const {setPageAttributes }=useContext(Context);
 
 export const Page: CollectionConfig = {
   slug: "pages",
@@ -32,18 +26,14 @@ export const Page: CollectionConfig = {
     delete: (): boolean => true,
   },
   fields: [
+    // page title field
     {
       name: "title",
       label: "Page Title",
       type: "text",
       required: true,
-      // hooks: {
-      //   beforeValidate: [(args) => console.log("title before validate", args)],
-      //   beforeChange: [(args) => console.log("title before change", args)],
-      //   afterChange: [(args) => console.log("title after change", args)],
-      //   afterRead: [(args) => console.log("title after read", args)],
-      // },
     },
+    // author field
     {
       name: "author",
       label: "Author",
@@ -51,14 +41,8 @@ export const Page: CollectionConfig = {
       relationTo: "users",
       hasMany: false,
       required: true,
-      // hooks: {
-      //   beforeValidate: [(args) => console.log("author before  validate", args)],
-      //   beforeChange: [(args) => console.log("author before change", args)],
-      //   afterChange: [(args) => console.log("author after change", args)],
-      //   afterRead: [(args) => console.log("author after read", args)],
-
-      // },
     },
+    // select page type field
     {
       name: "pageType",
       label: "Page Type",
@@ -73,10 +57,10 @@ export const Page: CollectionConfig = {
         layout: "vertical",
         description: "Choose how you want to create this page",
         condition: (data) => {
-          // setPageAttributes({title:data.title,author:data.author});
-          if(data.title && data.author){
-          // @ts-ignore
-          localStorage.setItem("pageAttribute", JSON.stringify( data));
+          console.log("data", data);
+          
+          if (data?.title && data?.author && data?.pageType==="scratch") {
+            localStorage.setItem("pageAttributes", JSON.stringify(data));
           }
           return data.title && data.author;
         },
@@ -92,10 +76,10 @@ export const Page: CollectionConfig = {
         },
       ],
     },
+    // page build from template field
     {
       name: "template",
       type: "ui",
-      label: "Template",
       admin: {
         condition: (data) => data.pageType === "template",
         components: {
@@ -103,17 +87,18 @@ export const Page: CollectionConfig = {
         },
       },
     },
+    // page build from scratch field
     {
       name: "from_scratch",
       type: "ui",
-      label: "Untitled",
       admin: {
         condition: (data) => data.pageType === "scratch",
         components: {
-          Field: NewPageBuilderModel,
+          Field: PageBuildFromScratch,
         },
       },
     },
+    // page Id when select from template field
     {
       name: "page_Id",
       type: "ui",
@@ -121,6 +106,7 @@ export const Page: CollectionConfig = {
         components: {
           Field: SelectPage,
         },
+        condition: (data) => data.pageType === "template",
       },
     },
   ],

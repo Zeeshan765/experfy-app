@@ -4,10 +4,10 @@ declare module '*.png' {
 }
 
 declare module '*.svg' {
-  const value: import('react').ImageSourcePropType;
-  export default value;
+  import React = require('react');
+  const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
+  export default ReactComponent;
 }
-
 declare module 'grapesjs-project-manager' {
   export default function grapesjsProjectManager(
     editor: any,

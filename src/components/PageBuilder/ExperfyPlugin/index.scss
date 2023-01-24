@@ -7,7 +7,7 @@ $fontFace: var(--font-body);
 $fontSize: 1rem;
 $fontSizeS: 0.85rem;
 $mainFont: "proxima-nova", sans-serif;
-$fontPath: "../../assets/fonts/proxima-nova";
+$fontPath: "../../../assets/fonts/proxima-nova/";
 $fontName: "proximanova-black-webfont";
 $deviceBackground: #2f3d55;
 @import "grapesjs/src/styles/scss/main.scss";
@@ -318,7 +318,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__global_colors_collection .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/colors.svg") !important;
+  background-image: url("../../../assets/images/global-theme-settings/sidebar/colors.svg") !important;
   background-size: 100% 100%;
   width: 16px;
   height: 16px;
@@ -327,7 +327,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__global_fonts_collection .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/fonts.svg");
+  background-image: url("../../../assets/images/global-theme-settings/sidebar/fonts.svg");
   background-size: 100% 100%;
   width: 16px;
   height: 16px;
@@ -336,7 +336,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__buttons .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
+  background-image: url("../../../assets/images/global-theme-settings/sidebar/buttons.svg") !important;
   background-size: 100% 100%;
   width: 16px;
   height: 16px;
@@ -345,7 +345,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__images .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/images.svg") !important;
+  background-image: url("../../../assets/images/global-theme-settings/sidebar/images.svg") !important;
   background-size: 100%;
   width: 16px;
   height: 16px;
@@ -354,7 +354,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__body_text .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/body-text.svg") !important;
+  background-image: url("../../../assets/images/global-theme-settings/sidebar/body-text.svg") !important;
   background-size: 100% 100%;
   width: 16px;
   height: 16px;
@@ -363,7 +363,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__links .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/links.svg") !important;
+  background-image: url("../../../assets/images/global-theme-settings/sidebar/links.svg") !important;
   background-size: 100% 100%;
   width: 16px;
   height: 16px;
@@ -373,7 +373,7 @@ $deviceBackground: #2f3d55;
 
 
 .gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
-  background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
+  background-image: url("../../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
   background-size: 100% 100%;
   width: 16px;
   height: 16px;
@@ -514,7 +514,7 @@ $deviceBackground: #2f3d55;
     }
 
     &::before {
-      background-image: url("../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
+      background-image: url("../../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
       position: absolute;
       background-size: 100% 100%;
       width: 16px;

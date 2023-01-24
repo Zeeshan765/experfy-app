@@ -1,34 +1,29 @@
-import dotenv from "dotenv";
-import path from "path";
-import { buildConfig } from "payload/config";
-import BasicPortalIdentityCollection from "./collections/BasicPortalIdentity";
-import DesignSystemCollection from "./collections/DesignSystemCollection";
-import Media from "./collections/Media";
-import MenusCollection from "./collections/MenusCollection";
-import NewPageBuilderCollection from "./collections/NewPageBuilder";
-import PagesCollection from "./collections/Page";
-import PageBuilderCollection from "./collections/PageBuilder";
-import PageTemplateCollection from "./collections/PageTemplate";
-import ParagraphCollection from "./collections/Paragraph";
-import SectionTemplateCollection from "./collections/SectionTemplatesCollection";
-// import selectPageCollection from './collections/selectPageCollection';
-import TalentCloudCollection from "./collections/TalentCloud";
-import TemplatesCollection from "./collections/TemplatesCollection";
-import ThemeCollection from "./collections/ThemeCollection";
-import Users from "./collections/UsersCollection";
-import BasicPortalIdentityPage from "./components/BasicPortalPage";
-import AfterNav from "./components/Nav/AfterNav";
-import ExperfyLogo from "./components/Nav/AppLogo";
-import BeforeNav from "./components/Nav/BeforeNav";
-import NewPageBuilder from "./components/NewPageBuilder";
-import DesignSystem from "./components/PageBuilder/DesignSystem";
-import Form from "./components/PageBuilder/NewSectionTemplate/Form";
-import ImgText from "./components/PageBuilder/NewSectionTemplate/ImageAndText";
-import SectionPageBuilder from "./components/PageBuilder/SectionTemplates/sections";
-import PortalIdentity from "./components/PortalIdentity";
-import selectPageCode from "./components/selectPageCode.tsx";
-import TemplatesLibrary from "./components/TemplateLibrary";
-import MyProvider from "./MyProvider";
+import dotenv from 'dotenv';
+import path from 'path';
+import { buildConfig } from 'payload/config';
+import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
+import DesignSystemCollection from './collections/DesignSystemCollection';
+import Media from './collections/Media';
+import MenusCollection from './collections/MenusCollection';
+import PageBuilderCollection from './collections/PageBuilder';
+import PagesCollection from './collections/Page';
+import PageTemplateCollection from './collections/PageTemplate';
+import SectionTemplateCollection from './collections/SectionTemplatesCollection';
+import TemplatesCollection from './collections/TemplatesCollection';
+import ThemeCollection from './collections/ThemeCollection';
+import Users from './collections/UsersCollection';
+import BasicPortalIdentityPage from './components/BasicPortalPage';
+import AfterNav from './components/Nav/AfterNav';
+import ExperfyLogo from './components/Nav/AppLogo';
+import BeforeNav from './components/Nav/BeforeNav';
+import PageBuilder from './components/PageBuilder';
+import DesignSystem from './components/PageBuilder/DesignSystem';
+import Form from './components/PageBuilder/NewSectionTemplate/Form';
+import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
+import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
+import PortalIdentity from './components/PortalIdentity';
+import TemplatesLibrary from './components/TemplateLibrary';
+import MyProvider from './MyProvider';
 
 dotenv.config();
 
@@ -53,7 +48,7 @@ export default buildConfig({
         //   exact: true,
         // },
         {
-          path: "/collections/basic-portal-identity",
+          path: '/collections/basic-portal-identity',
           Component: BasicPortalIdentityPage,
           exact: true,
         },
@@ -85,8 +80,8 @@ export default buildConfig({
           strict: true,
         },
         {
-          path: "/collections/new-page-builder",
-          Component: NewPageBuilder,
+          path: '/collections/page-builder',
+          Component: PageBuilder,
           exact: true,
           strict: true,
         },
@@ -187,33 +182,9 @@ export default buildConfig({
           path: "/collections/form",
           Component: Form,
         },
-        // {
-        //   path: '/collections/location',
-        //   Component: Location,
-        // },
         {
           path: "/collections/image_and_text",
           Component: ImgText,
-        },
-        // {
-        //   path: '/collections/practice_area',
-        //   Component: PracticeArea,
-        // },
-        // {
-        //   path: '/collections/footer',
-        //   Component: Footer,
-        // },
-        // {
-        //   path: '/collections/header',
-        //   Component: Header,
-        // },
-        // {
-        //   path: '/collections/paragraph',
-        //   Component: Paragraph ,
-        // },
-        {
-          path: "collections/pages/create",
-          Component: selectPageCode,
         },
       ],
       providers: [MyProvider],
@@ -228,9 +199,8 @@ export default buildConfig({
     PagesCollection,
     PageTemplateCollection,
     Media,
-    NewPageBuilderCollection,
+    PageBuilderCollection,
     Users,
-    // selectPageCollection,
     SectionTemplateCollection,
   ],
   i18n: {

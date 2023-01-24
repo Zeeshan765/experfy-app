@@ -4,6 +4,7 @@ import FaceLessModel from "../components/Model";
 import PageBuilder from '../components/PageBuilder/SectionTemplates';
 import Templates from "../components/Templates";
 import Payload from 'payload';
+import NewPageBuilder from "../components/NewPageBuilder";
 
 export type Type = {
   title: string;
@@ -66,7 +67,7 @@ export const selectPageCollection: CollectionConfig = {
       admin: {
         condition: (data) => data.pageType === 'scratch',
         components: {
-          Field: PageBuilder,
+          Field: NewPageBuilder ,
         },
       },
     },

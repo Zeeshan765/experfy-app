@@ -14,7 +14,7 @@ const SelectPage = ({ path }) => {
       <TextInput
         path={"page_Id"}
         required={true}
-        defaultValue={selectedPageCode}
+        defaultValue={selectedPageCode??null}
         hidden={true}
       />
     </div>
