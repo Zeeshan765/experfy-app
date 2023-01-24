@@ -2772,7 +2772,7 @@ const obj = {
         {
           type: 'color',
           name: 'Bullet Point Color',
-          property: 'baclgorund-color',
+          property: 'background-color',
           default: '#FFC0CB',
           attributes: {
             'data-type': 'background-color',
