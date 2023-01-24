@@ -12,7 +12,7 @@ const obj = {
         'line-height',
         'text-align',
         'text-shadow',
-
+        
         'background-color',
       ],
       attributes: {
@@ -32,6 +32,7 @@ const obj = {
         //   },
         // },
 
+
         {
           type: 'color',
           name: 'Text Color',
@@ -39,7 +40,7 @@ const obj = {
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
-            'data-attribute': 'header-text-color',
+            'data-attribute':'header-text-color',
             'data-target': '.header-logo-text',
           },
         },
@@ -58,10 +59,10 @@ const obj = {
           default: '100%',
           min: 0,
           max: 100,
-          units: ['%', 'px'],
+          units: ['%','px'],
           attributes: {
             'data-type': 'width',
-            'data-attribute': 'header-logo-width',
+            'data-attribute':'header-logo-width',
             'data-target': '.logo',
           },
         },
@@ -76,7 +77,7 @@ const obj = {
           max: 1,
           attributes: {
             'data-type': 'opacity',
-            'data-attribute': 'header-logo-opacity',
+            'data-attribute':'header-logo-opacity',
             'data-target': '.logo',
           },
         },
@@ -94,7 +95,7 @@ const obj = {
           ],
           attributes: {
             'data-type': 'backdrop-filter',
-            'data-attribute': 'header-logo-blur',
+            'data-attribute':'header-logo-blur',
             'data-target': '.logo',
           },
         },
@@ -112,7 +113,7 @@ const obj = {
           ],
           attributes: {
             'data-type': 'backdrop-filter',
-            'data-attribute': 'header-logo-brightness',
+            'data-attribute':'header-logo-brightness',
             'data-target': '.logo',
           },
         },
@@ -129,7 +130,7 @@ const obj = {
           ],
           attributes: {
             'data-type': 'backdrop-filter',
-            'data-attribute': 'header-logo-contrast',
+            'data-attribute':'header-logo-contrast',
             'data-target': '.logo',
           },
         },
@@ -147,7 +148,7 @@ const obj = {
           ],
           attributes: {
             'data-type': 'backdrop-filter',
-            'data-attribute': 'header-logo-saturation',
+            'data-attribute':'header-logo-saturation',
             'data-target': '.logo',
           },
         },
@@ -273,9 +274,11 @@ const obj = {
           type: 'color',
           name: 'Text Color',
           property: 'color',
-          default: '#4aa4da',
+          default: ' #171414',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'footer-color',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -286,10 +289,7 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
-            },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -300,17 +300,13 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
-            },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
           attributes: {
             'data-type': 'font-family',
-            'data-attribute': 'content-font-family',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-attribute': 'footer-font-family',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -321,9 +317,8 @@ const obj = {
           units: ['px', 'rem'],
           attributes: {
             'data-type': 'font-size',
-            'data-attribute': 'content-font-size',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-attribute': 'footer-font-size',
+           'data-target': '.footer-titles', 
           },
         },
         {
@@ -331,7 +326,7 @@ const obj = {
           name: 'Font Weight',
           property: 'font-weight',
           default: 'normal',
-          options: [
+          options:[
             { value: 'light', name: 'light' },
             { value: 'normal', name: 'Normal' },
             { value: 'semi-bold', name: 'Semi Bold' },
@@ -340,9 +335,8 @@ const obj = {
           ],
           attributes: {
             'data-type': 'font-weight',
-            'data-attribute': 'content-font-weight',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-attribute': 'footer-font-weight',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -353,9 +347,8 @@ const obj = {
           units: ['px', 'rem'],
           attributes: {
             'data-type': 'letter-spacing',
-            'data-attribute': 'content-letter-spacing',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-attribute': 'footer-letter-spacing',
+            'data-target': '.footer-titles',  
           },
         },
         {
@@ -368,9 +361,8 @@ const obj = {
           units: ['px', 'rem'],
           attributes: {
             'data-type': 'line-height',
-            'data-attribute': 'content-line-height',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-attribute': 'footer-line-height',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -383,13 +375,11 @@ const obj = {
             { value: 'left', name: 'Left' },
             { value: 'center', name: 'Center' },
             { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
           ],
           attributes: {
             'data-type': 'text-align',
-            'data-attribute': 'content-text-align',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-attribute': 'footer-text-align',
+            'data-target': '.footer-titles', 
           },
         },
         {
@@ -404,40 +394,48 @@ const obj = {
           ],
           attributes: {
             'data-type': 'text-decoration',
-            'data-attribute': 'content-text-decoration',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-attribute': 'footer-text-decoration',
+            'data-target': '.footer-titles .address', 
           },
         },
+    
       ],
     },
     {
       name: 'Image Gallery',
-      open: true,
+      open: false,
       buildProps: ['border-radius', 'border-width', 'border-color'],
       properties: [
         {
           type: 'slider',
           name: 'Spacing',
-          property: 'gap',
-          default: '10px',
-          units: 'px',
+          property: 'padding',
+          attributes: {
+            'data-type': 'padding',
+            'data-attribute': 'footer-image-padding',
+            'data-target': '.images-holder img',
+          },
+          default: '1',
+          units: ['px', 'em', 'rem'],
         },
         {
           type: 'select',
           name: 'Border Type',
           property: 'border-style',
           default: 'solid',
+          attributes: {
+            'data-type': 'border-style',
+            'data-attribute': 'footer-image-border-style',
+            'data-target': '.images-holder img',
+          },
           options: [
             { value: 'solid', name: 'Solid' },
             { value: 'dotted', name: 'Dotted' },
             { value: 'dashed', name: 'Dashed' },
             { value: 'double', name: 'Double' },
             { value: 'groove', name: 'Groove' },
-            { value: 'ridge', name: 'Ridge' },
             { value: 'inset', name: 'Inset' },
             { value: 'outset', name: 'Outset' },
-            { value: 'none', name: 'None' },
             { value: 'hidden', name: 'Hidden' },
           ],
         },
@@ -445,23 +443,33 @@ const obj = {
     },
     {
       name: 'Gallery Caption',
-      open: true,
+      open: false,
       properties: [
         {
           type: 'select',
           name: 'Display',
           property: 'display',
-          default: '',
+          default: 'show',
+          attributes: {
+            'data-type': 'display',
+            'data-attribute': 'gallery-display',
+            'data-target': '.figure_caption',
+          },
           options: [
-            { value: '', name: 'Show' },
+            { value: 'block', name: 'Show' },
             { value: 'none', name: 'Hide' },
           ],
         },
         {
-          type: 'radio',
+          type: 'select',
           name: 'Alignment',
           property: 'text-align',
           default: 'left',
+          attributes: {
+            'data-type': 'text-align',
+            'data-attribute': 'gallery-text-align',
+            'data-target': '.figure_caption',
+          },
           options: [
             { value: 'left', name: 'Left' },
             { value: 'center', name: 'Center' },
@@ -475,162 +483,172 @@ const obj = {
           default: '#4aa4da',
           attributes: {
             'data-type': 'color',
+            'data-attribute': 'gallery-color',
+            'data-target': '.figure_caption',
           },
         },
-        {
-          type: 'select',
-          name: 'Typography',
-          property: 'font-family',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
+     
       ],
     },
-
     {
       name: 'Button Border',
       open: true,
-      buildProps: [
-        'border-radius',
-        'border-width',
-        'border-style',
-        'border-color',
-        'box-shadow',
+      buildProps: ['border-radius', 'border-width',,'box-shadow'],
+      attributes: {
+        'data-target': '.btn-footer',
+      },
+      properties: [
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          default: 'solid',
+          attributes: {
+            'data-type': 'border-style',
+            'data-attribute': 'footer-button-border-style',
+            'data-target': '.btn-footer',
+          },
+          options: [
+            { value: 'solid', name: 'Solid' },
+            { value: 'dotted', name: 'Dotted' },
+            { value: 'dashed', name: 'Dashed' },
+            { value: 'double', name: 'Double' },
+            { value: 'groove', name: 'Groove' },
+            { value: 'inset', name: 'Inset' },
+            { value: 'outset', name: 'Outset' },
+
+          ],
+        },
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          default: ' #171414',
+          attributes: {
+            'data-type': 'border-color',
+            'data-attribute': 'footer-button-border-color',
+            'data-target': '.btn-footer', 
+          },
+        },
+       
+     
       ],
     },
     {
       name: 'Icon List',
-      open: true,
-      properties: [
-        {
-          type: 'slider',
-          name: 'Space Between',
-          property: 'gap',
-          default: '10px',
-          units: 'px',
-        },
-        {
-          type: 'radio',
-          name: 'Alignment',
-          property: 'align-items',
-          default: 'left',
-          options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-          ],
-        },
-      ],
-    },
-    {
-      name: 'Social Media Icons',
-      open: true,
-      buildProps: ['border-radius', 'border-style'],
-      properties: [
-        {
-          type: 'color',
-          name: 'Color',
-          property: 'color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Size',
-          property: 'width',
-          default: '14px',
-          units: 'px',
-          attributes: {
-            'data-type': 'width',
-            'data-target': 'social-media',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Padding',
-          property: 'padding',
-          default: '10px',
-          units: 'px',
-        },
-        {
-          type: 'slider',
-          name: 'Spacing',
-          property: 'words-spacing',
-          default: '5px',
-          units: 'px',
-        },
-        {
-          type: 'slider',
-          name: 'Rows Gap',
-          property: 'gap',
-          default: '10px',
-          units: 'px',
-        },
-      ],
+      open: false,
+
     },
     {
       name: 'Logo',
       open: true,
-      buildProps: [
-        'border-radius',
-        'border-width',
-        'border-color',
-        'border-style',
-      ],
+      buildProps: ['border'],
+
       properties: [
         {
           type: 'slider',
           name: 'Width',
           property: 'width',
-          default: '14px',
-          units: ['px', 'rem'],
+          default: '100%',
+          min: 0,
+          max: 100,
+          units: ['%','px'],
+          attributes: {
+            'data-type': 'width',
+            'data-attribute':'header-logo-width',
+            'data-target': '.logo',
+          },
         },
-        {
-          type: 'select',
-          name: 'Border Type',
-          property: 'border-style',
-        },
+
         {
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
-          min: 0.1,
+          default: 1,
+          step: 0.1,
+          min: 0,
           max: 1,
-          steps: 0.1,
+          attributes: {
+            'data-type': 'opacity',
+            'data-attribute':'header-logo-opacity',
+            'data-target': '.logo',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Blur',
-          property: 'backdrop-filter: blur(0px)',
-          value: 'blur(0px)',
-          default: '0px',
+          property: 'backdrop-filter',
+          options: [
+            { value: 'blur(0px)', name: '0px' },
+            { value: 'blur(2px)', name: '2px' },
+            { value: 'blur(4px)', name: '4px' },
+            { value: 'blur(6px)', name: '6px' },
+            { value: 'blur(8px)', name: '8px' },
+            { value: 'blur(10px)', name: '10px' },
+          ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-blur',
+            'data-target': '.logo',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Brightness',
-          property: 'backdrop-filter:brightness',
-          default: '1',
+          property: 'backdrop-filter',
+          default: `brightness(100%)`,
+          options: [
+            { value: 'brightness(100%)', name: '100%' },
+            { value: 'brightness(75%)', name: '75%' },
+            { value: 'brightness(50%)', name: '50%' },
+            { value: 'brightness(25%)', name: '25%' },
+            { value: 'brightness(0%)', name: '0%' },
+          ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-brightness',
+            'data-target': '.logo',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Contrast',
-          property: 'backdrop-filter:contrast',
-          default: '1',
+          property: 'backdrop-filter',
+          options: [
+            { value: 'contrast(100%)', name: '100%' },
+            { value: 'contrast(75%)', name: '75%' },
+            { value: 'contrast(50%)', name: '50%' },
+            { value: 'contrast(25%)', name: '25%' },
+            { value: 'contrast(0%)', name: '0%' },
+          ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-contrast',
+            'data-target': '.logo',
+          },
         },
         {
-          type: 'slider',
+          type: 'radio',
           name: 'Saturation',
-          property: 'backdrop-filter:saturation',
-          default: '1',
+          property: 'backdrop-filter',
+          default: 'saturate(100%)',
+          options: [
+            { value: 'saturate(100%)', name: '100%' },
+            { value: 'saturate(75%)', name: '75%' },
+            { value: 'saturate(50%)', name: '50%' },
+            { value: 'saturate(25%)', name: '25%' },
+            { value: 'saturate(0%)', name: '0%' },
+          ],
+          attributes: {
+            'data-type': 'backdrop-filter',
+            'data-attribute':'header-logo-saturation',
+            'data-target': '.logo',
+          },
         },
         {
           type: 'select',
           name: 'Hover Text Animation',
-          property: 'animation',
+          property: 'animation-name',
           default: 'none',
           options: [
             { value: 'none', name: 'None' },
@@ -646,14 +664,51 @@ const obj = {
           type: 'slider',
           name: 'Transition Duration',
           property: 'animation-duration',
-          default: '1',
+          default: '1s',
+          units: ['s'],
         },
       ],
     },
-
     {
       name: 'Divider',
       open: true,
+      properties: [
+        {
+          type: 'color',
+          name: 'Color',
+          property: 'color',
+          default: '#4aa4da',
+          attributes: {
+            'data-type': 'color',
+            'data-target': 'divider',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Weight',
+          property: 'height',
+          default: '1px',
+          attributes: {
+            'data-type': 'height',
+            'data-target': 'divider',
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Gap',
+          property: 'gap',
+          default: '0px',
+          units: 'px',
+          attributes: {
+            'data-type': 'gap',
+          },
+        },
+      ],
+    },
+    {
+      name: 'Social Media',
+      open: true,
+      buildProps: ['border'],
       properties: [
         {
           type: 'color',
@@ -666,18 +721,40 @@ const obj = {
         },
         {
           type: 'slider',
-          name: 'Weight',
+          name: 'Size',
           property: 'width',
-          default: '1',
+          default: '14px',
+          attributes: {
+            'data-type': 'width',
+            'data-target': 'social-media',
+          },
         },
         {
           type: 'slider',
-          name: 'Gap',
+          name: 'Padding',
+          property: 'padding',
+          buildProps: ['padding'],
+          default: '10px',
+          units: 'px',
+        },
+        {
+          type: 'slider',
+          name: 'Spacing',
+          property: 'letter-spacing',
+          default: '5px',
+          units: 'px',
+        },
+        {
+          type: 'slider',
+          name: 'Rows Gap',
           property: 'gap',
+          default: '10px',
+          units: 'px',
         },
       ],
     },
   ],
+ 
   benefit_1: [
     {
       properties: [
@@ -700,10 +777,7 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
-            },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -714,16 +788,15 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
-            },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
           attributes: {
             'data-type': 'font-family',
             'data-attribute': 'benefit-font-family',
             'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+            
+
           },
         },
         {
@@ -736,6 +809,8 @@ const obj = {
             'data-type': 'font-size',
             'data-attribute': 'benefit-font-size',
             'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
           },
         },
         {
@@ -743,7 +818,7 @@ const obj = {
           name: 'Font Weight',
           property: 'font-weight',
           default: 'normal',
-          options: [
+          options:[
             { value: 'light', name: 'light' },
             { value: 'normal', name: 'Normal' },
             { value: 'semi-bold', name: 'Semi Bold' },
@@ -754,6 +829,8 @@ const obj = {
             'data-type': 'font-weight',
             'data-attribute': 'benefit-font-weight',
             'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
           },
         },
         {
@@ -766,6 +843,8 @@ const obj = {
             'data-type': 'letter-spacing',
             'data-attribute': 'benefit-letter-spacing',
             'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
           },
         },
         {
@@ -780,6 +859,8 @@ const obj = {
             'data-type': 'line-height',
             'data-attribute': 'benefit-line-height',
             'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
           },
         },
         {
@@ -798,6 +879,8 @@ const obj = {
             'data-type': 'text-align',
             'data-attribute': 'benefit-text-align',
             'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+
           },
         },
         {
@@ -814,6 +897,9 @@ const obj = {
             'data-type': 'text-decoration',
             'data-attribute': 'benefit-text-decoration',
             'data-target': '.benefits-title-div h1 .benefits-title-div h2',
+
+            
+
           },
         },
       ],
@@ -822,12 +908,12 @@ const obj = {
       name: 'Icon',
       open: true,
       // buildProps: ['fill'],
-
+      
       properties: [
         {
           type: 'color',
           name: 'Primary Color',
-
+          
           property: 'fill',
           default: '#4aa4da',
           attributes: {
@@ -871,8 +957,7 @@ const obj = {
           attributes: {
             'data-type': 'color',
             'data-attribute': 'content-color',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
           },
         },
         {
@@ -883,10 +968,7 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
-            },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -897,17 +979,15 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
-            },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
           attributes: {
             'data-type': 'font-family',
             'data-attribute': 'content-font-family',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            
+
           },
         },
         {
@@ -919,8 +999,9 @@ const obj = {
           attributes: {
             'data-type': 'font-size',
             'data-attribute': 'content-font-size',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
           },
         },
         {
@@ -928,7 +1009,7 @@ const obj = {
           name: 'Font Weight',
           property: 'font-weight',
           default: 'normal',
-          options: [
+          options:[
             { value: 'light', name: 'light' },
             { value: 'normal', name: 'Normal' },
             { value: 'semi-bold', name: 'Semi Bold' },
@@ -938,8 +1019,9 @@ const obj = {
           attributes: {
             'data-type': 'font-weight',
             'data-attribute': 'content-font-weight',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
           },
         },
         {
@@ -951,8 +1033,9 @@ const obj = {
           attributes: {
             'data-type': 'letter-spacing',
             'data-attribute': 'content-letter-spacing',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
           },
         },
         {
@@ -966,8 +1049,9 @@ const obj = {
           attributes: {
             'data-type': 'line-height',
             'data-attribute': 'content-line-height',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
           },
         },
         {
@@ -985,8 +1069,9 @@ const obj = {
           attributes: {
             'data-type': 'text-align',
             'data-attribute': 'content-text-align',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+
           },
         },
         {
@@ -1002,8 +1087,10 @@ const obj = {
           attributes: {
             'data-type': 'text-decoration',
             'data-attribute': 'content-text-decoration',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
+            'data-target': '.user-detail-label  .user-detail-label span  .slider-text-div p',
+
+            
+
           },
         },
         {
@@ -1167,10 +1254,7 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
-            },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -1181,16 +1265,15 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
-            },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
           attributes: {
             'data-type': 'font-family',
             'data-attribute': 'section-heading-font-family',
             'data-target': '.section-title',
+            
+
           },
         },
         {
@@ -1203,6 +1286,8 @@ const obj = {
             'data-type': 'font-size',
             'data-attribute': 'section-heading-font-size',
             'data-target': '.section-title',
+
+
           },
         },
         {
@@ -1210,7 +1295,7 @@ const obj = {
           name: 'Font Weight',
           property: 'font-weight',
           default: 'normal',
-          options: [
+          options:[
             { value: 'light', name: 'light' },
             { value: 'normal', name: 'Normal' },
             { value: 'semi-bold', name: 'Semi Bold' },
@@ -1221,6 +1306,8 @@ const obj = {
             'data-type': 'font-weight',
             'data-attribute': 'section-heading-font-weight',
             'data-target': '.section-title',
+
+
           },
         },
         {
@@ -1233,6 +1320,8 @@ const obj = {
             'data-type': 'letter-spacing',
             'data-attribute': 'section-heading-letter-spacing',
             'data-target': '.section-title',
+
+
           },
         },
         {
@@ -1247,6 +1336,8 @@ const obj = {
             'data-type': 'line-height',
             'data-attribute': 'section-heading-line-height',
             'data-target': '.section-title',
+
+
           },
         },
         {
@@ -1265,6 +1356,8 @@ const obj = {
             'data-type': 'text-align',
             'data-attribute': 'section-heading-text-align',
             'data-target': '.section-title',
+
+
           },
         },
         {
@@ -1281,6 +1374,9 @@ const obj = {
             'data-type': 'text-decoration',
             'data-attribute': 'section-heading-text-decoration',
             'data-target': '.section-title',
+
+            
+
           },
         },
       ],
@@ -1308,10 +1404,7 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
-            },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -1322,10 +1415,7 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
-            },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
           attributes: {
@@ -1351,7 +1441,7 @@ const obj = {
           name: 'Font Weight',
           property: 'font-weight',
           default: 'normal',
-          options: [
+          options:[
             { value: 'light', name: 'light' },
             { value: 'normal', name: 'Normal' },
             { value: 'semi-bold', name: 'Semi Bold' },
@@ -1522,7 +1612,7 @@ const obj = {
         {
           type: 'select',
           name: 'Aspect Ratio',
-
+          
           property: 'padding-top',
           default: '16:9',
           options: [
@@ -1533,10 +1623,10 @@ const obj = {
           attributes: {
             'data-type': 'padding-top',
             'data-attribute': 'video-aspect-ratio',
-            'data-target':
-              '.video-main-wrapper .video-container-main-div .video-div  ',
+            'data-target': '.video-main-wrapper .video-container-main-div .video-div  ',
           },
         },
+      
       ],
     },
     {
@@ -1632,130 +1722,127 @@ const obj = {
             'data-target': '.number-container-div h1 .number-container-div h2 ',
           },
         },
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: [
-            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
-            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
-            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
+          {
+            type: 'select',
+            name: 'Font Family',
+            property: 'font-family',
+            options: [
+              { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+              { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+              { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+              { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+              { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+              { value: 'Georgia, serif', name: 'Georgia' },
+              { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+              { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+              {
+                value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                name: 'Lucida Sans Unicode',
+              },
+              { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+              { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+              { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+              { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+            ],
+            attributes: {
+              'data-type': 'font-family',
+              'data-attribute': 'number-heading-font-family',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
             },
-            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
-            { value: 'Georgia, serif', name: 'Georgia' },
-            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
-            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
-            {
-              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
-              name: 'Lucida Sans Unicode',
+          },
+          {
+            type: 'slider',
+            name: 'Font Size',
+            property: 'font-size',
+            default: 16,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'font-size',
+              'data-attribute': 'number-heading-font-size',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
             },
-            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
-            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
+          },
+          {
+            type: 'select',
+            name: 'Font Weight',
+            property: 'font-weight',
+            default: 'normal',
+            options:[
+              { value: 'light', name: 'light' },
+              { value: 'normal', name: 'Normal' },
+              { value: 'semi-bold', name: 'Semi Bold' },
+              { value: 'bold', name: 'Bold' },
+              { value: 'bolder', name: 'Bolder' },
+            ],
+            attributes: {
+              'data-type': 'font-weight',
+              'data-attribute': 'number-heading-font-weight',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
             },
-            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
-          ],
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'number-heading-font-family',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
           },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'number-heading-font-size',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
+          {
+            type: 'slider',
+            name: 'Letter Spacing',
+            property: 'letter-spacing',
+            default: 0,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'letter-spacing',
+              'data-attribute': 'number-heading-letter-spacing',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
           },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: [
-            { value: 'light', name: 'light' },
-            { value: 'normal', name: 'Normal' },
-            { value: 'semi-bold', name: 'Semi Bold' },
-            { value: 'bold', name: 'Bold' },
-            { value: 'bolder', name: 'Bolder' },
-          ],
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'number-heading-font-weight',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
+          {
+            type: 'slider',
+            label: 'Line Height',
+            name: 'Line Height',
+            property: 'line-height',
+            ResizeObserver: true,
+            default: 1,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'line-height',
+              'data-attribute': 'number-heading-line-height',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
           },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'number-heading-letter-spacing',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
+          {
+            type: 'select',
+            name: 'Text Align',
+            property: 'text-align',
+            default: 'left',
+            ResizeObserver: true,
+            options: [
+              { value: 'left', name: 'Left' },
+              { value: 'center', name: 'Center' },
+              { value: 'right', name: 'Right' },
+              { value: 'justify', name: 'Justify' },
+            ],
+            attributes: {
+              'data-type': 'text-align',
+              'data-attribute': 'number-heading-text-align',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
           },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'number-heading-line-height',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
+          {
+            type: 'select',
+            name: 'Text Decoration',
+            property: 'text-decoration',
+            default: 'none',
+            options: [
+              { value: 'none', name: 'None' },
+              { value: 'underline', name: 'Underline' },
+              { value: 'line-through', name: 'Line Through' },
+            ],
+            attributes: {
+              'data-type': 'text-decoration',
+              'data-attribute': 'number-heading-text-decoration',
+              'data-target': '.number-container-div h1 .number-container-div h2 ',
+            },
           },
-        },
-        {
-          type: 'select',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
-          ],
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'number-heading-text-align',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: [
-            { value: 'none', name: 'None' },
-            { value: 'underline', name: 'Underline' },
-            { value: 'line-through', name: 'Line Through' },
-          ],
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'number-heading-text-decoration',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
+           
+        
+        
       ],
     },
 
@@ -1771,9 +1858,9 @@ const obj = {
           attributes: {
             'data-type': 'color',
             'data-attribute': 'number-value-color',
-            'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
           },
+           
         },
         {
           type: 'select',
@@ -1819,8 +1906,7 @@ const obj = {
           attributes: {
             'data-type': 'font-family',
             'data-attribute': 'number-value-font',
-            'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
           },
         },
         {
@@ -1836,8 +1922,7 @@ const obj = {
           attributes: {
             'data-type': 'font-weight',
             'data-attribute': 'number-value-weight',
-            'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
           },
         },
         {
@@ -1875,14 +1960,13 @@ const obj = {
           attributes: {
             'data-type': 'transform',
             'data-attribute': 'number-value-transform',
-            'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
           },
         },
         {
           type: 'select',
           name: 'Decoration',
-
+          
           property: 'text-decoration',
 
           default: 'default',
@@ -1894,8 +1978,7 @@ const obj = {
           attributes: {
             'data-type': 'text-decoration',
             'data-attribute': 'number-value-decoration',
-            'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+            'data-target': '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
           },
         },
       ],
@@ -1914,6 +1997,7 @@ const obj = {
             'data-attribute': 'number-description-color',
             'data-target': '.number-percentagges-section .percentage-info p',
           },
+           
         },
         {
           type: 'select',
@@ -2074,6 +2158,7 @@ const obj = {
             'data-target': '.number-percentagges-section .percentage-info p',
           },
         },
+      
       ],
     },
 
@@ -2108,130 +2193,124 @@ const obj = {
             'data-target': '.paragraph-container h1 .paragraph-container p',
           },
         },
-
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: [
-            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
-            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
-            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
+        
+          {
+            type: 'select',
+            name: 'Font Family',
+            property: 'font-family',
+            options: [
+              { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+              { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+              { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+              { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+              { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+              { value: 'Georgia, serif', name: 'Georgia' },
+              { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+              { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+              {
+                value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                name: 'Lucida Sans Unicode',
+              },
+              { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+              { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+              { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+              { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+            ],
+            attributes: {
+              'data-type': 'font-family',
+              'data-attribute': 'paragraph-heading-font-family',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
             },
-            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
-            { value: 'Georgia, serif', name: 'Georgia' },
-            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
-            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
-            {
-              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
-              name: 'Lucida Sans Unicode',
+          },
+          {
+            type: 'slider',
+            name: 'Font Size',
+            property: 'font-size',
+            default: 16,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'font-size',
+              'data-attribute': 'paragraph-heading-font-size',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
             },
-            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
-            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
+          },
+          {
+            type: 'select',
+            name: 'Font Weight',
+            property: 'font-weight',
+            default: 'normal',
+            options:[
+              { value: 'light', name: 'light' },
+              { value: 'normal', name: 'Normal' },
+              { value: 'semi-bold', name: 'Semi Bold' },
+              { value: 'bold', name: 'Bold' },
+              { value: 'bolder', name: 'Bolder' },
+            ],
+            attributes: {
+              'data-type': 'font-weight',
+              'data-attribute': 'paragraph-heading-font-weight',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
             },
-            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
-          ],
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'paragraph-heading-font-family',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
           },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'paragraph-heading-font-size',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
+          {
+            type: 'slider',
+            name: 'Letter Spacing',
+            property: 'letter-spacing',
+            default: 0,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'letter-spacing',
+              'data-attribute': 'paragraph-heading-letter-spacing',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
           },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: [
-            { value: 'light', name: 'light' },
-            { value: 'normal', name: 'Normal' },
-            { value: 'semi-bold', name: 'Semi Bold' },
-            { value: 'bold', name: 'Bold' },
-            { value: 'bolder', name: 'Bolder' },
-          ],
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'paragraph-heading-font-weight',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
+          {
+            type: 'slider',
+            label: 'Line Height',
+            name: 'Line Height',
+            property: 'line-height',
+            ResizeObserver: true,
+            default: 1,
+            units: ['px', 'rem'],
+            attributes: {
+              'data-type': 'line-height',
+              'data-attribute': 'paragraph-heading-line-height',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
           },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'paragraph-heading-letter-spacing',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
+          {
+            type: 'select',
+            name: 'Text Align',
+            property: 'text-align',
+            default: 'left',
+            ResizeObserver: true,
+            options: [
+              { value: 'left', name: 'Left' },
+              { value: 'center', name: 'Center' },
+              { value: 'right', name: 'Right' },
+            ],
+            attributes: {
+              'data-type': 'text-align',
+              'data-attribute': 'paragraph-heading-text-align',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
           },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'paragraph-heading-line-height',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
+          {
+            type: 'select',
+            name: 'Text Decoration',
+            property: 'text-decoration',
+            default: 'none',
+            options: [
+              { value: 'none', name: 'None' },
+              { value: 'underline', name: 'Underline' },
+              { value: 'line-through', name: 'Line Through' },
+            ],
+            attributes: {
+              'data-type': 'text-decoration',
+              'data-attribute': 'paragraph-heading-text-decoration',
+              'data-target': '.paragraph-container h1 .paragraph-container p',
+            },
           },
-        },
-        {
-          type: 'select',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-          ],
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'paragraph-heading-text-align',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: [
-            { value: 'none', name: 'None' },
-            { value: 'underline', name: 'Underline' },
-            { value: 'line-through', name: 'Line Through' },
-          ],
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'paragraph-heading-text-decoration',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
-          },
-        },
       ],
     },
   ],
@@ -2258,10 +2337,7 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
-            },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -2272,10 +2348,7 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
-            },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
           attributes: {
@@ -2301,7 +2374,7 @@ const obj = {
           name: 'Font Weight',
           property: 'font-weight',
           default: 'normal',
-          options: [
+          options:[
             { value: 'light', name: 'light' },
             { value: 'normal', name: 'Normal' },
             { value: 'semi-bold', name: 'Semi Bold' },
@@ -2374,6 +2447,7 @@ const obj = {
             'data-target': '.bannar-content h1 .bannar-content p',
           },
         },
+    
       ],
     },
   ],
@@ -2387,8 +2461,8 @@ const obj = {
           default: ' #171414',
           attributes: {
             'data-type': 'color',
-            'data-attribute': 'Img-main-color',
-            'data-target': '.main_heading  .sub_heading',
+            'data-attribute': 'main-color',
+            'data-target': '.main_heading .sub_heading',
           },
         },
         {
@@ -2399,10 +2473,7 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
-            },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -2413,10 +2484,7 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
-            },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
           attributes: {
@@ -2442,7 +2510,7 @@ const obj = {
           name: 'Font Weight',
           property: 'font-weight',
           default: 'normal',
-          options: [
+          options:[
             { value: 'light', name: 'light' },
             { value: 'normal', name: 'Normal' },
             { value: 'semi-bold', name: 'Semi Bold' },
@@ -2515,6 +2583,7 @@ const obj = {
             'data-target': '.main_heading .sub_heading',
           },
         },
+    
       ],
     },
     {
@@ -2603,6 +2672,7 @@ const obj = {
             'data-target': '.figure_caption',
           },
         },
+     
       ],
     },
   ],
@@ -2618,8 +2688,7 @@ const obj = {
           attributes: {
             'data-type': 'color',
             'data-attribute': 'guidelines-text-color',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
           },
         },
         {
@@ -2630,10 +2699,7 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
-            },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -2644,17 +2710,14 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
-            },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
           attributes: {
             'data-type': 'font-family',
             'data-attribute': 'guidelines-font-family',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
           },
         },
         {
@@ -2666,8 +2729,8 @@ const obj = {
           attributes: {
             'data-type': 'font-size',
             'data-attribute': 'guidelines-font-size',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
           },
         },
         {
@@ -2675,7 +2738,7 @@ const obj = {
           name: 'Font Weight',
           property: 'font-weight',
           default: 'normal',
-          options: [
+          options:[
             { value: 'light', name: 'light' },
             { value: 'normal', name: 'Normal' },
             { value: 'semi-bold', name: 'Semi Bold' },
@@ -2685,8 +2748,8 @@ const obj = {
           attributes: {
             'data-type': 'font-weight',
             'data-attribute': 'guidelines-font-weight',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
           },
         },
         {
@@ -2698,8 +2761,8 @@ const obj = {
           attributes: {
             'data-type': 'letter-spacing',
             'data-attribute': 'guidelines-letter-spacing',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
           },
         },
         {
@@ -2713,8 +2776,8 @@ const obj = {
           attributes: {
             'data-type': 'line-height',
             'data-attribute': 'guidelines-line-height',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
           },
         },
         {
@@ -2732,8 +2795,8 @@ const obj = {
           attributes: {
             'data-type': 'text-align',
             'data-attribute': 'guidelines-text-align',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
           },
         },
         {
@@ -2749,8 +2812,8 @@ const obj = {
           attributes: {
             'data-type': 'text-decoration',
             'data-attribute': 'guidelines-text-decoration',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+            'data-target': '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+
           },
         },
       ],
@@ -2766,8 +2829,8 @@ const obj = {
         'padding',
       ],
       attributes: {
-        'data-target': '.guidline-option',
-      },
+            'data-target': '.guidline-option',
+          },
       properties: [
         {
           type: 'color',
@@ -2777,9 +2840,9 @@ const obj = {
           attributes: {
             'data-type': 'background-color',
             'data-attribute': 'guidelines-bullet-background-color',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
+            'data-target': '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
           },
+
         },
 
         {
@@ -2791,8 +2854,7 @@ const obj = {
           attributes: {
             'data-type': 'background-color',
             'data-attribute': 'guidelines-bullet-background-color',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
+            'data-target': '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
           },
         },
         {
@@ -2903,10 +2965,7 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            {
-              value: 'Comic Sans MS, cursive, sans-serif',
-              name: 'Comic Sans MS',
-            },
+            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -2917,10 +2976,7 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            {
-              value: 'Trebuchet MS, Helvetica, sans-serif',
-              name: 'Trebuchet MS',
-            },
+            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
           attributes: {
@@ -2946,7 +3002,7 @@ const obj = {
           name: 'Font Weight',
           property: 'font-weight',
           default: 'normal',
-          options: [
+          options:[
             { value: 'light', name: 'light' },
             { value: 'normal', name: 'Normal' },
             { value: 'semi-bold', name: 'Semi Bold' },
@@ -3114,8 +3170,6 @@ const obj = {
   ],
 
   talent_1: [],
-
-  generic: [],
 };
 
 export const getSectors = (name) => {

@@ -252,6 +252,18 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
         });
       }
     });
+
+
+        //This is for all section templates Style Manager
+        editor.on(`block:drag:stop`, (component, block) => {
+          // if component exists, means the drop was successful
+          if (component) {
+        
+            const sectors = editor.StyleManager.getSectors();
+            sectors.reset();
+            sectors.add(getSectors(component.ccid));
+          }
+        });
   }, [setEditorState]);
 
   return (

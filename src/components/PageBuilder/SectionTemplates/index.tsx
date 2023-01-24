@@ -142,7 +142,7 @@ const SectionPageBuilder: React.FC = () => {
         sectors: getSectors(blocks),
       },
     });
-
+//This is for Single Section
     editor.onReady(() => {
       if (blocks.length === 1) {
         const sectors = editor.StyleManager.getSectors();
@@ -163,6 +163,19 @@ const SectionPageBuilder: React.FC = () => {
         editor?.runCommand('core:open-blocks');
       }
     });
+
+
+    //This is for all section templates Style Manager
+    editor.on(`block:drag:stop`, (component, block) => {
+      // if component exists, means the drop was successful
+      if (component) {
+    
+        const sectors = editor.StyleManager.getSectors();
+        sectors.reset();
+        sectors.add(getSectors(component.ccid));
+      }
+    });
+
 
     editor.on('component:drag:end', (component) => {
       if (component) {
