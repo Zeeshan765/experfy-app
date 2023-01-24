@@ -11,7 +11,7 @@ import { useConfig } from 'payload/components/utilities';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Context } from '../../MyProvider';
-import { getSectors } from './ExperfyPlugin/getSectors';
+import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 const NewPageBuilder: React.FC = ({ status, handleClose }) => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
@@ -75,7 +75,7 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       let item = {
         keywords: 'Media',
         mediaType: 'Photo',
-        description: 'test description',
+        description: '',
       };
       formData.append('_payload', JSON.stringify(item));
       // Make the POST request
@@ -162,7 +162,7 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
 
       storageManager: {
         type: 'local',
-        autoload: true,
+        autoload: false,
         options: {
           storeComponents: true,
           storeStyles: true,
@@ -181,7 +181,6 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       },
       selectorManager: {
         appendTo: '.styles-container',
-        componentFirst: true,
       },
       styleManager: {
         appendTo: '.styles-container',

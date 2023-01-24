@@ -3,7 +3,7 @@ import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../index.scss';
+// import '../index.scss';
 import { useAuth, useConfig } from 'payload/components/utilities';
 
 const borderStyle = [

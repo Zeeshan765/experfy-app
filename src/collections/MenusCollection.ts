@@ -1,4 +1,4 @@
-import { CollectionConfig, GlobalConfig } from 'payload/types';
+import { CollectionConfig } from 'payload/types';
 import link, { Type as LinkType } from '../fields/link';
 
 export type Type = {
@@ -12,10 +12,14 @@ const Menu: CollectionConfig = {
   labels: { singular: 'Menu', plural: 'Menus' },
 
   admin: {
-    defaultColumns: ['title', 'nav'],
+    useAsTitle: 'title',
+    defaultColumns: ['title', 'parent_menu', 'nav'],
   },
   access: {
     read: () => true,
+    create: () => true,
+    update: () => false,
+    delete: () => true,
   },
   fields: [
     {
@@ -25,7 +29,17 @@ const Menu: CollectionConfig = {
       required: true,
     },
     {
-      name: 'section',
+      label: 'Parent Menu',
+      name: 'parent_menu',
+      type: 'relationship',
+      relationTo: 'mega-menu',
+      hasMany: false,
+      required: false,
+    },
+    {
+      name: 'menu_section',
+      label: 'Menu Section',
+
       type: 'select',
       options: [
         {

@@ -1,11 +1,11 @@
-import { Box, Grid } from "@mui/material";
-import { Button, Eyebrow } from "payload/components/elements";
-import { Form } from "payload/components/forms";
-import { useConfig } from "payload/components/utilities";
-import React, { useEffect, useState } from "react";
-import FormSelect from "../../../blocks/FormSelect";
-import FormTip from "../../../blocks/FormTip";
-import TextInput from "../../../blocks/TextInput";
+import { Box, Grid } from '@mui/material';
+import { Button, Eyebrow } from 'payload/components/elements';
+import { Form } from 'payload/components/forms';
+import { useConfig } from 'payload/components/utilities';
+import React, { useEffect, useState } from 'react';
+import FormSelect from '../../../blocks/FormSelect';
+import FormTip from '../../../blocks/FormTip';
+import TextInput from '../../../blocks/TextInput';
 
 export default function BasicInformation(props) {
   const { adminPortal, setAdminPortal, propsdata } = props;
@@ -20,31 +20,31 @@ export default function BasicInformation(props) {
     (collection) => collection.slug === userSlug
   );
 
-  const [apiMethod, setApiMethod] = useState("post");
+  const [apiMethod, setApiMethod] = useState('post');
 
   useEffect(() => {
     if (propsdata?.id) {
-      setApiMethod("patch");
+      setApiMethod('patch');
     } else {
-      setApiMethod("post");
+      setApiMethod('post');
     }
   }, [propsdata]);
 
-  const [touched, setTouched] = useState("");
+  const [touched, setTouched] = useState('');
   return (
     <Box sx={{ p: 1 }}>
       <Form
         //@ts-ignore
         method={apiMethod}
         action={`${serverURL}${api}/basic-portal-identity/${
-          propsdata?.id ?? ""
+          propsdata?.id ?? ''
         }`}
       >
         <div className="row">
           <div className="col-md-8">
             <TextInput
-              label={"Portal Name jhjhj"}
-              path={"career_portal_name"}
+              label={'Portal Name'}
+              path={'career_portal_name'}
               minLength={3}
               required={true}
               display={propsdata?.career_portal_name}
@@ -53,18 +53,18 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'career_portal_name' && (
                 <FormTip text={'The go-to-market name of the career portal'} />
-              )} 
-            </div>  
+              )}
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-8">
             <TextInput
-              path={"portal_id"}
+              path={'portal_id'}
               label="Portal ID"
               required={true}
               display={propsdata?.portal_id}
@@ -73,18 +73,18 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'portal_id' && (
                 <FormTip text={'The read only filed displays the Portal ID'} />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-8">
             <TextInput
-              path={"portal_url"}
+              path={'portal_url'}
               label="Portal URL"
               required={true}
               display={propsdata?.portal_url}
@@ -93,7 +93,7 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'portal_url' && (
                 <FormTip
                   text={
@@ -101,14 +101,14 @@ export default function BasicInformation(props) {
                   }
                 />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-8">
             <TextInput
-              path={"company_name"}
+              path={'company_name'}
               label="Company Name"
               display={propsdata?.company_name}
               setTouched={setTouched}
@@ -116,7 +116,7 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'company_name' && (
                 <FormTip
                   text={
@@ -124,18 +124,18 @@ export default function BasicInformation(props) {
                   }
                 />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-8">
             <FormSelect
-              type={"select"}
-              options={["English", "Spanish"]}
+              type={'select'}
+              options={['English', 'Spanish']}
               label="Default Language"
-              name={"default_language"}
-              path={"default_language"}
+              name={'default_language'}
+              path={'default_language'}
               display={propsdata?.default_language}
               defaultValue="English"
               setTouched={setTouched}
@@ -143,7 +143,7 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'default_language' && (
                 <FormTip
                   text={
@@ -151,26 +151,26 @@ export default function BasicInformation(props) {
                   }
                 />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-8">
             <FormSelect
-              options={["US", "ES"]}
+              options={['US', 'ES']}
               label="Default Locale"
-              name={"default_locale"}
-              path={"default_locale"}
+              name={'default_locale'}
+              path={'default_locale'}
               display={propsdata?.default_locale}
               defaultValue="US"
-              type={"select"}
+              type={'select'}
               setTouched={setTouched}
             />
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'default_locale' && (
                 <FormTip
                   text={
@@ -178,14 +178,14 @@ export default function BasicInformation(props) {
                   }
                 />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-8">
             <TextInput
-              path={"google_id"}
+              path={'google_id'}
               label="Google Manager Tag ID"
               display={propsdata?.google_id}
               setTouched={setTouched}
@@ -193,7 +193,7 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'google_id' && (
                 <FormTip
                   text={
@@ -201,14 +201,14 @@ export default function BasicInformation(props) {
                   }
                 />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-8">
             <TextInput
-              path={"google_analytics"}
+              path={'google_analytics'}
               label="Google Analytics ID"
               display={propsdata?.google_analytics}
               setTouched={setTouched}
@@ -216,7 +216,7 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'google_analytics' && (
                 <FormTip
                   text={
@@ -224,7 +224,7 @@ export default function BasicInformation(props) {
                   }
                 />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 
@@ -239,11 +239,11 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'google_webmaster' && (
                 <FormTip text={'The Google Webmaster account.'} />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 
@@ -258,18 +258,18 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'bing_webmaster' && (
                 <FormTip text={'The Bing Webmaster Tools account.'} />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-8">
             <TextInput
-              path={"tracking_pixel"}
+              path={'tracking_pixel'}
               label="Tracking Pixel"
               display={propsdata?.tracking_pixel}
               setTouched={setTouched}
@@ -277,7 +277,7 @@ export default function BasicInformation(props) {
           </div>
 
           <div className="col-md-4">
-            <div className='tip-wrapper'>
+            <div className="tip-wrapper">
               {touched === 'tracking_pixel' && (
                 <FormTip
                   text={
@@ -285,7 +285,7 @@ export default function BasicInformation(props) {
                   }
                 />
               )}
-            </div>  
+            </div>
           </div>
         </div>
 

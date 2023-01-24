@@ -1,5 +1,8 @@
 import type grapesjs from 'grapesjs';
-import { RequiredPluginOptions } from '.';
+
+import { ReactComponentElement as footer } from 'react';
+
+import { RequiredPluginOptions } from '..';
 import { SectionStyle as style } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
@@ -69,187 +72,64 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </g>
       <rect id="Rectangle_35089" data-name="Rectangle 35089" width="16.139" height="1.924" rx="0.962" transform="translate(2 12.334)" />
     </g>
-  </svg>`,
-    content: `<footer id="footer_1" class="text-gray-600 body-font" style="background-color:#40526e; color:#ffffff;">
-    <div class="container px-5 py-10 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col" style="padding:80px 0px 100px">
-       <div class="flex-grow flex md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-       <input type="text" id="input" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required>
-             <ul>
-             <li style="font-size: 16px;
-             color: #ffffff;
-             padding: 10px 10px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 0px;">Footer section allow you to add links and information for your users to easily locate.</li>
-             <li style="font-size: 16px;
-             color: #ffffff;
-             padding: 10px 10px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 0px;"><span>Address:</span> 0101 Address, OR, 77873</li>
-             <li style="font-size: 16px;
-             color: #ffffff;
-             padding: 10px 10px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 0px;"><span>Phone:</span> 010-000-1111</li>
-             <li style="font-size: 16px;
-             color: #ffffff;
-             padding: 10px 10px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 0px;"><span>Website:</span> wwww.company-website.com</li>
+  </svg>
+  `,
+    content: `<footer id="footer_1" class="main-footer-wrapper">
+    <div class="footer-container">
+       <div class="footer-grid">
+
+       <div class="footer-address-section margin-class">
+       <h2 class="footer-titles">Add Your Title Here </h2>
+
+             <ul class="address-list">
+             <li class="title">Footer section allow you to add links and information for your users to easily locate.</li>
+
+             <li class="address"><span class="bold">Address:</span> 0101 Address, OR, 77873</li>
+
+             <li class="address"><span class="bold">Phone:</span> 010-000-1111</li>
+
+             <li class="address"><span class="bold">Website:</span> wwww.company-website.com</li>
              </ul>
- 
           </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="font-size: 18px;
-             font-weight: 600;
-             color: #ffffff;
-             padding:10px 10px;
-             border-width: 2px; font-size:22px; font-weight:600; color:#ffffff;
-             margin:0px;">Add Your Social Media Link</h2>
-             <div class="flex flex-wrap" style="justify-content:space-between;">
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
-             <img src={SettingsIcon} alt='Settings' style="outline: 2px solid #3b97e3 !important;
-             outline-offset: -2px;
-             width: 80px;
-             height: 80px;
-             object-fit: cover;
-             margin: 10px;" />
+
+          <div class="footer-images-section margin-class">
+             <h2 class="footer-titles">Add Your Social Media Link</h2>
+             <div class="images-holder">
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'/>
              </div>
-             <button style="background-color:#4db081;
-             color:#ffffff;
-             padding:7px 15px;
-             border-radius:3px;
-             font-size:18px;
-             font-weight:500;
-             margin:20px auto;
-             display:flex;">Visit Instagram</button>
+             <button class="btn-footer">Visit Instagram</button>
           </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="font-size: 18px;
-             font-weight: 600;
-             color: #ffffff;
-             padding:10px 10px;
-             border-width: 2px; font-size:22px; font-weight:600; color:#ffffff;
-             margin:0px;">Add Your Social Media Link</h2>
+          <div  class="margin-class">
+             <h2 class="footer-titles">Add Your Social Media Link</h2>
           </div>
        </div>
     </div>
 
  
-    <div class="bg-gray-100" style="background-color:#000000;
-    padding:20px;">
-       <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p class="text-gray-500 text-sm text-center sm:text-left" style="font-size: 18px;
-          color: #ffffff;
-          padding: 10px 10px;
-          border-width: 2px;
-          font-weight: 400;
-          line-height: 1.5;
-          margin: 10px 0px;">Copyright © Company 2022, All rights reserved.</p>
-          <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-             <a class="text-gray-500" style="font-size: 18px;
-             color: #ffffff;
-             padding: 10px 20px;
-             border-width: 2px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 10px;
-             text-transform: uppercase;">
-                Privacy Policy
-             </a>
-             <a class="ml-3 text-gray-500" style="font-size: 18px;
-             color: #ffffff;
-             padding: 10px 20px;
-             border-width: 2px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 10px;
-             text-transform: uppercase;">
-                Terms of service
-             </a>
-             <a class="ml-3 text-gray-500" style="font-size: 18px;
-             color: #ffffff;
-             padding: 10px 20px;
-             border-width: 2px;
-             font-weight: 400;
-             line-height: 1.5;
-             margin: 10px 10px;
-             text-transform: uppercase;">
-               Disclaimer
-             </a>
-          </span>
+    <div class="site-credit-footer">
+       <div class="site-credit-footer-container">
+          <p class="credit-text">Copyright © Company 2022, All rights reserved.</p>
+          <ul>
+          <li><a>Privacy Policy</a></li>   
+          <li> <a>Terms of service</a></li>
+          <li><a>Disclaimer</a></li>
+          </ul>
        </div>
     </div>
- </footer>`,
+ </footer>
+ ${style}
+ `,
   });
   addBlock('testimonial', {
     label: 'Testimonial',
@@ -263,8 +143,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <path id="Path_169434" data-name="Path 169434" d="M289.871,345.51a.633.633,0,0,0,0,1.266h3.812a.633.633,0,0,0,0-1.266Z" transform="translate(-205.165 -293.23)" fill="#7c8189"/>
     </g>
   </svg>
+  
   `,
-    content: `<testimonial data-gjs-type= "testimonial" id= "testimonial_1" class="testimonial-main-wrapper">
+    content: `<section data-gjs-type= "testimonial" id= "testimonial_1" class="testimonial-main-wrapper">
     <div class="testimonial-container">
        <h1 class="section-title">You are in Good</h1>   
           <div class="slider-content-main-div">
@@ -297,7 +178,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
        </div>
    
- </testimonial>
+ </section>
  ${style}
  `,
   });
@@ -315,7 +196,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<benefits  id= "benefit_1" class="benefits-main-wrapper">
+    content: `<section  id= "benefit_1" class="benefits-main-wrapper">
     <div class="benefits-container" >
 
        <div class="benefits-title-div">
@@ -382,7 +263,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
        </div>
     </div>
- </benefits>
+ </section>
  ${style}
  `,
   });
@@ -429,7 +310,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<practice_area id="practice_area_1" class="main-paractice-wrapper">
+    content: `<section id="practice_area_1" class="main-paractice-wrapper">
    
 
     <h1 class="section-title"> Practice Areas</h1>
@@ -888,7 +769,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  
     </div>
 
- </practice_area>
+ </section>
   ${style}
  `,
   });
@@ -905,9 +786,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </g>
     </g>
   </svg>
+  
   `,
     content: `
-    <section-video id=video_1 class="video-main-wrapper">
+    <section id=video_1 class="video-main-wrapper">
       <div class="video-container-main-div">
         <div class="video-header">
           <h1>Add your heading title here</h1>
@@ -917,7 +799,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <video width="100%" height="auto" controls></video>
         </div>
       </div>
-    </section-video>
+    </section>
  ${style}
  `,
   });
@@ -930,9 +812,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <path id="Path_169440" data-name="Path 169440" d="M387.083,112.9h-9.832a.649.649,0,0,1-.65-.65v-5.2a.65.65,0,0,1,.65-.65h9.832a.651.651,0,0,1,.542.29l1.865,2.779a.329.329,0,0,1,0,.36l-1.854,2.779a.649.649,0,0,1-.542.29Z" transform="translate(-199.889 -72.818)" />
       <path id="Path_169441" data-name="Path 169441" d="M155.9,210.9h9.834a.65.65,0,0,0,.65-.65v-5.2a.65.65,0,0,0-.65-.65H155.9a.65.65,0,0,0-.542.29L153.5,207.47a.329.329,0,0,0,0,.36l1.854,2.779a.649.649,0,0,0,.539.29Z" transform="translate(6 -165.826)" />
     </g>
-  </svg>
+  </svg>  
   `,
-    content: ` <guideline  id= "guideline_1" class="guideline-main-wrapper">
+    content: ` <section  id= "guideline_1" class="guideline-main-wrapper">
     <div id=guideline_1 class="guideline-container">
       <div class="guideline-header-section">
         <h1>Add your heading title here</h1>
@@ -980,7 +862,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
       </div>
   </div>
-  </guideline>
+  </section>
   ${style}
   `,
   });
@@ -991,7 +873,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <path id="noun-location-4491946" d="M168.4,30.763a8.653,8.653,0,0,0-6.33-2.469,8.807,8.807,0,0,0-8.484,8.613,8.6,8.6,0,0,0,1.731,5.313c.16.239,4.292,5.985,5.668,7.892a1.577,1.577,0,0,0,1.268.652h.007a1.576,1.576,0,0,0,1.265-.64c.64-.869,5.624-7.683,5.755-7.848l.021-.028h0a8.835,8.835,0,0,0,1.741-5.23,8.658,8.658,0,0,0-2.642-6.256ZM162.317,41.03a3.893,3.893,0,1,1,2.748-1.14A3.888,3.888,0,0,1,162.317,41.03Z" transform="translate(-153.589 -28.289)" />
   </svg>
   `,
-    content: `<section-location  id= "location_1" class="location-main-wrapper">
+    content: `<section  id= "location_1" class="location-main-wrapper">
       <div class="location-container">
         <div class="address-content-main-holder">
             <h1 class="m-2">Add your heading title here</h1>
@@ -1053,7 +935,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
               height: 400px;">
         </div>
       </div>
-  </section-location>
+  </section>
   ${style}
   `,
   });
@@ -1071,8 +953,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <path id="Path_167734" data-name="Path 167734" d="M.207,9.275a.35.35,0,0,0,.462-.182L1.8,6.5H3.791l1.134,2.59a.35.35,0,1,0,.641-.28l-2.45-5.6a.35.35,0,0,0-.641,0l-2.45,5.6a.35.35,0,0,0,.182.462ZM2.8,4.227,3.5,5.8H2.1Z" transform="translate(282.027 1096.796)" fill="#4ba4da"/>
     </g>
   </svg>
+  
   `,
-    content: `<paragraph  id= "paragraph_1" class="main-paragraph-wrapper">
+    content: `<section  id= "paragraph_1" class="main-paragraph-wrapper">
        <div class="paragraph-container">
           <h1 class="font-medium title-font text-gray-900 mb-4">Master Cleanse Reliac Heirloom</h1>
           <p>Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
@@ -1080,7 +963,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
        </div>
- </paragraph>
+ </section>
  ${style}
  `,
   });
@@ -1095,7 +978,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<numbers class="main_wrapper" id= "number_1">
+    content: `<section class="main_wrapper" id= "number_1">
         <div class="number-container-div">
           
         <div class="title-div">
@@ -1127,7 +1010,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
               </div>
           </div>
-    </numbers> 
+    </section> 
     
     ${style}
     `,
@@ -1160,7 +1043,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
     </div>
  </div>
- </talent> 
+ </section> 
     ${style}
  `,
   });
@@ -1172,7 +1055,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <path id="Path_170799" data-name="Path 170799" d="M90.466,39.2H70.632a.633.633,0,0,0-.633.633V56.5a.633.633,0,0,0,.633.633H90.466A.633.633,0,0,0,91.1,56.5V39.832A.633.633,0,0,0,90.466,39.2ZM83.292,54.417a.442.442,0,0,1-.434.4H72.264a.382.382,0,0,1-.366-.4v-.053a.382.382,0,0,1,.366-.4H82.857a.442.442,0,0,1,.434.4Zm-11.04-2.98H82.479a.414.414,0,0,1,.405.382V51.9a.414.414,0,0,1-.405.382H72.252A.369.369,0,0,1,71.9,51.9v-.079a.369.369,0,0,1,.354-.383ZM71.9,49.353V49.3a.382.382,0,0,1,.366-.4h9.617a.4.4,0,0,1,.393.4v.053a.4.4,0,0,1-.393.4H72.264A.382.382,0,0,1,71.9,49.353Zm17.251,4.822-.672.5a.283.283,0,0,1-.168.056.272.272,0,0,1-.043,0,.284.284,0,0,1-.185-.113l-1.355-1.869-.778.573a.282.282,0,0,1-.442-.163l-.958-4.085a.282.282,0,0,1,.414-.31l3.645,2.078a.282.282,0,0,1,.031.469l-.788.6,1.359,1.876a.281.281,0,0,1-.06.392Zm.472-8.225a.633.633,0,0,1-.633.633H72.109a.633.633,0,0,1-.633-.633V41.941a.633.633,0,0,1,.633-.633h16.88a.633.633,0,0,1,.633.633Z" transform="translate(-69.999 -39.199)"/>
   </svg>
   `,
-    content: `<banner id="image_banner_1" class="image-banner-wrapper">
+    content: `<section id="image_banner_1" class="image-banner-wrapper">
         <div class="main-banner-container">
       <div class="bannar-wrap">
       <div class="bannar-content">
@@ -1191,7 +1074,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
    </div>
 </div>
-        </banner>
+        </section>
         ${style}
         `,
   });
@@ -1218,8 +1101,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </g>
     </g>
   </svg>
+  
   `,
-    content: `<image_text  id= "image_text_1">
+    content: `<section  id= "image_text_1">
         <div class="main_container">
         <div class="content-section">
            <h1 class="main_heading" >Add your heading title here</h1>
@@ -1236,7 +1120,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
      
         </div>
-        </image_text>
+        </section>
         ${style}
         
         `,

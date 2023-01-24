@@ -13,7 +13,7 @@ import FaceLessModel from './Model';
 
 const useStyles = makeStyles({
   templateCardGrid: {
-    width: 'calc(100% + 36px)',
+    width: 'calc(100% + 40px)',
     marginTop: '-32px !important',
   },
   templateCard: {
@@ -88,7 +88,7 @@ const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
   ];
   return (
     <>
-      <Grid container spacing={2} style={{ margin: 'auto', width: '95%' }}>
+      <Grid container spacing={2} style={{ margin: 'auto', width: '100%' }}>
         {pageList.map(({ id, image, name, link }) => (
           <>
             {search === '' && (
