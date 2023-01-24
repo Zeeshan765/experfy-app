@@ -1009,7 +1009,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section  id= "talent_1">
+    content: `<talent id= "talent_1">
     
 <div class="talent-cloud-main-wrapper" >
     <div class="talent-cloud-container">
@@ -1093,7 +1093,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         </section>
         ${style}
-        
         
         `,
   });

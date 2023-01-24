@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import { Context } from '../../MyProvider';
 import { DefaultTemplate } from 'payload/components/templates';
 import { Eyebrow } from 'payload/components/elements';
-import '../../styles/scss/index.scss'; 
+import '../../styles/scss/index.scss';
 
 const useStyles = makeStyles({
   mainTabs: {
@@ -20,10 +20,9 @@ const useStyles = makeStyles({
   },
   tabList: {
     '& .MuiTab-root': {
-      fontSize: '20px',
+      fontSize: '18px',
       fontWeight: 500,
-      fontFamily: "proxima-nova",
-      letterSpacing: '.1px',
+      fontFamily: 'proxima-nova',
       textTransform: 'none',
       paddingLeft: 0,
       paddingRight: 0,
@@ -32,15 +31,15 @@ const useStyles = makeStyles({
       maxWidth: '360px',
       color: '#4ba4da',
       '&.Mui-selected': {
-        color: '#4a5162'
-      }
+        color: '#4a5162',
+      },
     },
     '& .MuiTabs-indicator': {
       height: '4px',
       borderRadius: '2px',
-      backgroundColor: '#4a5162'
-    }
-  }
+      backgroundColor: '#4a5162',
+    },
+  },
 });
 
 function TabPanel(props) {
@@ -92,7 +91,7 @@ const PortalIdentity: React.FC = (props) => {
   function handleChange(event, newValue) {
     setValue(newValue);
   }
-  
+
   const getUserData = async () => {
     try {
       const res = await fetch(
