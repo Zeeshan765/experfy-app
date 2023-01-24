@@ -110,7 +110,6 @@ const PageTheme = () => {
         <div
           style={{
             padding: '10px',
-            display:'flex'
           }}
         >
           <SelectInput

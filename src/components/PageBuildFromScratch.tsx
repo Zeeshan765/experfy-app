@@ -7,7 +7,7 @@ const PageBuildFromScratch = () => {
   // Redirect to new page builder when build from scratch button clicked
   useEffect(() => {
     if(!id){
-    history.push(`/admin/collections/page-builder?pageCreate=scratch`);
+    // history.push(`/admin/collections/page-builder?pageCreate=scratch`);
     }
   }, []);
 

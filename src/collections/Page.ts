@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import PageBuilder from "../components/PageBuilder";
 import PageTheme from "../components/PageBuilderTemplate";
 import PageBuildFromScratch from "../components/PageBuildFromScratch";
 import SelectPage from "../components/selectPageCode";
@@ -17,6 +18,17 @@ export const Page: CollectionConfig = {
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "pageType", "updatedAt"],
+    // condition:
+    //  (data) => {
+    //   console.log("data", data);
+    //   return true;
+    // },
+    components: {
+      views: {
+        Edit: PageBuilder,
+      },
+      // Field: PageBuildFromScratch,
+    },
   },
 
   access: {
@@ -56,14 +68,14 @@ export const Page: CollectionConfig = {
       admin: {
         layout: "vertical",
         description: "Choose how you want to create this page",
-        condition: (data) => {
-          console.log("data", data);
-          
-          if (data?.title && data?.author && data?.pageType==="scratch") {
-            localStorage.setItem("pageAttributes", JSON.stringify(data));
-          }
-          return data.title && data.author;
-        },
+        // condition: (data) => {
+        //   console.log("data", data);
+
+        //   // if (data?.title && data?.author && data?.pageType==="scratch") {
+        //   //   localStorage.setItem("pageAttributes", JSON.stringify(data));
+        //   // }
+        //   return data.title && data.author;
+        // },
       },
       options: [
         {
