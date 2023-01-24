@@ -70,7 +70,7 @@ const SectionTemplate: React.FC<Props> = ({ search }) => {
     {
       id: 1,
       image: custom_build,
-      link: '/admin/collections/new-page-builder',
+      link: '/admin/collections/page-builder',
       name: 'Custom Build',
       text: '',
     },
@@ -178,7 +178,6 @@ const SectionTemplate: React.FC<Props> = ({ search }) => {
       link: '/admin/collections/section-templates/testimonial',
       name: 'Testimonial',
       text: 'To attract talent, add testimonials of employees ot talentCloud members who have worked for your company and have rave reviews of their experience.',
-
     },
   ];
   return (

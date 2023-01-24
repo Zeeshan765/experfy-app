@@ -18,8 +18,8 @@ import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import PageBuilder from './components/PageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
-import Form from './components/PageBuilder/NewSectionTemplate/Form';
-import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
+// import Form from './components/PageBuilder/NewSectionTemplate/Form';
+// import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
@@ -31,13 +31,15 @@ export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
     user: Users.slug,
-
+    dateFormat: 'dd/MM/yyyy',
     css: path.resolve(__dirname, './styles/scss/index.scss'),
+
     components: {
       graphics: {
         Logo: ExperfyLogo,
         Icon: ExperfyLogo,
       },
+
       beforeNavLinks: [BeforeNav],
       afterNavLinks: [AfterNav],
 
@@ -174,16 +176,16 @@ export default buildConfig({
           strict: true,
         },
 
-        {
-          path: '/collections/form',
-          Component: Form,
-        },
-        {
-          path: '/collections/image_and_text',
-          Component: ImgText,
-        },
+        // {
+        //   path: '/collections/form',
+        //   Component: Form,
+        // },
+        // {
+        //   path: '/collections/image_and_text',
+        //   Component: ImgText,
+        // },
       ],
-      providers: [MyProvider],
+      // providers: [MyProvider],
     },
   },
   collections: [
@@ -204,7 +206,7 @@ export default buildConfig({
     saveMissing: true,
     fallbackLng: 'en',
   },
-
+  debug: true,
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },

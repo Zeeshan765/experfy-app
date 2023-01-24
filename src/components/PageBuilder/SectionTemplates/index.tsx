@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Experfy from '../ExperfyPlugin';
 import NavBar from 'grapesjs-navbar';
-import { getSectors } from '../ExperfyPlugin/getSectors';
+import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
@@ -20,6 +20,7 @@ const SectionPageBuilder: React.FC = () => {
   } = useConfig();
 
   const sections = [
+    'page-builder',
     'header',
     'footer',
     'image-banner',
@@ -39,10 +40,12 @@ const SectionPageBuilder: React.FC = () => {
   let showSections = true;
 
   useEffect(() => {
+    let arr = pathname.split('/');
+    let str = arr[arr.length - 1];
     setStepNav([
       {
         label: 'Section Templates',
-        url: '/collections/section-templates',
+        url: '/collections/section-templates/' + str,
       },
     ]);
   }, [setStepNav]);
