@@ -171,7 +171,7 @@ export default buildConfig({
         },
 
         {
-          path: '/collections/section-templates/testimonial',
+          path: '/collections/section-templates/image-and-text',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
