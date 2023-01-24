@@ -200,6 +200,14 @@ $deviceBackground: #2f3d55;
   // padding: 5px !important;
 }
 
+.gjs-fields .gjs-select select {
+  width: 150px !important;
+}
+
+.gjs-radio-item .gjs-radio-item .gjs-radio-item-label .fa {
+  color: #626262;
+}
+
 .gjs-field .gjs-d-s-arrow {
   right: 10px !important;
 }
@@ -571,4 +579,38 @@ $deviceBackground: #2f3d55;
 
 //   }
 
+// }
+
+// .gjs-sm-composite {
+//   border: none !important;
+
+//   .gjs-sm-properties {
+//     display: flex;
+//     flex-direction: row !important;
+//     flex-wrap: nowrap;
+//     padding: 15px 0px !important;
+//   }
+
+//   .gjs-sm-property {
+//     display: block !important;
+//     padding: 0px !important;
+//     ;
+
+//     .gjs-sm-icon {
+//       font-size: 13px !important;
+//     }
+
+//     .gjs-sm-label {
+//       display: none !important;
+//     }
+//   }
+
+//   .gjs-field-arrows {
+//     display: none !important;
+//   }
+
+//   .gjs-field-integer input {
+//     padding-right: 0px !important;
+//     width: 50px !important;
+//   }
 // }

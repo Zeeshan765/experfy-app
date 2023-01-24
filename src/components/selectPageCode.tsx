@@ -1,9 +1,7 @@
 // @ts-ignore
-import React, { useState, useContext } from "react";
-import { useField } from "payload/components/forms";
-import TextInput from "../blocks/TextInput";
-import { useSelectPageId } from "../hooks";
-import { Context } from "../MyProvider";
+import React, { useContext } from 'react';
+import TextInput from '../blocks/TextInput';
+import { Context } from '../MyProvider';
 type Props = { path: string };
 
 const SelectPage = ({ path }) => {
@@ -12,10 +10,9 @@ const SelectPage = ({ path }) => {
   return (
     <div>
       <TextInput
-        path={"page_Id"}
+        path={'page_Id'}
         required={true}
-        defaultValue={selectedPageCode}
-        hidden={true}
+        placeHolder={selectedPageCode}
       />
     </div>
   );

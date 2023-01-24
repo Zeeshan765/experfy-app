@@ -223,7 +223,6 @@ const SectionTemplate: React.FC<Props> = ({ search }) => {
                           <CardHeader title={name}></CardHeader>
                           <CardMedia
                             component="img"
-                            //@ts-ignore
                             image={image}
                             alt={title}
                           ></CardMedia>
@@ -231,9 +230,6 @@ const SectionTemplate: React.FC<Props> = ({ search }) => {
                             {text && <Typography>{text}</Typography>}
                           </CardContent>
                         </Card>
-
-                        {/* <img src={image} alt={name} style={{ width: "100%" }} /> */}
-                        {/* <FaceLessModel data={{ id, image, name }} /> */}
                       </LinkTag>
                     </Grid>
                   </>
