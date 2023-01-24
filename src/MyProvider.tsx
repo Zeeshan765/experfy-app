@@ -16,7 +16,7 @@ const MyProvider: React.FC<any> = ({ children }) => {
   } = useConfig();
 
   const [adminPortal, setAdminPortal] = useState({});
-  const [brands, setBrands] = useState(['hey']);
+  const [brands, setBrands] = useState(["hey"]);
   const [seo_setting, setSeo_Setting] = useState({});
   const [selectedPageCode, setSelectedPageCode] = useState('1234');
   // const setSelectedPageCode = (id) => {

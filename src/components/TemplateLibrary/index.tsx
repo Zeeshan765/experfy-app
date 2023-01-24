@@ -20,6 +20,7 @@ const useStyles = makeStyles({
   tabList: {
     '& .MuiTab-root': {
       fontSize: '18px',
+      fontSize: '18px',
       fontWeight: 500,
       fontFamily: 'proxima-nova',
       textTransform: 'none',
@@ -72,6 +73,7 @@ function a11yProps(index) {
 }
 
 const TemplatesLibrary: React.FC = () => {
+  const [search, setSearch] = React.useState('');
   const [search, setSearch] = React.useState('');
   const [template, setTemplate] = React.useState('pages');
   const { setStepNav } = useStepNav();
@@ -154,6 +156,8 @@ const TemplatesLibrary: React.FC = () => {
                 />
               </Grid>
             </Grid>
+            {template === 'pages' && <PageTemplate search={search} />}
+            {template === 'sections' && <SectionTemplate search={search} />}
             {template === 'pages' && <PageTemplate search={search} />}
             {template === 'sections' && <SectionTemplate search={search} />}
           </TabPanel>
