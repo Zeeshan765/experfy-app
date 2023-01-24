@@ -139,12 +139,9 @@ const SectionPageBuilder: React.FC = () => {
       },
       selectorManager: {
         appendTo: '.styles-container',
-      selectorManager: {
-        appendTo: '.styles-container',
       },
       styleManager: {
         appendTo: '.styles-container',
-        sectors: getSectors(blocks),
         sectors: getSectors(blocks),
       },
     });
@@ -213,30 +210,7 @@ const SectionPageBuilder: React.FC = () => {
           <div id="sections"></div>
         </div>
       </div>
-    <div className="main__content">
-      <Eyebrow />
-      <div className="panel__top"></div>
-      <div className="editor-row">
-        <div className="panel__basic-actions"></div>
-        <div className="panel__left">
-          <div className="panel__switcher">
-            <Link className="back__panel" to={`${admin}/`}>
-              <span>&#10094;</span>
-              <span>Theme Builder</span>
-              <span>&#9783;</span>
-            </Link>
-          </div>
-          <div className="blocks"></div>
-          <div className="styles-container"></div>
-          <div className="traits-container"></div>
-          <div className="layers-container"></div>
-        </div>
-        <div className="editor-canvas">
-          <div id="sections"></div>
-        </div>
-      </div>
     </div>
   );
 };
-export default SectionPageBuilder;
 export default SectionPageBuilder;
