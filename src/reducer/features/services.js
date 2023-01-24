@@ -9,12 +9,8 @@ export const constensApi = createApi({
   endpoints: (builder) => ({
     getMedia:builder.query({
         query:()=>'/media'
-    }),
-    pageCreateFromScratch:builder.query({
-      
     })
-
   }),
 });
 
-export const { useGetMediaQuery, usePageCreateFromScratchQuery } = constensApi;
+export const { useGetMediaQuery } = constensApi;

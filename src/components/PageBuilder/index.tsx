@@ -31,20 +31,18 @@ const PageBuilder: React.FC = () => {
   //   title: "sample",
   //   author:'',
   // });
-
   const { setStepNav } = useStepNav();
   const {
     routes: { admin },
   } = useConfig();
   const { setSelectedPageCode } = useContext(Context);
-  const [headingText, setHeadingText] = React.useState<string>("abc");
+  const [headingText, setHeadingText] = React.useState<string>('abc');
   const apiEndpoint = `${serverURL}/api/media?locale=en&depth=0&fallback-locale=null`;
-
   useEffect(() => {
     setStepNav([
       {
-        label: "Page Builder",
-        url: "/collections/page-builder",
+        label: 'Page Builder',
+        url: '/collections/page-builder',
       },
     ]);
   }, [setStepNav]);
@@ -100,18 +98,18 @@ const PageBuilder: React.FC = () => {
     try {
       // Create the form data for the request
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append('file', file);
       // formData.append('name', file.name);
       let item = {
-        keywords: "Media",
-        mediaType: "Photo",
-        description: "test description",
+        keywords: 'Media',
+        mediaType: 'Photo',
+        description: 'test description',
       };
-      formData.append("_payload", JSON.stringify(item));
+      formData.append('_payload', JSON.stringify(item));
       // Make the POST request
       await axios.post(apiEndpoint, formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
           // Authorization: `Bearer ${apiKey}`,
         },
       });
@@ -128,7 +126,7 @@ const PageBuilder: React.FC = () => {
       .then((response) => {
         const { docs } = response.data;
         docs.forEach(({ url }) => {
-          assetManager?.add([{ src: url, type: "image" }]);
+          assetManager?.add([{ src: url, type: 'image' }]);
         });
       })
       .catch((error) => {
@@ -138,21 +136,21 @@ const PageBuilder: React.FC = () => {
 
   useEffect(() => {
     const sections = [
-      "header",
-      "footer",
-      "image-banner",
-      "image-gallery",
-      "image-and-text",
-      "paragraph",
-      "practice-areas",
-      "benefits",
-      "departments",
-      "guidelines",
-      "location",
-      "metrics-numbers",
-      "talent-cloud-candidates",
-      "testimonial",
-      "video",
+      'header',
+      'footer',
+      'image-banner',
+      'image-gallery',
+      'image-and-text',
+      'paragraph',
+      'practice-areas',
+      'benefits',
+      'departments',
+      'guidelines',
+      'location',
+      'metrics-numbers',
+      'talent-cloud-candidates',
+      'testimonial',
+      'video',
     ];
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,
@@ -165,33 +163,33 @@ const PageBuilder: React.FC = () => {
       });
 
     editor = GrapesJS.init({
-      container: ".editor",
+      container: '.editor',
       fromElement: true,
       showDevices: false,
       plugins: [
         ExperfyBlocks,
         (editor) =>
           NavBar(editor, {
-            label: "Header",
+            label: 'Header',
             block: {
-              category: "Header & Footer",
+              category: 'Header & Footer',
             },
           }),
         (editor) =>
           Basics(editor, {
-            category: "Basic Elements",
+            category: 'Basic Elements',
             flexGrid: true,
             addBasicStyle: true,
           }),
         (editor) =>
           Forms(editor, {
-            category: "Basic Elements",
+            category: 'Basic Elements',
           }),
         ,
       ],
 
       storageManager: {
-        type: "local",
+        type: 'local',
         autoload: true,
         options: {
           storeComponents: true,
@@ -200,52 +198,29 @@ const PageBuilder: React.FC = () => {
           storeCss: true,
 
           local: {
-            key: "page_code",
+            key: 'page_code',
           },
         },
       },
 
       layerManager: {
-        appendTo: ".layers-container",
+        appendTo: '.layers-container',
         scrollCanvas: true,
       },
       selectorManager: {
-        appendTo: ".styles-container",
+        appendTo: '.styles-container',
         componentFirst: true,
       },
       styleManager: {
-        appendTo: ".styles-container",
+        appendTo: '.styles-container',
         highlightChanged: true,
       },
       traitManager: {
-        appendTo: ".traits-container",
+        appendTo: '.traits-container',
       },
       blockManager: {
-        appendTo: ".blocks",
+        appendTo: '.blocks',
         blocks: [],
-      },
-      commands: {
-        defaults: [
-          {
-            id: "preview-fullscreen",
-            run() {
-              editor.runCommand("preview");
-              editor.runCommand("fullscreen");
-            },
-            stop() {
-              editor.stopCommand("fullscreen");
-              editor.stopCommand("preview");
-            },
-          },
-          {
-            id: "save-editor",
-              hidden: true,
-            run(editor: { store: () => GrapesJS.Editor }) {
-              const store = editor.store();
-              dataHandler();
-            },
-          },
-        ],
       },
     });
 
@@ -268,19 +243,19 @@ const PageBuilder: React.FC = () => {
         });
     };
 
-    editor.on("component:selected", (component) => {
-      if (component.get("type") == "text") {
-        editor?.runCommand("core:open-traits");
-        if (component.get("traits").models[1].get("value"))
-          component.components(component.get("traits").models[1].get("value"));
+    editor.on('component:selected', (component) => {
+      if (component.get('type') == 'text') {
+        editor?.runCommand('core:open-traits');
+        if (component.get('traits').models[1].get('value'))
+          component.components(component.get('traits').models[1].get('value'));
       }
     });
-    editor.on("component:update", (component) => {
-      if (component.get("type") == "text")
-        component.components(component.get("traits").models[1].get("value"));
+    editor.on('component:update', (component) => {
+      if (component.get('type') == 'text')
+        component.components(component.get('traits').models[1].get('value'));
     });
 
-    editor.on("asset:add", (component) => {
+    editor.on('asset:add', (component) => {
       if (component.attributes.src.includes(serverURL)) {
         return;
       }
@@ -295,7 +270,7 @@ const PageBuilder: React.FC = () => {
         });
       } else {
         // url file handling
-        let arr = src.split("/");
+        let arr = src.split('/');
         let filename = arr[arr.length - 1];
         fetch(src).then((response) => {
           response.blob().then((fileBlob) => {
@@ -309,7 +284,7 @@ const PageBuilder: React.FC = () => {
 
   return (
     <div className="main__content">
-   <Eyebrow />
+      <Eyebrow />
       <div className="panel__top"></div>
       <div className="editor-row">
         <div className="panel__basic-actions"></div>

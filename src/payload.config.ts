@@ -42,11 +42,6 @@ export default buildConfig({
       afterNavLinks: [AfterNav],
 
       routes: [
-        // {
-        //   path: "/collections/page-builder",
-        //   Component: PageBuilder,
-        //   exact: true,
-        // },
         {
           path: '/collections/basic-portal-identity',
           Component: BasicPortalIdentityPage,
@@ -70,7 +65,23 @@ export default buildConfig({
           strict: true,
         },
         {
-          path: "/collections/templates",
+          path: '/collections/templates',
+          Component: TemplatesLibrary,
+        },
+        {
+          path: '/collections/themes-style',
+          Component: DesignSystem,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: '/collections/page-builder',
+          Component: PageBuilder,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: '/collections/templates-library',
           Component: TemplatesLibrary,
         },
         {
@@ -96,82 +107,89 @@ export default buildConfig({
           strict: true,
         },
         {
-          path: "/collections/section-templates/header",
+          path: '/collections/section-templates/header',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: "/collections/section-templates/footer",
+          path: '/collections/section-templates/footer',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: "/collections/section-templates/benefits",
+          path: '/collections/section-templates/benefits',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: "/collections/section-templates/practice-areas",
+          path: '/collections/section-templates/practice-areas',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: "/collections/section-templates/video",
+          path: '/collections/section-templates/video',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: "/collections/section-templates/guidelines",
+          path: '/collections/section-templates/guidelines',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: "/collections/section-templates/location",
+          path: '/collections/section-templates/location',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: "/collections/section-templates/paragraph",
+          path: '/collections/section-templates/paragraph',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: "/collections/section-templates/metrics-numbers",
+          path: '/collections/section-templates/metrics-numbers',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: "/collections/section-templates/image-banner",
+          path: '/collections/section-templates/image-banner',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: "/collections/section-templates/image-and-text",
+          path: '/collections/section-templates/image-and-text',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: "/collections/section-templates/talent-cloud-candidates",
+          path: '/collections/section-templates/talent-cloud-candidates',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
+        {
+          path: '/collections/section-templates/testimonial',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
         {
           path: "/collections/section-templates/testimonial",
           Component: SectionPageBuilder,
@@ -183,7 +201,7 @@ export default buildConfig({
           Component: Form,
         },
         {
-          path: "/collections/image_and_text",
+          path: '/collections/image_and_text',
           Component: ImgText,
         },
       ],

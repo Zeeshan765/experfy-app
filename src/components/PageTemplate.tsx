@@ -102,6 +102,7 @@ const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
+                  // boxShadow:'0px 1px 3px 0px #000000',
                   flexDirection: 'column',
                 }}
               >
@@ -152,6 +153,7 @@ const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
+                  // boxShadow:'0px 1px 3px 0px #000000',
                   flexDirection: 'column',
                 }}
               >

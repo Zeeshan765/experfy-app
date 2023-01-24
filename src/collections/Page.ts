@@ -1,9 +1,11 @@
-import { CollectionConfig } from "payload/types";
-import PageBuilder from "../components/PageBuilder";
-import PageTheme from "../components/PageBuilderTemplate";
-import PageBuildFromScratch from "../components/PageBuildFromScratch";
-import SelectPage from "../components/selectPageCode";
-import { setDataToLocalstorage } from "../utilities/localStorage";
+import { CollectionConfig } from 'payload/types';
+import PageTheme from '../components/PageBuilderTemplate';
+import PageBuilder from '../components/PageBuilder/SectionTemplates';
+import Payload from 'payload';
+import SelectPage from '../components/selectPageCode';
+import NewPageBuilder from '../components/PageBuilder';
+import NewPageBuilderModel from '../components/Model/NewPageBuilder';
+import PageBuildFromScratch from '../components/PageBuildFromScratch';
 
 export type Type = {
   title: string;
@@ -23,12 +25,12 @@ export const Page: CollectionConfig = {
     //   console.log("data", data);
     //   return true;
     // },
-    components: {
-      views: {
-        Edit: PageBuilder,
-      },
+    // components: {
+    //   views: {
+    //     Edit: PageBuilder,
+    //   },
       // Field: PageBuildFromScratch,
-    },
+    // },
   },
 
   access: {
@@ -106,7 +108,7 @@ export const Page: CollectionConfig = {
       admin: {
         condition: (data) => data.pageType === "scratch",
         components: {
-          Field: PageBuildFromScratch,
+          Field: PageBuildFromScratch ,
         },
       },
     },
