@@ -312,34 +312,58 @@ const SectionPageBuilder: React.FC = () => {
     // const openBl = editor.Panels.getButton('views', '.blocks');
     // editor.on('load', () => openBl.set('active', true));
 
-    editor.on('load', () => {
-      if (blocks.length === 1) {
-        editor.runCommand('show-styles');
-        editor.runCommand('show-traits');
-        editor.stopCommand('stop-blocks');
-        const block = editor.BlockManager.get(blocks[0]);
-        const component = editor.addComponents(block.get('content'));
-        editor.select(component[0]);
-        component[0].set('activeOnRender', true);
-        component[0].set('removable', false);
-        component[0].set('draggable', false);
-        component[0].set('droppable', false);
-        component[0].set('stylable', true);
-        component[0].set('copyable', false);
-        component[0].set('layerable', false);
+    // editor.on('load', () => {
+    //   // if (blocks.length === 1) {
+    //   //   editor.runCommand('show-styles');
+    //   //   editor.runCommand('show-traits');
+    //   //   editor.stopCommand('stop-blocks');
+    //   //   const block = editor.BlockManager.get(blocks[0]);
+    //   //   const component = editor.addComponents(block.get('content'));
+    //   //   editor.select(component[0]);
+    //   //   component[0].set('activeOnRender', true);
+    //   //   component[0].set('removable', false);
+    //   //   component[0].set('draggable', false);
+    //   //   component[0].set('droppable', false);
+    //   //   component[0].set('stylable', true);
+    //   //   component[0].set('copyable', false);
+    //   //   component[0].set('layerable', false);
 
-        // if component exists, means the drop was successful
-        if (component) {
-          const sectors = editor.StyleManager.getSectors();
-          sectors.reset();
-          sectors.add(getSectors(component[0].ccid));
-        }
-      } else {
-        editor.runCommand('show-blocks');
-        editor.runCommand('hide-traits');
-        editor.runCommand('hide-styles');
-      }
-    });
+    //     // if component exists, means the drop was successful
+    //     if (component) {
+    //       const sectors = editor.StyleManager.getSectors();
+    //       sectors.reset();
+    //       sectors.add(getSectors(component.ccid));
+    //     }
+    //   // } else {
+    //   //   editor.runCommand('show-blocks');
+    //   //   editor.runCommand('hide-traits');
+    //   //   editor.runCommand('hide-styles');
+    //   // }
+    // });
+    editor.on('load', () => {
+			// if component exists, means the drop was successful
+
+			if (blocks.length === 1 && editor) {
+				editor.runCommand('core:open-styles');
+				editor.stopCommand('core:open-traits');
+				editor.stopCommand('core:open-blocks');
+				editor.stopCommand('core:open-layers');
+				const block = editor.BlockManager.get(blocks[0]);
+				const component = editor.addComponents(block.get('content'));
+				editor.select(component[0]);
+				component[0].set('activeOnRender', true);
+				component[0].set('removable', false);
+				component[0].set('draggable', false);
+				component[0].set('droppable', false);
+				component[0].set('stylable', true);
+				component[0].set('copyable', false);
+				component[0].set('layerable', false);
+			} else {
+				editor?.runCommand('core:open-blocks');
+				editor?.stopCommand('core:open-traits');
+				editor?.stopCommand('core:open-styles');
+			}
+		});
 
     editor.on('run:component-select', () =>
       editor.Components.getWrapper()
@@ -348,7 +372,14 @@ const SectionPageBuilder: React.FC = () => {
           trait.set('disabled', false);
         })
     );
-
+		editor.on('component:add', (component) => {
+			if (component) {
+				component.set('activeOnRender', true);
+				const sectors = editor?.StyleManager.getSectors();
+				sectors.reset();
+				sectors.add(getSectors(component.ccid));
+			}
+		});
     editor.on('component:drag:end', () => {
       editor.runCommand('show-styles');
       editor.runCommand('show-traits');
