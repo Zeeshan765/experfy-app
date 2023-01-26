@@ -26,20 +26,21 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     },
   },
   fields: [
-    {
-      name: "user_portal",
-      type: "relationship",
-      relationTo: "users",
-      hasMany: false,
-      // required: true,
-      // required: true,
+    // {
+    //   name: "user_portal",
+    //   type: "relationship",
+    //   relationTo: "users",
+    //   hasMany: false,
+    //   // required: true,
+    //   // required: true,
     
-    },
+    // },
     {
       label: "Portal Name",
       name: "career_portal_name",
       type: "text",
-      defaultValue: "Career Portal",
+      // defaultValue: "Career Portal",
+
       required: false,
     },
     {
@@ -68,18 +69,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       type: "text",
     },
 
-    {
-      name: "page_title",
-      type: "text",
-    },
-    {
-      name: 'meta_keywords',
-      type: 'text',
-    },
-    {
-      name: "meta_description",
-      type: "text",
-    },
+   
     {
       name: 'tracking_pixel',
       type: 'text',
@@ -130,7 +120,7 @@ const BasicPortalIdentityCollection: CollectionConfig = {
 
     //  },
     {
-      name: 'brands',
+      name: 'default_brand',
       type: 'array',
       fields: [
         {
