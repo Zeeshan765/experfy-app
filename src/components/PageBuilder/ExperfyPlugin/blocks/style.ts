@@ -87,46 +87,6 @@ export const SectionStyle = `<style>
   margin:20px 20px;
 }
 
-.main_container .content-section .h1 {
-  font-size: 32px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-
-.main_container .content-section .h2 {
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-.main_container .content-section .h3 {
-  font-size: 19px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}.main_container .content-section .h4 {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}.main_container .content-section .h5 {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}.main_container .content-section .h6 {
-  font-size: 11px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}.main_container .content-section .span {
-  font-size: 10px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}.main_container .content-section .div {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}.main_container .content-section .p {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
 
 
 .main_container .content-section .sub_heading {
@@ -569,45 +529,7 @@ display: flex;
     text-align: left;
     color: #fff;
   }
-  .bannar-content  .h1{
-    font-size: 32px;
   
-    font-weight: 500;
-  }
-   .bannar-content  .h2{
-    font-size: 24px;
-  
-    font-weight: 500;
-  }
-   .bannar-content  .h3{
-    font-size: 19px;
-  
-    font-weight: 500;
-  }
-   .bannar-content  .h4{
-    font-size: 16px;
-  
-    font-weight: 500;
-  }
-   .bannar-content  .h5{
-    font-size: 14px;
-  
-    font-weight: 500;
-  }
-   .bannar-content  .h6{
-    font-size: 11px;
-  
-    font-weight: 500;
-  }
-   .bannar-content  .span{
-    font-size: 10px;
-  
-    font-weight: 500;
-  }
-   .bannar-content  .div{
-    font-size: 16px;
-    font-weight: 500;
-  }
 
   .bannar-content  .p{
     font-size:16px;

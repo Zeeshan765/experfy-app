@@ -1076,6 +1076,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 </div>
         </section>
         ${style}
+        ${getStyles(".bannar-content")}
         `,
   });
 
