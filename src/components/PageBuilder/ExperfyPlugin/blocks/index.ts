@@ -3,7 +3,7 @@ import type grapesjs from 'grapesjs';
 import { ReactComponentElement as footer } from 'react';
 
 import { RequiredPluginOptions } from '..';
-import { getStyles, SectionStyle as style } from './style';
+import { getbuttonStyles, getStyles, SectionStyle as style } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
@@ -926,9 +926,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="address-text-div">
               <p>Add address, phone number, or social media</p>
           </div>
+         
         </div>
 
-
+        <div class="address-btn-div">
+          <button>Hello World</button>
+        </div>
         </div>
         <div class="address-map-div">
             <img class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
@@ -937,6 +940,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
   </section>
   ${style}
+  ${getStyles([".address-content-main-holder","address-content-div","address-text-div"])}
+  ${getbuttonStyles(".address-btn-div")}
   `,
   });
   addBlock('paragraph', {
@@ -965,6 +970,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
  </section>
  ${style}
+ ${getStyles([".paragraph-container"])}
  `,
   });
 
@@ -1076,7 +1082,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 </div>
         </section>
         ${style}
-        ${getStyles(".bannar-content")}
+        ${getStyles([".bannar-content"])}
         `,
   });
 
@@ -1123,7 +1129,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         </section>
         ${style}
-        ${getStyles(".main_container .content-section")}
+        ${getStyles([".main_container .content-section"])}
         `,
   });
 };

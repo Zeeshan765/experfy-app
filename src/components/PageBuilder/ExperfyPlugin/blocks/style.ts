@@ -1,74 +1,81 @@
 
-export const getStyles = (parentClass: string)=> {
+export const getStyles = (parentClass: any)=> {
   return `<style>
-  ${parentClass} .h1 {
+  ${parentClass.map(el=> `  ${el} .h1 {
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 15px;
   }
   
   
-  ${parentClass} .h2 {
+  ${el} .h2 {
     font-size: 24px;
     font-weight: 500;
     margin-bottom: 15px;
   }
   
-  ${parentClass} .h3 {
+  ${el} .h3 {
     font-size: 19px;
     font-weight: 500;
     margin-bottom: 15px;
   }
-  ${parentClass} .h4 {
+  ${el} .h4 {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 15px;
   }
-  ${parentClass} .h5 {
+  ${el} .h5 {
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 15px;
   }
-  ${parentClass} .h6 {
+  ${el} .h6 {
     font-size: 11px;
     font-weight: 500;
     margin-bottom: 15px;
   }
-  ${parentClass} .span {
+  ${el} .span {
     font-size: 10px;
     font-weight: 500;
     margin-bottom: 15px;
   }
-  ${parentClass} .div {
+  ${el} .div {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 15px;
   }
-  ${parentClass} .p {
+  ${el} .p {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 15px;
   }
-  ${parentClass} .left {
+  ${el} .left {
     text-align: left;
   }
-  ${parentClass} .center {
+  ${el} .center {
    text-align: center;
   }
-  ${parentClass} .right {
+  ${el} .right {
  text-align: right;
-  }
-  
-
-  
-  
-  
+  }`)}
   </style>`
   }
 
 
 
-
+  export const getbuttonStyles = (parentClass: string)=> {
+    return `<style>
+   ${parentClass} .btn-start {
+   float: left;
+  }
+  ${parentClass} .btn-center {
+    margin: auto;
+   }
+   ${parentClass} .btn-right {
+    float: right;
+   }
+    </style>`
+    }
 
 
 
