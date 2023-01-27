@@ -267,9 +267,9 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
         component.components(component.get('traits').models[0].get('value'));
         component.components(component.get('traits').models[1].get('class'));
 
-      // const block = editor.getSelected();
-      // console.log('block', block)
-      // block.setAttributes({ class: 'main_heading h3' });
+        // const block = editor.getSelected();
+        // console.log('block', block)
+        // block.setAttributes({ class: 'main_heading h3' });
       }
     });
 
@@ -332,30 +332,11 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
               label: 'Alignment',
               default: 'left',
               options: [
-                { value:'left', name: 'Left' },
-                {  value:'center', name: 'Center' },
-                {  value:'right', name: 'Right' },
+                { value: 'left', name: 'Left' },
+                { value: 'center', name: 'Center' },
+                { value: 'right', name: 'Right' },
               ],
             },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Button Alignment',
-              default: 'left',
-              options: [
-                { value:'left', name: 'Left' },
-                {  value:'center', name: 'Center' },
-                {  value:'right', name: 'Right' },
-              ],
-            },
-            {
-              type: 'text',
-              name: 'button-title',
-              label: 'Button',
-              placeholder: 'Enter your title ',
-              className: 'custom-text',
-            },
-            
           ],
         },
       },
@@ -371,20 +352,18 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
               label: 'Button Text',
               placeholder: 'Buttton ',
             },
-           
+
             {
               type: 'select',
               name: 'class',
               label: 'Button Alignment',
               default: 'start',
               options: [
-                { value:'btn-start', name: 'Left' },
-                {  value:'btn-center', name: 'Center' },
-                {  value:'btn-right', name: 'Right' },
+                { value: 'btn-start', name: 'Left' },
+                { value: 'btn-center', name: 'Center' },
+                { value: 'btn-right', name: 'Right' },
               ],
             },
-           
-            
           ],
         },
       },
@@ -406,7 +385,6 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
         if (component.get('traits').models[0].get('value'))
           component.components(component.get('traits').models[0].get('value'));
       }
-
     });
     editor.on('component:update', (component) => {
       // console.log('component:update', component);

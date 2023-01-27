@@ -129,6 +129,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </footer>
  ${style}
+ ${getStyles([".footer-address-section margin-class",".site-credit-footer-container",".footer-images-section margin-class","margin-class"])}
  `,
   });
   addBlock('testimonial', {
@@ -180,6 +181,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    
  </section>
  ${style}
+ ${getStyles([".left-container",".slider-text-div"])}
  `,
   });
   addBlock('benefits', {
@@ -265,6 +267,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </section>
  ${style}
+ ${getStyles([".benefits-title-div",".benefits-option-section"])}
  `,
   });
   addBlock('practice-areas', {
@@ -801,6 +804,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
     </section>
  ${style}
+ ${getStyles([".video-header"])}
  `,
   });
   addBlock('guidelines', {
@@ -864,6 +868,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </div>
   </section>
   ${style}
+  ${getStyles([".guideline-header-section",".heading"])}
   `,
   });
   addBlock('location', {
@@ -929,9 +934,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
          
         </div>
 
-        <div class="address-btn-div">
-          <button>Hello World</button>
-        </div>
+        
         </div>
         <div class="address-map-div">
             <img class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
@@ -941,7 +944,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </section>
   ${style}
   ${getStyles([".address-content-main-holder","address-content-div","address-text-div"])}
-  ${getbuttonStyles(".address-btn-div")}
+ 
   `,
   });
   addBlock('paragraph', {
@@ -1019,6 +1022,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </section> 
     
     ${style}
+    ${getStyles([".title-div",".benefit percentage-info"])}
     `,
   });
 
@@ -1051,6 +1055,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  </div>
  </section> 
     ${style}
+    ${getStyles([".content-div"])}
  `,
   });
 
