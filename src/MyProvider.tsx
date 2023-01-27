@@ -41,7 +41,7 @@ const MyProvider: React.FC<any> = ({ children }) => {
   const getTokenApi = async () => {
     console.log('getToken Api Called:' );
     try {
-      let response = await axios.post('https://landing-ui-service.develop.experfy.com/login-api', {
+      let response = await axios.post('https://landing-ui-service.develop.experfy.com/login', {
         Headers: {
           'Content-Type': 'application/json',
           'access-control-allow-origin': '*',

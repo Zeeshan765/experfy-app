@@ -326,6 +326,17 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
                 { id: 'p', name: 'p' },
               ],
             },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Alignment',
+              default: 'left',
+              options: [
+                { value:'left', name: 'Left' },
+                {  value:'center', name: 'Center' },
+                {  value:'right', name: 'Right' },
+              ],
+            },
           ],
         },
       },

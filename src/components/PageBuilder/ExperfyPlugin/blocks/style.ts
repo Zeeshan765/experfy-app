@@ -1,3 +1,78 @@
+
+export const getStyles = (parentClass: string)=> {
+  return `<style>
+  ${parentClass} .h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  
+  ${parentClass} .h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  ${parentClass} .h3 {
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${parentClass} .h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${parentClass} .h5 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${parentClass} .h6 {
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${parentClass} .span {
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${parentClass} .div {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${parentClass} .p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${parentClass} .left {
+    text-align: left;
+  }
+  ${parentClass} .center {
+   text-align: center;
+  }
+  ${parentClass} .right {
+ text-align: right;
+  }
+  
+
+  
+  
+  
+  </style>`
+  }
+
+
+
+
+
+
+
+
 export const SectionStyle = `<style>
 
 .main_container {

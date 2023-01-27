@@ -3,7 +3,7 @@ import type grapesjs from 'grapesjs';
 import { ReactComponentElement as footer } from 'react';
 
 import { RequiredPluginOptions } from '..';
-import { SectionStyle as style } from './style';
+import { getStyles, SectionStyle as style } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
@@ -1122,7 +1122,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         </section>
         ${style}
-        
+        ${getStyles(".main_container .content-section")}
         `,
   });
 };
