@@ -124,6 +124,8 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       'testimonial',
       'video',
       'search',
+      'divider',
+      'spacer',
     ];
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,

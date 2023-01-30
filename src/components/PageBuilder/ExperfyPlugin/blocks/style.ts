@@ -924,4 +924,15 @@ display: flex;
     border:1px solid #48A3D7;
     background-color: #48A3D7;
    }
+
+   .page-builder-divider{
+    padding: 15px 0px;
+  }
+  .page-builder-divider .page-builder-divider-seprator{
+    width: 100%;
+    border-bottom: 1px solid #000 !important;
+  }
+  .page-builder-spacer .page-builder-spacer-inner {
+    height: 50px;
+  }
 </style>`;

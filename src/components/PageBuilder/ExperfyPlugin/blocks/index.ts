@@ -1152,4 +1152,24 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         ${style}
         `,
   });
+  addBlock('divider', {
+    label: 'Divider',
+    category: 'Section Modules',
+    // media: ,
+    content: `<div class="page-builder-divider">
+    <span class="page-builder-divider-seprator"></span>
+   </div>
+        ${style}
+        `,
+  });
+  addBlock('spacer', {
+    label: 'Spacer',
+    category: 'Section Modules',
+    // media: ,
+    content: `<div class="page-builder-spacer">
+    <div class="page-builder-spacer-inner"></div>
+  </div>
+        ${style}
+        `,
+  });
 };
