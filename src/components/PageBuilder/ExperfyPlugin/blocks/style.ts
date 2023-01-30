@@ -102,15 +102,7 @@ export const getbuttonStyles = (parentClass: any) => {
       outline:none ;
     }
 
-    ${classname} .btn-start {
-    text-align: left;
-   }
-   ${classname} .btn-center {
-     text-align: center;
-    }
-    ${classname} .btn-right {
-     text-align: right;
-    }
+
     ${classname} .btn-extrasmall {
       padding: 10px 20px;
    }
@@ -599,24 +591,7 @@ display: flex;
     margin: 0px auto 20px;
   }
 
-  .bannar-btn-div{
-    text-align:center
-  }
 
-  .button-annar{
-    background-color:#3aa17d;
-    color:#fff;
-    padding:13px 60px;
-    border-radius:3px;
-    font-weight:400;
-    font-size:16px;"
-    border:none;
-    outline:none;
-  }
-  .button-annar:focus{
-    border:none;
-    outline:none ;
-  }
 
 
   /* /////////////////////////////////////////////
@@ -984,5 +959,30 @@ display: flex;
   }
   .page-builder-spacer .page-builder-spacer-inner {
     height: 50px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .icon-wrapper{
+    text-align: center;
+  }
+  .page-title-wrapper .page-builder-heading-title{
+    font-size: 25px;
+    color: #48A3D7;
   }
 </style>`;

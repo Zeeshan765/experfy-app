@@ -126,6 +126,8 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       'search',
       'divider',
       'spacer',
+      'icon',
+      'page-title',
     ];
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,
@@ -405,9 +407,6 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       }
     });
     editor.on('component:update', (component) => {
-      // console.log('component:update', component);
-      // console.log('type', component.get('type'));
-      // console.log('hello world', component.get('traits'));
       if (component.get('type') == 'text') {
         component.components(component.get('traits').models[0].get('value'));
         component.components(component.get('traits').models[1].get('class'));
