@@ -1137,4 +1137,19 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         ${getStyles([".main_container .content-section"])}
         `,
   });
+  addBlock('search', {
+    label: 'Search',
+    category: 'Section Modules',
+    // media: ,
+    content: `<section class="search-section-main-holder">
+    <div class="search-bar-div">
+    <div class="search-box">
+    <input type="text" class="search-input" placeholder="Search Item...">
+    <button class="search-button"> Search</button>
+ </div>
+    </div>
+    </section>
+        ${style}
+        `,
+  });
 };

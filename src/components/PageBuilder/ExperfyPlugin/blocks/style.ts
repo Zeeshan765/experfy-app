@@ -871,5 +871,57 @@ display: flex;
   line-height: 1.5;
   text-transform: uppercase;
  }
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* /////////////////////////////////////////////
+  ///////////  Search style //////////
+  /////////////////////////////////////////// */ 
+
+
+  .search-section-main-holder{
+    width: 80%;
+    margin:20px auto;
+   }
+   .search-bar-div{
+     padding: 30px 50px;
+     border-radius: 5px;
+     background-color: #78C493;
+   }
+   .search-box{
+     width: 70%;
+     margin: auto;
+     display: flex;
+     position: relative;
+   }
+   .search-input{
+     width: 100%;
+     border: none;
+     outline: none;
+     font-size: 16px;
+     padding: 15px 10px;
+     border-radius: 5px 0px 0px 5px;
+     background-color: #FFFFFF;
+   }
+   .search-button{
+    outline: none;
+    color :#ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius:0px 5px 5px 0px;
+    border:1px solid #48A3D7;
+    background-color: #48A3D7;
+   }
 </style>`;

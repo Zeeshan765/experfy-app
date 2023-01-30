@@ -123,6 +123,7 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       'talent-cloud-candidates',
       'testimonial',
       'video',
+      'search',
     ];
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,
