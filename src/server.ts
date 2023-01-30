@@ -1,31 +1,37 @@
-import express from "express";
-import payload from "payload";
-require("dotenv").config();
+import express from 'express';
+import payload from 'payload';
+require('dotenv').config();
 const app = express();
-import { createProxyMiddleware } from "http-proxy-middleware";
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
-const LOGIN_MATCHER = "/login";
-const LOGIN_API_URL = "https://landing-ui-service.develop.experfy.com";
+const LOGIN_MATCHER = '/login';
+const LOGIN_API_URL = 'https://landing-ui-service.develop.experfy.com';
 
 // Redirect root to Admin panel
-app.get("/", (_, res) => {
-  res.redirect("/admin");
+app.get('/', (_, res) => {
+  res.redirect('/admin');
 });
 
 // Initialize Payload
 payload.init({
-  secret: process.env.PAYLOAD_SECRET ?? "1S2Xf3SF1SAA1UZR2SX",
-  mongoURL: process.env.MONGODB_URI ?? "mongodb://localhost/experfy-payload/",
+  secret: process.env.PAYLOAD_SECRET ?? '1S2Xf3SF1SAA1UZR2SX',
+  mongoURL: process.env.MONGODB_URI ?? 'mongodb://localhost/experfy-payload/',
   express: app,
   onInit: () => {
-    payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
-    console.log("Payload Admin URL: ", payload.getAdminURL());
+    payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
+    console.log('Payload Admin URL: ', payload.getAdminURL());
   },
 });
 
 const router = express.Router();
 
-router.use(payload.authenticate);
+router.use((req, res, next) => {
+  console.log('router.use');
+  console.log('req.params', req.params);
+  console.log('req.body', req.body);
+  console.log('req.query', req.query);
+  next();
+});
 
 app.use(
   LOGIN_MATCHER,
@@ -36,10 +42,10 @@ app.use(
 );
 
 router.post(LOGIN_API_URL + LOGIN_MATCHER, (req, res) => {
-  req.params["email"] = "ali.raza@algorepublic.com";
-  req.params["password"] = "ars@123456";
-  
+  req.params['email'] = 'ali.raza@algorepublic.com';
+  req.params['password'] = 'ars@123456';
   res.send(req.params);
+  console.log(res);
 });
 // Add your own express routes here
 

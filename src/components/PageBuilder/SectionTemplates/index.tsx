@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Experfy from '../ExperfyPlugin';
 import NavBar from 'grapesjs-navbar';
-import { getSectors } from '../ExperfyPlugin/getSectors';
+import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
@@ -20,6 +20,7 @@ const SectionPageBuilder: React.FC = () => {
   } = useConfig();
 
   const sections = [
+    'page-builder',
     'header',
     'footer',
     'image-banner',
@@ -39,10 +40,12 @@ const SectionPageBuilder: React.FC = () => {
   let showSections = true;
 
   useEffect(() => {
+    let arr = pathname.split('/');
+    let str = arr[arr.length - 1];
     setStepNav([
       {
         label: 'Section Templates',
-        url: '/collections/section-templates',
+        url: '/collections/section-templates/' + str,
       },
     ]);
   }, [setStepNav]);
@@ -103,7 +106,13 @@ const SectionPageBuilder: React.FC = () => {
 
     editor = GrapesJS.init({
       container: '#sections',
-      storageManager: true,
+      storageManager: {
+        id: str,
+        type: 'local',
+        autosave: true,
+        autoload: false,
+        stepsBeforeSave: 1,
+      },
       showOffsets: true,
       showDevices: false,
       showOffsetsSelected: true,
@@ -137,26 +146,32 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-    editor.once('load', () => {
+    editor.onReady(() => {
       if (blocks.length === 1) {
+        const sectors = editor.StyleManager.getSectors();
         const block = editor.BlockManager.get(blocks[0]);
-        const components = editor.addComponents(block.get('content'));
-        components[0].set('removable', false);
-        components[0].set('stylable', true);
-        components[0].set('copyable', false);
-        components[0].set('layerable', false);
-        editor.select(components[0]);
+        const component = editor.addComponents(block.get('content'));
+        component[0].set('selectable', true);
+        component[0].set('removable', false);
+        component[0].set('stylable', true);
+        component[0].set('copyable', false);
+        component[0].set('layerable', false);
+        component[0].set('draggable', false);
+        editor.select(component[0]);
+        console.log(component[0].getId());
+        sectors.reset();
+        sectors.add(getSectors(component[0].getId()));
         editor.runCommand('core:open-styles');
       } else {
         editor?.runCommand('core:open-blocks');
       }
     });
 
-    editor.on('component:add', (component) => {
+    editor.on('component:drag:end', (component) => {
       if (component) {
         const sectors = editor.StyleManager.getSectors();
         sectors.reset();
-        sectors.add(getSectors(component.ccid));
+        sectors.add(getSectors(component[0].getId()));
         editor?.runCommand('core:open-styles');
       }
     });

@@ -1,12 +1,12 @@
 // @ts-ignore
-import React, { createContext, useState, useContext } from "react";
-import dotenv from "dotenv";
-import { BrowserRouter } from "react-router-dom";
-import { useConfig } from "payload/components/utilities";
-import ExperfyNavbar from "./components/Nav/ExperfyNavBar";
-import { Provider } from "react-redux";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Store from "./reducer/store";
+import React, { createContext, useState, useContext } from 'react';
+import dotenv from 'dotenv';
+import { BrowserRouter } from 'react-router-dom';
+import { useConfig } from 'payload/components/utilities';
+// import ExperfyNavbar from "./components/Nav/ExperfyNavBar";
+import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Store from './reducer/store';
 
 export const Context = createContext({} as any);
 
@@ -18,7 +18,7 @@ const MyProvider: React.FC<any> = ({ children }) => {
   const [adminPortal, setAdminPortal] = useState({});
   const [brands, setBrands] = useState(["hey"]);
   const [seo_setting, setSeo_Setting] = useState({});
-  const [selectedPageCode, setSelectedPageCode] = useState("1234");
+  const [selectedPageCode, setSelectedPageCode] = useState('1234');
   // const setSelectedPageCode = (id) => {
   //   setPageId(id);
   // };
@@ -68,7 +68,7 @@ const MyProvider: React.FC<any> = ({ children }) => {
   return (
     <Provider store={Store}>
       <BrowserRouter>
-        <ExperfyNavbar />
+        {/* <ExperfyNavbar /> */}
         <Context.Provider value={value}>{children}</Context.Provider>
       </BrowserRouter>
     </Provider>

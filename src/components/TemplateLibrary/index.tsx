@@ -102,7 +102,7 @@ const TemplatesLibrary: React.FC = () => {
     setValue(newValue);
   }
 
-  const handleSeach = (e) => {
+  const handleSearch = (e) => {
     const { value } = e.target;
     setSearch(value);
   };
@@ -131,7 +131,7 @@ const TemplatesLibrary: React.FC = () => {
                   label="Search Template"
                   placeHolder="Type to search"
                   setTouched={setTouched}
-                  onChange={handleSeach}
+                  onChange={handleSearch}
                 />
               </Grid>
               <Grid item xs={12} sm={6} md={3}>

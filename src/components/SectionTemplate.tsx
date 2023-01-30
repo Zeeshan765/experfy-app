@@ -70,7 +70,7 @@ const SectionTemplate: React.FC<Props> = ({ search }) => {
     {
       id: 1,
       image: custom_build,
-      link: '/admin/collections/new-page-builder',
+      link: '/admin/collections/page-builder',
       name: 'Custom Build',
       text: '',
     },

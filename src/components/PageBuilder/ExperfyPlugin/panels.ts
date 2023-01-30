@@ -26,6 +26,7 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
     {
       id: 'panel__switcher',
       el: '.panel__switcher',
+      visible: false,
       buttons: [
         {
           id: openStyles,
