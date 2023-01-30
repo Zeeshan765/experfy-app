@@ -355,12 +355,27 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
               label: 'Button Text',
               placeholder: 'Buttton ',
             },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Button Size',
+              default: 'small',
+              options: [
+                { value: 'btn-extrasmall', name: 'Extra Small' },
+
+                { value: 'btn-small', name: 'small' },
+                { value: 'btn-medium', name: 'Medium' },
+                { value: 'btn-large', name: 'Large' },
+                { value: 'btn-extralarge', name: 'Extra Large' },
+
+              ],
+            },
 
             {
               type: 'select',
               name: 'class',
               label: 'Button Alignment',
-              default: 'start',
+              default: 'btn-start',
               options: [
                 { value: 'btn-start', name: 'Left' },
                 { value: 'btn-center', name: 'Center' },
@@ -403,6 +418,8 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       if (component.get('type') == 'button') {
         component.components(component.get('traits').models[0].get('value'));
         component.components(component.get('traits').models[1].get('class'));
+        component.components(component.get('traits').models[2].get('class'));
+
         // const block = editor.getSelected();
         // console.log('block', block)
         // block.setAttributes({ class: 'main_heading h3' });

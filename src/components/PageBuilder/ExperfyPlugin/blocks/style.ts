@@ -1,7 +1,7 @@
-
-export const getStyles = (parentClass: any)=> {
+export const getStyles = (parentClass: any) => {
   return `<style>
-  ${parentClass.map(el=> `  ${el} .h1 {
+  ${parentClass.map(
+    (el) => `  ${el} .h1 {
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 15px;
@@ -57,28 +57,78 @@ export const getStyles = (parentClass: any)=> {
   }
   ${el} .right {
  text-align: right;
-  }`)}
-  </style>`
-  }
+  }`
+  )}
+  </style>`;
+};
 
 
-
-  export const getbuttonStyles = (parentClass: string)=> {
-    return `<style>
-   ${parentClass} .btn-start {
-   float: left;
+export const getButtonALignment = (parentClass: any) => {
+  return `<style>
+  
+  ${parentClass} .btn-start {
+    text-align: left;
   }
   ${parentClass} .btn-center {
-    margin: auto;
-   }
-   ${parentClass} .btn-right {
-    float: right;
-   }
-    </style>`
+   text-align: center;
+  }
+  ${parentClass} .btn-right{
+ text-align: right;
+  }
+
+  </style>`;
+};
+
+
+
+
+export const getbuttonStyles = (parentClass: any) => {
+  return parentClass.map((classname) => {
+    console.log('classname', classname);
+    return `<style>
+    ${classname} button {
+      background-color:#3aa17d;
+      color:#fff;
+      padding:13px 60px;
+      border-radius:3px;
+      font-weight:400;
+      font-size:16px;"
+      border:none;
+      outline:none;
     }
 
+    ${classname}:focus{
+      border:none;
+      outline:none ;
+    }
 
-
+    ${classname} .btn-start {
+    text-align: left;
+   }
+   ${classname} .btn-center {
+     text-align: center;
+    }
+    ${classname} .btn-right {
+     text-align: right;
+    }
+    ${classname} .btn-extrasmall {
+      padding: 10px 20px;
+   }
+    ${classname} .btn-small {
+       padding: 12px 24px;
+    }
+    ${classname} .btn-medium {
+      padding: 15px 30px;
+   }
+   ${classname} .btn-large {
+    padding: 20px 40px;
+ }
+ ${classname} .btn-extralarge {
+  padding: 25px 50px;
+}
+     </style>`;
+  });
+};
 
 export const SectionStyle = `<style>
 

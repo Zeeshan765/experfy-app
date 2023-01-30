@@ -3,7 +3,7 @@ import type grapesjs from 'grapesjs';
 import { ReactComponentElement as footer } from 'react';
 
 import { RequiredPluginOptions } from '..';
-import { getbuttonStyles, getStyles, SectionStyle as style } from './style';
+import { getbuttonStyles,getButtonALignment, getStyles, SectionStyle as style } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
@@ -1078,8 +1078,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             feugiat convallis. Nulla sit amet odio dui. Nulla vulputate dictum tellus vel iaculis.
          </p>
          <div class="bannar-btn-div">
-            <button class="btn btn-primary button-annar">Button Label
-            </button>
+            <button class="btn btn-primary button-annar">Button Label</button>
          </div>
 
       </div>
@@ -1087,7 +1086,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 </div>
         </section>
         ${style}
-        ${getStyles([".bannar-content"])}
+        ${getbuttonStyles([".bannar-btn-div"])}
+        ${getButtonALignment([".bannar-btn-div"])}
         `,
   });
 
