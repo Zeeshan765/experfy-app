@@ -985,4 +985,63 @@ display: flex;
     font-size: 25px;
     color: #48A3D7;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .page-builder-listing-section .page-builder-list-items{
+    padding: 0;
+  }
+  .page-builder-listing-section .page-builder-list-items .page-builder-list-text {
+    font-family: var(--e-global-typography-text-font-family ), Sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: underline;
+    line-height: 3.8em;
+    word-spacing: 2.4em;
+    padding-left: 5px;
+    color: #3B97E3;
+  }
+  
+  
+  
+  
+  
+
+  .page-builder-menu--layout-horizontal .page-builder-menu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .page-builder-menu, .page-builder-menu li page-builder-menu ul {
+    // display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+  }
+  .page-builder-item{
+    color: #222;
+    font-size: 29px;
+    font-weight: 700;
+    padding: 13px 20px;
+    line-height: normal;
+  }
 </style>`;

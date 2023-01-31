@@ -3,7 +3,12 @@ import type grapesjs from 'grapesjs';
 import { ReactComponentElement as footer } from 'react';
 
 import { RequiredPluginOptions } from '..';
-import { getbuttonStyles,getButtonALignment, getStyles, SectionStyle as style } from './style';
+import {
+  getbuttonStyles,
+  getButtonALignment,
+  getStyles,
+  SectionStyle as style,
+} from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
@@ -129,7 +134,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </footer>
  ${style}
- ${getStyles([".footer-address-section margin-class",".site-credit-footer-container",".footer-images-section margin-class","margin-class"])}
+ ${getStyles([
+   '.footer-address-section margin-class',
+   '.site-credit-footer-container',
+   '.footer-images-section margin-class',
+   'margin-class',
+ ])}
  `,
   });
   addBlock('testimonial', {
@@ -181,7 +191,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    
  </section>
  ${style}
- ${getStyles([".left-container",".slider-text-div"])}
+ ${getStyles(['.left-container', '.slider-text-div'])}
  `,
   });
   addBlock('benefits', {
@@ -267,7 +277,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </section>
  ${style}
- ${getStyles([".benefits-title-div",".benefits-option-section"])}
+ ${getStyles(['.benefits-title-div', '.benefits-option-section'])}
  `,
   });
   addBlock('practice-areas', {
@@ -804,7 +814,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
     </section>
  ${style}
- ${getStyles([".video-header"])}
+ ${getStyles(['.video-header'])}
  `,
   });
   addBlock('guidelines', {
@@ -868,7 +878,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </div>
   </section>
   ${style}
-  ${getStyles([".guideline-header-section",".heading"])}
+  ${getStyles(['.guideline-header-section', '.heading'])}
   `,
   });
   addBlock('location', {
@@ -943,7 +953,11 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
   </section>
   ${style}
-  ${getStyles([".address-content-main-holder","address-content-div","address-text-div"])}
+  ${getStyles([
+    '.address-content-main-holder',
+    'address-content-div',
+    'address-text-div',
+  ])}
  
   `,
   });
@@ -973,7 +987,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
  </section>
  ${style}
- ${getStyles([".paragraph-container"])}
+ ${getStyles(['.paragraph-container'])}
  `,
   });
 
@@ -1022,7 +1036,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </section> 
     
     ${style}
-    ${getStyles([".title-div",".benefit percentage-info"])}
+    ${getStyles(['.title-div', '.benefit percentage-info'])}
     `,
   });
 
@@ -1055,7 +1069,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  </div>
  </section> 
     ${style}
-    ${getStyles([".content-div"])}
+    ${getStyles(['.content-div'])}
  `,
   });
 
@@ -1086,8 +1100,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 </div>
         </section>
         ${style}
-        ${getbuttonStyles([".bannar-btn-div"])}
-        ${getButtonALignment([".bannar-btn-div"])}
+        ${getbuttonStyles(['.bannar-btn-div'])}
+        ${getButtonALignment(['.bannar-btn-div'])}
         `,
   });
 
@@ -1134,7 +1148,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         </section>
         ${style}
-        ${getStyles([".main_container .content-section"])}
+        ${getStyles(['.main_container .content-section'])}
         `,
   });
   addBlock('search', {
@@ -1196,6 +1210,56 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
     </div>
+    </div>
+        ${style}
+        `,
+  });
+  addBlock('nav-menu', {
+    label: 'Nav Menu',
+    category: 'Section Modules',
+    // media: ,
+    content: `<nav class="page-builder-nav-menu--main page-builder-menu--layout-horizontal">
+    <ul class="page-builder-menu">
+       <li class="menu-item"> <a href="#" class="page-builder-item">Blog Category</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">Home</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">AI &amp; Machine Learning</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">Big Data, Cloud &amp; DevOps</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">Blog series</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">ConsumerTech</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">FinTech</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">Future of Work</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">HealthTech</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">IoT &amp; Automation</a></li>
+    </ul>
+ </nav>
+        ${style}
+        `,
+  });
+  addBlock('icon-list', {
+    label: 'Icon List',
+    category: 'Section Modules',
+    // media: ,
+    content: `    <div class="page-builder-listing-section">
+    <ul class="page-builder-list-items">
+   <li class="page-builder-list-item">
+      <span class="page-builder-list-icon">
+      <i aria-hidden="true" class="fas fa-check"></i>
+      </span>
+      <span class="page-builder-list-text">List Item #1</span>
+   </li>
+   <li class="page-builder-list-item">
+   <span class="page-builder-list-icon">
+   <i aria-hidden="true" class="fas fa-check"></i>
+   </span>
+   <span class="page-builder-list-text">List Item #2</span>
+</li>
+<li class="page-builder-list-item">
+      <span class="page-builder-list-icon">
+      <i aria-hidden="true" class="fas fa-check"></i>
+      </span>
+      <span class="page-builder-list-text">List Item #3</span>
+   </li>
+</ul>
     </div>
         ${style}
         `,
