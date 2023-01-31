@@ -49,7 +49,7 @@ const MyProvider: React.FC<any> = ({ children }) => {
         email: 'ali.raza@algorepublic.com',
         password: 'ars@123456',
       });
-      console.log('response ==========', response);
+      console.log('Token Response -->', response);
 
       if (response.status == 200) {
         localStorage.setItem('token', response.data.access_token);

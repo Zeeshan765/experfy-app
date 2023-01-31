@@ -177,7 +177,7 @@ const getTokenApi = async () => {
         'access-control-allow-origin': '*',
       }
     });
-    console.log('response ==========', response);
+    // console.log('response ==========', response);
   
   } catch (error) {
     console.log('error', error?.response?.data);

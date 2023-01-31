@@ -22,19 +22,21 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+import axios from 'axios';
 import { Button } from 'payload/components/elements';
 import { Form } from 'payload/components/forms';
 import { useStepNav } from 'payload/components/hooks';
 import { DefaultTemplate } from 'payload/components/templates';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
-import { useFieldArray, useForm } from 'react-hook-form';
+import { useForm, Controller, useFieldArray } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import FormSelect from '../../blocks/FormSelect';
 import FormSwitch from '../../blocks/FormSwitch';
 import FormTip from '../../blocks/FormTip';
 import TextInput from '../../blocks/TextInput';
 import { useStyles } from './css';
+import { toast } from 'react-toastify';
 const baseClass = 'custom-route';
 
 const portal_url_tip =
@@ -75,30 +77,38 @@ const BasicPortalPage: React.FC = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const { control, getValues, register, watch } = useForm();
-
-  const { fields, append, remove } = useFieldArray({
-    name: 'brands',
+  const {
     control,
+    handleSubmit,
+    reset,
+    getValues,
+    watch,
+    formState: { errors },
+  } = useForm({
+ 
   });
-  const data = watch();
 
-  const handleAddRow = (value: unknown) => {
-    console.log('handleAddRow', handleAddRow);
+  // const { fields, append, remove } = useFieldArray({
+  //   name: 'brands',
+  //   control,
+  // });
+  // const data = watch();
 
-    append(value);
-  };
+  // const handleAddRow = (value: unknown) => {
+  //   console.log('handleAddRow', handleAddRow);
+
+  //   append({});
+  // };
 
   console.log('getValues', getValues());
 
-  const onClickBrandName = () => {
-    let finalDefaultBrandsArray = getValues()?.brands.map((i) => ({
-      value: i.name,
-      label: i.name,
-    }));
-    setDefaultBrands(finalDefaultBrandsArray);
-  };
+  // const onClickBrandName = () => {
+  //   let finalDefaultBrandsArray = getValues()?.brands.map((i) => ({
+  //     value: i.name,
+  //     label: i.name,
+  //   }));
+  //   setDefaultBrands(finalDefaultBrandsArray);
+  // };
 
   const {
     admin: { user: userSlug },
@@ -113,27 +123,48 @@ const BasicPortalPage: React.FC = (props) => {
 
   const [touched, setTouched] = useState('');
 
-  const onSuccess = (data) => {
-    setId(data.doc.id);
-    if (brandSwitch) {
-      setVisible(true);
-    } else {
-      setVisible(false);
-      history.push({
-        pathname: `/admin/collections/portal-identity/${data.doc.id}`,
-        //@ts-ignore
-        param: data.doc.id,
-      });
-    }
-  };
+  // const onSuccess = (data) => {
+  //   setId(data.doc.id);
+  //   if (brandSwitch) {
+  //     setVisible(true);
+  //   } else {
+  //     setVisible(false);
+  //     history.push({
+  //       pathname: `/admin/collections/portal-identity/${data.doc.id}`,
+  //       //@ts-ignore
+  //       param: data.doc.id,
+  //     });
+  //   }
+  // };
 
-  const handleNavigate = () => {
-    history.push({
-      pathname: `/admin/collections/portal-identity/${id}`,
-      //@ts-ignore
-      param: id,
-    });
-  };
+  // const handleNavigate = () => {
+  //   history.push({
+  //     pathname: `/admin/collections/portal-identity/${id}`,
+  //     //@ts-ignore
+  //     param: id,
+  //   });
+  // };
+
+
+
+const onSubmit = async (data) => {
+    console.log('data', data);
+    let apiEndpoint = `${serverURL}${api}/brand`
+    try {
+      const formData = new FormData();       
+      formData.append('_payload', JSON.stringify(data));
+      const res =  await axios.post(apiEndpoint, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          // Authorization: `Bearer ${apiKey}`,
+        },
+      });
+      toast.success('Portal Identitty created successfully');
+    } catch (error) {
+      console.error(error);
+      return error;
+    } 
+};
 
   return (
     <DefaultTemplate>
@@ -252,11 +283,9 @@ const BasicPortalPage: React.FC = (props) => {
 
           {!visible && (
             <DialogContent>
-              <Form
-                method="post"
-                onSuccess={onSuccess}
-                action={`${serverURL}${api}/basic-portal-identity`}
-                validationOperation="create"
+              <form 
+              onSubmit={handleSubmit(onSubmit)}
+               
               >
                 <p className="mb-4">
                   Fill in the information below and you will be on your way to
@@ -265,35 +294,52 @@ const BasicPortalPage: React.FC = (props) => {
 
                 <div className="row">
                   <div className="col-md-8">
-                    <TextInput
-                      label={'Portal Name'}
-                      path={'career_portal_name'}
-                      required={true}
-                      placeHolder="Company Career Portal"
-                      setTouched={setTouched}
-                    />
+                  <Controller
+                      render={({ field }) => (
+                        <TextInput
+                          {...field}
+                          label="Career Portal Name"
+                          placeholder="Company Career Portal"
+                          id={'career_portal_name'}
+                          setToolTipVisible={setToolTipVisible}
+                        />
+                      )}
+                      name="career_portal_name"
+                      control={control}
+                     
+                      reset={reset}
+                      />
                   </div>
 
-                  <div className="col-md-4">
+                  {/* <div className="col-md-4">
                     <div className="tip-wrapper">
                       {touched === 'career_portal_name' && (
                         <FormTip text={portal_name_tip} />
                       )}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="row">
                   <div className="col-md-8">
-                    <TextInput
-                      path={'portal_id'}
-                      label={'Portal ID'}
-                      placeHolder={'CP-ID798998989'}
-                      setTouched={setTouched}
+                  <Controller
+                      render={({ field }) => (
+                        <TextInput
+                          disabled={false}
+                          label="Portal ID"
+                          placeholder="CP-ID798998989"
+                          {...field}
+                          id={'portal_id'}
+                          setToolTipVisible={setToolTipVisible}
+                        />
+                      )}
+                      name="portal_id"
+                      control={control}
+                      reset={reset}
                     />
                   </div>
 
-                  <div className="col-md-4">
+                  {/* <div className="col-md-4">
                     <div className="tip-wrapper">
                       {touched === 'portal_id' && (
                         <FormTip
@@ -301,90 +347,110 @@ const BasicPortalPage: React.FC = (props) => {
                         />
                       )}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="row">
                   <div className="col-md-8">
-                    <TextInput
-                      path={'portal_url'}
-                      label="Portal URL"
-                      required={true}
-                      placeHolder="https://www.experfy.com/career-portal"
-                      setTouched={setTouched}
-                    />
-                  </div>
-
-                  <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'portal_url' && (
-                        <FormTip text={portal_url_tip} />
+                  <Controller
+                      render={({ field }) => (
+                        <TextInput
+                          {...field}
+                          label="Portal URL"
+                          placeholder="www.experfydemo/career-portal-experfy.com"
+                          id={'portal_url'}
+                          setToolTipVisible={setToolTipVisible}
+                        />
                       )}
-                    </div>
+                      name="portal_url"
+                      control={control}
+                      reset={reset}
+                    />
                   </div>
+
+                  
                 </div>
 
                 <div className="row">
                   <div className="col-md-8">
-                    <TextInput
-                      path={'company_name'}
-                      label="Company Name"
-                      placeHolder="Company Name"
-                      setTouched={setTouched}
+                  <Controller
+                      render={({ field }) => (
+                        <TextInput
+                          disabled={false}
+                          {...field}
+                          label="Company Name"
+                          id={'company_name'}
+                          setToolTipVisible={setToolTipVisible}
+                        />
+                      )}
+                      name="company_name"
+                      control={control}
+                      reset={reset}
                     />
                   </div>
 
-                  <div className="col-md-4">
+                  {/* <div className="col-md-4">
                     <div className="tip-wrapper">
                       {touched === 'company_name' && (
                         <FormTip text={company_name_tip} />
                       )}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="row">
                   <div className="col-md-8">
-                    <FormSelect
-                      type={'select'}
-                      options={['English', 'Spanish']}
-                      label="Default Language"
-                      name={'default_language'}
-                      path={'default_language'}
-                      defaultValue="English"
-                      setTouched={setTouched}
+                  <Controller
+                      render={({ field }) => {
+                        return (
+                          <FormSelect
+                            {...field}
+                            options={[{ value: 'English', label: 'English' }]}
+                            label="Default Language"
+                            id={'default_language'}
+                            setToolTipVisible={setToolTipVisible}
+                          />
+                        );
+                      }}
+                      name="default_language"
+                      control={control}
                     />
                   </div>
 
-                  <div className="col-md-4">
+                  {/* <div className="col-md-4">
                     <div className="tip-wrapper">
                       {touched === 'default_language' && (
                         <FormTip text="Set the default language of your career portal for your visitors" />
                       )}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="row">
                   <div className="col-md-8">
-                    <FormSelect
-                      options={['US', 'ES']}
-                      label="Default Locale"
-                      name={'default_locale'}
-                      path={'default_locale'}
-                      defaultValue="US"
-                      type={'select'}
-                      setTouched={setTouched}
+                  <Controller
+                      render={({ field }) => (
+                        <FormSelect
+                          {...field}
+                          options={[{ value: 'US', label: 'United States' }]}
+                          label="Default Locale"
+                          id={'default_locale'}
+                          setToolTipVisible={setToolTipVisible}
+                        />
+                      )}
+                      name="default_locale"
+                      control={control}
+                      reset={reset}
                     />
                   </div>
 
-                  <div className="col-md-4">
+                  {/* <div className="col-md-4">
                     <div className="tip-wrapper">
                       {touched === 'default_locale' && (
                         <FormTip text="Set the default locale of your career portal for your visitors" />
                       )}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="row">
@@ -398,193 +464,24 @@ const BasicPortalPage: React.FC = (props) => {
 
                 <div className="row">
                   <div className="col-md-4 d-flex align-items-center">
-                    <FormSwitch
-                      label="Branding On"
-                      checked={brandSwitch}
-                      setBrandSwitch={setBrandSwitch}
-                    />
+                  <FormSwitch
+                  label="Branding On"
+                  // handleSwitchChange={handleSwitchChange}
+                  checked={brandSwitch}
+                />
                   </div>
                 </div>
-                <Button
+                <button
                   type="submit"
-                  buttonStyle="primary"
                   className="btn-hover color-9"
                 >
                   Save
-                </Button>
-              </Form>
+                </button>
+              </form>
             </DialogContent>
           )}
 
-          {visible && (
-            <DialogContent>
-              <Form
-                method={id ? 'patch' : 'post'}
-                action={`${serverURL}${api}/basic-portal-identity/${id ?? ''}`}
-              >
-                <Grid container spacing={3}>
-                  <Grid item xs={8}>
-                    <FormSelect
-                      type={'select'}
-                      options={[]}
-                      label="Default Brand"
-                      name={'default_brand'}
-                      path={'default_brand'}
-                    />
-                  </Grid>
-                </Grid>
-
-                <Typography variant="h5" mb={2} mt={4}>
-                  Please choose whether you would like your microsites in your
-                  career portal network to use subdomains or sub-directories.
-                </Typography>
-
-                <RadioGroup
-                  aria-labelledby="radio-buttons"
-                  defaultValue="micro-sites"
-                  name="radio-buttons-group"
-                >
-                  <Grid container spacing={1} alignItems="center">
-                    <Grid item xs={2}>
-                      <FormControlLabel
-                        name={'sub_domain'}
-                        value="sub_domain"
-                        control={<Radio />}
-                        label="Sub-domains"
-                      />
-                    </Grid>
-                    <Grid item xs={10}>
-                      <Stack
-                        className={classes.radioExample}
-                        direction="row"
-                        spacing={2}
-                      >
-                        <Typography>Example</Typography>
-                        <Typography>
-                          microsite1/companyname/careers.experfy.com
-                        </Typography>
-                        <Typography>
-                          microsite2/companyname/careers.experfy.com
-                        </Typography>
-                      </Stack>
-                    </Grid>
-                    <Grid item xs={2}>
-                      <FormControlLabel
-                        name={'sub_directories'}
-                        value="sub_directories"
-                        control={<Radio />}
-                        label="Sub-directories"
-                      />
-                    </Grid>
-                    <Grid item xs={10}>
-                      <Stack
-                        className={classes.radioExample}
-                        direction="row"
-                        spacing={2}
-                      >
-                        <Typography>Example</Typography>
-                        <Typography>
-                          companyname/careers.experfy.com/microsite1
-                        </Typography>
-                        <Typography>
-                          companyname/careers.experfy.com/microsite2
-                        </Typography>
-                      </Stack>
-                    </Grid>
-                  </Grid>
-                </RadioGroup>
-
-                <Grid container justifyContent="flex-end" my={2}>
-                  <Button
-                    icon={<AddIcon />}
-                    buttonStyle="primary"
-                    onClick={handleAddRow}
-                  >
-                    Add Brand
-                  </Button>
-                </Grid>
-                <TableContainer>
-                  <Table aria-label="table">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>Brand Name</TableCell>
-                        <TableCell>URL Brand Identifier</TableCell>
-                        <TableCell>Microsite Identifier</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {fields.map((item, index) => {
-                        return (
-                          <TableRow key={index}>
-                            <TableCell>
-                              {/* <input {...register(`brands.${index}.brand_name`)}
-          placeholder="Brand Name" />
-*/}
-                              <TextInput
-                                // label={'Portal Name'}
-                                path={`brand_name`}
-                                required={false}
-                                index={index}
-                                brand="brands"
-                                placeHolder="Brand Name"
-                                // setTouched={setTouched}
-                              />
-                            </TableCell>
-                            <TableCell>
-                              {/* <input {...register(`brands.${index}.brand_identifier`)}
-          placeholder="Brand Identifier"/> */}
-
-                              <TextInput
-                                // name="Portal Name"
-                                path={`brand_identifier`}
-                                required={false}
-                                index={index}
-                                brand="brands"
-                                placeHolder="Brand Identifier"
-                                // setTouched={setTouched}
-                              />
-                            </TableCell>
-                            <TableCell>
-                              {/* <input {...register(`brands.${index}.microsoft_identifier`)}
-      placeholder="Microsoft Identifier"/> */}
-
-                              <TextInput
-                                // path={`brands.${index}.microsite_identifier`}
-                                path={`microsoft_identifier`}
-                                index={index}
-                                brand="brands"
-                                required={false}
-                                placeHolder="Microsoft Identifier"
-                                // setTouched={setTouched}
-                              />
-                            </TableCell>
-                            <TableCell>
-                              <Button
-                                type="button"
-                                buttonStyle="icon-label"
-                                icon={'x'}
-                                onClick={() => remove(index)}
-                              >
-                                Delete
-                              </Button>
-                            </TableCell>
-                          </TableRow>
-                        );
-                      })}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-
-                <Button
-                  type="submit"
-                  buttonStyle="primary"
-                  // onClick={handlenaviagte}
-                >
-                  Save
-                </Button>
-              </Form>
-            </DialogContent>
-          )}
+          
         </Dialog>
       </Box>
     </DefaultTemplate>

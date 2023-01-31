@@ -18,6 +18,7 @@ import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import PageBuilder from './components/PageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
+import Brand from './collections/Brand';
 // import Form from './components/PageBuilder/NewSectionTemplate/Form';
 // import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
@@ -242,6 +243,7 @@ export default buildConfig({
     PageBuilderCollection,
     Users,
     SectionTemplateCollection,
+    Brand,
   ],
   i18n: {
     supportedLngs: ['en', 'es'],
