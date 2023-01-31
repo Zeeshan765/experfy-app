@@ -1264,4 +1264,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         ${style}
         `,
   });
+  addBlock('logo', {
+    label: 'Logo',
+    category: 'Section Modules',
+    // media: ,
+    content: `   <div class="page-builder-logo">
+    <a class="#"><img src="https://resources.experfy.com/wp-content/uploads/2021/05/logo_navbar-87f75515ac3e48fdcc77b82a8794120a2c9d629770c27c0e76e966221ee0b7f4.png" class=""></a>
+    </div>
+    <h2 class="page-builder-site-title">Experfy Insights</h2>
+        ${style}
+        `,
+  });
 };

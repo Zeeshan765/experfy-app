@@ -130,6 +130,7 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       'page-title',
       'nav-menu',
       'icon-list',
+      'logo',
     ];
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,

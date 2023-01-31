@@ -1044,4 +1044,25 @@ display: flex;
     padding: 13px 20px;
     line-height: normal;
   }
+
+
+
+
+
+  .page-builder-logo {
+    text-align: center;
+  }
+  .page-builder-logo img{
+   height: auto;
+   max-width: 100%;
+   border: none;
+   border-radius: 0;
+   box-shadow: none;
+  }
+  .page-builder-site-title{
+    font-size: 25px;
+    color: #48A3D7;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
 </style>`;
