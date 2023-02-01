@@ -400,6 +400,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -808,6 +809,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -998,6 +1000,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -1276,6 +1279,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -1418,6 +1422,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -1751,6 +1756,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -1890,8 +1896,9 @@ const obj = {
 
           default: 'default',
           options: [
-            { value: 'default', name: 'Default' },
+            { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -2042,8 +2049,9 @@ const obj = {
           property: 'text-decoration',
           default: 'default',
           options: [
-            { value: 'default', name: 'Default' },
+            { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -2090,26 +2098,25 @@ const obj = {
         'border-color',
         'box-shadow',
         // 'padding',
-        'text-align',
+    
       ],
       attributes: {
         'data-target': '.benefit percentage-info',
       },
       properties: [
-      {
-        type: 'radio',
-        name: 'Padding',
-        property: 'padding',
-        
-        ResizeObserver: true,
-        options: [
-          { value: 'left', name: `<input type="text"/>` },
-          { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-          { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-        ],
-       
-
-      },
+        {
+          type: 'radio',
+          name: 'Text Align',
+          property: 'text-align',
+          default: '',
+          ResizeObserver: true,
+          options: [
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+          ],
+        },
     ],
     },
   ],
@@ -2243,6 +2250,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -2386,6 +2394,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -2528,6 +2537,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -2766,6 +2776,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
@@ -2899,9 +2910,10 @@ const obj = {
           property: 'text-decoration',
           default: 'default',
           options: [
-            { value: 'default', name: `Default` },
-            { value: 'underline', name: `Underline` },
-            { value: 'line-through', name: `Line-through` },
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
+            { value: 'line-through', name: 'Line Through' },
           ],
         },
       ],
@@ -3033,6 +3045,7 @@ const obj = {
           options: [
             { value: 'none', name: 'None' },
             { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
             { value: 'line-through', name: 'Line Through' },
           ],
           attributes: {
