@@ -75,10 +75,6 @@ export default function Brands(props) {
   });
   const { brands } = props.propsdata;
 
-  // useEffect(() => {
-  //   setMicroSite(props.adminPortal.microsite_setting);
-  //   setValue('radioButtons', microSite);
-  // }, [props]);
 
   const handleReset = () => {
     reset({});
@@ -110,20 +106,14 @@ export default function Brands(props) {
     setOpenEdit(false);
   };
 
-  // useEffect(() => {
-  //   setValue('name', saveEditRecord.name);
-  //   setValue('identifier', saveEditRecord.identifier);
-  //   setValue('microsite_identifier', saveEditRecord.microsite_identifier);
-  // }, [saveEditRecord]);
+
   useEffect(() => {
     setValue('name', '');
     setValue('identifier', '');
     setValue('microsite_identifier', '');
   }, [open]);
 
-  // useEffect(() => {
-  //   showBrandsAPI(props.setBrandList, props.adminPortal);
-  // }, [brandDeleted]);
+
 
   const getlist = () => {
     console.log('brands', brands);
@@ -144,36 +134,7 @@ export default function Brands(props) {
     }
   }, [brands]);
 
-  // const updatedBrandsOption = () => {
-  //   const array = [];
-  //   props.brandList.map((i) => {
-  //     if (i) {
-  //       array.push({ value: i.name, label: i.name });
-  //     }
-  //   });
-  //   return array;
-  // };
-  // useEffect(() => {
-  //   setBrandOptionList(updatedBrandsOption);
-  //   setValue('radioButtons', microSite);
-  // }, [props.brandList]);
-
-  // useEffect(() => {
-  //   let defaultBrandValue = props.brandList.map((i) =>
-  //     i.default_brand == true ? i.name : null
-  //   );
-  //   const filterDefaultBrandValue = defaultBrandValue.filter((i) => i != null);
-  //   setValue('default_brand', filterDefaultBrandValue[0]);
-  //   setDefaultBrand(filterDefaultBrandValue[0]);
-  // }, [props.brandList]);
-  // const handleDelete = (event, data) => {
-  //   confirm({
-  //     title: 'Delete?',
-  //     description: `Are you sure you want to delete ${data.name}.`,
-  //   })
-  //     .then(() => deleteBrandApi(data, adminPortal, setBrandDeleted))
-  //     .catch(() => console.log('Deletion cancelled.'));
-  // };
+  
 
   const onSubmit = (data) => {
     console.log(data);
