@@ -529,7 +529,18 @@ $deviceBackground: #2f3d55;
     right: 2px;
     top: 17px;
   }
+  #gjs-sm-add {
+    right: 0px !important;
+    height: 20px !important;
+  }
+  .gjs-field{
+    width: 100% !important;
+  }
+  .gjs-field-arrows{
+    color: rgb(115 120 132) !important;
+  }
 }
+
 // .gjs-sm-composite {
 //   border: none !important;
 //   .gjs-sm-properties{
@@ -604,6 +615,7 @@ $deviceBackground: #2f3d55;
 }
 .gjs-sm-stack{
   .gjs-field{
+    width: 100% !important;
     background-color:rgb(249 249 249) !important;
     border:solid 1px #EEEEEE !important;
     border-radius: 5px !important;
@@ -636,6 +648,20 @@ $deviceBackground: #2f3d55;
 .gjs-input-unit{
   color: rgb(115 120 132) !important;
 }
+
+#gjs-sm-add {
+  right: 0px !important;
+  height: 20px !important;
+  line-height: 0px !important;
+}
+
+.gjs-field-arrows{
+  color: rgb(115 120 132) !important;
+}
+.gjs-sm-layers {
+  padding: 0px !important;
+  border: none !important;
+}
 // .gjs-field-units{
 // right: 0px !important;
 // }
@@ -647,6 +673,7 @@ $deviceBackground: #2f3d55;
   }
  }
 }
+
 .gjs-field-arrows{
   color: rgb(115 120 132) !important;
 }
