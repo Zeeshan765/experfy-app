@@ -51,44 +51,63 @@ const Brand: CollectionConfig = {
       name: "company_name",
       type: "text",
     },
-
+    {
+      name: 'tracking_pixel',
+      type: 'text',
+    },
+    {
+      name: 'bing_webmaster',
+      type: 'text',
+    },
+    {
+      name: "google_webmaster",
+      type: "text",
+    },
+    {
+      name: 'google_analytics',
+      type: 'text',
+    },
+    {
+      name: 'google_id',
+      type: 'text',
+    },
     
-    // {
-    //   name: 'brands',
-    //   label: 'Brand',
-    //   type: 'array',
-    //   labels: {
-    //     singular: 'Brand',
-    //     plural: 'Brand',
-    //   },
-    //   fields: [ 
-    //     {
-    //     type: 'row',
-    //     fields: [
-    //       {
-    //         name: 'brand_name',
-    //         type: 'text',
+    {
+      name: 'brands',
+      label: 'Brand',
+      type: 'array',
+      labels: {
+        singular: 'Brand',
+        plural: 'Brand',
+      },
+      fields: [ 
+        {
+        type: 'row',
+        fields: [
+          {
+            name: 'brand_name',
+            type: 'text',
             
            
-    //       },
-    //       {
-    //         name: 'brand_identifier',
-    //         type: 'text',
+          },
+          {
+            name: 'brand_identifier',
+            type: 'text',
             
             
-    //       },
-    //       {
-    //         name: 'microsoft_identifier',
-    //         type: 'text',
+          },
+          {
+            name: 'microsoft_identifier',
+            type: 'text',
             
           
-    //       }, 
+          }, 
           
         
-    //     ],
-    //   },
-    // ],
-    // },
+        ],
+      },
+    ],
+    },
 
   ],
 };
