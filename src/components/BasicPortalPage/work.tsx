@@ -101,7 +101,7 @@ const BasicPortalPage: React.FC = (props) => {
   };
 
   const onClickBrandName = () => {
-    let finalDefaultBrandsArray = getValues()?.brands.map((i) => ({
+    let  = getValues()?.brands.map((i) => ({
       value: i.name,
       label: i.name,
     }));
@@ -455,7 +455,7 @@ const BasicPortalPage: React.FC = (props) => {
             </DialogContent>
           )} */}
 
-          {/* {visible && ( */}
+          {visible && (
           <DialogContent>
             <form
               // method={id ? 'patch' : 'post'}
@@ -611,7 +611,7 @@ const BasicPortalPage: React.FC = (props) => {
               </button>
             </form>
           </DialogContent>
-          {/* )} */}
+          )}
         </Dialog>
       </Box>
     </DefaultTemplate>

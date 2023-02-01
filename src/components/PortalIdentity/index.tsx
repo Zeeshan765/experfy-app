@@ -10,6 +10,7 @@ import { Context } from '../../MyProvider';
 import { DefaultTemplate } from 'payload/components/templates';
 import { Eyebrow } from 'payload/components/elements';
 import '../../styles/scss/index.scss';
+import axios from 'axios';
 
 const useStyles = makeStyles({
   mainTabs: {
@@ -81,9 +82,10 @@ const PortalIdentity: React.FC = (props) => {
     seo_setting,
     setSeo_Setting,
   } = useContext(Context);
-  //@ts-ignore
+
   const { id } = useParams();
-  const [propsdata, setPropsdata] = useState('');
+
+  const [propsdata, setPropsdata] = useState({ brands: [] });
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -94,12 +96,12 @@ const PortalIdentity: React.FC = (props) => {
 
   const getUserData = async () => {
     try {
-      const res = await fetch(
-        'http://localhost:3000/api/basic-portal-identity'
-      );
-      const data = await res.json();
-
-      const newdata = data.docs.filter((el) => el.id === id)[0];
+      const res = await axios.get('http://localhost:3000/api/brand');
+      const { docs } = res.data;
+      // const data = await res.json();
+      console.log('respnse-------------> ', res);
+      console.log('data-------------> ', docs);
+      const newdata = docs.filter((el) => el.id === id)[0];
       setPropsdata(newdata);
     } catch (e) {
       console.error(e);
@@ -127,29 +129,26 @@ const PortalIdentity: React.FC = (props) => {
               <Tab disableRipple label="Brands" {...a11yProps(2)} />
             </Tabs>
           </Box>
-          <TabPanel value={value} index={0}>
-            <BasicInformation
-              adminPortal={adminPortal}
-              setAdminPortal={setAdminPortal}
-              propsdata={propsdata}
-            />
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <SeoSettings
-              adminPortal={adminPortal}
-              setAdminPortal={setAdminPortal}
-              setSeo_Setting={setSeo_Setting}
-              propsdata={propsdata}
-            />
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            <Brands
-              adminPortal={adminPortal}
-              setAdminPortal={setAdminPortal}
-              setBrands={setBrands}
-              propsdata={propsdata}
-            />
-          </TabPanel>
+          {value === 0 && (
+            <TabPanel value={value} index={0}>
+              <BasicInformation propsdata={propsdata} />
+            </TabPanel>
+          )}
+          {value === 1 && (
+            <TabPanel value={value} index={1}>
+              <SeoSettings propsdata={propsdata} />
+            </TabPanel>
+          )}
+          {value === 2 && (
+            <TabPanel value={value} index={2}>
+              <Brands
+                adminPortal={adminPortal}
+                setAdminPortal={setAdminPortal}
+                setBrands={setBrands}
+                propsdata={propsdata}
+              />
+            </TabPanel>
+          )}
         </Box>
       </div>
     </DefaultTemplate>

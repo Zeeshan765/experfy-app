@@ -37,6 +37,8 @@ import FormTip from '../../blocks/FormTip';
 import TextInput from '../../blocks/TextInput';
 import { useStyles } from './css';
 import { toast } from 'react-toastify';
+import Brandform from './Brandform';
+import PortalIdentityform from './PortalIdentityform';
 const baseClass = 'custom-route';
 
 const portal_url_tip =
@@ -60,7 +62,7 @@ const BasicPortalPage: React.FC = (props) => {
   const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
   const [dense, setDense] = React.useState(false);
-  const [id, setId] = useState('');
+  const [submittedData, setSubmittedData] = useState(null);
 
   useEffect(() => {
     setStepNav([
@@ -84,9 +86,7 @@ const BasicPortalPage: React.FC = (props) => {
     getValues,
     watch,
     formState: { errors },
-  } = useForm({
- 
-  });
+  } = useForm({});
 
   // const { fields, append, remove } = useFieldArray({
   //   name: 'brands',
@@ -123,37 +123,18 @@ const BasicPortalPage: React.FC = (props) => {
 
   const [touched, setTouched] = useState('');
 
-  // const onSuccess = (data) => {
-  //   setId(data.doc.id);
-  //   if (brandSwitch) {
-  //     setVisible(true);
-  //   } else {
-  //     setVisible(false);
-  //     history.push({
-  //       pathname: `/admin/collections/portal-identity/${data.doc.id}`,
-  //       //@ts-ignore
-  //       param: data.doc.id,
-  //     });
-  //   }
-  // };
-
-  // const handleNavigate = () => {
-  //   history.push({
-  //     pathname: `/admin/collections/portal-identity/${id}`,
-  //     //@ts-ignore
-  //     param: id,
-  //   });
-  // };
+  const handleSwitchChange = () => {
+    setBrandSwitch(!brandSwitch);
+  };
 
 
-
-const onSubmit = async (data) => {
+  const onSubmit = async (data) => {
     console.log('data', data);
-    let apiEndpoint = `${serverURL}${api}/brand`
+    let apiEndpoint = `${serverURL}${api}/brand`;
     try {
-      const formData = new FormData();       
+      const formData = new FormData();
       formData.append('_payload', JSON.stringify(data));
-      const res =  await axios.post(apiEndpoint, formData, {
+      const res = await axios.post(apiEndpoint, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           // Authorization: `Bearer ${apiKey}`,
@@ -163,8 +144,8 @@ const onSubmit = async (data) => {
     } catch (error) {
       console.error(error);
       return error;
-    } 
-};
+    }
+  };
 
   return (
     <DefaultTemplate>
@@ -274,214 +255,22 @@ const onSubmit = async (data) => {
           <DialogTitle>
             <Grid container justifyContent="space-between" alignItems="center">
               <h2 className="modal-title modal-title--lg">Portal Identity</h2>
-
               <IconButton onClick={() => handleClose()}>
                 <CloseIcon />
               </IconButton>
             </Grid>
           </DialogTitle>
 
-          {!visible && (
-            <DialogContent>
-              <form 
-              onSubmit={handleSubmit(onSubmit)}
-               
-              >
-                <p className="mb-4">
-                  Fill in the information below and you will be on your way to
-                  creating your Career portal
-                </p>
-
-                <div className="row">
-                  <div className="col-md-8">
-                  <Controller
-                      render={({ field }) => (
-                        <TextInput
-                          {...field}
-                          label="Career Portal Name"
-                          placeholder="Company Career Portal"
-                          id={'career_portal_name'}
-                          setToolTipVisible={setToolTipVisible}
-                        />
-                      )}
-                      name="career_portal_name"
-                      control={control}
-                     
-                      reset={reset}
-                      />
-                  </div>
-
-                  {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'career_portal_name' && (
-                        <FormTip text={portal_name_tip} />
-                      )}
-                    </div>
-                  </div> */}
-                </div>
-
-                <div className="row">
-                  <div className="col-md-8">
-                  <Controller
-                      render={({ field }) => (
-                        <TextInput
-                          disabled={false}
-                          label="Portal ID"
-                          placeholder="CP-ID798998989"
-                          {...field}
-                          id={'portal_id'}
-                          setToolTipVisible={setToolTipVisible}
-                        />
-                      )}
-                      name="portal_id"
-                      control={control}
-                      reset={reset}
-                    />
-                  </div>
-
-                  {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'portal_id' && (
-                        <FormTip
-                          text={'The read only filed displays the Portal ID'}
-                        />
-                      )}
-                    </div>
-                  </div> */}
-                </div>
-
-                <div className="row">
-                  <div className="col-md-8">
-                  <Controller
-                      render={({ field }) => (
-                        <TextInput
-                          {...field}
-                          label="Portal URL"
-                          placeholder="www.experfydemo/career-portal-experfy.com"
-                          id={'portal_url'}
-                          setToolTipVisible={setToolTipVisible}
-                        />
-                      )}
-                      name="portal_url"
-                      control={control}
-                      reset={reset}
-                    />
-                  </div>
-
-                  
-                </div>
-
-                <div className="row">
-                  <div className="col-md-8">
-                  <Controller
-                      render={({ field }) => (
-                        <TextInput
-                          disabled={false}
-                          {...field}
-                          label="Company Name"
-                          id={'company_name'}
-                          setToolTipVisible={setToolTipVisible}
-                        />
-                      )}
-                      name="company_name"
-                      control={control}
-                      reset={reset}
-                    />
-                  </div>
-
-                  {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'company_name' && (
-                        <FormTip text={company_name_tip} />
-                      )}
-                    </div>
-                  </div> */}
-                </div>
-
-                <div className="row">
-                  <div className="col-md-8">
-                  <Controller
-                      render={({ field }) => {
-                        return (
-                          <FormSelect
-                            {...field}
-                            options={[{ value: 'English', label: 'English' }]}
-                            label="Default Language"
-                            id={'default_language'}
-                            setToolTipVisible={setToolTipVisible}
-                          />
-                        );
-                      }}
-                      name="default_language"
-                      control={control}
-                    />
-                  </div>
-
-                  {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'default_language' && (
-                        <FormTip text="Set the default language of your career portal for your visitors" />
-                      )}
-                    </div>
-                  </div> */}
-                </div>
-
-                <div className="row">
-                  <div className="col-md-8">
-                  <Controller
-                      render={({ field }) => (
-                        <FormSelect
-                          {...field}
-                          options={[{ value: 'US', label: 'United States' }]}
-                          label="Default Locale"
-                          id={'default_locale'}
-                          setToolTipVisible={setToolTipVisible}
-                        />
-                      )}
-                      name="default_locale"
-                      control={control}
-                      reset={reset}
-                    />
-                  </div>
-
-                  {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'default_locale' && (
-                        <FormTip text="Set the default locale of your career portal for your visitors" />
-                      )}
-                    </div>
-                  </div> */}
-                </div>
-
-                <div className="row">
-                  <div className="col-md-12">
-                    <p>
-                      If you want to create microsite for your different brands
-                      within your career portal, enable branding below.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-md-4 d-flex align-items-center">
-                  <FormSwitch
-                  label="Branding On"
-                  // handleSwitchChange={handleSwitchChange}
-                  checked={brandSwitch}
-                />
-                  </div>
-                </div>
-                <button
-                  type="submit"
-                  className="btn-hover color-9"
-                >
-                  Save
-                </button>
-              </form>
-            </DialogContent>
+          {visible ? (
+            <Brandform submittedData={submittedData} />
+          ) : (
+            <PortalIdentityform
+              handleSwitchChange={handleSwitchChange}
+              setVisible={setVisible}
+              brandSwitch={brandSwitch}
+              setSubmittedData={setSubmittedData}
+            />
           )}
-
-          
         </Dialog>
       </Box>
     </DefaultTemplate>

@@ -162,7 +162,7 @@ app.use(
 
 const LOGIN_URL = 'https://landing-ui-service.develop.experfy.com/login';
 const getTokenApi = async () => {
-  console.log('getToken Api Called: ' + LOGIN_URL );
+  // console.log('getToken Api Called: ' + LOGIN_URL );
   try {
     let response = await axios.post(LOGIN_URL, {
       // Headers: {

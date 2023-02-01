@@ -1,14 +1,15 @@
 import { Box, Grid } from '@mui/material';
 import { Button, Eyebrow } from 'payload/components/elements';
-import { Form } from 'payload/components/forms';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
 import FormSelect from '../../../blocks/FormSelect';
 import FormTip from '../../../blocks/FormTip';
 import TextInput from '../../../blocks/TextInput';
-
+import { useForm, Controller, useFieldArray } from 'react-hook-form';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 export default function BasicInformation(props) {
-  const { adminPortal, setAdminPortal, propsdata } = props;
+  const { propsdata } = props;
   const {
     admin: { user: userSlug },
     collections,
@@ -19,80 +20,124 @@ export default function BasicInformation(props) {
   const userConfig = collections.find(
     (collection) => collection.slug === userSlug
   );
+  const {
+    control,
+    handleSubmit,
+    reset,
+    getValues,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useForm({});
 
-  const [apiMethod, setApiMethod] = useState('post');
+  // const [apiMethod, setApiMethod] = useState('post');
+
+  // useEffect(() => {
+  //   if (propsdata?.id) {
+  //     setApiMethod('patch');
+  //   } else {
+  //     setApiMethod('post');
+  //   }
+  // }, [propsdata]);
 
   useEffect(() => {
-    if (propsdata?.id) {
-      setApiMethod('patch');
-    } else {
-      setApiMethod('post');
-    }
+    console.log('propsdata', propsdata)
+    reset({ ...propsdata });
   }, [propsdata]);
 
-  const [touched, setTouched] = useState('');
+  const onSubmit = async (data) => {
+    if (propsdata.id) {
+      let apiEndpoint = `${serverURL}${api}/brand/${propsdata.id}`;
+      try {
+        const formData = new FormData();
+        formData.append('_payload', JSON.stringify(data));
+        const res = await axios.patch(apiEndpoint, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+
+        toast.success('Portal Identitty Updated successfully');
+      } catch (error) {
+        console.error(error);
+        return error;
+      }
+    } 
+  };
+
   return (
     <Box sx={{ p: 1 }}>
-      <Form
+      <form
         //@ts-ignore
-        method={apiMethod}
-        action={`${serverURL}${api}/basic-portal-identity/${
-          propsdata?.id ?? ''
-        }`}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              label={'Portal Name'}
-              path={'career_portal_name'}
-              minLength={3}
-              required={true}
-              display={propsdata?.career_portal_name}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Portal Name"
+                  {...field}
+                  id={'career_portal_name'}
+                />
+              )}
+              name="career_portal_name"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'career_portal_name' && (
                 <FormTip text={'The go-to-market name of the career portal'} />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'portal_id'}
-              label="Portal ID"
-              required={true}
-              display={propsdata?.portal_id}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Portal ID"
+                  {...field}
+                  id={'portal_id'}
+                />
+              )}
+              name="portal_id"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'portal_id' && (
                 <FormTip text={'The read only filed displays the Portal ID'} />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'portal_url'}
-              label="Portal URL"
-              required={true}
-              display={propsdata?.portal_url}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Portal URL"
+                  {...field}
+                  id={'portal_url'}
+                />
+              )}
+              name="portal_url"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'portal_url' && (
                 <FormTip
@@ -102,20 +147,26 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'company_name'}
-              label="Company Name"
-              display={propsdata?.company_name}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Company Name"
+                  {...field}
+                  id={'company_name'}
+                />
+              )}
+              name="company_name"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'company_name' && (
                 <FormTip
@@ -125,24 +176,28 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <FormSelect
-              type={'select'}
-              options={['English', 'Spanish']}
-              label="Default Language"
-              name={'default_language'}
-              path={'default_language'}
-              display={propsdata?.default_language}
-              defaultValue="English"
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => {
+                return (
+                  <FormSelect
+                    {...field}
+                    options={[{ value: 'English', label: 'English' }]}
+                    label="Default Language"
+                    id={'default_language'}
+                  />
+                );
+              }}
+              name="default_language"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'default_language' && (
                 <FormTip
@@ -152,24 +207,26 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <FormSelect
-              options={['US', 'ES']}
-              label="Default Locale"
-              name={'default_locale'}
-              path={'default_locale'}
-              display={propsdata?.default_locale}
-              defaultValue="US"
-              type={'select'}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <FormSelect
+                  {...field}
+                  options={[{ value: 'US', label: 'United States' }]}
+                  label="Default Locale"
+                  id={'default_locale'}
+                />
+              )}
+              name="default_locale"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'default_locale' && (
                 <FormTip
@@ -179,20 +236,26 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'google_id'}
-              label="Google Manager Tag ID"
-              display={propsdata?.google_id}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Google Manager Tag ID"
+                  {...field}
+                  id={'google_id'}
+                />
+              )}
+              name="google_id"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'google_id' && (
                 <FormTip
@@ -202,20 +265,26 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'google_analytics'}
-              label="Google Analytics ID"
-              display={propsdata?.google_analytics}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Google Analytics ID"
+                  {...field}
+                  id={'google_analytics'}
+                />
+              )}
+              name="google_analytics"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'google_analytics' && (
                 <FormTip
@@ -225,58 +294,76 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'google_webmaster'}
-              label="Google Webmaster ID"
-              display={propsdata?.google_webmaster}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Google Webmaster ID"
+                  {...field}
+                  id={'google_webmaster'}
+                />
+              )}
+              name="google_webmaster"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'google_webmaster' && (
                 <FormTip text={'The Google Webmaster account.'} />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'bing_webmaster'}
-              label="Bing Webmaster ID"
-              display={propsdata?.bing_webmaster}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="BING Webmaster ID"
+                  {...field}
+                  id={'bing_webmaster'}
+                />
+              )}
+              name="bing_webmaster"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'bing_webmaster' && (
                 <FormTip text={'The Bing Webmaster Tools account.'} />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'tracking_pixel'}
-              label="Tracking Pixel"
-              display={propsdata?.tracking_pixel}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Tracking Pixel"
+                  {...field}
+                  id={'tracking_pixel'}
+                />
+              )}
+              name="tracking_pixel"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'tracking_pixel' && (
                 <FormTip
@@ -286,17 +373,15 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
           <div className="col-md-4">
-            <Button type="submit" buttonStyle="primary">
-              Save
-            </Button>
+            <button type="submit">Save</button>
           </div>
         </div>
-      </Form>
+      </form>
     </Box>
   );
 }

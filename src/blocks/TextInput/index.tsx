@@ -202,9 +202,7 @@ function TextInput(props) {
   const classes = useStyles();
 
  
-  if (props?.setTest !== undefined) {
-    props?.setTest(Math.floor(Math.random() * 1000000000));
-  }
+  
 
   return (
     <FormControl fullWidth className={classes.textInput}>
