@@ -74,15 +74,6 @@ function a11yProps(index) {
 }
 
 const PortalIdentity: React.FC = (props) => {
-  const {
-    adminPortal,
-    setAdminPortal,
-    brands,
-    setBrands,
-    seo_setting,
-    setSeo_Setting,
-  } = useContext(Context);
-
   const { id } = useParams();
 
   const [propsdata, setPropsdata] = useState({ brands: [] });
@@ -98,9 +89,7 @@ const PortalIdentity: React.FC = (props) => {
     try {
       const res = await axios.get('http://localhost:3000/api/brand');
       const { docs } = res.data;
-      // const data = await res.json();
-      console.log('respnse-------------> ', res);
-      console.log('data-------------> ', docs);
+
       const newdata = docs.filter((el) => el.id === id)[0];
       setPropsdata(newdata);
     } catch (e) {
@@ -141,12 +130,7 @@ const PortalIdentity: React.FC = (props) => {
           )}
           {value === 2 && (
             <TabPanel value={value} index={2}>
-              <Brands
-                adminPortal={adminPortal}
-                setAdminPortal={setAdminPortal}
-                setBrands={setBrands}
-                propsdata={propsdata}
-              />
+              <Brands propsdata={propsdata} />
             </TabPanel>
           )}
         </Box>

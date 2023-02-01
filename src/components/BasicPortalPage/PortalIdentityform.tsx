@@ -1,26 +1,10 @@
 //@ts-ignore
 
-import { ErrorMessage as DescriptionAlerts } from '@hookform/error-message';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import AddIcon from '@mui/icons-material/Add';
-import CloseIcon from '@mui/icons-material/Close';
+
 import {
-  Box,
-  Dialog,
+ 
   DialogContent,
-  DialogTitle,
-  Grid,
-  IconButton,
-  Radio,
-  RadioGroup,
-  Stack,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
+
 } from '@mui/material';
 import axios from 'axios';
 import { Button } from 'payload/components/elements';
@@ -50,17 +34,9 @@ const PortalIdentityform: React.FC = (props: any) => {
   const { handleSwitchChange, setVisible, brandSwitch, setSubmittedData } = props;
   const history = useHistory();
   const classes = useStyles();
-  //   const [open, setOpen] = React.useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [error, setError] = useState(false);
-  //   const [visible, setVisible] = React.useState<boolean>(false);
-  const [tenantID, setTenantID] = useState('');
-  const [toolTipVisible, setToolTipVisible] = useState('portal_name');
+
   const [defaultBrands, setDefaultBrands] = useState([]);
-  const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
-  const [dense, setDense] = React.useState(false);
-  const [id, setId] = useState('');
 
   useEffect(() => {
     setStepNav([
@@ -93,10 +69,8 @@ const PortalIdentityform: React.FC = (props: any) => {
     (collection) => collection.slug === userSlug
   );
 
-  const [touched, setTouched] = useState('');
 
   const onSubmit = async (data) => {
-    console.log('data', data);
     let apiEndpoint = `${serverURL}${api}/brand`;
     try {
       const formData = new FormData();
@@ -104,12 +78,9 @@ const PortalIdentityform: React.FC = (props: any) => {
       const res = await axios.post(apiEndpoint, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          // Authorization: `Bearer ${apiKey}`,
         },
       });
-      console.log('res------->', res.data.doc);
       const { doc } = res.data;
-      console.log('brandSwitch', brandSwitch);
       if (brandSwitch) {
         setVisible(true);
         setSubmittedData(doc)
@@ -158,12 +129,10 @@ const PortalIdentityform: React.FC = (props: any) => {
                   label="Career Portal Name"
                   placeholder="Company Career Portal"
                   id={'career_portal_name'}
-                  setToolTipVisible={setToolTipVisible}
                 />
               )}
               name="career_portal_name"
               control={control}
-              reset={reset}
             />
           </div>
 
@@ -186,12 +155,10 @@ const PortalIdentityform: React.FC = (props: any) => {
                   placeholder="CP-ID798998989"
                   {...field}
                   id={'portal_id'}
-                  setToolTipVisible={setToolTipVisible}
                 />
               )}
               name="portal_id"
               control={control}
-              reset={reset}
             />
           </div>
 
@@ -215,12 +182,10 @@ const PortalIdentityform: React.FC = (props: any) => {
                   label="Portal URL"
                   placeholder="www.experfydemo/career-portal-experfy.com"
                   id={'portal_url'}
-                  setToolTipVisible={setToolTipVisible}
                 />
               )}
               name="portal_url"
               control={control}
-              reset={reset}
             />
           </div>
         </div>
@@ -234,12 +199,10 @@ const PortalIdentityform: React.FC = (props: any) => {
                   {...field}
                   label="Company Name"
                   id={'company_name'}
-                  setToolTipVisible={setToolTipVisible}
                 />
               )}
               name="company_name"
               control={control}
-              reset={reset}
             />
           </div>
 
@@ -262,7 +225,6 @@ const PortalIdentityform: React.FC = (props: any) => {
                     options={[{ value: 'English', label: 'English' }]}
                     label="Default Language"
                     id={'default_language'}
-                    setToolTipVisible={setToolTipVisible}
                   />
                 );
               }}
@@ -289,12 +251,10 @@ const PortalIdentityform: React.FC = (props: any) => {
                   options={[{ value: 'US', label: 'United States' }]}
                   label="Default Locale"
                   id={'default_locale'}
-                  setToolTipVisible={setToolTipVisible}
                 />
               )}
               name="default_locale"
               control={control}
-              reset={reset}
             />
           </div>
 

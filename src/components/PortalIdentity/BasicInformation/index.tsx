@@ -3,7 +3,6 @@ import { Button, Eyebrow } from 'payload/components/elements';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
 import FormSelect from '../../../blocks/FormSelect';
-import FormTip from '../../../blocks/FormTip';
 import TextInput from '../../../blocks/TextInput';
 import { useForm, Controller, useFieldArray } from 'react-hook-form';
 import axios from 'axios';
@@ -30,18 +29,8 @@ export default function BasicInformation(props) {
     formState: { errors },
   } = useForm({});
 
-  // const [apiMethod, setApiMethod] = useState('post');
-
-  // useEffect(() => {
-  //   if (propsdata?.id) {
-  //     setApiMethod('patch');
-  //   } else {
-  //     setApiMethod('post');
-  //   }
-  // }, [propsdata]);
 
   useEffect(() => {
-    console.log('propsdata', propsdata)
     reset({ ...propsdata });
   }, [propsdata]);
 

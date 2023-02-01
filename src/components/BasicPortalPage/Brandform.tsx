@@ -5,12 +5,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import {
-  Box,
-  Dialog,
   DialogContent,
-  DialogTitle,
   Grid,
-  IconButton,
   Radio,
   RadioGroup,
   Stack,
@@ -33,26 +29,16 @@ import React, { useEffect, useState } from 'react';
 import { useForm, Controller, useFieldArray } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import FormSelect from '../../blocks/FormSelect';
-import FormSwitch from '../../blocks/FormSwitch';
-import FormTip from '../../blocks/FormTip';
 import TextInput from '../../blocks/TextInput';
 import { useStyles } from './css';
 import { toast } from 'react-toastify';
 
 const Brandform: React.FC = (props: any) => {
   const history = useHistory();
-  const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [error, setError] = useState(false);
-  const [visible, setVisible] = React.useState<boolean>(false);
-  const [tenantID, setTenantID] = useState('');
-  const [toolTipVisible, setToolTipVisible] = useState('portal_name');
+
   const [defaultBrands, setDefaultBrands] = useState([]);
-  const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
-  const [dense, setDense] = React.useState(false);
 
   const { submittedData } = props;
 
@@ -65,12 +51,6 @@ const Brandform: React.FC = (props: any) => {
     ]);
   }, [setStepNav]);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
   const {
     control,
     handleSubmit,
@@ -91,7 +71,6 @@ const Brandform: React.FC = (props: any) => {
     (collection) => collection.slug === userSlug
   );
 
-  const [touched, setTouched] = useState('');
   const onSubmit = async (data) => {
     const { brands, microsite_setting } = data;
 
