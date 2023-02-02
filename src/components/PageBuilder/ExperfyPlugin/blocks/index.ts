@@ -9,6 +9,8 @@ import {
   getStyles,
   benefitsStyle,
   paragraphStyle,
+  video,
+  talentCloud,
   ImageText,
   SectionStyle as style,
 } from './style';
@@ -816,7 +818,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
       </div>
     </section>
- ${style}
+ ${video}
  ${getStyles(['.video-header'])}
  `,
   });
@@ -1071,7 +1073,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </div>
  </section> 
-    ${style}
+    ${talentCloud}
     ${getStyles(['.content-div'])}
  `,
   });

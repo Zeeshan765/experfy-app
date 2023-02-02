@@ -262,8 +262,120 @@ export const ImageText  = `
 
 `
 
+export const talentCloud = `
+<style>
+.talent-cloud-main-wrapper{
+  padding:50px; 
+  background-color:#399918;
+  padding-left: 1rem;
+  padding-right: 1rem; 
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.talent-cloud-main-wrapper .talent-cloud-container{
+  display: flex;
+  align-items:center; 
+  margin:50px 150px;
+  
+}
+
+.talent-cloud-main-wrapper .talent-cloud-container .img-holder{
+padding-left: 1rem;
+padding-right: 1rem; 
+margin-right: auto; 
+margin-left: auto; 
+width: 65%; 
+}
+.talent-cloud-main-wrapper .talent-cloud-container .img-holder img{
+width : 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.talent-cloud-main-wrapper .talent-cloud-container .content-div{
+padding-left: 1rem;
+padding-right: 1rem; 
+margin-right: auto; 
+margin-left: auto; 
+width: 100%; 
+}
+
+.talent-cloud-main-wrapper .talent-cloud-container .content-div h1{
+font-size: 34px;
+color:#fff;
+text-align:left;
+font-weight:500;
+letter-spacing:1px;
+margin-bottom:10px;
+}
+
+.talent-cloud-main-wrapper .talent-cloud-container .content-div p{
+font-size:16px;
+color: #fff;
+text-align:left;
+line-height:1.6;
+margin-top:10px;
+font-weight:200;
+}
 
 
+
+
+</style>
+
+`
+export const video = `
+<style>
+.video-main-wrapper .video-container-main-div{
+  padding: 6rem;
+  margin-left: auto;
+  margin-right: auto; 
+  text-align: center; 
+  width: 80%;
+  margin: auto;
+}
+
+
+.video-main-wrapper .video-container-main-div .video-header{
+  text-align: center;
+}
+
+.video-main-wrapper .video-container-main-div .video-header h1{
+  font-size: 42px;
+  margin-bottom: 0.5rem; 
+  color: #111827; 
+  line-height: 2.25rem; 
+  font-weight: 500;     
+}
+
+.video-main-wrapper .video-container-main-div .video-header p{
+  font-size: 20px;
+  padding: 0px 30px;
+}
+
+.video-main-wrapper .video-container-main-div .video-div{
+  position: relative;
+  width:100%;
+  padding-top: 56.25%;  
+
+}
+.video-main-wrapper .video-container-main-div .video-div video{
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+ bottom: 0;
+}
+
+
+
+</style>
+
+
+`
 
 
 
@@ -394,65 +506,8 @@ export const SectionStyle = `<style>
 
 
 
-    /* /////////////////////////////////////////////
-    /////////// talent cloud style //////////
-    /////////////////////////////////////////// */
-    
 
-    .talent-cloud-main-wrapper{
-      padding:50px; 
-      background-color:#399918;
-      padding-left: 1rem;
-      padding-right: 1rem; 
-      margin-left: auto;
-      margin-right: auto; 
-    }
-
-    .talent-cloud-main-wrapper .talent-cloud-container{
-      display: flex;
-      align-items:center; 
-      margin:50px 150px;
-      
-    }
-
-    .talent-cloud-main-wrapper .talent-cloud-container .img-holder{
-    padding-left: 1rem;
-padding-right: 1rem; 
-margin-right: auto; 
-margin-left: auto; 
-width: 65%; 
-}
-.talent-cloud-main-wrapper .talent-cloud-container .img-holder img{
- width : 100%;
- height: 100%;
-  object-fit: cover;
-}
-
-.talent-cloud-main-wrapper .talent-cloud-container .content-div{
-padding-left: 1rem;
-padding-right: 1rem; 
-margin-right: auto; 
-margin-left: auto; 
-width: 100%; 
-}
-
-.talent-cloud-main-wrapper .talent-cloud-container .content-div h1{
-  font-size: 34px;
-  color:#fff;
-  text-align:left;
-  font-weight:500;
-  letter-spacing:1px;
-  margin-bottom:10px;
-  }
-
-  .talent-cloud-main-wrapper .talent-cloud-container .content-div p{
-    font-size:16px;
-    color: #fff;
-    text-align:left;
-    line-height:1.6;
-    margin-top:10px;
-    font-weight:200;
-    }
+   
 
 
  /* /////////////////////////////////////////////
@@ -529,52 +584,8 @@ display: flex;
 
 
 
-/* /////////////////////////////////////////////
-/////////// video style //////////
-/////////////////////////////////////////// */
 
-  .video-main-wrapper .video-container-main-div{
-    padding: 6rem;
-    margin-left: auto;
-    margin-right: auto; 
-    text-align: center; 
-    width: 80%;
-    margin: auto;
-  }
-
-
-  .video-main-wrapper .video-container-main-div .video-header{
-    text-align: center;
-  }
-
-  .video-main-wrapper .video-container-main-div .video-header h1{
-    font-size: 42px;
-    margin-bottom: 0.5rem; 
-    color: #111827; 
-    line-height: 2.25rem; 
-    font-weight: 500;     
-  }
-
-  .video-main-wrapper .video-container-main-div .video-header p{
-    font-size: 20px;
-    padding: 0px 30px;
-  }
-
-  .video-main-wrapper .video-container-main-div .video-div{
-    position: relative;
-    width:100%;
-    padding-top: 56.25%;  
-
-  }
-  .video-main-wrapper .video-container-main-div .video-div video{
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-   bottom: 0;
-  }
+ 
 
 
   /* /////////////////////////////////////////////
