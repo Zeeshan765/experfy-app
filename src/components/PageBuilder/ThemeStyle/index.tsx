@@ -54,7 +54,7 @@ const ThemeStyle: React.FC = () => {
           storeCss: true,
 
           local: {
-            key: 'page_code',
+            key: 'theme_style',
           },
         },
       },
@@ -106,7 +106,6 @@ const ThemeStyle: React.FC = () => {
         sectors.add(getSectors(component[0].getId()));
         editor.runCommand('core:open-styles');
     });
-
 
   }, [setEditorState]);
 

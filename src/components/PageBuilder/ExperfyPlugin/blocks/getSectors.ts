@@ -380,10 +380,22 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -464,9 +476,18 @@ const obj = {
           property: 'text-align',
           default: 'left',
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
           ],
         },
         {
@@ -790,10 +811,18 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-         
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -979,11 +1008,23 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -1260,10 +1301,22 @@ const obj = {
           default: 'center',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -1402,11 +1455,23 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'color',
@@ -1736,11 +1801,23 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -2098,7 +2175,6 @@ const obj = {
         'border-color',
         'box-shadow',
         // 'padding',
-    
       ],
       attributes: {
         'data-target': '.benefit percentage-info',
@@ -2111,13 +2187,25 @@ const obj = {
           default: '',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
         },
-    ],
+      ],
     },
   ],
   paragraph_1: [
@@ -2232,9 +2320,18 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -2374,11 +2471,23 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -2517,11 +2626,23 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -2618,9 +2739,18 @@ const obj = {
             'data-target': '.figure_caption',
           },
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
           ],
         },
         {
@@ -2755,11 +2885,23 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -3026,10 +3168,22 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
-            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'justify',
+              name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+            },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -3079,9 +3233,18 @@ const obj = {
           property: 'text-align',
           default: 'left',
           options: [
-            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
-            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
-            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
           ],
         },
         {
@@ -3151,14 +3314,13 @@ const obj = {
   talent_1: [],
 
   theme_1: [
-
     {
       name: 'Theme Style',
       open: false,
     },
     {
       name: 'Global Colors Collection',
-      open:  false,
+      open: false,
       buildProps: ['background-color', 'color'],
       properties: [
         {
@@ -3185,7 +3347,7 @@ const obj = {
 
     {
       name: 'Global Fonts Collection',
-      open:  false,
+      open: false,
       buildProps: [
         'font-family',
         'font-size',
@@ -3202,7 +3364,10 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            {
+              value: 'Comic Sans MS, cursive, sans-serif',
+              name: 'Comic Sans MS',
+            },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -3213,7 +3378,10 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            {
+              value: 'Trebuchet MS, Helvetica, sans-serif',
+              name: 'Trebuchet MS',
+            },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
         },
@@ -3367,7 +3535,10 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            {
+              value: 'Comic Sans MS, cursive, sans-serif',
+              name: 'Comic Sans MS',
+            },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -3378,7 +3549,10 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            {
+              value: 'Trebuchet MS, Helvetica, sans-serif',
+              name: 'Trebuchet MS',
+            },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
         },
@@ -3540,7 +3714,10 @@ const obj = {
             { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
             { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
             { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
-            { value: 'Comic Sans MS, cursive, sans-serif', name: 'Comic Sans MS' },
+            {
+              value: 'Comic Sans MS, cursive, sans-serif',
+              name: 'Comic Sans MS',
+            },
             { value: 'Courier New, Courier, monospace', name: 'Courier New' },
             { value: 'Georgia, serif', name: 'Georgia' },
             { value: 'Helvetica, sans-serif', name: 'Helvetica' },
@@ -3551,7 +3728,10 @@ const obj = {
             },
             { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
             { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
-            { value: 'Trebuchet MS, Helvetica, sans-serif', name: 'Trebuchet MS' },
+            {
+              value: 'Trebuchet MS, Helvetica, sans-serif',
+              name: 'Trebuchet MS',
+            },
             { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
           ],
         },
@@ -3625,6 +3805,673 @@ const obj = {
           property: 'line-height',
           default: 1,
           units: ['px', 'rem'],
+        },
+      ],
+    },
+
+    {
+      name: 'H1',
+      open: false,
+      properties: [
+        {
+          type: 'color',
+          name: 'Text Color',
+          property: 'color',
+          default: '#080807',
+        },
+
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            {
+              value: 'Comic Sans MS, cursive, sans-serif',
+              name: 'Comic Sans MS',
+            },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            {
+              value: 'Trebuchet MS, Helvetica, sans-serif',
+              name: 'Trebuchet MS',
+            },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options: [
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'radio',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+          ],
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'H2',
+      open: false,
+      properties: [
+        {
+          type: 'color',
+          name: 'Text Color',
+          property: 'color',
+          default: '#080807',
+        },
+
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            {
+              value: 'Comic Sans MS, cursive, sans-serif',
+              name: 'Comic Sans MS',
+            },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            {
+              value: 'Trebuchet MS, Helvetica, sans-serif',
+              name: 'Trebuchet MS',
+            },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options: [
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'radio',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+          ],
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'H3',
+      open: false,
+      properties: [
+        {
+          type: 'color',
+          name: 'Text Color',
+          property: 'color',
+          default: '#080807',
+        },
+
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            {
+              value: 'Comic Sans MS, cursive, sans-serif',
+              name: 'Comic Sans MS',
+            },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            {
+              value: 'Trebuchet MS, Helvetica, sans-serif',
+              name: 'Trebuchet MS',
+            },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options: [
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'radio',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+          ],
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'H4',
+      open: false,
+      properties: [
+        {
+          type: 'color',
+          name: 'Text Color',
+          property: 'color',
+          default: '#080807',
+        },
+
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            {
+              value: 'Comic Sans MS, cursive, sans-serif',
+              name: 'Comic Sans MS',
+            },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            {
+              value: 'Trebuchet MS, Helvetica, sans-serif',
+              name: 'Trebuchet MS',
+            },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options: [
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'radio',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+          ],
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'H5',
+      open: false,
+      properties: [
+        {
+          type: 'color',
+          name: 'Text Color',
+          property: 'color',
+          default: '#080807',
+        },
+
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            {
+              value: 'Comic Sans MS, cursive, sans-serif',
+              name: 'Comic Sans MS',
+            },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            {
+              value: 'Trebuchet MS, Helvetica, sans-serif',
+              name: 'Trebuchet MS',
+            },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options: [
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'radio',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+          ],
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'H6',
+      open: false,
+      properties: [
+        {
+          type: 'color',
+          name: 'Text Color',
+          property: 'color',
+          default: '#080807',
+        },
+
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: [
+            { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+            { value: 'Arial Black, Gadget, sans-serif', name: 'Arial Black' },
+            { value: 'Brush Script MT, sans-serif', name: 'Brush Script MT' },
+            {
+              value: 'Comic Sans MS, cursive, sans-serif',
+              name: 'Comic Sans MS',
+            },
+            { value: 'Courier New, Courier, monospace', name: 'Courier New' },
+            { value: 'Georgia, serif', name: 'Georgia' },
+            { value: 'Helvetica, sans-serif', name: 'Helvetica' },
+            { value: 'Impact, Charcoal, sans-serif', name: 'Impact' },
+            {
+              value: 'Lucida Sans Unicode, Lucida Grande, sans-serif',
+              name: 'Lucida Sans Unicode',
+            },
+            { value: 'Tahoma, Geneva, sans-serif', name: 'Tahoma' },
+            { value: 'Times New Roman, Times, serif', name: 'Times New Roman' },
+            {
+              value: 'Trebuchet MS, Helvetica, sans-serif',
+              name: 'Trebuchet MS',
+            },
+            { value: 'Verdana, Geneva, sans-serif', name: 'Verdana' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options: [
+            { value: 'light', name: 'light' },
+            { value: 'normal', name: 'Normal' },
+            { value: 'semi-bold', name: 'Semi Bold' },
+            { value: 'bold', name: 'Bold' },
+            { value: 'bolder', name: 'Bolder' },
+          ],
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'radio',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: [
+            {
+              value: 'left',
+              name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'center',
+              name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+            },
+            {
+              value: 'right',
+              name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+            },
+          ],
+        },
+        {
+          type: 'select',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: [
+            { value: 'none', name: 'None' },
+            { value: 'underline', name: 'Underline' },
+            { value: 'overline', name: 'Overline' },
+            { value: 'line-through', name: 'Line Through' },
+          ],
         },
       ],
     },
@@ -3711,7 +4558,6 @@ const obj = {
         },
       ],
     },
-
   ],
 
   generic: [],
