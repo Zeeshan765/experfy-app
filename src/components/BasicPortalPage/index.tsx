@@ -85,6 +85,8 @@ const BasicPortalPage: React.FC = (props) => {
   const data = watch();
 
   const handleAddRow = (value: unknown) => {
+    console.log('handleAddRow', handleAddRow);
+
     append(value);
   };
 

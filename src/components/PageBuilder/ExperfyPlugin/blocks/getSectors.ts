@@ -374,16 +374,16 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -463,9 +463,9 @@ const obj = {
           property: 'text-align',
           default: 'left',
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
           ],
         },
         {
@@ -783,16 +783,16 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+         
           ],
           attributes: {
             'data-type': 'text-align',
@@ -971,16 +971,17 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -1250,16 +1251,16 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'center',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -1391,16 +1392,17 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'color',
@@ -1723,16 +1725,17 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -2086,12 +2089,28 @@ const obj = {
         'border-style',
         'border-color',
         'box-shadow',
-        'padding',
+        // 'padding',
         'text-align',
       ],
       attributes: {
         'data-target': '.benefit percentage-info',
       },
+      properties: [
+      {
+        type: 'radio',
+        name: 'Padding',
+        property: 'padding',
+        
+        ResizeObserver: true,
+        options: [
+          { value: 'left', name: `<input type="text"/>` },
+          { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+          { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+        ],
+       
+
+      },
+    ],
     },
   ],
   paragraph_1: [
@@ -2200,15 +2219,15 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -2341,16 +2360,17 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -2482,16 +2502,17 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -2587,9 +2608,9 @@ const obj = {
             'data-target': '.figure_caption',
           },
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
           ],
         },
         {
@@ -2718,16 +2739,17 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -2839,47 +2861,47 @@ const obj = {
         },
 
         {
-          type: 'radio',
+          type: 'select',
           name: 'Font Style',
           property: 'font-style',
           default: 'default',
           options: [
             {
               value: 'default',
-              name: '&#8416',
+              name: 'Default',
             },
             {
               value: 'italic',
-              name: `<i>I</i>`,
+              name: `Italic`,
             },
             {
               value: 'bold',
-              name: '<b>B</b>',
+              name: 'Bold',
             },
           ],
         },
 
         {
-          type: 'radio',
+          type: 'select',
           name: 'Transform',
           property: 'text-transform',
           default: 'default',
           options: [
-            { value: 'default', name: '&#8416' },
-            { value: 'uppercase', name: 'AA' },
-            { value: 'lowercase', name: 'aa' },
-            { value: 'capitalize', name: 'Aa' },
+            { value: 'default', name: 'Default' },
+            { value: 'uppercase', name: 'Uppercase' },
+            { value: 'lowercase', name: 'Lowercase' },
+            { value: 'capitalize', name: 'Capitalize' },
           ],
         },
         {
-          type: 'radio',
+          type: 'select',
           name: 'Decoration',
           property: 'text-decoration',
           default: 'default',
           options: [
-            { value: 'default', name: `&#8416` },
-            { value: 'underline', name: `&#xf0cd` },
-            { value: 'line-through', name: `S` },
+            { value: 'default', name: `Default` },
+            { value: 'underline', name: `Underline` },
+            { value: 'line-through', name: `Line-through` },
           ],
         },
       ],
@@ -2986,16 +3008,16 @@ const obj = {
           },
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Text Align',
           property: 'text-align',
           default: 'left',
           ResizeObserver: true,
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: 'Center' },
-            { value: 'right', name: 'Right' },
-            { value: 'justify', name: 'Justify' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
+            { value: 'justify', name: `<i class="fa fa-align-justify" aria-hidden="true"></i>` },
           ],
           attributes: {
             'data-type': 'text-align',
@@ -3044,9 +3066,9 @@ const obj = {
           property: 'text-align',
           default: 'left',
           options: [
-            { value: 'left', name: 'Left' },
-            { value: 'center', name: '&#9776' },
-            { value: 'right', name: 'Right' },
+            { value: 'left', name: `<i class="fa fa-align-left" aria-hidden="true"></i>` },
+            { value: 'center', name: `<i class="fa fa-align-center" aria-hidden="true"></i>` },
+            { value: 'right', name: `<i class="fa fa-align-right" aria-hidden="true"></i>` },
           ],
         },
         {

@@ -782,6 +782,56 @@ ol {
     font-size: 20px;
   }
 }
+.collection-edit__sidebar-sticky-wrap {
+  .collection-edit__collection-actions {
+    padding: 0 1.4423076923rem 0.9615384615rem;
+    display: flex !important;
+  }
+  .collection-edit__document-actions{
+padding-right: 0px ;
+  }
+  #action-create {
+    background-color: var(--theme-text);
+    color: rgb(255, 255, 255);
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: medium;
+    border: none;
+    line-height: 1.5;
+    display: inline-block;
+    margin-top: 1.9230769231rem;
+    margin-bottom: 1.9230769231rem;
+  }
+  #action-duplicate{
+    background-color: #E6E6E6;
+    color: rgb(34, 34, 34);
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: medium;
+    border: 1px solid #D2D2D2;
+    line-height: 1.5;
+    display: inline-block;
+    margin-top: 1.9230769231rem;
+    margin-bottom: 1.9230769231rem;
+  }
+  #action-delete{
+    color: #4A5162;
+    padding: 10px 0px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: medium;
+    line-height: 1.5;
+    margin-top: 1.9230769231rem;
+    margin-bottom: 1.9230769231rem;
+  }
+  .collection-edit__sidebar-fields{
+    padding: 0 0 ;
+  }
+}
 
 // Upload Card 
 

@@ -1,3 +1,85 @@
+
+export const getStyles = (parentClass: any)=> {
+  return `<style>
+  ${parentClass.map(el=> `  ${el} .h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  
+  ${el} .h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  ${el} .h3 {
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${el} .h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${el} .h5 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${el} .h6 {
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${el} .span {
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${el} .div {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${el} .p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  ${el} .left {
+    text-align: left;
+  }
+  ${el} .center {
+   text-align: center;
+  }
+  ${el} .right {
+ text-align: right;
+  }`)}
+  </style>`
+  }
+
+
+
+  export const getbuttonStyles = (parentClass: string)=> {
+    return `<style>
+   ${parentClass} .btn-start {
+   float: left;
+  }
+  ${parentClass} .btn-center {
+    margin: auto;
+   }
+   ${parentClass} .btn-right {
+    float: right;
+   }
+    </style>`
+    }
+
+
+
+
 export const SectionStyle = `<style>
 
 .main_container {
@@ -12,11 +94,8 @@ export const SectionStyle = `<style>
   margin:20px 20px;
 }
 
-.main_container .content-section .main_heading {
-  font-size: 36px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
+
+
 .main_container .content-section .sub_heading {
   font-size: 22px;
   font-weight: 400;
@@ -43,11 +122,10 @@ export const SectionStyle = `<style>
 
 .main_container .image-text-image-section .img_container .figure_caption {
   padding: 20px 30px;
-  font-size: 20px;
-  font-weight: 500;
   background-color: #f8f8fa;
   border-radius: 0px 0px 5px 5px;
 }
+
 
 /* /////////////////////////////////////////////
 ///////////  header section style //////////
@@ -449,14 +527,18 @@ display: flex;
     background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/00/02/44/5056179b42b174f.jpg);
     padding:40px 40px;
   }
-  .bannar-content h1{
-    font-size: 32px;
+
+  .bannar-content h1 {
     text-align: center;
-    font-weight: 500;
     color: #fff;
   }
+   .bannar-content p {
+    text-align: left;
+    color: #fff;
+  }
+  
 
-  .bannar-content p{
+  .bannar-content  .p{
     font-size:16px;
     color: #fff;
     letter-spacing: 0.5px;
@@ -789,5 +871,68 @@ display: flex;
   line-height: 1.5;
   text-transform: uppercase;
  }
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* /////////////////////////////////////////////
+  ///////////  Search style //////////
+  /////////////////////////////////////////// */ 
+
+
+  .search-section-main-holder{
+    width: 80%;
+    margin:20px auto;
+   }
+   .search-bar-div{
+     padding: 30px 50px;
+     border-radius: 5px;
+     background-color: #78C493;
+   }
+   .search-box{
+     width: 70%;
+     margin: auto;
+     display: flex;
+     position: relative;
+   }
+   .search-input{
+     width: 100%;
+     border: none;
+     outline: none;
+     font-size: 16px;
+     padding: 15px 10px;
+     border-radius: 5px 0px 0px 5px;
+     background-color: #FFFFFF;
+   }
+   .search-button{
+    outline: none;
+    color :#ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius:0px 5px 5px 0px;
+    border:1px solid #48A3D7;
+    background-color: #48A3D7;
+   }
+
+   .page-builder-divider{
+    padding: 15px 0px;
+  }
+  .page-builder-divider .page-builder-divider-seprator{
+    width: 100%;
+    border-bottom: 1px solid #000 !important;
+  }
+  .page-builder-spacer .page-builder-spacer-inner {
+    height: 50px;
+  }
 </style>`;

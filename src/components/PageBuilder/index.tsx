@@ -80,7 +80,7 @@ const PageBuilder: React.FC = () => {
     } else {
       axios
         .post(`${apiEndPoint}/page-Template`, {
-          title: "Category page",
+          title: "TalentCloud Overview Page",
           pageCode,
         })
         .then((res) => {
@@ -151,6 +151,9 @@ const PageBuilder: React.FC = () => {
       'talent-cloud-candidates',
       'testimonial',
       'video',
+      'search',
+      'divider',
+      'spacer',
     ];
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,
@@ -334,6 +337,7 @@ const PageBuilder: React.FC = () => {
         },
       },
     });
+
     //For Traits
     editor.on('component:selected', (component) => {
       console.log('component:selected', component);
@@ -351,6 +355,140 @@ const PageBuilder: React.FC = () => {
       console.log('type', component.get('type'));
       console.log('hello world', component.get('traits'));
       if (component.get('type') == 'text') {
+        component.components(component.get('traits').models[0].get('value'));
+        component.components(component.get('traits').models[1].get('class'));
+
+        // const block = editor.getSelected();
+        // console.log('block', block)
+        // block.setAttributes({ class: 'main_heading h3' });
+      }
+    });
+
+    editor.on('asset:add', (component) => {
+      if (component.attributes.src.includes(serverURL)) {
+        return;
+      }
+      const { src, width } = component.attributes;
+      if (width > 0) {
+        // binary file handling
+        fetch(src).then((response) => {
+          response.blob().then((fileBlob) => {
+            let file = new File([fileBlob], component.attributes.name);
+            uploadMedia({ src: file, name: component.attributes.name });
+          });
+        });
+      } else {
+        // url file handling
+        let arr = src.split('/');
+        let filename = arr[arr.length - 1];
+        fetch(src).then((response) => {
+          response.blob().then((fileBlob) => {
+            let file = new File([fileBlob], filename);
+            uploadMedia({ src: file, name: filename });
+          });
+        });
+      }
+    });
+    editor.DomComponents.addType('text', {
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'text',
+              name: 'text-title',
+              label: 'Title',
+              placeholder: 'Enter your title ',
+              className: 'custom-text',
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'HTML Tag',
+              default: 'h1',
+              options: [
+                { id: 'h1', name: 'H1' },
+                { id: 'h2', name: 'H2' },
+                { id: 'h3', name: 'H3' },
+                { id: 'h4', name: 'H4' },
+                { id: 'h5', name: 'H5' },
+                { id: 'h6', name: 'H6' },
+                { id: 'div', name: 'div' },
+                { id: 'span', name: 'span' },
+                { id: 'p', name: 'p' },
+              ],
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Alignment',
+              default: 'left',
+              options: [
+                { value: 'left', name: 'Left' },
+                { value: 'center', name: 'Center' },
+                { value: 'right', name: 'Right' },
+              ],
+            },
+          ],
+        },
+      },
+    });
+
+    editor.DomComponents.addType('button', {
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'text',
+              name: 'button-title',
+              label: 'Button Text',
+              placeholder: 'Buttton ',
+            },
+
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Button Alignment',
+              default: 'start',
+              options: [
+                { value: 'btn-start', name: 'Left' },
+                { value: 'btn-center', name: 'Center' },
+                { value: 'btn-right', name: 'Right' },
+              ],
+            },
+          ],
+        },
+      },
+    });
+    //For Traits
+    editor.on('component:selected', (component) => {
+      console.log('component:selected', component);
+      const { id } = component.attributes.attributes;
+      console.log('id', id);
+      console.log('type', component.get('content'));
+      if (component.get('type') == 'text') {
+        editor?.runCommand('core:open-traits');
+        if (component.get('traits').models[0].get('value'))
+          component.components(component.get('traits').models[0].get('value'));
+      }
+
+      if (component.get('type') == 'button') {
+        editor?.runCommand('core:open-traits');
+        if (component.get('traits').models[0].get('value'))
+          component.components(component.get('traits').models[0].get('value'));
+      }
+    });
+    editor.on('component:update', (component) => {
+      // console.log('component:update', component);
+      // console.log('type', component.get('type'));
+      // console.log('hello world', component.get('traits'));
+      if (component.get('type') == 'text') {
+        component.components(component.get('traits').models[0].get('value'));
+        component.components(component.get('traits').models[1].get('class'));
+        // const block = editor.getSelected();
+        // console.log('block', block)
+        // block.setAttributes({ class: 'main_heading h3' });
+      }
+      if (component.get('type') == 'button') {
         component.components(component.get('traits').models[0].get('value'));
         component.components(component.get('traits').models[1].get('class'));
         // const block = editor.getSelected();

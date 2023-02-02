@@ -1,11 +1,11 @@
-import { CollectionConfig } from 'payload/types';
-import PageTheme from '../components/PageBuilderTemplate';
-import PageBuilder from '../components/PageBuilder/SectionTemplates';
-import Payload from 'payload';
-import SelectPage from '../components/selectPageCode';
-import NewPageBuilder from '../components/PageBuilder';
-import NewPageBuilderModel from '../components/Model/NewPageBuilder';
-import PageBuildFromScratch from '../components/PageBuildFromScratch';
+import { CollectionConfig } from "payload/types";
+import PageTheme from "../components/PageBuilderTemplate";
+import PageBuilder from "../components/PageBuilder/SectionTemplates";
+import Payload from "payload";
+import SelectPage from "../components/selectPageCode";
+import NewPageBuilder from "../components/PageBuilder";
+import NewPageBuilderModel from "../components/Model/NewPageBuilder";
+import PageBuildFromScratch from "../components/PageBuildFromScratch";
 
 export type Type = {
   title: string;
@@ -29,7 +29,7 @@ export const Page: CollectionConfig = {
     //   views: {
     //     Edit: PageBuilder,
     //   },
-      // Field: PageBuildFromScratch,
+    // Field: PageBuildFromScratch,
     // },
   },
 
@@ -108,7 +108,7 @@ export const Page: CollectionConfig = {
       admin: {
         condition: (data) => data.pageType === "scratch",
         components: {
-          Field: PageBuildFromScratch ,
+          Field: PageBuildFromScratch,
         },
       },
     },
@@ -124,6 +124,20 @@ export const Page: CollectionConfig = {
       },
     },
   ],
+  hooks: {
+    afterChange: [({doc, // full document data
+    req, // full express request
+    previousDoc, // document data before updating the collection
+    operation,}) => {
+      // console.log("req.payload.express.route==================",req.res);
+      req.res.redirect('/adimn/');
+      // req.payload.express.route('/adimn/');
+    
+      // console.log("args.payload==========",args.payload)
+    }],
+    // doc,previousDoc,req, parems, query, 
+  
+  },
 };
 
 export default Page;

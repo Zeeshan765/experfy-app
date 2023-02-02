@@ -243,7 +243,7 @@ export default buildConfig({
         //   Component: ImgText,
         // },
       ],
-      // providers: [MyProvider],
+      providers: [MyProvider],
     },
   },
   collections: [

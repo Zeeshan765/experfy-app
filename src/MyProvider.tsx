@@ -7,6 +7,7 @@ import { useConfig } from 'payload/components/utilities';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Store from './reducer/store';
+import axios from 'axios';
 
 export const Context = createContext({} as any);
 
@@ -37,33 +38,33 @@ const MyProvider: React.FC<any> = ({ children }) => {
 
   // const LOGIN_URL = 'https://landing-ui-service.develop.experfy.com/login';
 
-  // const getTokenApi = async () => {
-  //   console.log('getToken Api Called: ' + LOGIN_URL );
-  //   try {
-  //     let response = await axios.post(LOGIN_URL, {
-  //       Headers: {
-  //         'Content-Type': 'application/json',
-  //         'access-control-allow-origin': '*',
-  //       },
-  //       email: 'ali.raza@algorepublic.com',
-  //       password: 'ars@123456',
-  //     });
-  //     console.log('response ==========', response);
+  const getTokenApi = async () => {
+    console.log('getToken Api Called:' );
+    try {
+      let response = await axios.post('https://landing-ui-service.develop.experfy.com/login', {
+        Headers: {
+          'Content-Type': 'application/json',
+          'access-control-allow-origin': '*',
+        },
+        email: 'ali.raza@algorepublic.com',
+        password: 'ars@123456',
+      });
+      console.log('response ==========', response);
 
-  //     if (response.status == 200) {
-  //       localStorage.setItem('token', response.data.access_token);
-  //       console.log(
-  //         'Token is Stored in Local Storage',
-  //         response.data.access_token
-  //       );
-  //       // setToken(response.data.access_token);
-  //     }
-  //   } catch (error) {
-  //     console.log('error', error);
-  //   }
-  // };
+      if (response.status == 200) {
+        localStorage.setItem('token', response.data.access_token);
+        console.log(
+          'Token is Stored in Local Storage',
+          response.data.access_token
+        );
+        // setToken(response.data.access_token);
+      }
+    } catch (error) {
+      console.log('error', error.message);
+    }
+  };
 
-  // getTokenApi();
+  getTokenApi();
 
   return (
     <Provider store={Store}>

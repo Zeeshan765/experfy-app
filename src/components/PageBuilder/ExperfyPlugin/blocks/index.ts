@@ -3,7 +3,7 @@ import type grapesjs from 'grapesjs';
 import { ReactComponentElement as footer } from 'react';
 
 import { RequiredPluginOptions } from '..';
-import { SectionStyle as style } from './style';
+import { getbuttonStyles, getStyles, SectionStyle as style } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
@@ -129,6 +129,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </footer>
  ${style}
+ ${getStyles([".footer-address-section margin-class",".site-credit-footer-container",".footer-images-section margin-class","margin-class"])}
  `,
   });
   addBlock('testimonial', {
@@ -180,6 +181,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    
  </section>
  ${style}
+ ${getStyles([".left-container",".slider-text-div"])}
  `,
   });
   addBlock('benefits', {
@@ -265,6 +267,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </section>
  ${style}
+ ${getStyles([".benefits-title-div",".benefits-option-section"])}
  `,
   });
   addBlock('practice-areas', {
@@ -801,6 +804,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
     </section>
  ${style}
+ ${getStyles([".video-header"])}
  `,
   });
   addBlock('guidelines', {
@@ -864,6 +868,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </div>
   </section>
   ${style}
+  ${getStyles([".guideline-header-section",".heading"])}
   `,
   });
   addBlock('location', {
@@ -926,9 +931,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="address-text-div">
               <p>Add address, phone number, or social media</p>
           </div>
+         
         </div>
 
-
+        
         </div>
         <div class="address-map-div">
             <img class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
@@ -937,6 +943,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
   </section>
   ${style}
+  ${getStyles([".address-content-main-holder","address-content-div","address-text-div"])}
+ 
   `,
   });
   addBlock('paragraph', {
@@ -965,6 +973,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
  </section>
  ${style}
+ ${getStyles([".paragraph-container"])}
  `,
   });
 
@@ -1013,6 +1022,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </section> 
     
     ${style}
+    ${getStyles([".title-div",".benefit percentage-info"])}
     `,
   });
 
@@ -1045,6 +1055,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  </div>
  </section> 
     ${style}
+    ${getStyles([".content-div"])}
  `,
   });
 
@@ -1059,7 +1070,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         <div class="main-banner-container">
       <div class="bannar-wrap">
       <div class="bannar-content">
-         <h1>Add your heading title here</h1>
+         <h1 class="header">Add your heading title here</h1>
          <p>Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Nunc nec posuere risus. Phasellus nunc nisl, vulputate nec magna vel, sodales sollicitudin velit. Fusce scelerisque odio risus, eu euismod felis
             pellentesque a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In pulvinar aliquam felis, eu sodales ligula
@@ -1076,6 +1087,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 </div>
         </section>
         ${style}
+        ${getStyles([".bannar-content"])}
         `,
   });
 
@@ -1122,7 +1134,42 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         </section>
         ${style}
-        
+        ${getStyles([".main_container .content-section"])}
+        `,
+  });
+  addBlock('search', {
+    label: 'Search',
+    category: 'Section Modules',
+    // media: ,
+    content: `<section class="search-section-main-holder">
+    <div class="search-bar-div">
+    <div class="search-box">
+    <input type="text" class="search-input" placeholder="Search Item...">
+    <button class="search-button"> Search</button>
+ </div>
+    </div>
+    </section>
+        ${style}
+        `,
+  });
+  addBlock('divider', {
+    label: 'Divider',
+    category: 'Section Modules',
+    // media: ,
+    content: `<div class="page-builder-divider">
+    <span class="page-builder-divider-seprator"></span>
+   </div>
+        ${style}
+        `,
+  });
+  addBlock('spacer', {
+    label: 'Spacer',
+    category: 'Section Modules',
+    // media: ,
+    content: `<div class="page-builder-spacer">
+    <div class="page-builder-spacer-inner"></div>
+  </div>
+        ${style}
         `,
   });
 };
