@@ -64,27 +64,37 @@
 import React from 'react';
 import { FormControl, MenuItem, Select, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import './index.scss';
 
 const useStyles = makeStyles({
   selectInput: {
-    "& > span": {
-      display: "inline-block",
-      fontSize: "1.0625rem",
+    '& > span': {
+      display: 'inline-block',
+      fontSize: '1.0625rem',
       fontWeight: 500,
-      margin: "0 0 .125rem",
-      color: "#4a5162",
+      margin: '0 0 .125rem',
+
       '&.is-regular': {
-        fontWeight: 400
-      }
+        fontWeight: 400,
+      },
     },
-    "& legend": {
-      "& span": {
-        display: "none"
-      }  
+    '& legend': {
+      '& span': {
+        display: 'none',
+      },
     },
-    // "& .MuiOutlinedInput-notchedOutline": {
-    //   top: '-2px'
-    // }
+    '& .MuiSelect-select': {
+      backgroundColor: '#fff',
+      marginBottom: '.5rem',
+      border: '1px solid #d2dbe2',
+
+      '&:focus': {
+        border: '1px solid #4ba4da',
+      },
+    },
+    '& .MuiOutlinedInput-notchedOutline': {
+      display: 'none',
+    },
   },
 });
 
@@ -92,7 +102,6 @@ function FormSelect({ options = [], ...props }) {
   const classes = useStyles();
   const [selectedOption, setSelectedOption] = React.useState();
 
-  
   if (props?.setTest !== undefined) {
     props?.setTest(Math.floor(Math.random() * 1000000000));
   }
@@ -106,13 +115,14 @@ function FormSelect({ options = [], ...props }) {
       fullWidth={props.fullwidth === false ? false : true}
       className={classes.selectInput}
     >
-      {props.label &&
-        <Typography 
-          variant="span" 
-          className={props.labelRegular ? "is-regular" : ""} >
+      {props.label && (
+        <Typography
+          variant="span"
+          className={props.labelRegular ? 'is-regular' : ''}
+        >
           {props.label}
         </Typography>
-      }  
+      )}
       <Select
         fullWidth
         value={selectedOption}

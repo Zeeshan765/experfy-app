@@ -1,7 +1,7 @@
 // import { Label, useField } from 'payload/components/forms';
 // import React, { useEffect, useState } from 'react';
 // import text from '../../utilities/text';
-// import './index.scss';
+import './index.scss';
 // type CustomTextField = {
 //   path: string;
 //   helperText?: string;
@@ -59,7 +59,7 @@
 //   //     setValue(defaultValue);
 //   //   }
 //   // }, [defaultValue]);
-  
+
 //   return (
 //     <div className={classes}>
 //       <Label htmlFor={`field-${path}`} label={label} required={required} />
@@ -80,9 +80,6 @@
 // };
 
 // export default TextInput;
-
-
-
 
 // import { Label, useField } from 'payload/components/forms';
 // import React, { useEffect, useState } from 'react';
@@ -164,35 +161,35 @@
 
 // export default TextInput;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-import React from "react";
-import { FormControl, TextField, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import React from 'react';
+import { FormControl, TextField, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   textInput: {
-    "& span": {
-      display: "inline-block",
-      fontSize: "1.0625rem",
+    '& span': {
+      display: 'inline-block',
+      fontSize: '1.0625rem',
       fontWeight: 500,
-      padding: "0 0 .125rem",
-      color: "#4a5162",
+      padding: '0 0 .125rem',
+      color: '#4a5162',
+    },
+    '& .MuiOutlinedInput-root': {
+      marginBottom: '.5rem',
+      backgroundColor: '#fff',
+      '& fieldset': {
+        border: '1px solid #d2dbe2',
+      },
+      '&:hover fieldset': {
+        border: '1px solid #4ba4da',
+      },
+      '&.Mui-focused fieldset': {
+        border: '1px solid #4ba4da',
+      },
     },
   },
 });
-declare module "@mui/material/Typography" {
+declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     span: true;
   }
@@ -201,37 +198,20 @@ declare module "@mui/material/Typography" {
 function TextInput(props) {
   const classes = useStyles();
 
- 
-  
-
   return (
     <FormControl fullWidth className={classes.textInput}>
-      {props.label &&
-        <Typography variant="span">{props.label}</Typography>
-      }
+      {props.label && <Typography variant="span">{props.label}</Typography>}
       <TextField
         {...props}
         fullWidth
-        label={""}
+        label={''}
         variant="outlined"
-        onFocus={() => props.setToolTipVisible(props.id)}
-        onBlur={() => props.setToolTipVisible(null)}
+        autoComplete="off"
         placeholder={props.placeholder}
-        defaultValue={props?.defaultValue || ""}
+        defaultValue={props?.defaultValue || ''}
       />
     </FormControl>
   );
 }
 
 export default TextInput;
-
-
-
-
-
-
-
-
-
-
-

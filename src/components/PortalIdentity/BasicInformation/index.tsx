@@ -1,12 +1,12 @@
-import { Box, Grid } from '@mui/material';
-import { Button, Eyebrow } from 'payload/components/elements';
+import { Box } from '@mui/material';
+import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
-import FormSelect from '../../../blocks/FormSelect';
-import TextInput from '../../../blocks/TextInput';
-import { useForm, Controller, useFieldArray } from 'react-hook-form';
-import axios from 'axios';
+import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import FormSelect from '../../../blocks/FormSelect';
+import FormTip from '../../../blocks/FormTip';
+import TextInput from '../../../blocks/TextInput';
 export default function BasicInformation(props) {
   const { propsdata } = props;
   const {
@@ -29,10 +29,12 @@ export default function BasicInformation(props) {
     formState: { errors },
   } = useForm({});
 
-
   useEffect(() => {
     reset({ ...propsdata });
   }, [propsdata]);
+
+  const watchAllFields = watch();
+  const [touched, setFocused] = useState('');
 
   const onSubmit = async (data) => {
     if (propsdata.id) {
@@ -46,12 +48,12 @@ export default function BasicInformation(props) {
           },
         });
 
-        toast.success('Portal Identitty Updated successfully');
+        toast.success('Portal Identity Updated successfully');
       } catch (error) {
         console.error(error);
         return error;
       }
-    } 
+    }
   };
 
   return (
@@ -69,6 +71,8 @@ export default function BasicInformation(props) {
                   label="Portal Name"
                   {...field}
                   id={'career_portal_name'}
+                  onFocus={() => setFocused('career_portal_name')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="career_portal_name"
@@ -76,13 +80,17 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
-            <div className="tip-wrapper">
-              {touched === 'career_portal_name' && (
-                <FormTip text={'The go-to-market name of the career portal'} />
-              )}
+          {
+            <div className="col-md-4">
+              <div className="tip-wrapper">
+                {touched === 'career_portal_name' && (
+                  <FormTip
+                    text={'The go-to market name for the career portal.'}
+                  />
+                )}
+              </div>
             </div>
-          </div> */}
+          }
         </div>
 
         <div className="row">
@@ -94,6 +102,8 @@ export default function BasicInformation(props) {
                   label="Portal ID"
                   {...field}
                   id={'portal_id'}
+                  onFocus={() => setFocused('portal_id')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="portal_id"
@@ -101,13 +111,13 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'portal_id' && (
                 <FormTip text={'The read only filed displays the Portal ID'} />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
@@ -119,6 +129,8 @@ export default function BasicInformation(props) {
                   label="Portal URL"
                   {...field}
                   id={'portal_url'}
+                  onFocus={() => setFocused('portal_url')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="portal_url"
@@ -126,7 +138,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'portal_url' && (
                 <FormTip
@@ -136,7 +148,7 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
@@ -148,6 +160,8 @@ export default function BasicInformation(props) {
                   label="Company Name"
                   {...field}
                   id={'company_name'}
+                  onFocus={() => setFocused('company_name')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="company_name"
@@ -155,7 +169,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'company_name' && (
                 <FormTip
@@ -165,7 +179,7 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
@@ -178,6 +192,8 @@ export default function BasicInformation(props) {
                     options={[{ value: 'English', label: 'English' }]}
                     label="Default Language"
                     id={'default_language'}
+                    onFocus={() => setFocused('default_language')}
+                    onBlur={() => setFocused('')}
                   />
                 );
               }}
@@ -186,7 +202,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'default_language' && (
                 <FormTip
@@ -196,7 +212,7 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
@@ -208,6 +224,8 @@ export default function BasicInformation(props) {
                   options={[{ value: 'US', label: 'United States' }]}
                   label="Default Locale"
                   id={'default_locale'}
+                  onFocus={() => setFocused('default_locale')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="default_locale"
@@ -215,7 +233,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'default_locale' && (
                 <FormTip
@@ -225,7 +243,7 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
@@ -237,6 +255,8 @@ export default function BasicInformation(props) {
                   label="Google Manager Tag ID"
                   {...field}
                   id={'google_id'}
+                  onFocus={() => setFocused('google_id')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="google_id"
@@ -244,7 +264,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'google_id' && (
                 <FormTip
@@ -254,7 +274,7 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
@@ -266,6 +286,8 @@ export default function BasicInformation(props) {
                   label="Google Analytics ID"
                   {...field}
                   id={'google_analytics'}
+                  onFocus={() => setFocused('google_analytics')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="google_analytics"
@@ -273,7 +295,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'google_analytics' && (
                 <FormTip
@@ -283,7 +305,7 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
@@ -295,6 +317,8 @@ export default function BasicInformation(props) {
                   label="Google Webmaster ID"
                   {...field}
                   id={'google_webmaster'}
+                  onFocus={() => setFocused('google_webmaster')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="google_webmaster"
@@ -302,13 +326,13 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'google_webmaster' && (
                 <FormTip text={'The Google Webmaster account.'} />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
@@ -320,6 +344,8 @@ export default function BasicInformation(props) {
                   label="BING Webmaster ID"
                   {...field}
                   id={'bing_webmaster'}
+                  onFocus={() => setFocused('bing_webmaster')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="bing_webmaster"
@@ -327,13 +353,13 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'bing_webmaster' && (
                 <FormTip text={'The Bing Webmaster Tools account.'} />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
@@ -345,6 +371,8 @@ export default function BasicInformation(props) {
                   label="Tracking Pixel"
                   {...field}
                   id={'tracking_pixel'}
+                  onFocus={() => setFocused('tracking_pixel')}
+                  onBlur={() => setFocused('')}
                 />
               )}
               name="tracking_pixel"
@@ -352,7 +380,7 @@ export default function BasicInformation(props) {
             />
           </div>
 
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="tip-wrapper">
               {touched === 'tracking_pixel' && (
                 <FormTip
@@ -362,12 +390,14 @@ export default function BasicInformation(props) {
                 />
               )}
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="row">
           <div className="col-md-4">
-            <button type="submit">Save</button>
+            <button className="btn btn--style-primary" type="submit">
+              Save
+            </button>
           </div>
         </div>
       </form>
