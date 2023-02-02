@@ -262,12 +262,7 @@ const Brandform: React.FC = (props: any) => {
                       />
                     </TableCell>
                     <TableCell>
-                      {/* <Button
-                        type="button"
-                      icon={<DeleteIcon />}
-                        onClick={() => remove(index)}
-                      >
-                      </Button> */}
+                    
                       <DeleteIcon style={{cursor:'pointer'}} onClick={() => remove(index)} />
                     </TableCell>
                   </TableRow>
