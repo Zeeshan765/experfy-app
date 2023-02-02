@@ -3,6 +3,7 @@
 import { ErrorMessage as DescriptionAlerts } from '@hookform/error-message';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   DialogContent,
@@ -261,14 +262,13 @@ const Brandform: React.FC = (props: any) => {
                       />
                     </TableCell>
                     <TableCell>
-                      <Button
+                      {/* <Button
                         type="button"
-                        buttonStyle="icon-label"
-                        icon={'x'}
+                      icon={<DeleteIcon />}
                         onClick={() => remove(index)}
                       >
-                        Delete
-                      </Button>
+                      </Button> */}
+                      <DeleteIcon style={{cursor:'pointer'}} onClick={() => remove(index)} />
                     </TableCell>
                   </TableRow>
                 );
