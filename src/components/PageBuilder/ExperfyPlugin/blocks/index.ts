@@ -1275,4 +1275,83 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         ${style}
         `,
   });
+  addBlock('theme-style', {
+    label: 'Theme Style',
+    category: 'Section Modules',
+    // media: ,
+    content: `   
+    <div id="theme_1">
+    <div class="global-theme-setting">
+   
+    <div class="headding-div">
+    <span class="section-headding">Buttons</span>
+    </div>
+    <div class="button-section">
+    <button>Button 1</button>
+  
+    </div>
+    <div class="headding-div">
+    <span class="section-headding">Images</span>
+    </div>
+    <div class="images-sections">
+    <img src="assets/images/portal/banner.png"  width="100%" />
+   
+    </div>
+    <div class="headding-div">
+    <span class="section-headding">Headdings Paragraph</span>
+    </div>
+    <div class="headding-holder-block">
+    <div class="heading-div">
+    <h1>Heading 1</h1>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    <div class="heading-div">
+       <h2>Heading 2</h2>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    <div class="heading-div">
+    <h3>Heading 3</h3>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    </div>
+    <div class="headding-holder-block">
+    <div class="heading-div">
+    <h4>Heading 4</h4>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    <div class="heading-div">
+    <h5>Heading 5</h5>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    <div class="heading-div">
+    <h6>Heading 6</h6>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    </div>
+    </div>
+    <div class="headding-div">
+    <span class="section-headding">Links</span>
+    </div>
+    <div class="link-holder">
+    <a href="#" >Link 1</a>
+    <a href="#" >Link 2</a>
+    
+    </div>
+    
+    </div>
+        ${style}
+        `,
+  });
 };

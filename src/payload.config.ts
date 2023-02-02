@@ -25,6 +25,7 @@ import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
 import MyProvider from './MyProvider';
+import ThemeStyle from './components/PageBuilder/ThemeStyle';
 
 dotenv.config();
 
@@ -73,7 +74,7 @@ export default buildConfig({
         },
         {
           path: '/collections/themes-style',
-          Component: DesignSystem,
+          Component: ThemeStyle,
           exact: true,
           strict: true,
         },

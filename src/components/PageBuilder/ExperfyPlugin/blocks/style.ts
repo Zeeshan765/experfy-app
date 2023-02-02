@@ -62,7 +62,6 @@ export const getStyles = (parentClass: any) => {
   </style>`;
 };
 
-
 export const getButtonALignment = (parentClass: any) => {
   return `<style>
   
@@ -78,9 +77,6 @@ export const getButtonALignment = (parentClass: any) => {
 
   </style>`;
 };
-
-
-
 
 export const getbuttonStyles = (parentClass: any) => {
   return parentClass.map((classname) => {
@@ -1065,4 +1061,75 @@ display: flex;
     font-weight: 500;
     text-transform: capitalize;
   }
+
+
+
+
+
+
+
+  /* /////////////////////////////////////////////
+  ///////////  Theme Style //////////
+  /////////////////////////////////////////// */
+
+
+  .header-block{
+    background-color: #40526E;
+    color: #FFFFFF;
+    padding: 20px 20px;
+    margin: 0px;
+  }
+  .headding-holder-block{
+    width: 80%;
+    display: flex;
+    padding: 20px 0px;
+    margin: auto;
+    justify-content: space-between;
+  }
+  .heading-div{
+    margin:0px 20px;
+  }
+  .button-section{
+    width: 80%;
+    display: flex;
+    padding: 20px 0px;
+    margin: 10px auto;
+    justify-content: space-between;
+  }
+  .images-sections{
+    width: 80%;
+    display: flex;
+    padding: 20px 0px;
+    margin: 10px auto;
+    justify-content: space-between;
+  }
+  .link-holder{
+    width: 80%;
+    display: flex;
+    padding: 20px 0px;
+    margin: 10px auto;
+    justify-content: space-between;
+  }
+  .headding-div{
+    width: 80%;
+    padding: 20px 0px;
+    margin: 10px auto;
+  }
+  .section-headding{
+    padding: 20px 0px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #000;
+  }
+
+
+
+
+
+
+
+
+
+
+
 </style>`;
