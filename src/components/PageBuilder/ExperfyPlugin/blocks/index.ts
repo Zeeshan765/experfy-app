@@ -7,6 +7,9 @@ import {
   getbuttonStyles,
   getButtonALignment,
   getStyles,
+  benefitsStyle,
+  paragraphStyle,
+  ImageText,
   SectionStyle as style,
 } from './style';
 
@@ -276,7 +279,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
     </div>
  </section>
- ${style}
+ ${benefitsStyle}
  ${getStyles(['.benefits-title-div', '.benefits-option-section'])}
  `,
   });
@@ -986,7 +989,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
        </div>
  </section>
- ${style}
+ ${paragraphStyle}
  ${getStyles(['.paragraph-container'])}
  `,
   });
@@ -1147,7 +1150,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
      
         </div>
         </section>
-        ${style}
+        ${ImageText}
         ${getStyles(['.main_container .content-section'])}
         `,
   });

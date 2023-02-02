@@ -118,8 +118,100 @@ export const getbuttonStyles = (parentClass: any) => {
   });
 };
 
-export const SectionStyle = `<style>
 
+export const benefitsStyle = `<style>
+
+.benefits-main-wrapper{
+
+}
+.benefits-container{
+width: 70%;
+margin: auto;
+text-align: center; 
+}
+
+.benefits-title-div{
+  text-align: center;
+}
+.benefits-title-div h1{
+  font-size: 42px;
+  margin-bottom: 0.5rem; 
+color: #111827; 
+line-height: 2.25rem; 
+font-weight: 500; 
+}
+
+.benefits-title-div h2{
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.benefits-title-div p {
+  text-align: center;
+}
+
+.benefits-option-section{
+display: flex; 
+margin-left: auto;
+margin-right: auto; 
+align-items: center; 
+}
+
+.benefits-option-section .benefit-holder{
+  padding: 0.75rem; 
+  margin: 0.75rem; 
+}
+
+  .benefits-option-section .benefit-holder h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #444;
+    text-align:center;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem; 
+    }
+
+    .benefits-option-section .benefit-holder p{
+      text-align:left;
+      line-height: 1.7;
+    }
+
+
+
+
+
+</style>`;
+
+
+export const paragraphStyle = `
+<style> 
+.main-paragraph-wrapper .paragraph-container{
+  width: 90%;
+  padding: 6rem 3.25rem;
+  margin-left: auto;
+  margin-right: auto; 
+  }
+
+  .paragraph-container h1{
+    font-size: 42px;
+    color: #111827; 
+    font-weight: 500; 
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .paragraph-container p{
+    margin-left: auto;
+    margin-right: auto; 
+    font-size: 1rem;
+    line-height: 1.625; 
+  }
+
+
+</style>`;
+
+export const ImageText  = `
+<style>
 .main_container {
   display: flex;
   margin: 0 auto;
@@ -163,6 +255,24 @@ export const SectionStyle = `<style>
   background-color: #f8f8fa;
   border-radius: 0px 0px 5px 5px;
 }
+
+
+</style>
+
+
+`
+
+
+
+
+
+
+
+
+
+
+export const SectionStyle = `<style>
+
 
 
 /* /////////////////////////////////////////////
@@ -277,68 +387,6 @@ export const SectionStyle = `<style>
   font-size: 14px;
   font-weight: 500;
 }
-
-
-
-/* /////////////////////////////////////////////
-/////////// Benefits style //////////
-/////////////////////////////////////////// */
-
-
-.benefits-main-wrapper{
-
-}
-.benefits-container{
-width: 70%;
-margin: auto;
-text-align: center; 
-}
-
-.benefits-title-div{
-  text-align: center;
-}
-.benefits-title-div h1{
-  font-size: 42px;
-  margin-bottom: 0.5rem; 
-color: #111827; 
-line-height: 2.25rem; 
-font-weight: 500; 
-}
-
-.benefits-title-div h2{
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.benefits-title-div p {
-  text-align: center;
-}
-
-.benefits-option-section{
-display: flex; 
-margin-left: auto;
-margin-right: auto; 
-align-items: center; 
-}
-
-.benefits-option-section .benefit-holder{
-  padding: 0.75rem; 
-  margin: 0.75rem; 
-}
-
-  .benefits-option-section .benefit-holder h1{
-    font-size: 20px;
-    font-weight: 600;
-    color: #444;
-    text-align:center;
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem; 
-    }
-
-    .benefits-option-section .benefit-holder p{
-      text-align:left;
-      line-height: 1.7;
-    }
 
 
 
@@ -528,33 +576,6 @@ display: flex;
    bottom: 0;
   }
 
-
-
-  /* /////////////////////////////////////////////
- /////////// paragraph style //////////
-/////////////////////////////////////////// */
-
-  .main-paragraph-wrapper .paragraph-container{
-  width: 90%;
-  padding: 6rem 3.25rem;
-  margin-left: auto;
-  margin-right: auto; 
-  }
-
-  .paragraph-container h1{
-    font-size: 42px;
-    color: #111827; 
-    font-weight: 500; 
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-
-  .paragraph-container p{
-    margin-left: auto;
-    margin-right: auto; 
-    font-size: 1rem;
-    line-height: 1.625; 
-  }
 
   /* /////////////////////////////////////////////
   /////////// image banner style //////////

@@ -31,6 +31,7 @@ import { useConfirm } from 'material-ui-confirm';
 
 import { useEffect } from 'react';
 import Brandpopup from './Brandpopup';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const useStyles = makeStyles({
   radioExample: {
@@ -140,6 +141,14 @@ export default function Brands(props) {
     console.log(data);
   };
 
+  const handleDelete = (event, data) => {
+    console.log("data of deler", data)
+  };
+
+
+
+
+  
   const columns = [
     { id: 'name', label: 'Brand Name', minWidth: 170 },
     { id: 'identifier', label: 'URL Brand Identifier', minWidth: 100 },
@@ -158,6 +167,7 @@ export default function Brands(props) {
         return (
           <Stack direction="row" alignItems="center" spacing={1}>
             <FormSwitch handleSwitchChange={handleSwitchChange} record={row} />
+            <DeleteIcon style={{cursor:'pointer'}} onClick={() => remove(index)} />
             {/* <ActionsGroup
               record={row}
               handleDelete={handleDelete}
@@ -170,7 +180,6 @@ export default function Brands(props) {
       },
     },
   ];
-  const handleDelete = (event, data) => {};
   console.log('data', data);
   return (
     <>
