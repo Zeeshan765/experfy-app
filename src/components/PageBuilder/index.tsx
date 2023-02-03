@@ -15,16 +15,12 @@ import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 const NewPageBuilder: React.FC = ({ status, handleClose }) => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
-  // const [pagePayload, setPagePayload] = useState<any>({
-  //   title: "sample",
-  //   author:'',
-  // });
+
   const { setStepNav } = useStepNav();
   const {
     routes: { admin },
   } = useConfig();
   const { setSelectedPageCode } = useContext(Context);
-  const [headingText, setHeadingText] = React.useState<string>('abc');
   const { serverURL } = useConfig();
   const apiEndpoint = `${serverURL}/api/media?locale=en&depth=0&fallback-locale=null`;
   useEffect(() => {

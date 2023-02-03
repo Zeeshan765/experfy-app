@@ -10,9 +10,23 @@ import {
   benefitsStyle,
   paragraphStyle,
   video,
+  locationStyle,
+  testimonialStyle,
+  practiceStyle,
+  footerStyle,
+  SearchStyle,
+  guidelines,
+  LogoStyle,
+  headerstyle,
+  ImageBanner,
+  numbermetric,
   talentCloud,
   ImageText,
   SectionStyle as style,
+  IconListStyle,
+  IconStyle,
+  pageTitle,
+  Navmenu,
 } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
@@ -63,7 +77,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  
    </header>
-   ${style}
+   ${headerstyle}
 
    `,
   });
@@ -138,7 +152,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
     </div>
  </footer>
- ${style}
+ ${footerStyle}
  ${getStyles([
    '.footer-address-section margin-class',
    '.site-credit-footer-container',
@@ -195,7 +209,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
    
  </section>
- ${style}
+ ${testimonialStyle}
  ${getStyles(['.left-container', '.slider-text-div'])}
  `,
   });
@@ -788,7 +802,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
 
  </section>
-  ${style}
+  ${practiceStyle}
  `,
   });
   addBlock('video', {
@@ -882,7 +896,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
   </div>
   </section>
-  ${style}
+  ${guidelines}
   ${getStyles(['.guideline-header-section', '.heading'])}
   `,
   });
@@ -957,7 +971,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
       </div>
   </section>
-  ${style}
+  ${locationStyle}
   ${getStyles([
     '.address-content-main-holder',
     'address-content-div',
@@ -1040,7 +1054,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
     </section> 
     
-    ${style}
+    ${numbermetric}
     ${getStyles(['.title-div', '.benefit percentage-info'])}
     `,
   });
@@ -1104,7 +1118,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    </div>
 </div>
         </section>
-        ${style}
+        ${ImageBanner}
         ${getbuttonStyles(['.bannar-btn-div'])}
         ${getButtonALignment(['.bannar-btn-div'])}
         `,
@@ -1158,7 +1172,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('search', {
     label: 'Search',
-    category: 'Section Modules',
+    category: 'Header & Footer',
     // media: ,
     content: `<section class="search-section-main-holder">
     <div class="search-bar-div">
@@ -1168,12 +1182,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  </div>
     </div>
     </section>
-        ${style}
+        ${SearchStyle}
         `,
   });
   addBlock('divider', {
     label: 'Divider',
-    category: 'Section Modules',
+    category: 'Basic Elements',
     // media: ,
     content: `<div class="page-builder-divider">
     <span class="page-builder-divider-seprator"></span>
@@ -1183,7 +1197,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('spacer', {
     label: 'Spacer',
-    category: 'Section Modules',
+    category: 'Basic Elements',
     // media: ,
     content: `<div class="page-builder-spacer">
     <div class="page-builder-spacer-inner"></div>
@@ -1193,17 +1207,17 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('page-title', {
     label: 'Page Title',
-    category: 'Section Modules',
+    category: 'Header & Footer',
     // media: ,
     content: `  <div class="page-title-wrapper">
     <h1 class="page-builder-heading-title">page Builder Header #1234</h1>
 </div>
-        ${style}
+        ${pageTitle}
         `,
   });
   addBlock('icon', {
     label: 'Icon',
-    category: 'Section Modules',
+    category: 'Basic Elements',
     // media: ,
     content: `<div class="icon-wrapper">
     <div class="page-builder-icon">
@@ -1216,12 +1230,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
     </div>
     </div>
-        ${style}
+        ${IconStyle}
         `,
   });
   addBlock('nav-menu', {
     label: 'Nav Menu',
-    category: 'Section Modules',
+    category: 'Basic Elements',
     // media: ,
     content: `<nav class="page-builder-nav-menu--main page-builder-menu--layout-horizontal">
     <ul class="page-builder-menu">
@@ -1237,12 +1251,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        <li class="menu-item"> <a href="#" class="page-builder-item">IoT &amp; Automation</a></li>
     </ul>
  </nav>
-        ${style}
+        ${Navmenu}
         `,
   });
   addBlock('icon-list', {
     label: 'Icon List',
-    category: 'Section Modules',
+    category: 'Basic Elements',
     // media: ,
     content: `    <div class="page-builder-listing-section">
     <ul class="page-builder-list-items">
@@ -1266,18 +1280,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    </li>
 </ul>
     </div>
-        ${style}
+        ${IconListStyle}
         `,
   });
   addBlock('logo', {
-    label: 'Logo',
-    category: 'Section Modules',
+    label: 'Site Logo',
+    category: 'Header & Footer',
     // media: ,
     content: `   <div class="page-builder-logo">
     <a class="#"><img src="https://resources.experfy.com/wp-content/uploads/2021/05/logo_navbar-87f75515ac3e48fdcc77b82a8794120a2c9d629770c27c0e76e966221ee0b7f4.png" class=""></a>
     </div>
     <h2 class="page-builder-site-title">Experfy Insights</h2>
-        ${style}
+        ${LogoStyle}
         `,
   });
   addBlock('theme-style', {
@@ -1360,3 +1374,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         `,
   });
 };
+
+
+

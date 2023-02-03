@@ -3,6 +3,19 @@
 // import { SelectField as Props } from 'payload/types';
 // import './index.scss';
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // type CustomField = Props & {
 //   path: string;
 //   type?: string;
@@ -102,9 +115,7 @@ function FormSelect({ options = [], ...props }) {
   const classes = useStyles();
   const [selectedOption, setSelectedOption] = React.useState();
 
-  if (props?.setTest !== undefined) {
-    props?.setTest(Math.floor(Math.random() * 1000000000));
-  }
+
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -127,12 +138,12 @@ function FormSelect({ options = [], ...props }) {
         fullWidth
         value={selectedOption}
         className="selectField"
-        onChange={
-          props.change == 'use-react-hook-onChange'
-            ? (props.onChange = (event) =>
-                props.handleChangeBT(event, props.record))
-            : handleChange
-        }
+        // onChange={
+        //   props.change == 'use-react-hook-onChange'
+        //     ? (props.onChange = (event) =>
+        //         props.handleChangeBT(event, props.record))
+        //     : handleChange
+        // }
         displayEmpty
         size={props.size === 'small' ? 'small' : 'medium'}
         inputProps={{ 'aria-label': 'Without label' }}
