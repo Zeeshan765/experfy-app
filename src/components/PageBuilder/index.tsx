@@ -8,7 +8,7 @@ import NavBar from "grapesjs-navbar";
 import Forms from "grapesjs-plugin-forms";
 import Experfy from "./ExperfyPlugin";
 import { useConfig } from "payload/components/utilities";
-import { Link, useHistory, useLocation, useParams } from "react-router-dom";
+import { Link, Route, useHistory, useLocation, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Context } from "../../MyProvider";
 import { getSectors } from "./ExperfyPlugin/blocks/getSectors";
@@ -27,6 +27,7 @@ const PageBuilder: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
   const { serverURL } = useConfig();
+  const {idCreateFromScratch,setIdCreateFromScratch}= useContext(Context);
   // const [pagePayload, setPagePayload] = useState<any>({
   //   title: "sample",
   //   author:'',
@@ -59,7 +60,6 @@ const PageBuilder: React.FC = () => {
     );
 
     if (search.split("=")[1] === "scratch") {
-      console.log("attributes", attributes);
       // debugger;
       // // ?locale=en&depth=0&fallback-locale=null
       axios
@@ -77,20 +77,36 @@ const PageBuilder: React.FC = () => {
         .catch((err) => {
           console.log("err", err);
         });
-    } else {
+    } 
+    if(idCreateFromScratch){
       axios
-        .post(`${apiEndPoint}/page-Template`, {
-          title: "TalentCloud Overview Page",
-          pageCode,
+        .patch(`${apiEndPoint}/pages/${idCreateFromScratch}`, {
+          pageCode:pageCode,
         })
         .then((res) => {
-          clearLocalStorage();
-          toast.success("Changes saved successfully");
+          toast.success("Page create successfully ");
+          deleteDataFromLocalStorage("page_code");
+          setIdCreateFromScratch('');
+          history.replace("/admin/collections/pages");
         })
         .catch((err) => {
           console.log("err", err);
         });
     }
+    // else {
+    //   axios
+    //     .post(`${apiEndPoint}/page-Template`, {
+    //       title: "TalentCloud Overview Page",
+    //       pageCode,
+    //     })
+    //     .then((res) => {
+    //       clearLocalStorage();
+    //       toast.success("Changes saved successfully");
+    //     })
+    //     .catch((err) => {
+    //       console.log("err", err);
+    //     });
+    // }
   };
   const uploadMedia = async (fileItem: String) => {
     const { name, src } = fileItem;

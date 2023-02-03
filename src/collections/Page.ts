@@ -6,6 +6,7 @@ import SelectPage from "../components/selectPageCode";
 import NewPageBuilder from "../components/PageBuilder";
 import NewPageBuilderModel from "../components/Model/NewPageBuilder";
 import PageBuildFromScratch from "../components/PageBuildFromScratch";
+import Pages from "../components/Pages";
 
 export type Type = {
   title: string;
@@ -20,17 +21,13 @@ export const Page: CollectionConfig = {
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "pageType", "updatedAt"],
-    // condition:
-    //  (data) => {
-    //   console.log("data", data);
-    //   return true;
-    // },
-    // components: {
-    //   views: {
-    //     Edit: PageBuilder,
-    //   },
-    // Field: PageBuildFromScratch,
-    // },
+    
+    components: {
+      views: {
+        Edit: Pages,
+        List: Pages,
+      },
+    },
   },
 
   access: {
@@ -48,47 +45,46 @@ export const Page: CollectionConfig = {
       required: true,
     },
     // author field
-    {
-      name: "author",
-      label: "Author",
-      type: "relationship",
-      relationTo: "users",
-      hasMany: false,
-      required: true,
-    },
+    // {
+    //   name: "author",
+    //   label: "Author",
+    //   type: "relationship",
+    //   relationTo: "users",
+    //   hasMany: false,
+    //   required: true,
+    // },
     // select page type field
     {
       name: "pageType",
-      label: "Page Type",
-      type: "radio",
+      type: "text",
       required: true,
-      access: {
-        read: () => true,
-        create: () => true,
-        update: () => true,
-      },
-      admin: {
-        layout: "vertical",
-        description: "Choose how you want to create this page",
-        // condition: (data) => {
-        //   console.log("data", data);
+      // access: {
+      //   read: () => true,
+      //   create: () => true,
+      //   update: () => true,
+      // },
+      // admin: {
+      //   layout: "vertical",
+      //   description: "Choose how you want to create this page",
+      //   // condition: (data) => {
+      //   //   console.log("data", data);
 
-        //   // if (data?.title && data?.author && data?.pageType==="scratch") {
-        //   //   localStorage.setItem("pageAttributes", JSON.stringify(data));
-        //   // }
-        //   return data.title && data.author;
-        // },
-      },
-      options: [
-        {
-          label: "Create from scratch",
-          value: "scratch",
-        },
-        {
-          label: "Use a template",
-          value: "template",
-        },
-      ],
+      //   //   // if (data?.title && data?.author && data?.pageType==="scratch") {
+      //   //   //   localStorage.setItem("pageAttributes", JSON.stringify(data));
+      //   //   // }
+      //   //   return data.title && data.author;
+      //   // },
+      // },
+      // options: [
+      //   {
+      //     label: "Create from scratch",
+      //     value: "scratch",
+      //   },
+      //   {
+      //     label: "Use a template",
+      //     value: "template",
+      //   },
+      // ],
     },
     // page build from template field
     {
@@ -115,29 +111,23 @@ export const Page: CollectionConfig = {
     // page Id when select from template field
     {
       name: "page_Id",
-      type: "ui",
-      admin: {
-        components: {
-          Field: SelectPage,
-        },
-        condition: (data) => data.pageType === "template",
-      },
+      type: "text",
+      // admin: {
+      //   components: {
+      //     Field: SelectPage,
+      //   },
+      //   condition: (data) => data.pageType === "template",
+      // },
     },
   ],
-  hooks: {
-    afterChange: [({doc, // full document data
-    req, // full express request
-    previousDoc, // document data before updating the collection
-    operation,}) => {
-      // console.log("req.payload.express.route==================",req.res);
-      req.res.redirect('/adimn/');
-      // req.payload.express.route('/adimn/');
-    
-      // console.log("args.payload==========",args.payload)
-    }],
-    // doc,previousDoc,req, parems, query, 
-  
-  },
+  // hooks: {
+  //   afterChange: [({doc, // full document data
+  //   req, // full express request
+  //   previousDoc, // document data before updating the collection
+  //   operation,}) => {
+  //     req.res.redirect('/adimn/');
+  //   }],
+  // },
 };
 
 export default Page;
