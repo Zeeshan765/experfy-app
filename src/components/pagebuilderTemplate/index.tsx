@@ -110,6 +110,8 @@ const PageTheme = () => {
         <div
           style={{
             padding: '10px',
+            display: 'flex',
+            gap: '8px',
           }}
         >
           <SelectInput

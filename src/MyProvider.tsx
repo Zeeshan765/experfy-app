@@ -20,7 +20,7 @@ const MyProvider: React.FC<any> = ({ children }) => {
   const [brands, setBrands] = useState(["hey"]);
   const [seo_setting, setSeo_Setting] = useState({});
   const [selectedPageCode, setSelectedPageCode] = useState();
-  const [idCreateFromScratch, setIdCreateFromScratch] = useState();
+  const [pageCreateFromScratch, setPageCreateFromScratch] = useState();
 
   const value = {
     adminPortal,
@@ -32,8 +32,8 @@ const MyProvider: React.FC<any> = ({ children }) => {
     adminRoute,
     setSelectedPageCode,
     selectedPageCode,
-    setIdCreateFromScratch,
-    idCreateFromScratch
+    setPageCreateFromScratch,
+    pageCreateFromScratch
   };
 
   // const LOGIN_URL = 'https://landing-ui-service.develop.experfy.com/login';
