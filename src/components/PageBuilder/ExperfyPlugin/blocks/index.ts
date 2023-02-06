@@ -3,7 +3,31 @@ import type grapesjs from 'grapesjs';
 import { ReactComponentElement as footer } from 'react';
 
 import { RequiredPluginOptions } from '..';
-import { getbuttonStyles, getStyles, SectionStyle as style } from './style';
+import {
+  getbuttonStyles,
+  getButtonALignment,
+  getStyles,
+  benefitsStyle,
+  paragraphStyle,
+  video,
+  locationStyle,
+  testimonialStyle,
+  practiceStyle,
+  footerStyle,
+  SearchStyle,
+  guidelines,
+  LogoStyle,
+  headerstyle,
+  ImageBanner,
+  numbermetric,
+  talentCloud,
+  ImageText,
+  SectionStyle as style,
+  IconListStyle,
+  IconStyle,
+  pageTitle,
+  Navmenu,
+} from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
@@ -53,7 +77,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  
    </header>
-   ${style}
+   ${headerstyle}
 
    `,
   });
@@ -128,8 +152,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
     </div>
  </footer>
- ${style}
- ${getStyles([".footer-address-section margin-class",".site-credit-footer-container",".footer-images-section margin-class","margin-class"])}
+ ${footerStyle}
+ ${getStyles([
+   '.footer-address-section margin-class',
+   '.site-credit-footer-container',
+   '.footer-images-section margin-class',
+   'margin-class',
+ ])}
  `,
   });
   addBlock('testimonial', {
@@ -180,8 +209,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
    
  </section>
- ${style}
- ${getStyles([".left-container",".slider-text-div"])}
+ ${testimonialStyle}
+ ${getStyles(['.left-container', '.slider-text-div'])}
  `,
   });
   addBlock('benefits', {
@@ -266,8 +295,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        </div>
     </div>
  </section>
- ${style}
- ${getStyles([".benefits-title-div",".benefits-option-section"])}
+ ${benefitsStyle}
+ ${getStyles(['.benefits-title-div', '.benefits-option-section'])}
  `,
   });
   addBlock('practice-areas', {
@@ -773,7 +802,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
 
  </section>
-  ${style}
+  ${practiceStyle}
  `,
   });
   addBlock('video', {
@@ -803,8 +832,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
       </div>
     </section>
- ${style}
- ${getStyles([".video-header"])}
+ ${video}
+ ${getStyles(['.video-header'])}
  `,
   });
   addBlock('guidelines', {
@@ -867,8 +896,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </div>
   </div>
   </section>
-  ${style}
-  ${getStyles([".guideline-header-section",".heading"])}
+  ${guidelines}
+  ${getStyles(['.guideline-header-section', '.heading'])}
   `,
   });
   addBlock('location', {
@@ -942,8 +971,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
       </div>
   </section>
-  ${style}
-  ${getStyles([".address-content-main-holder","address-content-div","address-text-div"])}
+  ${locationStyle}
+  ${getStyles([
+    '.address-content-main-holder',
+    'address-content-div',
+    'address-text-div',
+  ])}
  
   `,
   });
@@ -972,8 +1005,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
        </div>
  </section>
- ${style}
- ${getStyles([".paragraph-container"])}
+ ${paragraphStyle}
+ ${getStyles(['.paragraph-container'])}
  `,
   });
 
@@ -1021,8 +1054,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
     </section> 
     
-    ${style}
-    ${getStyles([".title-div",".benefit percentage-info"])}
+    ${numbermetric}
+    ${getStyles(['.title-div', '.benefit percentage-info'])}
     `,
   });
 
@@ -1054,8 +1087,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </div>
  </section> 
-    ${style}
-    ${getStyles([".content-div"])}
+    ${talentCloud}
+    ${getStyles(['.content-div'])}
  `,
   });
 
@@ -1078,16 +1111,16 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             feugiat convallis. Nulla sit amet odio dui. Nulla vulputate dictum tellus vel iaculis.
          </p>
          <div class="bannar-btn-div">
-            <button class="btn btn-primary button-annar">Button Label
-            </button>
+            <button class="btn btn-primary button-annar">Button Label</button>
          </div>
 
       </div>
    </div>
 </div>
         </section>
-        ${style}
-        ${getStyles([".bannar-content"])}
+        ${ImageBanner}
+        ${getbuttonStyles(['.bannar-btn-div'])}
+        ${getButtonALignment(['.bannar-btn-div'])}
         `,
   });
 
@@ -1133,13 +1166,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
      
         </div>
         </section>
-        ${style}
-        ${getStyles([".main_container .content-section"])}
+        ${ImageText}
+        ${getStyles(['.main_container .content-section'])}
         `,
   });
   addBlock('search', {
     label: 'Search',
-    category: 'Section Modules',
+    category: 'Header & Footer',
     // media: ,
     content: `<section class="search-section-main-holder">
     <div class="search-bar-div">
@@ -1149,12 +1182,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  </div>
     </div>
     </section>
-        ${style}
+        ${SearchStyle}
         `,
   });
   addBlock('divider', {
     label: 'Divider',
-    category: 'Section Modules',
+    category: 'Basic Elements',
     // media: ,
     content: `<div class="page-builder-divider">
     <span class="page-builder-divider-seprator"></span>
@@ -1164,7 +1197,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('spacer', {
     label: 'Spacer',
-    category: 'Section Modules',
+    category: 'Basic Elements',
     // media: ,
     content: `<div class="page-builder-spacer">
     <div class="page-builder-spacer-inner"></div>
@@ -1172,4 +1205,175 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         ${style}
         `,
   });
+  addBlock('page-title', {
+    label: 'Page Title',
+    category: 'Header & Footer',
+    // media: ,
+    content: `  <div class="page-title-wrapper">
+    <h1 class="page-builder-heading-title">page Builder Header #1234</h1>
+</div>
+        ${pageTitle}
+        `,
+  });
+  addBlock('icon', {
+    label: 'Icon',
+    category: 'Basic Elements',
+    // media: ,
+    content: `<div class="icon-wrapper">
+    <div class="page-builder-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
+    <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
+      <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
+        <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
+      </g>
+    </g>
+  </svg>
+    </div>
+    </div>
+        ${IconStyle}
+        `,
+  });
+  addBlock('nav-menu', {
+    label: 'Nav Menu',
+    category: 'Basic Elements',
+    // media: ,
+    content: `<nav class="page-builder-nav-menu--main page-builder-menu--layout-horizontal">
+    <ul class="page-builder-menu">
+       <li class="menu-item"> <a href="#" class="page-builder-item">Blog Category</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">Home</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">AI &amp; Machine Learning</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">Big Data, Cloud &amp; DevOps</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">Blog series</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">ConsumerTech</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">FinTech</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">Future of Work</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">HealthTech</a></li>
+       <li class="menu-item"> <a href="#" class="page-builder-item">IoT &amp; Automation</a></li>
+    </ul>
+ </nav>
+        ${Navmenu}
+        `,
+  });
+  addBlock('icon-list', {
+    label: 'Icon List',
+    category: 'Basic Elements',
+    // media: ,
+    content: `    <div class="page-builder-listing-section">
+    <ul class="page-builder-list-items">
+   <li class="page-builder-list-item">
+      <span class="page-builder-list-icon">
+      <i aria-hidden="true" class="fas fa-check"></i>
+      </span>
+      <span class="page-builder-list-text">List Item #1</span>
+   </li>
+   <li class="page-builder-list-item">
+   <span class="page-builder-list-icon">
+   <i aria-hidden="true" class="fas fa-check"></i>
+   </span>
+   <span class="page-builder-list-text">List Item #2</span>
+</li>
+<li class="page-builder-list-item">
+      <span class="page-builder-list-icon">
+      <i aria-hidden="true" class="fas fa-check"></i>
+      </span>
+      <span class="page-builder-list-text">List Item #3</span>
+   </li>
+</ul>
+    </div>
+        ${IconListStyle}
+        `,
+  });
+  addBlock('logo', {
+    label: 'Site Logo',
+    category: 'Header & Footer',
+    // media: ,
+    content: `   <div class="page-builder-logo">
+    <a class="#"><img src="https://resources.experfy.com/wp-content/uploads/2021/05/logo_navbar-87f75515ac3e48fdcc77b82a8794120a2c9d629770c27c0e76e966221ee0b7f4.png" class=""></a>
+    </div>
+    <h2 class="page-builder-site-title">Experfy Insights</h2>
+        ${LogoStyle}
+        `,
+  });
+  addBlock('theme-style', {
+    label: 'Theme Style',
+    category: 'Section Modules',
+    // media: ,
+    content: `   
+    <div id="theme_1">
+    <div class="global-theme-setting">
+   
+    <div class="headding-div">
+    <span class="section-headding">Buttons</span>
+    </div>
+    <div class="button-section">
+    <button>Button 1</button>
+  
+    </div>
+    <div class="headding-div">
+    <span class="section-headding">Images</span>
+    </div>
+    <div class="images-sections">
+    <img src="assets/images/portal/banner.png"  width="100%" />
+   
+    </div>
+    <div class="headding-div">
+    <span class="section-headding">Headdings Paragraph</span>
+    </div>
+    <div class="headding-holder-block">
+    <div class="heading-div">
+    <h1>Heading 1</h1>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    <div class="heading-div">
+       <h2>Heading 2</h2>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    <div class="heading-div">
+    <h3>Heading 3</h3>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    </div>
+    <div class="headding-holder-block">
+    <div class="heading-div">
+    <h4>Heading 4</h4>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    <div class="heading-div">
+    <h5>Heading 5</h5>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    <div class="heading-div">
+    <h6>Heading 6</h6>
+    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
+      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
+    </p>
+    </div>
+    </div>
+    </div>
+    <div class="headding-div">
+    <span class="section-headding">Links</span>
+    </div>
+    <div class="link-holder">
+    <a href="#" >Link 1</a>
+    <a href="#" >Link 2</a>
+    
+    </div>
+    
+    </div>
+        ${style}
+        `,
+  });
 };
+
+
+

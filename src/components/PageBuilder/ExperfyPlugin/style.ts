@@ -741,5 +741,20 @@ display: flex;
 .box-active .box-text-div p{
  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 </style>`;

@@ -39,7 +39,6 @@ const BasicPortalIdentityCollection: CollectionConfig = {
       label: "Portal Name",
       name: "career_portal_name",
       type: "text",
-      // defaultValue: "Career Portal",
 
       required: false,
     },
@@ -121,24 +120,25 @@ const BasicPortalIdentityCollection: CollectionConfig = {
     //  },
     {
       name: 'default_brand',
-      type: 'array',
-      fields: [
-        {
-          name: "brand_name",
-          type: "text",
-          //hidden: true,
-        },
-        {
-          name: "brand_identifier",
-          type: "text",
-          //hidden: true,
-        },
-        {
-          name: "microsoft_identifier",
-          type: "text",
-          //hidden: true,
-        },
-      ],
+      type: 'select',
+      options: ['brand1', 'brand2'],
+      // fields: [
+      //   {
+      //     name: "brand_name",
+      //     type: "text",
+      //     //hidden: true,
+      //   },
+      //   {
+      //     name: "brand_identifier",
+      //     type: "text",
+      //     //hidden: true,
+      //   },
+      //   {
+      //     name: "microsoft_identifier",
+      //     type: "text",
+      //     //hidden: true,
+      //   },
+      // ],
     },
 
     // {

@@ -18,12 +18,14 @@ import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import PageBuilder from './components/PageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
+import Brand from './collections/Brand';
 // import Form from './components/PageBuilder/NewSectionTemplate/Form';
 // import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
 import MyProvider from './MyProvider';
+import ThemeStyle from './components/PageBuilder/ThemeStyle';
 
 dotenv.config();
 
@@ -72,7 +74,7 @@ export default buildConfig({
         },
         {
           path: '/collections/themes-style',
-          Component: DesignSystem,
+          Component: ThemeStyle,
           exact: true,
           strict: true,
         },
@@ -258,6 +260,7 @@ export default buildConfig({
     PageBuilderCollection,
     Users,
     SectionTemplateCollection,
+    Brand,
   ],
   i18n: {
     supportedLngs: ["en", "es"],

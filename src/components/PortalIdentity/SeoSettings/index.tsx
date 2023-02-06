@@ -3,8 +3,9 @@ import { Button, Eyebrow } from 'payload/components/elements';
 import { useConfig } from 'payload/components/utilities';
 import React, { useState } from 'react';
 import TextInput from '../../../blocks/TextInput';
-import TextArea from '../../../blocks/TextArea';
-import { Form } from 'payload/components/forms';
+import { useForm, Controller, useFieldArray } from 'react-hook-form';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function SeoSettings(props) {
   const { propsdata } = props;
@@ -16,34 +17,68 @@ export default function SeoSettings(props) {
     routes: { admin, api },
   } = useConfig();
 
+  const {
+    control,
+    handleSubmit,
+    reset,
+    getValues,
+    watch,
+    formState: { errors },
+  } = useForm({});
+
+  const onSubmit = async (data) => {
+    if (propsdata.id) {
+      let apiEndpoint = `${serverURL}${api}/brand/${propsdata.id}`;
+      try {
+        const formData = new FormData();
+        formData.append('_payload', JSON.stringify(data));
+        const res = await axios.patch(apiEndpoint, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+
+        toast.success('Portal Identitty Updated successfully');
+      } catch (error) {
+        console.error(error);
+        return error;
+      }
+    }
+  };
+
   return (
     <Box sx={{ p: 1 }}>
-      <Form
-        method={propsdata?.id ? 'patch' : 'post'}
-        action={`${serverURL}${api}/basic-portal-identity/${
-          propsdata?.id ?? ''
-        }`}
-      >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              label="Page Title"
-              path={'page_title'}
-              display={propsdata?.page_title}
-              required={false}
-              placeHolder="Add Page Title of your career portal"
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  label="Page Title"
+                  {...field}
+                  id={'page_title'}
+                  placeholder="Add Page Title to your career portal "
+                />
+              )}
+              name="page_title"
+              control={control}
             />
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'meta_keywords'}
-              label="Meta Keywords"
-              display={propsdata?.meta_keywords}
-              required={false}
-              placeHolder="Add keywords separated by commas"
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  label="Meta Keywords"
+                  {...field}
+                  id={'meta_keywords'}
+                  placeholder="Add Keywords seperated by commas"
+                />
+              )}
+              name="meta_keywords"
+              control={control}
             />
           </div>
         </div>
@@ -52,33 +87,27 @@ export default function SeoSettings(props) {
 
         <div className="row">
           <div className="col-md-8">
-          <TextInput
-              path={'meta_description'}
-              label="Meta Description"
-              display={propsdata?.meta_description}
-              required={false}
-              placeHolder="Provide Description of your career Portal"
-            />  
-            {/* <TextArea
-              path={'meta_description'}
-              label="Meta Description"
-              display={propsdata?.meta_description}
-              required={false}
-              placeHolder="Provide Description of your career Portal"
-              rows={4}
-            /> */}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  label="Meta Description"
+                  {...field}
+                  id={'meta_description'}
+                  placeholder="Provide description for your career portal"
+                />
+              )}
+              name="meta_description"
+              control={control}
+            />
           </div>
         </div>
 
         <div className="row">
           <div className="col-md-4">
-            <Button type="submit" buttonStyle="primary">
-              {' '}
-              Submit{' '}
-            </Button>
+            <button type="submit">Submit</button>
           </div>
         </div>
-      </Form>
+      </form>
     </Box>
   );
 }
