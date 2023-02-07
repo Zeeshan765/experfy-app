@@ -41,7 +41,11 @@ type Props = {
   search?: string;
   templateModelClose?: () => void;
 };
-const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
+const PageTemplate: React.FC<Props> = ({
+  search,
+  templateModelClose,
+  fromScratch,
+}) => {
   const classes = useStyles();
   const { setSelectedPageCode } = useContext(Context);
   const pageList = [
@@ -94,7 +98,7 @@ const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
     templateModelClose();
   };
   return (
-    <>
+    <div>
       <Grid container spacing={2} style={{ margin: "auto", width: "100%" }}>
         {pageList.map(({ id, image, name, link }) => (
           <>
@@ -132,13 +136,20 @@ const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
                   >
                     {name}
                   </p>
-                  <button onClick={() => createPageHandler(id)}>Select</button>
                   <FaceLessModel
                     data={{ id, image, name }}
                     templateModelClose={templateModelClose}
                   />
                 </div>
-                <div>
+                <div className="image-card">
+                  {fromScratch && (
+                    <button
+                      className="template-select-button"
+                      onClick={() => createPageHandler(id)}
+                    >
+                      Select
+                    </button>
+                  )}
                   <img
                     src={image}
                     alt={name}
@@ -149,7 +160,6 @@ const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
                       background: "#f0f0f0",
                     }}
                   />
-                  <button onClick={() => createPageHandler(id)}>Select</button>
                 </div>
               </Grid>
             )}
@@ -193,7 +203,15 @@ const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
                     templateModelClose={templateModelClose}
                   />
                 </div>
-                <div>
+                <div className="image-card">
+                  {fromScratch && (
+                    <button
+                      className="template-select-button"
+                      onClick={() => createPageHandler(id)}
+                    >
+                      Select
+                    </button>
+                  )}
                   <img
                     src={image}
                     alt={name}
@@ -217,7 +235,7 @@ const PageTemplate: React.FC<Props> = ({ search, templateModelClose }) => {
           </>
         ))}
       </Grid>
-    </>
+    </div>
   );
 };
 export default PageTemplate;
