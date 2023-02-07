@@ -80,7 +80,7 @@ const Pages = () => {
         if (pageData.pageType === From_scratch) {
           setScratchId(data.doc.id);
           setPageCreateFromScratch({ pageType: From_scratch, id: data.doc.id });
-          toast.success("please create a new page");
+          // toast.success("please create a new page");
           history.push("/admin/collections/page-builder");
         } else {
           setPageCreateFromScratch("");
@@ -138,7 +138,7 @@ const Pages = () => {
         >
           <span className="page-title"> Create New Page</span>
           <a onClick={handleClose} style={{ color: "#000", padding: "8px" }}>
-            <CloseIcon style={{backgroundColor:'#4a5162'}} />
+            <CloseIcon />
           </a>
         </div>
       </DialogTitle>
