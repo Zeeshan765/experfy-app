@@ -135,7 +135,6 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
   //on panel change show the respective panel
   editor.on('run:core:open-blocks', () => {
     openBlBtn.set('active', true);
-    console.log(openBlBtn);
     getStyleEl(editor, '.blocks').style.display = '';
     getStyleEl(editor, '.styles-container').style.display = 'none';
     getStyleEl(editor, '.layers-container').style.display = 'none';

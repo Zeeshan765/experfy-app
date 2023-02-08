@@ -18,12 +18,14 @@ import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import PageBuilder from './components/PageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
+import Brand from './collections/Brand';
 // import Form from './components/PageBuilder/NewSectionTemplate/Form';
 // import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
 import MyProvider from './MyProvider';
+import ThemeStyle from './components/PageBuilder/ThemeStyle';
 
 dotenv.config();
 
@@ -50,18 +52,18 @@ export default buildConfig({
           exact: true,
         },
         {
-          path: '/collections/portal-identity',
+          path: "/collections/portal-identity",
           Component: PortalIdentity,
           exact: true,
         },
         {
-          path: '/collections/portal-identity/:id',
+          path: "/collections/portal-identity/:id",
           Component: PortalIdentity,
           exact: true,
           strict: true,
         },
         {
-          path: '/collections/design-system',
+          path: "/collections/design-system",
           Component: DesignSystem,
           exact: true,
           strict: true,
@@ -72,7 +74,7 @@ export default buildConfig({
         },
         {
           path: '/collections/themes-style',
-          Component: DesignSystem,
+          Component: ThemeStyle,
           exact: true,
           strict: true,
         },
@@ -87,7 +89,23 @@ export default buildConfig({
           Component: TemplatesLibrary,
         },
         {
-          path: '/collections/section-templates',
+          path: "/collections/themes-style",
+          Component: DesignSystem,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: '/collections/page-builder',
+          Component: PageBuilder,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: "/collections/templates-library",
+          Component: TemplatesLibrary,
+        },
+        {
+          path: "/collections/section-templates",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
@@ -227,7 +245,7 @@ export default buildConfig({
         //   Component: ImgText,
         // },
       ],
-      // providers: [MyProvider],
+      providers: [MyProvider],
     },
   },
   collections: [
@@ -242,14 +260,15 @@ export default buildConfig({
     PageBuilderCollection,
     Users,
     SectionTemplateCollection,
+    Brand,
   ],
   i18n: {
-    supportedLngs: ['en', 'es'],
+    supportedLngs: ["en", "es"],
     saveMissing: true,
-    fallbackLng: 'en',
+    fallbackLng: "en",
   },
   debug: true,
   typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts'),
+    outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
 });

@@ -1,24 +1,34 @@
-import { CollectionConfig } from 'payload/types';
-import PageTheme from '../components/PageBuilderTemplate';
-import PageBuilder from '../components/PageBuilder/SectionTemplates';
-import Payload from 'payload';
-import SelectPage from '../components/selectPageCode';
-import NewPageBuilder from '../components/PageBuilder';
-import NewPageBuilderModel from '../components/Model/NewPageBuilder';
+import { CollectionConfig } from "payload/types";
+import PageTheme from "../components/PageBuilderTemplate";
+import PageBuilder from "../components/PageBuilder/SectionTemplates";
+import Payload from "payload";
+import SelectPage from "../components/selectPageCode";
+import NewPageBuilder from "../components/PageBuilder";
+import NewPageBuilderModel from "../components/Model/NewPageBuilder";
+import PageBuildFromScratch from "../components/PageBuildFromScratch";
+import Pages from "../components/Pages";
 
-export type Type = {
-  title: string;
-  slug: string;
-  pageType?: 'scratch' | 'template';
-};
+// export type Type = {
+//   title: string;
+//   slug: string;
+//   pageType?: "scratch" | "template";
+// };
 
 export const Page: CollectionConfig = {
-  slug: 'pages',
+  slug: "pages",
   versions: true,
 
   admin: {
-    useAsTitle: 'title',
-    defaultColumns: ['title', 'pageType', 'updatedAt'],
+    useAsTitle: "title",
+    defaultColumns: ["title", "pageType", "updatedAt"],
+    
+    components: {
+      views: {
+        Edit: Pages,
+      
+        // List: Pages,
+      },
+    },
   },
 
   access: {
@@ -28,73 +38,35 @@ export const Page: CollectionConfig = {
     delete: (): boolean => true,
   },
   fields: [
+    // page title field
     {
-      name: 'title',
-      label: 'Page Title',
-      type: 'text',
+      name: "title",
+      label: "Page Title",
+      type: "text",
       required: true,
     },
+    // select page type field
     {
-      name: 'author',
-      label: 'Author',
-      type: 'relationship',
-      relationTo: 'users',
-      hasMany: false,
+      name: "pageType",
+      type: "text",
       required: true,
-    },
-    {
-      name: 'pageType',
-      label: 'Page Type',
-      type: 'radio',
-      required: true,
-      // defaultValue: "scratch",
-      admin: {
-        layout: 'vertical',
-        description: 'Choose how you want to create this page',
       },
-      options: [
-        {
-          label: 'Create from scratch',
-          value: 'scratch',
-        },
-        {
-          label: 'Use a template',
-          value: 'template',
-        },
-      ],
-    },
+    // page Id when select from template field
     {
-      name: 'template',
-      type: 'ui',
-      label: 'Template',
-      admin: {
-        condition: (data) => data.pageType === 'template',
-        components: {
-          Field: PageTheme,
-        },
-      },
+      name: "pageId",
+      type: "text",
     },
-    {
-      name: 'from_scratch',
-      type: 'ui',
-      label: 'Untitled',
-      admin: {
-        condition: (data) => data.pageType === 'scratch',
-        components: {
-          Field: NewPageBuilderModel,
-        },
-      },
-    },
-    {
-      name: 'page_Id',
-      type: 'ui',
-      admin: {
-        components: {
-          Field: SelectPage,
-        },
-      },
-    },
+    {name:"pageCode",
+    type:"text",}
   ],
+  // hooks: {
+  //   afterChange: [({doc, // full document data
+  //   req, // full express request
+  //   previousDoc, // document data before updating the collection
+  //   operation,}) => {
+  //     req.res.redirect('/adimn/');
+  //   }],
+  // },
 };
 
 export default Page;

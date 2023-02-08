@@ -1,15 +1,9 @@
-import { makeStyles } from '@mui/styles';
-import { useConfirm } from 'material-ui-confirm';
-import React, { useEffect, useState } from 'react';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Form } from 'payload/components/forms';
-import { Button, Eyebrow } from 'payload/components/elements';
-import TextInput from '../../../blocks/TextInput';
-import FormSelect from '../../../blocks/FormSelect';
-import AddIcon from '@mui/icons-material/Add';
-import CloseIcon from '@mui/icons-material/Close';
+import React from 'react';
 import {
   Box,
+  Button,
+  FormControl,
+  FormControlLabel,
   Grid,
   Radio,
   RadioGroup,
@@ -22,9 +16,22 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { useConfig } from 'payload/components/utilities';
-import { useFieldArray, useForm } from 'react-hook-form';
+import { makeStyles } from '@mui/styles';
+// import DescriptionAlerts from '../../components/Messages';
+// import FormSelect from '../../components/FormSelect';
+// import FormSwitch from '../../components/FormSwitch';
+// import ActionsGroup from '../../components/ActionsGroups';
+import AddIcon from '@mui/icons-material/Add';
+import FormSwitch from '../../../blocks/FormSwitch';
+import FormSelect from '../../../blocks/FormSelect';
+import { useForm, Controller, useFieldArray, set } from 'react-hook-form';
+import TextInput from '../../../blocks/TextInput';
+import { useState } from 'react';
+import { useConfirm } from 'material-ui-confirm';
 
+import { useEffect } from 'react';
+import Brandpopup from './Brandpopup';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const useStyles = makeStyles({
   radioExample: {
@@ -42,27 +49,18 @@ const useStyles = makeStyles({
 });
 
 export default function Brands(props) {
-  const [brandSwitch, setBrandSwitch] = React.useState(true);
-  // const { adminPortal, setAdminPortal, brands, setBrands } = props;
-  const [adminPortal, setAdminPortal] = useState({});
-  const [brands, setBrands] = useState([]);
-  const [seo_setting, setSeo_Setting] = useState({});
-  const [errorMessage, setErrorMessage] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [addBrand, setAddBrand] = useState(false);
-  const [brandList, setBrandList] = useState([]);
   const [brandDeleted, setBrandDeleted] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [editBrand, setEditBrand] = useState(false);
-  const [deleted, setDeleted] = useState(false);
   const [saveEditRecord, setSaveEditRecord] = useState('');
   const [activeRow, setActiveRow] = useState(false);
   const [defaultBrand, setDefaultBrand] = useState('');
-  const [microSite, setMicroSite] = useState('');
+  const [data, setData] = useState([]);
   const [defaultValues, setDefaultValues] = useState({
     name: '',
     identifier: '',
@@ -70,12 +68,30 @@ export default function Brands(props) {
     default_brand: `${defaultBrand}`,
     radioButtons: '',
   });
-  
+  const [brandOptionList, setBrandOptionList] = useState([]);
+
+  const confirm = useConfirm();
+  const { control, handleSubmit, reset, setValue } = useForm({
+    defaultValues,
+  });
+  const { brands } = props.propsdata;
 
 
+  const handleReset = () => {
+    reset({});
+  };
 
-
-
+  const handleAddBrand = (newItem) => {
+    setAddBrand(true);
+    setData([...data, { ...newItem }]);
+    setOpen(true);
+  };
+  const handleEditBrand = () => {
+    setEditBrand(true);
+  };
+  const handleEditBrandClose = () => {
+    setEditBrand(false);
+  };
   const handleOpen = () => {
     setOpen(true);
   };
@@ -83,243 +99,335 @@ export default function Brands(props) {
     setOpen(false);
   };
 
-  const { control, getValues, register, watch } = useForm();
+  const handleEditOpen = (event, data) => {
+    setSaveEditRecord(data);
+    setOpenEdit(true);
+  };
+  const handleEditClose = (data) => {
+    setOpenEdit(false);
+  };
 
-  const { fields, append, remove } = useFieldArray({
-    name: 'brands',
-    control,
-  });
 
-  const handleAddRow = (value: unknown) => {
-    append(value);
+  useEffect(() => {
+    setValue('name', '');
+    setValue('identifier', '');
+    setValue('microsite_identifier', '');
+  }, [open]);
+
+
+
+  const getlist = () => {
+    console.log('brands', brands);
+    let updatedBrands = brands.map((i) => ({
+      id: i.id,
+      name: i.brand_name,
+      identifier: i.brand_identifier,
+      microsite_identifier: i.microsoft_identifier,
+      // default_brand: i.default_brand,
+    }));
+    console.log('updatedBrands', updatedBrands);
+    setData(updatedBrands);
+  };
+
+  useEffect(() => {
+    if (brands?.length > 0) {
+      getlist();
+    }
+  }, [brands]);
+
+  
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  const handleDelete = (event, data) => {
+    console.log("data of deler", data)
   };
 
 
 
-  const {
-    admin: { user: userSlug },
-    collections,
-    serverURL,
-    routes: { admin, api },
-  } = useConfig();
 
-  const userConfig = collections.find(
-    (collection) => collection.slug === userSlug
-  );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // useEffect(() => {
-  //   setValue('name', saveEditRecord.name);
-  //   setValue('identifier', saveEditRecord.identifier);
-  //   setValue('microsite_identifier', saveEditRecord.microsite_identifier);
-  // }, [saveEditRecord]);
-  // useEffect(() => {
-  //   setValue('name', '');
-  //   setValue('identifier', '');
-  //   setValue('microsite_identifier', '');
-  // }, [open]);
-
-  // useEffect(() => {
-  //   showBrandsAPI(setBrandList, props.adminPortal);
-  // }, [brandDeleted]);
-
-  const list = brandList.map((i) => ({
-    id: i.id,
-    name: i.name,
-    identifier: i.identifier,
-    microsite_identifier: i.microsite_identifier,
-    default_brand: i.default_brand,
-  }));
-  const updatedBrandsOption = () => {
-    const array = [];
-    brandList.map((i) => {
-      if (i) {
-        array.push({ value: i.name, label: i.name });
-      }
-    });
-    return array;
-  };
-
+  
+  const columns = [
+    { id: 'name', label: 'Brand Name', minWidth: 170 },
+    { id: 'identifier', label: 'URL Brand Identifier', minWidth: 100 },
+    {
+      id: 'microsite_identifier',
+      label: 'Microsite Identifier',
+      minWidth: 170,
+    },
+    {
+      id: 'Actions',
+      label: 'Action',
+      minWidth: 170,
+      align: 'center',
+      label: 'Action',
+      renderCell: (row, handleDelete, handleSwitchChange) => {
+        return (
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <FormSwitch handleSwitchChange={handleSwitchChange} record={row} />
+            <DeleteIcon style={{cursor:'pointer'}} onClick={() => remove(index)} />
+            {/* <ActionsGroup
+              record={row}
+              handleDelete={handleDelete}
+              handleEditOpen={handleEditOpen}
+              hasEdit={true}
+              hasDelete={true}
+            /> */}
+          </Stack>
+        );
+      },
+    },
+  ];
+  console.log('data', data);
   return (
-    <Box sx={{ p: 1 }}>
-      <Form
-        // method={id ? 'patch' : 'post'}
-        // action={`${serverURL}${api}/basic-portal-identity/${id ?? ''}`}
-      >
-        <Grid container spacing={3}>
-          <Grid item xs={8}>
-            <FormSelect
-              type={'select'}
-              options={[]}
-              label="Default Brand"
-              name={'default_brand'}
-              path={'default_brand'}
-            />
-          </Grid>
-        </Grid>
-
-        <Typography variant="h5" mb={2} mt={4}>
-          Please choose whether you would like your microsites in your career
-          portal network to use subdomains or sub-directories.
-        </Typography>
-
-        <RadioGroup
-          aria-labelledby="radio-buttons"
-          defaultValue="micro-sites"
-          name="radio-buttons-group"
-        >
-          <Grid container spacing={1} alignItems="center">
-            <Grid item xs={2}>
-              <FormControlLabel
-                name={'sub_domain'}
-                value="sub_domain"
-                control={<Radio />}
-                label="Sub-domains"
+    <>
+      {open && (
+        <Brandpopup
+          open={open}
+          setOpen={setOpen}
+          handleAddBrand={handleAddBrand}
+        />
+      )}
+      <Box sx={{ p: 1 }}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Grid container spacing={3}>
+            <Grid item xs={8}>
+              <Controller
+                render={({ field }) => (
+                  <FormSelect
+                    {...field}
+                    options={brandOptionList}
+                    name="defaultBrand"
+                    label="Default Brand"
+                  />
+                )}
+                name="default_brand"
+                control={control}
               />
             </Grid>
             <Grid item xs={10}>
-              <Stack
-                className={classes.radioExample}
-                direction="row"
-                spacing={2}
-              >
-                <Typography>Example</Typography>
-                <Typography variant="span">
-                  microsite1/companyname/careers.experfy.com
-                </Typography>
-                <Typography variant="span">
-                  microsite2/companyname/careers.experfy.com
-                </Typography>
-              </Stack>
-            </Grid>
-            <Grid item xs={2}>
-              <FormControlLabel
-                name={'sub_directories'}
-                value="sub_directories"
-                control={<Radio />}
-                label="Sub-directories"
-              />
-            </Grid>
-            <Grid item xs={10}>
-              <Stack
-                className={classes.radioExample}
-                direction="row"
-                spacing={2}
-              >
-                <Typography>Example</Typography>
-                <Typography variant="span">
-                  companyname/careers.experfy.com/microsite1
-                </Typography>
-                <Typography variant="span">
-                  companyname/careers.experfy.com/microsite2
-                </Typography>
-              </Stack>
-            </Grid>
-          </Grid>
-        </RadioGroup>
-
-        <Grid container justifyContent="flex-end" my={2}>
-          <Button
-            icon={<AddIcon />}
-            buttonStyle="primary"
-            onClick={handleAddRow}
-          >
-            Add Brand
-          </Button>
-        </Grid>
-        <TableContainer>
-          <Table aria-label="table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Brand Name</TableCell>
-                <TableCell>URL Brand Identifier</TableCell>
-                <TableCell>Microsite Identifier</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {fields.map((item, index) => {
-                return (
-                  <TableRow key={index}>
-                    <TableCell>
-                      {/* <input {...register(`brands.${index}.brand_name`)}
-              placeholder="Brand Name" />
-*/}
-                      <TextInput
-                        // label={'Portal Name'}
-                        path={`brand_name`}
-                        required={false}
-                        index={index}
-                        brand="brands"
-                        placeHolder="Brand Name"
-                        // setTouched={setTouched}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      {/* <input {...register(`brands.${index}.brand_identifier`)}
-              placeholder="Brand Identifier"/> */}
-
-                      <TextInput
-                        // name="Portal Name"
-                        path={`brand_identifier`}
-                        required={false}
-                        index={index}
-                        brand="brands"
-                        placeHolder="Brand Identifier"
-                        // setTouched={setTouched}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      {/* <input {...register(`brands.${index}.microsoft_identifier`)}
-          placeholder="Microsoft Identifier"/> */}
-
-                      <TextInput
-                        // path={`brands.${index}.microsite_identifier`}
-                        path={`microsoft_identifier`}
-                        index={index}
-                        brand="brands"
-                        required={false}
-                        placeHolder="Microsoft Identifier"
-                        // setTouched={setTouched}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <Button
-                        type="button"
-                        buttonStyle="icon-label"
-                        icon={'x'}
-                        onClick={() => remove(index)}
+              <Typography variant="h5" mb={2}>
+                Please Choose whether you would like your microsites in your
+                career portal network ti use subdomains or sub-directories.
+              </Typography>
+              <FormControl fullWidth>
+                <Controller
+                  control={control}
+                  name="radioButtons"
+                  render={({ field }) => {
+                    return (
+                      <RadioGroup
+                        aria-labelledby="radio-buttons"
+                        defaultValue="microsites"
+                        name="radio-buttons-group"
+                        {...field}
                       >
-                        Delete
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-
-        <Button
-          type="submit"
-          buttonStyle="primary"
-          // onClick={handlenaviagte}
-        >
-          Save
-        </Button>
-      </Form>
-    </Box>
+                        <Grid container spacing={1} alignItems="center">
+                          <Grid item xs={2}>
+                            <FormControlLabel
+                              value="sub_domains"
+                              control={<Radio />}
+                              label="Sub-domains"
+                            />
+                          </Grid>
+                          <Grid item xs={10}>
+                            <Stack
+                              className={classes.radioExample}
+                              direction="row"
+                              spacing={2}
+                            >
+                              <Typography>Example</Typography>
+                              <Typography variant="span">
+                                microsite1/companyname/careers.experfy.com
+                              </Typography>
+                              <Typography variant="span">
+                                microsite2/companyname/careers.experfy.com
+                              </Typography>
+                            </Stack>
+                          </Grid>
+                          <Grid item xs={2}>
+                            <FormControlLabel
+                              value="sub_directories"
+                              control={<Radio />}
+                              label="Sub-directories"
+                            />
+                          </Grid>
+                          <Grid item xs={10}>
+                            <Stack
+                              className={classes.radioExample}
+                              direction="row"
+                              spacing={2}
+                            >
+                              <Typography>Example</Typography>
+                              <Typography variant="span">
+                                companyname/careers.experfy.com/microsite1
+                              </Typography>
+                              <Typography variant="span">
+                                companyname/careers.experfy.com/microsite2
+                              </Typography>
+                            </Stack>
+                          </Grid>
+                        </Grid>
+                      </RadioGroup>
+                    );
+                  }}
+                />
+              </FormControl>
+            </Grid>
+            <Grid item xs={10}>
+              <Grid container justifyContent="flex-end">
+                <Button
+                  variant="outlined"
+                  startIcon={<AddIcon />}
+                  color="primary"
+                  onClick={() => handleOpen()}
+                >
+                  Add Brand
+                </Button>
+              </Grid>
+            </Grid>
+            <Grid item xs={10}>
+              <TableContainer>
+                <Table aria-label="table">
+                  <TableHead>
+                    <TableRow>
+                      {columns.map((column) => (
+                        <TableCell
+                          key={column.id}
+                          align={column.align}
+                          style={{ top: 57, minWidth: column.minWidth }}
+                        >
+                          {column.label}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {data.map((row) => {
+                      return (
+                        <TableRow key={`${row?.identifier + row?.name}`}>
+                          {columns.map((column) => {
+                            const value = row[column.id];
+                            return (
+                              <>
+                                {!activeRow ? (
+                                  <TableCell
+                                    key={column.id}
+                                    align={column.align}
+                                  >
+                                    {value
+                                      ? column.format &&
+                                        typeof value === 'number'
+                                        ? column.format(value)
+                                        : value
+                                      : column.renderCell(row, handleDelete)}
+                                  </TableCell>
+                                ) : (
+                                  <TableCell
+                                    key={column.id}
+                                    align={column.align}
+                                  >
+                                    <Controller
+                                      render={({ field }) => (
+                                        <TextInput {...field} />
+                                      )}
+                                      name="name"
+                                      control={control}
+                                    />
+                                  </TableCell>
+                                )}
+                              </>
+                            );
+                          })}
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Grid>
+            <Grid item xs={12}>
+              {/* <Button variant="contained" color="primary" type="submit">
+              Save
+            </Button> */}
+            </Grid>
+          </Grid>
+        </form>
+      </Box>
+    </>
   );
 }
+
+// {/* <Dialog
+//   open={openEdit}
+//   onClose={handleEditClose}
+//   maxWidth="md"
+//   fullWidth={true}
+// >
+//   <form onSubmit={handleSubmit(onSubmit)}>
+//     <DialogTitle sx={{ borderBottom: '1px solid #d1dbe3' }}>
+//       <Grid container justifyContent="space-between" alignItems="center">
+//         <Typography variant="h4">Edit Brand</Typography>
+//         <IconButton
+//           onClick={() => {
+//             handleEditClose();
+//             handleEditBrandClose();
+//           }}
+//         >
+//           <CloseIcon />
+//         </IconButton>
+//       </Grid>
+//     </DialogTitle>
+//     <DialogContent>
+//       <Grid container spacing={3} pt={4}>
+//         <Grid item xs={12}>
+//           <Controller
+//             render={({ field }) => {
+//               return <TextInput {...field} label="Brand Name" />;
+//             }}
+//             name="name"
+//             control={control}
+//             reset={reset}
+//           />
+//         </Grid>
+//         <Grid item xs={12}>
+//           <Controller
+//             render={({ field }) => {
+//               return (
+//                 <TextInput {...field} label="URL Brand Identifier" />
+//               );
+//             }}
+//             name="identifier"
+//             control={control}
+//             reset={reset}
+//           />
+//         </Grid>
+//         <Grid item xs={12}>
+//           <Controller
+//             render={({ field }) => {
+//               return <TextInput {...field} label="Microsite ID" />;
+//             }}
+//             name="microsite_identifier"
+//             control={control}
+//             reset={reset}
+//           />
+//         </Grid>
+//       </Grid>
+//     </DialogContent>
+//     <DialogActions>
+//       <Grid container>
+//         <Button
+//           type="submit"
+//           variant="contained"
+//           onClick={() => {
+//             handleEditBrand();
+//           }}
+//         >
+//           Save
+//         </Button>
+//       </Grid>
+//     </DialogActions>
+//   </form>
+// </Dialog> */}

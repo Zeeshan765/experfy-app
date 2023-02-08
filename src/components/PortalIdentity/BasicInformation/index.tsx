@@ -1,14 +1,14 @@
-import { Box, Grid } from '@mui/material';
-import { Button, Eyebrow } from 'payload/components/elements';
-import { Form } from 'payload/components/forms';
+import { Box } from '@mui/material';
+import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import FormSelect from '../../../blocks/FormSelect';
 import FormTip from '../../../blocks/FormTip';
 import TextInput from '../../../blocks/TextInput';
-
 export default function BasicInformation(props) {
-  const { adminPortal, setAdminPortal, propsdata } = props;
+  const { propsdata } = props;
   const {
     admin: { user: userSlug },
     collections,
@@ -19,56 +19,95 @@ export default function BasicInformation(props) {
   const userConfig = collections.find(
     (collection) => collection.slug === userSlug
   );
-
-  const [apiMethod, setApiMethod] = useState('post');
+  const {
+    control,
+    handleSubmit,
+    reset,
+    getValues,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useForm({});
 
   useEffect(() => {
-    if (propsdata?.id) {
-      setApiMethod('patch');
-    } else {
-      setApiMethod('post');
-    }
+    reset({ ...propsdata });
   }, [propsdata]);
 
-  const [touched, setTouched] = useState('');
+  const watchAllFields = watch();
+  const [touched, setFocused] = useState('');
+
+  const onSubmit = async (data) => {
+    if (propsdata.id) {
+      let apiEndpoint = `${serverURL}${api}/brand/${propsdata.id}`;
+      try {
+        const formData = new FormData();
+        formData.append('_payload', JSON.stringify(data));
+        const res = await axios.patch(apiEndpoint, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+
+        toast.success('Portal Identity Updated successfully');
+      } catch (error) {
+        console.error(error);
+        return error;
+      }
+    }
+  };
+
   return (
     <Box sx={{ p: 1 }}>
-      <Form
+      <form
         //@ts-ignore
-        method={apiMethod}
-        action={`${serverURL}${api}/basic-portal-identity/${
-          propsdata?.id ?? ''
-        }`}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              label={'Portal Name'}
-              path={'career_portal_name'}
-              minLength={3}
-              required={true}
-              display={propsdata?.career_portal_name}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Portal Name"
+                  {...field}
+                  id={'career_portal_name'}
+                  onFocus={() => setFocused('career_portal_name')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="career_portal_name"
+              control={control}
             />
           </div>
 
-          <div className="col-md-4">
-            <div className="tip-wrapper">
-              {touched === 'career_portal_name' && (
-                <FormTip text={'The go-to-market name of the career portal'} />
-              )}
+          {
+            <div className="col-md-4">
+              <div className="tip-wrapper">
+                {touched === 'career_portal_name' && (
+                  <FormTip
+                    text={'The go-to market name for the career portal.'}
+                  />
+                )}
+              </div>
             </div>
-          </div>
+          }
         </div>
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'portal_id'}
-              label="Portal ID"
-              required={true}
-              display={propsdata?.portal_id}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Portal ID"
+                  {...field}
+                  id={'portal_id'}
+                  onFocus={() => setFocused('portal_id')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="portal_id"
+              control={control}
             />
           </div>
 
@@ -83,12 +122,19 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'portal_url'}
-              label="Portal URL"
-              required={true}
-              display={propsdata?.portal_url}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Portal URL"
+                  {...field}
+                  id={'portal_url'}
+                  onFocus={() => setFocused('portal_url')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="portal_url"
+              control={control}
             />
           </div>
 
@@ -107,11 +153,19 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'company_name'}
-              label="Company Name"
-              display={propsdata?.company_name}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Company Name"
+                  {...field}
+                  id={'company_name'}
+                  onFocus={() => setFocused('company_name')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="company_name"
+              control={control}
             />
           </div>
 
@@ -130,15 +184,21 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <FormSelect
-              type={'select'}
-              options={['English', 'Spanish']}
-              label="Default Language"
-              name={'default_language'}
-              path={'default_language'}
-              display={propsdata?.default_language}
-              defaultValue="English"
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => {
+                return (
+                  <FormSelect
+                    {...field}
+                    options={[{ value: 'English', label: 'English' }]}
+                    label="Default Language"
+                    id={'default_language'}
+                    onFocus={() => setFocused('default_language')}
+                    onBlur={() => setFocused('')}
+                  />
+                );
+              }}
+              name="default_language"
+              control={control}
             />
           </div>
 
@@ -157,15 +217,19 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <FormSelect
-              options={['US', 'ES']}
-              label="Default Locale"
-              name={'default_locale'}
-              path={'default_locale'}
-              display={propsdata?.default_locale}
-              defaultValue="US"
-              type={'select'}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <FormSelect
+                  {...field}
+                  options={[{ value: 'US', label: 'United States' }]}
+                  label="Default Locale"
+                  id={'default_locale'}
+                  onFocus={() => setFocused('default_locale')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="default_locale"
+              control={control}
             />
           </div>
 
@@ -184,11 +248,19 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'google_id'}
-              label="Google Manager Tag ID"
-              display={propsdata?.google_id}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Google Manager Tag ID"
+                  {...field}
+                  id={'google_id'}
+                  onFocus={() => setFocused('google_id')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="google_id"
+              control={control}
             />
           </div>
 
@@ -207,11 +279,19 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'google_analytics'}
-              label="Google Analytics ID"
-              display={propsdata?.google_analytics}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Google Analytics ID"
+                  {...field}
+                  id={'google_analytics'}
+                  onFocus={() => setFocused('google_analytics')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="google_analytics"
+              control={control}
             />
           </div>
 
@@ -230,11 +310,19 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'google_webmaster'}
-              label="Google Webmaster ID"
-              display={propsdata?.google_webmaster}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Google Webmaster ID"
+                  {...field}
+                  id={'google_webmaster'}
+                  onFocus={() => setFocused('google_webmaster')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="google_webmaster"
+              control={control}
             />
           </div>
 
@@ -249,11 +337,19 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'bing_webmaster'}
-              label="Bing Webmaster ID"
-              display={propsdata?.bing_webmaster}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="BING Webmaster ID"
+                  {...field}
+                  id={'bing_webmaster'}
+                  onFocus={() => setFocused('bing_webmaster')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="bing_webmaster"
+              control={control}
             />
           </div>
 
@@ -268,11 +364,19 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-8">
-            <TextInput
-              path={'tracking_pixel'}
-              label="Tracking Pixel"
-              display={propsdata?.tracking_pixel}
-              setTouched={setTouched}
+            <Controller
+              render={({ field }) => (
+                <TextInput
+                  disabled={false}
+                  label="Tracking Pixel"
+                  {...field}
+                  id={'tracking_pixel'}
+                  onFocus={() => setFocused('tracking_pixel')}
+                  onBlur={() => setFocused('')}
+                />
+              )}
+              name="tracking_pixel"
+              control={control}
             />
           </div>
 
@@ -291,12 +395,12 @@ export default function BasicInformation(props) {
 
         <div className="row">
           <div className="col-md-4">
-            <Button type="submit" buttonStyle="primary">
+            <button className="btn btn--style-primary" type="submit">
               Save
-            </Button>
+            </button>
           </div>
         </div>
-      </Form>
+      </form>
     </Box>
   );
 }

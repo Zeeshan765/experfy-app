@@ -11,7 +11,7 @@ import join from '../../assets/images/templates/join.png';
 import tc_overview from '../../assets/images/templates/tc_overview.png';
 import { SelectInput, TextInput } from 'payload/components/forms';
 import PageTemplate from '../PageTemplate';
-const PageTheme = () => {
+const PageTheme = ({fromScratch}) => {
   const [open, setOpen] = React.useState(false);
   const [search, setSearch] = React.useState('');
   const history = useHistory();
@@ -84,16 +84,10 @@ const PageTheme = () => {
       fullWidth={true}
     >
       <DialogTitle
-        sx={{ boxShadow: 3 }}
-        style={{
-          borderBottom: '1px solid #000',
-          boxShadow: '0px 1px 4px 1px #000',
-          padding: '.75rem 3rem',
-        }}
+       className="model-title"
       >
         <div
           style={{
-            // padding: "16px",
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -106,16 +100,25 @@ const PageTheme = () => {
           </a>
         </div>
       </DialogTitle>
-      <div style={{ background: '#fff' }}>
+      <div className="model-body" style={{ background: '#fff' }}>
         <div
           style={{
-            padding: '10px',
+            display: 'flex',
+            gap: '2rem',
           }}
-        >
+        >  
+          <TextInput
+            name="search"
+            path="search"
+            label={'Search Page'}
+            width={'50%'}
+            onChange={handleSeach}
+            value={search}
+          />
           <SelectInput
             name={'template_type'}
             label={'Template Type'}
-            width={'50%'}
+            width={'25%'}
             defaultValue={'Default templates'}
             options={[
               {
@@ -126,16 +129,8 @@ const PageTheme = () => {
             path={'template_type'}
           />
 
-          <TextInput
-            name="search"
-            path="search"
-            label={'Search Page'}
-            width={'50%'}
-            onChange={handleSeach}
-            value={search}
-          />
         </div>
-        <PageTemplate search={search} templateModelClose={handleClose} />
+        <PageTemplate search={search} fromScratch={fromScratch} templateModelClose={handleClose} />
       </div>
     </Dialog>
   );

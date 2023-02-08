@@ -3,6 +3,7 @@ import PageBuilder from '../components/PageBuilder';
 
 const PageBuilderCollection: CollectionConfig = {
   slug: 'page-builder',
+
   access: {
     read: () => true,
     create: () => true,

@@ -1,6 +1,5 @@
 import { CollectionConfig, GlobalConfig } from 'payload/types';
-import DesignSystem from '../components/PageBuilder/DesignSystem';
-
+import ThemeStyle from '../components/PageBuilder/ThemeStyle';
 const ThemeCollection: CollectionConfig = {
   labels: {
     singular: 'Theme Style',
@@ -15,7 +14,7 @@ const ThemeCollection: CollectionConfig = {
     group: 'Global Theme Settings',
     components: {
       views: {
-        List: DesignSystem,
+        List: ThemeStyle,
       },
     },
   },

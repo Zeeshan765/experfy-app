@@ -1,20 +1,42 @@
-import GrapesJS from 'grapesjs';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import Basics from 'grapesjs-blocks-basic';
-import { Eyebrow } from 'payload/components/elements';
-import { useStepNav } from 'payload/components/hooks';
-import axios from 'axios';
-import NavBar from 'grapesjs-navbar';
-import Forms from 'grapesjs-plugin-forms';
-import Experfy from './ExperfyPlugin';
-import { useConfig } from 'payload/components/utilities';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { Context } from '../../MyProvider';
-import { getSectors } from './ExperfyPlugin/blocks/getSectors';
-const NewPageBuilder: React.FC = ({ status, handleClose }) => {
+import GrapesJS from "grapesjs";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import Basics from "grapesjs-blocks-basic";
+import { Eyebrow } from "payload/components/elements";
+import { useStepNav } from "payload/components/hooks";
+import axios from "axios";
+import NavBar from "grapesjs-navbar";
+import Forms from "grapesjs-plugin-forms";
+import Experfy from "./ExperfyPlugin";
+import { useConfig } from "payload/components/utilities";
+import {
+  Link,
+  Route,
+  useHistory,
+  useLocation,
+  useParams,
+} from "react-router-dom";
+import { toast } from "react-toastify";
+import { Context } from "../../MyProvider";
+import { getSectors } from "./ExperfyPlugin/blocks/getSectors";
+import {
+  deleteDataFromLocalStorage,
+  getDataFromStorage,
+  parseDataFromString,
+} from "../../utilities/localStorage";
+import { apiEndPoint } from "../../services";
+
+const PageBuilder: React.FC = () => {
+  const pageCreate = useLocation();
+  let { search } = pageCreate;
+  const history = useHistory();
+
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const [elementCreate, setElementCreate] = useState(false);
+  const {
+    pageCreateFromScratch,
+    setPageCreateFromScratch,
+    setSelectedPageCode,
+  } = useContext(Context);
   // const [pagePayload, setPagePayload] = useState<any>({
   //   title: "sample",
   //   author:'',
@@ -23,46 +45,76 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
   const {
     routes: { admin },
   } = useConfig();
-  const { setSelectedPageCode } = useContext(Context);
-  const [headingText, setHeadingText] = React.useState<string>('abc');
+  const [headingText, setHeadingText] = React.useState<string>("abc");
   const { serverURL } = useConfig();
   const apiEndpoint = `${serverURL}/api/media?locale=en&depth=0&fallback-locale=null`;
   useEffect(() => {
     setStepNav([
       {
-        label: 'Page Builder',
-        url: '/collections/page-builder',
+        label: "Page Builder",
+        url: "/collections/page-builder",
       },
     ]);
   }, [setStepNav]);
 
   const clearLocalStorage = () => {
-    localStorage.removeItem('page_code');
+    localStorage.removeItem("page_code");
   };
 
   const dataHandler = () => {
-    const data = localStorage.getItem('page_code');
-    if (status === 'NewFromPage') {
-      handleClose();
-      setSelectedPageCode(data);
-      clearLocalStorage();
-    } else {
+    const pageCode = getDataFromStorage("page_code");
+    const attributes = parseDataFromString(
+      getDataFromStorage("pageAttributes")
+    );
+
+    if (search.split("=")[1] === "scratch") {
+      // debugger;
+      // // ?locale=en&depth=0&fallback-locale=null
       axios
-        .post('http://localhost:3001/api/page-Template', {
-          title: 'title',
-          pageCode: data,
+        .post(`${apiEndPoint}/pages?locale=en&depth=0&fallback-locale=null`, {
+          ...attributes,
+          pageCode: pageCode,
         })
         .then((res) => {
-          clearLocalStorage();
-          toast.success('Changes saved successfully');
+          console.log("res======>", res);
+          toast.success(res.data.message);
+          deleteDataFromLocalStorage("pageAttributes");
+          deleteDataFromLocalStorage("page_code");
+          history.replace("/admin/collections/pages");
         })
         .catch((err) => {
-          console.log('err', err);
+          console.log("err", err);
         });
-
-      handleClose();
-      setSelectedPageCode('12');
     }
+    if (pageCreateFromScratch?.pageType && pageCreateFromScratch?.id) {
+      axios
+        .patch(`${apiEndPoint}/pages/${pageCreateFromScratch?.id}`, {
+          pageCode: pageCode,
+        })
+        .then((res) => {
+          toast.success("Page create successfully ");
+          deleteDataFromLocalStorage("page_code");
+          setPageCreateFromScratch("");
+          history.replace("/admin/collections/pages");
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    }
+    // else {
+    //   axios
+    //     .post(`${apiEndPoint}/page-Template`, {
+    //       title: "TalentCloud Overview Page",
+    //       pageCode,
+    //     })
+    //     .then((res) => {
+    //       clearLocalStorage();
+    //       toast.success("Changes saved successfully");
+    //     })
+    //     .catch((err) => {
+    //       console.log("err", err);
+    //     });
+    // }
   };
   const uploadMedia = async (fileItem: String) => {
     const { name, src } = fileItem;
@@ -70,18 +122,18 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
     try {
       // Create the form data for the request
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append("file", file);
       // formData.append('name', file.name);
       let item = {
-        keywords: 'Media',
-        mediaType: 'Photo',
-        description: '',
+        keywords: "Media",
+        mediaType: "Photo",
+        description: "",
       };
-      formData.append('_payload', JSON.stringify(item));
+      formData.append("_payload", JSON.stringify(item));
       // Make the POST request
       await axios.post(apiEndpoint, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
           // Authorization: `Bearer ${apiKey}`,
         },
       });
@@ -98,7 +150,7 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       .then((response) => {
         const { docs } = response.data;
         docs.forEach(({ url }) => {
-          assetManager?.add([{ src: url, type: 'image' }]);
+          assetManager?.add([{ src: url, type: "image" }]);
         });
       })
       .catch((error) => {
@@ -108,21 +160,29 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
 
   useEffect(() => {
     const sections = [
-      'header',
-      'footer',
-      'image-banner',
-      'image-gallery',
-      'image-and-text',
-      'paragraph',
-      'practice-areas',
-      'benefits',
-      'departments',
-      'guidelines',
-      'location',
-      'metrics-numbers',
-      'talent-cloud-candidates',
-      'testimonial',
-      'video',
+      "header",
+      "footer",
+      "image-banner",
+      "image-gallery",
+      "image-and-text",
+      "paragraph",
+      "practice-areas",
+      "benefits",
+      "departments",
+      "guidelines",
+      "location",
+      "metrics-numbers",
+      "talent-cloud-candidates",
+      "testimonial",
+      "video",
+      "search",
+      "divider",
+      "spacer",
+      "icon",
+      "page-title",
+      "nav-menu",
+      "icon-list",
+      "logo",
     ];
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,
@@ -135,33 +195,33 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       });
 
     editor = GrapesJS.init({
-      container: '.editor',
+      container: ".editor",
       fromElement: true,
       showDevices: false,
       plugins: [
         ExperfyBlocks,
         (editor) =>
           NavBar(editor, {
-            label: 'Header',
+            label: "Header",
             block: {
-              category: 'Header & Footer',
+              category: "Header & Footer",
             },
           }),
         (editor) =>
           Basics(editor, {
-            category: 'Basic Elements',
+            category: "Basic Elements",
             flexGrid: true,
             addBasicStyle: true,
           }),
         (editor) =>
           Forms(editor, {
-            category: 'Basic Elements',
+            category: "Basic Elements",
           }),
         ,
       ],
 
       storageManager: {
-        type: 'local',
+        type: "local",
         autoload: false,
         options: {
           storeComponents: true,
@@ -170,28 +230,51 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
           storeCss: true,
 
           local: {
-            key: 'page_code',
+            key: "page_code",
           },
         },
       },
 
       layerManager: {
-        appendTo: '.layers-container',
+        appendTo: ".layers-container",
         scrollCanvas: true,
       },
       selectorManager: {
-        appendTo: '.styles-container',
+        appendTo: ".styles-container",
       },
       styleManager: {
-        appendTo: '.styles-container',
+        appendTo: ".styles-container",
         highlightChanged: true,
       },
       traitManager: {
-        appendTo: '.traits-container',
+        appendTo: ".traits-container",
       },
       blockManager: {
-        appendTo: '.blocks',
+        appendTo: ".blocks",
         blocks: [],
+      },
+      commands: {
+        defaults: [
+          {
+            id: "preview-fullscreen",
+            run() {
+              editor.runCommand("preview");
+              editor.runCommand("fullscreen");
+            },
+            stop() {
+              editor.stopCommand("fullscreen");
+              editor.stopCommand("preview");
+            },
+          },
+          {
+            id: "save-editor",
+            hidden: true,
+            run(editor: { store: () => GrapesJS.Editor }) {
+              const store = editor.store();
+              dataHandler();
+            },
+          },
+        ],
       },
     });
 
@@ -214,19 +297,7 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
         });
     };
 
-    editor.on('component:selected', (component) => {
-      if (component.get('type') == 'text') {
-        editor?.runCommand('core:open-traits');
-        if (component.get('traits').models[1].get('value'))
-          component.components(component.get('traits').models[1].get('value'));
-      }
-    });
-    editor.on('component:update', (component) => {
-      if (component.get('type') == 'text')
-        component.components(component.get('traits').models[1].get('value'));
-    });
-
-    editor.on('asset:add', (component) => {
+    editor.on("asset:add", (component) => {
       if (component.attributes.src.includes(serverURL)) {
         return;
       }
@@ -241,7 +312,7 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
         });
       } else {
         // url file handling
-        let arr = src.split('/');
+        let arr = src.split("/");
         let filename = arr[arr.length - 1];
         fetch(src).then((response) => {
           response.blob().then((fileBlob) => {
@@ -251,32 +322,84 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
         });
       }
     });
-    editor.DomComponents.addType('text', {
+    editor.DomComponents.addType("text", {
       model: {
         defaults: {
           traits: [
             {
-              type: 'text',
-              name: 'text-title',
-              label: 'Title',
-              placeholder: 'Enter your title ',
-              className: 'custom-text',
+              type: "text",
+              name: "text-title",
+              label: "Title",
+              placeholder: "Enter your title ",
+              className: "custom-text",
             },
             {
-              type: 'select',
-              name: 'class',
-              label: 'HTML Tag',
-              default: 'h1',
+              type: "select",
+              name: "class",
+              label: "HTML Tag",
+              default: "h1",
               options: [
-                { id: 'h1', name: 'H1' },
-                { id: 'h2', name: 'H2' },
-                { id: 'h3', name: 'H3' },
-                { id: 'h4', name: 'H4' },
-                { id: 'h5', name: 'H5' },
-                { id: 'h6', name: 'H6' },
-                { id: 'div', name: 'div' },
-                { id: 'span', name: 'span' },
-                { id: 'p', name: 'p' },
+                { id: "h1", name: "H1" },
+                { id: "h2", name: "H2" },
+                { id: "h3", name: "H3" },
+                { id: "h4", name: "H4" },
+                { id: "h5", name: "H5" },
+                { id: "h6", name: "H6" },
+                { id: "div", name: "div" },
+                { id: "span", name: "span" },
+                { id: "p", name: "p" },
+              ],
+            },
+            {
+              type: "select",
+              name: "class",
+              label: "Alignment",
+              default: "left",
+              options: [
+                { value: "left", name: "Left" },
+                { value: "center", name: "Center" },
+                { value: "right", name: "Right" },
+              ],
+            },
+          ],
+        },
+      },
+    });
+
+    editor.DomComponents.addType("button", {
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: "text",
+              name: "button-title",
+              label: "Button Text",
+              placeholder: "Buttton ",
+            },
+            {
+              type: "select",
+              name: "class",
+              label: "Button Size",
+              default: "small",
+              options: [
+                { value: "btn-extrasmall", name: "Extra Small" },
+
+                { value: "btn-small", name: "small" },
+                { value: "btn-medium", name: "Medium" },
+                { value: "btn-large", name: "Large" },
+                { value: "btn-extralarge", name: "Extra Large" },
+              ],
+            },
+
+            {
+              type: "select",
+              name: "class",
+              label: "Button Alignment",
+              default: "btn-start",
+              options: [
+                { value: "btn-start", name: "Left" },
+                { value: "btn-center", name: "Center" },
+                { value: "btn-right", name: "Right" },
               ],
             },
           ],
@@ -284,24 +407,36 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
       },
     });
     //For Traits
-    editor.on('component:selected', (component) => {
-      console.log('component:selected', component);
+    editor.on("component:selected", (component) => {
+      console.log("component:selected", component);
       const { id } = component.attributes.attributes;
-      console.log('id', id);
-      console.log('type', component.get('content'));
-      if (component.get('type') == 'text') {
-        editor?.runCommand('core:open-traits');
-        if (component.get('traits').models[0].get('value'))
-          component.components(component.get('traits').models[0].get('value'));
+      console.log("id", id);
+      console.log("type", component.get("content"));
+      if (component.get("type") == "text") {
+        editor?.runCommand("core:open-traits");
+        if (component.get("traits").models[0].get("value"))
+          component.components(component.get("traits").models[0].get("value"));
+      }
+
+      if (component.get("type") == "button") {
+        editor?.runCommand("core:open-traits");
+        if (component.get("traits").models[0].get("value"))
+          component.components(component.get("traits").models[0].get("value"));
       }
     });
-    editor.on('component:update', (component) => {
-      console.log('component:update', component);
-      console.log('type', component.get('type'));
-      console.log('hello world', component.get('traits'));
-      if (component.get('type') == 'text') {
-        component.components(component.get('traits').models[0].get('value'));
-        component.components(component.get('traits').models[1].get('class'));
+    editor.on("component:update", (component) => {
+      if (component.get("type") == "text") {
+        component.components(component.get("traits").models[0].get("value"));
+        component.components(component.get("traits").models[1].get("class"));
+        // const block = editor.getSelected();
+        // console.log('block', block)
+        // block.setAttributes({ class: 'main_heading h3' });
+      }
+      if (component.get("type") == "button") {
+        component.components(component.get("traits").models[0].get("value"));
+        component.components(component.get("traits").models[1].get("class"));
+        component.components(component.get("traits").models[2].get("class"));
+
         // const block = editor.getSelected();
         // console.log('block', block)
         // block.setAttributes({ class: 'main_heading h3' });
@@ -311,7 +446,7 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
     editor.on(`block:drag:stop`, (component, block) => {
       // if component exists, means the drop was successful
       if (component) {
-        let ccid = component.ccid.split('-')[0];
+        let ccid = component.ccid.split("-")[0];
         const blocksector = editor.StyleManager.getSectors();
         blocksector.reset();
         blocksector.add(getSectors(ccid));
@@ -345,4 +480,4 @@ const NewPageBuilder: React.FC = ({ status, handleClose }) => {
     </div>
   );
 };
-export default NewPageBuilder;
+export default PageBuilder;
