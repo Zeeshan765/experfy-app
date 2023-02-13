@@ -1,3 +1,4 @@
+import { themestyle } from './blocks/style';
 import { getSectors } from './blocks/getSectors';
 import type GrapesJS from 'grapesjs';
 import commands from './commands';
@@ -80,6 +81,7 @@ export type PluginOptions = {
    *  @default false
    * */
   showPanelsOnLoad?: boolean;
+  themeStylePanels?: boolean;
   StyleManager?: any;
   TraitsManager?: any;
   BlockManager?: any;
@@ -105,23 +107,13 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
     showStylesOnChange: true,
     useCustomTheme: true,
     showGlobalStyles: true,
-    showPanelsOnLoad: opts.showPanelsOnLoad,
-    SelectorManager: {
-      appendTo: '.styles-container',
-    },
-    StyleManager: {
-      appendTo: '.styles-container',
-      sectors: [],
-    },
-    TraitsManager: {
-      appendTo: '.traits-container',
-    },
-    BlockManager: {
-      appendTo: '.blocks',
-    },
-    LayerManager: {
-      appendTo: '.layers-container',
-    },
+    showPanelsOnLoad: opts.showPanelsOnLoad || false,
+    SelectorManager: opts.SelectorManager,
+    StyleManager: opts.StyleManager,
+    TraitsManager: opts.TraitsManager,
+    BlockManager: opts.BlockManager,
+    LayerManager: opts.LayerManager,
+    themeStylePanels: opts.themeStylePanels || false,
     ...opts,
   };
 

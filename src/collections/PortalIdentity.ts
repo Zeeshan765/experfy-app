@@ -259,17 +259,9 @@
 
 // export default PortalIdentity;
 
-
-
-
-
-
-
-
 import { CollectionConfig } from 'payload/types';
 
-
-import PortalIdentity from "../components/PortalIdentity";
+import PortalIdentity from '../components/PortalIdentity';
 // import landing from "../components/LandingPage";
 
 const PortalIdentityCollection: CollectionConfig = {
@@ -282,19 +274,15 @@ const PortalIdentityCollection: CollectionConfig = {
     read: () => true,
     create: () => true,
   },
-  fields: [
-    {
-      name: 'Portal Identity',
-      type: 'ui',
-      label: 'Portal Identity',
-      admin: {
-        components: {
-          Field: PortalIdentity,
-          Cell: PortalIdentity,
-        }
-      }
+  admin: {
+    useAsTitle: 'Portal Identity',
+    components: {
+      views: {
+        Edit: PortalIdentity,
+      },
     },
-  ],
+  },
+  fields: [],
 };
 
 export default PortalIdentityCollection;

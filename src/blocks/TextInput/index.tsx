@@ -1,7 +1,7 @@
 // import { Label, useField } from 'payload/components/forms';
 // import React, { useEffect, useState } from 'react';
 // import text from '../../utilities/text';
-import './index.scss';
+
 // type CustomTextField = {
 //   path: string;
 //   helperText?: string;
@@ -132,30 +132,11 @@ import './index.scss';
 //     .filter(Boolean)
 //     .join(' ');
 
-import React, { useEffect, useState } from 'react';
-import { Label, useField } from 'payload/components/forms';
-import text from '../../utilities/text';
-import './index.scss';
-type CustomTextField = {
-  path: string;
-  helperText?: string;
-  placeHolder?: string;
-  setTouched?: React.Dispatch<React.SetStateAction<string>>;
-  required?: boolean;
-  label?: any;
-  readOnly?: boolean;
-  style?: any;
-  width?: any;
-  validate?: any;
-  minLength?: number;
-  maxLength?: number;
-  display?: unknown;
-  name?: string;
-  index?: number;
-  brand?: string;
-  defaultValue?: string|number|boolean;
-  hidden?: boolean;
-};
+//   useEffect(() => {
+//     if (display) {
+//       setValue(display);
+//     }
+//   }, [display]);
 
 //   return (
 //     <div className={classes}>
@@ -179,9 +160,16 @@ type CustomTextField = {
 // };
 
 // export default TextInput;
-// .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input
-import { FormControl, TextField, Typography } from '@mui/material';
+
+import {
+  FormControl,
+  OutlinedInputProps,
+  OutlinedInput,
+  Typography,
+} from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles({
   textInput: {
@@ -213,18 +201,25 @@ declare module '@mui/material/Typography' {
   }
 }
 
-function TextInput(props) {
+function TextInput(props: OutlinedInputProps) {
   const classes = useStyles();
+  
 
   return (
     <FormControl fullWidth className={classes.textInput}>
       {props.label && <Typography variant="span">{props.label}</Typography>}
-      <TextField
+      <OutlinedInput
         {...props}
         fullWidth
+        required={props.required}
+        value={props.value}
+        onError={props.onError}
+        readOnly={props.readOnly}
         label={''}
-        variant="outlined"
+        startAdornment={props.startAdornment}
         autoComplete="off"
+        onAbort={props.onAbort}
+        onFocus={props.onFocus} 
         placeholder={props.placeholder}
         defaultValue={props?.defaultValue || ''}
       />

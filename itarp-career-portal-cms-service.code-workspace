@@ -5,7 +5,14 @@
     }
   ],
   "settings": {
-    "cSpell.words": ["Autoload", "Experfy", "grapesjs", "Toastify"],
+    "cSpell.words": [
+      "Autoload",
+      "Experfy",
+      "grapesjs",
+      "hookform",
+      "Toastify",
+      "Lngs"
+    ],
     "editor.suggest.showStatusBar": true,
     "svg.preview.background": "editor"
   },

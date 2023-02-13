@@ -43,11 +43,11 @@ ol {
     color: #fff;
 
     >span {
-      font-size: 32px;
+      font-size: 28px;
     }
 
     h1 {
-      font-size: 40px;
+      font-size: 36px;
       font-weight: 700;
       line-height: 1;
       text-transform: uppercase;
@@ -97,7 +97,7 @@ ol {
   }
 
   &__footer {
-    padding-left: 100px;
+    padding-left: 90px;
 
     .btn {
       margin: 0 !important;
@@ -126,11 +126,11 @@ ol {
   &__title {
     font-weight: 700;
     margin: 0 0 16px;
-    font-size: 18px;
+    font-size: 22px;
   }
 
   &__text {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 400;
     margin: 0;
   }
@@ -140,7 +140,7 @@ ol {
     margin: 0;
 
     li {
-      font-size: 13px;
+      font-size: 16px;
       font-weight: 400;
 
       &:before {
@@ -181,6 +181,25 @@ ol {
     background-color: transparent;
   }
 
+  &.btn--add {
+    .btn__label {
+      position: relative;
+      padding-left: 22px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -7px;
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background: url('/src/assets/images/add.svg') center center / contain no-repeat;
+      }
+    }
+  }
+
   &:hover,
   &:focus {
     .btn__icon {
@@ -191,6 +210,7 @@ ol {
       }
     }
   }
+
 }
 
 // Modal
@@ -370,6 +390,69 @@ ol {
         &.gutter--right {
           padding-right: 0;
         }
+      }
+    }
+  }
+
+  &>.panel__top {
+    right: 2rem !important;
+    top: 21px !important;
+    
+    .gjs-pn-buttons {
+      & > * + * {
+        margin-left: 4px;
+        font-size: 18px !important;
+      } 
+
+      span {
+        &[title="Settings"] {
+          margin-right: 0 !important;
+          border-top-right-radius: 0 !important;
+          border-bottom-right-radius: 0 !important;
+        }
+
+        &[title="Undo"] {
+          margin-left: 0 !important;
+          border-top-left-radius: 0 !important;
+          border-bottom-left-radius: 0 !important;
+        }
+
+        &[title="Preview"] {
+          svg {
+            margin-right: 4px !important;
+          }
+        }
+      }
+
+      button {
+        &[title="Toggle Display"] {
+          margin: 0 !important;
+          border-radius: 0 !important;
+          border-left-color: transparent !important;
+          border-right-color: transparent !important;
+        }
+      }
+
+      span[title="Settings"],
+      span[title="Undo"],
+      button[title="Toggle Display"] {
+        &.gjs-pn-active,
+        &:hover,
+        &:focus {
+          background-color: #4ba4da !important;
+          border-color: #4ba4da !important;
+        }
+      }
+
+      span[title="Preview"],
+      span[title="Publish"] {
+        &.gjs-pn-active,
+        &:hover,
+        &:focus {
+          background-color: rgba(160, 168, 183, 0.04) !important;
+          border-color: #a0a8b7 !important;
+          color: #4a5162 !important;
+        }  
       }
     }
   }
@@ -637,6 +720,7 @@ ol {
 
 .nav-group {
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 .nav-link {
@@ -672,29 +756,30 @@ ol {
   &.nav-category {
     font-size: 16px !important;
     border-bottom: 1px solid var(--theme-elevation-100);
-    padding: 16px 16px 10px 50px !important;
+    padding: 12px 16px 12px 50px !important;
+    display: flex;
+    align-items: center;
   }
 
-  $nav-icons: 'studio' 'studio_dashboard',
-    'settings' 'portal_settings',
-    'pages' 'pages',
-    'menus' 'menus',
-    'media' 'media_library',
-    'templates' 'template_library',
-    'themes' 'themes',
-    'users' 'users',
-    'identities' 'portal_identity';
+  $nav-icons: 'studio' 'studio_dashboard'  'center top 2px',
+    'settings' 'portal_settings' 'center center',
+    'pages' 'pages' 'center center',
+    'menus' 'menus' 'center center',
+    'media' 'media_library' 'center center',
+    'templates' 'template_library' 'center center',
+    'themes' 'themes' 'center center',
+    'users' 'users' 'center center',
+    'identities' 'portal_identity' 'center center';
 
-  @each $link,
-  $icon in $nav-icons {
+  @each $link, $icon, $position in $nav-icons {
     &.nav-#{$link} {
       &::before {
-        background: url('/src/assets/images/sidebar/#{$icon}.svg') center center no-repeat scroll;
+        background: url('/src/assets/images/sidebar/#{$icon}.svg') #{$position} no-repeat scroll;
       }
 
       &.active {
         &::before {
-          background: url('/src/assets/images/sidebar/#{$icon}_active.svg') center center no-repeat scroll;
+          background: url('/src/assets/images/sidebar/#{$icon}_active.svg') #{$position} no-repeat scroll;
         }
       }
     }
@@ -840,3 +925,70 @@ padding-right: 0px ;
 
 //   &__filename {}
 // }
+
+// Panel Header
+
+.panel-header {
+  font-size: 20px !important;
+  padding: .75rem 1rem !important;
+  justify-content: space-between !important;
+  margin-bottom: 0 !important;
+  
+  &__menu,
+  &__link {
+    svg {
+      font-size: 24px !important;
+    }
+  }
+
+  &:hover {
+    background-color: #4ba4da !important;
+
+    .panel-header__link {
+      color: #fff !important
+    }    
+  }
+}
+
+.gjs-sm-sector__design_system, 
+.gjs-sm-sector__theme_style {
+  height: 44px;
+
+  .gjs-sm-sector-title {
+    height: 44px !important;
+  }
+
+  .gjs-sm-sector-label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 15px !important;
+    letter-spacing: 0;
+    padding-top: 4px;
+  }  
+}
+
+.gjs-sm-sector {
+  &-title {
+    letter-spacing: 0;
+  }
+}
+
+// Page Template Card
+
+.page-template-card {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  &__title {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: var(--font-body);
+  }
+}

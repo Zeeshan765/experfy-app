@@ -387,7 +387,8 @@ $deviceBackground: #2f3d55;
   background-repeat: no-repeat;
   content: '';
 }
-
+.gjs-sm-sector__headings,
+.gjs-sm-sector__form_fields,
 .gjs-sm-sector__design_system,
 .gjs-sm-sector__theme_style {
   -webkit-user-select: none;
@@ -665,6 +666,18 @@ $deviceBackground: #2f3d55;
     color: rgb(115 120 132) !important;
   }
 }
+.gjs-sm-property__text-transform .gjs-radio-items .gjs-radio-item span{
+  font-weight: 700;
+  font-size: 13px;
+}
+.gjs-sm-property__text-decoration .gjs-radio-items .gjs-radio-item svg{
+  width: 14px;
+  color: #3A4152;
+ }
+ .gjs-sm-property__font-style .gjs-radio-items .gjs-radio-item span{
+  font-weight: 700;
+  font-size: 13px;
+ }
 
 //   .gjs-layer-move {
 //     right: 20px;

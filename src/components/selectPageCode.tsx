@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 import { useField } from "payload/components/forms";
 import TextInput from "../blocks/TextInput";
 import { useSelectPageId } from "../hooks";
-import { Context } from "../MyProvider";
+import { Context } from "../Providers/MyProvider";
 type Props = { path: string };
 
 const SelectPage = ({ path }) => {

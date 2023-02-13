@@ -3,8 +3,9 @@ import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import '../index.scss';
 import { useAuth, useConfig } from 'payload/components/utilities';
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
+import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 
 const borderStyle = [
   { value: 'solid', name: 'Solid' },
@@ -209,17 +210,23 @@ const DesignSystem: React.FC = () => {
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'overline', name: 'Overline' },
-                  { value: 'line through', name: 'Line Through' },
+                  {
+                    value: 'underline',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatUnderlinedIcon"><path d="M12 17c3.31 0 6-2.69 6-6V3h-2.5v8c0 1.93-1.57 3.5-3.5 3.5S8.5 12.93 8.5 11V3H6v8c0 3.31 2.69 6 6 6zm-7 2v2h14v-2H5z"></path></svg>',
+                  },
+                  {
+                    value: 'line-through',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="StrikethroughSIcon"><path d="M6.85 7.08C6.85 4.37 9.45 3 12.24 3c1.64 0 3 .49 3.9 1.28.77.65 1.46 1.73 1.46 3.24h-3.01c0-.31-.05-.59-.15-.85-.29-.86-1.2-1.28-2.25-1.28-1.86 0-2.34 1.02-2.34 1.7 0 .48.25.88.74 1.21.38.25.77.48 1.41.7H7.39c-.21-.34-.54-.89-.54-1.92zM21 12v-2H3v2h9.62c1.15.45 1.96.75 1.96 1.97 0 1-.81 1.67-2.28 1.67-1.54 0-2.93-.54-2.93-2.51H6.4c0 .55.08 1.13.24 1.58.81 2.29 3.29 3.3 5.67 3.3 2.27 0 5.3-.89 5.3-4.05 0-.3-.01-1.16-.48-1.94H21V12z"></path></svg>',
+                  },
+                  {
+                    value: 'overline',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatOverlineIcon"><path d="M19 3v2H5V3h14zm-7 4c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 11.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></svg>',
+                  },
                 ],
               },
               {
                 type: 'stack',
                 property: 'text-shadow',
-                // label: 'Text Shadow',
-                // Additional props
                 properties: [
                   {
                     type: 'number',
@@ -249,10 +256,9 @@ const DesignSystem: React.FC = () => {
                 property: 'text-transform',
                 default: 'none',
                 options: [
-                  { value: 'default', name: 'Default' },
-                  { value: 'uppercase', name: 'Uppercase' },
-                  { value: 'lowercase', name: 'Lowercase' },
-                  { value: 'capitalize', name: 'Capitalize' },
+                  { value: 'uppercase', name: '<span>TT</span>' },
+                  { value: 'lowercase', name: '<span>tt</span>' },
+                  { value: 'capitalize', name: '<span>Tt</span>' },
                 ],
               },
             ],
@@ -481,10 +487,18 @@ const DesignSystem: React.FC = () => {
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'overline', name: 'Overline' },
-                  { value: 'line through', name: 'Line Through' },
+                  {
+                    value: 'underline',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatUnderlinedIcon"><path d="M12 17c3.31 0 6-2.69 6-6V3h-2.5v8c0 1.93-1.57 3.5-3.5 3.5S8.5 12.93 8.5 11V3H6v8c0 3.31 2.69 6 6 6zm-7 2v2h14v-2H5z"></path></svg>',
+                  },
+                  {
+                    value: 'line-through',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="StrikethroughSIcon"><path d="M6.85 7.08C6.85 4.37 9.45 3 12.24 3c1.64 0 3 .49 3.9 1.28.77.65 1.46 1.73 1.46 3.24h-3.01c0-.31-.05-.59-.15-.85-.29-.86-1.2-1.28-2.25-1.28-1.86 0-2.34 1.02-2.34 1.7 0 .48.25.88.74 1.21.38.25.77.48 1.41.7H7.39c-.21-.34-.54-.89-.54-1.92zM21 12v-2H3v2h9.62c1.15.45 1.96.75 1.96 1.97 0 1-.81 1.67-2.28 1.67-1.54 0-2.93-.54-2.93-2.51H6.4c0 .55.08 1.13.24 1.58.81 2.29 3.29 3.3 5.67 3.3 2.27 0 5.3-.89 5.3-4.05 0-.3-.01-1.16-.48-1.94H21V12z"></path></svg>',
+                  },
+                  {
+                    value: 'overline',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatOverlineIcon"><path d="M19 3v2H5V3h14zm-7 4c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 11.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></svg>',
+                  },
                 ],
               },
               {
@@ -527,10 +541,18 @@ const DesignSystem: React.FC = () => {
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'overline', name: 'Overline' },
-                  { value: 'line through', name: 'Line Through' },
+                  {
+                    value: 'underline',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatUnderlinedIcon"><path d="M12 17c3.31 0 6-2.69 6-6V3h-2.5v8c0 1.93-1.57 3.5-3.5 3.5S8.5 12.93 8.5 11V3H6v8c0 3.31 2.69 6 6 6zm-7 2v2h14v-2H5z"></path></svg>',
+                  },
+                  {
+                    value: 'line-through',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="StrikethroughSIcon"><path d="M6.85 7.08C6.85 4.37 9.45 3 12.24 3c1.64 0 3 .49 3.9 1.28.77.65 1.46 1.73 1.46 3.24h-3.01c0-.31-.05-.59-.15-.85-.29-.86-1.2-1.28-2.25-1.28-1.86 0-2.34 1.02-2.34 1.7 0 .48.25.88.74 1.21.38.25.77.48 1.41.7H7.39c-.21-.34-.54-.89-.54-1.92zM21 12v-2H3v2h9.62c1.15.45 1.96.75 1.96 1.97 0 1-.81 1.67-2.28 1.67-1.54 0-2.93-.54-2.93-2.51H6.4c0 .55.08 1.13.24 1.58.81 2.29 3.29 3.3 5.67 3.3 2.27 0 5.3-.89 5.3-4.05 0-.3-.01-1.16-.48-1.94H21V12z"></path></svg>',
+                  },
+                  {
+                    value: 'overline',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatOverlineIcon"><path d="M19 3v2H5V3h14zm-7 4c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 11.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></svg>',
+                  },
                 ],
               },
             ],
@@ -566,10 +588,18 @@ const DesignSystem: React.FC = () => {
                 property: 'text-decoration',
                 default: 'none',
                 options: [
-                  { value: 'none', name: 'None' },
-                  { value: 'underline', name: 'Underline' },
-                  { value: 'overline', name: 'Overline' },
-                  { value: 'line through', name: 'Line Through' },
+                  {
+                    value: 'underline',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatUnderlinedIcon"><path d="M12 17c3.31 0 6-2.69 6-6V3h-2.5v8c0 1.93-1.57 3.5-3.5 3.5S8.5 12.93 8.5 11V3H6v8c0 3.31 2.69 6 6 6zm-7 2v2h14v-2H5z"></path></svg>',
+                  },
+                  {
+                    value: 'line-through',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="StrikethroughSIcon"><path d="M6.85 7.08C6.85 4.37 9.45 3 12.24 3c1.64 0 3 .49 3.9 1.28.77.65 1.46 1.73 1.46 3.24h-3.01c0-.31-.05-.59-.15-.85-.29-.86-1.2-1.28-2.25-1.28-1.86 0-2.34 1.02-2.34 1.7 0 .48.25.88.74 1.21.38.25.77.48 1.41.7H7.39c-.21-.34-.54-.89-.54-1.92zM21 12v-2H3v2h9.62c1.15.45 1.96.75 1.96 1.97 0 1-.81 1.67-2.28 1.67-1.54 0-2.93-.54-2.93-2.51H6.4c0 .55.08 1.13.24 1.58.81 2.29 3.29 3.3 5.67 3.3 2.27 0 5.3-.89 5.3-4.05 0-.3-.01-1.16-.48-1.94H21V12z"></path></svg>',
+                  },
+                  {
+                    value: 'overline',
+                    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatOverlineIcon"><path d="M19 3v2H5V3h14zm-7 4c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 11.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></svg>',
+                  },
                 ],
               },
             ],
@@ -586,10 +616,14 @@ const DesignSystem: React.FC = () => {
       <Eyebrow />
       <div className="editor-row">
         <div className="panel__left">
-          <div className="back__panel">
-            <span>&#10094;</span>
-            <Link to={`${admin}/`}>Global Theme Settings</Link>
-            <span>&#9783;</span>
+          <div className="back__panel panel-header">
+            <Link className="panel-header__link" to={`${admin}/`}>
+              <ArrowBackIosNewRoundedIcon />
+            </Link>
+            <span className="panel-header__title">Global Theme Settings</span>
+            <span className="panel-header__menu">
+              <AppsRoundedIcon />
+            </span>
           </div>
           <div className="panel__top"></div>
           <div className="styles-container"></div>

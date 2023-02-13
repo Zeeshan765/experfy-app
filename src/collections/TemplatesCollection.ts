@@ -1,13 +1,14 @@
-import { CollectionConfig } from "payload/types";
-import Templates from "../components/Templates";
+import { CollectionConfig } from 'payload/types';
+import Templates from '../components/Templates';
 
 const TemplatesCollection: CollectionConfig = {
-  slug: "templates",
+  slug: 'templates',
   access: {
     read: () => true,
     update: () => true,
   },
   admin: {
+    disableDuplicate: true,
     components: {
       views: {
         Edit: Templates,
@@ -16,16 +17,15 @@ const TemplatesCollection: CollectionConfig = {
   },
   fields: [
     {
-
-      name: "title",
-      label: "Title",
-      type: "text",
+      name: 'title',
+      label: 'Title',
+      type: 'text',
       required: true,
     },
     {
-      name: "type",
-      label: "Type",
-      type: "text",
+      name: 'type',
+      label: 'Type',
+      type: 'text',
       required: true,
     },
   ],

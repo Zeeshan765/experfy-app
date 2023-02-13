@@ -1,44 +1,19 @@
 //@ts-ignore
 
 import { ErrorMessage as DescriptionAlerts } from '@hookform/error-message';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
-import {
-  Box,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  Grid,
-  IconButton,
-  Radio,
-  RadioGroup,
-  Stack,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-} from '@mui/material';
+import { Box, Dialog, DialogTitle, Grid, IconButton } from '@mui/material';
 import axios from 'axios';
 import { Button } from 'payload/components/elements';
-import { Form } from 'payload/components/forms';
 import { useStepNav } from 'payload/components/hooks';
 import { DefaultTemplate } from 'payload/components/templates';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
-import { useForm, Controller, useFieldArray } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
-import FormSelect from '../../blocks/FormSelect';
-import FormSwitch from '../../blocks/FormSwitch';
-import FormTip from '../../blocks/FormTip';
-import TextInput from '../../blocks/TextInput';
-import { useStyles } from './css';
+import { useForm } from 'react-hook-form';
+
 import { toast } from 'react-toastify';
-import Brandform from './Brandform';
-import PortalIdentityform from './PortalIdentityform';
+import BrandForm from './Brandform';
+import PortalIdentityForm from './PortalIdentityform';
 const baseClass = 'custom-route';
 
 const portal_url_tip =
@@ -49,19 +24,13 @@ const company_name_tip =
   'The company of your career Portal. This can be a shortened version of Portal.';
 
 const BasicPortalPage: React.FC = (props) => {
-  const history = useHistory();
   const [brandSwitch, setBrandSwitch] = React.useState<boolean>(true);
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [error, setError] = useState(false);
   const [visible, setVisible] = React.useState<boolean>(false);
   const [tenantID, setTenantID] = useState('');
-  const [toolTipVisible, setToolTipVisible] = useState('portal_name');
-  const [defaultBrands, setDefaultBrands] = useState([]);
-  const [updateApi, setUpdateApi] = useState(false);
   const { setStepNav } = useStepNav();
-  const [dense, setDense] = React.useState(false);
   const [submittedData, setSubmittedData] = useState(null);
 
   useEffect(() => {
@@ -79,6 +48,7 @@ const BasicPortalPage: React.FC = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
+
   const {
     control,
     handleSubmit,
@@ -87,28 +57,6 @@ const BasicPortalPage: React.FC = (props) => {
     watch,
     formState: { errors },
   } = useForm({});
-
-  // const { fields, append, remove } = useFieldArray({
-  //   name: 'brands',
-  //   control,
-  // });
-  // const data = watch();
-
-  // const handleAddRow = (value: unknown) => {
-  //   console.log('handleAddRow', handleAddRow);
-
-  //   append({});
-  // };
-
-  console.log('getValues', getValues());
-
-  // const onClickBrandName = () => {
-  //   let finalDefaultBrandsArray = getValues()?.brands.map((i) => ({
-  //     value: i.name,
-  //     label: i.name,
-  //   }));
-  //   setDefaultBrands(finalDefaultBrandsArray);
-  // };
 
   const {
     admin: { user: userSlug },
@@ -121,32 +69,31 @@ const BasicPortalPage: React.FC = (props) => {
     (collection) => collection.slug === userSlug
   );
 
-  const [touched, setTouched] = useState('');
-
   const handleSwitchChange = () => {
     setBrandSwitch(!brandSwitch);
+    const handleSwitchChange = () => {
+      setBrandSwitch(!brandSwitch);
+    };
+
+    const onSubmit = async (data) => {
+      console.log('data', data);
+      let apiEndpoint = `${serverURL}${api}/brand`;
+      try {
+        const formData = new FormData();
+        formData.append('_payload', JSON.stringify(data));
+        const res = await axios.post(apiEndpoint, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            // Authorization: `Bearer ${apiKey}`,
+          },
+        });
+        toast.success('Portal Identity created successfully');
+      } catch (error) {
+        console.error(error);
+        return error;
+      }
+    };
   };
-
-
-  const onSubmit = async (data) => {
-    console.log('data', data);
-    let apiEndpoint = `${serverURL}${api}/brand`;
-    try {
-      const formData = new FormData();
-      formData.append('_payload', JSON.stringify(data));
-      const res = await axios.post(apiEndpoint, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          // Authorization: `Bearer ${apiKey}`,
-        },
-      });
-      toast.success('Portal Identitty created successfully');
-    } catch (error) {
-      console.error(error);
-      return error;
-    }
-  };
-
   return (
     <DefaultTemplate>
       <Box sx={{ p: 4 }}>
@@ -162,8 +109,8 @@ const BasicPortalPage: React.FC = (props) => {
                   Experfy Studio is a recruitment suite specifically developed
                   for talent sourcing, pipelining, and hiring. It comes with the
                   drag and drop website editor, widgets, and prebuilt modules
-                  like job listing, TalentClouds and Practice Areas that are
-                  needed for recruitment Marketing and pipelining of talent.
+                  like job listing, TalentClouds and practice areas that are
+                  needed for recruitment marketing and pipelining of talent.
                 </p>
               </div>
             </div>
@@ -223,10 +170,12 @@ const BasicPortalPage: React.FC = (props) => {
                   <Button
                     type="button"
                     buttonStyle="primary"
-                    icon="plus"
-                    iconPosition="left"
-                    iconStyle="without-border"
+                    className="btn--add"
+                    // icon="plus"
+                    // iconPosition="left"
+                    // iconStyle="without-border"
                   >
+                    <span className="btn-add--icon"></span>
                     Create New
                   </Button>
                 </div>
@@ -262,9 +211,9 @@ const BasicPortalPage: React.FC = (props) => {
           </DialogTitle>
 
           {visible ? (
-            <Brandform submittedData={submittedData} />
+            <BrandForm submittedData={submittedData} />
           ) : (
-            <PortalIdentityform
+            <PortalIdentityForm
               handleSwitchChange={handleSwitchChange}
               setVisible={setVisible}
               brandSwitch={brandSwitch}

@@ -37,12 +37,12 @@ const Brand: CollectionConfig = {
     {
       name: 'default_locale',
       type: 'select',
-      options: ['US', 'ES'],
+      options: ['us_EN', 'es_ES'],
     },
     {
       name: 'default_language',
       type: 'select',
-      options: ['English', 'Spanish'],
+      options: ['en', 'es'],
     },
 
     {

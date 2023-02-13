@@ -1,3 +1,4 @@
+import { InputAdornment } from '@material-ui/core';
 import { Box } from '@mui/material';
 import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
@@ -7,8 +8,9 @@ import { toast } from 'react-toastify';
 import FormSelect from '../../../blocks/FormSelect';
 import FormTip from '../../../blocks/FormTip';
 import TextInput from '../../../blocks/TextInput';
-export default function BasicInformation(props) {
-  const { propsdata } = props;
+
+export const BasicInformation: React.FC = (props) => {
+  const { propsData } = props;
   const {
     admin: { user: userSlug },
     collections,
@@ -23,22 +25,19 @@ export default function BasicInformation(props) {
     control,
     handleSubmit,
     reset,
-    getValues,
-    setValue,
-    watch,
-    formState: { errors },
-  } = useForm({});
+    
+  } = useForm();
 
   useEffect(() => {
-    reset({ ...propsdata });
-  }, [propsdata]);
+    reset({ ...propsData });
+  }, [propsData]);
 
-  const watchAllFields = watch();
   const [touched, setFocused] = useState('');
 
   const onSubmit = async (data) => {
-    if (propsdata.id) {
-      let apiEndpoint = `${serverURL}${api}/brand/${propsdata.id}`;
+    console.log('data', data);
+    if (propsData.id) {
+      let apiEndpoint = `${serverURL}${api}/brand/${propsData.id}`;
       try {
         const formData = new FormData();
         formData.append('_payload', JSON.stringify(data));
@@ -58,21 +57,20 @@ export default function BasicInformation(props) {
 
   return (
     <Box sx={{ p: 1 }}>
-      <form
-        //@ts-ignore
-        onSubmit={handleSubmit(onSubmit)}
-      >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="row">
           <div className="col-md-8">
             <Controller
               render={({ field }) => (
                 <TextInput
-                  disabled={false}
-                  label="Portal Name"
                   {...field}
+                  label="Portal Name*"
+                  required={true}
                   id={'career_portal_name'}
+                  name={'career_portal_name'}
                   onFocus={() => setFocused('career_portal_name')}
                   onBlur={() => setFocused('')}
+                  
                 />
               )}
               name="career_portal_name"
@@ -98,9 +96,11 @@ export default function BasicInformation(props) {
             <Controller
               render={({ field }) => (
                 <TextInput
-                  disabled={false}
-                  label="Portal ID"
                   {...field}
+                  name="portal_id"
+                  readOnly={true}
+                  label="Portal ID*"
+                  defaultValue={'CP-' + Math.random().toString(9).substr(2, 9)}
                   id={'portal_id'}
                   onFocus={() => setFocused('portal_id')}
                   onBlur={() => setFocused('')}
@@ -125,12 +125,15 @@ export default function BasicInformation(props) {
             <Controller
               render={({ field }) => (
                 <TextInput
-                  disabled={false}
-                  label="Portal URL"
                   {...field}
+                  label="Portal URL"
                   id={'portal_url'}
+                  name="portal_url"
                   onFocus={() => setFocused('portal_url')}
-                  onBlur={() => setFocused('')}
+                  onAbort={() => setFocused('')}
+                  startAdornment={
+                    <InputAdornment position="start">https://</InputAdornment>
+                  }
                 />
               )}
               name="portal_url"
@@ -156,10 +159,11 @@ export default function BasicInformation(props) {
             <Controller
               render={({ field }) => (
                 <TextInput
+                  {...field}
                   disabled={false}
                   label="Company Name"
-                  {...field}
                   id={'company_name'}
+                  name="company_name"
                   onFocus={() => setFocused('company_name')}
                   onBlur={() => setFocused('')}
                 />
@@ -189,15 +193,20 @@ export default function BasicInformation(props) {
                 return (
                   <FormSelect
                     {...field}
-                    options={[{ value: 'English', label: 'English' }]}
+                    options={[
+                      { value: 'en', label: 'English' },
+                      { value: 'es', label: 'Spanish' },
+                    ]}
                     label="Default Language"
                     id={'default_language'}
+                    name={'default_language'}
                     onFocus={() => setFocused('default_language')}
                     onBlur={() => setFocused('')}
-                  />
+                    defaultValue={'en'}
+                  ></FormSelect>
                 );
               }}
-              name="default_language"
+              name={'default_language'}
               control={control}
             />
           </div>
@@ -221,14 +230,19 @@ export default function BasicInformation(props) {
               render={({ field }) => (
                 <FormSelect
                   {...field}
-                  options={[{ value: 'US', label: 'United States' }]}
+                  options={[
+                    { value: 'en_US', label: 'es_US' },
+                    { value: 'es_ES', label: 'es_ES' },
+                  ]}
                   label="Default Locale"
                   id={'default_locale'}
+                  name={'default_locale'}
                   onFocus={() => setFocused('default_locale')}
                   onBlur={() => setFocused('')}
-                />
+                  defaultValue={'en_US'}
+                ></FormSelect>
               )}
-              name="default_locale"
+              name={'default_locale'}
               control={control}
             />
           </div>
@@ -251,10 +265,11 @@ export default function BasicInformation(props) {
             <Controller
               render={({ field }) => (
                 <TextInput
+                  {...field}
                   disabled={false}
                   label="Google Manager Tag ID"
-                  {...field}
                   id={'google_id'}
+                  name="google_id"
                   onFocus={() => setFocused('google_id')}
                   onBlur={() => setFocused('')}
                 />
@@ -282,10 +297,11 @@ export default function BasicInformation(props) {
             <Controller
               render={({ field }) => (
                 <TextInput
+                  {...field}
                   disabled={false}
                   label="Google Analytics ID"
-                  {...field}
                   id={'google_analytics'}
+                  name={'google_analytics'}
                   onFocus={() => setFocused('google_analytics')}
                   onBlur={() => setFocused('')}
                 />
@@ -313,10 +329,11 @@ export default function BasicInformation(props) {
             <Controller
               render={({ field }) => (
                 <TextInput
+                  {...field}
                   disabled={false}
                   label="Google Webmaster ID"
-                  {...field}
                   id={'google_webmaster'}
+                  name={'google_webmaster'}
                   onFocus={() => setFocused('google_webmaster')}
                   onBlur={() => setFocused('')}
                 />
@@ -340,10 +357,11 @@ export default function BasicInformation(props) {
             <Controller
               render={({ field }) => (
                 <TextInput
+                  {...field}
                   disabled={false}
                   label="BING Webmaster ID"
-                  {...field}
                   id={'bing_webmaster'}
+                  name={'bing_webmaster'}
                   onFocus={() => setFocused('bing_webmaster')}
                   onBlur={() => setFocused('')}
                 />
@@ -367,10 +385,11 @@ export default function BasicInformation(props) {
             <Controller
               render={({ field }) => (
                 <TextInput
+                  {...field}
                   disabled={false}
                   label="Tracking Pixel"
-                  {...field}
                   id={'tracking_pixel'}
+                  name={'tracking_pixel'}
                   onFocus={() => setFocused('tracking_pixel')}
                   onBlur={() => setFocused('')}
                 />
@@ -403,4 +422,4 @@ export default function BasicInformation(props) {
       </form>
     </Box>
   );
-}
+};
