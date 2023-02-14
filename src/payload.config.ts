@@ -72,7 +72,7 @@ export default buildConfig({
         },
         {
           path: "/collections/design-system",
-          Component: DesignSystem,
+          Component: ThemeStyle,
           exact: true,
           strict: true,
         },

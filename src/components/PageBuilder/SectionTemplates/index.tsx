@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
 import { StyleContext } from '../../../Providers/StyleProvider';
+import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -105,7 +107,12 @@ const SectionPageBuilder: React.FC = () => {
 
     let blocks = isInclude ? [str] : sections;
     const Blocks = (editor: GrapesJS.Editor, options: any) =>
-      Experfy(editor, { ...options, blocks: blocks });
+      Experfy(editor, {
+        ...options,
+        blocks: blocks,
+        showPanelsOnLoad: true,
+        themeStylePanels: true,
+      });
 
     editor = GrapesJS.init({
       container: '#sections',
@@ -126,30 +133,19 @@ const SectionPageBuilder: React.FC = () => {
       showOffsets: true,
       showDevices: false,
       showOffsetsSelected: true,
+
       style: userDefaultStyleString,
       plugins: [Blocks],
-      // pluginsOpts: {
-      // [NavBar]: {
-      //   label: 'Header',
-      //   block: {
-      //     category: 'Header & Footer Elements',
-      //   },
-      // },
-      // },
 
       blockManager: {
         appendTo: '.blocks',
         blocks: [],
       },
-      layerManager: {
-        appendTo: '.layers-container',
-      },
-      traitManager: {
-        appendTo: '.traits-container',
-      },
+      layerManager: null,
+      traitManager: null,
       selectorManager: {
-        appendTo: '.styles-container',
-        componentFirst: true,
+        
+        
       },
       styleManager: {
         appendTo: '.styles-container',
@@ -162,7 +158,7 @@ const SectionPageBuilder: React.FC = () => {
         const sectors = editor.StyleManager.getSectors();
         const block = editor.BlockManager.get(blocks[0]);
         const component = editor.addComponents(block.get('content'));
-        component[0].set('selectable', true);
+        component[0].set('selectable', false);
         component[0].set('removable', false);
         component[0].set('stylable', true);
         component[0].set('copyable', false);
@@ -225,12 +221,14 @@ const SectionPageBuilder: React.FC = () => {
       <div className="editor-row">
         <div className="panel__basic-actions"></div>
         <div className="panel__left">
-          <div className="panel__switcher">
-            <Link className="back__panel" to={`${admin}/`}>
-              <span>&#10094;</span>
-              <span>Theme Builder</span>
-              <span>&#9783;</span>
+          <div className="back__panel panel-header">
+            <Link className="panel-header__link" to={`${admin}/`}>
+              <ArrowBackIosNewRoundedIcon />
             </Link>
+            <span>Theme Builder</span>
+            <span className="panel-header__menu">
+              <AppsRoundedIcon />
+            </span>
           </div>
           <div className="blocks"></div>
           <div className="styles-container"></div>

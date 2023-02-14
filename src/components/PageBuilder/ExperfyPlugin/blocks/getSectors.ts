@@ -81,42 +81,71 @@ const textAlignOptions = [
 ];
 
 const textTransformOptions = [
-  { value: 'default', name: 'Default' },
-  { value: 'uppercase', name: 'UpperCase' },
-  { value: 'lowercase', name: 'LowerCase' },
-  { value: 'capitalize', name: 'Capitalize' },
+  { value: 'uppercase', name: '<span>TT</span>' },
+  { value: 'lowercase', name: '<span>tt</span>' },
+  { value: 'capitalize', name: '<span>Tt</span>' },
 ];
 
-const borderwidthOptions = [
+const widthOptions = [
   {
     type: 'number',
-    units: ['px', 'rem'],
-    default: '0',
-    property: 'border-top-width',
+    units: ['px'],
+    default: 0,
+    property: 'top',
     name: 'Top',
   },
   {
     type: 'number',
-    units: ['px', 'rem'],
-    default: '0',
-    property: 'boder-right-width',
+    units: ['px'],
+    default: 0,
+    property: 'right',
     name: 'Right',
   },
   {
     type: 'number',
-    units: ['px', 'rem'],
-    default: '0',
-    property: 'border-bottom-width',
+    units: ['px'],
+    default: 0,
+    property: 'bottom',
     name: 'Bottom',
   },
   {
     type: 'number',
-    units: ['px', 'rem'],
-    default: '0',
-    property: 'border-left-width',
+    units: ['px'],
+    default: 0,
+    property: 'left',
     name: 'Left',
   },
 ];
+// const borderRadiusOptions = [
+//   {
+//     type: 'number',
+//     units: ['px'],
+//     default: 0,
+//     property: 'border-top-radius',
+//     name: 'Top',
+//   },
+//   {
+//     type: 'number',
+//     units: ['px'],
+//     default: 0,
+//     property: 'border-right-radius',
+//     name: 'Right',
+//   },
+//   {
+//     type: 'number',
+//     units: ['px'],
+//     default: 0,
+//     property: 'border-bottom-radius',
+//     name: 'Bottom',
+//   },
+//   {
+//     type: 'number',
+//     units: ['px'],
+//     default: 0,
+//     property: 'border-left-radius',
+//     name: 'Left',
+//   },
+// ];
 
 const obj = {
   header_1: [
@@ -198,7 +227,7 @@ const obj = {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
-          properties: borderwidthOptions,
+          properties: widthOptions,
         },
         {
           type: 'select',
@@ -215,24 +244,30 @@ const obj = {
         'backdrop-filter',
         'background-color',
         'border-radius',
-        'animation',
+        'animation-name',
+        'backdrop-filter',
       ],
 
       properties: [
         {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+
+        },
+        {
           type: 'color',
           name: 'Border Color',
-          property: 'border-color',
-          colorPicker: {
             preferredFormat: 'hex',
             showInput: true,
           },
-        },
+        
         {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
-          properties: borderwidthOptions,
+          properties: widthOptions,
         },
         {
           type: 'select',
@@ -292,7 +327,7 @@ const obj = {
         {
           type: 'number',
           name: 'Brightness',
-          property: 'brightness',
+          property: 'backdrop-filter: brightness(100%)',
 
           attributes: {
             'data-type': 'backdrop-filter',
@@ -366,7 +401,7 @@ const obj = {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
-          properties: borderwidthOptions,
+          properties: widthOptions,
         },
         {
           type: 'select',
@@ -446,7 +481,7 @@ const obj = {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
-          properties: borderwidthOptions,
+          properties: widthOptions,
         },
         {
           type: 'select',
@@ -810,7 +845,7 @@ const obj = {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
-          properties: borderwidthOptions,
+          properties: widthOptions,
         },
         {
           type: 'color',
@@ -1605,6 +1640,89 @@ const obj = {
   ],
   practice_area_1: [
     {
+      name: 'Background',
+      open: false,
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          attributes: {
+            'data-type': 'background-color',
+            'data-attribute': 'background-color',
+          },
+        },
+        {
+          type: 'image',
+          name: 'Background Image',
+          property: 'background-image',
+          attributes: {
+            'data-type': 'background-image',
+            'data-attribute': 'background-image',
+          },
+        },
+        {
+          type: 'select',
+          name: 'Background Repeat',
+          property: 'background-repeat',
+          default: 'no-repeat',
+          options: [
+            { value: 'no-repeat', name: 'No Repeat' },
+            { value: 'repeat', name: 'Repeat' },
+            { value: 'repeat-x', name: 'Repeat Horizontally' },
+            { value: 'repeat-y', name: 'Repeat Vertically' },
+          ]
+        },
+        { 
+          type: 'select',
+          name: 'Background Size',
+          property: 'background-size',
+          default: 'cover',
+          options: [
+            { value: 'cover', name: 'Cover' },
+            { value: 'contain', name: 'Contain' },
+            { value: 'auto', name: 'Auto' },
+          ]
+        },
+        {
+          type: 'radio',
+          name: 'Background Position',
+          property: 'background-position',
+          default: 'center center',
+          options: [
+            
+            { value: 'left top', name: `&#8662;` },
+            { value: 'left bottom', name: `&#8665;` },
+            { value: 'center top', name: `&#8657;` },
+            { value: 'center center', name: `&#10560;` },
+            { value: 'center bottom', name: `&#8659;` },
+            { value: 'right top', name: `&#8663;` },
+            { value: 'right center', name: `&#8667;` },
+            { value: 'right bottom', name: `&#8664;` },
+          ]
+        },
+        {
+          type: 'select',
+          name: 'Background Attachment',
+          property: 'background-attachment',
+          default: 'scroll',
+          options: [
+            { value: 'scroll', name: 'Scroll' },
+            { value: 'fixed', name: 'Fixed' },
+          ]
+        },
+        {
+          type: 'slider',
+          name: 'Background Opacity',
+          property: 'background-opacity',
+          default: 1,
+          step: 0.01,
+          max: 1,
+          min: 0,
+        },
+      ],
+    },
+    {
       name: 'Section Heading',
       open: false,
       properties: [
@@ -1893,7 +2011,6 @@ const obj = {
       open: false,
       buildProps: [
         'border-radius',
-        ,
         'border-color',
         'border-style',
         'padding',
@@ -1903,7 +2020,7 @@ const obj = {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
-          properties: borderwidthOptions,
+          properties: widthOptions,
         },
       ],
     },
@@ -2141,7 +2258,7 @@ const obj = {
             'data-type': 'color',
             'data-attribute': 'number-value-color',
             'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
           },
         },
         {
@@ -2154,7 +2271,7 @@ const obj = {
             'data-type': 'font-family',
             'data-attribute': 'number-value-font',
             'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
           },
         },
         {
@@ -2167,7 +2284,7 @@ const obj = {
             'data-type': 'font-weight',
             'data-attribute': 'number-value-weight',
             'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
           },
         },
         {
@@ -2175,22 +2292,23 @@ const obj = {
           name: 'Font Style',
           property: 'font-style',
           default: 'default',
+          
           options: [
             {
-              value: 'normal',
-              name: '<span>N</span>',
+              value: 'bold',
+              name: '<span>B</span>',
             },
             {
               value: 'italic',
-              name: '<i class="fa fa-italic" aria-hidden="true"></i>',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
             },
             {
-              value: 'oblique',
-              name: '<span  style="font-style: oblique;">O</span>',
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
             },
           ],
         },
-
+        
         {
           type: 'radio',
           name: 'Transform',
@@ -2205,7 +2323,7 @@ const obj = {
             'data-type': 'transform',
             'data-attribute': 'number-value-transform',
             'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
           },
         },
         {
@@ -2218,7 +2336,7 @@ const obj = {
             'data-type': 'text-decoration',
             'data-attribute': 'number-value-decoration',
             'data-target':
-              '.number-percentagges-section .percentage-info  h1  .number-percentagges-section .percentage-info  h1 span',
+              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
           },
         },
       ],
@@ -2238,7 +2356,7 @@ const obj = {
           attributes: {
             'data-type': 'color',
             'data-attribute': 'number-description-color',
-            'data-target': '.number-percentagges-section .percentage-info p',
+            'data-target': '.number-percentages-section .percentage-info p',
           },
         },
         {
@@ -2250,7 +2368,7 @@ const obj = {
           attributes: {
             'data-type': 'font-family',
             'data-attribute': 'number-description-font',
-            'data-target': '.number-percentagges-section .percentage-info p',
+            'data-target': '.number-percentages-section .percentage-info p',
           },
         },
         {
@@ -2262,7 +2380,7 @@ const obj = {
           attributes: {
             'data-type': 'font-size',
             'data-attribute': 'number-description-font-size',
-            'data-target': '.number-percentagges-section .percentage-info p',
+            'data-target': '.number-percentages-section .percentage-info p',
           },
         },
         {
@@ -2274,7 +2392,7 @@ const obj = {
           attributes: {
             'data-type': 'font-weight',
             'data-attribute': 'number-description-weight',
-            'data-target': '.number-percentagges-section .percentage-info p',
+            'data-target': '.number-percentages-section .percentage-info p',
           },
         },
         {
@@ -2282,25 +2400,21 @@ const obj = {
           name: 'Font Style',
           property: 'font-style',
           default: 'default',
+          
           options: [
             {
-              value: 'normal',
-              name: '<span>N</span>',
+              value: 'bold',
+              name: '<span>B</span>',
             },
             {
               value: 'italic',
-              name: '<i class="fa fa-italic" aria-hidden="true"></i>',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
             },
             {
-              value: 'oblique',
-              name: '<span  style="font-style: oblique;">O</span>',
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
             },
           ],
-          attributes: {
-            'data-type': 'font-style',
-            'data-attribute': 'number-description-style',
-            'data-target': '.number-percentagges-section .percentage-info p',
-          },
         },
 
         {
@@ -2316,7 +2430,7 @@ const obj = {
           attributes: {
             'data-type': 'text-transform',
             'data-attribute': 'number-description-transform',
-            'data-target': '.number-percentagges-section .percentage-info p',
+            'data-target': '.number-percentages-section .percentage-info p',
           },
         },
         {
@@ -2328,7 +2442,7 @@ const obj = {
           attributes: {
             'data-type': 'text-decoration',
             'data-attribute': 'number-description-decoration',
-            'data-target': '.number-percentagges-section .percentage-info p',
+            'data-target': '.number-percentages-section .percentage-info p',
           },
         },
         {
@@ -2340,7 +2454,7 @@ const obj = {
           attributes: {
             'data-type': 'letter-spacing',
             'data-attribute': 'number-description-letter-spacing',
-            'data-target': '.number-percentagges-section .percentage-info p',
+            'data-target': '.number-percentages-section .percentage-info p',
           },
         },
         {
@@ -2353,7 +2467,7 @@ const obj = {
           attributes: {
             'data-type': 'line-height',
             'data-attribute': 'number-description-line-height',
-            'data-target': '.number-percentagges-section .percentage-info p',
+            'data-target': '.number-percentages-section .percentage-info p',
           },
         },
       ],
@@ -2392,7 +2506,7 @@ const obj = {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
-          properties: borderwidthOptions,
+          properties: widthOptions,
           attributes: {
             'data-type': 'border-width',
             'data-attribute': 'benefit-border-width',
@@ -2473,15 +2587,17 @@ const obj = {
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'default',
-          options: textTransformOptions,
+          options: [
+            { value: 'uppercase', name: '<span>TT</span>' },
+            { value: 'lowercase', name: '<span>tt</span>' },
+            { value: 'capitalize', name: '<span>Tt</span>' },
+          ],
           attributes: {
-            'data-type': 'text-transform',
-            'data-attribute': 'paragraph-heading-text-transform',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
+            'data-type': 'transform',
           },
         },
         {
@@ -2600,17 +2716,18 @@ const obj = {
             'data-target': '.bannar-content h1 .bannar-content p',
           },
         },
-
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'default',
-          options: textTransformOptions,
+          options: [
+            { value: 'uppercase', name: '<span>TT</span>' },
+            { value: 'lowercase', name: '<span>tt</span>' },
+            { value: 'capitalize', name: '<span>Tt</span>' },
+          ],
           attributes: {
-            'data-type': 'text-transform',
-            'data-attribute': 'bannar-text-transform',
-            'data-target': '.bannar-content h1 .bannar-content p',
+            'data-type': 'transform',
           },
         },
 
@@ -2730,17 +2847,18 @@ const obj = {
             'data-target': '.main_heading .sub_heading',
           },
         },
-
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'default',
-          options: textTransformOptions,
+          options: [
+            { value: 'uppercase', name: '<span>TT</span>' },
+            { value: 'lowercase', name: '<span>tt</span>' },
+            { value: 'capitalize', name: '<span>Tt</span>' },
+          ],
           attributes: {
-            'data-type': 'text-transform',
-            'data-attribute': 'main-text-transform',
-            'data-target': '.main_heading .sub_heading',
+            'data-type': 'transform',
           },
         },
 
@@ -2915,18 +3033,19 @@ const obj = {
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'default',
-          options: textTransformOptions,
+          options: [
+            { value: 'uppercase', name: '<span>TT</span>' },
+            { value: 'lowercase', name: '<span>tt</span>' },
+            { value: 'capitalize', name: '<span>Tt</span>' },
+          ],
           attributes: {
-            'data-type': 'text-transform',
-            'data-attribute': 'gallery-text-transform',
-            'data-target': '.figure_caption',
+            'data-type': 'transform',
           },
         },
-
         {
           type: 'slider',
           name: 'Letter Spacing',
@@ -3150,38 +3269,26 @@ const obj = {
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
           default: 'default',
+          
           options: [
             {
-              value: 'normal',
-              name: '<span>N</span>',
+              value: 'bold',
+              name: '<span>B</span>',
             },
             {
               value: 'italic',
-              name: '<i class="fa fa-italic" aria-hidden="true"></i>',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
             },
             {
-              value: 'oblique',
-              name: '<span  style="font-style: oblique;">O</span>',
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
             },
-            // {
-            //   value: 'default',
-            //   name: 'Default',
-            // },
-            // {
-            //   value: 'italic',
-            //   name: `Italic`,
-            // },
-            // {
-            //   value: 'bold',
-            //   name: 'Bold',
-            // },
           ],
         },
-
         {
           type: 'select',
           name: 'Transform',
@@ -3204,7 +3311,7 @@ const obj = {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
-          properties: borderwidthOptions,
+          properties: widthOptions,
         },
         {
           type: 'color',
@@ -3439,7 +3546,7 @@ const obj = {
           type: 'color',
           name: 'Primary',
           property: 'background-color',
-          default: '#e6e6e6',
+          default: '#fff',
           attributes: { class: 'gjs-fonts gjs-f-b1' },
         },
         {
@@ -3571,6 +3678,8 @@ const obj = {
     {
       name: 'Buttons',
       open: false,
+      id: 'buttons',
+      
       buildProps: [
         'font-family',
         'text-shadow',
@@ -3617,19 +3726,34 @@ const obj = {
             showInput: true,
           },
         },
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          default: 'solid',
+          options: borderStyleOptions,
+        },
+       
+        // {
+        //   type: 'radio',
+        //   name: 'Text Shadow',
+        //   property: 'text-shadow',
+        //   default: 'none',
+        //   options: [
+        //     { value: 'none', name: 'None' },
+        //     { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Light' },
+        //     { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Med' },
+        //     { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Dark' },
+        //   ],
+        // },
+       
+       
 
         {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
-          properties: borderwidthOptions,
-        },
-        {
-          type: 'select',
-          name: 'Border Style',
-          property: 'border-style',
-          default: 'solid',
-          options: borderStyleOptions,
+          properties: widthOptions,
         },
         {
           type: 'color',
@@ -3641,49 +3765,54 @@ const obj = {
           },
         },
         {
+          type: 'composite' ,
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        },
+        {
+          type: 'stack',
+          property: 'box-shadow',
+          name: 'Box Shadow',
+
+
+        },
+        
+        {
           type: 'composite',
           name: 'Padding',
           property: 'padding',
-          properties: [
-            {
-              type: 'number',
-              units: ['px', 'rem'],
-              default: '0',
-              property: 'padding-top',
-            },
-            {
-              type: 'number',
-              units: ['px', 'rem'],
-              default: '0',
-              property: 'padding-right',
-            },
-            {
-              type: 'number',
-              units: ['px', 'rem'],
-              default: '0',
-              property: 'padding-bottom',
-            },
-            {
-              type: 'number',
-              units: ['px', 'rem'],
-              default: '0',
-              property: 'padding-left',
-            },
-          ],
+          properties: widthOptions,
+         
         },
       ],
     },
     {
       name: 'Images',
+      id:'images',
       open: false,
-      buildProps: ['border-radius', 'box-shadow', 'opacity'],
+      buildProps: ['state','border-style','border-width','border-color','border-radius', 'box-shadow', 'opacity','css'],
       properties: [
+        {
+          type: 'radio',
+          name : 'State',
+          property: 'state',
+          default: 'normal',
+          options: [
+            { value: 'normal', name: 'Normal' },
+            { value: 'hover', name: 'Hover' },
+          ],
+        },
         {
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
-          default: '0',
+          default: 1,
+          min: 0,
+          max: 1,
+          step: 0.01,
         },
+        
       ],
     },
     {
@@ -3709,7 +3838,7 @@ const obj = {
           name: 'Font Size',
           property: 'font-size',
           default: 14,
-          units: ['px', 'rem', 'em'],
+          units: ['px'],
         },
         {
           type: 'select',
@@ -3719,19 +3848,28 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
-            { value: 'bold', name: 'Bold' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
-
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',
@@ -3781,7 +3919,9 @@ const obj = {
     {
       name: 'Links',
       open: false,
+      id:'links',
       buildProps: [
+        'state',
         'font-family',
         'font-size',
         'font-weight',
@@ -3789,6 +3929,17 @@ const obj = {
         'line-height',
       ],
       properties: [
+        {
+          type: 'radio',
+          name : 'State',
+          property: 'state',
+          default: 'normal',
+          options: [
+            { value: 'normal', name: 'Normal' },
+            { value: 'hover', name: 'Hover' },
+          ],
+
+        },
         {
           type: 'select',
           name: 'Font',
@@ -3811,18 +3962,29 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',
@@ -3877,6 +4039,7 @@ const obj = {
     {
       name: 'H1',
       open: false,
+      id:'h1',
       buildProps: [
         'font-family',
         'font-size',
@@ -3908,18 +4071,29 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',
@@ -3968,6 +4142,7 @@ const obj = {
     {
       name: 'H2',
       open: false,
+      id:'h2',
       buildProps: [
         'font-family',
         'font-size',
@@ -3998,18 +4173,29 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',
@@ -4058,6 +4244,7 @@ const obj = {
     {
       name: 'H3',
       open: false,
+      id:'h3',
       buildProps: [
         'font-family',
         'font-size',
@@ -4088,18 +4275,28 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
-
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',
@@ -4148,6 +4345,7 @@ const obj = {
     {
       name: 'H4',
       open: false,
+      id:'h4',
       buildProps: [
         'font-family',
         'font-size',
@@ -4179,18 +4377,29 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',
@@ -4239,6 +4448,7 @@ const obj = {
     {
       name: 'H5',
       open: false,
+      id:'h5',
       buildProps: [
         'font-family',
         'font-size',
@@ -4269,18 +4479,29 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',
@@ -4329,6 +4550,7 @@ const obj = {
     {
       name: 'H6',
       open: false,
+      id:'h6' ,
       buildProps: [
         'font-family',
         'font-size',
@@ -4360,18 +4582,29 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
 
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',
@@ -4424,15 +4657,27 @@ const obj = {
     {
       name: 'Label',
       open: false,
+      id:'labels' ,
       buildProps: [
+        'state',
         'font-family',
         'font-size',
         'font-weight',
-
         'letter-spacing',
         'line-height',
       ],
       properties: [
+        {
+          type: 'radio',
+          name : 'State',
+          property: 'state',
+          default: 'normal',
+          options: [
+            { value: 'normal', name: 'Normal' },
+            { value: 'hover', name: 'Hover' },
+          ],
+          
+        },
         {
           type: 'select',
           name: 'Font',
@@ -4455,18 +4700,28 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
-
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',
@@ -4523,6 +4778,7 @@ const obj = {
     {
       name: 'Field',
       open: false,
+      id:'fields' ,
       buildProps: [
         'font-family',
         'font-size',
@@ -4554,18 +4810,28 @@ const obj = {
           options: fontWeightOptions,
         },
         {
-          type: 'select',
+          type: 'radio',
           name: 'Font Style',
           property: 'font-style',
-          default: 'normal',
+          default: 'default',
+          
           options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'italic', name: 'Italic' },
+            {
+              value: 'bold',
+              name: '<span>B</span>',
+            },
+            {
+              value: 'italic',
+              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+            },
+            {
+              value: 'underline',
+              name: '<span  style="font-style: underline;">U</span>',
+            },
           ],
         },
-
         {
-          type: 'select',
+          type: 'radio',
           name: 'Transform',
           property: 'text-transform',
           default: 'none',

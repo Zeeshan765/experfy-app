@@ -74,9 +74,7 @@ export default function Brands(props) {
   const { control, handleSubmit, reset, setValue } = useForm({
     defaultValues,
   });
-  console.log('props', props);
   const { brands } = props.propsData;
-
 
 
   const handleReset = () => {

@@ -30,18 +30,6 @@ import {
   themestyle,
 } from './style';
 
-
-
-
-
-
-
-
-
-
-
-
-
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
     opts.blocks.indexOf(id)! >= 0 &&
@@ -1218,7 +1206,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <line x1="3" y1="12" x2="21" y2="12" />
       <polyline points="8 8 12 4 16 8" />
       <polyline points="16 16 12 20 8 16" />
-    </svg>` ,
+    </svg>`,
     content: `<div class="page-builder-divider">
     <span class="page-builder-divider-seprator"></span>
    </div>
@@ -1229,7 +1217,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     label: 'Spacer',
     category: 'Basic Elements',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><path d="M3,1V17a2,2,0,0,0,2,2H47a2,2,0,0,0,2-2V1H45V15H7V1ZM49,51V35a2,2,0,0,0-2-2H5a2,2,0,0,0-2,2V51H7V37H45V51ZM12,28H4V24h8Zm4,0h8V24H16Zm20,0H28V24h8Zm4,0h8V24H40Z" fill-rule="evenodd"/></svg>` ,
+    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><path d="M3,1V17a2,2,0,0,0,2,2H47a2,2,0,0,0,2-2V1H45V15H7V1ZM49,51V35a2,2,0,0,0-2-2H5a2,2,0,0,0-2,2V51H7V37H45V51ZM12,28H4V24h8Zm4,0h8V24H16Zm20,0H28V24h8Zm4,0h8V24H40Z" fill-rule="evenodd"/></svg>`,
     content: `<div class="page-builder-spacer">
     <div class="page-builder-spacer-inner"></div>
   </div>
@@ -1242,7 +1230,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
         <path d="M1751 0v1920H169V0h1582Zm-115 112H290v9h-1v1678h1v20h1346V112Zm-234 235v321H514V347h888Z" fill-rule="evenodd"/>
-    </svg>` ,
+    </svg>`,
     content: `  <div class="page-title-wrapper">
     <h1 class="page-builder-heading-title">page Builder Header #1234</h1>
 </div>
@@ -1253,7 +1241,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     label: 'Icon',
     category: 'Basic Elements',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>ICON icon</title><path d="M21.605.021a2.397 2.397 0 00-.47 4.747 2.397 2.397 0 10.47-4.746zm-9.584 2.395C6.73 2.416 2.437 6.707 2.437 12c0 2.142.703 4.121 1.891 5.717l2.586-2.586a5.99 5.99 0 018.236-8.238l2.586-2.586a9.537 9.537 0 00-5.715-1.891zm7.692 3.867L17.127 8.87a5.989 5.989 0 01-8.236 8.238l-2.586 2.584a9.543 9.543 0 005.716 1.893c5.293 0 9.583-4.29 9.583-9.584 0-2.142-.704-4.12-1.891-5.717zM2.396 19.187a2.398 2.398 0 00-.47 4.749 2.402 2.402 0 002.822-2.823 2.399 2.399 0 00-2.352-1.925z"/></svg>` ,
+    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>ICON icon</title><path d="M21.605.021a2.397 2.397 0 00-.47 4.747 2.397 2.397 0 10.47-4.746zm-9.584 2.395C6.73 2.416 2.437 6.707 2.437 12c0 2.142.703 4.121 1.891 5.717l2.586-2.586a5.99 5.99 0 018.236-8.238l2.586-2.586a9.537 9.537 0 00-5.715-1.891zm7.692 3.867L17.127 8.87a5.989 5.989 0 01-8.236 8.238l-2.586 2.584a9.543 9.543 0 005.716 1.893c5.293 0 9.583-4.29 9.583-9.584 0-2.142-.704-4.12-1.891-5.717zM2.396 19.187a2.398 2.398 0 00-.47 4.749 2.402 2.402 0 002.822-2.823 2.399 2.399 0 00-2.352-1.925z"/></svg>`,
     content: `<div class="icon-wrapper">
     <div class="page-builder-icon">
     <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
@@ -1311,7 +1299,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
         <path d="M169.412 1355.412c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.411-169.412 169.411C76.009 1694.235 0 1618.225 0 1524.824c0-93.403 76.01-169.412 169.412-169.412ZM1920 1468.352v112.942H564.706v-112.941H1920ZM169.412 790.707c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.411-169.412 169.411C76.009 1129.53 0 1053.52 0 960.118c0-93.403 76.01-169.412 169.412-169.412ZM1920 903.647v112.941H564.706v-112.94H1920ZM169.412 226c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.412-169.412 169.412C76.009 564.824 0 488.814 0 395.412 0 302.009 76.01 226 169.412 226ZM1920 338.941v112.941H564.706v-112.94H1920Z" fill-rule="evenodd"/>
-    </svg>` ,
+    </svg>`,
     content: `    <div class="page-builder-listing-section">
     <ul class="page-builder-list-items">
    <li class="page-builder-list-item">
@@ -1345,7 +1333,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <title>frost-emblem</title>
     <path d="M15.915 1.542c-7.891 0-14.287 6.397-14.287 14.287s6.397 14.287 14.287 14.287 14.287-6.396 14.287-14.287c0-7.89-6.396-14.287-14.287-14.287zM15.913 29.025c-7.291 0-13.201-5.91-13.201-13.201s5.91-13.201 13.201-13.201 13.201 5.91 13.201 13.201-5.91 13.201-13.201 13.201zM25.552 16.896l-3.911 1.048-1.542-1.346 0.766-0.766-0.715-0.715 1.512-1.32 3.846 1.010-2.645-2.059 3.016-2.632-3.764 1.288-0.451-3.405-1.050 3.919-1.954 0.669-0.288-1.075-1.051 0.281-0.388-1.977 2.877-2.877-3.183 1.316-0.768-3.913-0.772 3.93-3.094-1.256 2.788 2.816-0.383 1.95-1.009-0.27-0.284 1.061-1.895-0.649-1.049-3.915-0.45 3.402-3.76-1.287 3.015 2.631-2.648 2.062 3.851-1.012 1.47 1.283-0.743 0.743 0.794 0.794-1.499 1.308-3.916-1.049 2.722 2.091-3.008 2.625 3.801-1.3 0.461 3.317 1.047-3.833 1.828-0.625 0.264 0.986 1.010-0.271 0.382 1.946-2.788 2.815 3.094-1.256 0.772 3.932 0.769-3.916 3.183 1.316-2.876-2.876 0.387-1.972 1.051 0.282 0.268-1 1.887 0.646 1.048 3.837 0.461-3.32 3.804 1.302-3.009-2.625zM19.812 6.941l-0 0 0-0zM19.812 24.712l-0-0 0 0z"></path>
-    </svg>` ,
+    </svg>`,
     content: `   <div class="page-builder-logo">
     <a class="#"><img src="https://resources.experfy.com/wp-content/uploads/2021/05/logo_navbar-87f75515ac3e48fdcc77b82a8794120a2c9d629770c27c0e76e966221ee0b7f4.png" class=""></a>
     </div>
@@ -1356,17 +1344,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('theme-style', {
     label: 'Theme Style',
     category: 'Section Modules',
+    activate: true,
     // media: ,
-    content: `   
-    <div id="theme_1" style="padding: 0px 20%;">
+    content: [
+      `<div id="theme_1" style="padding: 0px 20%;">
       <div class="global-theme-setting">
 
         <div class="button-section">
-          <button class="button">Button</button>
+          <button type="submit">Submit</button>
         </div>
 
         <div class="images-sections">
-          <img class="img" width="200" height="200" src="assets/images/portal/banner.png" />
+          <img class="img" width="200" height="200" src="/src/assets/images/banner_paleceholder.png" />
         </div>
 
         <div class="heading-holder-block">
@@ -1397,10 +1386,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
       </div>
     </div>
+    
     ${themestyle}
     `,
+    ],
   });
 };
-
-
-

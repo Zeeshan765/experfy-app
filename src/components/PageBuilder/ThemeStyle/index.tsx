@@ -7,7 +7,7 @@ import { useStepNav } from 'payload/components/hooks';
 import { useAuth, useConfig } from 'payload/components/utilities';
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 import { StyleContext } from '../../../Providers/StyleProvider';
 import Experfy from '../ExperfyPlugin';
 import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
@@ -25,7 +25,7 @@ const ThemeStyle: React.FC = () => {
   useEffect(() => {
     setStepNav([
       {
-        label: 'Theme Style',
+        label: 'Global Theme Settings',
         url: '/collections/themes-style',
       },
     ]);
@@ -47,24 +47,10 @@ const ThemeStyle: React.FC = () => {
     editor = GrapesJS.init({
       container: '.editor',
       fromElement: true,
+      avoidDefaults: true,
       showDevices: false,
       plugins: [ExperfyBlocks],
       style: userDefaultStyleString,
-      storageManager: {
-        type: 'local',
-        autoload: false,
-        options: {
-          storeComponents: true,
-          storeStyles: true,
-          storeHtml: true,
-          storeCss: true,
-
-          local: {
-            key: 'theme_style',
-          },
-        },
-      },
-
       layerManager: null,
       selectorManager: null,
       styleManager: {
@@ -74,17 +60,6 @@ const ThemeStyle: React.FC = () => {
       blockManager: null,
       commands: {
         defaults: [
-          {
-            id: 'preview-fullscreen',
-            run() {
-              editor.runCommand('preview');
-              editor.runCommand('fullscreen');
-            },
-            stop() {
-              editor.stopCommand('fullscreen');
-              editor.stopCommand('preview');
-            },
-          },
           {
             id: 'save-editor',
             // run(editor: { store: () => GrapesJS.Editor }) {
@@ -108,7 +83,23 @@ const ThemeStyle: React.FC = () => {
     });
 
     const onSave = () => {
-      console.log('.......................saved.................');
+      
+     editor.store({
+        type: 'local',
+        options: {
+          storeComponents:false,
+          storeStyles: false,
+          storeHtml: false,
+          storeCss: true,
+          local: {
+            key: 'theme_style',
+            checkLocal: false,
+          },
+        },
+      });
+      
+      
+      toast.success('Global theme settings saved successfully!');
     };
 
     //Theme Style Sector
@@ -123,23 +114,86 @@ const ThemeStyle: React.FC = () => {
     });
 
     editor.onReady(() => {
+      const data = editor.StorageManager.load({
+        key: 'theme_style',
+      })
+      editor.loadProjectData(data);
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
-      const component = editor.addComponents(block.get('content'));
-      component[0].set('selectable', true);
-      component[0].set('removable', false);
-      component[0].set('stylable', true);
-      component[0].set('copyable', false);
-      component[0].set('layerable', false);
-      component[0].set('draggable', false);
-      editor.select(component[0]);
-      // console.log(component[0].getId());
+      
+      const component = editor.addComponents(block.get('content'));  
+      component.forEach((comp) => {
+        comp.set('draggable', false);
+        comp.set('droppable', false);
+        comp.set('stylable', false);
+        comp.set('hoverable', false);
+        comp.set('selectable', false);
+      });
+      
       sectors.reset();
-      sectors.add(getSectors(component[0].getId()));
+      
+      sectors.add(getSectors('theme_1'));
       editor.runCommand('core:open-styles');
       editor.getWrapper().set('hoverable', false);
       editor.getWrapper().set('selectable', false);
+      
     });
+
+    editor.on('style:sector:update',(sector) => {
+      if (sector.attributes.open === true){
+        const wrapperCmp = editor.Pages.getSelected().getMainComponent();
+        const btnCmp = wrapperCmp.find('button')[0];
+        const imgCmp = wrapperCmp.find('img')[0];
+        const h1 = wrapperCmp.find('h1')[0];
+        const h2 = wrapperCmp.find('h2')[0];
+        const h3 = wrapperCmp.find('h3')[0];
+        const h4 = wrapperCmp.find('h4')[0];
+        const h5 = wrapperCmp.find('h5')[0];
+        const h6 = wrapperCmp.find('h6')[0];
+        const link = wrapperCmp.find('a')[0];
+        const span = wrapperCmp.find('span')[0];
+        const input = wrapperCmp.find('input')[0];
+        switch (sector.attributes.id) {
+          case 'buttons':
+            editor.SelectorManager.select(btnCmp);
+            break;
+          case 'images':
+            editor.SelectorManager.select(imgCmp);
+            break;
+          case 'h1':
+            editor.SelectorManager.select(h1);
+            break;
+          case 'h2':
+            editor.SelectorManager.select(h2);
+            break;
+          case 'h3':
+            editor.SelectorManager.select(h3);
+            break;
+          case 'h4':
+            editor.SelectorManager.select(h4);
+            break;
+          case 'h5':
+            editor.SelectorManager.select(h5);
+            break;
+          case 'h6':
+            editor.SelectorManager.select(h6);
+            break;
+          case 'links':
+            editor.SelectorManager.select(link);
+            break;
+          case 'labels':
+            editor.SelectorManager.select(span);
+            break;
+          case 'fields':
+            editor.SelectorManager.select(input);
+            break;
+          default:
+            editor.SelectorManager.select('');
+        }
+      }
+    });
+
+   
 
     const handleSaveStyles = () => {
       let { styles } = JSON.parse(localStorage.getItem('theme_style'));
@@ -204,6 +258,7 @@ const ThemeStyle: React.FC = () => {
             </span>
           </div>
           <div className="blocks"></div>
+          <div className="selector-container"></div>
           <div className="styles-container"></div>
           <div className="traits-container"></div>
           <div className="layers-container"></div>

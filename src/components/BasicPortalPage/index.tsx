@@ -12,8 +12,8 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { toast } from 'react-toastify';
-import BrandForm from './Brandform';
-import PortalIdentityForm from './PortalIdentityform';
+import BrandForm from './BrandForm';
+import PortalIdentityForm from './PortalIdentityForm';
 const baseClass = 'custom-route';
 
 const portal_url_tip =

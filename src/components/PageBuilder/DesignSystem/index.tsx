@@ -82,14 +82,13 @@ const DesignSystem: React.FC = () => {
 
       storageManager: {
         type: 'local',
-        autosave: true,
-        autoload: true,
-        stepsBeforeSave: 2,
+        autosave: false,
+        autoload: false,
         options: {
           storeCss: true,
           storeStyles: true,
-          storeHtml: true,
-          storeComponents: true,
+          storeHtml: false,
+          storeComponents: false,
 
           local: {
             key: 'gts',

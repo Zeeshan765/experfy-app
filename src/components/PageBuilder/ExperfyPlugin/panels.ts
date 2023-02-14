@@ -7,9 +7,9 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
   const config = editor.getConfig();
 
   const row = editor.getContainer().closest('.editor-row');
-  // if (!opts.showPanelsOnLoad) {
-  //   Panels.getPanels().reset([]);
-  // } else {
+  if (!opts.showPanelsOnLoad) {
+    Panels.getPanels().reset([]);
+  } else {
     Panels.getPanels().reset([
       {
         id: 'panel__switcher',
@@ -111,7 +111,7 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
         ],
       },
     ]);
-  // }
+  }
 
   if (opts.themeStylePanels) {
     // Panels.removeButton('panel__switcher', openStyles);
