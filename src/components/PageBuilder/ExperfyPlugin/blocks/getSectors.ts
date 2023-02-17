@@ -1,4 +1,7 @@
+import { Property } from './../../../../utilities/types';
 const fontFamilies = [
+  { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
+  { value: 'proxima-nova', name: 'Proxima Nova' },
   { value: 'Arial', name: 'Arial' },
   { value: 'Arial Black', name: 'Arial Black' },
   { value: 'Brush Script MT', name: 'Brush Script MT' },
@@ -24,6 +27,7 @@ const fontFamilies = [
 ];
 
 const borderStyleOptions = [
+  { value: 'none', name: 'None' },
   { value: 'solid', name: 'Solid' },
   { value: 'dotted', name: 'Dotted' },
   { value: 'dashed', name: 'Dashed' },
@@ -32,8 +36,6 @@ const borderStyleOptions = [
   { value: 'ridge', name: 'Ridge' },
   { value: 'inset', name: 'Inset' },
   { value: 'outset', name: 'Outset' },
-  { value: 'none', name: 'None' },
-  { value: 'hidden', name: 'Hidden' },
 ];
 
 const fontWeightOptions = [
@@ -49,15 +51,15 @@ const fontWeightOptions = [
 const textDecorationOptions = [
   {
     value: 'underline',
-    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatUnderlinedIcon"><path d="M12 17c3.31 0 6-2.69 6-6V3h-2.5v8c0 1.93-1.57 3.5-3.5 3.5S8.5 12.93 8.5 11V3H6v8c0 3.31 2.69 6 6 6zm-7 2v2h14v-2H5z"></path></svg>',
+    name: `<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatUnderlinedIcon"><path d="M12 17c3.31 0 6-2.69 6-6V3h-2.5v8c0 1.93-1.57 3.5-3.5 3.5S8.5 12.93 8.5 11V3H6v8c0 3.31 2.69 6 6 6zm-7 2v2h14v-2H5z"></path></svg>`,
   },
   {
     value: 'line-through',
-    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="StrikethroughSIcon"><path d="M6.85 7.08C6.85 4.37 9.45 3 12.24 3c1.64 0 3 .49 3.9 1.28.77.65 1.46 1.73 1.46 3.24h-3.01c0-.31-.05-.59-.15-.85-.29-.86-1.2-1.28-2.25-1.28-1.86 0-2.34 1.02-2.34 1.7 0 .48.25.88.74 1.21.38.25.77.48 1.41.7H7.39c-.21-.34-.54-.89-.54-1.92zM21 12v-2H3v2h9.62c1.15.45 1.96.75 1.96 1.97 0 1-.81 1.67-2.28 1.67-1.54 0-2.93-.54-2.93-2.51H6.4c0 .55.08 1.13.24 1.58.81 2.29 3.29 3.3 5.67 3.3 2.27 0 5.3-.89 5.3-4.05 0-.3-.01-1.16-.48-1.94H21V12z"></path></svg>',
+    name: `<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="StrikethroughSIcon"><path d="M6.85 7.08C6.85 4.37 9.45 3 12.24 3c1.64 0 3 .49 3.9 1.28.77.65 1.46 1.73 1.46 3.24h-3.01c0-.31-.05-.59-.15-.85-.29-.86-1.2-1.28-2.25-1.28-1.86 0-2.34 1.02-2.34 1.7 0 .48.25.88.74 1.21.38.25.77.48 1.41.7H7.39c-.21-.34-.54-.89-.54-1.92zM21 12v-2H3v2h9.62c1.15.45 1.96.75 1.96 1.97 0 1-.81 1.67-2.28 1.67-1.54 0-2.93-.54-2.93-2.51H6.4c0 .55.08 1.13.24 1.58.81 2.29 3.29 3.3 5.67 3.3 2.27 0 5.3-.89 5.3-4.05 0-.3-.01-1.16-.48-1.94H21V12z"></path></svg>`,
   },
   {
     value: 'overline',
-    name: '<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatOverlineIcon"><path d="M19 3v2H5V3h14zm-7 4c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 11.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></svg>',
+    name: `<svg class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FormatOverlineIcon"><path d="M19 3v2H5V3h14zm-7 4c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7zm0 11.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 9.5 12 9.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"></path></svg>`,
   },
 ];
 
@@ -85,6 +87,157 @@ const textTransformOptions = [
   { value: 'lowercase', name: '<span>tt</span>' },
   { value: 'capitalize', name: '<span>Tt</span>' },
 ];
+
+const fontStyle = [
+  { value: 'bold', name: '<strong>B</strong>' },
+  { value: 'italic', name: '<i>I</i>' },
+  { value: 'underline', name: '<u>U</u>' },
+];
+
+const State = {
+  name: 'State',
+  type: 'radio',
+  property: 'state',
+  default: 'normal',
+  options: [
+    { value: 'normal', name: 'Normal' },
+    { value: 'hover', name: 'Hover' },
+  ],
+  onclick: function (e) {
+    const state = e.target.value;
+    const el = this.target;
+    const normal = el.querySelector('.normal');
+    const hover = el.querySelector('.hover');
+    if (state === 'normal') {
+      normal.style.display = 'block';
+      hover.style.display = 'none';
+    } else {
+      normal.style.display = 'none';
+      hover.style.display = 'block';
+    }
+  },
+};
+
+const shadowOptions = (which: String) => {
+  return {
+    name: which + ' Shadow',
+    type: 'stack',
+    property: which.toLowerCase() + '-shadow',
+    detached: false,
+    properties: [
+      {
+        type: 'color',
+        name: 'Color',
+        property: 'color',
+        default: '#000',
+      },
+      {
+        type: 'number',
+        name: 'X',
+        property: 'offset-x',
+        default: 0,
+        units: ['px'],
+      },
+      {
+        type: 'number',
+        name: 'Y',
+        property: 'offset-y',
+        default: 0,
+        units: ['px'],
+      },
+      {
+        type: 'number',
+        name: 'Blur',
+        property: 'blur-radius',
+        default: 0,
+        units: ['px'],
+      },
+      {
+        type: 'number',
+        name: 'Spread',
+        property: 'spread-radius',
+        default: 0,
+        units: ['px'],
+      },
+      {
+        type: 'select',
+        name: 'Position',
+        property: 'shadow-position',
+        default: 'outset',
+        options: [
+          { value: 'outset', name: 'Outset' },
+          { value: 'inset', name: 'Inset' },
+        ],
+      },
+    ],
+  };
+};
+
+let typography = {
+  type: 'stack',
+  name: 'Typography',
+  detached: true,
+  properties: [
+    {
+      type: 'select',
+      name: 'Font Family',
+      property: 'font-family',
+      default: 'Proxima Nova',
+      options: fontFamilies,
+    },
+    {
+      type: 'slider',
+      name: 'Font Size',
+      property: 'font-size',
+      default: 14,
+      unit: 'px',
+      min: 8,
+      max: 72,
+      step: 1,
+    },
+    {
+      type: 'select',
+      name: 'Font Weight',
+      property: 'font-weight',
+      default: '400',
+      options: fontWeightOptions,
+    },
+    {
+      type: 'radio',
+      label: 'Text Transform',
+      property: 'text-transform',
+      default: 'none',
+      options: textTransformOptions,
+    },
+    {
+      type: 'radio',
+      name: 'Text Align',
+      property: 'text-align',
+      default: 'left',
+      options: textAlignOptions,
+    },
+    {
+      type: 'slider',
+      Name: 'Letter Spacing',
+      property: 'letter-spacing',
+      default: 0,
+      unit: 'rem',
+      min: -1,
+      max: 10,
+      step: 1,
+    },
+    {
+      type: 'slider',
+      name: 'Line Height',
+      property: 'line-height',
+      default: 1,
+      unit: 'rem',
+      min: 0,
+      max: 10,
+      step: 0.1,
+    },
+  ],
+};
 
 const widthOptions = [
   {
@@ -254,15 +407,14 @@ const obj = {
           name: 'Border Radius',
           property: 'border-radius',
           properties: widthOptions,
-
         },
         {
           type: 'color',
           name: 'Border Color',
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        
+          preferredFormat: 'hex',
+          showInput: true,
+        },
+
         {
           type: 'composite',
           name: 'Border Width',
@@ -1671,9 +1823,9 @@ const obj = {
             { value: 'repeat', name: 'Repeat' },
             { value: 'repeat-x', name: 'Repeat Horizontally' },
             { value: 'repeat-y', name: 'Repeat Vertically' },
-          ]
+          ],
         },
-        { 
+        {
           type: 'select',
           name: 'Background Size',
           property: 'background-size',
@@ -1682,7 +1834,7 @@ const obj = {
             { value: 'cover', name: 'Cover' },
             { value: 'contain', name: 'Contain' },
             { value: 'auto', name: 'Auto' },
-          ]
+          ],
         },
         {
           type: 'radio',
@@ -1690,7 +1842,6 @@ const obj = {
           property: 'background-position',
           default: 'center center',
           options: [
-            
             { value: 'left top', name: `&#8662;` },
             { value: 'left bottom', name: `&#8665;` },
             { value: 'center top', name: `&#8657;` },
@@ -1699,7 +1850,7 @@ const obj = {
             { value: 'right top', name: `&#8663;` },
             { value: 'right center', name: `&#8667;` },
             { value: 'right bottom', name: `&#8664;` },
-          ]
+          ],
         },
         {
           type: 'select',
@@ -1709,7 +1860,7 @@ const obj = {
           options: [
             { value: 'scroll', name: 'Scroll' },
             { value: 'fixed', name: 'Fixed' },
-          ]
+          ],
         },
         {
           type: 'slider',
@@ -2009,12 +2160,7 @@ const obj = {
     {
       name: 'Border',
       open: false,
-      buildProps: [
-        'border-radius',
-        'border-color',
-        'border-style',
-        'padding',
-      ],
+      buildProps: ['border-radius', 'border-color', 'border-style', 'padding'],
       properties: [
         {
           type: 'composite',
@@ -2292,7 +2438,7 @@ const obj = {
           name: 'Font Style',
           property: 'font-style',
           default: 'default',
-          
+
           options: [
             {
               value: 'bold',
@@ -2308,7 +2454,7 @@ const obj = {
             },
           ],
         },
-        
+
         {
           type: 'radio',
           name: 'Transform',
@@ -2400,7 +2546,7 @@ const obj = {
           name: 'Font Style',
           property: 'font-style',
           default: 'default',
-          
+
           options: [
             {
               value: 'bold',
@@ -3273,7 +3419,7 @@ const obj = {
           name: 'Font Style',
           property: 'font-style',
           default: 'default',
-          
+
           options: [
             {
               value: 'bold',
@@ -3679,34 +3825,11 @@ const obj = {
       name: 'Buttons',
       open: false,
       id: 'buttons',
-      
-      buildProps: [
-        'font-family',
-        'text-shadow',
-        'border-radius',
-        'padding',
-        'border-width',
-        'box-shadow',
-      ],
+
       properties: [
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-        },
-        // {
-        //   type: 'radio',
-        //   name: 'Text Shadow',
-        //   property: 'text-shadow',
-        //   default: 'none',
-        //   options: [
-        //     { value: 'none', name: 'None' },
-        //     { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Light' },
-        //     { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Med' },
-        //     { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Dark' },
-        //   ],
-        // },
+        typography,
+        'text-shadow',
+        State,
         {
           type: 'color',
           name: 'Text Color',
@@ -3718,7 +3841,6 @@ const obj = {
         },
         {
           type: 'color',
-          prefix: 'Background',
           name: 'Background Color',
           property: 'background-color',
           colorPicker: {
@@ -3726,34 +3848,19 @@ const obj = {
             showInput: true,
           },
         },
+
         {
           type: 'select',
           name: 'Border Type',
           property: 'border-style',
-          default: 'solid',
           options: borderStyleOptions,
         },
-       
-        // {
-        //   type: 'radio',
-        //   name: 'Text Shadow',
-        //   property: 'text-shadow',
-        //   default: 'none',
-        //   options: [
-        //     { value: 'none', name: 'None' },
-        //     { value: '0 1px 1px rgba(0, 0, 0, 0.3)', name: 'Light' },
-        //     { value: '0 2px 2px rgba(0, 0, 0, 0.3)', name: 'Med' },
-        //     { value: '0 3px 3px rgba(0, 0, 0, 0.3)', name: 'Dark' },
-        //   ],
-        // },
-       
-       
-
         {
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
           properties: widthOptions,
+          detached: false,
         },
         {
           type: 'color',
@@ -3765,44 +3872,31 @@ const obj = {
           },
         },
         {
-          type: 'composite' ,
+          type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
           properties: widthOptions,
+          detached: false,
         },
-        {
-          type: 'stack',
-          property: 'box-shadow',
-          name: 'Box Shadow',
-
-
-        },
-        
-        {
-          type: 'composite',
-          name: 'Padding',
-          property: 'padding',
-          properties: widthOptions,
-         
-        },
+        'box-shadow',
+        'padding',
       ],
     },
     {
       name: 'Images',
-      id:'images',
+      id: 'images',
       open: false,
-      buildProps: ['state','border-style','border-width','border-color','border-radius', 'box-shadow', 'opacity','css'],
+
+      buildProps: [
+        'state',
+        'border-style',
+        'border-radius',
+        'opacity',
+        'box-shadow',
+        'CSS',
+      ],
       properties: [
-        {
-          type: 'radio',
-          name : 'State',
-          property: 'state',
-          default: 'normal',
-          options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'hover', name: 'Hover' },
-          ],
-        },
+        State,
         {
           type: 'slider',
           name: 'Opacity',
@@ -3812,1082 +3906,196 @@ const obj = {
           max: 1,
           step: 0.01,
         },
-        
+        {
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+          detached: false,
+        },
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+          detached: false,
+        },
       ],
     },
     {
       name: 'Body Text',
       open: false,
-      buildProps: [
-        'font-family',
-        'font-size',
-        'font-weight',
-        'letter-spacing',
-        'line-height',
-      ],
-      properties: [
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: '0px',
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: '1px',
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: '0px',
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-            chooseText: 'Ok',
-          },
-        },
-      ],
+      buildProps: 'color',
+      properties: [typography],
     },
-
     {
       name: 'Links',
       open: false,
-      id:'links',
-      buildProps: [
-        'state',
-        'font-family',
-        'font-size',
-        'font-weight',
-        'letter-spacing',
-        'line-height',
-      ],
-      properties: [
-        {
-          type: 'radio',
-          name : 'State',
-          property: 'state',
-          default: 'normal',
-          options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'hover', name: 'Hover' },
-          ],
-
-        },
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: 1,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      id: 'links',
+      buildProps: 'color',
+      properties: [State, typography],
     },
-
     {
       name: 'Headings',
       open: false,
-      buildProps: ['font-family'],
+      buildProps: [''],
     },
-
     {
       name: 'H1',
       open: false,
-      id:'h1',
-      buildProps: [
-        'font-family',
-        'font-size',
-        'font-weight',
-
-        'letter-spacing',
-        'line-height',
-      ],
-      properties: [
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: 1,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      id: 'h1',
+      buildProps: ['color'],
+      properties: [typography],
     },
-
     {
       name: 'H2',
       open: false,
-      id:'h2',
-      buildProps: [
-        'font-family',
-        'font-size',
-        'font-weight',
-        'letter-spacing',
-        'line-height',
-      ],
-      properties: [
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: 1,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      id: 'h2',
+      buildProps: ['color'],
+      properties: [typography],
     },
-
     {
       name: 'H3',
       open: false,
-      id:'h3',
-      buildProps: [
-        'font-family',
-        'font-size',
-        'font-weight',
-        'letter-spacing',
-        'line-height',
-      ],
-      properties: [
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: 1,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      id: 'h3',
+      buildProps: ['color'],
+      properties: [typography],
     },
-
     {
       name: 'H4',
       open: false,
-      id:'h4',
-      buildProps: [
-        'font-family',
-        'font-size',
-        'font-weight',
-
-        'letter-spacing',
-        'line-height',
-      ],
-      properties: [
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: 1,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      id: 'h4',
+      buildProps: ['color'],
+      properties: [typography],
     },
-
     {
       name: 'H5',
       open: false,
-      id:'h5',
-      buildProps: [
-        'font-family',
-        'font-size',
-        'font-weight',
-        'letter-spacing',
-        'line-height',
-      ],
-      properties: [
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: 1,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      id: 'h5',
+      buildProps: ['color'],
+      properties: [typography],
     },
-
     {
       name: 'H6',
       open: false,
-      id:'h6' ,
-      buildProps: [
-        'font-family',
-        'font-size',
-        'font-weight',
-
-        'letter-spacing',
-        'line-height',
-      ],
-      properties: [
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: 1,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      id: 'h6',
+      buildProps: ['color'],
+      properties: [typography],
     },
     {
       name: 'Form Fields',
       open: false,
-      buildProps: ['font-family'],
+      buildProps: [],
     },
     {
       name: 'Label',
       open: false,
-      id:'labels' ,
-      buildProps: [
-        'state',
-        'font-family',
-        'font-size',
-        'font-weight',
-        'letter-spacing',
-        'line-height',
-      ],
-      properties: [
-        {
-          type: 'radio',
-          name : 'State',
-          property: 'state',
-          default: 'normal',
-          options: [
-            { value: 'normal', name: 'Normal' },
-            { value: 'hover', name: 'Hover' },
-          ],
-          
-        },
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: 1,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      id: 'labels',
+      buildProps: ['color'],
+      properties: [typography],
     },
     {
       name: 'Field',
       open: false,
-      id:'fields' ,
+      id: 'fields',
+      buildProps: [
+        'color',
+        'background-color',
+        'border-style',
+        'border-width',
+        'border-color',
+        'border-radius',
+        'padding',
+      ],
+      properties: [typography, State],
+    },
+  ],
+
+  wrapper: [
+    // Default
+    {
+      name: 'General',
+      open: false,
+      buildProps: [
+        'float',
+        'display',
+        'position',
+        'top',
+        'right',
+        'left',
+        'bottom',
+      ],
+    },
+    {
+      name: 'Flex',
+      open: false,
+      buildProps: [
+        'flex-direction',
+        'flex-wrap',
+        'justify-content',
+        'align-items',
+        'align-content',
+        'order',
+        'flex-basis',
+        'flex-grow',
+        'flex-shrink',
+        'align-self',
+      ],
+    },
+    {
+      name: 'Dimension',
+      open: false,
+      buildProps: [
+        'width',
+        'height',
+        'max-width',
+        'min-height',
+        'margin',
+        'padding',
+      ],
+    },
+    {
+      name: 'Typography',
+      open: false,
       buildProps: [
         'font-family',
         'font-size',
         'font-weight',
-
         'letter-spacing',
+        'color',
         'line-height',
-      ],
-      properties: [
-        {
-          type: 'select',
-          name: 'Font',
-          property: 'font-family',
-          default: 'Proxima Nova',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-          
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'none',
-          options: textTransformOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Paragraph Spacing',
-          property: 'padding-top',
-          default: 1,
-          units: ['px', 'rem', 'em'],
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
+        'text-align',
+        'text-decoration',
+        'text-shadow',
       ],
     },
+    {
+      name: 'Decorations',
+      open: false,
+      buildProps: [
+        'border-radius-c',
+        'background-color',
+        'border-radius',
+        'border',
+        'box-shadow',
+        'background',
+      ],
+    },
+    {
+      name: 'Extra',
+      open: false,
+      buildProps: ['transition', 'perspective', 'transform'],
+    },
   ],
-
-  generic: [],
 };
 
 export const getSectors = (name) => {

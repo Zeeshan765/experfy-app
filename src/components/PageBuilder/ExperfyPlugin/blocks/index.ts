@@ -1151,8 +1151,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: `<section  id= "image_text_1">
         <div class="main_container">
         <div class="content-section">
-           <h1 class="main_heading" >Add your heading title here</h1>
-           <h2 class="sub_heading">The Image and Text module is a place where you can
+           <h1 class="h1" >Add your heading title here</h1>
+           <h2 class="h2">The Image and Text module is a place where you can
               visually show your user or client aspects of your
               company or product.
            </h2>
@@ -1166,8 +1166,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
      
         </div>
         </section>
-        ${ImageText}
-        ${getStyles(['.main_container .content-section'])}
         `,
   });
   addBlock('search', {
@@ -1181,11 +1179,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <div class="search-bar-div">
     <div class="search-box">
     <input type="text" class="search-input" placeholder="Search Item...">
-    <button class="search-button"> Search</button>
+    <button class="button"> Search</button>
  </div>
     </div>
     </section>
-        ${SearchStyle}
         `,
   });
   addBlock('divider', {
@@ -1234,7 +1231,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: `  <div class="page-title-wrapper">
     <h1 class="page-builder-heading-title">page Builder Header #1234</h1>
 </div>
-        ${pageTitle}
         `,
   });
   addBlock('icon', {
@@ -1351,17 +1347,17 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <div class="global-theme-setting">
 
         <div class="button-section">
-          <button type="submit">Submit</button>
+          <button id="button" type="button" >Submit</button>
         </div>
 
         <div class="images-sections">
-          <img class="img" width="200" height="200" src="/src/assets/images/banner_paleceholder.png" />
+        <img width="200px" src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-512.png" />
         </div>
 
         <div class="heading-holder-block">
-          <h1 class="h1">Heading 1</h1>
+          <h1 id="h1">Heading 1</h1>
         
-          <h2 class="h2">Heading 2</h2>
+          <h2 id="h2">Heading 2</h2>
         
           <h3 class="h3" >Heading 3</h3>
         

@@ -2,15 +2,21 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import axios from 'axios';
 import GrapesJS from 'grapesjs';
+import { Options } from 'http-proxy-middleware';
+import payload from 'payload';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import { useAuth, useConfig } from 'payload/components/utilities';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { StyleContext } from '../../../Providers/StyleProvider';
 import Experfy from '../ExperfyPlugin';
 import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
+import {
+  CloseAllSectors,
+  ComponentSelection,
+} from '../ExperfyPlugin/utilities';
 
 const ThemeStyle: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -22,6 +28,7 @@ const ThemeStyle: React.FC = () => {
     useContext(StyleContext);
 
   const { serverURL } = useConfig();
+
   useEffect(() => {
     setStepNav([
       {
@@ -46,61 +53,60 @@ const ThemeStyle: React.FC = () => {
 
     editor = GrapesJS.init({
       container: '.editor',
-      fromElement: true,
+      fromElement: false,
       avoidDefaults: true,
       showDevices: false,
       plugins: [ExperfyBlocks],
-      style: userDefaultStyleString,
       layerManager: null,
-      selectorManager: null,
+      selectorManager: {},
       styleManager: {
         appendTo: '.styles-container',
       },
-      traitManager: null,
-      blockManager: null,
+      canvasCss:
+        localStorage.getItem('theme_style_css') || userDefaultStyleString,
+      storageManager: {
+        type: 'local',
+        autosave: false,
+        autoload: false,
+        onStore: (data) => {
+          console.log('data', data);
+          let css = editor.getCss().toString();
+          // we need to replace the ids with the html tags
+          css = css
+            .replace('#button', 'button')
+            .replace('#image', 'img')
+            .replace('#h1', 'h1')
+            .replace('#h2', 'h2')
+            .replace('#h3', 'h3')
+            .replace('#h4', 'h4')
+            .replace('#h5', 'h5')
+            .replace('#h6', 'h6')
+            .replace('#p', 'p')
+            .replace('#a', 'a')
+            .replace('#input', 'input')
+            .replace('#label', 'label');
+          localStorage.setItem('theme_style_css', css);
+          toast.success('Theme Style Saved');
+          return {
+            css: css,
+          };
+        },
+      },
       commands: {
         defaults: [
           {
             id: 'save-editor',
-            // run(editor: { store: () => GrapesJS.Editor }) {
-            //   const store = editor.store();
-            //   console.log('editor', store.getCss({ json: true }));
-            //   // const elements = store.DomComponents.getComponents();
-            //   // console.log('elements', elements);
-            //   // const cssArray = elements.map((element) => element.getStyle());
-            //   // console.log('cssArray', cssArray);
-            //   onSave();
-            // },
-            run(editor: GrapesJS.Editor) {
-              // const store = editor.store();
-              let cssJson = editor.getCss({ json: true, onlyMatched: true });
-              handleSaveStyles();
-              onSave();
+            hidden: true,
+            run(editor: { store: () => GrapesJS.Editor }) {
+              editor.store();
             },
           },
         ],
       },
-    });
 
-    const onSave = () => {
-      
-     editor.store({
-        type: 'local',
-        options: {
-          storeComponents:false,
-          storeStyles: false,
-          storeHtml: false,
-          storeCss: true,
-          local: {
-            key: 'theme_style',
-            checkLocal: false,
-          },
-        },
-      });
-      
-      
-      toast.success('Global theme settings saved successfully!');
-    };
+      traitManager: null,
+      blockManager: null,
+    });
 
     //Theme Style Sector
     editor.on(`block:drag:stop`, (component, block) => {
@@ -114,127 +120,96 @@ const ThemeStyle: React.FC = () => {
     });
 
     editor.onReady(() => {
-      const data = editor.StorageManager.load({
-        key: 'theme_style',
-      })
-      editor.loadProjectData(data);
+      // const data = editor.StorageManager.load({
+      //   key: 'theme_style',
+      // });
+      // editor.loadProjectData(data);
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
-      
-      const component = editor.addComponents(block.get('content'));  
-      component.forEach((comp) => {
-        comp.set('draggable', false);
-        comp.set('droppable', false);
-        comp.set('stylable', false);
-        comp.set('hoverable', false);
-        comp.set('selectable', false);
-      });
-      
+
+      const component = editor.addComponents(block.get('content'));
+      // component.forEach((comp) => {
+      //   comp.set('draggable', false);
+      //   comp.set('droppable', false);
+      //   comp.set('stylable', false);
+      //   comp.set('hoverable', false);
+      //   comp.set('selectable', false);
+      // });
+
       sectors.reset();
-      
+
       sectors.add(getSectors('theme_1'));
       editor.runCommand('core:open-styles');
       editor.getWrapper().set('hoverable', false);
       editor.getWrapper().set('selectable', false);
-      
     });
 
-    editor.on('style:sector:update',(sector) => {
-      if (sector.attributes.open === true){
-        const wrapperCmp = editor.Pages.getSelected().getMainComponent();
-        const btnCmp = wrapperCmp.find('button')[0];
-        const imgCmp = wrapperCmp.find('img')[0];
-        const h1 = wrapperCmp.find('h1')[0];
-        const h2 = wrapperCmp.find('h2')[0];
-        const h3 = wrapperCmp.find('h3')[0];
-        const h4 = wrapperCmp.find('h4')[0];
-        const h5 = wrapperCmp.find('h5')[0];
-        const h6 = wrapperCmp.find('h6')[0];
-        const link = wrapperCmp.find('a')[0];
-        const span = wrapperCmp.find('span')[0];
-        const input = wrapperCmp.find('input')[0];
-        switch (sector.attributes.id) {
-          case 'buttons':
-            editor.SelectorManager.select(btnCmp);
-            break;
-          case 'images':
-            editor.SelectorManager.select(imgCmp);
-            break;
-          case 'h1':
-            editor.SelectorManager.select(h1);
-            break;
-          case 'h2':
-            editor.SelectorManager.select(h2);
-            break;
-          case 'h3':
-            editor.SelectorManager.select(h3);
-            break;
-          case 'h4':
-            editor.SelectorManager.select(h4);
-            break;
-          case 'h5':
-            editor.SelectorManager.select(h5);
-            break;
-          case 'h6':
-            editor.SelectorManager.select(h6);
-            break;
-          case 'links':
-            editor.SelectorManager.select(link);
-            break;
-          case 'labels':
-            editor.SelectorManager.select(span);
-            break;
-          case 'fields':
-            editor.SelectorManager.select(input);
-            break;
-          default:
-            editor.SelectorManager.select('');
-        }
-      }
+    editor.on('style:sector:update', (sector) => {
+      ComponentSelection(sector, editor);
     });
-
-   
-
     const handleSaveStyles = () => {
-      let { styles } = JSON.parse(localStorage.getItem('theme_style'));
-      let arr = [
-        'button',
-        'img',
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h6',
-        'a',
-        'input',
-        'textarea',
-      ];
+      // console.log(editor.getProjectData());
 
-      let styleObj = {};
-      styles.forEach((el) => {
-        const { selectors, style } = el;
-        if (arr.includes(selectors[0])) {
-          styleObj[selectors[0]] = style;
-        }
-      });
-      const mergedObject = Object.assign({}, defaultStyles, styleObj);
-      updateUserDefaultStyle(styleObj);
+      // let { styles } = JSON.parse(localStorage.getItem('theme_style'));
+      // let arr = [
+      //   'button',
+      //   'img',
+      //   'h1',
+      //   'h2',
+      //   'h3',
+      //   'h4',
+      //   'h5',
+      //   'h6',
+      //   'a',
+      //   'input',
+      //   'textarea',
+      // ];
+
+      // let styleObj = {};
+      // styles.forEach((el) => {
+      //   const { selectors, style } = el;
+      //   if (arr.includes(selectors[0])) {
+      //     styleObj[selectors[0]] = style;
+      //   }
+      // });
+      // const mergedObject = Object.assign({}, defaultStyles, styleObj);
+      // updateUserDefaultStyle(styleObj);
+      updateUserDefaultStyle();
     };
+    setEditorState(editor);
   }, [setEditorState]);
 
-  const updateUserDefaultStyle = async (defaultStyle) => {
+  const updateUserDefaultStyle = async () => {
     let apiEndpoint = `${serverURL}/api/users/${user.id}`;
+    // console.log(editor.getProjectData());
+
+    // let arr = [
+    //   'button',
+    //   'img',
+    //   'h1',
+    //   'h2',
+    //   'h3',
+    //   'h4',
+    //   'h5',
+    //   'h6',
+    //   'a',
+    //   'input',
+    //   'textarea',
+    // ];
+
+    // let filteredStyles = editor
+    //   .getProjectData()
+    //   .styles.filter((el) => arr.includes(el.selectors[0]));
+    // console.log(filteredStyles);
     try {
       const formData = new FormData();
-      formData.append('_payload', JSON.stringify({ defaultStyle }));
+      formData.append('_payload', JSON.stringify(editor.getCss()));
       const res = await axios.patch(apiEndpoint, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
       const { doc } = res.data;
-      // toast.success('User style Updated successfully');
     } catch (error) {
       console.error(error);
       return error;

@@ -18,17 +18,19 @@ const GetDefaultStyles: React.FC<any> = ({ children }) => {
     try {
       const res = await axios.get(apiEndpoint);
       const { defaultStyle } = res.data;
+      // setDefaultStyles(defaultStyle);
+      // let allStyle = '';
+      // let styleString = '';
+      // for (const [tagname, styleObj] of Object.entries(defaultStyle)) {
+      //   for (const [key, value] of Object.entries(styleObj)) {
+      //     styleString += `${key} : ${value};`;
+      //   }
+      //   let final = `${tagname} {${styleString}}`;
+      //   allStyle += final;
+      // }
+      // setUserDefaultStyleString(allStyle);
+      console.log('defaultStyle', defaultStyle);
       setDefaultStyles(defaultStyle);
-      let allStyle = '';
-      let styleString = '';
-      for (const [tagname, styleObj] of Object.entries(defaultStyle)) {
-        for (const [key, value] of Object.entries(styleObj)) {
-          styleString += `${key} : ${value};`;
-        }
-        let final = `${tagname} {${styleString}}`;
-        allStyle += final;
-      }
-      setUserDefaultStyleString(allStyle);
     } catch (error) {
       console.error(error);
       return error;

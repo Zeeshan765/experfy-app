@@ -98,8 +98,6 @@ const SectionPageBuilder: React.FC = () => {
       });
   };
 
- 
-
   useEffect(() => {
     let arr = pathname.split('/');
     let str = arr[arr.length - 1];

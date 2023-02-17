@@ -1,28 +1,28 @@
-import GrapesJS from 'grapesjs';
-import React, { useContext, useEffect, useState } from 'react';
-import Basics from 'grapesjs-blocks-basic';
-import { Eyebrow } from 'payload/components/elements';
-import { useStepNav } from 'payload/components/hooks';
+import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import axios from 'axios';
+import GrapesJS from 'grapesjs';
+import Basics from 'grapesjs-blocks-basic';
 import NavBar from 'grapesjs-navbar';
 import Forms from 'grapesjs-plugin-forms';
-import Experfy from './ExperfyPlugin';
+import { Eyebrow } from 'payload/components/elements';
+import { useStepNav } from 'payload/components/hooks';
 import { useConfig } from 'payload/components/utilities';
+import React, { useContext, useEffect } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Context } from '../../Providers/MyProvider';
-import { getSectors } from './ExperfyPlugin/blocks/getSectors';
-import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
+import { apiEndPoint } from '../../services';
 import {
   deleteDataFromLocalStorage,
   getDataFromStorage,
   parseDataFromString,
 } from '../../utilities/localStorage';
-import { apiEndPoint } from '../../services';
+import Experfy from './ExperfyPlugin';
+import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 
 import { StyleContext } from '../../Providers/StyleProvider';
-import { sections, navStep, clearLocalStorage } from './utils';
+import { navStep, sections } from './utils';
 
 const PageBuilder: React.FC = () => {
   const pageCreate = useLocation();
@@ -32,7 +32,8 @@ const PageBuilder: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
   const { selectedPageCode, setPageCreateFromScratch } = useContext(Context);
-  const { userDefaultStyleString, getStyle } = useContext(StyleContext);
+  const { userDefaultStyleString, getStyle, defaultStyles } =
+    useContext(StyleContext);
   const { setSelectedPageCode } = useContext(Context);
 
   const { routes, serverURL } = useConfig();
@@ -143,7 +144,8 @@ const PageBuilder: React.FC = () => {
       container: '.editor',
       fromElement: true,
       showDevices: false,
-      style: userDefaultStyleString,
+      // dragMode: 'absolute',
+      canvasCss: localStorage.getItem('theme_style_css') || '',
       plugins: [
         ExperfyBlocks,
         (editor) =>
@@ -157,7 +159,7 @@ const PageBuilder: React.FC = () => {
           Basics(editor, {
             category: 'Basic Elements',
             flexGrid: true,
-            addBasicStyle: true,
+            addBasicStyle: false,
           }),
         (editor) =>
           Forms(editor, {
@@ -168,18 +170,15 @@ const PageBuilder: React.FC = () => {
 
       storageManager: {
         type: 'local',
-        autoload: false,
+        autoload: true,
         options: {
-          storeComponents: true,
-          storeStyles: true,
-          storeHtml: true,
-          storeCss: true,
-
           local: {
-            key: 'experfy_elements',
+            key: 'theme_style',
           },
         },
       },
+
+      // canvasCss: localStorage.getItem('theme_style') || '',
 
       layerManager: {
         appendTo: '.layers-container',
@@ -199,25 +198,27 @@ const PageBuilder: React.FC = () => {
         appendTo: '.blocks',
         blocks: [],
       },
+
       commands: {
         defaults: [
-          {
-            id: 'preview-fullscreen',
-            run() {
-              editor.runCommand('preview');
-              editor.runCommand('fullscreen');
-            },
-            stop() {
-              editor.stopCommand('fullscreen');
-              editor.stopCommand('preview');
-            },
-          },
+          // {
+          //   id: 'preview-fullscreen',
+          //   run() {
+          //     editor.runCommand('preview');
+          //     editor.runCommand('fullscreen');
+          //   },
+          //   stop() {
+          //     editor.stopCommand('fullscreen');
+          //     editor.stopCommand('preview');
+          //   },
+          // },
           {
             id: 'save-editor',
             hidden: true,
             run(editor: { store: () => GrapesJS.Editor }) {
               const store = editor.store();
               dataHandler();
+              toast.success('Changes saved successfully');
             },
           },
         ],
@@ -242,6 +243,21 @@ const PageBuilder: React.FC = () => {
           console.error(error);
         });
     };
+
+    // editor.onReady(clb => {
+    //   console.log('editor is ready'+defaultStyles);
+    //   clb.loadProjectData('theme_style');
+
+    // });
+    // editor.onReady(clb => {
+    //   console.log('editor is ready'+defaultStyles);
+    //   clb.loadProjectData('theme_style');
+    // });
+    // editor.on('load', async () => {
+    //   editor.loadProjectData('theme_style');
+    // });
+
+    // editor.StorageManager.load(options)
 
     editor.on('asset:add', (component) => {
       if (component.attributes.src.includes(serverURL)) {

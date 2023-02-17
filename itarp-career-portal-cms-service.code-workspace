@@ -10,8 +10,11 @@
       "Experfy",
       "grapesjs",
       "hookform",
+      "Lngs",
+      "Tahoma",
+      "toastify",
       "Toastify",
-      "Lngs"
+      "Verdana"
     ],
     "editor.suggest.showStatusBar": true,
     "svg.preview.background": "editor"
