@@ -1,12 +1,11 @@
 //@ts-ignore
 
-import { ErrorMessage as DescriptionAlerts } from '@hookform/error-message';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import CloseIcon from '@mui/icons-material/Close';
 import {
   DialogContent,
+  FormControl,
+  FormControlLabel,
   Grid,
   Radio,
   RadioGroup,
@@ -15,26 +14,23 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  FormControl,
   TableHead,
   TableRow,
   Typography,
 } from '@mui/material';
 import axios from 'axios';
 import { Button } from 'payload/components/elements';
-import { Form } from 'payload/components/forms';
 import { useStepNav } from 'payload/components/hooks';
-import { DefaultTemplate } from 'payload/components/templates';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
-import { useForm, Controller, useFieldArray } from 'react-hook-form';
+import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import FormSelect from '../../blocks/FormSelect';
 import TextInput from '../../blocks/TextInput';
 import { useStyles } from './css';
-import { toast } from 'react-toastify';
 
-const Brandform: React.FC = (props: any) => {
+const BrandForm: React.FC = (props: any) => {
   const history = useHistory();
   const classes = useStyles();
 
@@ -92,7 +88,7 @@ const Brandform: React.FC = (props: any) => {
         },
       });
       const { doc } = res.data;
-      toast.success('Portal Identitty Updated successfully');
+      toast.success('Portal Identity Updated successfully');
       history.push({
         pathname: `/admin/collections/portal-identity/${doc.id}`,
         state: { doc },
@@ -123,7 +119,7 @@ const Brandform: React.FC = (props: any) => {
       .filter((brand) => brand.brand_name?.length > 0)
       .map((i) => ({
         value: i.brand_name,
-        lable: i.brand_name,
+        label: i.brand_name,
       }));
     setDefaultBrands(filteredBrands || []);
   };
@@ -150,7 +146,7 @@ const Brandform: React.FC = (props: any) => {
         </Grid>
 
         <Typography variant="h5" mb={2} mt={4}>
-          Please choose whether you would like your microsites in your career
+          Please choose whether you would like your micro-sites in your career
           portal network to use subdomains or sub-directories.
         </Typography>
 
@@ -162,7 +158,7 @@ const Brandform: React.FC = (props: any) => {
               return (
                 <RadioGroup
                   aria-labelledby="radio-buttons"
-                  defaultValue="microsites"
+                  defaultValue="micro-sites"
                   name="radio-buttons-group"
                   {...field}
                 >
@@ -182,10 +178,10 @@ const Brandform: React.FC = (props: any) => {
                       >
                         <Typography>Example</Typography>
                         <Typography variant="span">
-                          microsite1/companyname/careers.experfy.com
+                          micro-site1/company-name/careers.experfy.com
                         </Typography>
                         <Typography variant="span">
-                          microsite2/companyname/careers.experfy.com
+                          micro-site2/company-name/careers.experfy.com
                         </Typography>
                       </Stack>
                     </Grid>
@@ -204,10 +200,10 @@ const Brandform: React.FC = (props: any) => {
                       >
                         <Typography>Example</Typography>
                         <Typography variant="span">
-                          companyname/careers.experfy.com/microsite1
+                          company-name/careers.experfy.com/micro-site1
                         </Typography>
                         <Typography variant="span">
-                          companyname/careers.experfy.com/microsite2
+                          company-name/careers.experfy.com/micro-site2
                         </Typography>
                       </Stack>
                     </Grid>
@@ -233,7 +229,7 @@ const Brandform: React.FC = (props: any) => {
               <TableRow>
                 <TableCell>Brand Name</TableCell>
                 <TableCell>URL Brand Identifier</TableCell>
-                <TableCell>Microsite Identifier</TableCell>
+                <TableCell>Micro-site Identifier</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -262,8 +258,10 @@ const Brandform: React.FC = (props: any) => {
                       />
                     </TableCell>
                     <TableCell>
-                    
-                      <DeleteIcon style={{cursor:'pointer'}} onClick={() => remove(index)} />
+                      <DeleteIcon
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => remove(index)}
+                      />
                     </TableCell>
                   </TableRow>
                 );
@@ -272,10 +270,12 @@ const Brandform: React.FC = (props: any) => {
           </Table>
         </TableContainer>
 
-        <button type="submit">Save</button>
+        <button className="btn btn--style-primary" type="submit">
+            Save
+          </button>
       </form>
     </DialogContent>
   );
 };
 
-export default Brandform;
+export default BrandForm;

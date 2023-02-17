@@ -675,6 +675,23 @@ div.react-select {
   }
 }
 
+
+.pill {
+  background-color: var(--theme-primary);
+  color: var(--theme-elevation-0);
+
+  &:hover {
+    // box-shadow: 0px 1px 2px 0px var(--theme-elevation-400);
+    background-color: var(--theme-text-dark);
+    color: var(--theme-elevation-0);
+  }
+  
+}
+.pill--style-light.pill--has-action:hover {
+  background-color: var(--theme-primary);
+  box-shadow: 0px 2px 2px 0px var(--theme-elevation-600);
+  color: var(--theme-elevation-0);
+}
 // .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
 //   padding: .75rem !important;
 // }

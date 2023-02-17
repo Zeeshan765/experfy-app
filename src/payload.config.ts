@@ -5,8 +5,8 @@ import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
 import DesignSystemCollection from './collections/DesignSystemCollection';
 import Media from './collections/Media';
 import MenusCollection from './collections/MenusCollection';
-import PageBuilderCollection from './collections/PageBuilder';
 import PagesCollection from './collections/Page';
+import PageBuilderCollection from './collections/PageBuilder';
 import PageTemplateCollection from './collections/PageTemplate';
 import SectionTemplateCollection from './collections/SectionTemplatesCollection';
 import TemplatesCollection from './collections/TemplatesCollection';
@@ -19,20 +19,21 @@ import BeforeNav from './components/Nav/BeforeNav';
 import PageBuilder from './components/PageBuilder';
 import DesignSystem from './components/PageBuilder/DesignSystem';
 import Brand from './collections/Brand';
-// import Form from './components/PageBuilder/NewSectionTemplate/Form';
-// import ImgText from './components/PageBuilder/NewSectionTemplate/ImageAndText';
+
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
-import MyProvider from './MyProvider';
+// import MyProvider from './MyProvider';
 import ThemeStyle from './components/PageBuilder/ThemeStyle';
 
+import StyleProvider from './Providers/StyleProvider';
+import AssetsProvider from './Providers/AssetsProvider';
 dotenv.config();
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
-    user: Users.slug,
+    user: 'users',
     dateFormat: 'dd/MM/yyyy',
     css: path.resolve(__dirname, './styles/scss/index.scss'),
 
@@ -44,8 +45,15 @@ export default buildConfig({
 
       beforeNavLinks: [BeforeNav],
       afterNavLinks: [AfterNav],
-
+      // views: {
+      //   Dashboard: PortalIdentity,
+      // },
       routes: [
+        // {
+        //   path: "/collections/page-builder",
+        //   Component: PageBuilder,
+        //   exact: true,
+        // },
         {
           path: '/collections/basic-portal-identity',
           Component: BasicPortalIdentityPage,
@@ -64,12 +72,28 @@ export default buildConfig({
         },
         {
           path: "/collections/design-system",
-          Component: DesignSystem,
+          Component: ThemeStyle,
           exact: true,
           strict: true,
         },
         {
-          path: '/collections/templates',
+          path: "/collections/templates",
+          Component: TemplatesLibrary,
+        },
+        {
+          path: '/collections/themes-style',
+          Component: ThemeStyle,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: '/collections/page-builder',
+          Component: PageBuilder,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: "/collections/templates-library",
           Component: TemplatesLibrary,
         },
         {
@@ -111,124 +135,123 @@ export default buildConfig({
           strict: true,
         },
         {
-          path: '/collections/section-templates/header',
+          path: "/collections/section-templates/header",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: '/collections/section-templates/footer',
+          path: "/collections/section-templates/footer",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: '/collections/section-templates/benefits',
+          path: "/collections/section-templates/benefits",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: '/collections/section-templates/practice-areas',
+          path: "/collections/section-templates/practice-areas",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: '/collections/section-templates/video',
+          path: "/collections/section-templates/video",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: '/collections/section-templates/guidelines',
+          path: "/collections/section-templates/guidelines",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: '/collections/section-templates/location',
+          path: "/collections/section-templates/location",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/paragraph',
+          path: "/collections/section-templates/paragraph",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/metrics-numbers',
+          path: "/collections/section-templates/metrics-numbers",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/image-banner',
+          path: "/collections/section-templates/image-banner",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/image-and-text',
+          path: "/collections/section-templates/image-and-text",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/talent-cloud-candidates',
+          path: "/collections/section-templates/talent-cloud-candidates",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/paragraph',
+          path: "/collections/section-templates/paragraph",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/metrics-numbers',
+          path: "/collections/section-templates/metrics-numbers",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/image-banner',
+          path: "/collections/section-templates/image-banner",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/image-and-text',
+          path: "/collections/section-templates/image-and-text",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/talent-cloud-candidates',
+          path: "/collections/section-templates/talent-cloud-candidates",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
         {
-          path: '/collections/section-templates/testimonial',
+          path: "/collections/section-templates/testimonial",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
-
         {
           path: '/collections/section-templates/testimonial',
           Component: SectionPageBuilder,
@@ -245,7 +268,7 @@ export default buildConfig({
         //   Component: ImgText,
         // },
       ],
-      providers: [MyProvider],
+      providers: [StyleProvider, AssetsProvider],
     },
   },
   collections: [
@@ -271,4 +294,9 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
+  cors: ['*'],
+  csrf: [
+    'https://landing-ui-service.develop.experfy.com',
+    'http://localhost:3000',
+  ],
 });

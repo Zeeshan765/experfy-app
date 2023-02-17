@@ -27,6 +27,7 @@ import {
   IconStyle,
   pageTitle,
   Navmenu,
+  themestyle,
 } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
@@ -1110,8 +1111,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             mollis ut. Aliquam eu pellentesque turpis. Nullam lectus nulla, vehicula quis odio vitae, vestibulum sollicitudin massa. Aenean pretium mauris nec ex
             feugiat convallis. Nulla sit amet odio dui. Nulla vulputate dictum tellus vel iaculis.
          </p>
-         <div class="bannar-btn-div">
-            <button class="btn btn-primary button-annar">Button Label</button>
+         <div class="button-container">
+            <button class="button-section">Button Label</button>
          </div>
 
       </div>
@@ -1119,8 +1120,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 </div>
         </section>
         ${ImageBanner}
-        ${getbuttonStyles(['.bannar-btn-div'])}
-        ${getButtonALignment(['.bannar-btn-div'])}
+      
         `,
   });
 
@@ -1151,8 +1151,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: `<section  id= "image_text_1">
         <div class="main_container">
         <div class="content-section">
-           <h1 class="main_heading" >Add your heading title here</h1>
-           <h2 class="sub_heading">The Image and Text module is a place where you can
+           <h1 class="h1" >Add your heading title here</h1>
+           <h2 class="h2">The Image and Text module is a place where you can
               visually show your user or client aspects of your
               company or product.
            </h2>
@@ -1166,29 +1166,44 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
      
         </div>
         </section>
-        ${ImageText}
-        ${getStyles(['.main_container .content-section'])}
         `,
   });
   addBlock('search', {
     label: 'Search',
     category: 'Header & Footer',
-    // media: ,
+    media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1458.948 1305.626c104.637-136.95 167.527-307.187 167.527-492.388C1626.475 364.764 1261.711 0 813.238 0 364.764 0 0 364.764 0 813.238c0 448.473 364.764 813.237 813.238 813.237 185.201 0 355.547-62.89 492.496-167.527L1766.678 1920 1920 1766.678l-461.052-461.052Zm-645.71 103.986c-328.874 0-596.375-267.61-596.375-596.374 0-328.765 267.501-596.375 596.375-596.375 328.873 0 596.374 267.61 596.374 596.375s-267.501 596.374-596.374 596.374Z" fill-rule="evenodd"/>
+    </svg>`,
     content: `<section class="search-section-main-holder">
     <div class="search-bar-div">
     <div class="search-box">
     <input type="text" class="search-input" placeholder="Search Item...">
-    <button class="search-button"> Search</button>
+    <button class="button"> Search</button>
  </div>
     </div>
     </section>
-        ${SearchStyle}
         `,
   });
   addBlock('divider', {
     label: 'Divider',
     category: 'Basic Elements',
-    // media: ,
+    media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg 
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="#089acf"
+      stroke="#000000"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <polyline points="8 8 12 4 16 8" />
+      <polyline points="16 16 12 20 8 16" />
+    </svg>`,
     content: `<div class="page-builder-divider">
     <span class="page-builder-divider-seprator"></span>
    </div>
@@ -1198,7 +1213,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('spacer', {
     label: 'Spacer',
     category: 'Basic Elements',
-    // media: ,
+    media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><path d="M3,1V17a2,2,0,0,0,2,2H47a2,2,0,0,0,2-2V1H45V15H7V1ZM49,51V35a2,2,0,0,0-2-2H5a2,2,0,0,0-2,2V51H7V37H45V51ZM12,28H4V24h8Zm4,0h8V24H16Zm20,0H28V24h8Zm4,0h8V24H40Z" fill-rule="evenodd"/></svg>`,
     content: `<div class="page-builder-spacer">
     <div class="page-builder-spacer-inner"></div>
   </div>
@@ -1208,17 +1224,20 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('page-title', {
     label: 'Page Title',
     category: 'Header & Footer',
-    // media: ,
+    media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1751 0v1920H169V0h1582Zm-115 112H290v9h-1v1678h1v20h1346V112Zm-234 235v321H514V347h888Z" fill-rule="evenodd"/>
+    </svg>`,
     content: `  <div class="page-title-wrapper">
     <h1 class="page-builder-heading-title">page Builder Header #1234</h1>
 </div>
-        ${pageTitle}
         `,
   });
   addBlock('icon', {
     label: 'Icon',
     category: 'Basic Elements',
-    // media: ,
+    media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>ICON icon</title><path d="M21.605.021a2.397 2.397 0 00-.47 4.747 2.397 2.397 0 10.47-4.746zm-9.584 2.395C6.73 2.416 2.437 6.707 2.437 12c0 2.142.703 4.121 1.891 5.717l2.586-2.586a5.99 5.99 0 018.236-8.238l2.586-2.586a9.537 9.537 0 00-5.715-1.891zm7.692 3.867L17.127 8.87a5.989 5.989 0 01-8.236 8.238l-2.586 2.584a9.543 9.543 0 005.716 1.893c5.293 0 9.583-4.29 9.583-9.584 0-2.142-.704-4.12-1.891-5.717zM2.396 19.187a2.398 2.398 0 00-.47 4.749 2.402 2.402 0 002.822-2.823 2.399 2.399 0 00-2.352-1.925z"/></svg>`,
     content: `<div class="icon-wrapper">
     <div class="page-builder-icon">
     <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
@@ -1236,7 +1255,23 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('nav-menu', {
     label: 'Nav Menu',
     category: 'Basic Elements',
-    // media: ,
+    media: `<?xml version="1.0" encoding="utf-8"?>
+
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+    <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg height="800px" width="800px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+       viewBox="0 0 512 512"  xml:space="preserve">
+    <style type="text/css">
+      .st0{fill:#000000;}
+    </style>
+    <g>
+      <path class="st0" d="M256,0C114.617,0,0,114.61,0,256c0,141.375,114.617,256,256,256c141.382,0,256-114.625,256-256
+        C512,114.61,397.382,0,256,0z M189.828,373.641h-51.477v-51.469h51.477V373.641z M189.828,281.734h-51.477v-51.468h51.477V281.734z
+         M189.828,189.813h-51.477V138.36h51.477V189.813z M281.734,373.641h-51.461v-51.469h51.461V373.641z M281.734,281.734h-51.461
+        v-51.468h51.461V281.734z M281.734,189.813h-51.461V138.36h51.461V189.813z M373.641,373.641H322.18v-51.469h51.461V373.641z
+         M373.641,281.734H322.18v-51.468h51.461V281.734z M373.641,189.813H322.18V138.36h51.461V189.813z"/>
+    </g>
+    </svg>`,
     content: `<nav class="page-builder-nav-menu--main page-builder-menu--layout-horizontal">
     <ul class="page-builder-menu">
        <li class="menu-item"> <a href="#" class="page-builder-item">Blog Category</a></li>
@@ -1257,7 +1292,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('icon-list', {
     label: 'Icon List',
     category: 'Basic Elements',
-    // media: ,
+    media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+        <path d="M169.412 1355.412c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.411-169.412 169.411C76.009 1694.235 0 1618.225 0 1524.824c0-93.403 76.01-169.412 169.412-169.412ZM1920 1468.352v112.942H564.706v-112.941H1920ZM169.412 790.707c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.411-169.412 169.411C76.009 1129.53 0 1053.52 0 960.118c0-93.403 76.01-169.412 169.412-169.412ZM1920 903.647v112.941H564.706v-112.94H1920ZM169.412 226c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.412-169.412 169.412C76.009 564.824 0 488.814 0 395.412 0 302.009 76.01 226 169.412 226ZM1920 338.941v112.941H564.706v-112.94H1920Z" fill-rule="evenodd"/>
+    </svg>`,
     content: `    <div class="page-builder-listing-section">
     <ul class="page-builder-list-items">
    <li class="page-builder-list-item">
@@ -1286,7 +1324,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('logo', {
     label: 'Site Logo',
     category: 'Header & Footer',
-    // media: ,
+    media: `<?xml version="1.0" encoding="utf-8"?>
+    <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>frost-emblem</title>
+    <path d="M15.915 1.542c-7.891 0-14.287 6.397-14.287 14.287s6.397 14.287 14.287 14.287 14.287-6.396 14.287-14.287c0-7.89-6.396-14.287-14.287-14.287zM15.913 29.025c-7.291 0-13.201-5.91-13.201-13.201s5.91-13.201 13.201-13.201 13.201 5.91 13.201 13.201-5.91 13.201-13.201 13.201zM25.552 16.896l-3.911 1.048-1.542-1.346 0.766-0.766-0.715-0.715 1.512-1.32 3.846 1.010-2.645-2.059 3.016-2.632-3.764 1.288-0.451-3.405-1.050 3.919-1.954 0.669-0.288-1.075-1.051 0.281-0.388-1.977 2.877-2.877-3.183 1.316-0.768-3.913-0.772 3.93-3.094-1.256 2.788 2.816-0.383 1.95-1.009-0.27-0.284 1.061-1.895-0.649-1.049-3.915-0.45 3.402-3.76-1.287 3.015 2.631-2.648 2.062 3.851-1.012 1.47 1.283-0.743 0.743 0.794 0.794-1.499 1.308-3.916-1.049 2.722 2.091-3.008 2.625 3.801-1.3 0.461 3.317 1.047-3.833 1.828-0.625 0.264 0.986 1.010-0.271 0.382 1.946-2.788 2.815 3.094-1.256 0.772 3.932 0.769-3.916 3.183 1.316-2.876-2.876 0.387-1.972 1.051 0.282 0.268-1 1.887 0.646 1.048 3.837 0.461-3.32 3.804 1.302-3.009-2.625zM19.812 6.941l-0 0 0-0zM19.812 24.712l-0-0 0 0z"></path>
+    </svg>`,
     content: `   <div class="page-builder-logo">
     <a class="#"><img src="https://resources.experfy.com/wp-content/uploads/2021/05/logo_navbar-87f75515ac3e48fdcc77b82a8794120a2c9d629770c27c0e76e966221ee0b7f4.png" class=""></a>
     </div>
@@ -1297,81 +1340,52 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   addBlock('theme-style', {
     label: 'Theme Style',
     category: 'Section Modules',
+    activate: true,
     // media: ,
-    content: `   
-    <div id="theme_1">
-    <div class="global-theme-setting">
-   
-    <div class="headding-div">
-    <span class="section-headding">Buttons</span>
-    </div>
-    <div class="button-section">
-    <button>Button 1</button>
-  
-    </div>
-    <div class="headding-div">
-    <span class="section-headding">Images</span>
-    </div>
-    <div class="images-sections">
-    <img src="assets/images/portal/banner.png"  width="100%" />
-   
-    </div>
-    <div class="headding-div">
-    <span class="section-headding">Headdings Paragraph</span>
-    </div>
-    <div class="headding-holder-block">
-    <div class="heading-div">
-    <h1>Heading 1</h1>
-    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
-      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
-    </p>
-    </div>
-    <div class="heading-div">
-       <h2>Heading 2</h2>
-    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
-      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
-    </p>
-    </div>
-    <div class="heading-div">
-    <h3>Heading 3</h3>
-    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
-      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
-    </p>
-    </div>
-    </div>
-    <div class="headding-holder-block">
-    <div class="heading-div">
-    <h4>Heading 4</h4>
-    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
-      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
-    </p>
-    </div>
-    <div class="heading-div">
-    <h5>Heading 5</h5>
-    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
-      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
-    </p>
-    </div>
-    <div class="heading-div">
-    <h6>Heading 6</h6>
-    <p>Nulla vel ligula suscipit nunc sollicitudin tristique. Duis pretium, diam congue bibendum sodales, neque metus tempus enim,
-      sed maximus nibh nisl ut est. Phasellus vel dolor tincidunt diam ornare auctor.
-    </p>
-    </div>
-    </div>
-    </div>
-    <div class="headding-div">
-    <span class="section-headding">Links</span>
-    </div>
-    <div class="link-holder">
-    <a href="#" >Link 1</a>
-    <a href="#" >Link 2</a>
-    
+    content: [
+      `<div id="theme_1" style="padding: 0px 20%;">
+      <div class="global-theme-setting">
+
+        <div class="button-section">
+          <button id="button" type="button" >Submit</button>
+        </div>
+
+        <div class="images-sections">
+        <img width="200px" src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-512.png" />
+        </div>
+
+        <div class="heading-holder-block">
+          <h1 id="h1">Heading 1</h1>
+        
+          <h2 id="h2">Heading 2</h2>
+        
+          <h3 class="h3" >Heading 3</h3>
+        
+          <h4 class="h4">Heading 4</h4>
+        
+          <h5 class="h5">Heading 5</h5>
+        
+          <h6 class="h6">Heading 6</h6>
+        </div>
+          
+        <div class="link-holder">
+          <a href="#" class="a" >Link 1</a>
+        </div>
+
+        <div class="page-builder-form-div">
+          <form>
+            <div class="page-builder-field-group">
+              <label class="label" for="text">Label:</label>
+              <input type="text" class="input" value="This is the input" >
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     
-    </div>
-        ${style}
-        `,
+    ${themestyle}
+    `,
+    ],
   });
 };
 

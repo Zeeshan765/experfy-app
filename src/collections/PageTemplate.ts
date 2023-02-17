@@ -1,21 +1,24 @@
-import { CollectionConfig } from "payload/types";
-import PageTheme from "../components/PageBuilderTemplate";
-import FaceLessModel from "../components/Model";
+import { CollectionConfig } from 'payload/types';
+import PageTheme from '../components/PageBuilderTemplate';
+import FaceLessModel from '../components/Model';
 // import PageBuilder from '../components/PageBuilder/SectionTemplates';
 // import PageTheme from '../components/PageBuilderTemplate';
 export type Type = {
   title: string;
   slug: string;
-  pageType?: "scratch" | "template";
+  pageType?: 'scratch' | 'template';
 };
 
 export const PageTemplateCollection: CollectionConfig = {
-  slug: "page-Template",
+  slug: 'page-Template',
 
   //   admin: {
   //     useAsTitle: "title",
   //     defaultColumns: ["title", "pageType", "updatedAt"],
   //   },
+  admin: {
+    disableDuplicate: true,
+  },
 
   access: {
     read: (): boolean => true, // Everyone can read Pages
@@ -25,15 +28,15 @@ export const PageTemplateCollection: CollectionConfig = {
   },
   fields: [
     {
-      name: "title",
-      label: "Page Title",
-      type: "text",
+      name: 'title',
+      label: 'Page Title',
+      type: 'text',
       required: true,
     },
     {
-      name: "pageAssets",
-      label: "Page Assets",
-      type: "text",
+      name: 'pageAssets',
+      label: 'Page Assets',
+      type: 'text',
     },
   ],
 };

@@ -10,7 +10,7 @@ import Minimal from 'payload/dist/admin/components/templates/Minimal';
 const baseClass = 'reset-password';
 
 const PI: React.FC = () => {
-    const { admin: { user: userSlug }, serverURL, routes: { admin, api } } = useConfig();
+    const { admin: { user: userSlug }, serverURL, routes: { admin, api } } = useConfig(); 
     const { token } = useParams<{ token?: string }>();
     const { user, setToken } = useAuth();
 

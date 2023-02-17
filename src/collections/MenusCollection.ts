@@ -18,7 +18,7 @@ const Menu: CollectionConfig = {
   access: {
     read: () => true,
     create: () => true,
-    update: () => false,
+    update: () => true,
     delete: () => true,
   },
   fields: [

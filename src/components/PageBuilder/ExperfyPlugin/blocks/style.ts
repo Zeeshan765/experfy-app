@@ -293,13 +293,6 @@ height: 100%;
 object-fit: cover;
 }
 
-.talent-cloud-main-wrapper .talent-cloud-container .content-div{
-padding-left: 1rem;
-padding-right: 1rem; 
-margin-right: auto; 
-margin-left: auto; 
-width: 100%; 
-}
 
 .talent-cloud-main-wrapper .talent-cloud-container .content-div h1{
 font-size: 34px;
@@ -404,6 +397,7 @@ export const ImageBanner= `
   font-weight:300;
   margin: 0px auto 20px;
 }
+
 
 </style>
 
@@ -1079,12 +1073,18 @@ export const SectionStyle = `<style>
   .heading-div{
     margin:0px 20px;
   }
-  .button-section{
-    width: 80%;
-    display: flex;
-    padding: 20px 0px;
-    margin: 10px auto;
-    justify-content: space-between;
+  .button-section {
+   
+    background-color:#3aa17d;
+      color:#fff;
+      padding:13px 60px;
+      border-radius:3px;
+      font-weight:400;
+      font-size:16px;"
+      border:none;
+      outline:none;
+
+
   }
   .images-sections{
     width: 80%;
@@ -1123,3 +1123,64 @@ export const SectionStyle = `<style>
 
 
 </style>`;
+
+export const themestyle = `
+    <style>
+      .header-block {
+        background-color: #40526E;
+        color: #FFFFFF;
+        padding: 20px 20px;
+        margin: 0px;
+      }
+      .heading-holder-block {
+        padding: 20px;
+        margin: auto;
+        text-align: center;
+      }
+      .heading-div {
+        margin:0px 20px;
+      }
+      .button-section {
+        display: flex;
+        padding: 20px 0px;
+        margin: 10px auto;
+        justify-content: center;
+      }
+      .images-sections {
+        padding: 20px;
+        text-align: center;
+        height: 240px;
+      }
+      .link-holder {
+        display: flex;
+        padding: 20px 0px;
+        margin: 10px auto;
+        justify-content: center;
+      }
+      .heading-div {
+        padding: 20px 0px;
+        margin: 10px auto;
+      }
+      .section-heading {
+        padding: 20px 0px;
+        font-size: 30px;
+        font-weight: 600;
+        color: #000;
+      }
+      .page-builder-form-div{
+        padding:10px;
+        margin
+      }
+      .page-builder-field-group{
+        margin-bottom: 1rem;
+      }
+      .page-builder-field-group label{
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        font-size: 16px;
+      }
+      .page-builder-field-group {
+        display: grid;
+        margin-bottom: 1rem;
+      }    
+    </style>`;

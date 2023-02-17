@@ -61,39 +61,39 @@
 //   );
 // };
 // export default FormSelect;
-import React from "react";
-import { FormControl, MenuItem, Select, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import "./index.scss";
+import React from 'react';
+import { FormControl, MenuItem, Select, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import './index.scss';
 
 const useStyles = makeStyles({
   selectInput: {
-    "& > span": {
-      display: "inline-block",
-      fontSize: "1.0625rem",
+    '& > span': {
+      display: 'inline-block',
+      fontSize: '1.0625rem',
       fontWeight: 500,
-      margin: "0 0 .125rem",
+      margin: '0 0 .125rem',
 
-      "&.is-regular": {
+      '&.is-regular': {
         fontWeight: 400,
       },
     },
-    "& legend": {
-      "& span": {
-        display: "none",
+    '& legend': {
+      '& span': {
+        display: 'none',
       },
     },
-    "& .MuiSelect-select": {
-      backgroundColor: "#fff",
-      marginBottom: ".5rem",
-      border: "1px solid #d2dbe2",
+    '& .MuiSelect-select': {
+      backgroundColor: '#fff',
+      marginBottom: '.5rem',
+      border: '1px solid #d2dbe2',
 
-      "&:focus": {
-        border: "1px solid #4ba4da",
+      '&:focus': {
+        border: '1px solid #4ba4da',
       },
     },
-    "& .MuiOutlinedInput-notchedOutline": {
-      display: "none",
+    '& .MuiOutlinedInput-notchedOutline': {
+      display: 'none',
     },
   },
 });
@@ -104,7 +104,7 @@ const useStyles = makeStyles({
 // }
 
 // required as a props  array of object which contain two properties label and value
-function FormSelect({ options = [], onChange, ...props }:any) {
+function FormSelect({ options = [], onChange, ...props }: any) {
   const classes = useStyles();
   const [selectedOption, setSelectedOption] = React.useState();
 
@@ -120,7 +120,7 @@ function FormSelect({ options = [], onChange, ...props }:any) {
       {props.label && (
         <Typography
           variant="span"
-          className={props.labelRegular ? "is-regular" : ""}
+          className={props.labelRegular ? 'is-regular' : ''}
         >
           {props.label}
         </Typography>
@@ -136,26 +136,26 @@ function FormSelect({ options = [], onChange, ...props }:any) {
         //   : handleChange
 
         displayEmpty
-        size={props.size === "small" ? "small" : "medium"}
-        inputProps={{ "aria-label": "Without label" }}
+        size={props.size === 'small' ? 'small' : 'medium'}
+        inputProps={{ 'aria-label': 'Without label' }}
         {...props}
-        onOpen={() => {
-          if (props.id) {
-            props.setToolTipVisible(props.id);
-          }
-        }}
-        onClose={() => {
-          if (props.id) {
-            props.setToolTipVisible(null);
-          }
-        }}
+        // onOpen={() => {
+        //   if (props.id) {
+        //     props.setToolTipVisible(props.id);
+        //   }
+        // }}
+        // onClose={() => {
+        //   if (props.id) {
+        //     props.setToolTipVisible(null);
+        //   }
+        // }}
       >
         <MenuItem disabled value="">
           {props.placeholder}
         </MenuItem>
 
         {options.map((i) => (
-          <MenuItem value={i.value}>{i.value}</MenuItem>
+          <MenuItem value={i.value}>{i.label}</MenuItem>
         ))}
       </Select>
     </FormControl>

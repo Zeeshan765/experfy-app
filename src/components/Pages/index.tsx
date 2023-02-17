@@ -3,7 +3,7 @@ import { Eyebrow } from "payload/components/elements";
 import FormSelect from "../../blocks/FormSelect";
 import TextInput from "../../blocks/TextInput";
 import PageTheme from "../PageBuilderTemplate";
-import { Context } from "../../MyProvider";
+import { Context } from "../../Providers/MyProvider";
 import { useConfig } from "payload/components/utilities";
 import { Form } from "payload/components/forms";
 import { toast } from "react-toastify";

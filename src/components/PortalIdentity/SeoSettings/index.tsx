@@ -8,7 +8,8 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 export default function SeoSettings(props) {
-  const { propsdata } = props;
+  const { propsData } = props;
+  console.log('propsdata', props)
 
   const {
     admin: { user: userSlug },
@@ -26,9 +27,15 @@ export default function SeoSettings(props) {
     formState: { errors },
   } = useForm({});
 
+
+  React.useEffect(() => {
+    reset({ ...propsData });
+  }, [propsData]);
+
+
   const onSubmit = async (data) => {
-    if (propsdata.id) {
-      let apiEndpoint = `${serverURL}${api}/brand/${propsdata.id}`;
+    if (propsData.id) {
+      let apiEndpoint = `${serverURL}${api}/brand/${propsData.id}`;
       try {
         const formData = new FormData();
         formData.append('_payload', JSON.stringify(data));
@@ -37,7 +44,7 @@ export default function SeoSettings(props) {
             'Content-Type': 'multipart/form-data',
           },
         });
-
+         console.log('res', res.data);
         toast.success('Portal Identitty Updated successfully');
       } catch (error) {
         console.error(error);
@@ -104,7 +111,9 @@ export default function SeoSettings(props) {
 
         <div className="row">
           <div className="col-md-4">
-            <button type="submit">Submit</button>
+          <button className="btn btn--style-primary" type="submit">
+            Save
+          </button>
           </div>
         </div>
       </form>

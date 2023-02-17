@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@mui/styles';
 import PreviewIcon from '../../assets/images/preview.svg';
 import '../../styles/scss/index.scss';
 
@@ -13,31 +13,31 @@ export const useStyles = makeStyles({
     backgroundImage: `url(${PreviewIcon})`,
     backgroundPosition: 'left center',
     backgroundRepeat: 'no-repeat',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   previewModal: {
     '& .MuiBackdrop-root': {
-      backgroundColor: 'rgba(33, 52, 86, .8) !important', 
+      backgroundColor: 'rgba(33, 52, 86, .8) !important',
     },
     '& .MuiDialogTitle-root': {
       borderBottom: '1px solid #d1dbe3',
     },
     '& .MuiDialogContent-root': {
-      backgroundColor: '#f9f9f9'
-    }
+      backgroundColor: '#f9f9f9',
+    },
   },
   previewModalHeader: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   previewModalHeaderContent: {
-    flex: 1
+    flex: 1,
   },
   previewModalHeaderActions: {
     display: 'flex',
     alignItems: 'center',
     '& button': {
-      margin: '0 1rem'
+      margin: '0 1rem',
     },
   },
   previewModalHeaderBack: {
@@ -49,18 +49,18 @@ export const useStyles = makeStyles({
     color: '#4a5162 !important',
     textDecoration: 'none !important',
     cursor: 'pointer',
-    userSelect: 'none'
+    userSelect: 'none',
   },
   previewModalHeaderClose: {
     display: 'inline-block',
     textDecoration: 'none',
     cursor: 'pointer',
-    userSelect: 'none'
+    userSelect: 'none',
   },
   previewModalContent: {
     padding: '24px 0 4px',
     '& img': {
-      width: '100%'
-    }
-  }
+      width: '100%',
+    },
+  },
 });

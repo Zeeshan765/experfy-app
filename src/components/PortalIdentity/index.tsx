@@ -1,16 +1,15 @@
-import React, { useEffect, useContext, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Box, Link, Tab, Tabs, Typography } from '@mui/material';
+import { Box, Tab, Tabs, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import BasicInformation from './BasicInformation';
-import SeoSettings from './SeoSettings';
-import Brands from './Brands';
-import { useParams } from 'react-router-dom';
-import { Context } from '../../MyProvider';
-import { DefaultTemplate } from 'payload/components/templates';
-import { Eyebrow } from 'payload/components/elements';
-import '../../styles/scss/index.scss';
 import axios from 'axios';
+import { Eyebrow } from 'payload/components/elements';
+import { DefaultTemplate } from 'payload/components/templates';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import '../../styles/scss/index.scss';
+import { BasicInformation } from './BasicInformation';
+import Brands from './Brands';
+import SeoSettings from './SeoSettings';
 
 const useStyles = makeStyles({
   mainTabs: {
@@ -76,7 +75,7 @@ function a11yProps(index) {
 const PortalIdentity: React.FC = (props) => {
   const { id } = useParams();
 
-  const [propsdata, setPropsdata] = useState({ brands: [] });
+  const [propsData, setPropsdata] = useState({ brands: [] });
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -91,6 +90,7 @@ const PortalIdentity: React.FC = (props) => {
       const { docs } = res.data;
 
       const newdata = docs.filter((el) => el.id === id)[0];
+      console.log('newdata', newdata);
       setPropsdata(newdata);
     } catch (e) {
       console.error(e);
@@ -120,17 +120,17 @@ const PortalIdentity: React.FC = (props) => {
           </Box>
           {value === 0 && (
             <TabPanel value={value} index={0}>
-              <BasicInformation propsdata={propsdata} />
+              <BasicInformation propsData={propsData} />
             </TabPanel>
           )}
           {value === 1 && (
             <TabPanel value={value} index={1}>
-              <SeoSettings propsdata={propsdata} />
+              <SeoSettings propsData={propsData} />
             </TabPanel>
           )}
           {value === 2 && (
             <TabPanel value={value} index={2}>
-              <Brands propsdata={propsdata} />
+              <Brands propsData={propsData} />
             </TabPanel>
           )}
         </Box>

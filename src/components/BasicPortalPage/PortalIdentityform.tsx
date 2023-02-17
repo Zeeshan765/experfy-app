@@ -1,26 +1,19 @@
 //@ts-ignore
 
-
-import {
- 
-  DialogContent,
-
-} from '@mui/material';
+import { DialogContent, InputAdornment } from '@mui/material';
 import axios from 'axios';
-import { Button } from 'payload/components/elements';
-import { Form } from 'payload/components/forms';
+
 import { useStepNav } from 'payload/components/hooks';
-import { DefaultTemplate } from 'payload/components/templates';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
-import { useForm, Controller, useFieldArray } from 'react-hook-form';
+import { Controller,  useFieldArray, useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import FormSelect from '../../blocks/FormSelect';
 import FormSwitch from '../../blocks/FormSwitch';
 import FormTip from '../../blocks/FormTip';
 import TextInput from '../../blocks/TextInput';
 import { useStyles } from './css';
-import { toast } from 'react-toastify';
 const baseClass = 'custom-route';
 
 const portal_url_tip =
@@ -30,13 +23,16 @@ const portal_name_tip = 'The go-to-market name of the career portal';
 const company_name_tip =
   'The company of your career Portal. This can be a shortened version of Portal.';
 
-const PortalIdentityform: React.FC = (props: any) => {
-  const { handleSwitchChange, setVisible, brandSwitch, setSubmittedData } = props;
+const PortalIdentityForm: React.FC = (props: any) => {
+  const { handleSwitchChange, setVisible, brandSwitch, setSubmittedData } =
+    props;
   const history = useHistory();
   const classes = useStyles();
 
   const [defaultBrands, setDefaultBrands] = useState([]);
+  const [touched, setTouched] = useState('');
   const { setStepNav } = useStepNav();
+  
 
   useEffect(() => {
     setStepNav([
@@ -50,13 +46,13 @@ const PortalIdentityform: React.FC = (props: any) => {
   const {
     control,
     handleSubmit,
+    setError,
     reset,
     getValues,
     watch,
     formState: { errors },
   } = useForm({});
-
-  console.log('getValues', getValues());
+  console.log( 'values', getValues() );
 
   const {
     admin: { user: userSlug },
@@ -69,8 +65,8 @@ const PortalIdentityform: React.FC = (props: any) => {
     (collection) => collection.slug === userSlug
   );
 
-
   const onSubmit = async (data) => {
+    console.log('data', data.getValues);
     let apiEndpoint = `${serverURL}${api}/brand`;
     try {
       const formData = new FormData();
@@ -83,14 +79,14 @@ const PortalIdentityform: React.FC = (props: any) => {
       const { doc } = res.data;
       if (brandSwitch) {
         setVisible(true);
-        setSubmittedData(doc)
+        setSubmittedData(doc);
       } else {
-        setVisible(false)
-        toast.success('Portal Identitty created successfully');
+        setVisible(false);
+        toast.success('Portal Identity created successfully');
         history.push(`/admin/collections/portal-identity/${doc.id}`);
       }
     } catch (error) {
-      console.error(error);
+      toast.error(error.message);
       return error;
     }
   };
@@ -107,7 +103,7 @@ const PortalIdentityform: React.FC = (props: any) => {
   const onClickBrandName = () => {
     let finalDefaultBrandsArray = getValues()?.brands.map((i) => ({
       value: i.name,
-      lable: i.name,
+      label: i.name,
     }));
     setDefaultBrands(finalDefaultBrandsArray);
   };
@@ -126,9 +122,17 @@ const PortalIdentityform: React.FC = (props: any) => {
               render={({ field }) => (
                 <TextInput
                   {...field}
+                  required
+                  name={'career_portal_name'}
                   label="Career Portal Name"
                   placeholder="Company Career Portal"
                   id={'career_portal_name'}
+                  onFocus={() => {
+                    setTouched('career_portal_name');
+                  }}
+                  onAbort={() => {
+                    setTouched('');
+                  }}
                 />
               )}
               name="career_portal_name"
@@ -136,13 +140,13 @@ const PortalIdentityform: React.FC = (props: any) => {
             />
           </div>
 
-          {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'career_portal_name' && (
-                        <FormTip text={portal_name_tip} />
-                      )}
-                    </div>
-                  </div> */}
+          <div className="col-md-4">
+            <div className="tip-wrapper">
+              {touched === 'career_portal_name' && (
+                <FormTip text={portal_name_tip} />
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="row">
@@ -150,27 +154,32 @@ const PortalIdentityform: React.FC = (props: any) => {
             <Controller
               render={({ field }) => (
                 <TextInput
-                  disabled={false}
-                  label="Portal ID"
-                  placeholder="CP-ID798998989"
                   {...field}
+                  required
+                  label="Portal ID"
+                  value={Math.random().toString(9).substr(2, 9)}
                   id={'portal_id'}
+                  name={"portal_id"}
+                  onFocus={() => {
+                    setTouched('portal_id');
+                  }}
+                  onAbort={() => {
+                    setTouched('');
+                  }}
                 />
               )}
-              name="portal_id"
+              name={"portal_id"}
               control={control}
             />
           </div>
 
-          {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'portal_id' && (
-                        <FormTip
-                          text={'The read only filed displays the Portal ID'}
-                        />
-                      )}
-                    </div>
-                  </div> */}
+          <div className="col-md-4">
+            <div className="tip-wrapper">
+              {touched === 'portal_id' && (
+                <FormTip text={'The read only filed displays the Portal ID'} />
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="row">
@@ -180,11 +189,22 @@ const PortalIdentityform: React.FC = (props: any) => {
                 <TextInput
                   {...field}
                   label="Portal URL"
-                  placeholder="www.experfydemo/career-portal-experfy.com"
+                  required
+                  placeholder="www.experfy.com/career-portal-experfy"
                   id={'portal_url'}
+                  name={"portal_url"}
+                  startAdornment={
+                    <InputAdornment position="start">https://</InputAdornment>
+                  }
+                  onFocus={() => {
+                    setTouched('portal_url');
+                  }}
+                  onAbort={() => {
+                    setTouched('');
+                  }}
                 />
               )}
-              name="portal_url"
+              name={"portal_url"}
               control={control}
             />
           </div>
@@ -195,24 +215,31 @@ const PortalIdentityform: React.FC = (props: any) => {
             <Controller
               render={({ field }) => (
                 <TextInput
-                  disabled={false}
                   {...field}
+                  required
                   label="Company Name"
                   id={'company_name'}
+                  name={"company_name"}
+                  onFocus={() => {
+                    setTouched('company_name');
+                  }}
+                  onAbort={() => {
+                    setTouched('');
+                  }}
                 />
               )}
-              name="company_name"
+              name={"company_name"}
               control={control}
             />
           </div>
 
-          {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'company_name' && (
-                        <FormTip text={company_name_tip} />
-                      )}
-                    </div>
-                  </div> */}
+          <div className="col-md-4">
+            <div className="tip-wrapper">
+              {touched === 'company_name' && (
+                <FormTip text={company_name_tip} />
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="row">
@@ -222,24 +249,35 @@ const PortalIdentityform: React.FC = (props: any) => {
                 return (
                   <FormSelect
                     {...field}
-                    options={[{ value: 'English', label: 'English' }]}
                     label="Default Language"
                     id={'default_language'}
+                    defaultValue={'en'}
+                    name={"default_language"}
+                    options={[
+                      { value: 'en', label: 'English' },
+                      { value: 'es', label: 'Spanish' },
+                    ]}
+                    onFocus={() => {
+                      setTouched('default_language');
+                    }}
+                    onAbort={() => {
+                      setTouched('');
+                    }}
                   />
                 );
               }}
-              name="default_language"
+              name={"default_language"}
               control={control}
             />
           </div>
 
-          {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'default_language' && (
-                        <FormTip text="Set the default language of your career portal for your visitors" />
-                      )}
-                    </div>
-                  </div> */}
+          <div className="col-md-4">
+            <div className="tip-wrapper">
+              {touched === 'default_language' && (
+                <FormTip text="Set the default language of your career portal for your visitors" />
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="row">
@@ -248,29 +286,40 @@ const PortalIdentityform: React.FC = (props: any) => {
               render={({ field }) => (
                 <FormSelect
                   {...field}
-                  options={[{ value: 'US', label: 'United States' }]}
+                  options={[
+                    { value: 'en_US', label: 'es_US' },
+                    { value: 'es_ES', label: 'es_ES' },
+                  ]}
                   label="Default Locale"
                   id={'default_locale'}
+                  name={'default_locale'}
+                  defaultValue={'en_US'}
+                  onFocus={() => {
+                    setTouched('default_locale');
+                  }}
+                  onAbort={() => {
+                    setTouched('');
+                  }}
                 />
               )}
-              name="default_locale"
+              name={"default_locale"}
               control={control}
             />
           </div>
 
-          {/* <div className="col-md-4">
-                    <div className="tip-wrapper">
-                      {touched === 'default_locale' && (
-                        <FormTip text="Set the default locale of your career portal for your visitors" />
-                      )}
-                    </div>
-                  </div> */}
+          <div className="col-md-4">
+            <div className="tip-wrapper">
+              {touched === 'default_locale' && (
+                <FormTip text="Set the default locale of your career portal for your visitors" />
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="row">
           <div className="col-md-12">
             <p>
-              If you want to create microsite for your different brands within
+              If you want to create micro-site for your different brands within
               your career portal, enable branding below.
             </p>
           </div>
@@ -285,7 +334,7 @@ const PortalIdentityform: React.FC = (props: any) => {
             />
           </div>
         </div>
-        <button type="submit" className="btn-hover color-9">
+        <button className="btn btn--style-primary" type="submit">
           Save
         </button>
       </form>
@@ -293,4 +342,4 @@ const PortalIdentityform: React.FC = (props: any) => {
   );
 };
 
-export default PortalIdentityform;
+export default PortalIdentityForm;

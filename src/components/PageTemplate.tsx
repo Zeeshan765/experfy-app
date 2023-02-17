@@ -10,7 +10,7 @@ import job_overview from "../assets/images/templates/job_overview.png";
 import join from "../assets/images/templates/join.png";
 import tc_overview from "../assets/images/templates/tc_overview.png";
 import FaceLessModel from "./Model";
-import { Context } from "../MyProvider";
+import { Context } from "../Providers/MyProvider";
 
 const useStyles = makeStyles({
   templateCardGrid: {
@@ -106,7 +106,6 @@ const PageTemplate: React.FC<Props> = ({
               <Grid
                 item
                 sm={3}
-                alignItems="center"
                 key={id}
                 style={{
                   width: "100%",
@@ -167,7 +166,6 @@ const PageTemplate: React.FC<Props> = ({
               <Grid
                 item
                 sm={3}
-                alignItems="center"
                 key={id}
                 style={{
                   width: "100%",

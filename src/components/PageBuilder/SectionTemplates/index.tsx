@@ -1,7 +1,7 @@
 import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Experfy from '../ExperfyPlugin';
 import NavBar from 'grapesjs-navbar';
@@ -9,15 +9,18 @@ import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
+import { StyleContext } from '../../../Providers/StyleProvider';
+import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
   const { pathname } = useLocation();
   const { serverURL } = useConfig();
-  const {
-    routes: { admin },
-  } = useConfig();
+  const { routes } = useConfig();
+  const { admin } = routes;
+  const { userDefaultStyleString, getStyle } = useContext(StyleContext);
 
   const sections = [
     'page-builder',
@@ -102,55 +105,58 @@ const SectionPageBuilder: React.FC = () => {
 
     let blocks = isInclude ? [str] : sections;
     const Blocks = (editor: GrapesJS.Editor, options: any) =>
-      Experfy(editor, { ...options, blocks: blocks });
+      Experfy(editor, {
+        ...options,
+        blocks: blocks,
+        showPanelsOnLoad: true,
+        themeStylePanels: true,
+      });
 
     editor = GrapesJS.init({
       container: '#sections',
       storageManager: {
-        id: str,
         type: 'local',
-        autosave: true,
         autoload: false,
-        stepsBeforeSave: 1,
+        options: {
+          storeComponents: true,
+          storeStyles: true,
+          storeHtml: true,
+          storeCss: true,
+
+          local: {
+            key: 'experfy_elements',
+          },
+        },
       },
       showOffsets: true,
       showDevices: false,
       showOffsetsSelected: true,
 
+      style: userDefaultStyleString,
       plugins: [Blocks],
-      // pluginsOpts: {
-      // [NavBar]: {
-      //   label: 'Header',
-      //   block: {
-      //     category: 'Header & Footer Elements',
-      //   },
-      // },
-      // },
 
       blockManager: {
         appendTo: '.blocks',
         blocks: [],
       },
-      layerManager: {
-        appendTo: '.layers-container',
-      },
-      traitManager: {
-        appendTo: '.traits-container',
-      },
+      layerManager: null,
+      traitManager: null,
       selectorManager: {
-        appendTo: '.styles-container',
+        
+        
       },
       styleManager: {
         appendTo: '.styles-container',
         sectors: getSectors(blocks),
       },
     });
+    //This is for Single Section
     editor.onReady(() => {
       if (blocks.length === 1) {
         const sectors = editor.StyleManager.getSectors();
         const block = editor.BlockManager.get(blocks[0]);
         const component = editor.addComponents(block.get('content'));
-        component[0].set('selectable', true);
+        component[0].set('selectable', false);
         component[0].set('removable', false);
         component[0].set('stylable', true);
         component[0].set('copyable', false);
@@ -166,18 +172,15 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
-
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
       // if component exists, means the drop was successful
       if (component) {
-    
         const sectors = editor.StyleManager.getSectors();
         sectors.reset();
         sectors.add(getSectors(component.ccid));
       }
     });
-
 
     editor.on('component:drag:end', (component) => {
       if (component) {
@@ -187,7 +190,25 @@ const SectionPageBuilder: React.FC = () => {
         editor?.runCommand('core:open-styles');
       }
     });
-
+    const addAssets = async () => {
+      const assetManager = editor?.AssetManager;
+      axios
+        .get(`${serverURL}/api/media`)
+        .then((response) => {
+          const { docs } = response.data;
+          docs.forEach(({ url }) => {
+            assetManager?.add([
+              {
+                src: url,
+              },
+            ]);
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    };
+    addAssets();
     updateHeaderBlock();
   }, [setEditor]);
 
@@ -198,12 +219,14 @@ const SectionPageBuilder: React.FC = () => {
       <div className="editor-row">
         <div className="panel__basic-actions"></div>
         <div className="panel__left">
-          <div className="panel__switcher">
-            <Link className="back__panel" to={`${admin}/`}>
-              <span>&#10094;</span>
-              <span>Theme Builder</span>
-              <span>&#9783;</span>
+          <div className="back__panel panel-header">
+            <Link className="panel-header__link" to={`${admin}/`}>
+              <ArrowBackIosNewRoundedIcon />
             </Link>
+            <span>Theme Builder</span>
+            <span className="panel-header__menu">
+              <AppsRoundedIcon />
+            </span>
           </div>
           <div className="blocks"></div>
           <div className="styles-container"></div>

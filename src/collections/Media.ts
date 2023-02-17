@@ -17,6 +17,7 @@ export type Type = {
 export const Media: CollectionConfig = {
   slug: 'media',
   admin: {
+    disableDuplicate: true,
     useAsTitle: 'keywords',
   },
 
@@ -93,7 +94,7 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) =>  siblingData?.mediaType === 'icon',
+        condition: (_, siblingData) => siblingData?.mediaType === 'icon',
       },
     },
 
@@ -112,7 +113,7 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        condition: (_, siblingData) =>  siblingData?.mediaType === 'video',
+        condition: (_, siblingData) => siblingData?.mediaType === 'video',
       },
     },
     {

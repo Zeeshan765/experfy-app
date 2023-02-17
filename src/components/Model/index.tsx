@@ -7,7 +7,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import CloseIcon from '@mui/icons-material/Close';
 import { useStyles } from './style';
 import { Button } from 'payload/components/elements';
-import { Context } from '../../MyProvider';
+import { Context } from '../../Providers/MyProvider';
 
 const FaceLessModel = ({ data, templateModelClose }) => {
   const classes = useStyles();
