@@ -12,7 +12,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { toast } from 'react-toastify';
-import BrandForm from './Brandform';
+import BrandForm from './BrandForm';
 import PortalIdentityForm from './PortalIdentityform';
 const baseClass = 'custom-route';
 
