@@ -72,19 +72,8 @@ const ThemeStyle: React.FC = () => {
           console.log('data', data);
           let css = editor.getCss().toString();
           // we need to replace the ids with the html tags
-          css = css
-            .replace('#button', 'button')
-            .replace('#image', 'img')
-            .replace('#h1', 'h1')
-            .replace('#h2', 'h2')
-            .replace('#h3', 'h3')
-            .replace('#h4', 'h4')
-            .replace('#h5', 'h5')
-            .replace('#h6', 'h6')
-            .replace('#p', 'p')
-            .replace('#a', 'a')
-            .replace('#input', 'input')
-            .replace('#label', 'label');
+          css = css.replaceAll('#', ' ');
+
           localStorage.setItem('theme_style_css', css);
           toast.success('Theme Style Saved');
           return {

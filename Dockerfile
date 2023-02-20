@@ -15,7 +15,6 @@ COPY . .
 RUN apk add --no-cache git
 RUN yarn install --save --legacy-peer-deps payload
 RUN yarn generate:types
-RUN yarn generate:graphQLSchema
 RUN yarn build
 EXPOSE $PORT
 CMD ["yarn", "serve"]

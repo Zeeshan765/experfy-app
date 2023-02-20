@@ -1,11 +1,18 @@
 @use 'sass:math';
+@use 'sass:map';
+@use 'sass:color';
+@use 'sass:meta';
+@use 'sass:selector';
 
+$assets_path: '/src/assets/images/';
 // Variables
+
 
 :root {
   --theme-primary: #4ba4da;
   --theme-text: #4a5162;
   --font-body: "proxima-nova", system-ui;
+
 }
 
 // Typography 
@@ -32,7 +39,7 @@ ol {
 
 .portal-banner {
   padding: 40px 40px 48px;
-  background: #32293b url('/src/assets/images/portal/banner.png') right center / cover no-repeat scroll;
+  background: #32293b url('#{$assets_path}portal/banner.png') right center / cover no-repeat scroll;
   box-shadow: none;
   min-height: 270px;
   border-radius: 7px;
@@ -112,14 +119,14 @@ ol {
       top: 0;
       width: 70px;
       height: 70px;
-      background: url('/src/assets/images/portal/icon_mobility.svg') right center / contain no-repeat scroll;
+      background: url('#{$assets_path}portal/icon_mobility.svg') right center / contain no-repeat scroll;
     }
 
     &.card-portal--external {
       top: -5px;
       width: 80px;
       height: 80px;
-      background: url('/src/assets/images/portal/icon_configure.svg') right center / contain no-repeat scroll;
+      background: url('#{$assets_path}portal/icon_configure.svg') right center / contain no-repeat scroll;
     }
   }
 
@@ -195,7 +202,7 @@ ol {
         display: inline-block;
         width: 14px;
         height: 14px;
-        background: url('/src/assets/images/add.svg') center center / contain no-repeat;
+        background: url('#{$assets_path}add.svg') center center / contain no-repeat;
       }
     }
   }
@@ -397,12 +404,12 @@ ol {
   &>.panel__top {
     right: 2rem !important;
     top: 21px !important;
-    
+
     .gjs-pn-buttons {
-      & > * + * {
+      &>*+* {
         margin-left: 4px;
         font-size: 18px !important;
-      } 
+      }
 
       span {
         &[title="Settings"] {
@@ -436,6 +443,7 @@ ol {
       span[title="Settings"],
       span[title="Undo"],
       button[title="Toggle Display"] {
+
         &.gjs-pn-active,
         &:hover,
         &:focus {
@@ -446,13 +454,14 @@ ol {
 
       span[title="Preview"],
       span[title="Publish"] {
+
         &.gjs-pn-active,
         &:hover,
         &:focus {
           background-color: rgba(160, 168, 183, 0.04) !important;
           border-color: #a0a8b7 !important;
           color: #4a5162 !important;
-        }  
+        }
       }
     }
   }
@@ -616,7 +625,7 @@ ol {
         height: 32px;
         width: 80px;
         margin-left: -40px;
-        background: url('/src/assets/images/upload.svg') center center / contain no-repeat scroll;
+        background: url('#{$assets_path}upload.svg') center center / contain no-repeat scroll;
       }
     }
 
@@ -761,7 +770,7 @@ ol {
     align-items: center;
   }
 
-  $nav-icons: 'studio' 'studio_dashboard'  'center top 2px',
+  $nav-icons: 'studio' 'studio_dashboard' 'center top 2px',
     'settings' 'portal_settings' 'center center',
     'pages' 'pages' 'center center',
     'menus' 'menus' 'center center',
@@ -771,15 +780,17 @@ ol {
     'users' 'users' 'center center',
     'identities' 'portal_identity' 'center center';
 
-  @each $link, $icon, $position in $nav-icons {
+  @each $link,
+  $icon,
+  $position in $nav-icons {
     &.nav-#{$link} {
       &::before {
-        background: url('/src/assets/images/sidebar/#{$icon}.svg') #{$position} no-repeat scroll;
+        background: url('#{$assets_path}sidebar/#{$icon}.svg') #{$position} no-repeat scroll;
       }
 
       &.active {
         &::before {
-          background: url('/src/assets/images/sidebar/#{$icon}_active.svg') #{$position} no-repeat scroll;
+          background: url('#{$assets_path}sidebar/#{$icon}_active.svg') #{$position} no-repeat scroll;
         }
       }
     }
@@ -829,7 +840,7 @@ ol {
   #nav-design-system {
     &.active {
       &:before {
-        background-image: url("/src/assets/images/sidebar/design_system_active.svg") !important;
+        background-image: url("#{$assets_path}sidebar/design_system_active.svg") !important;
       }
     }
   }
@@ -837,7 +848,7 @@ ol {
   #nav-themes-style {
     &.active {
       &:before {
-        background-image: url("/src/assets/images/sidebar/theme_style_active.svg") !important;
+        background-image: url("#{$assets_path}sidebar/theme_style_active.svg") !important;
       }
     }
   }
@@ -845,7 +856,7 @@ ol {
   #nav-section-templates {
     &.active {
       &:before {
-        background-image: url("/src/assets/images/sidebar/section_active.svg") !important;
+        background-image: url("#{$assets_path}sidebar/section_active.svg") !important;
       }
     }
   }
@@ -867,14 +878,17 @@ ol {
     font-size: 20px;
   }
 }
+
 .collection-edit__sidebar-sticky-wrap {
   .collection-edit__collection-actions {
     padding: 0 1.4423076923rem 0.9615384615rem;
     display: flex !important;
   }
-  .collection-edit__document-actions{
-padding-right: 0px ;
+
+  .collection-edit__document-actions {
+    padding-right: 0px;
   }
+
   #action-create {
     background-color: var(--theme-text);
     color: rgb(255, 255, 255);
@@ -889,7 +903,8 @@ padding-right: 0px ;
     margin-top: 1.9230769231rem;
     margin-bottom: 1.9230769231rem;
   }
-  #action-duplicate{
+
+  #action-duplicate {
     background-color: #E6E6E6;
     color: rgb(34, 34, 34);
     padding: 10px 25px;
@@ -903,7 +918,8 @@ padding-right: 0px ;
     margin-top: 1.9230769231rem;
     margin-bottom: 1.9230769231rem;
   }
-  #action-delete{
+
+  #action-delete {
     color: #4A5162;
     padding: 10px 0px;
     font-family: var(--font-body);
@@ -913,8 +929,9 @@ padding-right: 0px ;
     margin-top: 1.9230769231rem;
     margin-bottom: 1.9230769231rem;
   }
-  .collection-edit__sidebar-fields{
-    padding: 0 0 ;
+
+  .collection-edit__sidebar-fields {
+    padding: 0 0;
   }
 }
 
@@ -933,7 +950,7 @@ padding-right: 0px ;
   padding: .75rem 1rem !important;
   justify-content: space-between !important;
   margin-bottom: 0 !important;
-  
+
   &__menu,
   &__link {
     svg {
@@ -946,11 +963,11 @@ padding-right: 0px ;
 
     .panel-header__link {
       color: #fff !important
-    }    
+    }
   }
 }
 
-.gjs-sm-sector__design_system, 
+.gjs-sm-sector__design_system,
 .gjs-sm-sector__theme_style {
   height: 44px;
 
@@ -964,7 +981,7 @@ padding-right: 0px ;
     font-size: 15px !important;
     letter-spacing: 0;
     padding-top: 4px;
-  }  
+  }
 }
 
 .gjs-sm-sector {

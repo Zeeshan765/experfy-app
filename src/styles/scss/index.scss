@@ -2,7 +2,10 @@
 @import "font-proxima-nova";
 @import "updated-styles";
 
+$assets_path: "/src/assets/images/";
+
 :root {
+
   --breakpoint-xs-width: #{$breakpoint-xs-width};
   --breakpoint-s-width: #{$breakpoint-s-width};
   --breakpoint-m-width: #{$breakpoint-m-width};
@@ -391,7 +394,7 @@ div.react-select {
 }
 
 .Global #nav-design-system::before {
-  background-image: url("/src/assets/images/sidebar/design_system.svg");
+  background-image: url("#{$assets_path}sidebar/design_system.svg");
   background-repeat: no-repeat;
   content: "";
   width: 16px;
@@ -400,7 +403,7 @@ div.react-select {
 }
 
 .Global #nav-themes-style::before {
-  background-image: url("/src/assets/images/sidebar/theme_style.svg") !important;
+  background-image: url("#{$assets_path}sidebar/theme_style.svg") !important;
   background-repeat: no-repeat;
   content: "";
   width: 16px;
@@ -409,7 +412,7 @@ div.react-select {
 }
 
 .Global #nav-section-templates::before {
-  background-image: url("/src/assets/images/sidebar/section.svg") !important;
+  background-image: url("#{$assets_path}sidebar/section.svg") !important;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   content: "";
@@ -653,7 +656,7 @@ div.react-select {
 }
 
 .model-body {
-  padding:1.5rem 1.5rem 3rem 1.5rem;
+  padding: 1.5rem 1.5rem 3rem 1.5rem;
 }
 
 .model-title {
@@ -685,13 +688,15 @@ div.react-select {
     background-color: var(--theme-text-dark);
     color: var(--theme-elevation-0);
   }
-  
+
 }
+
 .pill--style-light.pill--has-action:hover {
   background-color: var(--theme-primary);
   box-shadow: 0px 2px 2px 0px var(--theme-elevation-600);
   color: var(--theme-elevation-0);
 }
+
 // .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
 //   padding: .75rem !important;
 // }

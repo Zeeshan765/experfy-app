@@ -3994,7 +3994,7 @@ const obj = {
     {
       name: 'Form Fields',
       open: false,
-      buildProps: [],
+      buildProps: [''],
     },
     {
       name: 'Label',
