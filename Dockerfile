@@ -1,4 +1,4 @@
-FROM node:16.10.0-alpine
+FROM node:lts-alpine3.17
 ARG DEPLOYMENT_ENV=develop
 ARG ENV=development
 ARG PORT=3000
