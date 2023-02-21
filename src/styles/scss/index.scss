@@ -1,15 +1,10 @@
-@import "~payload/scss";
 @import "font-proxima-nova";
 @import "updated-styles";
-
-$assets_path: "/src/assets/images/";
+@import "payload/scss";
+$assets_path: "../../assets/images";
 
 :root {
 
-  --breakpoint-xs-width: #{$breakpoint-xs-width};
-  --breakpoint-s-width: #{$breakpoint-s-width};
-  --breakpoint-m-width: #{$breakpoint-m-width};
-  --breakpoint-l-width: #{$breakpoint-l-width};
   --scrollbar-width: 17px;
   --nav-width: #{base(12)};
   --nav-width-m: #{base(10)};
@@ -22,8 +17,6 @@ $assets_path: "/src/assets/images/";
   --theme-text-light: #4a5162;
   --theme-text-dark: #3a4152;
   --theme-primary: #48a3d7;
-  --theme-baseline: #{$baseline-px};
-  --theme-baseline-body-size: #{$baseline-body-size};
   --font-body: "proxima-nova", system-ui;
 
   --z-popup: 10;
@@ -394,8 +387,7 @@ div.react-select {
 }
 
 .Global #nav-design-system::before {
-  background-image: url("#{$assets_path}sidebar/design_system.svg");
-  background-repeat: no-repeat;
+  background-image: url("#{$assets_path}/sidebar/design_system.svg") !important;
   content: "";
   width: 16px;
   height: 16px;
@@ -403,7 +395,7 @@ div.react-select {
 }
 
 .Global #nav-themes-style::before {
-  background-image: url("#{$assets_path}sidebar/theme_style.svg") !important;
+  background-image: url('#{$assets_path}/sidebar/theme_style.svg') !important;
   background-repeat: no-repeat;
   content: "";
   width: 16px;
@@ -412,14 +404,13 @@ div.react-select {
 }
 
 .Global #nav-section-templates::before {
-  background-image: url("#{$assets_path}sidebar/section.svg") !important;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-image: url("#{$assets_path}/sidebar/theme_builder.svg") !important;
   content: "";
   width: 16px;
   height: 16px;
   margin-right: 10px;
 }
+
 
 // ------------------------------------------//
 // ------------ custom css ------------------//
@@ -700,3 +691,6 @@ div.react-select {
 // .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
 //   padding: .75rem !important;
 // }
+
+
+// @import "~payload/scss";
