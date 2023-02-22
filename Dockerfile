@@ -27,6 +27,7 @@ RUN yarn build
 FROM base as runtime
 
 ENV NODE_ENV=production
+ENV APP_HOME /itarp-career-portal-cms-service
 
 WORKDIR $APP_HOME
 
