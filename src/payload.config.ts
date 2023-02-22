@@ -38,7 +38,7 @@ export default buildConfig({
     css: path.resolve(__dirname, './styles/scss/index.scss'),
     webpack: (config) => {
       config.module.rules.push({
-        test: /\.(scss|css)$/,
+        test: /\.(scss)$/,
         use: [
           {
             loader: 'resolve-url-loader', // <-- receives CSS and source-map from SASS compile
