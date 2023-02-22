@@ -1,8 +1,8 @@
 # STAGE 1 - build app
-FROM node:lts-alpine3.17 as build
+FROM node:lts-alpine3.17 as base
 
-RUN apk update --no-cache && \
-    apk add --no-cache git
+FROM base as builder
+
 ARG DEPLOYMENT_ENV=develop
 ARG ENV=development
 ARG PORT=3000
@@ -14,21 +14,29 @@ ENV PORT "$PORT"
 ENV MONGODB_URI "$MONGODB_URI"
 ENV PAYLOAD_PUBLIC_SERVER_URL "$PAYLOAD_PUBLIC_SERVER_URL"
 ENV APP_HOME /itarp-career-portal-cms-service
+
+RUN apk update --no-cache && \
+    apk add --no-cache git curl
+
 WORKDIR $APP_HOME
 COPY . .
-RUN apk add --no-cache git
 RUN yarn install --save --legacy-peer-deps payload
 RUN yarn generate:types
 RUN yarn build
 
-# STAGE 2 - build the final image using a nginx web server
-FROM nginx:1.21.3-alpine
+FROM base as runtime
 
-COPY --from=build /itarp-career-portal-cms-service/dist /usr/share/nginx/html
+ENV NODE_ENV=production
 
-RUN rm /etc/nginx/conf.d/default.conf
+WORKDIR $APP_HOME
+
+COPY package*.json ./
+
+RUN yarn install --production --save --legacy-peer-deps payload
+
+COPY --from=builder $APP_HOME/dist ./dist
+COPY --from=builder $APP_HOME/build ./build
 
 EXPOSE $PORT
 
-# Start nginx server
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "dist/server.js"]
