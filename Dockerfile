@@ -1,4 +1,8 @@
-FROM node:lts-alpine3.17
+# STAGE 1 - build app
+FROM node:lts-alpine3.17 as build
+
+RUN apk update --no-cache && \
+    apk add --no-cache git
 ARG DEPLOYMENT_ENV=develop
 ARG ENV=development
 ARG PORT=3000
@@ -16,5 +20,15 @@ RUN apk add --no-cache git
 RUN yarn install --save --legacy-peer-deps payload
 RUN yarn generate:types
 RUN yarn build
+
+# STAGE 2 - build the final image using a nginx web server
+FROM nginx:1.21.3-alpine
+
+COPY --from=build /itarp-career-portal-cms-service/dist /usr/share/nginx/html
+
+RUN rm /etc/nginx/conf.d/default.conf
+
 EXPOSE $PORT
-CMD ["yarn", "serve"]
+
+# Start nginx server
+CMD ["nginx", "-g", "daemon off;"]
