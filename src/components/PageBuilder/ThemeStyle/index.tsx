@@ -72,7 +72,19 @@ const ThemeStyle: React.FC = () => {
           console.log('data', data);
           let css = editor.getCss().toString();
           // we need to replace the ids with the html tags
-          css = css.replaceAll('#', ' ');
+          css = css
+            .replace('#button', 'button')
+            .replace('#image', 'img')
+            .replace('#h1', 'h1')
+            .replace('#h2', 'h2')
+            .replace('#h3', 'h3')
+            .replace('#h4', 'h4')
+            .replace('#h5', 'h5')
+            .replace('#h6', 'h6')
+            .replace('#p', 'p')
+            .replace('#a', 'a')
+            .replace('#input', 'input')
+            .replace('#label', 'label');
 
           localStorage.setItem('theme_style_css', css);
           toast.success('Theme Style Saved');
@@ -97,72 +109,30 @@ const ThemeStyle: React.FC = () => {
       blockManager: null,
     });
 
-    //Theme Style Sector
-    editor.on(`block:drag:stop`, (component, block) => {
-      if (component) {
-        // console.log('theme component', component);
-        let ccid = component.ccid.split('-')[0];
-        const themeSector = editor.StyleManager.getSectors();
-        themeSector.reset();
-        themeSector.add(getSectors(ccid));
-      }
-    });
+    // //Theme Style Sector
+    // editor.on(`block:drag:stop`, (component, block) => {
+    //   if (component) {
+    //     // console.log('theme component', component);
+    //     let ccid = component.ccid.split('-')[0];
+    //     const themeSector = editor.StyleManager.getSectors();
+    //     themeSector.reset();
+    //     themeSector.add(getSectors(ccid));
+    //   }
+    // });
 
     editor.onReady(() => {
-      // const data = editor.StorageManager.load({
-      //   key: 'theme_style',
-      // });
-      // editor.loadProjectData(data);
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
-
-      const component = editor.addComponents(block.get('content'));
-      // component.forEach((comp) => {
-      //   comp.set('draggable', false);
-      //   comp.set('droppable', false);
-      //   comp.set('stylable', false);
-      //   comp.set('hoverable', false);
-      //   comp.set('selectable', false);
-      // });
-
+      editor.addComponents(block.get('content'));
       sectors.reset();
-
       sectors.add(getSectors('theme_1'));
       editor.runCommand('core:open-styles');
-      editor.getWrapper().set('hoverable', false);
-      editor.getWrapper().set('selectable', false);
     });
-
+    //@ts-ignore
     editor.on('style:sector:update', (sector) => {
       ComponentSelection(sector, editor);
     });
     const handleSaveStyles = () => {
-      // console.log(editor.getProjectData());
-
-      // let { styles } = JSON.parse(localStorage.getItem('theme_style'));
-      // let arr = [
-      //   'button',
-      //   'img',
-      //   'h1',
-      //   'h2',
-      //   'h3',
-      //   'h4',
-      //   'h5',
-      //   'h6',
-      //   'a',
-      //   'input',
-      //   'textarea',
-      // ];
-
-      // let styleObj = {};
-      // styles.forEach((el) => {
-      //   const { selectors, style } = el;
-      //   if (arr.includes(selectors[0])) {
-      //     styleObj[selectors[0]] = style;
-      //   }
-      // });
-      // const mergedObject = Object.assign({}, defaultStyles, styleObj);
-      // updateUserDefaultStyle(styleObj);
       updateUserDefaultStyle();
     };
     setEditorState(editor);
@@ -170,26 +140,7 @@ const ThemeStyle: React.FC = () => {
 
   const updateUserDefaultStyle = async () => {
     let apiEndpoint = `${serverURL}/api/users/${user.id}`;
-    // console.log(editor.getProjectData());
 
-    // let arr = [
-    //   'button',
-    //   'img',
-    //   'h1',
-    //   'h2',
-    //   'h3',
-    //   'h4',
-    //   'h5',
-    //   'h6',
-    //   'a',
-    //   'input',
-    //   'textarea',
-    // ];
-
-    // let filteredStyles = editor
-    //   .getProjectData()
-    //   .styles.filter((el) => arr.includes(el.selectors[0]));
-    // console.log(filteredStyles);
     try {
       const formData = new FormData();
       formData.append('_payload', JSON.stringify(editor.getCss()));

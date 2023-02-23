@@ -188,7 +188,7 @@ $deviceBackground: #2f3d55;
 .gjs-field-integer input {
   color: var(--theme-text-light) !important;
   padding-right: 15px !important;
-  width: 75px !important;
+  width: 55px !important;
   height: 27px !important;
 }
 
@@ -209,7 +209,7 @@ $deviceBackground: #2f3d55;
   width: 100% !important;
   display: flex !important;
   justify-content: space-between !important;
-  padding: 5px 5px !important;
+  padding: 3px 2px !important;
 }
 
 .gjs-sm-property__border {
@@ -257,10 +257,10 @@ $deviceBackground: #2f3d55;
   opacity: 1;
   color: var(--theme-text-light);
   border: solid 1px var(--theme-border);
-  right: 10px;
+  right: 0px;
   top: 10px;
-  padding: 2px;
   width: 25px;
+  height: 25px;
 
 }
 
@@ -357,7 +357,7 @@ $deviceBackground: #2f3d55;
   content: '';
 }
 
-.gjs-sm-sector__body_text .gjs-sm-sector-title::after {
+.gjs-sm-sector__body-text .gjs-sm-sector-title::after {
   background-image: url('../../../assets/images/global-theme-settings/sidebar/body-text.svg') !important;
   background-size: 100% 100%;
   width: 16px;
@@ -597,7 +597,7 @@ $deviceBackground: #2f3d55;
     select {
       color: var(--theme-elevation-600) !important;
 
-      padding: 5px 0px;
+      padding: 7px 0px;
     }
 
     .gjs-field-units {
@@ -622,12 +622,12 @@ $deviceBackground: #2f3d55;
   }
 
   .gjs-sm-property {
-    padding: 0px 5px !important;
+    padding: 0px 3px !important;
   }
 
   .gjs-sm-properties {
     font-size: 0.75rem;
-    padding: 5px 0 0 !important;
+    padding: 3px 0 0 !important;
     flex-direction: row !important;
   }
 
@@ -635,8 +635,8 @@ $deviceBackground: #2f3d55;
     box-sizing: border-box;
     float: left !important;
     width: 50% !important;
-    margin-bottom: 5px !important;
-    padding: 0 5px !important;
+    margin-bottom: 3px !important;
+    padding: 0 3px !important;
     display: block !important;
   }
 
@@ -722,7 +722,7 @@ $deviceBackground: #2f3d55;
     box-sizing: border-box;
     float: left !important;
     width: 50% !important;
-    margin-bottom: 5px !important;
+    margin-bottom: 3px !important;
     padding: 0 5px !important;
     display: block !important;
   }
@@ -846,53 +846,50 @@ $deviceBackground: #2f3d55;
 
 // }
 
-.gjs-sm-sector__buttons {
-  .gjs-sm-properties {
-    .gjs-sm-property__font {
-      #gjs-sm-add::before {
-        content: '\f040' !important;
-        font-family: FontAwesome;
-        color: #48A3D7 !important;
-      }
 
-      #gjs-sm-add svg {
-        display: none !important;
-      }
+.gjs-sm-properties {
+  .gjs-sm-property__Typography {
+    #gjs-sm-add::before {
+      content: '\f040' !important;
+      font-family: FontAwesome;
+    }
 
-      position: relative !important;
-      display: block !important;
+    #gjs-sm-add svg {
+      display: none !important;
+    }
 
-      .gjs-field-range {
-        border: none !important;
-        background-color: transparent !important;
-      }
+    position: relative !important;
+    display: block !important;
 
-      .gjs-field {
-        border: solid 1px transparent !important;
-        background-color: transparent !important;
+    .gjs-field-range {
+      border: none !important;
+      background-color: transparent !important;
+    }
 
-        .gjs-sm-active {
-          .gjs-sm-properties {
-            .gjs-field {
-              border: solid 1px var(--theme-border) !important;
-              background-color: var(--theme-elevation-0) !important;
-            }
+    .gjs-field {
+      border: solid 1px transparent !important;
+      background-color: transparent !important;
+
+      .gjs-sm-active {
+        .gjs-sm-properties {
+          .gjs-field {
+            border: solid 1px var(--theme-border) !important;
+            background-color: var(--theme-elevation-0) !important;
           }
         }
-
-        .gjs-sm-layer {
-          border: solid 1px var(--theme-border) !important;
-          background-color: var(--theme-elevation-0) !important;
-        }
       }
 
-      .gjs-sm-stack #gjs-sm-add {
-        top: -25px !important;
-        height: 25px !important;
+      .gjs-sm-layer {
+        border: solid 1px var(--theme-border) !important;
+        background-color: var(--theme-elevation-0) !important;
       }
     }
-  }
 
+    .gjs-sm-stack #gjs-sm-add {
+      top: -25px !important;
+
+    }
+  }
 }
 
 .gjs-field {
@@ -910,6 +907,12 @@ $deviceBackground: #2f3d55;
 .gjs-sm-layer {
   .gjs-sm-label-wrp {
     max-width: 150px;
+  }
+}
+
+.gjs-sm-stack {
+  .gjs-field .gjs-sm-active .gjs-sm-properties .gjs-sm-property {
+    flex-direction: column !important;
   }
 }
 

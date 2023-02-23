@@ -222,7 +222,7 @@ let typography = {
       property: 'letter-spacing',
       default: 0,
       unit: 'rem',
-      min: -1,
+      min: 0,
       max: 10,
       step: 1,
     },
@@ -3935,6 +3935,7 @@ const obj = {
       name: 'Body Text',
       open: false,
       buildProps: 'color',
+      id: 'body-text',
       properties: [typography],
     },
     {

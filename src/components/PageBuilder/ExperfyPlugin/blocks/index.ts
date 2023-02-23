@@ -1341,13 +1341,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     label: 'Theme Style',
     category: 'Section Modules',
     activate: true,
+    select: true,
+    disable: true,
     // media: ,
     content: [
       `<div id="theme_1" style="padding: 0px 20%;">
       <div class="global-theme-setting">
 
         <div class="button-section">
-          <button id="button" type="button" >Submit</button>
+          <button id="button" type="submit" >Submit</button>
         </div>
 
         <div class="images-sections">
