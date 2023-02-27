@@ -13,33 +13,35 @@ ENV ENV "$ENV"
 ENV PORT "$PORT"
 ENV MONGODB_URI "$MONGODB_URI"
 ENV PAYLOAD_PUBLIC_SERVER_URL "$PAYLOAD_PUBLIC_SERVER_URL"
-
 ENV APP_HOME /itarp-career-portal-cms-service
 
 RUN apk update --no-cache && \
     apk add --no-cache git curl
 
 WORKDIR $APP_HOME
-COPY package*.json ./
-
 COPY . .
-RUN yarn install
+RUN yarn install --save --legacy-peer-deps payload
+RUN yarn generate:types
 RUN yarn build
 
 FROM base as runtime
 
 ENV NODE_ENV=production
+ENV APP_HOME /itarp-career-portal-cms-service
+ENV ENV "$ENV"
+ENV PORT "$PORT"
+ENV MONGODB_URI "$MONGODB_URI"
+ENV PAYLOAD_PUBLIC_SERVER_URL "$PAYLOAD_PUBLIC_SERVER_URL"
 
-WORKDIR /home/node
-COPY package*.json  ./
+WORKDIR $APP_HOME
 
-RUN apk add --no-cache git
-RUN yarn install --production
+COPY package*.json ./
 
-COPY --from=builder /home/node/dist ./dist
-COPY --from=builder /home/node/build ./build
+RUN yarn install --production --save --legacy-peer-deps payload
 
-EXPOSE 3000
+COPY --from=builder $APP_HOME/dist ./dist
+COPY --from=builder $APP_HOME/build ./build
+
+EXPOSE $PORT
 
 CMD ["node", "dist/server.js"]
-

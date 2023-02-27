@@ -1,6 +1,7 @@
+import { Property } from './../../../../utilities/types';
 const fontFamilies = [
+  { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
   { value: 'proxima-nova', name: 'Proxima Nova' },
-  { value: 'Helvetica', name: 'Helvetia' },
   { value: 'Arial', name: 'Arial' },
   { value: 'Arial Black', name: 'Arial Black' },
   { value: 'Brush Script MT', name: 'Brush Script MT' },
@@ -65,19 +66,19 @@ const textDecorationOptions = [
 const textAlignOptions = [
   {
     value: 'left',
-    name: `<i aria-hidden="true"> [= </i>`,
+    name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
   },
   {
     value: 'center',
-    name: `<i aria-hidden="true"> = </i>`,
+    name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
   },
   {
     value: 'right',
-    name: `<i  aria-hidden="true"> =] </i>`,
+    name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
   },
   {
     value: 'justify',
-    name: `<i aria-hidden="true">[=]</i>`,
+    name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
   },
 ];
 
@@ -102,6 +103,19 @@ const State = {
     { value: 'normal', name: 'Normal' },
     { value: 'hover', name: 'Hover' },
   ],
+  onclick: function (e) {
+    const state = e.target.value;
+    const el = this.target;
+    const normal = el.querySelector('.normal');
+    const hover = el.querySelector('.hover');
+    if (state === 'normal') {
+      normal.style.display = 'block';
+      hover.style.display = 'none';
+    } else {
+      normal.style.display = 'none';
+      hover.style.display = 'block';
+    }
+  },
 };
 
 const shadowOptions = (which: String) => {
@@ -163,13 +177,12 @@ let typography = {
   type: 'stack',
   name: 'Typography',
   detached: true,
-
   properties: [
     {
       type: 'select',
       name: 'Font Family',
       property: 'font-family',
-      default: 'proxima-nova',
+      default: 'Proxima Nova',
       options: fontFamilies,
     },
     {

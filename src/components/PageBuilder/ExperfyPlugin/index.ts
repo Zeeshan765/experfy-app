@@ -1,8 +1,10 @@
+import { themestyle } from './blocks/style';
+import { getSectors } from './blocks/getSectors';
 import type GrapesJS from 'grapesjs';
-import blocks from './blocks';
 import commands from './commands';
-import './index.scss';
+import blocks from './blocks';
 import panels from './panels';
+import './index.scss';
 
 export type PluginOptions = {
   /**
