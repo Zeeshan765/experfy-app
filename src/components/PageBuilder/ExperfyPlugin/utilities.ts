@@ -18,6 +18,7 @@ export function ComponentSelection(
   sector: GrapesJS.Sector,
   editor: GrapesJS.Editor
 ) {
+  console.log('sector: ', sector);
   if (sector.isOpen()) {
     const wrapperCmp = editor.DomComponents.getWrapper();
     console.log('wrapperCmp: ', wrapperCmp);
