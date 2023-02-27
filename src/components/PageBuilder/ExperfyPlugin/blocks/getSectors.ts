@@ -1,6 +1,4 @@
-import { Property } from './../../../../utilities/types';
 const fontFamilies = [
-  { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
   { value: 'proxima-nova', name: 'Proxima Nova' },
   { value: 'Arial', name: 'Arial' },
   { value: 'Arial Black', name: 'Arial Black' },
@@ -66,19 +64,19 @@ const textDecorationOptions = [
 const textAlignOptions = [
   {
     value: 'left',
-    name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+    name: `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M12 4.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M21 14.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 19.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
   {
     value: 'center',
-    name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+    name: `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 9.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 19.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
   {
     value: 'right',
-    name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+    name: `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11.5293 9.5H20.9993" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11.5293 19.5H20.9993" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
   {
     value: 'justify',
-    name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+    name: `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.26001 9.5H16.74" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.26001 19.5H16.74" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
 ];
 
@@ -103,19 +101,19 @@ const State = {
     { value: 'normal', name: 'Normal' },
     { value: 'hover', name: 'Hover' },
   ],
-  onclick: function (e) {
-    const state = e.target.value;
-    const el = this.target;
-    const normal = el.querySelector('.normal');
-    const hover = el.querySelector('.hover');
-    if (state === 'normal') {
-      normal.style.display = 'block';
-      hover.style.display = 'none';
-    } else {
-      normal.style.display = 'none';
-      hover.style.display = 'block';
-    }
-  },
+  // onclick: function (e) {
+  //   const state = e.target.value;
+  //   const el = this.target;
+  //   const normal = el.querySelector('.normal');
+  //   const hover = el.querySelector('.hover');
+  //   if (state === 'normal') {
+  //     normal.style.display = 'block';
+  //     hover.style.display = 'none';
+  //   } else {
+  //     normal.style.display = 'none';
+  //     hover.style.display = 'block';
+  //   }
+  // },
 };
 
 const shadowOptions = (which: String) => {
@@ -182,7 +180,7 @@ let typography = {
       type: 'select',
       name: 'Font Family',
       property: 'font-family',
-      default: 'Proxima Nova',
+      default: 'proxima-nova',
       options: fontFamilies,
     },
     {
@@ -2446,7 +2444,7 @@ const obj = {
             },
             {
               value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+              name: '<span style="font-style: italic;">I</span>',
             },
             {
               value: 'underline',
@@ -2554,7 +2552,7 @@ const obj = {
             },
             {
               value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+              name: '<span style="font-style: underline;"></span>',
             },
             {
               value: 'underline',
@@ -3427,7 +3425,7 @@ const obj = {
             },
             {
               value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+              name: '<span style="font-style: underline;"></span>',
             },
             {
               value: 'underline',
@@ -3808,10 +3806,6 @@ const obj = {
             { value: 'uppercase', name: '<span>TT</span>' },
             { value: 'lowercase', name: '<span>tt</span>' },
             { value: 'capitalize', name: '<span>Tt</span>' },
-            // { value: 'default', name: 'Default' },
-            // { value: 'uppercase', name: 'Uppercase' },
-            // { value: 'lowercase', name: 'Lowercase' },
-            // { value: 'capitalize', name: 'Capitalize' },
           ],
         },
       ],

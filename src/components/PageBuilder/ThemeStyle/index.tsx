@@ -99,6 +99,7 @@ const ThemeStyle: React.FC = () => {
             id: 'save-editor',
             hidden: true,
             run(editor: { store: () => GrapesJS.Editor }) {
+              handleSaveStyles();
               editor.store();
             },
           },
@@ -124,14 +125,28 @@ const ThemeStyle: React.FC = () => {
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
       editor.addComponents(block.get('content'));
+      const themeComponent = editor.getComponents()[0];
       sectors.reset();
       sectors.add(getSectors('theme_1'));
       editor.runCommand('core:open-styles');
     });
-    //@ts-ignore
     editor.on('style:sector:update', (sector) => {
+      console.log('sector', sector);
       ComponentSelection(sector, editor);
     });
+
+    editor.on('style:property:update', (callback) => {
+      // callback is an object
+      const property = callback.property;
+      // get property name
+      const propertyName = property.get('name');
+      console.log('propertyName', propertyName);
+      if (propertyName === 'State') {
+        //TODO need fix before we can use this
+        //editor.Selectors.select(callback.value);
+      }
+    });
+
     const handleSaveStyles = () => {
       updateUserDefaultStyle();
     };
