@@ -10,7 +10,7 @@ const LOGIN_API_URL = 'https://landing-ui-service.develop.experfy.com/login';
 // Initialize Payload
 payload.init({
   secret: process.env.PAYLOAD_SECRET ?? '1S2Xf3SF1SAA1UZR2SX',
-  mongoURL: process.env.MONGODB_URI ?? 'mongodb://localhost/experfy-payload/',
+  mongoURL: process.env.MONGODB_URI ?? 'mongodb://localhost/experfy-payload',
   express: app,
   onInit: () => {
     payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);

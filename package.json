@@ -41,7 +41,7 @@
     "bootstrap": "^4.6.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "grapesjs": "^0.20.3",
+    "grapesjs": "^0.19.5",
     "grapesjs-blocks-basic": "^1.0.1",
     "grapesjs-indexeddb": "^1.0.4",
     "grapesjs-navbar": "^1.0.1",

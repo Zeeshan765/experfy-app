@@ -1342,7 +1342,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Section Modules',
     activate: true,
     select: true,
-    disable: true,
+
     // media: ,
     content: [
       `<div id="theme_1" style="padding: 0px 20%;">

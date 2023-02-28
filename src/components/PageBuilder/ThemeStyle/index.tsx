@@ -2,21 +2,15 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import axios from 'axios';
 import GrapesJS from 'grapesjs';
-import { Options } from 'http-proxy-middleware';
-import payload from 'payload';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import { useAuth, useConfig } from 'payload/components/utilities';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { StyleContext } from '../../../Providers/StyleProvider';
 import Experfy from '../ExperfyPlugin';
 import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
-import {
-  CloseAllSectors,
-  ComponentSelection,
-} from '../ExperfyPlugin/utilities';
+import { ComponentSelection } from '../ExperfyPlugin/utilities';
 
 const ThemeStyle: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -24,8 +18,7 @@ const ThemeStyle: React.FC = () => {
   const { setStepNav } = useStepNav();
   const { routes } = useConfig();
   const { admin } = routes;
-  const { userDefaultStyleString, getStyle, defaultStyles } =
-    useContext(StyleContext);
+  // const { userDefaultStyleString } = useContext(StyleContext);
 
   const { serverURL } = useConfig();
 
@@ -54,16 +47,27 @@ const ThemeStyle: React.FC = () => {
     editor = GrapesJS.init({
       container: '.editor',
       fromElement: false,
-      avoidDefaults: true,
       showDevices: false,
       plugins: [ExperfyBlocks],
       layerManager: null,
-      selectorManager: {},
+      selectorManager: {
+        states: [
+          {
+            name: 'Hover',
+            label: 'Hover',
+            value: ':hover',
+          },
+          {
+            name: 'Active',
+            label: 'Active',
+            value: ':active',
+          },
+        ],
+      },
       styleManager: {
         appendTo: '.styles-container',
       },
-      canvasCss:
-        localStorage.getItem('theme_style_css') || userDefaultStyleString,
+      canvasCss: localStorage.getItem('theme_style_css'),
       storageManager: {
         type: 'local',
         autosave: false,
@@ -88,9 +92,6 @@ const ThemeStyle: React.FC = () => {
 
           localStorage.setItem('theme_style_css', css);
           toast.success('Theme Style Saved');
-          return {
-            css: css,
-          };
         },
       },
       commands: {
@@ -105,51 +106,23 @@ const ThemeStyle: React.FC = () => {
           },
         ],
       },
-
-      traitManager: null,
-      blockManager: null,
     });
-
-    // //Theme Style Sector
-    // editor.on(`block:drag:stop`, (component, block) => {
-    //   if (component) {
-    //     // console.log('theme component', component);
-    //     let ccid = component.ccid.split('-')[0];
-    //     const themeSector = editor.StyleManager.getSectors();
-    //     themeSector.reset();
-    //     themeSector.add(getSectors(ccid));
-    //   }
-    // });
 
     editor.onReady(() => {
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
       editor.addComponents(block.get('content'));
-      const themeComponent = editor.getComponents()[0];
+      const themeComponent = editor.getComponents();
+      console.log('themeComponent', themeComponent);
       sectors.reset();
       sectors.add(getSectors('theme_1'));
+      // editor.select(themeComponent);
       editor.runCommand('core:open-styles');
     });
     editor.on('style:sector:update', (sector) => {
       console.log('sector', sector);
       ComponentSelection(sector, editor);
     });
-
-    editor.on('style:property:update', (callback) => {
-      // callback is an object
-      const property = callback.property;
-      // get property name
-      const propertyName = property.get('name');
-      console.log('propertyName', propertyName);
-      if (propertyName === 'State') {
-        //TODO need fix before we can use this
-        //editor.Selectors.select(callback.value);
-      }
-    });
-
-    const handleSaveStyles = () => {
-      updateUserDefaultStyle();
-    };
     setEditorState(editor);
   }, [setEditorState]);
 
