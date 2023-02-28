@@ -100,7 +100,7 @@ const ThemeStyle: React.FC = () => {
             id: 'save-editor',
             hidden: true,
             run(editor: { store: () => GrapesJS.Editor }) {
-              handleSaveStyles();
+              updateUserDefaultStyle();
               editor.store();
             },
           },
