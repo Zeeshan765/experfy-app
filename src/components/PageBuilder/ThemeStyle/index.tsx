@@ -5,12 +5,16 @@ import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import { useAuth, useConfig } from 'payload/components/utilities';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { UserContext } from '../../../Providers/UserProvider';
 import Experfy from '../ExperfyPlugin';
 import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
-import { ComponentSelection } from '../ExperfyPlugin/utilities';
+import { toast } from 'react-toastify';
+import {
+  CloseAllSectors,
+  ComponentSelection,
+} from '../ExperfyPlugin/utilities';
 
 const ThemeStyle: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -18,7 +22,7 @@ const ThemeStyle: React.FC = () => {
   const { setStepNav } = useStepNav();
   const { routes } = useConfig();
   const { admin } = routes;
-  // const { userDefaultStyleString } = useContext(StyleContext);
+  const { userData, setUserData } = useContext(UserContext);
 
   const { serverURL } = useConfig();
 
@@ -32,6 +36,13 @@ const ThemeStyle: React.FC = () => {
   }, [setStepNav]);
 
   useEffect(() => {
+    if (userData !== null) {
+      initializeInstance();
+    }
+  }, [userData]);
+
+  const initializeInstance = () => { 
+    editor?.destroy();
     const sections = ['theme-style'];
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,
@@ -47,53 +58,47 @@ const ThemeStyle: React.FC = () => {
     editor = GrapesJS.init({
       container: '.editor',
       fromElement: false,
+      avoidDefaults: true,
       showDevices: false,
       plugins: [ExperfyBlocks],
       layerManager: null,
-      selectorManager: {
-        states: [
-          {
-            name: 'Hover',
-            label: 'Hover',
-            value: ':hover',
-          },
-          {
-            name: 'Active',
-            label: 'Active',
-            value: ':active',
-          },
-        ],
+      storageManager: {
+        autoload: false,
+        type: 'none',
       },
       styleManager: {
         appendTo: '.styles-container',
       },
-      canvasCss: localStorage.getItem('theme_style_css'),
-      storageManager: {
-        type: 'local',
-        autosave: false,
-        autoload: false,
-        onStore: (data) => {
-          console.log('data', data);
-          let css = editor.getCss().toString();
-          // we need to replace the ids with the html tags
-          css = css
-            .replace('#button', 'button')
-            .replace('#image', 'img')
-            .replace('#h1', 'h1')
-            .replace('#h2', 'h2')
-            .replace('#h3', 'h3')
-            .replace('#h4', 'h4')
-            .replace('#h5', 'h5')
-            .replace('#h6', 'h6')
-            .replace('#p', 'p')
-            .replace('#a', 'a')
-            .replace('#input', 'input')
-            .replace('#label', 'label');
-
-          localStorage.setItem('theme_style_css', css);
-          toast.success('Theme Style Saved');
-        },
-      },
+      // canvasCss:
+      //   localStorage.getItem('theme_style_css') || userDefaultStyleString,
+      // storageManager: {
+      //   type: 'local',
+      //   autosave: false,
+      //   autoload: false,
+      //   onStore: (data) => {
+      //     console.log('data', data);
+      //     let css = editor.getCss().toString();
+      //     // we need to replace the ids with the html tags
+      //     css = css
+      //       .replace('#button', 'button')
+      //       .replace('#image', 'img')
+      //       .replace('#h1', 'h1')
+      //       .replace('#h2', 'h2')
+      //       .replace('#h3', 'h3')
+      //       .replace('#h4', 'h4')
+      //       .replace('#h5', 'h5')
+      //       .replace('#h6', 'h6')
+      //       .replace('#p', 'p')
+      //       .replace('#a', 'a')
+      //       .replace('#input', 'input')
+      //       .replace('#label', 'label');
+      //     localStorage.setItem('theme_style_css', css);
+      //     toast.success('Theme Style Saved');
+      //     return {
+      //       css: css,
+      //     };
+      //   },
+      // },
       commands: {
         defaults: [
           {
@@ -101,43 +106,180 @@ const ThemeStyle: React.FC = () => {
             hidden: true,
             run(editor: { store: () => GrapesJS.Editor }) {
               updateUserDefaultStyle();
-              editor.store();
             },
           },
         ],
       },
+
+      traitManager: null,
+      blockManager: null,
     });
+    localStorage.removeItem('gjsProject');
+
+    editor.on(`block:drag:stop`, (component, block) => {
+      if (component) {
+        let ccid = component.ccid.split('-')[0];
+        const themeSector = editor.StyleManager.getSectors();
+        themeSector.reset();
+        themeSector.add(getSectors(ccid));
+      }
+    });
+    // editor.Panels.addPanel({
+    //   id: 'views-container',
+    //   el: '.gjs-views-container',
+    //   visible: true,
+    // });
+    // const sectors = editor.getComponents().filter(component => component.get('type') === 'sector');
+
+    // let selectedSector = null;
+    
+
+
+    // sectorcontainer.get('buttons').add([
+    //   {
+    //     id: 'close-all-sectors',
+    //     className: 'fa fa-times',
+    //     command: 'close-all-sectors',
+    //     attributes: { title: 'Close All Sectors' },
+    //   },
+    // ]);
+
+    // editor.Commands.add('close-all-sectors', (editor) => {
+    //   CloseAllSectors(editor);
+    // });
+
+    // editor.on('component:selected', (component) => {
+    //   ComponentSelection(editor, component);
+    // });
+
+    // editor.on('component:deselected', (component) => {
+    //   ComponentSelection(editor, component);
+    // });
+
+    // //CLose Single Sector
+    // editor.on('sector:close', (sector) => {
+     
+
+
+
+
+
+
+
+
+
+
 
     editor.onReady(() => {
+      // const data = editor.StorageManager.load({
+      //   key: 'theme_style',
+      // });
+      // editor.loadProjectData(data);
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
-      editor.addComponents(block.get('content'));
-      const themeComponent = editor.getComponents();
-      console.log('themeComponent', themeComponent);
+
+      const component = editor.addComponents(block.get('content'));
+      // component.forEach((comp) => {
+      //   comp.set('draggable', false);
+      //   comp.set('droppable', false);
+      //   comp.set('stylable', false);
+      //   comp.set('hoverable', false);
+      //   comp.set('selectable', false);
+      // });
+
       sectors.reset();
+
       sectors.add(getSectors('theme_1'));
-      // editor.select(themeComponent);
       editor.runCommand('core:open-styles');
+      editor.getWrapper().set('hoverable', false);
+      editor.getWrapper().set('selectable', false);
     });
+
+
+    // let sectorsCheck=[];
+
+    editor.on('load', () => {
+      console.log('defaultStyle', userData.defaultStyle);
+      editor.loadProjectData({
+        ...Object.assign(
+          {},
+          { ...editor.getProjectData() },
+          userData.defaultStyle.pageData
+        ),
+      });
+
+
+
+
+      const components = editor.getComponents();
+      console.log("components----------->", components );
+
+  for (let i = 0; i < components.length; i++) {
+  console.log("components[i]----------->", components[i] );
+  }
+
+      // for (let i = 0; i < components.length; i++) {
+      //   if (components[i].get('type') === 'sector') {
+      //     sectorsCheck.push(components[i]);
+      //   }
+      // }
+    });
+//     let reselectedSector = null;
+
+// editor.on('component:selected', model => {
+//   const newSelectedSector = sectorsCheck.filter(sector => sector.get('name') === model.get('sector'))[0];
+
+//   if (reselectedSector && newSelectedSector !== reselectedSector) {
+//     reselectedSector.set('open', false);
+//   }
+
+//   reselectedSector = newSelectedSector;
+// });
+
     editor.on('style:sector:update', (sector) => {
-      console.log('sector', sector);
       ComponentSelection(sector, editor);
     });
+
     setEditorState(editor);
-  }, [setEditorState]);
+
+  }
 
   const updateUserDefaultStyle = async () => {
     let apiEndpoint = `${serverURL}/api/users/${user.id}`;
+    let arr = [
+      'button',
+      'img',
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'a',
+      'input',
+      'textarea',
+    ];
 
+    let filteredStyles = editor
+      .getProjectData()
+      .styles.filter((el) => arr.includes(el.selectors[0]));
+    console.log('filteredStyles', filteredStyles);
     try {
       const formData = new FormData();
-      formData.append('_payload', JSON.stringify(editor.getCss()));
+      formData.append(
+        '_payload',
+        JSON.stringify({
+          defaultStyle: { filteredStyles, pageData: editor.getProjectData() },
+        })
+      );
       const res = await axios.patch(apiEndpoint, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
+      toast.success('Theme Style Saved');
       const { doc } = res.data;
+      setUserData({ ...userData, ...doc });
     } catch (error) {
       console.error(error);
       return error;

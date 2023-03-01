@@ -18,9 +18,10 @@ const checkUser: CollectionBeforeLoginHook = async ({ req, user }) => {
       password: 'ars@123456',
     }),
   }).then((response) => response.json().then((data) => data));
-  console.log(response.access_token); //access token on login
+  console.log('token get ---->', response.access_token); //access token on login
   user.auth = {
     tokenExpiration: response.expires_in,
+    token: response.access_token,
   };
   if (!user) {
     throw new Error('User not found');
@@ -76,10 +77,12 @@ const Users: CollectionConfig = {
     {
       name: 'defaultStyle',
       label: 'Default Style',
+      // defaultValue: '{"styles":{}}',
       type: 'json',
+      required: false,
       admin: {
         hidden: true,
-      }
+      },
     },
   ],
   hooks: {

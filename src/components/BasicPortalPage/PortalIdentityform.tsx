@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useStepNav } from 'payload/components/hooks';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
-import { Controller,  useFieldArray, useForm } from 'react-hook-form';
+import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import FormSelect from '../../blocks/FormSelect';
@@ -32,7 +32,6 @@ const PortalIdentityForm: React.FC = (props: any) => {
   const [defaultBrands, setDefaultBrands] = useState([]);
   const [touched, setTouched] = useState('');
   const { setStepNav } = useStepNav();
-  
 
   useEffect(() => {
     setStepNav([
@@ -52,7 +51,7 @@ const PortalIdentityForm: React.FC = (props: any) => {
     watch,
     formState: { errors },
   } = useForm({});
-  console.log( 'values', getValues() );
+  console.log('values', getValues());
 
   const {
     admin: { user: userSlug },
@@ -111,21 +110,21 @@ const PortalIdentityForm: React.FC = (props: any) => {
   return (
     <DialogContent>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <p className="mb-4">
+        <p className='mb-4'>
           Fill in the information below and you will be on your way to creating
           your Career portal
         </p>
 
-        <div className="row">
-          <div className="col-md-8">
+        <div className='row'>
+          <div className='col-md-8'>
             <Controller
               render={({ field }) => (
                 <TextInput
                   {...field}
                   required
                   name={'career_portal_name'}
-                  label="Career Portal Name"
-                  placeholder="Company Career Portal"
+                  label='Career Portal Name'
+                  placeholder='Company Career Portal'
                   id={'career_portal_name'}
                   onFocus={() => {
                     setTouched('career_portal_name');
@@ -135,13 +134,13 @@ const PortalIdentityForm: React.FC = (props: any) => {
                   }}
                 />
               )}
-              name="career_portal_name"
+              name='career_portal_name'
               control={control}
             />
           </div>
 
-          <div className="col-md-4">
-            <div className="tip-wrapper">
+          <div className='col-md-4'>
+            <div className='tip-wrapper'>
               {touched === 'career_portal_name' && (
                 <FormTip text={portal_name_tip} />
               )}
@@ -149,17 +148,19 @@ const PortalIdentityForm: React.FC = (props: any) => {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-8">
+        <div className='row'>
+          <div className='col-md-8'>
             <Controller
               render={({ field }) => (
                 <TextInput
                   {...field}
                   required
-                  label="Portal ID"
+                  label='Portal ID'
                   value={Math.random().toString(9).substr(2, 9)}
+                  // value="123456789"
+                  // disabled={true}
                   id={'portal_id'}
-                  name={"portal_id"}
+                  name={'portal_id'}
                   onFocus={() => {
                     setTouched('portal_id');
                   }}
@@ -168,13 +169,13 @@ const PortalIdentityForm: React.FC = (props: any) => {
                   }}
                 />
               )}
-              name={"portal_id"}
+              name={'portal_id'}
               control={control}
             />
           </div>
 
-          <div className="col-md-4">
-            <div className="tip-wrapper">
+          <div className='col-md-4'>
+            <div className='tip-wrapper'>
               {touched === 'portal_id' && (
                 <FormTip text={'The read only filed displays the Portal ID'} />
               )}
@@ -182,19 +183,19 @@ const PortalIdentityForm: React.FC = (props: any) => {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-8">
+        <div className='row'>
+          <div className='col-md-8'>
             <Controller
               render={({ field }) => (
                 <TextInput
                   {...field}
-                  label="Portal URL"
+                  label='Portal URL'
                   required
-                  placeholder="www.experfy.com/career-portal-experfy"
+                  placeholder='www.experfy.com/career-portal-experfy'
                   id={'portal_url'}
-                  name={"portal_url"}
+                  name={'portal_url'}
                   startAdornment={
-                    <InputAdornment position="start">https://</InputAdornment>
+                    <InputAdornment position='start'>https://</InputAdornment>
                   }
                   onFocus={() => {
                     setTouched('portal_url');
@@ -204,22 +205,22 @@ const PortalIdentityForm: React.FC = (props: any) => {
                   }}
                 />
               )}
-              name={"portal_url"}
+              name={'portal_url'}
               control={control}
             />
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-8">
+        <div className='row'>
+          <div className='col-md-8'>
             <Controller
               render={({ field }) => (
                 <TextInput
                   {...field}
                   required
-                  label="Company Name"
+                  label='Company Name'
                   id={'company_name'}
-                  name={"company_name"}
+                  name={'company_name'}
                   onFocus={() => {
                     setTouched('company_name');
                   }}
@@ -228,13 +229,13 @@ const PortalIdentityForm: React.FC = (props: any) => {
                   }}
                 />
               )}
-              name={"company_name"}
+              name={'company_name'}
               control={control}
             />
           </div>
 
-          <div className="col-md-4">
-            <div className="tip-wrapper">
+          <div className='col-md-4'>
+            <div className='tip-wrapper'>
               {touched === 'company_name' && (
                 <FormTip text={company_name_tip} />
               )}
@@ -242,17 +243,17 @@ const PortalIdentityForm: React.FC = (props: any) => {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-8">
+        <div className='row'>
+          <div className='col-md-8'>
             <Controller
               render={({ field }) => {
                 return (
                   <FormSelect
                     {...field}
-                    label="Default Language"
+                    label='Default Language'
                     id={'default_language'}
                     defaultValue={'en'}
-                    name={"default_language"}
+                    name={'default_language'}
                     options={[
                       { value: 'en', label: 'English' },
                       { value: 'es', label: 'Spanish' },
@@ -266,22 +267,22 @@ const PortalIdentityForm: React.FC = (props: any) => {
                   />
                 );
               }}
-              name={"default_language"}
+              name={'default_language'}
               control={control}
             />
           </div>
 
-          <div className="col-md-4">
-            <div className="tip-wrapper">
+          <div className='col-md-4'>
+            <div className='tip-wrapper'>
               {touched === 'default_language' && (
-                <FormTip text="Set the default language of your career portal for your visitors" />
+                <FormTip text='Set the default language of your career portal for your visitors' />
               )}
             </div>
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-8">
+        <div className='row'>
+          <div className='col-md-8'>
             <Controller
               render={({ field }) => (
                 <FormSelect
@@ -290,7 +291,7 @@ const PortalIdentityForm: React.FC = (props: any) => {
                     { value: 'en_US', label: 'es_US' },
                     { value: 'es_ES', label: 'es_ES' },
                   ]}
-                  label="Default Locale"
+                  label='Default Locale'
                   id={'default_locale'}
                   name={'default_locale'}
                   defaultValue={'en_US'}
@@ -302,22 +303,22 @@ const PortalIdentityForm: React.FC = (props: any) => {
                   }}
                 />
               )}
-              name={"default_locale"}
+              name={'default_locale'}
               control={control}
             />
           </div>
 
-          <div className="col-md-4">
-            <div className="tip-wrapper">
+          <div className='col-md-4'>
+            <div className='tip-wrapper'>
               {touched === 'default_locale' && (
-                <FormTip text="Set the default locale of your career portal for your visitors" />
+                <FormTip text='Set the default locale of your career portal for your visitors' />
               )}
             </div>
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-12">
+        <div className='row'>
+          <div className='col-md-12'>
             <p>
               If you want to create micro-site for your different brands within
               your career portal, enable branding below.
@@ -325,16 +326,16 @@ const PortalIdentityForm: React.FC = (props: any) => {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-4 d-flex align-items-center">
+        <div className='row'>
+          <div className='col-md-4 d-flex align-items-center'>
             <FormSwitch
-              label="Branding On"
+              label='Branding On'
               handleSwitchChange={handleSwitchChange}
               checked={brandSwitch}
             />
           </div>
         </div>
-        <button className="btn btn--style-primary" type="submit">
+        <button className='btn btn--style-primary' type='submit'>
           Save
         </button>
       </form>

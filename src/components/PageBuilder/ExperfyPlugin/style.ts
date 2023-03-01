@@ -692,18 +692,18 @@ display: flex;
 
 
   /* /////////////////////////////////////////////
-  /////////// paractice Area style //////////
+  /////////// practice Area style //////////
  /////////////////////////////////////////// */
- .main-paractice-wrapper{
+ .main-practice-wrapper{
 }
-.main-paractice-wrapper .section-title{
+.main-practice-wrapper .section-title{
 
  font-family: ProximaNova,sans-serif;
  line-height: 1.2;
  
  text-align: center;
 }
-.main-paractice-wrapper .paractice-area-container{
+.main-practice-wrapper .practice-area-container{
  display: grid;
  grid-template-columns: repeat(7, 1fr);
  // column-gap: 20px;

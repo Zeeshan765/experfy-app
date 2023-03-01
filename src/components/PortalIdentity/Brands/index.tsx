@@ -20,7 +20,7 @@ import { makeStyles } from '@mui/styles';
 // import DescriptionAlerts from '../../components/Messages';
 // import FormSelect from '../../components/FormSelect';
 // import FormSwitch from '../../components/FormSwitch';
-// import ActionsGroup from '../../components/ActionsGroups';
+// import ActionsGroup from "../../components/ActionsGroups";
 import AddIcon from '@mui/icons-material/Add';
 import FormSwitch from '../../../blocks/FormSwitch';
 import FormSelect from '../../../blocks/FormSelect';
@@ -32,6 +32,10 @@ import { useConfirm } from 'material-ui-confirm';
 import { useEffect } from 'react';
 import Brandpopup from './Brandpopup';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import { useConfig } from 'payload/components/utilities';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const useStyles = makeStyles({
   radioExample: {
@@ -45,6 +49,11 @@ const useStyles = makeStyles({
       borderRadius: '.25rem',
       display: 'inline-block',
     },
+  },
+  actions: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '0px',
   },
 });
 
@@ -61,6 +70,8 @@ export default function Brands(props) {
   const [activeRow, setActiveRow] = useState(false);
   const [defaultBrand, setDefaultBrand] = useState('');
   const [data, setData] = useState([]);
+  const [isUpdateBrand, setIsUpdateBrand] = useState(false);
+  const [brandData, setBrandData] = useState({});
   const [defaultValues, setDefaultValues] = useState({
     name: '',
     identifier: '',
@@ -71,11 +82,17 @@ export default function Brands(props) {
   const [brandOptionList, setBrandOptionList] = useState([]);
 
   const confirm = useConfirm();
-  const { control, handleSubmit, reset, setValue } = useForm({
+  const { control, handleSubmit, reset, setValue, getValues } = useForm({
     defaultValues,
   });
-  const { brands } = props.propsData;
-
+  const { propsData } = props;
+  const { brands } = propsData;
+  const {
+    admin: { user: userSlug },
+    collections,
+    serverURL,
+    routes: { admin, api },
+  } = useConfig();
 
   const handleReset = () => {
     reset({});
@@ -84,17 +101,37 @@ export default function Brands(props) {
   const handleAddBrand = (newItem) => {
     setAddBrand(true);
     setData([...data, { ...newItem }]);
+    toast.success('Brand Added successfully');
     setOpen(true);
   };
+
+  const handleUpdateBrand = (newItem) => {
+    const { index } = newItem;
+    let allData = [...data];
+    allData[index] = {
+      ...data[index],
+      ...newItem,
+    };
+    setIsUpdateBrand(false);
+    setBrandData({});
+    setData(allData);
+    toast.success('Brands Updated successfully');
+    handleClose();
+  };
+
   const handleEditBrand = () => {
     setEditBrand(true);
   };
+
   const handleEditBrandClose = () => {
     setEditBrand(false);
   };
+
   const handleOpen = () => {
+    setIsUpdateBrand(false);
     setOpen(true);
   };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -103,10 +140,10 @@ export default function Brands(props) {
     setSaveEditRecord(data);
     setOpenEdit(true);
   };
+
   const handleEditClose = (data) => {
     setOpenEdit(false);
   };
-
 
   useEffect(() => {
     setValue('name', '');
@@ -114,10 +151,7 @@ export default function Brands(props) {
     setValue('microsite_identifier', '');
   }, [open]);
 
-
-
   const getlist = () => {
-    console.log('brands', brands);
     let updatedBrands = brands.map((i) => ({
       id: i.id,
       name: i.brand_name,
@@ -125,7 +159,6 @@ export default function Brands(props) {
       microsite_identifier: i.microsoft_identifier,
       // default_brand: i.default_brand,
     }));
-    console.log('updatedBrands', updatedBrands);
     setData(updatedBrands);
   };
 
@@ -135,52 +168,115 @@ export default function Brands(props) {
     }
   }, [brands]);
 
-  
+  React.useEffect(() => {
+    reset({ ...propsData });
+  }, [propsData]);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    if (propsData.id) {
+      let apiEndpoint = `${serverURL}${api}/brand/${propsData.id}`;
+      try {
+        const formData = new FormData();
+        formData.append('_payload', JSON.stringify(data));
+        const res = await axios.patch(apiEndpoint, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+
+        toast.success('Brands Updated successfully');
+      } catch (error) {
+        console.error(error);
+        return error;
+      }
+    }
   };
 
-  const handleDelete = (event, data) => {
-    console.log("data of deler", data)
+  const handleDelete = (index) => {
+    
+    let allData = [...data];
+   
+    allData.splice(index, 1);
+    setData(allData);
   };
 
+  const onUpdateClick = (editItem) => {
+    setOpen(true);
+    setIsUpdateBrand(true);
+    setBrandData(editItem);
+  };
 
+  const handleSwitchChange = (checked, row, index) => {
+    let allData = [...data];
+    allData[index] = {
+      ...data[index],
+      brandSwitch: checked,
+    };
+    setData(allData);
+  };
+    const onClickBrandName = () => {
+    updateDefaultBrands();
+  };
+  const updateDefaultBrands = () => {
+    let brands = getValues()?.brands || [];
 
+    let filteredBrands = brands
+      .filter((brand) => brand.brand_name?.length > 0)
+      .map((i) => ({
+        value: i.brand_name,
+        label: i.brand_name,
+      }));
+    setBrandOptionList(filteredBrands || []);
+  };
 
-  
   const columns = [
-    { id: 'name', label: 'Brand Name', minWidth: 170 },
-    { id: 'identifier', label: 'URL Brand Identifier', minWidth: 100 },
+    { id: 'name', label: 'Brand Name', minWidth: 170, align: 'left' },
+    {
+      id: 'identifier',
+      label: 'URL Brand Identifier',
+      minWidth: 100,
+      align: 'center',
+    },
     {
       id: 'microsite_identifier',
       label: 'Microsite Identifier',
       minWidth: 170,
+      align: 'center',
     },
     {
       id: 'Actions',
       label: 'Action',
       minWidth: 170,
       align: 'center',
-      label: 'Action',
-      renderCell: (row, handleDelete, handleSwitchChange) => {
+      renderCell: (row, index) => {
         return (
-          <Stack direction="row" alignItems="center" spacing={1}>
-            <FormSwitch handleSwitchChange={handleSwitchChange} record={row} />
-            <DeleteIcon style={{cursor:'pointer'}} onClick={() => remove(index)} />
-            {/* <ActionsGroup
-              record={row}
-              handleDelete={handleDelete}
-              handleEditOpen={handleEditOpen}
-              hasEdit={true}
-              hasDelete={true}
-            /> */}
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            className={classes.actions}
+          >
+            <FormSwitch
+              onChange={(e) => handleSwitchChange(e, row, index)}
+              checked={row.brandSwitch}
+              label=""
+            />
+            <DeleteIcon
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleDelete(index)}
+            />
+            <EditIcon
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                onUpdateClick({ ...row, index });
+              }}
+            />
           </Stack>
         );
       },
     },
   ];
-  console.log('data', data);
+
   return (
     <>
       {open && (
@@ -188,6 +284,9 @@ export default function Brands(props) {
           open={open}
           setOpen={setOpen}
           handleAddBrand={handleAddBrand}
+          handleUpdateBrand={handleUpdateBrand}
+          data={brandData}
+          isUpdate={isUpdateBrand}
         />
       )}
       <Box sx={{ p: 1 }}>
@@ -201,6 +300,7 @@ export default function Brands(props) {
                     options={brandOptionList}
                     name="defaultBrand"
                     label="Default Brand"
+                    onFocus={onClickBrandName}
                   />
                 )}
                 name="default_brand"
@@ -305,7 +405,7 @@ export default function Brands(props) {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {data.map((row) => {
+                    {data.map((row, index) => {
                       return (
                         <TableRow key={`${row?.identifier + row?.name}`}>
                           {columns.map((column) => {
@@ -322,7 +422,7 @@ export default function Brands(props) {
                                         typeof value === 'number'
                                         ? column.format(value)
                                         : value
-                                      : column.renderCell(row, handleDelete)}
+                                      : column.renderCell(row, index)}
                                   </TableCell>
                                 ) : (
                                   <TableCell
@@ -349,9 +449,9 @@ export default function Brands(props) {
               </TableContainer>
             </Grid>
             <Grid item xs={12}>
-              {/* <Button variant="contained" color="primary" type="submit">
-              Save
-            </Button> */}
+              <button className="btn btn--style-primary" type="submit">
+                Save
+              </button>
             </Grid>
           </Grid>
         </form>
@@ -359,75 +459,3 @@ export default function Brands(props) {
     </>
   );
 }
-
-// {/* <Dialog
-//   open={openEdit}
-//   onClose={handleEditClose}
-//   maxWidth="md"
-//   fullWidth={true}
-// >
-//   <form onSubmit={handleSubmit(onSubmit)}>
-//     <DialogTitle sx={{ borderBottom: '1px solid #d1dbe3' }}>
-//       <Grid container justifyContent="space-between" alignItems="center">
-//         <Typography variant="h4">Edit Brand</Typography>
-//         <IconButton
-//           onClick={() => {
-//             handleEditClose();
-//             handleEditBrandClose();
-//           }}
-//         >
-//           <CloseIcon />
-//         </IconButton>
-//       </Grid>
-//     </DialogTitle>
-//     <DialogContent>
-//       <Grid container spacing={3} pt={4}>
-//         <Grid item xs={12}>
-//           <Controller
-//             render={({ field }) => {
-//               return <TextInput {...field} label="Brand Name" />;
-//             }}
-//             name="name"
-//             control={control}
-//             reset={reset}
-//           />
-//         </Grid>
-//         <Grid item xs={12}>
-//           <Controller
-//             render={({ field }) => {
-//               return (
-//                 <TextInput {...field} label="URL Brand Identifier" />
-//               );
-//             }}
-//             name="identifier"
-//             control={control}
-//             reset={reset}
-//           />
-//         </Grid>
-//         <Grid item xs={12}>
-//           <Controller
-//             render={({ field }) => {
-//               return <TextInput {...field} label="Microsite ID" />;
-//             }}
-//             name="microsite_identifier"
-//             control={control}
-//             reset={reset}
-//           />
-//         </Grid>
-//       </Grid>
-//     </DialogContent>
-//     <DialogActions>
-//       <Grid container>
-//         <Button
-//           type="submit"
-//           variant="contained"
-//           onClick={() => {
-//             handleEditBrand();
-//           }}
-//         >
-//           Save
-//         </Button>
-//       </Grid>
-//     </DialogActions>
-//   </form>
-// </Dialog> */}

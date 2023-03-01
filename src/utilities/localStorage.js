@@ -3,7 +3,7 @@ export const getDataFromStorage = (name) => {
 };
 
 export const setDataToLocalstorage = (name, value) => {
-  localStorage.setItem(name, JSON.stringify(value));
+  localStorage.setItem(name, value);
 };
 
 export const deleteDataFromLocalStorage = (name) => {

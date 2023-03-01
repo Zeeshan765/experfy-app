@@ -20,7 +20,6 @@ const Brand: CollectionConfig = {
       label: 'Portal Name',
       name: 'career_portal_name',
       type: 'text',
-      // defaultValue: "Career Portal",
 
       required: false,
     },
@@ -31,7 +30,6 @@ const Brand: CollectionConfig = {
     },
     {
       name: 'portal_id',
-      // unique: true,
       type: 'text',
     },
     {
@@ -81,11 +79,15 @@ const Brand: CollectionConfig = {
       name: 'meta_description',
       type: 'text',
     },
-    // {
-    //   name: 'default_brand',
-    //   type: 'select',
-    //   options: ['brand1', 'brand2'],
-    // },
+    {
+      name: 'default_brand',
+      label: 'Default Brand',
+      type: 'array',
+     fields: [
+
+     ],
+     
+    },
     {
       name: 'microsite_setting',
       label: 'Microsite Setting',

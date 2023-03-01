@@ -9,7 +9,7 @@ import FormSelect from '../../../blocks/FormSelect';
 import FormTip from '../../../blocks/FormTip';
 import TextInput from '../../../blocks/TextInput';
 
-export const BasicInformation: React.FC = (props) => {
+export const BasicInformation: React.FC = (props: any) => {
   const { propsData } = props;
   const {
     admin: { user: userSlug },

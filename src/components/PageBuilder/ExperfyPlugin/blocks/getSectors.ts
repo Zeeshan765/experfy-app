@@ -237,6 +237,35 @@ let typography = {
   ],
 };
 
+let color = {
+  type: 'color',
+  name: 'Color',
+  property: 'color',
+  detached: true,
+  colorPicker: {
+    preferredFormat: 'hex',
+    showInput: true,
+  },
+};
+
+let HtmlTag = {
+  type: 'select',
+  name: 'HTML Tag',
+  property: 'html-tag',
+  default: 'H1',
+  options: [
+    { value: 'div', name: 'Div' },
+    { value: 'h1', name: 'H1' },
+    { value: 'h2', name: 'H2' },
+    { value: 'h3', name: 'H3' },
+    { value: 'h4', name: 'H4' },
+    { value: 'h5', name: 'H5' },
+    { value: 'h6', name: 'H6' },
+    { value: 'p', name: 'P' },
+    { value: 'span', name: 'Span' },
+  ],
+};
+
 const widthOptions = [
   {
     type: 'number',
@@ -1874,105 +1903,7 @@ const obj = {
     {
       name: 'Section Heading',
       open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'section-heading-color',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'section-heading-font-family',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'section-heading-font-size',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'section-heading-font-weight',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'section-heading-letter-spacing',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'section-heading-line-height',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'center',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'section-heading-text-align',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'section-heading-text-decoration',
-            'data-target': '.section-title',
-          },
-        },
-      ],
+      properties: [color, typography, HtmlTag],
     },
     {
       name: 'Sub Section Heading',
@@ -2080,79 +2011,13 @@ const obj = {
     {
       name: 'Title',
       open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'title-color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'title-typography',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Title HTML Tag',
-          property: 'title-tag',
-          default: 'h2',
-          options: [
-            { value: 'h1', name: 'H1' },
-            { value: 'h2', name: 'H2' },
-            { value: 'h3', name: 'H3' },
-            { value: 'h4', name: 'H4' },
-            { value: 'h5', name: 'H5' },
-            { value: 'h6', name: 'H6' },
-          ],
-        },
-      ],
+      properties: [color, typography, HtmlTag],
     },
 
     {
       name: 'Descriptive Text',
       open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Color',
-          property: 'desc-color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'desc-typography',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'select',
-          name: 'HTML Tag',
-          property: 'desc-tag',
-          default: 'h2',
-          options: [
-            { value: 'h1', name: 'H1' },
-            { value: 'h2', name: 'H2' },
-            { value: 'h3', name: 'H3' },
-            { value: 'h4', name: 'H4' },
-            { value: 'h5', name: 'H5' },
-            { value: 'h6', name: 'H6' },
-          ],
-        },
-      ],
+      properties: [color, typography, HtmlTag],
     },
 
     {
@@ -3950,6 +3815,9 @@ const obj = {
       id: 'h1',
       buildProps: ['color'],
       properties: [typography],
+      attributes: {
+        'data-target': '#h1',
+      },
     },
     {
       name: 'H2',
@@ -3957,6 +3825,9 @@ const obj = {
       id: 'h2',
       buildProps: ['color'],
       properties: [typography],
+      attributes: {
+        'data-target': '#h2',
+      },
     },
     {
       name: 'H3',
@@ -4012,6 +3883,80 @@ const obj = {
         'padding',
       ],
       properties: [typography, State],
+    },
+  ],
+
+  department_1: [
+    {
+      name: 'Section Heading',
+      open: false,
+      properties: [color, typography],
+    },
+    {
+      name: 'Sub Section Heading',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Job Title',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Company Name',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Date Posted',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Descriptive Text',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Feature List',
+      open: false,
+      properties: [
+        color,
+        typography,
+        HtmlTag,
+
+        {
+          type: 'slider',
+          name: 'Space Between',
+          property: 'space-between',
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'color',
+          name: 'Icon Color',
+          property: 'color',
+
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Icon Size',
+          property: 'icon-size',
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'slider',
+          name: 'Text Indent',
+          property: 'text-indent',
+          default: 1,
+          units: ['px', 'rem'],
+        },
+      ],
     },
   ],
 

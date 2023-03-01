@@ -70,3 +70,81 @@ export function CloseAllSectors(selectedId: any, _editor: GrapesJS.Editor) {
     }
   });
 }
+
+let dataArray = [
+  {
+    name: 'AI & Machine Learning',
+    type: 'AI-ML',
+  },
+  {
+    name: 'Big Data',
+    type: 'Big-Data',
+  },
+  {
+    name: 'Cloud Computing',
+    type: 'Cloud-Computing',
+  },
+  {
+    name: 'DevOps',
+    type: 'DevOps',
+  },
+  {
+    name: 'Business Intelligence',
+    type: 'Business-Intelligence',
+  },
+  {
+    name: 'Software/Web Development',
+    type: 'Software-Web-Development',
+  },
+  {
+    name: 'QA',
+    type: 'QA',
+  },
+  {
+    name: 'UX/UI Design',
+    type: 'UX-UI-Design',
+  },
+  {
+    name: 'Mobile',
+    type: 'Mobile',
+  },
+  {
+    name: 'Marketing',
+    type: 'Marketing',
+  },
+  {
+    name: 'Internet of Things',
+    type: 'Internet-of-Things',
+  },
+  {
+    name: 'BlockChain',
+    type: 'BlockChain',
+  },
+  {
+    name: 'Robotics Process Automation',
+    type: 'Robotics-Process-Automation',
+  },
+  {
+    name: 'Cyber Security',
+    type: 'Cyber-Security',
+  },
+];
+
+export const practiceAreaData = () => {
+  let htmlData = '';
+
+  dataArray.forEach((item, i) => {
+    const { name, type } = item;
+
+    htmlData += `
+        <div data-gjs-type=${type} class='box-icon-text-holder'>
+          <div class='box-icon-div'>
+           <img src='' />
+          </div>
+          <div class='box-text-div'>
+            <p>${name}</p>
+          </div>
+        </div>`;
+  });
+  return htmlData;
+};

@@ -191,7 +191,9 @@ ol {
   &.btn--add {
     .btn__label {
       position: relative;
-      padding-left: 22px;
+      // padding-left: 22px;
+      display: flex;
+      align-items: center;
 
       &::before {
         content: '';
