@@ -5,7 +5,7 @@ import GrapesJS from 'grapesjs';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import { useAuth, useConfig } from 'payload/components/utilities';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../Providers/UserProvider';
 import Experfy from '../ExperfyPlugin';
@@ -15,6 +15,7 @@ import {
   CloseAllSectors,
   ComponentSelection,
 } from '../ExperfyPlugin/utilities';
+import { Property } from '../../../utilities/types';
 
 const ThemeStyle: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -36,12 +37,12 @@ const ThemeStyle: React.FC = () => {
   }, [setStepNav]);
 
   useEffect(() => {
-    if (userData !== null) {
+    if (userData !== null && !editor) {
       initializeInstance();
     }
   }, [userData]);
 
-  const initializeInstance = () => { 
+  const initializeInstance = () => {
     editor?.destroy();
     const sections = ['theme-style'];
     const ExperfyBlocks = (
@@ -69,6 +70,10 @@ const ThemeStyle: React.FC = () => {
       styleManager: {
         appendTo: '.styles-container',
       },
+      selectorManager: {
+        selectors: ['Normal', 'Hover'],
+      },
+
       // canvasCss:
       //   localStorage.getItem('theme_style_css') || userDefaultStyleString,
       // storageManager: {
@@ -178,7 +183,13 @@ const ThemeStyle: React.FC = () => {
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
 
-      const component = editor.addComponents(block.get('content'));
+      const component = editor.addComponents(block.get('content'), {
+        avoidUpdateStyle: true,
+      });
+
+      component[0].set('draggable', false);
+      component[0].set('removable', false);
+
       // component.forEach((comp) => {
       //   comp.set('draggable', false);
       //   comp.set('droppable', false);
@@ -190,16 +201,12 @@ const ThemeStyle: React.FC = () => {
       sectors.reset();
 
       sectors.add(getSectors('theme_1'));
-      editor.runCommand('core:open-styles');
+      editor.runCommand('core:open-styles', { open: true });
       editor.getWrapper().set('hoverable', false);
       editor.getWrapper().set('selectable', false);
+      editor.getWrapper().set('deletable', false);
     });
-
-
-    // let sectorsCheck=[];
-
     editor.on('load', () => {
-      console.log('defaultStyle', userData.defaultStyle);
       editor.loadProjectData({
         ...Object.assign(
           {},
@@ -207,42 +214,42 @@ const ThemeStyle: React.FC = () => {
           userData.defaultStyle.pageData
         ),
       });
-
-
-
-
-      const components = editor.getComponents();
-      console.log("components----------->", components );
-
-  for (let i = 0; i < components.length; i++) {
-  console.log("components[i]----------->", components[i] );
-  }
-
-      // for (let i = 0; i < components.length; i++) {
-      //   if (components[i].get('type') === 'sector') {
-      //     sectorsCheck.push(components[i]);
-      //   }
-      // }
     });
-//     let reselectedSector = null;
 
-// editor.on('component:selected', model => {
-//   const newSelectedSector = sectorsCheck.filter(sector => sector.get('name') === model.get('sector'))[0];
-
-//   if (reselectedSector && newSelectedSector !== reselectedSector) {
-//     reselectedSector.set('open', false);
-//   }
-
-//   reselectedSector = newSelectedSector;
-// });
-
+    //@ts-ignore
     editor.on('style:sector:update', (sector) => {
       ComponentSelection(sector, editor);
     });
 
-    setEditorState(editor);
+    //@ts-ignore
+    editor.on('style:property:update', (sector) => {
+      const name = sector.property.attributes.name;
 
-  }
+      // property.name;
+
+      if (name === 'State') {
+        editor.SelectorManager.setState(sector.property.attributes.value);
+      }
+    });
+
+    //@ts-ignore
+    editor.on('style:target', (component) => {
+      // const selectedSector = component.getSelectorsString().replace('.', '');
+      // const sectors = editor.StyleManager.getSectors();
+      // console.log('selected', selectedSector);
+      // for (let i = 0; i < sectors.length; i++) {
+      //   if (selectedSector.includes(sectors.models[i].get('id'))) {
+      //     sectors.models[i].setOpen(true);
+      //   } else {
+      //     sectors.models[i].setOpen(false);
+      //   }
+      // }
+      // editor.StyleManager.getSelected().set('open', true);
+      // editor.StyleManager.getSectors().setOpen(false);
+    });
+
+    setEditorState(editor);
+  };
 
   const updateUserDefaultStyle = async () => {
     let apiEndpoint = `${serverURL}/api/users/${user.id}`;
@@ -285,6 +292,8 @@ const ThemeStyle: React.FC = () => {
       return error;
     }
   };
+
+  // extend trait file
 
   return (
     <div className="main__content">

@@ -1,4 +1,3 @@
-import { getSectors } from './blocks/getSectors';
 import GrapesJS from 'grapesjs';
 
 const sectorsIds = [
@@ -20,44 +19,42 @@ export function ComponentSelection(
 ) {
   if (sector.isOpen()) {
     const wrapperCmp = editor.DomComponents.getWrapper();
-    console.log('wrapperCmp: ', wrapperCmp);
-    console.log('finding component for: ', sector.attributes.id);
     switch (sector.attributes.id) {
-      case 'buttons':
-        editor.SelectorManager.select(wrapperCmp.find('button')[0]);
+      case 'button':
+        editor.select(wrapperCmp.find('button')[0]);
         break;
-      case 'images':
-        editor.SelectorManager.select(wrapperCmp.find('img')[0]);
+      case 'image':
+        editor.select(wrapperCmp.find('img')[0]);
         break;
       case 'h1':
-        editor.SelectorManager.select(wrapperCmp.find('h1')[0]);
+        editor.select(wrapperCmp.find('h1')[0]);
         break;
       case 'h2':
-        editor.SelectorManager.select(wrapperCmp.find('h2')[0]);
+        editor.select(wrapperCmp.find('h2')[0]);
         break;
       case 'h3':
-        editor.SelectorManager.select(wrapperCmp.find('h3')[0]);
+        editor.select(wrapperCmp.find('h3')[0]);
         break;
       case 'h4':
-        editor.SelectorManager.select(wrapperCmp.find('h4')[0]);
+        editor.select(wrapperCmp.find('h4')[0]);
         break;
       case 'h5':
-        editor.SelectorManager.select(wrapperCmp.find('h5')[0]);
+        editor.select(wrapperCmp.find('h5')[0]);
         break;
       case 'h6':
-        editor.SelectorManager.select(wrapperCmp.find('h6')[0]);
+        editor.select(wrapperCmp.find('h6')[0]);
         break;
-      case 'links':
-        editor.SelectorManager.select(wrapperCmp.find('a')[0]);
+      case 'link':
+        editor.select(wrapperCmp.find('a')[0]);
         break;
-      case 'labels':
-        editor.SelectorManager.select(wrapperCmp.find('label')[0]);
+      case 'label':
+        editor.select(wrapperCmp.find('label')[0]);
         break;
-      case 'fields':
-        editor.SelectorManager.select(wrapperCmp.find('input')[0]);
+      case 'input':
+        editor.select(wrapperCmp.find('input')[0]);
         break;
       default:
-        editor.SelectorManager.select('wrapper');
+        editor.StyleManager.select();
     }
   }
 }

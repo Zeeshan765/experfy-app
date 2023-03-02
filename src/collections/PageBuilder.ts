@@ -12,6 +12,7 @@ const PageBuilderCollection: CollectionConfig = {
   admin: {
     components: {
       views: {
+        Edit: PageBuilder,
         List: PageBuilder,
       },
     },

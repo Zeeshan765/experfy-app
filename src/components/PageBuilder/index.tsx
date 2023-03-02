@@ -19,14 +19,12 @@ import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
 import { getCurrentDateAndTime } from '../../utilities/dateAnd Time';
 
-
-
 interface parems {
   id?: string;
 }
 
 const PageBuilder: React.FC = () => {
-// ======States start=======
+  // ======States start=======
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
   const [historyExact, setHistoryExact] = useState(false);
@@ -36,6 +34,7 @@ const PageBuilder: React.FC = () => {
   const { routes, serverURL } = useConfig();
   const { id }: parems = useParams();
   const { userData } = useContext(UserContext);
+  const { setStepNav } = useStepNav();
   const history = useHistory();
   // ======Hooks end=======
   const { admin } = routes;
@@ -67,7 +66,7 @@ const PageBuilder: React.FC = () => {
         url: `${apiEndpoint}/pages/${id}`,
       })
         .then((res) => {
-          const { pageCode } = res.data;          
+          const { pageCode } = res.data;
           if (pageCode) {
             // console.log("pageCode new", JSON.parse(pageCode));
             editor.loadProjectData(JSON.parse(pageCode));
@@ -162,9 +161,9 @@ const PageBuilder: React.FC = () => {
         });
     }
   };
-// ======= Methods end =======
+  // ======= Methods end =======
 
-// ========external custom Trait start here========
+  // ========external custom Trait start here========
   let TextTrait = [
     {
       type: 'text',
@@ -390,19 +389,22 @@ const PageBuilder: React.FC = () => {
           traits: ImageTrait,
         },
         init() {
-          console.log("************",this);
-          console.log("Attributes[[[[[[[[[[[[[[[[[[[[[[[[[",this.attributes)
-          console.log("^^^^^^^^^^^^^^^^^^^^^",this.attributes.attributes.image)
+          console.log('************', this);
+          console.log('Attributes[[[[[[[[[[[[[[[[[[[[[[[[[', this.attributes);
+          console.log(
+            '^^^^^^^^^^^^^^^^^^^^^',
+            this.attributes.attributes.image
+          );
 
-          console.log("editorerreee",editor.getSelected())
+          console.log('editorerreee', editor.getSelected());
 
-          this.on("change:image", this.handleList1Change);
+          this.on('change:image', this.handleList1Change);
         },
         handleList1Change(e) {
-          console.log('e', e)
-          console.log("onChange", this.attributes.image);
-          console.log('thsi', this)
-          
+          console.log('e', e);
+          console.log('onChange', this.attributes.image);
+          console.log('thsi', this);
+
           // let url = this.value;
           // console.log('image value------------------------>', url);
           // let img = new Image();
@@ -413,27 +415,14 @@ const PageBuilder: React.FC = () => {
 
           // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // let updated = this.component.get('traits').models[2].set('src', src);
-        // console.log('updated', updated)
-        // this.components(updated);
+          // let updated = this.component.get('traits').models[2].set('src', src);
+          // console.log('updated', updated)
+          // this.components(updated);
           // this.attributes.set('src', src);
 
           const modelComponent = editor.getSelected();
-          modelComponent.setAttributes({src:src})
-        }
+          modelComponent.setAttributes({ src: src });
+        },
       },
     });
     editor.DomComponents.addType('button', {
@@ -478,15 +467,14 @@ const PageBuilder: React.FC = () => {
     // editor.TraitManager.addType('image-source', {
     //   // Define the label for the trait
     //   label: 'Image Source',
-    
+
     //   // Define the input type (e.g. text, select, etc.)
     //   type: 'text',
-    
+
     //   // Define the function for getting the value of the trait
     //   getValue: function (el) {
     //     return el.getAttribute('src');
     //   },
-    
     //   // Define the function for setting the value of the trait
     //   setValue: function (el, value) {
     //     el.setAttribute('src', value);
@@ -498,26 +486,8 @@ const PageBuilder: React.FC = () => {
     //   content: '<img src="https://placehold.it/300x200"/>',
     //   attributes: {},
     //   category: 'My Category',
-    
-   
-    
+
     // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //For Traits
     editor.on('component:selected', (component) => {
@@ -526,9 +496,8 @@ const PageBuilder: React.FC = () => {
         const blocksector = editor.StyleManager.getSectors();
         blocksector.reset();
         blocksector.add(getSectors(ccid));
-        
       }
-      let type = component.get('type')
+      let type = component.get('type');
       const { id } = component.attributes.attributes;
       if (component.get('type') == 'text') {
         editor?.runCommand('core:open-traits');
@@ -553,11 +522,9 @@ const PageBuilder: React.FC = () => {
       }
       if (component.get('type') == 'image') {
         // console.log("hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
-        
         // let updated = component.get('traits').models[2].set('src', src);
         // console.log('updated', updated)
         // component.components(component.get('traits').models[2].set('src', src));
-    
       }
       pageHistoryHandler();
     });
@@ -572,28 +539,36 @@ const PageBuilder: React.FC = () => {
       }
     });
     localStorage.removeItem('gjsProject');
-     setEditorState(editor);
+    setEditorState(editor);
     addAssets();
   };
+  useEffect(() => {
+    setStepNav([
+      {
+        label: 'Page Builder',
+        url: '/collections/page-builder',
+      },
+    ]);
+  }, [setStepNav]);
   // ========GrapesJS editor end here=======
   // =========Lifecycle methods start here========
   useEffect(() => {
-    if(userData!== null){
-    initializeInstance();
-    fetchData();
-    fetchHistory();
-  }
+    if (userData !== null) {
+      initializeInstance();
+      fetchData();
+      fetchHistory();
+    }
   }, []);
   useEffect(() => {
     const updateHistory = setTimeout(() => {
       if (changeHistory) {
         saveHistoy();
-        setChangeHistory(false);// reset the flag beacue again tracking updation
-      } 
+        setChangeHistory(false); // reset the flag beacue again tracking updation
+      }
     }, 1000);
     return () => clearTimeout(updateHistory);
   }, [changeHistory]);
-// =======Lifecycle methods end here=========
+  // =======Lifecycle methods end here=========
   return (
     <div className="main__content">
       <Eyebrow />
@@ -613,7 +588,7 @@ const PageBuilder: React.FC = () => {
           <div className="panel__switcher"></div>
           <SidebarBottom
             editor={editor}
-            consumer='pageBuilder'
+            consumer="pageBuilder"
             pageHistoryArray={pageHistoryArray}
           />
           <div className="styles-container"></div>

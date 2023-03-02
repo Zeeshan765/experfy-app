@@ -902,6 +902,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     label: 'Theme Style',
     category: 'Section Modules',
     activate: true,
+    select: true,
     // media: ,
     content: [
       `<div id="theme_1" style="padding: 0px 20%;">
@@ -911,8 +912,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <button class="button" type="button" >Submit</button>
         </div>
 
-        <div class="images-sections">
-        <img width="200px" src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-512.png" />
+        <div id="image" class="image">
+        <img class="image" id="image" width="200px" src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-512.png" />
         </div>
 
         <div class="heading-holder-block">
@@ -930,13 +931,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
           
         <div class="link-holder">
-          <a href="#" class="a" >Link 1</a>
+          <a href="#" class="link" >Link 1</a>
         </div>
 
         <div class="page-builder-form-div">
           <form>
             <div class="page-builder-field-group">
-              <label class="label" for="text">Label:</label>
+              <span class="label" for="text">Label:</span>
               <input type="text" class="input" value="This is the input" >
             </div>
           </form>

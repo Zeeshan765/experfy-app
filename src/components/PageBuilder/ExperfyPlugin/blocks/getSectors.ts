@@ -64,19 +64,19 @@ const textDecorationOptions = [
 const textAlignOptions = [
   {
     value: 'left',
-    name: `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M12 4.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M21 14.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 19.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
+    name: `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M12 4.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M21 14.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 19.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
   {
     value: 'center',
-    name: `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 9.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 19.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
+    name: `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 9.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 19.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
   {
     value: 'right',
-    name: `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11.5293 9.5H20.9993" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11.5293 19.5H20.9993" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
+    name: `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11.5293 9.5H20.9993" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11.5293 19.5H20.9993" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
   {
     value: 'justify',
-    name: `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.26001 9.5H16.74" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.26001 19.5H16.74" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
+    name: `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.26001 9.5H16.74" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.26001 19.5H16.74" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
 ];
 
@@ -92,28 +92,26 @@ const fontStyle = [
   { value: 'underline', name: '<u>U</u>' },
 ];
 
-const State = {
+const makeId = () => {
+  let ID = 'c';
+  let characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  for (var i = 0; i < 5; i++) {
+    ID += characters.charAt(Math.floor(Math.random() * 36));
+  }
+  return ID;
+};
+
+let State = {
   name: 'State',
   type: 'radio',
+  id: makeId(),
+  cid: makeId(),
   property: 'state',
   default: 'normal',
   options: [
     { value: 'normal', name: 'Normal' },
     { value: 'hover', name: 'Hover' },
   ],
-  // onclick: function (e) {
-  //   const state = e.target.value;
-  //   const el = this.target;
-  //   const normal = el.querySelector('.normal');
-  //   const hover = el.querySelector('.hover');
-  //   if (state === 'normal') {
-  //     normal.style.display = 'block';
-  //     hover.style.display = 'none';
-  //   } else {
-  //     normal.style.display = 'none';
-  //     hover.style.display = 'block';
-  //   }
-  // },
 };
 
 const shadowOptions = (which: String) => {
@@ -171,12 +169,29 @@ const shadowOptions = (which: String) => {
   };
 };
 
+let color = {
+  id: makeId(),
+  cid: makeId(),
+  type: 'color',
+  name: 'Color',
+  property: 'color',
+  default: '#ea4c89',
+  colorPicker: {
+    preferredFormat: 'hex',
+    showInput: true,
+  },
+};
+
 let typography = {
   type: 'stack',
   name: 'Typography',
   detached: true,
+  preview: false,
+
   properties: [
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'select',
       name: 'Font Family',
       property: 'font-family',
@@ -184,6 +199,8 @@ let typography = {
       options: fontFamilies,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'slider',
       name: 'Font Size',
       property: 'font-size',
@@ -194,6 +211,8 @@ let typography = {
       step: 1,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'select',
       name: 'Font Weight',
       property: 'font-weight',
@@ -201,6 +220,8 @@ let typography = {
       options: fontWeightOptions,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'radio',
       label: 'Text Transform',
       property: 'text-transform',
@@ -208,6 +229,8 @@ let typography = {
       options: textTransformOptions,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'radio',
       name: 'Text Align',
       property: 'text-align',
@@ -225,6 +248,8 @@ let typography = {
       step: 1,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'slider',
       name: 'Line Height',
       property: 'line-height',
@@ -235,17 +260,6 @@ let typography = {
       step: 0.1,
     },
   ],
-};
-
-let color = {
-  type: 'color',
-  name: 'Color',
-  property: 'color',
-  detached: true,
-  colorPicker: {
-    preferredFormat: 'hex',
-    showInput: true,
-  },
 };
 
 let HtmlTag = {
@@ -3552,6 +3566,8 @@ const obj = {
       buildProps: ['background-color', 'color'],
       properties: [
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Primary',
           property: 'background-color',
@@ -3559,12 +3575,16 @@ const obj = {
           attributes: { class: 'gjs-fonts gjs-f-b1' },
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Secondary',
           property: 'color',
           default: '#4a5162',
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Accent Color',
           property: 'accent-color',
@@ -3683,13 +3703,15 @@ const obj = {
     {
       name: 'Buttons',
       open: false,
-      id: 'buttons',
+      id: 'button',
 
       properties: [
         typography,
         'text-shadow',
         State,
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Text Color',
           property: 'color',
@@ -3699,6 +3721,8 @@ const obj = {
           },
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Background Color',
           property: 'background-color',
@@ -3709,12 +3733,16 @@ const obj = {
         },
 
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'select',
           name: 'Border Type',
           property: 'border-style',
           options: borderStyleOptions,
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
@@ -3722,6 +3750,8 @@ const obj = {
           detached: false,
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Border Color',
           property: 'border-color',
@@ -3731,6 +3761,8 @@ const obj = {
           },
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
@@ -3743,7 +3775,7 @@ const obj = {
     },
     {
       name: 'Images',
-      id: 'images',
+      id: 'image',
       open: false,
 
       buildProps: [
@@ -3757,6 +3789,8 @@ const obj = {
       properties: [
         State,
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
@@ -3766,6 +3800,8 @@ const obj = {
           step: 0.01,
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
@@ -3782,6 +3818,8 @@ const obj = {
           },
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
@@ -3797,13 +3835,7 @@ const obj = {
       id: 'body-text',
       properties: [typography],
     },
-    {
-      name: 'Links',
-      open: false,
-      id: 'links',
-      buildProps: 'color',
-      properties: [State, typography],
-    },
+
     {
       name: 'Headings',
       open: false,
@@ -3813,49 +3845,37 @@ const obj = {
       name: 'H1',
       open: false,
       id: 'h1',
-      buildProps: ['color'],
-      properties: [typography],
-      attributes: {
-        'data-target': '#h1',
-      },
+      properties: [color, typography],
     },
     {
       name: 'H2',
       open: false,
       id: 'h2',
-      buildProps: ['color'],
-      properties: [typography],
-      attributes: {
-        'data-target': '#h2',
-      },
+      properties: [color, typography],
     },
     {
       name: 'H3',
       open: false,
       id: 'h3',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'H4',
       open: false,
       id: 'h4',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'H5',
       open: false,
       id: 'h5',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'H6',
       open: false,
       id: 'h6',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'Form Fields',
@@ -3863,16 +3883,23 @@ const obj = {
       buildProps: [''],
     },
     {
+      name: 'Links',
+      open: false,
+      id: 'link',
+      buildProps: 'color',
+      properties: [State, typography],
+    },
+    {
       name: 'Label',
       open: false,
-      id: 'labels',
+      id: 'label',
       buildProps: ['color'],
       properties: [typography],
     },
     {
       name: 'Field',
       open: false,
-      id: 'fields',
+      id: 'input',
       buildProps: [
         'color',
         'background-color',

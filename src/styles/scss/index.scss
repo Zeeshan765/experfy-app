@@ -2,7 +2,7 @@
 @import "font-proxima-nova";
 @import "updated-styles";
 
-$assets_path: "/src/assets/images/";
+$assets_path: "../../assets/images/";
 
 :root {
 
@@ -744,7 +744,7 @@ div.react-select {
 }
 
 // history button style
-.action-btn{
+.action-btn {
   width: 50%;
   background-color: #fff;
   border: 1px solid #fff;
