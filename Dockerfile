@@ -37,6 +37,8 @@ WORKDIR $APP_HOME
 
 COPY package*.json ./
 
+RUN yarn cache clean --all 
+
 RUN yarn install --production --save --legacy-peer-deps payload
 
 COPY --from=builder $APP_HOME/dist ./dist
