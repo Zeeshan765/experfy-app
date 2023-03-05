@@ -43,26 +43,26 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
   };
 
   return (
-    <div className='blocks sidebar-bottom-custom'>
+    <div className="blocks sidebar-bottom-custom">
       <div
-        id='sidebar-bottom-device'
+        id="sidebar-bottom-device"
         style={{
           gridRow: 2,
           backgroundColor: '#3a4152',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '100px',
+          height: '75px',
         }}
       >
-        <div id='set-desktop-view' className='btn set-view' data-view='Desktop'>
+        <div id="set-desktop-view" className="btn set-view" data-view="Desktop">
           <SettingsIcon />
         </div>
 
         <div
-          id='set-desktop-view'
-          className='btn set-view'
-          data-view='Desktop'
+          id="set-desktop-view"
+          className="btn set-view"
+          data-view="Desktop"
           onClick={handleDevices}
         >
           {currentDeviceId === 'mobile' ? (
@@ -77,26 +77,26 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
         {consumer === 'pageBuilder' && (
           <button
             onClick={historyView}
-            id='set-tablet-view'
-            className='btn set-view'
-            data-view='Tablet'
+            id="set-tablet-view"
+            className="btn set-view"
+            data-view="Tablet"
           >
             <TimerIcon />
           </button>
         )}
 
         <div
-          id='set-mobile-view'
-          className='btn set-view'
-          data-view='Mobile'
+          id="set-mobile-view"
+          className="btn set-view"
+          data-view="Mobile"
           onClick={handlePreview}
         >
           <PreviewIcon />
         </div>
 
-        <div id='set-mobile-view' className='btn set-view' data-view='Mobile'>
+        <div id="set-mobile-view" className="btn set-view" data-view="Mobile">
           <Button
-            variant='contained'
+            variant="contained"
             endIcon={
               <div
                 style={{
@@ -156,7 +156,7 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
           </div>
           <div style={{ display: 'flex', borderBottom: '1px solid gray' }}>
             <button
-              className='action-btn'
+              className="action-btn"
               style={{
                 width: '50%',
                 backgroundColor: '#fff',
@@ -167,7 +167,7 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
               Actions
             </button>
             <button
-              className='revision-btn'
+              className="revision-btn"
               style={{
                 width: '50%',
                 backgroundColor: '#fff',
@@ -192,16 +192,17 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
               gap: '8px',
             }}
           >
-            {pageHistoryArray.length>0 &&pageHistoryArray.map((historyObj) => (
-                <button className='his-btn'>
+            {pageHistoryArray.length > 0 &&
+              pageHistoryArray.map((historyObj) => (
+                <button className="his-btn">
                   <span>
                     <AccountCircleIcon style={{ fontSize: '2rem' }} />
                     &nbsp;{historyObj?.timeStemp}
                   </span>
                   {true ? <CloseIcon /> : <CheckIcon />}
                 </button>
-            ))}
-            {pageHistoryArray.length===0 &&<p>No History</p>}
+              ))}
+            {pageHistoryArray.length === 0 && <p>No History</p>}
             {/* <button className='his-btn'>
               <span>
                 <AccountCircleIcon style={{ fontSize: '2rem' }} />

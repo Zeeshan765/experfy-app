@@ -15,7 +15,7 @@ $deviceBackground: #2f3d55;
 .editor-canvas {
   flex-grow: 1;
   padding: 1px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .editor-row {
@@ -155,7 +155,7 @@ $deviceBackground: #2f3d55;
   width: 80px;
   height: 80px;
   padding: 0px;
-  border-radius: 3px !important;
+  border-radius: 4px !important;
   justify-content: center !important;
   margin: 2px !important;
   background-color: var(--theme-bg) !important;
@@ -237,34 +237,27 @@ $deviceBackground: #2f3d55;
 
 .gjs-field-color-picker {
   border-radius: 2px !important;
-  height: 24px;
-  width: 24px;
+  height: 25px;
+  width: 25px;
 }
 
-// .gjs-field-colorp .gjs-checker-bg,
-// .gjs-field-colorp .gjs-field-colorp-c {
-//   border-radius: 4px !important;
-// }
-
 .gjs-radio-item-label {
-  display: inline-block;
-  padding: 5px 10px 5px 10px;
+  padding: 5px;
   margin: 0 !important;
 }
 
 .gjs-sm-stack #gjs-sm-add {
   background: var(--theme-elevation-0);
   opacity: 1;
-  color: var(--theme-text-light);
+  color: rgb(115 120 132);
+  border-radius: 3px;
   border: solid 1px var(--theme-border);
-  right: 10px;
-  top: 10px;
-  padding: 2px;
   width: 25px;
+  top: 0;
 }
 
-.gjs-radio-item input:checked+.gjs-radio-item-label {
-  background-color: var(--theme-primary) !important;
+.gjs-radio-item input:checked + .gjs-radio-item-label {
+  background-color: var(--theme-border) !important;
   color: white !important;
 }
 
@@ -300,7 +293,7 @@ $deviceBackground: #2f3d55;
 .gjs-select {
   .gjs-sel-arrow {
     .gjs-d-s-arrow {
-      border-left: 3px solid transparent;
+      border-left: 3px solid transparent !important;
       border-top: 6px solid var(--theme-text-dark);
     }
   }
@@ -330,7 +323,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__global_fonts_collection .gjs-sm-sector-title::after {
-  background-image: url('../../../assets/images/global-theme-settings/sidebar/fonts.svg');
+  background-image: url('../../../assets/images/global-theme-settings/sidebar/fonts.svg') !important;
   background-size: 100% 100%;
   width: 16px;
   height: 16px;
@@ -346,14 +339,7 @@ $deviceBackground: #2f3d55;
   background-repeat: no-repeat;
   content: '';
 }
-.gjs-sm-sector__headings .gjs-sm-sector-title::after {
-  background-image: url('../../../assets/images/global-theme-settings/sidebar/headings.svg') !important;
-  background-size: 100% 100%;
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  content: '';
-}
+
 .gjs-sm-sector__headings .gjs-sm-sector-title::after {
   background-image: url('../../../assets/images/global-theme-settings/sidebar/headings.svg') !important;
   background-size: 100% 100%;
@@ -364,7 +350,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__image .gjs-sm-sector-title::after {
-  background-image: url('../../../assets/images/global-theme-settings/sidebar/images.svg') !important;
+  background-image: url('../../../assets/images/global-theme-settings/sidebar/images.svg');
   background-size: 100%;
   width: 16px;
   height: 16px;
@@ -373,7 +359,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__theme_style .gjs-sm-sector-title::after {
-  background-image: url('../../../assets/images/sidebar/theme_style.svg') !important;
+  background-image: url('../../../assets/images/sidebar/theme_style.svg');
   background-size: 100%;
   width: 16px;
   height: 16px;
@@ -382,8 +368,8 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__body-text .gjs-sm-sector-title::after {
-  background-image: url('../../../assets/images/global-theme-settings/sidebar/body-text.svg') !important;
-  background-size: 100% 100%;
+  background-image: url('../../../assets/images/global-theme-settings/sidebar/body-text.svg');
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -391,8 +377,8 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__link .gjs-sm-sector-title::after {
-  background-image: url('../../../assets/images/global-theme-settings/sidebar/links.svg') !important;
-  background-size: 100% 100%;
+  background-image: url('../../../assets/images/global-theme-settings/sidebar/links.svg');
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -400,8 +386,8 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-sector__form_fields .gjs-sm-sector-title::after {
-  background-image: url('../../../assets/images/global-theme-settings/sidebar/form-fields.svg') !important;
-  background-size: 100% 100%;
+  background-image: url('../../../assets/images/global-theme-settings/sidebar/form-fields.svg');
+  background-size: 100%;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -600,10 +586,6 @@ $deviceBackground: #2f3d55;
       font-size: 8px !important;
       font-weight: 300 !important;
     }
-
-    .gjs-sm-label {
-      margin: 5px 1px 3px 0 !important;
-    }
   }
 
   .gjs-field-arrows {
@@ -637,7 +619,7 @@ $deviceBackground: #2f3d55;
     width: 100% !important;
     background-color: rgb(249 249 249) !important;
     // border:solid 1px #EEEEEE !important;
-    border-radius: 5px !important;
+    border-radius: 4px !important;
   }
 
   .gjs-sm-layer .gjs-sm-active {
@@ -724,7 +706,7 @@ $deviceBackground: #2f3d55;
     width: 100% !important;
     background-color: rgb(249 249 249) !important;
     // border:solid 1px #EEEEEE !important;
-    border-radius: 5px !important;
+    border-radius: 4px !important;
   }
 
   .gjs-sm-layer .gjs-sm-active {
@@ -808,7 +790,7 @@ $deviceBackground: #2f3d55;
     width: 100% !important;
     background-color: rgb(249 249 249) !important;
     // border:solid 1px #EEEEEE !important;
-    border-radius: 5px !important;
+    border-radius: 4px !important;
   }
   .gjs-sm-layer .gjs-sm-active {
     background-color: rgba(255, 255, 255, 0.12);
@@ -904,98 +886,48 @@ $deviceBackground: #2f3d55;
 .gjs-fields option,
 .gjs-sm-unit option {
   background-color: var(--theme-elevation-150);
-  color: vayr(--theme-text-dark);
+  color: var(--theme-text-dark);
 }
 
-//   .gjs-layer-move {
-//     right: 20px;
-//     top: 15px;
-//   }
+.gjs-sm-properties {
+  .gjs-sm-property__Typography {
+    position: relative !important;
+    display: block !important;
+    margin-bottom: 0;
+    #gjs-sm-add::before {
+      content: '\f040' !important;
+      font-family: FontAwesome;
+    }
+    #gjs-sm-add svg {
+      display: none !important;
+    }
 
-//   .gjs-layer-title {
-
-//     // padding: 18px 50px 18px 50px !important;
-//     // margin: 5px 20px 5px 20px !important;
-//     // background-color: var(--theme-bg);
-//     border: 1px solid var(--theme-border) !important;
-//     height: auto !important;
-//     border-radius: 5px !important;
-//     display: flex !important;
-//     font-weight: 600 !important;
-
-//     .gjs-layer-title-inn {
-//       .gjs-no-app {
-//         height: auto !important;
-//       }
-
-//       .gjs-layer-name {
-//         padding: 0px !important;
-//       }
-//     }
-
-//     &::before {
-//       background-image: url("../../../assets/images/global-theme-settings/sidebar/form-fields.svg") !important;
-//       position: absolute;
-//       background-size: 100% 100%;
-//       width: 16px;
-//       height: 16px;
-//       background-repeat: no-repeat;
-//       content: "";
-//       left: 20px;
-//     }
-
-//   }
-
-// }
-
-.gjs-sm-sector__buttons {
-  .gjs-sm-properties {
-    .gjs-sm-property__font {
-      #gjs-sm-add::before {
-        content: '\f040' !important;
-        font-family: FontAwesome;
-        color: #48a3d7 !important;
-      }
-
-      #gjs-sm-add svg {
-        display: none !important;
-      }
-
-      position: relative !important;
-      display: block !important;
-
-      .gjs-field-range {
-        border: none !important;
-        background-color: transparent !important;
-      }
-
-      .gjs-field {
-        border: solid 1px transparent !important;
-        background-color: transparent !important;
-
-        .gjs-sm-active {
-          .gjs-sm-properties {
-            .gjs-field {
-              border: solid 1px var(--theme-border) !important;
-              background-color: var(--theme-elevation-0) !important;
-            }
+    .gjs-field-range {
+      border: none !important;
+      background-color: transparent !important;
+    }
+    .gjs-field {
+      border: solid 1px transparent !important;
+      background-color: transparent !important;
+      .gjs-sm-active {
+        .gjs-sm-properties {
+          .gjs-field {
+            border: solid 1px var(--theme-border) !important;
+            background-color: var(--theme-elevation-0) !important;
           }
         }
-
-        .gjs-sm-layer {
-          border: solid 1px var(--theme-border) !important;
-          background-color: var(--theme-elevation-0) !important;
-        }
       }
-
-      .gjs-sm-stack #gjs-sm-add {
-        top: -25px !important;
-        height: 25px !important;
+      .gjs-sm-layer {
+        border: solid 1px var(--theme-border) !important;
+        background-color: var(--theme-elevation-0) !important;
       }
+    }
+    .gjs-sm-stack #gjs-sm-add {
+      top: -25px !important;
+      height: 25px !important;
     }
   }
 }
-
 .gjs-field {
   .gjs-sm-active {
     .gjs-sm-properties {
@@ -1010,7 +942,7 @@ $deviceBackground: #2f3d55;
 
 .gjs-sm-layer {
   .gjs-sm-label-wrp {
-    max-width: 150px;
+    max-width: fit-content;
   }
 }
 
@@ -1020,51 +952,19 @@ $deviceBackground: #2f3d55;
   }
 }
 
-.gjs-sm-layer #gjs-sm-move {
-  display: none;
+.gjs-sm-layer {
+  #gjs-sm-move {
+    display: none;
+  }
+
+  #gjs-sm-close-layer {
+    display: block;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    min-width: 20px;
+    position: absolute;
+    right: -1px;
+    top: -34px;
+  }
 }
-
-// #app>div.main__content>div.editor-row>div.panel__left>div.styles-container>div>div.gjs-sm-sector.gjs-sm-sector__buttons.no-select.gjs-sm-open>div.gjs-sm-properties>div.gjs-sm-property.gjs-sm-stack.gjs-sm-property__text-shadow.gjs-sm-property--full {
-//   flex-direction: row !important;
-
-// }
-
-// #app>div.main__content>div.editor-row>div.panel__left>div.styles-container>div>div.gjs-sm-sector.gjs-sm-sector__buttons.no-select.gjs-sm-open>div.gjs-sm-properties>div.gjs-sm-property.gjs-sm-stack.gjs-sm-property__Typography.gjs-sm-property--full {
-
-//   flex-direction: row !important;
-
-// }
-
-// .gjs-sm-composite {
-//   border: none !important;
-
-//   .gjs-sm-properties {
-//     display: flex;
-//     flex-direction: row !important;
-//     flex-wrap: nowrap;
-//     padding: 15px 0px !important;
-//   }
-
-//   .gjs-sm-property {
-//     display: block !important;
-//     padding: 0px !important;
-//     ;
-
-//     .gjs-sm-icon {
-//       font-size: 13px !important;
-//     }
-
-//     .gjs-sm-label {
-//       display: none !important;
-//     }
-//   }
-
-//   .gjs-field-arrows {
-//     display: none !important;
-//   }
-
-//   .gjs-field-integer input {
-//     padding-right: 0px !important;
-//     width: 50px !important;
-//   }
-// }

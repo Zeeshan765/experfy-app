@@ -234,16 +234,16 @@ const ThemeStyle: React.FC = () => {
 
     //@ts-ignore
     editor.on('style:target', (component) => {
-      // const selectedSector = component.getSelectorsString().replace('.', '');
-      // const sectors = editor.StyleManager.getSectors();
-      // console.log('selected', selectedSector);
-      // for (let i = 0; i < sectors.length; i++) {
-      //   if (selectedSector.includes(sectors.models[i].get('id'))) {
-      //     sectors.models[i].setOpen(true);
-      //   } else {
-      //     sectors.models[i].setOpen(false);
-      //   }
-      // }
+      const selectedSector = component.getSelectorsString().replace('.', '');
+      const sectors = editor.StyleManager.getSectors();
+      console.log('selected', selectedSector);
+      for (let i = 0; i < sectors.length; i++) {
+        if (selectedSector.includes(sectors.models[i].get('id'))) {
+          sectors.models[i].setOpen(true);
+        } else {
+          sectors.models[i].setOpen(false);
+        }
+      }
       // editor.StyleManager.getSelected().set('open', true);
       // editor.StyleManager.getSectors().setOpen(false);
     });
