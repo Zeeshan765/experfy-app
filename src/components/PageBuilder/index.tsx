@@ -8,98 +8,104 @@ import Forms from 'grapesjs-plugin-forms';
 import { Eyebrow } from 'payload/components/elements';
 import { useStepNav } from 'payload/components/hooks';
 import { useConfig } from 'payload/components/utilities';
-import React, { useContext, useEffect } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import React, { useContext, useState, useEffect } from 'react';
+import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Context } from '../../Providers/MyProvider';
-import { apiEndPoint } from '../../services';
-import {
-  deleteDataFromLocalStorage,
-  getDataFromStorage,
-  parseDataFromString,
-} from '../../utilities/localStorage';
 import Experfy from './ExperfyPlugin';
 import { getSectors } from './ExperfyPlugin/blocks/getSectors';
+import { UserContext } from '../../Providers/UserProvider';
+import { canvasStyle, navStep, sections, devices } from './utils';
+import SidebarBottom from './SidebarBottom';
+import { getCurrentDateAndTime } from '../../utilities/dateAnd Time';
 
-import { StyleContext } from '../../Providers/StyleProvider';
-import { navStep, sections } from './utils';
+interface parems {
+  id?: string;
+}
 
 const PageBuilder: React.FC = () => {
-  const pageCreate = useLocation();
-  let { search } = pageCreate;
-  const history = useHistory();
-
+  // ======States start=======
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
-  const { setStepNav } = useStepNav();
-  const { selectedPageCode, setPageCreateFromScratch } = useContext(Context);
-  const { userDefaultStyleString, getStyle, defaultStyles } =
-    useContext(StyleContext);
-  const { setSelectedPageCode } = useContext(Context);
-
+  const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
+  const [historyExact, setHistoryExact] = useState(false);
+  const [changeHistory, setChangeHistory] = useState(false);
+  // ======States end=======
+  // ======Hooks start=======
   const { routes, serverURL } = useConfig();
+  const { id }: parems = useParams();
+  const { userData } = useContext(UserContext);
+  const { setStepNav } = useStepNav();
+  const history = useHistory();
+  // ======Hooks end=======
   const { admin } = routes;
+  const apiEndpoint = `${serverURL}/api`;
 
-  const apiEndpoint = `${serverURL}/api/media?locale=en&depth=0&fallback-locale=null`;
-
-  useEffect(() => {
-    setStepNav(navStep);
-    initializeInstance();
-  }, []);
-
-  const dataHandler = () => {
-    const pageCode = getDataFromStorage('page_code');
-    const attributes = parseDataFromString(
-      getDataFromStorage('pageAttributes')
-    );
-
-    if (search.split('=')[1] === 'scratch') {
-      // debugger;
-      // // ?locale=en&depth=0&fallback-locale=null
+  //======= Methods start=======
+  const addAssets = async () => {
+    const assetManager = editor?.AssetManager;
+    axios
+      .get(`${apiEndpoint}/media`)
+      .then((response) => {
+        const { docs } = response.data;
+        docs.forEach(({ url }) => {
+          assetManager?.add([
+            {
+              src: url,
+            },
+          ]);
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  const fetchData = () => {
+    if (id) {
+      axios({
+        method: 'get',
+        url: `${apiEndpoint}/pages/${id}`,
+      })
+        .then((res) => {
+          const { pageCode } = res.data;
+          if (pageCode) {
+            // console.log("pageCode new", JSON.parse(pageCode));
+            editor.loadProjectData(JSON.parse(pageCode));
+          }
+        })
+        .catch((err) => {
+          console.log('err', err);
+        });
+    } else {
+      editor.loadProjectData({ assets: [], pages: [], styles: [] });
+    }
+  };
+  const fetchHistory = () => {
+    axios({
+      method: 'get',
+      url: `${apiEndpoint}/pagehistory?PageId=${id}`,
+    })
+      .then((res) => {
+        const historyArray = JSON.parse(res.data.docs[0].pageHistory);
+        setHistoryExact(true);
+        setPageHistoryArray(historyArray);
+      })
+      .catch((err) => {
+        console.log('err', err);
+      });
+  };
+  const dataHandler = (historyUpdate) => {
+    if (id) {
       axios
-        .post(`${apiEndPoint}/pages?locale=en&depth=0&fallback-locale=null`, {
-          ...attributes,
-          pageCode: pageCode,
+        .patch(`${apiEndpoint}/pages/${id}`, {
+          pageCode: JSON.stringify(editor.getProjectData()),
         })
         .then((res) => {
-          console.log('res======>', res);
-          toast.success(res.data.message);
-          deleteDataFromLocalStorage('pageAttributes');
-          deleteDataFromLocalStorage('page_code');
-          history.replace('/admin/collections/pages');
+          !historyUpdate && history.replace('/admin/collections/pages');
         })
         .catch((err) => {
           console.log("err", err);
         });
     }
-    if (pageCreateFromScratch?.pageType && pageCreateFromScratch?.id) {
-      axios
-        .patch(`${apiEndPoint}/pages/${pageCreateFromScratch?.id}`, {
-          pageCode: pageCode,
-        })
-        .then((res) => {
-          toast.success('Page create successfully ');
-          deleteDataFromLocalStorage('page_code');
-          setPageCreateFromScratch('');
-          history.replace('/admin/collections/pages');
-        })
-        .catch((err) => {
-          console.log('err', err);
-        });
-    }
-    // else {
-    //   axios
-    //     .post(`${apiEndPoint}/page-Template`, {
-    //       title: "TalentCloud Overview Page",
-    //       pageCode,
-    //     })
-    //     .then((res) => {
-    //       clearLocalStorage();
-    //       toast.success("Changes saved successfully");
-    //     })
-    //     .catch((err) => {
-    //       console.log("err", err);
-    //     });
-    // }
   };
   const uploadMedia = async (fileItem: String) => {
     const { name, src } = fileItem;
@@ -107,8 +113,12 @@ const PageBuilder: React.FC = () => {
     try {
       // Create the form data for the request
       const formData = new FormData();
+<<<<<<< HEAD
       formData.append("file", file);
       // formData.append('name', file.name);
+=======
+      formData.append('file', file);
+>>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
       let item = {
         keywords: "Media",
         mediaType: "Photo",
@@ -127,7 +137,129 @@ const PageBuilder: React.FC = () => {
       return error;
     }
   };
+  const pageHistoryHandler = () => {
+    const timeStemp = getCurrentDateAndTime();
+    const pageCurrentCode = JSON.stringify(editor?.getProjectData());
+    setChangeHistory(true);
+    setPageHistoryArray((prev) => [...prev, { timeStemp, pageCurrentCode }]);
+  };
+  const saveHistoy = () => {
+    if (historyExact) {
+      axios
+        .patch(`${apiEndpoint}/pagehistory`, {
+          PageId: id, //page id get from url
+          pageHistory: JSON.stringify(pageHistoryArray),
+        })
+        .then((res) => {})
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      axios
+        .post(`${apiEndpoint}/pagehistory`, {
+          PageId: id, //page id get from url
+          pageHistory: JSON.stringify(pageHistoryArray),
+        })
+        .then((res) => {})
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+  // ======= Methods end =======
 
+  // ========external custom Trait start here========
+  let TextTrait = [
+    {
+      type: 'text',
+      name: 'text-title',
+      label: 'Title',
+      placeholder: 'Enter your title ',
+      className: 'custom-text',
+    },
+    {
+      type: 'select',
+      name: 'class',
+      label: 'HTML Tag',
+      default: 'h1',
+      options: [
+        { id: 'h1', name: 'H1' },
+        { id: 'h2', name: 'H2' },
+        { id: 'h3', name: 'H3' },
+        { id: 'h4', name: 'H4' },
+        { id: 'h5', name: 'H5' },
+        { id: 'h6', name: 'H6' },
+        { id: 'div', name: 'div' },
+        { id: 'span', name: 'span' },
+        { id: 'p', name: 'p' },
+      ],
+    },
+    {
+      type: 'select',
+      name: 'class',
+      label: 'Alignment',
+      default: 'left',
+      options: [
+        { value: 'left', name: 'Left' },
+        { value: 'center', name: 'Center' },
+        { value: 'right', name: 'Right' },
+      ],
+    },
+  ];
+  let ImageTrait = [
+    {
+      type: 'select',
+      name: 'class',
+      label: 'Icon background',
+      default: 'left',
+      options: [{ value: 'left', name: 'Left' }],
+    },
+    {
+      type: 'select',
+      name: 'class',
+      label: 'Background Shape',
+      default: 'left',
+      options: [{ value: 'left', name: 'Left' }],
+    },
+    {
+      name: 'image',
+      type: 'file',
+      label: 'Icon',
+      attributes: {
+        accept: 'image/*',
+        onchange: function () {
+          let url = this.value;
+          console.log('image value------------------------>', url);
+          let img = new Image();
+          img.src = url;
+          img.onload = function () {
+            // editor.AssetManager.add({ src: url });
+            editor.getSelected().set('src', src);
+            // Trigger a render of the selected component to update the canvas
+            //@ts-ignore
+            editor.getSelected().trigger('change:attributes');
+          };
+        },
+      },
+      onchange: function () {
+        let url = this.value;
+        console.log('image value------------------------>', url);
+        let img = new Image();
+        img.src = url;
+        img.onload = function () {
+          // editor.AssetManager.add({ src: url });
+          editor.getSelected().set('src', src);
+          // Trigger a render of the selected component to update the canvas
+          //@ts-ignore
+          editor.getSelected().trigger('change:attributes');
+        };
+      },
+      // changeProp: 1,
+    },
+  ];
+  //=========external custom Trait end here========
+
+  //======== GrapesJs Canvas initialization start here========
   const initializeInstance = () => {
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,
@@ -139,13 +271,14 @@ const PageBuilder: React.FC = () => {
         showPanelsOnLoad: true,
         showGlobalStyles: false,
       });
-
     editor = GrapesJS.init({
       container: ".editor",
       fromElement: true,
       showDevices: false,
       // dragMode: 'absolute',
-      canvasCss: localStorage.getItem('theme_style_css') || '',
+      style: `${canvasStyle}`,
+      // canvasCss: localStorage.getItem('theme_style_css') || '',
+      canvasCss: '.blocks: {display: grid;}',
       plugins: [
         ExperfyBlocks,
         (editor) =>
@@ -165,21 +298,7 @@ const PageBuilder: React.FC = () => {
           Forms(editor, {
             category: "Basic Elements",
           }),
-        ,
       ],
-
-      storageManager: {
-        type: 'local',
-        autoload: true,
-        options: {
-          local: {
-            key: 'theme_style',
-          },
-        },
-      },
-
-      // canvasCss: localStorage.getItem('theme_style') || '',
-
       layerManager: {
         appendTo: ".layers-container",
         scrollCanvas: true,
@@ -191,6 +310,9 @@ const PageBuilder: React.FC = () => {
         appendTo: ".styles-container",
         highlightChanged: true,
       },
+      deviceManager: {
+        devices,
+      },
       traitManager: {
         appendTo: ".traits-container",
       },
@@ -198,23 +320,22 @@ const PageBuilder: React.FC = () => {
         appendTo: ".blocks",
         blocks: [],
       },
-
       commands: {
         defaults: [
-          // {
-          //   id: 'preview-fullscreen',
-          //   run() {
-          //     editor.runCommand('preview');
-          //     editor.runCommand('fullscreen');
-          //   },
-          //   stop() {
-          //     editor.stopCommand('fullscreen');
-          //     editor.stopCommand('preview');
-          //   },
-          // },
+          {
+            id: 'preview-fullscreen',
+            run() {
+              editor.runCommand('preview');
+              editor.runCommand('fullscreen');
+            },
+            stop() {
+              editor.stopCommand('fullscreen');
+              editor.stopCommand('preview');
+            },
+          },
           {
             id: 'save-editor',
-            hidden: true,
+            hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
               const store = editor.store();
               dataHandler();
@@ -224,41 +345,15 @@ const PageBuilder: React.FC = () => {
         ],
       },
     });
-
-    const addAssets = async () => {
-      const assetManager = editor?.AssetManager;
-      axios
-        .get(`${serverURL}/api/media`)
-        .then((response) => {
-          const { docs } = response.data;
-          docs.forEach(({ url }) => {
-            assetManager?.add([
-              {
-                src: url,
-              },
-            ]);
-          });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    };
-
-    // editor.onReady(clb => {
-    //   console.log('editor is ready'+defaultStyles);
-    //   clb.loadProjectData('theme_style');
-
-    // });
-    // editor.onReady(clb => {
-    //   console.log('editor is ready'+defaultStyles);
-    //   clb.loadProjectData('theme_style');
-    // });
-    // editor.on('load', async () => {
-    //   editor.loadProjectData('theme_style');
-    // });
-
-    // editor.StorageManager.load(options)
-
+    editor.on('load', () => {
+      editor.loadProjectData({
+        ...Object.assign(
+          {},
+          { ...editor.getProjectData() },
+          { styles: userData.defaultStyle.filteredStyles }
+        ),
+      });
+    });
     editor.on('asset:add', (component) => {
       if (component.attributes.src.includes(serverURL)) {
         return;
@@ -289,6 +384,7 @@ const PageBuilder: React.FC = () => {
     editor.DomComponents.addType("text", {
       model: {
         defaults: {
+<<<<<<< HEAD
           traits: [
             {
               type: "text",
@@ -378,10 +474,54 @@ const PageBuilder: React.FC = () => {
               ],
             },
           ],
+=======
+          traits: TextTrait,
+>>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
         },
       },
     });
+    editor.DomComponents.addType('image', {
+      model: {
+        defaults: {
+          traits: ImageTrait,
+        },
+        init() {
+          console.log('************', this);
+          console.log('Attributes[[[[[[[[[[[[[[[[[[[[[[[[[', this.attributes);
+          console.log(
+            '^^^^^^^^^^^^^^^^^^^^^',
+            this.attributes.attributes.image
+          );
 
+          console.log('editorerreee', editor.getSelected());
+
+          this.on('change:image', this.handleList1Change);
+        },
+        handleList1Change(e) {
+          console.log('e', e);
+          console.log('onChange', this.attributes.image);
+          console.log('thsi', this);
+
+          // let url = this.value;
+          // console.log('image value------------------------>', url);
+          // let img = new Image();
+          // img.src = url;
+          // img.onload = function () {
+          //   // editor.AssetManager.add({ src: url });
+          //   editor.getSelected().setAttributes({src:url});
+
+          // }
+
+          // let updated = this.component.get('traits').models[2].set('src', src);
+          // console.log('updated', updated)
+          // this.components(updated);
+          // this.attributes.set('src', src);
+
+          const modelComponent = editor.getSelected();
+          modelComponent.setAttributes({ src: src });
+        },
+      },
+    });
     editor.DomComponents.addType('button', {
       model: {
         defaults: {
@@ -406,7 +546,6 @@ const PageBuilder: React.FC = () => {
                 { value: 'btn-extralarge', name: 'Extra Large' },
               ],
             },
-
             {
               type: 'select',
               name: 'class',
@@ -422,7 +561,33 @@ const PageBuilder: React.FC = () => {
         },
       },
     });
+    // editor.TraitManager.addType('image-source', {
+    //   // Define the label for the trait
+    //   label: 'Image Source',
+
+    //   // Define the input type (e.g. text, select, etc.)
+    //   type: 'text',
+
+    //   // Define the function for getting the value of the trait
+    //   getValue: function (el) {
+    //     return el.getAttribute('src');
+    //   },
+    //   // Define the function for setting the value of the trait
+    //   setValue: function (el, value) {
+    //     el.setAttribute('src', value);
+    //   }
+    // });
+    // editor.BlockManager.add('my-image-block', {
+    //   // Define the label, content, attributes, and category as before
+    //   label: 'My Image Block',
+    //   content: '<img src="https://placehold.it/300x200"/>',
+    //   attributes: {},
+    //   category: 'My Category',
+
+    // });
+
     //For Traits
+<<<<<<< HEAD
     editor.on("component:selected", (component) => {
       console.log("component:selected", component);
       const { id } = component.attributes.attributes;
@@ -438,8 +603,22 @@ const PageBuilder: React.FC = () => {
         editor?.runCommand("core:open-traits");
         if (component.get("traits").models[0].get("value"))
           component.components(component.get("traits").models[0].get("value"));
+=======
+    editor.on('component:selected', (component) => {
+      if (component) {
+        let ccid = component.ccid.split('-')[0];
+        const blocksector = editor.StyleManager.getSectors();
+        blocksector.reset();
+        blocksector.add(getSectors(ccid));
       }
-
+      let type = component.get('type');
+      const { id } = component.attributes.attributes;
+      if (component.get('type') == 'text') {
+        editor?.runCommand('core:open-traits');
+        if (component.get('traits').models[0].get('value'))
+          component.components(component.get('traits').models[0].get('value'));
+>>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
+      }
       if (component.get('type') == 'button') {
         editor?.runCommand('core:open-traits');
         if (component.get('traits').models[0].get('value'))
@@ -450,19 +629,19 @@ const PageBuilder: React.FC = () => {
       if (component.get('type') == 'text') {
         component.components(component.get('traits').models[0].get('value'));
         component.components(component.get('traits').models[1].get('class'));
-        // const block = editor.getSelected();
-        // console.log('block', block)
-        // block.setAttributes({ class: 'main_heading h3' });
       }
       if (component.get('type') == 'button') {
         component.components(component.get('traits').models[0].get('value'));
         component.components(component.get('traits').models[1].get('class'));
         component.components(component.get('traits').models[2].get('class'));
-
-        // const block = editor.getSelected();
-        // console.log('block', block)
-        // block.setAttributes({ class: 'main_heading h3' });
       }
+      if (component.get('type') == 'image') {
+        // console.log("hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
+        // let updated = component.get('traits').models[2].set('src', src);
+        // console.log('updated', updated)
+        // component.components(component.get('traits').models[2].set('src', src));
+      }
+      pageHistoryHandler();
     });
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
@@ -474,10 +653,37 @@ const PageBuilder: React.FC = () => {
         blocksector.add(getSectors(ccid));
       }
     });
+    localStorage.removeItem('gjsProject');
     setEditorState(editor);
     addAssets();
   };
-
+  useEffect(() => {
+    setStepNav([
+      {
+        label: 'Page Builder',
+        url: '/collections/page-builder',
+      },
+    ]);
+  }, [setStepNav]);
+  // ========GrapesJS editor end here=======
+  // =========Lifecycle methods start here========
+  useEffect(() => {
+    if (userData !== null) {
+      initializeInstance();
+      fetchData();
+      fetchHistory();
+    }
+  }, []);
+  useEffect(() => {
+    const updateHistory = setTimeout(() => {
+      if (changeHistory) {
+        saveHistoy();
+        setChangeHistory(false); // reset the flag beacue again tracking updation
+      }
+    }, 1000);
+    return () => clearTimeout(updateHistory);
+  }, [changeHistory]);
+  // =======Lifecycle methods end here=========
   return (
     <div className="main__content">
       <Eyebrow />
@@ -495,7 +701,11 @@ const PageBuilder: React.FC = () => {
             </span>
           </div>
           <div className="panel__switcher"></div>
-          <div className="blocks"></div>
+          <SidebarBottom
+            editor={editor}
+            consumer="pageBuilder"
+            pageHistoryArray={pageHistoryArray}
+          />
           <div className="styles-container"></div>
           <div className="traits-container"></div>
           <div className="layers-container"></div>

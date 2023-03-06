@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useAuth, useConfig } from 'payload/components/utilities';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
+import { setInterval } from 'timers/promises';
 
 const borderStyle = [
   { value: 'solid', name: 'Solid' },
@@ -42,17 +43,18 @@ const fontsList = [
 const DesignSystem: React.FC = () => {
   const [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
+  const [showTheme, setShowTheme] = useState(true);
   const {
     routes: { admin },
   } = useConfig();
 
   const url = location.href ? location.href : '';
-  let showTheme = false;
-  if (url.includes('design-system')) {
-    showTheme = false;
-  } else {
-    showTheme = true;
-  }
+  // let showTheme = false;
+  // if (url.includes('design-system')) {
+  //   showTheme = false;
+  // } else {
+  //   showTheme = true;
+  // }
   useEffect(() => {
     setStepNav([
       {
@@ -61,6 +63,19 @@ const DesignSystem: React.FC = () => {
       },
     ]);
   }, [setStepNav]);
+
+
+
+  useEffect(() => {
+    console.log("djdjdjdjd")
+    setTimeout(() => {
+      setShowTheme(!showTheme)
+      console.log("showTheme", showTheme)
+    }, 1000);
+    
+  }, []);
+
+
 
   useEffect(() => {
     let editor = GrapesJS.init({
@@ -269,7 +284,11 @@ const DesignSystem: React.FC = () => {
           },
           {
             name: 'Buttons',
-            open: showTheme,
+            open:  setTimeout(() => {
+
+              //@ts-ignore
+              editor.Panels.getButton('views', 'open-blocks').set('active', 1);
+            }, 0),
             buildProps: [
               'css-class',
               'font-family',

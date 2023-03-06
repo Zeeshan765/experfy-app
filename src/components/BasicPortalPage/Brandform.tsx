@@ -134,7 +134,7 @@ const BrandForm: React.FC = (props: any) => {
                 <FormSelect
                   {...field}
                   options={defaultBrands}
-                  name="defaultBrand"
+                  // name="defaultBrand"
                   label="Default Brand"
                   onFocus={onClickBrandName}
                 />

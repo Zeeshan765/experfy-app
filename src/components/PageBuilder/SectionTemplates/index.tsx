@@ -4,14 +4,15 @@ import { useStepNav } from 'payload/components/hooks';
 import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Experfy from '../ExperfyPlugin';
-import NavBar from 'grapesjs-navbar';
 import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
-import { StyleContext } from '../../../Providers/StyleProvider';
+import { UserContext } from '../../../Providers/UserProvider';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
+import SidebarBottom from '../SidebarBottom';
+import { canvasStyle,devices } from '../utils';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -20,7 +21,7 @@ const SectionPageBuilder: React.FC = () => {
   const { serverURL } = useConfig();
   const { routes } = useConfig();
   const { admin } = routes;
-  const { userDefaultStyleString, getStyle } = useContext(StyleContext);
+  const { userData } = useContext(UserContext);
 
   const sections = [
     'page-builder',
@@ -39,6 +40,7 @@ const SectionPageBuilder: React.FC = () => {
     'talent-cloud-candidates',
     'testimonial',
     'video',
+    'department',
   ];
   let showSections = true;
 
@@ -115,24 +117,13 @@ const SectionPageBuilder: React.FC = () => {
     editor = GrapesJS.init({
       container: '#sections',
       storageManager: {
-        type: 'local',
+        type: 'none',
         autoload: false,
-        options: {
-          storeComponents: true,
-          storeStyles: true,
-          storeHtml: true,
-          storeCss: true,
-
-          local: {
-            key: 'experfy_elements',
-          },
-        },
       },
       showOffsets: true,
       showDevices: false,
       showOffsetsSelected: true,
-
-      style: userDefaultStyleString,
+      style: canvasStyle ,
       plugins: [Blocks],
 
       blockManager: {
@@ -141,17 +132,29 @@ const SectionPageBuilder: React.FC = () => {
       },
       layerManager: null,
       traitManager: null,
-      selectorManager: {
-        
-        
-      },
+      selectorManager: {},
       styleManager: {
         appendTo: '.styles-container',
         sectors: getSectors(blocks),
       },
+      deviceManager: {
+        devices,
+      },
+    });
+    localStorage.removeItem('gjsProject');
+    editor.on('load', () => {
+      console.log('defaultStyle---', userData);
+      editor.loadProjectData({
+        ...Object.assign(
+          {},
+          { ...editor.getProjectData() },
+          { styles: userData.defaultStyle.filteredStyles }
+        ),
+      });
     });
     //This is for Single Section
     editor.onReady(() => {
+      console.log('ready');
       if (blocks.length === 1) {
         const sectors = editor.StyleManager.getSectors();
         const block = editor.BlockManager.get(blocks[0]);
@@ -210,7 +213,8 @@ const SectionPageBuilder: React.FC = () => {
     };
     addAssets();
     updateHeaderBlock();
-  }, [setEditor]);
+    setEditor(editor);
+  }, []);
 
   return (
     <div className="main__content">
@@ -228,7 +232,9 @@ const SectionPageBuilder: React.FC = () => {
               <AppsRoundedIcon />
             </span>
           </div>
-          <div className="blocks"></div>
+
+          <SidebarBottom editor={editor}  /> {/*  this warning is stylable. work is in progress*/}
+
           <div className="styles-container"></div>
           <div className="traits-container"></div>
           <div className="layers-container"></div>

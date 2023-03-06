@@ -128,7 +128,7 @@ const LOGIN_API_URL = 'https://landing-ui-service.develop.experfy.com/login';
 // Initialize Payload
 payload.init({
   secret: process.env.PAYLOAD_SECRET ?? '1S2Xf3SF1SAA1UZR2SX',
-  mongoURL: process.env.MONGODB_URI ?? 'mongodb://localhost/experfy-payload/',
+  mongoURL: process.env.MONGODB_URI ?? 'mongodb://localhost/experfy-payload',
   express: app,
   onInit: () => {
     payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
@@ -137,7 +137,11 @@ payload.init({
 const router = express.Router();
 router.use(
   createProxyMiddleware({
+<<<<<<< HEAD
     target: LOGIN_API_URL + LOGIN_MATCHER,
+=======
+    target: LOGIN_API_URL + process.env.REACT_APP_LOGIN_MATCHER,
+>>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
     changeOrigin: true,
     secure: false,
   })

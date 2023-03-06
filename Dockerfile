@@ -1,4 +1,8 @@
-FROM node:16.10.0-alpine
+# STAGE 1 - build app
+FROM node:lts-alpine3.17 as base
+
+FROM base as builder
+
 ARG DEPLOYMENT_ENV=develop
 ARG ENV=development
 ARG PORT=3000
@@ -10,12 +14,36 @@ ENV PORT "$PORT"
 ENV MONGODB_URI "$MONGODB_URI"
 ENV PAYLOAD_PUBLIC_SERVER_URL "$PAYLOAD_PUBLIC_SERVER_URL"
 ENV APP_HOME /itarp-career-portal-cms-service
+
+RUN apk update --no-cache && \
+    apk add --no-cache git curl
+
 WORKDIR $APP_HOME
 COPY . .
-RUN apk add --no-cache git
 RUN yarn install --save --legacy-peer-deps payload
 RUN yarn generate:types
-RUN yarn generate:graphQLSchema
 RUN yarn build
+
+FROM base as runtime
+
+ENV NODE_ENV=production
+ENV APP_HOME /itarp-career-portal-cms-service
+ENV ENV "$ENV"
+ENV PORT "$PORT"
+ENV MONGODB_URI "$MONGODB_URI"
+ENV PAYLOAD_PUBLIC_SERVER_URL "$PAYLOAD_PUBLIC_SERVER_URL"
+
+WORKDIR $APP_HOME
+
+COPY package*.json ./
+
+RUN yarn cache clean --all 
+
+RUN yarn install --production --save --legacy-peer-deps payload
+
+COPY --from=builder $APP_HOME/dist ./dist
+COPY --from=builder $APP_HOME/build ./build
+
 EXPOSE $PORT
-CMD ["yarn", "serve"]
+
+CMD ["node", "dist/server.js"]

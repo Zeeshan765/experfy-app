@@ -2,7 +2,10 @@
 @import "font-proxima-nova";
 @import "updated-styles";
 
+$assets_path: "../../assets/images/";
+
 :root {
+
   --breakpoint-xs-width: #{$breakpoint-xs-width};
   --breakpoint-s-width: #{$breakpoint-s-width};
   --breakpoint-m-width: #{$breakpoint-m-width};
@@ -16,7 +19,7 @@
   --theme-elevation-150: var(--theme-border);
   --theme-elevation-100: var(--theme-border);
   --theme-input-bg: var(--theme-elevation-0);
-  --theme-text-light: #4a5162;
+  --theme-text-light: #545965;
   --theme-text-dark: #3a4152;
   --theme-primary: #48a3d7;
   --theme-baseline: #{$baseline-px};
@@ -391,7 +394,7 @@ div.react-select {
 }
 
 .Global #nav-design-system::before {
-  background-image: url("/src/assets/images/sidebar/design_system.svg");
+  background-image: url("#{$assets_path}sidebar/design_system.svg");
   background-repeat: no-repeat;
   content: "";
   width: 16px;
@@ -400,7 +403,7 @@ div.react-select {
 }
 
 .Global #nav-themes-style::before {
-  background-image: url("/src/assets/images/sidebar/theme_style.svg") !important;
+  background-image: url("#{$assets_path}sidebar/theme_style.svg") !important;
   background-repeat: no-repeat;
   content: "";
   width: 16px;
@@ -409,7 +412,7 @@ div.react-select {
 }
 
 .Global #nav-section-templates::before {
-  background-image: url("/src/assets/images/sidebar/section.svg") !important;
+  background-image: url("#{$assets_path}sidebar/section.svg") !important;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   content: "";
@@ -600,7 +603,37 @@ div.react-select {
   }
 }
 
-// template select from template design
+.edit-btn {
+  color: var(--theme-bg);
+  background-color: var(--theme-text-dark);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 1px 2px 0px gray;
+    text-decoration: none;
+  }
+}
+
+.delete-btn {
+  color: var(--theme-text-dark);
+  background-color: var(--theme-bg);
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 7px;
+
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0px 1px 2px 0px gray;
+  }
+}
+
 .image-card {
   position: relative;
 }
@@ -653,7 +686,7 @@ div.react-select {
 }
 
 .model-body {
-  padding:1.5rem 1.5rem 3rem 1.5rem;
+  padding: 1.5rem 1.5rem 3rem 1.5rem;
 }
 
 .model-title {
@@ -685,13 +718,70 @@ div.react-select {
     background-color: var(--theme-text-dark);
     color: var(--theme-elevation-0);
   }
-  
+
 }
+
 .pill--style-light.pill--has-action:hover {
   background-color: var(--theme-primary);
   box-shadow: 0px 2px 2px 0px var(--theme-elevation-600);
   color: var(--theme-elevation-0);
 }
+
+.form-control {
+  width: 12rem;
+  height: 3rem;
+  position: absolute;
+  left: -12.4rem;
+  // top:1rem;
+}
+
 // .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
 //   padding: .75rem !important;
 // }
+
+.blocks {
+  display: grid;
+}
+
+// history button style
+.action-btn {
+  width: 50%;
+  background-color: #fff;
+  border: 1px solid #fff;
+  padding: 8px;
+  // cursor: pointer;
+
+  &:hover {
+    border: 1px solid red !important;
+  }
+}
+.revision-btn {
+  width: 50%;
+  background-color: #fff;
+  border: 1px solid #fff;
+  padding: 8px;
+  // cursor: pointer;
+
+  &:hover {
+    border: 1px solid red !important;
+  }
+}
+
+.his-btn {
+  width: 100%;
+  border: 1px solid gray;
+  color: gray;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: white;
+
+  &:hover {
+    background-color: rgb(225, 224, 224);
+    // color: var(--theme-bg);
+  }
+}

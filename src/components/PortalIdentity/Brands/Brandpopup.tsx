@@ -29,29 +29,44 @@ const useStyles = makeStyles({
   },
 });
 
-const Brandpopup = ({ open, setOpen, handleAddBrand }) => {
+const defaultData = {
+  name: '',
+  identifier: '',
+  microsite_identifier: '',
+  // default_brand: `${defaultBrand}`,
+  brandSwitch: false,
+  radioButtons: '',
+};
+
+const Brandpopup = ({
+  open,
+  setOpen,
+  handleAddBrand,
+  handleUpdateBrand,
+  data,
+  isUpdate,
+}) => {
+  const { control, handleSubmit, reset, setValue } = useForm({
+    defaultValues: isUpdate ? data : defaultData,
+  });
+
   const handleClose = () => {
     setOpen(false);
   };
 
   const onSubmit = (data) => {
-    handleAddBrand(data);
+    isUpdate ? handleUpdateBrand(data) : handleAddBrand(data);
+    handleClose();
   };
-
-  const { control, handleSubmit, reset, setValue } = useForm({
-    name: '',
-    identifier: '',
-    microsite_identifier: '',
-    // default_brand: `${defaultBrand}`,
-    radioButtons: '',
-  });
 
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth={true}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <DialogTitle sx={{ borderBottom: '1px solid #d1dbe3' }}>
           <Grid container justifyContent="space-between" alignItems="center">
-            <Typography variant="h4">Add Brand</Typography>
+            <Typography variant="h4">
+              {isUpdate ? 'Update' : 'Add'} Brand
+            </Typography>
             <IconButton
               onClick={() => {
                 handleClose();
@@ -96,9 +111,9 @@ const Brandpopup = ({ open, setOpen, handleAddBrand }) => {
         </DialogContent>
         <DialogActions>
           <Grid container>
-            <Button type="submit" variant="contained">
-              Save
-            </Button>
+            <button className="btn btn--style-primary" type="submit">
+              {isUpdate ? 'Update' : 'Save'}
+            </button>
           </Grid>
         </DialogActions>
       </form>

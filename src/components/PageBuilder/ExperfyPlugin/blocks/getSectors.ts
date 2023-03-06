@@ -1,6 +1,4 @@
-import { Property } from './../../../../utilities/types';
 const fontFamilies = [
-  { value: 'Arial, Helvetica, sans-serif', name: 'Arial' },
   { value: 'proxima-nova', name: 'Proxima Nova' },
   { value: 'Arial', name: 'Arial' },
   { value: 'Arial Black', name: 'Arial Black' },
@@ -66,19 +64,19 @@ const textDecorationOptions = [
 const textAlignOptions = [
   {
     value: 'left',
-    name: `<i class="fa fa-align-left" aria-hidden="true"></i>`,
+    name: `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M12 4.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 9.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M21 14.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 19.5H3" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
   {
     value: 'center',
-    name: `<i class="fa fa-align-center" aria-hidden="true"></i>`,
+    name: `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 9.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 19.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
   {
     value: 'right',
-    name: `<i class="fa fa-align-right" aria-hidden="true"></i>`,
+    name: `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11.5293 9.5H20.9993" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M11.5293 19.5H20.9993" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
   {
     value: 'justify',
-    name: `<i class="fa fa-align-justify" aria-hidden="true"></i>`,
+    name: `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 4.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.26001 9.5H16.74" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 14.5H21" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.26001 19.5H16.74" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`,
   },
 ];
 
@@ -94,28 +92,26 @@ const fontStyle = [
   { value: 'underline', name: '<u>U</u>' },
 ];
 
-const State = {
+const makeId = () => {
+  let ID = 'c';
+  let characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  for (var i = 0; i < 5; i++) {
+    ID += characters.charAt(Math.floor(Math.random() * 36));
+  }
+  return ID;
+};
+
+let State = {
   name: 'State',
   type: 'radio',
+  id: makeId(),
+  cid: makeId(),
   property: 'state',
   default: 'normal',
   options: [
     { value: 'normal', name: 'Normal' },
     { value: 'hover', name: 'Hover' },
   ],
-  onclick: function (e) {
-    const state = e.target.value;
-    const el = this.target;
-    const normal = el.querySelector('.normal');
-    const hover = el.querySelector('.hover');
-    if (state === 'normal') {
-      normal.style.display = 'block';
-      hover.style.display = 'none';
-    } else {
-      normal.style.display = 'none';
-      hover.style.display = 'block';
-    }
-  },
 };
 
 const shadowOptions = (which: String) => {
@@ -173,19 +169,38 @@ const shadowOptions = (which: String) => {
   };
 };
 
+let color = {
+  id: makeId(),
+  cid: makeId(),
+  type: 'color',
+  name: 'Color',
+  property: 'color',
+  default: '#ea4c89',
+  colorPicker: {
+    preferredFormat: 'hex',
+    showInput: true,
+  },
+};
+
 let typography = {
   type: 'stack',
   name: 'Typography',
   detached: true,
+  preview: false,
+
   properties: [
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'select',
       name: 'Font Family',
       property: 'font-family',
-      default: 'Proxima Nova',
+      default: 'proxima-nova',
       options: fontFamilies,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'slider',
       name: 'Font Size',
       property: 'font-size',
@@ -196,6 +211,8 @@ let typography = {
       step: 1,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'select',
       name: 'Font Weight',
       property: 'font-weight',
@@ -203,6 +220,8 @@ let typography = {
       options: fontWeightOptions,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'radio',
       label: 'Text Transform',
       property: 'text-transform',
@@ -210,6 +229,8 @@ let typography = {
       options: textTransformOptions,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'radio',
       name: 'Text Align',
       property: 'text-align',
@@ -222,11 +243,13 @@ let typography = {
       property: 'letter-spacing',
       default: 0,
       unit: 'rem',
-      min: -1,
+      min: 0,
       max: 10,
       step: 1,
     },
     {
+      id: makeId(),
+      cid: makeId(),
       type: 'slider',
       name: 'Line Height',
       property: 'line-height',
@@ -236,6 +259,24 @@ let typography = {
       max: 10,
       step: 0.1,
     },
+  ],
+};
+
+let HtmlTag = {
+  type: 'select',
+  name: 'HTML Tag',
+  property: 'html-tag',
+  default: 'H1',
+  options: [
+    { value: 'div', name: 'Div' },
+    { value: 'h1', name: 'H1' },
+    { value: 'h2', name: 'H2' },
+    { value: 'h3', name: 'H3' },
+    { value: 'h4', name: 'H4' },
+    { value: 'h5', name: 'H5' },
+    { value: 'h6', name: 'H6' },
+    { value: 'p', name: 'P' },
+    { value: 'span', name: 'Span' },
   ],
 };
 
@@ -1876,105 +1917,7 @@ const obj = {
     {
       name: 'Section Heading',
       open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'section-heading-color',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'section-heading-font-family',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'section-heading-font-size',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'section-heading-font-weight',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'section-heading-letter-spacing',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'section-heading-line-height',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'center',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'section-heading-text-align',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'section-heading-text-decoration',
-            'data-target': '.section-title',
-          },
-        },
-      ],
+      properties: [color, typography, HtmlTag],
     },
     {
       name: 'Sub Section Heading',
@@ -2082,79 +2025,13 @@ const obj = {
     {
       name: 'Title',
       open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'title-color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'title-typography',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Title HTML Tag',
-          property: 'title-tag',
-          default: 'h2',
-          options: [
-            { value: 'h1', name: 'H1' },
-            { value: 'h2', name: 'H2' },
-            { value: 'h3', name: 'H3' },
-            { value: 'h4', name: 'H4' },
-            { value: 'h5', name: 'H5' },
-            { value: 'h6', name: 'H6' },
-          ],
-        },
-      ],
+      properties: [color, typography, HtmlTag],
     },
 
     {
       name: 'Descriptive Text',
       open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Color',
-          property: 'desc-color',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'color',
-          name: 'Typography',
-          property: 'desc-typography',
-          default: '#4aa4da',
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'select',
-          name: 'HTML Tag',
-          property: 'desc-tag',
-          default: 'h2',
-          options: [
-            { value: 'h1', name: 'H1' },
-            { value: 'h2', name: 'H2' },
-            { value: 'h3', name: 'H3' },
-            { value: 'h4', name: 'H4' },
-            { value: 'h5', name: 'H5' },
-            { value: 'h6', name: 'H6' },
-          ],
-        },
-      ],
+      properties: [color, typography, HtmlTag],
     },
 
     {
@@ -2446,7 +2323,7 @@ const obj = {
             },
             {
               value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+              name: '<span style="font-style: italic;">I</span>',
             },
             {
               value: 'underline',
@@ -2554,7 +2431,7 @@ const obj = {
             },
             {
               value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+              name: '<span style="font-style: underline;"></span>',
             },
             {
               value: 'underline',
@@ -3427,7 +3304,7 @@ const obj = {
             },
             {
               value: 'italic',
-              name: '<span i class="fa fa-italic" style="font-style: underline;"></span>',
+              name: '<span style="font-style: underline;"></span>',
             },
             {
               value: 'underline',
@@ -3689,6 +3566,8 @@ const obj = {
       buildProps: ['background-color', 'color'],
       properties: [
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Primary',
           property: 'background-color',
@@ -3696,12 +3575,16 @@ const obj = {
           attributes: { class: 'gjs-fonts gjs-f-b1' },
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Secondary',
           property: 'color',
           default: '#4a5162',
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Accent Color',
           property: 'accent-color',
@@ -3808,10 +3691,6 @@ const obj = {
             { value: 'uppercase', name: '<span>TT</span>' },
             { value: 'lowercase', name: '<span>tt</span>' },
             { value: 'capitalize', name: '<span>Tt</span>' },
-            // { value: 'default', name: 'Default' },
-            // { value: 'uppercase', name: 'Uppercase' },
-            // { value: 'lowercase', name: 'Lowercase' },
-            // { value: 'capitalize', name: 'Capitalize' },
           ],
         },
       ],
@@ -3824,13 +3703,15 @@ const obj = {
     {
       name: 'Buttons',
       open: false,
-      id: 'buttons',
+      id: 'button',
 
       properties: [
         typography,
         'text-shadow',
         State,
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Text Color',
           property: 'color',
@@ -3840,6 +3721,8 @@ const obj = {
           },
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Background Color',
           property: 'background-color',
@@ -3850,12 +3733,16 @@ const obj = {
         },
 
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'select',
           name: 'Border Type',
           property: 'border-style',
           options: borderStyleOptions,
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
@@ -3863,6 +3750,8 @@ const obj = {
           detached: false,
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'color',
           name: 'Border Color',
           property: 'border-color',
@@ -3872,6 +3761,8 @@ const obj = {
           },
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
@@ -3884,7 +3775,7 @@ const obj = {
     },
     {
       name: 'Images',
-      id: 'images',
+      id: 'image',
       open: false,
 
       buildProps: [
@@ -3898,6 +3789,8 @@ const obj = {
       properties: [
         State,
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
@@ -3907,6 +3800,8 @@ const obj = {
           step: 0.01,
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
@@ -3923,6 +3818,8 @@ const obj = {
           },
         },
         {
+          id: makeId(),
+          cid: makeId(),
           type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
@@ -3935,15 +3832,10 @@ const obj = {
       name: 'Body Text',
       open: false,
       buildProps: 'color',
+      id: 'body-text',
       properties: [typography],
     },
-    {
-      name: 'Links',
-      open: false,
-      id: 'links',
-      buildProps: 'color',
-      properties: [State, typography],
-    },
+
     {
       name: 'Headings',
       open: false,
@@ -3953,60 +3845,61 @@ const obj = {
       name: 'H1',
       open: false,
       id: 'h1',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'H2',
       open: false,
       id: 'h2',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'H3',
       open: false,
       id: 'h3',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'H4',
       open: false,
       id: 'h4',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'H5',
       open: false,
       id: 'h5',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'H6',
       open: false,
       id: 'h6',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'Form Fields',
       open: false,
-      buildProps: [],
+      buildProps: [''],
+    },
+    {
+      name: 'Links',
+      open: false,
+      id: 'link',
+      buildProps: 'color',
+      properties: [State, typography],
     },
     {
       name: 'Label',
       open: false,
-      id: 'labels',
+      id: 'label',
       buildProps: ['color'],
       properties: [typography],
     },
     {
       name: 'Field',
       open: false,
-      id: 'fields',
+      id: 'input',
       buildProps: [
         'color',
         'background-color',
@@ -4017,6 +3910,80 @@ const obj = {
         'padding',
       ],
       properties: [typography, State],
+    },
+  ],
+
+  department_1: [
+    {
+      name: 'Section Heading',
+      open: false,
+      properties: [color, typography],
+    },
+    {
+      name: 'Sub Section Heading',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Job Title',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Company Name',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Date Posted',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Descriptive Text',
+      open: false,
+      properties: [color, typography, HtmlTag],
+    },
+    {
+      name: 'Feature List',
+      open: false,
+      properties: [
+        color,
+        typography,
+        HtmlTag,
+
+        {
+          type: 'slider',
+          name: 'Space Between',
+          property: 'space-between',
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'color',
+          name: 'Icon Color',
+          property: 'color',
+
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Icon Size',
+          property: 'icon-size',
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'slider',
+          name: 'Text Indent',
+          property: 'text-indent',
+          default: 1,
+          units: ['px', 'rem'],
+        },
+      ],
     },
   ],
 

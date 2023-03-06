@@ -40,6 +40,7 @@ const useStyles = makeStyles({
 type Props = {
   search?: string;
   templateModelClose?: () => void;
+  fromScratch?:any;
 };
 const PageTemplate: React.FC<Props> = ({
   search,

@@ -1,55 +1,147 @@
-import { getSectors } from './blocks/getSectors';
 import GrapesJS from 'grapesjs';
+
+const sectorsIds = [
+  'buttons',
+  'images',
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'links',
+  'labels',
+  'fields',
+];
 export function ComponentSelection(
   sector: GrapesJS.Sector,
   editor: GrapesJS.Editor
 ) {
   if (sector.isOpen()) {
-    const wrapperCmp = editor.Pages.getSelected().getMainComponent();
+    const wrapperCmp = editor.DomComponents.getWrapper();
     switch (sector.attributes.id) {
-      case 'buttons':
-        editor.SelectorManager.select(wrapperCmp.find('button')[0]);
+      case 'button':
+        editor.select(wrapperCmp.find('button')[0]);
         break;
-      case 'images':
-        editor.SelectorManager.select(wrapperCmp.find('img')[0]);
+      case 'image':
+        editor.select(wrapperCmp.find('img')[0]);
         break;
       case 'h1':
-        editor.SelectorManager.select(wrapperCmp.find('h1')[0]);
+        editor.select(wrapperCmp.find('h1')[0]);
         break;
       case 'h2':
-        editor.SelectorManager.select(wrapperCmp.find('h2')[0]);
+        editor.select(wrapperCmp.find('h2')[0]);
         break;
       case 'h3':
-        editor.SelectorManager.select(wrapperCmp.find('h3')[0]);
+        editor.select(wrapperCmp.find('h3')[0]);
         break;
       case 'h4':
-        editor.SelectorManager.select(wrapperCmp.find('h4')[0]);
+        editor.select(wrapperCmp.find('h4')[0]);
         break;
       case 'h5':
-        editor.SelectorManager.select(wrapperCmp.find('h5')[0]);
+        editor.select(wrapperCmp.find('h5')[0]);
         break;
       case 'h6':
-        editor.SelectorManager.select(wrapperCmp.find('h6')[0]);
+        editor.select(wrapperCmp.find('h6')[0]);
         break;
-      case 'links':
-        editor.SelectorManager.select(wrapperCmp.find('a')[0]);
+      case 'link':
+        editor.select(wrapperCmp.find('a')[0]);
         break;
-      case 'labels':
-        editor.SelectorManager.select(wrapperCmp.find('span')[0]);
+      case 'label':
+        editor.select(wrapperCmp.find('label')[0]);
         break;
-      case 'fields':
-        editor.SelectorManager.select(wrapperCmp.find('input')[0]);
+      case 'input':
+        editor.select(wrapperCmp.find('input')[0]);
         break;
       default:
-        editor.SelectorManager.select('wrapper');
+        editor.StyleManager.select();
     }
   }
 }
 
-export function CloseAllSectors(_editor: GrapesJS.Editor) {
-  const sectors = _editor.StyleManager.getSectors();
-  sectors.forEach((sector: GrapesJS.Sector) => {
-    console.log(sector.attributes.id);
-    sector.setOpen(false);
+export function CloseAllSectors(selectedId: any, _editor: GrapesJS.Editor) {
+  sectorsIds.forEach((id) => {
+    const sector = _editor.StyleManager.getSector(id);
+    if (sector.attributes.id !== selectedId && sector.isOpen()) {
+      sector.setOpen(false);
+    }
   });
 }
+
+let dataArray = [
+  {
+    name: 'AI & Machine Learning',
+    type: 'AI-ML',
+  },
+  {
+    name: 'Big Data',
+    type: 'Big-Data',
+  },
+  {
+    name: 'Cloud Computing',
+    type: 'Cloud-Computing',
+  },
+  {
+    name: 'DevOps',
+    type: 'DevOps',
+  },
+  {
+    name: 'Business Intelligence',
+    type: 'Business-Intelligence',
+  },
+  {
+    name: 'Software/Web Development',
+    type: 'Software-Web-Development',
+  },
+  {
+    name: 'QA',
+    type: 'QA',
+  },
+  {
+    name: 'UX/UI Design',
+    type: 'UX-UI-Design',
+  },
+  {
+    name: 'Mobile',
+    type: 'Mobile',
+  },
+  {
+    name: 'Marketing',
+    type: 'Marketing',
+  },
+  {
+    name: 'Internet of Things',
+    type: 'Internet-of-Things',
+  },
+  {
+    name: 'BlockChain',
+    type: 'BlockChain',
+  },
+  {
+    name: 'Robotics Process Automation',
+    type: 'Robotics-Process-Automation',
+  },
+  {
+    name: 'Cyber Security',
+    type: 'Cyber-Security',
+  },
+];
+
+export const practiceAreaData = () => {
+  let htmlData = '';
+
+  dataArray.forEach((item, i) => {
+    const { name, type } = item;
+
+    htmlData += `
+        <div data-gjs-type=${type} class='box-icon-text-holder'>
+          <div class='box-icon-div'>
+           <img src='' />
+          </div>
+          <div class='box-text-div'>
+            <p>${name}</p>
+          </div>
+        </div>`;
+  });
+  return htmlData;
+};

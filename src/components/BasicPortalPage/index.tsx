@@ -10,6 +10,7 @@ import { DefaultTemplate } from 'payload/components/templates';
 import { useConfig } from 'payload/components/utilities';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import AddIcon from '@mui/icons-material/Add';
 
 import { toast } from 'react-toastify';
 import BrandForm from './Brandform';
@@ -49,11 +50,6 @@ const BasicPortalPage: React.FC = (props) => {
     setOpen(false);
   };
   const {
-    control,
-    handleSubmit,
-    reset,
-    getValues,
-    watch,
     formState: { errors },
   } = useForm({});
 
@@ -174,7 +170,7 @@ const BasicPortalPage: React.FC = (props) => {
                     // iconPosition="left"
                     // iconStyle="without-border"
                   >
-                    <span className="btn-add--icon"></span>
+                    <AddIcon />
                     Create New
                   </Button>
                 </div>
