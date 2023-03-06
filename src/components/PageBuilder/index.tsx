@@ -201,57 +201,7 @@ const PageBuilder: React.FC = () => {
       ],
     },
   ];
-  let ImageTrait = [
-    {
-      type: 'select',
-      name: 'class',
-      label: 'Icon background',
-      default: 'left',
-      options: [{ value: 'left', name: 'Left' }],
-    },
-    {
-      type: 'select',
-      name: 'class',
-      label: 'Background Shape',
-      default: 'left',
-      options: [{ value: 'left', name: 'Left' }],
-    },
-    {
-      name: 'image',
-      type: 'file',
-      label: 'Icon',
-      attributes: {
-        accept: 'image/*',
-        onchange: function () {
-          let url = this.value;
-          console.log('image value------------------------>', url);
-          let img = new Image();
-          img.src = url;
-          img.onload = function () {
-            // editor.AssetManager.add({ src: url });
-            editor.getSelected().set('src', src);
-            // Trigger a render of the selected component to update the canvas
-            //@ts-ignore
-            editor.getSelected().trigger('change:attributes');
-          };
-        },
-      },
-      onchange: function () {
-        let url = this.value;
-        console.log('image value------------------------>', url);
-        let img = new Image();
-        img.src = url;
-        img.onload = function () {
-          // editor.AssetManager.add({ src: url });
-          editor.getSelected().set('src', src);
-          // Trigger a render of the selected component to update the canvas
-          //@ts-ignore
-          editor.getSelected().trigger('change:attributes');
-        };
-      },
-      // changeProp: 1,
-    },
-  ];
+ 
   //=========external custom Trait end here========
 
   //======== GrapesJs Canvas initialization start here========
@@ -383,48 +333,7 @@ const PageBuilder: React.FC = () => {
         },
       },
     });
-    editor.DomComponents.addType('image', {
-      model: {
-        defaults: {
-          traits: ImageTrait,
-        },
-        init() {
-          console.log('************', this);
-          console.log('Attributes[[[[[[[[[[[[[[[[[[[[[[[[[', this.attributes);
-          console.log(
-            '^^^^^^^^^^^^^^^^^^^^^',
-            this.attributes.attributes.image
-          );
 
-          console.log('editorerreee', editor.getSelected());
-
-          this.on('change:image', this.handleList1Change);
-        },
-        handleList1Change(e) {
-          console.log('e', e);
-          console.log('onChange', this.attributes.image);
-          console.log('thsi', this);
-
-          // let url = this.value;
-          // console.log('image value------------------------>', url);
-          // let img = new Image();
-          // img.src = url;
-          // img.onload = function () {
-          //   // editor.AssetManager.add({ src: url });
-          //   editor.getSelected().setAttributes({src:url});
-
-          // }
-
-          // let updated = this.component.get('traits').models[2].set('src', src);
-          // console.log('updated', updated)
-          // this.components(updated);
-          // this.attributes.set('src', src);
-
-          const modelComponent = editor.getSelected();
-          modelComponent.setAttributes({ src: src });
-        },
-      },
-    });
     editor.DomComponents.addType('button', {
       model: {
         defaults: {
@@ -464,30 +373,7 @@ const PageBuilder: React.FC = () => {
         },
       },
     });
-    // editor.TraitManager.addType('image-source', {
-    //   // Define the label for the trait
-    //   label: 'Image Source',
 
-    //   // Define the input type (e.g. text, select, etc.)
-    //   type: 'text',
-
-    //   // Define the function for getting the value of the trait
-    //   getValue: function (el) {
-    //     return el.getAttribute('src');
-    //   },
-    //   // Define the function for setting the value of the trait
-    //   setValue: function (el, value) {
-    //     el.setAttribute('src', value);
-    //   }
-    // });
-    // editor.BlockManager.add('my-image-block', {
-    //   // Define the label, content, attributes, and category as before
-    //   label: 'My Image Block',
-    //   content: '<img src="https://placehold.it/300x200"/>',
-    //   attributes: {},
-    //   category: 'My Category',
-
-    // });
 
 
 
@@ -504,14 +390,18 @@ const PageBuilder: React.FC = () => {
                 name: "mjchange",
               },
               {
-                type: "href",
-                label: "Link",
-                name: "href",
+                type: 'select',
+                name: 'class',
+                label: 'Icon background',
+                default: 'left',
+                options: [{ value: 'left', name: 'Left' }],
               },
               {
-                type: "alt",
-                label: "Alt",
-                name: "alt",
+                type: 'select',
+                name: 'class',
+                label: 'Background Shape',
+                default: 'left',
+                options: [{ value: 'left', name: 'Left' }],
               },
             ],
           },
@@ -552,7 +442,6 @@ const PageBuilder: React.FC = () => {
           select(assets, complete) {
             const selected = editor.getSelected();    
             if (selected && selected.is("mj-image")) {
-              // selected.set("src", assets.getSrc());
 
               $("#gjs_img_preview_logo_rtl").attr("src", assets.getSrc());
               selected.addAttributes({ src: assets.getSrc() });
@@ -564,28 +453,6 @@ const PageBuilder: React.FC = () => {
           },
         });
       });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //For Traits
     editor.on('component:selected', (component) => {
@@ -607,6 +474,9 @@ const PageBuilder: React.FC = () => {
         if (component.get('traits').models[0].get('value'))
           component.components(component.get('traits').models[0].get('value'));
       }
+      if (component.get('type') == 'mj-image') {
+        editor?.runCommand('core:open-traits');
+      }
     });
     editor.on('component:update', (component) => {
       if (component.get('type') == 'text') {
@@ -618,12 +488,7 @@ const PageBuilder: React.FC = () => {
         component.components(component.get('traits').models[1].get('class'));
         component.components(component.get('traits').models[2].get('class'));
       }
-      if (component.get('type') == 'image') {
-        // console.log("hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
-        // let updated = component.get('traits').models[2].set('src', src);
-        // console.log('updated', updated)
-        // component.components(component.get('traits').models[2].set('src', src));
-      }
+
       pageHistoryHandler();
     });
     //This is for all section templates Style Manager

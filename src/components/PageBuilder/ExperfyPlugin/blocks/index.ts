@@ -678,6 +678,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 </div>
         </section>
         ${ImageBanner}
+        ${getStyles(['.bannar-content'])}
       
         `,
   });
@@ -725,6 +726,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         </section>
     ${ImageText}
+    ${getStyles(['.content-section'])}
   
         `,
   });
