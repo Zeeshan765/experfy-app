@@ -489,6 +489,104 @@ const PageBuilder: React.FC = () => {
 
     // });
 
+
+
+
+  
+      editor.DomComponents.addType("mj-image", {
+        isComponent: (el: any) => el.tagName === "MJ-IMAGE",
+        model: {
+          defaults: {
+            traits: [
+              {
+                type: "mjchange",
+                label: " ",
+                name: "mjchange",
+              },
+              {
+                type: "href",
+                label: "Link",
+                name: "href",
+              },
+              {
+                type: "alt",
+                label: "Alt",
+                name: "alt",
+              },
+            ],
+          },
+        },
+      });
+
+
+      editor.TraitManager.addType("mjchange", {
+        noLabel: true,
+        createInput({}) {
+          let selectedSrc = editor.getSelected();
+    
+          let src = selectedSrc!.attributes.attributes!.src;
+          const toggleModal = () => {
+            editor.runCommand("open-assets", {
+              target: editor.getSelected(),
+            });
+          };
+          const el = document.createElement("div");
+          el.setAttribute("class", "image-trait-preview");
+          el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
+                    <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Upload</button>`;
+    
+          const inputType = el.querySelector("#chg-img-trait-btn");
+          const imgBox = el.querySelector("#gjs_img_preview_logo_rtl");
+    
+          imgBox!.addEventListener("click", toggleModal);
+          inputType!.addEventListener("click", toggleModal);
+    
+          return el;
+        },
+      });
+
+      editor.on("modal:open", (component) => {
+        const $ = editor.$;
+        editor.AssetManager.open({
+          types: ["mj-image"],
+          select(assets, complete) {
+            const selected = editor.getSelected();    
+            if (selected && selected.is("mj-image")) {
+              // selected.set("src", assets.getSrc());
+
+              $("#gjs_img_preview_logo_rtl").attr("src", assets.getSrc());
+              selected.addAttributes({ src: assets.getSrc() });
+            
+              complete && editor.AssetManager.close();
+            }
+
+            console.log("after select",selected);
+          },
+        });
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //For Traits
     editor.on('component:selected', (component) => {
       if (component) {

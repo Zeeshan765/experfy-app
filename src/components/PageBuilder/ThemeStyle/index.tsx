@@ -234,6 +234,8 @@ const ThemeStyle: React.FC = () => {
 
     //@ts-ignore
     editor.on('style:target', (component) => {
+      console.log("component**********",component)
+      console.log("xomponent--->",component.getSelectorsString())
       const selectedSector = component.getSelectorsString().replace('.', '');
       const sectors = editor.StyleManager.getSectors();
       console.log('selected', selectedSector);

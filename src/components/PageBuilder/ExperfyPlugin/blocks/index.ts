@@ -717,7 +717,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         <div class="image-text-image-section">
         <div class="img_container">
-           <img src="https://dummyimage.com/1200x500" alt="step">
+           <img src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
               <figcaption class="figure_caption" >Caption Example</figcaption>
         </div>
         </div>
@@ -937,7 +937,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         <div class="page-builder-form-div">
           <form>
             <div class="page-builder-field-group">
-              <span class="label" for="text">Label:</span>
+            <label class="label" for="text">Label:</label>
               <input type="text" class="input" value="This is the input" >
             </div>
           </form>
