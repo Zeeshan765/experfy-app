@@ -26,6 +26,9 @@ export function ComponentSelection(
       case 'image':
         editor.select(wrapperCmp.find('img')[0]);
         break;
+      case 'body-text':
+        editor.select(wrapperCmp.find('p')[0]);
+        break;
       case 'h1':
         editor.select(wrapperCmp.find('h1')[0]);
         break;
@@ -48,7 +51,7 @@ export function ComponentSelection(
         editor.select(wrapperCmp.find('a')[0]);
         break;
       case 'label':
-        editor.select(wrapperCmp.find('label')[0]);
+        editor.select(wrapperCmp.find('span')[0]);
         break;
       case 'input':
         editor.select(wrapperCmp.find('input')[0]);

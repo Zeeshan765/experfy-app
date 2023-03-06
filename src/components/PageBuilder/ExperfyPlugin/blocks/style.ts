@@ -1095,6 +1095,11 @@ export const themestyle = `
         margin: 10px auto;
         justify-content: center;
       }
+      .body-text{
+        padding: 20px 0px;
+        margin: 10px auto;
+        justify-content: center;
+      }
       .images-sections {
         padding: 20px;
         text-align: center;

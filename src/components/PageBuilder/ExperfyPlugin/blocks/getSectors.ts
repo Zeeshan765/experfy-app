@@ -1,3 +1,5 @@
+import { Property } from './../../../../utilities/types';
+import GrapesJS from 'grapesjs';
 const fontFamilies = [
   { value: 'proxima-nova', name: 'Proxima Nova' },
   { value: 'Arial', name: 'Arial' },
@@ -106,12 +108,17 @@ let State = {
   type: 'radio',
   id: makeId(),
   cid: makeId(),
-  property: 'state',
-  default: 'normal',
   options: [
     { value: 'normal', name: 'Normal' },
     { value: 'hover', name: 'Hover' },
   ],
+  property: 'selector',
+  onChange: (e) => {
+    console.log(e);
+    if (e.value === 'hover') _editor.SelectorManager.setState('hover');
+    // else _editor.SelectorManager.re
+    // else if (e.value === 'normal') _editor.SelectorManager.setState('normal');
+  },
 };
 
 const shadowOptions = (which: String) => {
@@ -488,9 +495,9 @@ const obj = {
           name: 'Opacity',
           property: 'opacity',
           default: 1,
-          step: 0.1,
+          step: 1,
           min: 0,
-          max: 1,
+          max: 100,
           attributes: {
             'data-type': 'opacity',
             'data-attribute': 'header-logo-opacity',
@@ -1153,9 +1160,9 @@ const obj = {
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
-          min: 0.1,
-          max: 1,
-          steps: 0.1,
+          min: 1,
+          max: 100,
+          steps: 1,
         },
         {
           type: 'slider',
@@ -1907,9 +1914,9 @@ const obj = {
           type: 'slider',
           name: 'Background Opacity',
           property: 'background-opacity',
-          default: 1,
-          step: 0.01,
-          max: 1,
+          default: 100,
+          step: 1,
+          max: 100,
           min: 0,
         },
       ],
@@ -3698,7 +3705,7 @@ const obj = {
     {
       name: 'Theme Style',
       open: false,
-      buildProps: ['color'],
+      buildProps: [''],
     },
     {
       name: 'Buttons',
@@ -3779,7 +3786,6 @@ const obj = {
       open: false,
 
       buildProps: [
-        'state',
         'border-style',
         'border-radius',
         'opacity',
@@ -3794,10 +3800,11 @@ const obj = {
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
-          default: 1,
+          default: 100,
           min: 0,
-          max: 1,
-          step: 0.01,
+          max: 100,
+          step: 1,
+          units: ['%'],
         },
         {
           id: makeId(),
@@ -3831,9 +3838,8 @@ const obj = {
     {
       name: 'Body Text',
       open: false,
-      buildProps: 'color',
       id: 'body-text',
-      properties: [typography],
+      properties: [color, typography],
     },
 
     {
@@ -3886,30 +3892,26 @@ const obj = {
       name: 'Links',
       open: false,
       id: 'link',
-      buildProps: 'color',
-      properties: [State, typography],
+      properties: [color, typography],
     },
     {
       name: 'Label',
       open: false,
       id: 'label',
-      buildProps: ['color'],
-      properties: [typography],
+      properties: [color, typography],
     },
     {
       name: 'Field',
       open: false,
       id: 'input',
       buildProps: [
-        'color',
-        'background-color',
         'border-style',
         'border-width',
         'border-color',
         'border-radius',
         'padding',
       ],
-      properties: [typography, State],
+      properties: [color, typography, 'background-color'],
     },
   ],
 
@@ -4065,6 +4067,11 @@ const obj = {
   ],
 };
 
-export const getSectors = (name) => {
+let _editor;
+const setEditor = (editor: GrapesJS.Editor) => {
+  _editor = editor;
+};
+export const getSectors = (name, editor: GrapesJS.Editor) => {
+  setEditor(editor);
   return obj[name];
 };
