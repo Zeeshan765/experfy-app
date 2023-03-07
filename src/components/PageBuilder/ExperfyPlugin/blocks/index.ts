@@ -123,18 +123,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="footer-images-section margin-class">
              <h2 class="h2">Add Your Social Media Link</h2>
              <div class="images-holder">
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image" />
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
              </div>
              <button class="button">Visit Instagram</button>
           </div>

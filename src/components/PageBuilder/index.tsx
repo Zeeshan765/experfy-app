@@ -437,7 +437,8 @@ const PageBuilder: React.FC = () => {
 
       editor.on("modal:open", (component) => {
         const $ = editor.$;
-        editor.AssetManager.open({
+        const am = editor.AssetManager;
+        am.open({
           types: ["mj-image"],
           select(assets, complete) {
             const selected = editor.getSelected();    
