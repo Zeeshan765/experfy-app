@@ -82,10 +82,8 @@ const Brand: CollectionConfig = {
     {
       name: 'default_brand',
       label: 'Default Brand',
-      type: 'array',
-     fields: [
-
-     ],
+    type: 'select',
+    options: ['brand'],
      
     },
     {

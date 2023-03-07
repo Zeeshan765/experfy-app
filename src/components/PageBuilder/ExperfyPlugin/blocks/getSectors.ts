@@ -1,4 +1,3 @@
-import { Property } from './../../../../utilities/types';
 import GrapesJS from 'grapesjs';
 const fontFamilies = [
   { value: 'proxima-nova', name: 'Proxima Nova' },
@@ -109,15 +108,15 @@ let State = {
   id: makeId(),
   cid: makeId(),
   options: [
-    { value: 'normal', name: 'Normal' },
+    { value: '', name: 'Normal' },
     { value: 'hover', name: 'Hover' },
   ],
   property: 'selector',
   onChange: (e) => {
     console.log(e);
-    if (e.value === 'hover') _editor.SelectorManager.setState('hover');
+    if (e.value === 'hover') _editor.SelectorManager.add('hover');
+    else _editor.SelectorManager.remove('hover');
     // else _editor.SelectorManager.re
-    // else if (e.value === 'normal') _editor.SelectorManager.setState('normal');
   },
 };
 
@@ -188,7 +187,18 @@ let color = {
     showInput: true,
   },
 };
-
+let backgroundColor = {
+  id: makeId(),
+  cid: makeId(),
+  type: 'color',
+  name: 'Background Color',
+  property: 'background-color',
+  default: '#ea4c89',
+  colorPicker: {
+    preferredFormat: 'hex',
+    showInput: true,
+  },
+};
 let typography = {
   type: 'stack',
   name: 'Typography',
@@ -353,68 +363,15 @@ const obj = {
     {
       name: 'Header',
       open: true,
-      buildProps: [
-        'font-family',
-        'font-size',
-        'font-weight',
-        'letter-spacing',
-        'line-height',
-        'text-align',
-        'text-shadow',
-        'background-color',
-      ],
+
       attributes: {
         'data-target': '.header-div .header-navabr a',
       },
 
       properties: [
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          units: ['px', 'rem'],
-          defaults: '14',
-          min: 0,
-          max: 100,
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          units: ['px', 'rem'],
-          defaults: '1',
-          min: 1,
-          max: 50,
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          units: ['px', 'rem'],
-          defaults: '0',
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          defaults: 'left',
-          options: textAlignOptions,
-        },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'header-text-color',
-            'data-target': '.header-logo-text',
-          },
-        },
-
+        typography,
+        color,
+        backgroundColor,
         {
           type: 'color',
           name: 'Border Color',
@@ -441,15 +398,10 @@ const obj = {
     {
       name: 'Logo',
       open: true,
-      buildProps: [
-        'backdrop-filter',
-        'background-color',
-        'border-radius',
-        'animation-name',
-        'backdrop-filter',
-      ],
+      buildProps: ['border-radius', 'animation-name', 'backdrop-filter'],
 
       properties: [
+        backgroundColor,
         {
           type: 'composite',
           name: 'Border Radius',
@@ -498,6 +450,7 @@ const obj = {
           step: 1,
           min: 0,
           max: 100,
+          units: ['%'],
           attributes: {
             'data-type': 'opacity',
             'data-attribute': 'header-logo-opacity',
@@ -728,132 +681,8 @@ const obj = {
     {
       name: 'Text Color',
       open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'Img-main-color',
-            'data-target': '.main_heading  .sub_heading',
-          },
-        },
-      ],
+      properties: [color, typography],
     },
-
-    {
-      name: 'Typography',
-      open: false,
-      properties: [
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'main-font-family',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'main-font-size',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'main-font-weight',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-
-        {
-          type: 'select',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: textTransformOptions,
-          attributes: {
-            'data-type': 'text-transform',
-            'data-attribute': 'main-text-transform',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'main-letter-spacing',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'main-line-height',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'main-text-align',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'main-text-decoration',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-      ],
-    },
-
     {
       name: 'Image Gallery',
       open: false,
@@ -919,121 +748,8 @@ const obj = {
             { value: 'none', name: 'Hide' },
           ],
         },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'gallery-color',
-            'data-target': '.figure_caption',
-          },
-        },
-
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'gallery-font-family',
-            'data-target': '.figure_caption',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'gallery-font-size',
-            'data-target': '.figure_caption',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'gallery-font-weight',
-            'data-target': '.figure_caption',
-          },
-        },
-
-        {
-          type: 'select',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: textTransformOptions,
-          attributes: {
-            'data-type': 'text-transform',
-            'data-attribute': 'gallery-text-transform',
-            'data-target': '.figure_caption',
-          },
-        },
-
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'gallery-letter-spacing',
-            'data-target': '.figure_caption',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'gallery-line-height',
-            'data-target': '.figure_caption',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'gallery-text-align',
-            'data-target': '.figure_caption',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'gallery-text-decoration',
-            'data-target': '.figure_caption',
-          },
-        },
+        color,
+        typography,
       ],
     },
     {
@@ -1163,6 +879,8 @@ const obj = {
           min: 1,
           max: 100,
           steps: 1,
+          default: 100,
+          units: ['%'],
         },
         {
           type: 'slider',
@@ -1259,102 +977,10 @@ const obj = {
             'data-target': '.benefits-title-div h1 .benefits-title-div h2',
           },
         },
+        typography,
       ],
     },
 
-    {
-      name: 'Typography',
-      open: false,
-
-      properties: [
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'benefit-font-family',
-            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'benefit-font-size',
-            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'benefit-font-weight',
-            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'benefit-letter-spacing',
-            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'benefit-line-height',
-            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'benefit-text-align',
-            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'benefit-text-decoration',
-            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
-          },
-        },
-      ],
-    },
     {
       name: 'Icon',
       open: false,
@@ -1714,107 +1340,7 @@ const obj = {
             'data-target': '.section-title',
           },
         },
-
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'content-font-family',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'content-font-size',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'content-font-weight',
-            'data-target': '.section-title',
-          },
-        },
-
-        {
-          type: 'select',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: textTransformOptions,
-          attributes: {
-            'data-type': 'text-transform',
-            'data-attribute': 'content-text-transform',
-            'data-target': '.section-title',
-          },
-        },
-
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'content-letter-spacing',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'content-line-height',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'content-text-align',
-            'data-target': '.section-title',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'content-text-decoration',
-            'data-target': '.section-title',
-          },
-        },
+        typography,
 
         {
           type: 'slider',
@@ -1843,15 +1369,7 @@ const obj = {
       name: 'Background',
       open: false,
       properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          attributes: {
-            'data-type': 'background-color',
-            'data-attribute': 'background-color',
-          },
-        },
+        backgroundColor,
         {
           type: 'image',
           name: 'Background Image',
@@ -1918,6 +1436,7 @@ const obj = {
           step: 1,
           max: 100,
           min: 0,
+          unit: '%',
         },
       ],
     },
@@ -3793,7 +3312,7 @@ const obj = {
         'CSS',
       ],
       properties: [
-        State,
+        // State,
         {
           id: makeId(),
           cid: makeId(),
@@ -4071,7 +3590,7 @@ let _editor;
 const setEditor = (editor: GrapesJS.Editor) => {
   _editor = editor;
 };
-export const getSectors = (name, editor: GrapesJS.Editor) => {
+export const getSectors = (name: string, editor?: GrapesJS.Editor) => {
   setEditor(editor);
   return obj[name];
 };

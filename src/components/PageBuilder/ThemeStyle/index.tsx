@@ -64,73 +64,10 @@ const ThemeStyle: React.FC = () => {
       },
       styleManager: {
         appendTo: '.styles-container',
+        textNoElement: 'No element selected',
       },
-      selectorManager: {
-        // appendTo: '.selector-container',
-        // selectors: [
-        //   '#button',
-        //   '#image',
-        //   '#h1',
-        //   '#h2',
-        //   '#h3',
-        //   '#h4',
-        //   '#h5',
-        //   '#h6',
-        //   '#p',
-        //   '#a',
-        //   '#input',
-        //   '#label',
-        // ],
+      selectorManager: false,
 
-        selectedLabel: '',
-        label: '',
-        statesLabel: '',
-        states: [
-          {
-            name: '',
-            label: 'Normal',
-            active: true,
-            togglable: false,
-          },
-          {
-            name: 'Hover',
-            label: 'Hover',
-            active: false,
-            togglable: true,
-          },
-        ],
-      },
-
-      // canvasCss:
-      //   localStorage.getItem('theme_style_css') || userDefaultStyleString,
-      // storageManager: {
-      //   type: 'local',
-      //   autosave: false,
-      //   autoload: false,
-      //   onStore: (data) => {
-      //     console.log('data', data);
-      //     let css = editor.getCss().toString();
-      //     // we need to replace the ids with the html tags
-      //     css = css
-      //       .replace('#button', 'button')
-      //       .replace('#image', 'img')
-      //       .replace('#h1', 'h1')
-      //       .replace('#h2', 'h2')
-      //       .replace('#h3', 'h3')
-      //       .replace('#h4', 'h4')
-      //       .replace('#h5', 'h5')
-      //       .replace('#h6', 'h6')
-      //       .replace('#p', 'p')
-      //       .replace('#a', 'a')
-      //       .replace('#input', 'input')
-      //       .replace('#label', 'label');
-      //     localStorage.setItem('theme_style_css', css);
-      //     toast.success('Theme Style Saved');
-      //     return {
-      //       css: css,
-      //     };
-      //   },
-      // },
       commands: {
         defaults: [
           {
@@ -186,31 +123,14 @@ const ThemeStyle: React.FC = () => {
     //   ComponentSelection(editor, component);
     // });
 
-    // //CLose Single Sector
-    // editor.on('sector:close', (sector) => {
 
     editor.onReady(() => {
-      // const data = editor.StorageManager.load({
-      //   key: 'theme_style',
-      // });
-      // editor.loadProjectData(data);
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
 
-      const component = editor.addComponents(block.get('content'), {
+      editor.addComponents(block.get('content'), {
         avoidUpdateStyle: false,
       });
-
-      component[0].set('draggable', false);
-      component[0].set('removable', false);
-
-      // component.forEach((comp) => {
-      //   comp.set('draggable', false);
-      //   comp.set('droppable', false);
-      //   comp.set('stylable', false);
-      //   comp.set('hoverable', false);
-      //   comp.set('selectable', false);
-      // });
 
       sectors.reset();
 
@@ -235,9 +155,10 @@ const ThemeStyle: React.FC = () => {
       ComponentSelection(sector, editor);
     });
 
-
     //@ts-ignore
     editor.on('style:target', (component) => {
+      if (!component) return;
+
       const selectedSector = component.getSelectorsString().replace('.', '');
       const sectors = editor.StyleManager.getSectors();
       console.log('selected', selectedSector);
@@ -248,6 +169,10 @@ const ThemeStyle: React.FC = () => {
           sectors.models[i].setOpen(false);
         }
       }
+    });
+    //@ts-ignore
+    editor.on('selector:state', (state) => {
+      console.log('state', state);
     });
 
     setEditorState(editor);
@@ -295,7 +220,6 @@ const ThemeStyle: React.FC = () => {
     }
   };
 
-  // extend trait file
 
   return (
     <div className="main__content">

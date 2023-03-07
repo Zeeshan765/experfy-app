@@ -88,7 +88,7 @@ export const getbuttonStyles = (parentClass: any) => {
       padding:13px 60px;
       border-radius:3px;
       font-weight:400;
-      font-size:16px;"
+      
       border:none;
       outline:none;
     }
