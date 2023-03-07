@@ -679,6 +679,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </section>
         ${ImageBanner}
         ${getStyles(['.bannar-content'])}
+        ${getbuttonStyles(['.button-container'])}
       
         `,
   });

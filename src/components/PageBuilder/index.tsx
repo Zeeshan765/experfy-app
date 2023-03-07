@@ -422,7 +422,7 @@ const PageBuilder: React.FC = () => {
           const el = document.createElement("div");
           el.setAttribute("class", "image-trait-preview");
           el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
-                    <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Upload</button>`;
+                    <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
     
           const inputType = el.querySelector("#chg-img-trait-btn");
           const imgBox = el.querySelector("#gjs_img_preview_logo_rtl");

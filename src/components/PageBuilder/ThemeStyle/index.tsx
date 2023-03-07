@@ -12,10 +12,8 @@ import Experfy from '../ExperfyPlugin';
 import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
 import { toast } from 'react-toastify';
 import {
-  CloseAllSectors,
   ComponentSelection,
 } from '../ExperfyPlugin/utilities';
-import { Property } from '../../../utilities/types';
 
 const ThemeStyle: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -74,36 +72,6 @@ const ThemeStyle: React.FC = () => {
         selectors: ['Normal', 'Hover'],
       },
 
-      // canvasCss:
-      //   localStorage.getItem('theme_style_css') || userDefaultStyleString,
-      // storageManager: {
-      //   type: 'local',
-      //   autosave: false,
-      //   autoload: false,
-      //   onStore: (data) => {
-      //     console.log('data', data);
-      //     let css = editor.getCss().toString();
-      //     // we need to replace the ids with the html tags
-      //     css = css
-      //       .replace('#button', 'button')
-      //       .replace('#image', 'img')
-      //       .replace('#h1', 'h1')
-      //       .replace('#h2', 'h2')
-      //       .replace('#h3', 'h3')
-      //       .replace('#h4', 'h4')
-      //       .replace('#h5', 'h5')
-      //       .replace('#h6', 'h6')
-      //       .replace('#p', 'p')
-      //       .replace('#a', 'a')
-      //       .replace('#input', 'input')
-      //       .replace('#label', 'label');
-      //     localStorage.setItem('theme_style_css', css);
-      //     toast.success('Theme Style Saved');
-      //     return {
-      //       css: css,
-      //     };
-      //   },
-      // },
       commands: {
         defaults: [
           {
@@ -121,6 +89,8 @@ const ThemeStyle: React.FC = () => {
     });
     localStorage.removeItem('gjsProject');
 
+
+   
     editor.on(`block:drag:stop`, (component, block) => {
       if (component) {
         let ccid = component.ccid.split('-')[0];
@@ -129,38 +99,6 @@ const ThemeStyle: React.FC = () => {
         themeSector.add(getSectors(ccid));
       }
     });
-    // editor.Panels.addPanel({
-    //   id: 'views-container',
-    //   el: '.gjs-views-container',
-    //   visible: true,
-    // });
-    // const sectors = editor.getComponents().filter(component => component.get('type') === 'sector');
-
-    // let selectedSector = null;
-    
-
-
-    // sectorcontainer.get('buttons').add([
-    //   {
-    //     id: 'close-all-sectors',
-    //     className: 'fa fa-times',
-    //     command: 'close-all-sectors',
-    //     attributes: { title: 'Close All Sectors' },
-    //   },
-    // ]);
-
-    // editor.Commands.add('close-all-sectors', (editor) => {
-    //   CloseAllSectors(editor);
-    // });
-
-    // editor.on('component:selected', (component) => {
-    //   ComponentSelection(editor, component);
-    // });
-
-    // editor.on('component:deselected', (component) => {
-    //   ComponentSelection(editor, component);
-    // });
-
 
     editor.onReady(() => {
       const sectors = editor.StyleManager.getSectors();
@@ -201,8 +139,6 @@ const ThemeStyle: React.FC = () => {
     //@ts-ignore
     editor.on('style:property:update', (sector) => {
       const name = sector.property.attributes.name;
-
-      // property.name;
 
       if (name === 'State') {
         editor.SelectorManager.setState(sector.property.attributes.value);
@@ -268,7 +204,6 @@ const ThemeStyle: React.FC = () => {
     }
   };
 
-  // extend trait file
 
   return (
     <div className="main__content">
