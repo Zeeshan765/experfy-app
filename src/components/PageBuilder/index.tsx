@@ -11,7 +11,6 @@ import { useConfig } from 'payload/components/utilities';
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { Context } from '../../Providers/MyProvider';
 import Experfy from './ExperfyPlugin';
 import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 import { UserContext } from '../../Providers/UserProvider';

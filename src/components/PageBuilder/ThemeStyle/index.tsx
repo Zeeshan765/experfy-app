@@ -161,25 +161,8 @@ const ThemeStyle: React.FC = () => {
     //   ComponentSelection(editor, component);
     // });
 
-    // //CLose Single Sector
-    // editor.on('sector:close', (sector) => {
-     
-
-
-
-
-
-
-
-
-
-
 
     editor.onReady(() => {
-      // const data = editor.StorageManager.load({
-      //   key: 'theme_style',
-      // });
-      // editor.loadProjectData(data);
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
 
@@ -190,13 +173,7 @@ const ThemeStyle: React.FC = () => {
       component[0].set('draggable', false);
       component[0].set('removable', false);
 
-      // component.forEach((comp) => {
-      //   comp.set('draggable', false);
-      //   comp.set('droppable', false);
-      //   comp.set('stylable', false);
-      //   comp.set('hoverable', false);
-      //   comp.set('selectable', false);
-      // });
+     
 
       sectors.reset();
 
@@ -234,8 +211,6 @@ const ThemeStyle: React.FC = () => {
 
     //@ts-ignore
     editor.on('style:target', (component) => {
-      console.log("component**********",component)
-      console.log("xomponent--->",component.getSelectorsString())
       const selectedSector = component.getSelectorsString().replace('.', '');
       const sectors = editor.StyleManager.getSectors();
       console.log('selected', selectedSector);
@@ -246,8 +221,6 @@ const ThemeStyle: React.FC = () => {
           sectors.models[i].setOpen(false);
         }
       }
-      // editor.StyleManager.getSelected().set('open', true);
-      // editor.StyleManager.getSectors().setOpen(false);
     });
 
     setEditorState(editor);
