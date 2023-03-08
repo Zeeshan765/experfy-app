@@ -123,18 +123,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="footer-images-section margin-class">
              <h2 class="h2">Add Your Social Media Link</h2>
              <div class="images-holder">
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
-             <img src={SettingsIcon} alt='Settings'/>
+             <img src={SettingsIcon} alt='Settings'data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image" />
+             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
              </div>
              <button class="button">Visit Instagram</button>
           </div>
@@ -678,6 +678,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 </div>
         </section>
         ${ImageBanner}
+        ${getStyles(['.bannar-content'])}
+        ${getbuttonStyles(['.button-container'])}
       
         `,
   });
@@ -717,7 +719,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         <div class="image-text-image-section">
         <div class="img_container">
-           <img src="https://dummyimage.com/1200x500" alt="step">
+           <img src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
               <figcaption class="figure_caption" >Caption Example</figcaption>
         </div>
         </div>
@@ -725,6 +727,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         </section>
     ${ImageText}
+    ${getStyles(['.content-section'])}
   
         `,
   });
@@ -905,38 +908,36 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     select: true,
     // media: ,
     content: [
-      `<div id="theme_1" style="padding: 0px 20%;">
-      <div class="global-theme-setting">
+      `<div selecteable="false" id="theme_1" style="padding: 0px 20%;">
+        <div data-gjs-highlightable="false" selectable="false" class="global-theme-setting">
 
-        <div class="">
+        <div data-gjs-highlightable="false" class="button-section" selectable="false">
           <button class="button" type="button" >Submit</button>
         </div>
 
-        <div id="image" class="image">
-        <img class="image" id="image" width="200px" src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-512.png" />
+        <div data-gjs-highlightablee="false"  class="images-sections">
+          <img class="image"  width="200px" src="https://cdn4.iconfinder.com/data/icons/documents-letters-and-stationery/400/doc-14-512.png" />
+        </div>
+        <div class="body-text" >
+            <p class="body-text" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie. Sed nisi lacus sed viverra. Enim blandit volutpat maecenas volutpat blandit aliquam etiam. Neque convallis a cras semper auctor neque vitae.</p>
         </div>
 
-        <div class="heading-holder-block">
-          <h1 id="h1" class="h1">Heading 1</h1>
-        
-          <h2 id="h2" class="h2">Heading 2</h2>
-        
+        <div data-gjs-highlightable="false" class="heading-holder-block">
+          <h1 class="h1">Heading 1</h1>
+          <h2 class="h2">Heading 2</h2>
           <h3 class="h3" >Heading 3</h3>
-        
           <h4 class="h4">Heading 4</h4>
-        
           <h5 class="h5">Heading 5</h5>
-        
           <h6 class="h6">Heading 6</h6>
         </div>
           
-        <div class="link-holder">
+        <div  data-gjs-highlightable="false" class="link-holder">
           <a href="#" class="link" >Link 1</a>
         </div>
 
-        <div class="page-builder-form-div">
+        <div data-gjs-highlightable="false" class="page-builder-form-div">
           <form>
-            <div class="page-builder-field-group">
+            <div data-gjs-highlightable="false" class="page-builder-field-group">
               <span class="label" for="text">Label:</span>
               <input type="text" class="input" value="This is the input" >
             </div>
@@ -1111,6 +1112,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
     ${departmentstyle}
   
+        `,
+  });
+
+  addBlock('image', {
+    label: 'Image',
+    category: 'Basic Elements',
+    media: `<svg viewBox="0 0 24 24">
+    <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z"></path>
+  </svg>`,
+    content: `<div id="image" class="image">
+    <img src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
+    </div>
         `,
   });
 };

@@ -88,7 +88,7 @@ export const getbuttonStyles = (parentClass: any) => {
       padding:13px 60px;
       border-radius:3px;
       font-weight:400;
-      font-size:16px;"
+      
       border:none;
       outline:none;
     }
@@ -1091,6 +1091,11 @@ export const themestyle = `
       }
       .button-section {
         display: flex;
+        padding: 20px 0px;
+        margin: 10px auto;
+        justify-content: center;
+      }
+      .body-text{
         padding: 20px 0px;
         margin: 10px auto;
         justify-content: center;

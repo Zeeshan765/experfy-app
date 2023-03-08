@@ -7,15 +7,11 @@ import { useStepNav } from 'payload/components/hooks';
 import { useAuth, useConfig } from 'payload/components/utilities';
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { UserContext } from '../../../Providers/UserProvider';
 import Experfy from '../ExperfyPlugin';
 import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
-import { toast } from 'react-toastify';
-import {
-  CloseAllSectors,
-  ComponentSelection,
-} from '../ExperfyPlugin/utilities';
-import { Property } from '../../../utilities/types';
+import { ComponentSelection } from '../ExperfyPlugin/utilities';
 
 const ThemeStyle: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -24,7 +20,6 @@ const ThemeStyle: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData, setUserData } = useContext(UserContext);
-
   const { serverURL } = useConfig();
 
   useEffect(() => {
@@ -69,41 +64,10 @@ const ThemeStyle: React.FC = () => {
       },
       styleManager: {
         appendTo: '.styles-container',
+        textNoElement: 'No element selected',
       },
-      selectorManager: {
-        selectors: ['Normal', 'Hover'],
-      },
+      selectorManager: false,
 
-      // canvasCss:
-      //   localStorage.getItem('theme_style_css') || userDefaultStyleString,
-      // storageManager: {
-      //   type: 'local',
-      //   autosave: false,
-      //   autoload: false,
-      //   onStore: (data) => {
-      //     console.log('data', data);
-      //     let css = editor.getCss().toString();
-      //     // we need to replace the ids with the html tags
-      //     css = css
-      //       .replace('#button', 'button')
-      //       .replace('#image', 'img')
-      //       .replace('#h1', 'h1')
-      //       .replace('#h2', 'h2')
-      //       .replace('#h3', 'h3')
-      //       .replace('#h4', 'h4')
-      //       .replace('#h5', 'h5')
-      //       .replace('#h6', 'h6')
-      //       .replace('#p', 'p')
-      //       .replace('#a', 'a')
-      //       .replace('#input', 'input')
-      //       .replace('#label', 'label');
-      //     localStorage.setItem('theme_style_css', css);
-      //     toast.success('Theme Style Saved');
-      //     return {
-      //       css: css,
-      //     };
-      //   },
-      // },
       commands: {
         defaults: [
           {
@@ -121,14 +85,14 @@ const ThemeStyle: React.FC = () => {
     });
     localStorage.removeItem('gjsProject');
 
-    editor.on(`block:drag:stop`, (component, block) => {
-      if (component) {
-        let ccid = component.ccid.split('-')[0];
-        const themeSector = editor.StyleManager.getSectors();
-        themeSector.reset();
-        themeSector.add(getSectors(ccid));
-      }
-    });
+    // editor.on(`block:drag:stop`, (component, block) => {
+    //   if (component) {
+    //     let ccid = component.ccid.split('-')[0];
+    //     const themeSector = editor.StyleManager.getSectors();
+    //     themeSector.reset();
+    //     themeSector.add(getSectors(ccid));
+    //   }
+    // });
     // editor.Panels.addPanel({
     //   id: 'views-container',
     //   el: '.gjs-views-container',
@@ -137,8 +101,6 @@ const ThemeStyle: React.FC = () => {
     // const sectors = editor.getComponents().filter(component => component.get('type') === 'sector');
 
     // let selectedSector = null;
-    
-
 
     // sectorcontainer.get('buttons').add([
     //   {
@@ -161,46 +123,18 @@ const ThemeStyle: React.FC = () => {
     //   ComponentSelection(editor, component);
     // });
 
-    // //CLose Single Sector
-    // editor.on('sector:close', (sector) => {
-     
-
-
-
-
-
-
-
-
-
-
 
     editor.onReady(() => {
-      // const data = editor.StorageManager.load({
-      //   key: 'theme_style',
-      // });
-      // editor.loadProjectData(data);
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
 
-      const component = editor.addComponents(block.get('content'), {
-        avoidUpdateStyle: true,
+      editor.addComponents(block.get('content'), {
+        avoidUpdateStyle: false,
       });
-
-      component[0].set('draggable', false);
-      component[0].set('removable', false);
-
-      // component.forEach((comp) => {
-      //   comp.set('draggable', false);
-      //   comp.set('droppable', false);
-      //   comp.set('stylable', false);
-      //   comp.set('hoverable', false);
-      //   comp.set('selectable', false);
-      // });
 
       sectors.reset();
 
-      sectors.add(getSectors('theme_1'));
+      sectors.add(getSectors('theme_1', editor));
       editor.runCommand('core:open-styles', { open: true });
       editor.getWrapper().set('hoverable', false);
       editor.getWrapper().set('selectable', false);
@@ -222,18 +156,9 @@ const ThemeStyle: React.FC = () => {
     });
 
     //@ts-ignore
-    editor.on('style:property:update', (sector) => {
-      const name = sector.property.attributes.name;
-
-      // property.name;
-
-      if (name === 'State') {
-        editor.SelectorManager.setState(sector.property.attributes.value);
-      }
-    });
-
-    //@ts-ignore
     editor.on('style:target', (component) => {
+      if (!component) return;
+
       const selectedSector = component.getSelectorsString().replace('.', '');
       const sectors = editor.StyleManager.getSectors();
       console.log('selected', selectedSector);
@@ -244,8 +169,10 @@ const ThemeStyle: React.FC = () => {
           sectors.models[i].setOpen(false);
         }
       }
-      // editor.StyleManager.getSelected().set('open', true);
-      // editor.StyleManager.getSectors().setOpen(false);
+    });
+    //@ts-ignore
+    editor.on('selector:state', (state) => {
+      console.log('state', state);
     });
 
     setEditorState(editor);
@@ -293,7 +220,6 @@ const ThemeStyle: React.FC = () => {
     }
   };
 
-  // extend trait file
 
   return (
     <div className="main__content">
@@ -312,8 +238,12 @@ const ThemeStyle: React.FC = () => {
             </span>
           </div>
           <div className="blocks"></div>
-          <div className="selector-container"></div>
-          <div className="styles-container"></div>
+
+          <div className="styles-container">
+            <div className="selector-container">
+              <div className="sectors"></div>
+            </div>
+          </div>
           <div className="traits-container"></div>
           <div className="layers-container"></div>
         </div>

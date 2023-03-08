@@ -11,7 +11,6 @@ import { useConfig } from 'payload/components/utilities';
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { Context } from '../../Providers/MyProvider';
 import Experfy from './ExperfyPlugin';
 import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 import { UserContext } from '../../Providers/UserProvider';
@@ -201,57 +200,7 @@ const PageBuilder: React.FC = () => {
       ],
     },
   ];
-  let ImageTrait = [
-    {
-      type: 'select',
-      name: 'class',
-      label: 'Icon background',
-      default: 'left',
-      options: [{ value: 'left', name: 'Left' }],
-    },
-    {
-      type: 'select',
-      name: 'class',
-      label: 'Background Shape',
-      default: 'left',
-      options: [{ value: 'left', name: 'Left' }],
-    },
-    {
-      name: 'image',
-      type: 'file',
-      label: 'Icon',
-      attributes: {
-        accept: 'image/*',
-        onchange: function () {
-          let url = this.value;
-          console.log('image value------------------------>', url);
-          let img = new Image();
-          img.src = url;
-          img.onload = function () {
-            // editor.AssetManager.add({ src: url });
-            editor.getSelected().set('src', src);
-            // Trigger a render of the selected component to update the canvas
-            //@ts-ignore
-            editor.getSelected().trigger('change:attributes');
-          };
-        },
-      },
-      onchange: function () {
-        let url = this.value;
-        console.log('image value------------------------>', url);
-        let img = new Image();
-        img.src = url;
-        img.onload = function () {
-          // editor.AssetManager.add({ src: url });
-          editor.getSelected().set('src', src);
-          // Trigger a render of the selected component to update the canvas
-          //@ts-ignore
-          editor.getSelected().trigger('change:attributes');
-        };
-      },
-      // changeProp: 1,
-    },
-  ];
+ 
   //=========external custom Trait end here========
 
   //======== GrapesJs Canvas initialization start here========
@@ -383,48 +332,7 @@ const PageBuilder: React.FC = () => {
         },
       },
     });
-    editor.DomComponents.addType('image', {
-      model: {
-        defaults: {
-          traits: ImageTrait,
-        },
-        init() {
-          console.log('************', this);
-          console.log('Attributes[[[[[[[[[[[[[[[[[[[[[[[[[', this.attributes);
-          console.log(
-            '^^^^^^^^^^^^^^^^^^^^^',
-            this.attributes.attributes.image
-          );
 
-          console.log('editorerreee', editor.getSelected());
-
-          this.on('change:image', this.handleList1Change);
-        },
-        handleList1Change(e) {
-          console.log('e', e);
-          console.log('onChange', this.attributes.image);
-          console.log('thsi', this);
-
-          // let url = this.value;
-          // console.log('image value------------------------>', url);
-          // let img = new Image();
-          // img.src = url;
-          // img.onload = function () {
-          //   // editor.AssetManager.add({ src: url });
-          //   editor.getSelected().setAttributes({src:url});
-
-          // }
-
-          // let updated = this.component.get('traits').models[2].set('src', src);
-          // console.log('updated', updated)
-          // this.components(updated);
-          // this.attributes.set('src', src);
-
-          const modelComponent = editor.getSelected();
-          modelComponent.setAttributes({ src: src });
-        },
-      },
-    });
     editor.DomComponents.addType('button', {
       model: {
         defaults: {
@@ -464,30 +372,87 @@ const PageBuilder: React.FC = () => {
         },
       },
     });
-    // editor.TraitManager.addType('image-source', {
-    //   // Define the label for the trait
-    //   label: 'Image Source',
 
-    //   // Define the input type (e.g. text, select, etc.)
-    //   type: 'text',
 
-    //   // Define the function for getting the value of the trait
-    //   getValue: function (el) {
-    //     return el.getAttribute('src');
-    //   },
-    //   // Define the function for setting the value of the trait
-    //   setValue: function (el, value) {
-    //     el.setAttribute('src', value);
-    //   }
-    // });
-    // editor.BlockManager.add('my-image-block', {
-    //   // Define the label, content, attributes, and category as before
-    //   label: 'My Image Block',
-    //   content: '<img src="https://placehold.it/300x200"/>',
-    //   attributes: {},
-    //   category: 'My Category',
 
-    // });
+
+
+  
+      editor.DomComponents.addType("mj-image", {
+        isComponent: (el: any) => el.tagName === "MJ-IMAGE",
+        model: {
+          defaults: {
+            traits: [
+              {
+                type: "mjchange",
+                label: " ",
+                name: "mjchange",
+              },
+              {
+                type: 'select',
+                name: 'class',
+                label: 'Icon background',
+                default: 'left',
+                options: [{ value: 'left', name: 'Left' }],
+              },
+              {
+                type: 'select',
+                name: 'class',
+                label: 'Background Shape',
+                default: 'left',
+                options: [{ value: 'left', name: 'Left' }],
+              },
+            ],
+          },
+        },
+      });
+
+
+      editor.TraitManager.addType("mjchange", {
+        noLabel: true,
+        createInput({}) {
+          let selectedSrc = editor.getSelected();
+    
+          let src = selectedSrc!.attributes.attributes!.src;
+          const toggleModal = () => {
+            editor.runCommand("open-assets", {
+              target: editor.getSelected(),
+            });
+          };
+          const el = document.createElement("div");
+          el.setAttribute("class", "image-trait-preview");
+          el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
+                    <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
+    
+          const inputType = el.querySelector("#chg-img-trait-btn");
+          const imgBox = el.querySelector("#gjs_img_preview_logo_rtl");
+    
+          imgBox!.addEventListener("click", toggleModal);
+          inputType!.addEventListener("click", toggleModal);
+    
+          return el;
+        },
+      });
+
+      editor.on("modal:open", (component) => {
+        const $ = editor.$;
+        const am = editor.AssetManager;
+        am.open({
+          types: ["mj-image"],
+          select(assets, complete) {
+            const selected = editor.getSelected();    
+            if (selected && selected.is("mj-image")) {
+
+              $("#gjs_img_preview_logo_rtl").attr("src", assets.getSrc());
+              selected.addAttributes({ src: assets.getSrc() });
+            
+              complete && editor.AssetManager.close();
+            }
+
+            console.log("after select",selected);
+          },
+        });
+      });
 
     //For Traits
     editor.on('component:selected', (component) => {
@@ -509,6 +474,9 @@ const PageBuilder: React.FC = () => {
         if (component.get('traits').models[0].get('value'))
           component.components(component.get('traits').models[0].get('value'));
       }
+      if (component.get('type') == 'mj-image') {
+        editor?.runCommand('core:open-traits');
+      }
     });
     editor.on('component:update', (component) => {
       if (component.get('type') == 'text') {
@@ -520,12 +488,7 @@ const PageBuilder: React.FC = () => {
         component.components(component.get('traits').models[1].get('class'));
         component.components(component.get('traits').models[2].get('class'));
       }
-      if (component.get('type') == 'image') {
-        // console.log("hellooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
-        // let updated = component.get('traits').models[2].set('src', src);
-        // console.log('updated', updated)
-        // component.components(component.get('traits').models[2].set('src', src));
-      }
+
       pageHistoryHandler();
     });
     //This is for all section templates Style Manager

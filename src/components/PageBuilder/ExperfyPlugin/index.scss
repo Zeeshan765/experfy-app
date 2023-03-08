@@ -561,7 +561,7 @@ $deviceBackground: #2f3d55;
 //  }
 // }
 .gjs-fields .gjs-select select {
-  width: 150px !important;
+  width: 100% !important;
   color: var(--theme-text-dark);
 }
 
@@ -880,8 +880,9 @@ $deviceBackground: #2f3d55;
 .gjs-sm-select option,
 .gjs-fields option,
 .gjs-sm-unit option {
-  background-color: var(--theme-elevation-150);
-  color: var(--theme-text-dark);
+  background-color: white;
+  color: #444444;
+
 }
 
 .gjs-sm-properties {
