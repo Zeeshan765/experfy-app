@@ -2,11 +2,13 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { buildConfig } from 'payload/config';
 import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
+import Brand from './collections/Brand';
 import DesignSystemCollection from './collections/DesignSystemCollection';
 import Media from './collections/Media';
 import MenusCollection from './collections/MenusCollection';
 import PagesCollection from './collections/Page';
 import PageBuilderCollection from './collections/PageBuilder';
+import PageHistory from './collections/pageHistory';
 import PageTemplateCollection from './collections/PageTemplate';
 import SectionTemplateCollection from './collections/SectionTemplatesCollection';
 import TemplatesCollection from './collections/TemplatesCollection';
@@ -17,16 +19,13 @@ import AfterNav from './components/Nav/AfterNav';
 import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import PageBuilder from './components/PageBuilder';
-import DesignSystem from './components/PageBuilder/DesignSystem';
-import Brand from './collections/Brand';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
+import ThemeStyle from './components/PageBuilder/ThemeStyle';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
-import ThemeStyle from './components/PageBuilder/ThemeStyle';
-import UserProvider from './Providers/UserProvider';
 import AssetsProvider from './Providers/AssetsProvider';
 import MyProvider from './Providers/MyProvider';
-import PageHistory from './collections/pageHistory';
+import UserProvider from './Providers/UserProvider';
 
 dotenv.config();
 
@@ -59,29 +58,26 @@ export default buildConfig({
           path: '/collections/portal-identity/:id',
           Component: PortalIdentity,
           exact: true,
-          strict: true,
         },
         {
           path: '/collections/design-system',
           Component: ThemeStyle,
           exact: true,
-          strict: true,
         },
         {
           path: '/collections/templates',
           Component: TemplatesLibrary,
+          exact: true,
         },
         {
           path: '/collections/themes-style',
           Component: ThemeStyle,
           exact: true,
-          strict: true,
         },
         {
-          path: '/collections/page-builder/create',
+          path: '/collections/page-builder',
           Component: PageBuilder,
           exact: true,
-          strict: true,
         },
         {
           path: '/collections/templates-library',
@@ -92,11 +88,6 @@ export default buildConfig({
           path: '/collections/page-builder/:id',
           Component: PageBuilder,
           exact: true,
-          strict: true,
-        },
-        {
-          path: '/collections/templates-library',
-          Component: TemplatesLibrary,
         },
         {
           path: '/collections/section-templates',

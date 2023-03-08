@@ -7,13 +7,11 @@ import { useStepNav } from 'payload/components/hooks';
 import { useAuth, useConfig } from 'payload/components/utilities';
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { UserContext } from '../../../Providers/UserProvider';
 import Experfy from '../ExperfyPlugin';
 import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
-import { toast } from 'react-toastify';
-import {
-  ComponentSelection,
-} from '../ExperfyPlugin/utilities';
+import { ComponentSelection } from '../ExperfyPlugin/utilities';
 
 const ThemeStyle: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
@@ -22,7 +20,6 @@ const ThemeStyle: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData, setUserData } = useContext(UserContext);
-
   const { serverURL } = useConfig();
 
   useEffect(() => {
@@ -67,10 +64,9 @@ const ThemeStyle: React.FC = () => {
       },
       styleManager: {
         appendTo: '.styles-container',
+        textNoElement: 'No element selected',
       },
-      selectorManager: {
-        selectors: ['Normal', 'Hover'],
-      },
+      selectorManager: false,
 
       commands: {
         defaults: [
@@ -89,33 +85,56 @@ const ThemeStyle: React.FC = () => {
     });
     localStorage.removeItem('gjsProject');
 
+    // editor.on(`block:drag:stop`, (component, block) => {
+    //   if (component) {
+    //     let ccid = component.ccid.split('-')[0];
+    //     const themeSector = editor.StyleManager.getSectors();
+    //     themeSector.reset();
+    //     themeSector.add(getSectors(ccid));
+    //   }
+    // });
+    // editor.Panels.addPanel({
+    //   id: 'views-container',
+    //   el: '.gjs-views-container',
+    //   visible: true,
+    // });
+    // const sectors = editor.getComponents().filter(component => component.get('type') === 'sector');
 
-   
-    editor.on(`block:drag:stop`, (component, block) => {
-      if (component) {
-        let ccid = component.ccid.split('-')[0];
-        const themeSector = editor.StyleManager.getSectors();
-        themeSector.reset();
-        themeSector.add(getSectors(ccid));
-      }
-    });
+    // let selectedSector = null;
+
+    // sectorcontainer.get('buttons').add([
+    //   {
+    //     id: 'close-all-sectors',
+    //     className: 'fa fa-times',
+    //     command: 'close-all-sectors',
+    //     attributes: { title: 'Close All Sectors' },
+    //   },
+    // ]);
+
+    // editor.Commands.add('close-all-sectors', (editor) => {
+    //   CloseAllSectors(editor);
+    // });
+
+    // editor.on('component:selected', (component) => {
+    //   ComponentSelection(editor, component);
+    // });
+
+    // editor.on('component:deselected', (component) => {
+    //   ComponentSelection(editor, component);
+    // });
+
 
     editor.onReady(() => {
       const sectors = editor.StyleManager.getSectors();
       const block = editor.BlockManager.get('theme-style');
 
-      const component = editor.addComponents(block.get('content'), {
-        avoidUpdateStyle: true,
+      editor.addComponents(block.get('content'), {
+        avoidUpdateStyle: false,
       });
-
-      component[0].set('draggable', false);
-      component[0].set('removable', false);
-
-     
 
       sectors.reset();
 
-      sectors.add(getSectors('theme_1'));
+      sectors.add(getSectors('theme_1', editor));
       editor.runCommand('core:open-styles', { open: true });
       editor.getWrapper().set('hoverable', false);
       editor.getWrapper().set('selectable', false);
@@ -137,16 +156,9 @@ const ThemeStyle: React.FC = () => {
     });
 
     //@ts-ignore
-    editor.on('style:property:update', (sector) => {
-      const name = sector.property.attributes.name;
-
-      if (name === 'State') {
-        editor.SelectorManager.setState(sector.property.attributes.value);
-      }
-    });
-
-    //@ts-ignore
     editor.on('style:target', (component) => {
+      if (!component) return;
+
       const selectedSector = component.getSelectorsString().replace('.', '');
       const sectors = editor.StyleManager.getSectors();
       console.log('selected', selectedSector);
@@ -157,6 +169,10 @@ const ThemeStyle: React.FC = () => {
           sectors.models[i].setOpen(false);
         }
       }
+    });
+    //@ts-ignore
+    editor.on('selector:state', (state) => {
+      console.log('state', state);
     });
 
     setEditorState(editor);
@@ -222,8 +238,12 @@ const ThemeStyle: React.FC = () => {
             </span>
           </div>
           <div className="blocks"></div>
-          <div className="selector-container"></div>
-          <div className="styles-container"></div>
+
+          <div className="styles-container">
+            <div className="selector-container">
+              <div className="sectors"></div>
+            </div>
+          </div>
           <div className="traits-container"></div>
           <div className="layers-container"></div>
         </div>
