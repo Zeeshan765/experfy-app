@@ -15,18 +15,29 @@ import { useForm, Controller, useFieldArray, set } from 'react-hook-form';
 import TextInput from '../../../blocks/TextInput';
 
 const useStyles = makeStyles({
-  radioExample: {
-    '& p': {
-      fontSize: '1.0625rem',
+  brandDialog: {
+    '& .MuiDialogTitle-root': {
+      '& .MuiTypography-h4': {
+        fontSize: '20px !important',
+        fontWeight: '500 !important',
+        fontFamily: '"proxima-nova", sans-serif !important',
+        color: '#4a5162 !important',
+      },
+      // '& .MuiSvgIcon-root': {
+      //   fontSize: '24px !important'
+      // }
     },
-    '& span': {
-      fontSize: '.9375rem',
-      backgroundColor: '#ebebed',
-      padding: '.25rem .5rem',
-      borderRadius: '.25rem',
-      display: 'inline-block',
+    '& .MuiDialogContent-root': {
+      paddingBottom: '0 !important'
     },
-  },
+    '& .MuiDialogActions-root': {
+      padding: '16px 24px !important',
+      justifyContent: 'flex-start !important',
+      '& .btn': {
+        margin: '0'
+      }
+    }
+  }
 });
 
 const defaultData = {
@@ -46,6 +57,8 @@ const Brandpopup = ({
   data,
   isUpdate,
 }) => {
+  const classes = useStyles();
+
   const { control, handleSubmit, reset, setValue } = useForm({
     defaultValues: isUpdate ? data : defaultData,
   });
@@ -60,7 +73,7 @@ const Brandpopup = ({
   };
 
   return (
-    <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth={true}>
+    <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth={true} className={classes.brandDialog}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <DialogTitle sx={{ borderBottom: '1px solid #d1dbe3' }}>
           <Grid container justifyContent="space-between" alignItems="center">
@@ -79,7 +92,7 @@ const Brandpopup = ({
           </Grid>
         </DialogTitle>
         <DialogContent>
-          <Grid container spacing={3} pt={4}>
+          <Grid container pt={4}>
             <Grid item xs={12}>
               <Controller
                 render={({ field }) => {
@@ -110,11 +123,9 @@ const Brandpopup = ({
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Grid container>
-            <button className="btn btn--style-primary" type="submit">
-              {isUpdate ? 'Update' : 'Save'}
-            </button>
-          </Grid>
+          <button className="btn btn--style-primary" type="submit">
+            {isUpdate ? 'Update' : 'Save'}
+          </button>
         </DialogActions>
       </form>
     </Dialog>
