@@ -525,7 +525,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         
         </div>
         <div class="address-map-div">
-            <img class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
+            <img data-gjs-type="mj-image" class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
               height: 400px;">
         </div>
       </div>
@@ -937,13 +937,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
         <div data-gjs-highlightable="false" class="page-builder-form-div">
           <form>
-<<<<<<< HEAD
-            <div class="page-builder-field-group">
-            <label class="label" for="text">Label:</label>
-=======
             <div data-gjs-highlightable="false" class="page-builder-field-group">
               <span class="label" for="text">Label:</span>
->>>>>>> 7f02393991de65cd449314243d3321624cf5415e
               <input type="text" class="input" value="This is the input" >
             </div>
           </form>

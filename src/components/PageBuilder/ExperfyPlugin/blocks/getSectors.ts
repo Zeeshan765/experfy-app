@@ -960,27 +960,19 @@ const obj = {
   ],
   benefit_1: [
     {
-      name: 'Text Color',
-      open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'benefit-text-color',
-            'data-target': '.benefits-title-div h1 .benefits-title-div h2',
-          },
-        },
-        typography,
-      ],
-    },
 
+      name:'Main Heading',
+      open: false,
+      properties: [color, typography],
+      attributes: {
+        'data-type': 'font-family',
+        'data-attribute': 'guidelines-font-family',
+        'data-target':
+          '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+      },
+      
+      },
+     
     {
       name: 'Icon',
       open: false,
@@ -1677,120 +1669,33 @@ const obj = {
   ],
 
   number_1: [
-    {
-      name: 'Text Color',
-      open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'number-heading-color',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
-      ],
-    },
 
-    {
-      name: 'Typography',
-      open: false,
-      properties: [
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'number-heading-font-family',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'number-heading-font-size',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'number-heading-font-weight',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'number-heading-letter-spacing',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'number-heading-line-height',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'number-heading-text-align',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'number-heading-text-decoration',
-            'data-target': '.number-container-div h1 .number-container-div h2 ',
-          },
-        },
-      ],
-    },
 
+
+
+{
+
+name:'Main Heading',
+open: false,
+properties: [color, typography],
+attributes: {
+  'data-type': 'color',
+  'data-attribute': 'paragraph-text-color',
+  'data-target': '.paragraph-container h1 .paragraph-container p',
+},
+
+},
+{
+  name:'Sub Heading',
+  open: false,
+  properties: [color, typography],
+  attributes: {
+    'data-type': 'font-family',
+    'data-attribute': 'number-heading-font-family',
+    'data-target': '.number-container-div h1 .number-container-div h2 ',
+  },
+  
+  },
     {
       name: 'Numbers',
       open: false,
@@ -2080,390 +1985,92 @@ const obj = {
     },
   ],
   paragraph_1: [
-    {
-      name: 'Text Color',
-      open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'paragraph-text-color',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
-          },
-        },
-      ],
-    },
-    {
-      name: 'Typography',
-      open: false,
-      properties: [
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'paragraph-heading-font-size',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'paragraph-heading-font-weight',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
-          },
-        },
 
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: [
-            { value: 'uppercase', name: '<span>TT</span>' },
-            { value: 'lowercase', name: '<span>tt</span>' },
-            { value: 'capitalize', name: '<span>Tt</span>' },
-          ],
-          attributes: {
-            'data-type': 'transform',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'paragraph-heading-letter-spacing',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'paragraph-heading-line-height',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'paragraph-heading-text-align',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'paragraph-heading-text-decoration',
-            'data-target': '.paragraph-container h1 .paragraph-container p',
-          },
-        },
-      ],
-    },
+{
+name:'Main Heading',
+open: false,
+properties: [color, typography],
+attributes: {
+  'data-type': 'color',
+  'data-attribute': 'paragraph-text-color',
+  'data-target': '.paragraph-container h1 .paragraph-container p',
+},
+
+},
+{
+  name:'Sub Heading',
+  open: false,
+  properties: [color, typography],
+  attributes: {
+    'data-type': 'color',
+    'data-attribute': 'paragraph-text-color',
+    'data-target': '.paragraph-container h1 .paragraph-container p',
+  },
+  
+  },
+
+
+
+
+
+
+  
+   
+  
   ],
 
   image_banner_1: [
     {
-      name: 'Text Color',
-      open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'bannar-color',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-      ],
-    },
 
-    {
-      name: 'Typography',
+      name:'Main Heading',
       open: false,
-      properties: [
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'bannar-font-family',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
+      properties: [color, typography],
+      attributes: {
+        'data-type': 'font-family',
+        'data-attribute': 'bannar-font-family',
+        'data-target': '.bannar-content h1 .bannar-content p',
+      },
+      
+      },
+      {
+        name:'Sub Heading',
+        open: false,
+        properties: [color, typography],
+        attributes: {
+          'data-type': 'font-family',
+          'data-attribute': 'bannar-font-family',
+          'data-target': '.bannar-content h1 .bannar-content p',
         },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'bannar-font-size',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'bannar-font-weight',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: [
-            { value: 'uppercase', name: '<span>TT</span>' },
-            { value: 'lowercase', name: '<span>tt</span>' },
-            { value: 'capitalize', name: '<span>Tt</span>' },
-          ],
-          attributes: {
-            'data-type': 'transform',
-          },
+        
         },
 
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'bannar-letter-spacing',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'bannar-line-height',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'bannar-text-align',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'bannar-text-decoration',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-      ],
-    },
+
   ],
   image_text_1: [
     {
-      name: 'Text Color',
+
+      name:'Main Heading',
       open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'Img-main-color',
-            'data-target': '.main_heading  .sub_heading',
-          },
+      properties: [color, typography],
+      attributes: {
+        'data-type': 'font-family',
+        'data-attribute': 'main-font-family',
+        'data-target': '.main_heading .sub_heading',
+      },
+      
+      },
+      {
+        name:'Sub Heading',
+        open: false,
+        properties: [color, typography],
+        attributes: {
+          'data-type': 'font-family',
+          'data-attribute': 'main-font-family',
+          'data-target': '.main_heading .sub_heading',
         },
-      ],
-    },
-
-    {
-      name: 'Typography',
-      open: false,
-      properties: [
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'main-font-family',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'main-font-size',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'main-font-weight',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: [
-            { value: 'uppercase', name: '<span>TT</span>' },
-            { value: 'lowercase', name: '<span>tt</span>' },
-            { value: 'capitalize', name: '<span>Tt</span>' },
-          ],
-          attributes: {
-            'data-type': 'transform',
-          },
+        
         },
 
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'main-letter-spacing',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'main-line-height',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'main-text-align',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'main-text-decoration',
-            'data-target': '.main_heading .sub_heading',
-          },
-        },
-      ],
-    },
 
     {
       name: 'Image Gallery',
@@ -2652,126 +2259,31 @@ const obj = {
 
   guideline_1: [
     {
-      name: 'Text Color',
-      open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'guidelines-text-color',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-          },
-        },
-      ],
-    },
 
-    {
-      name: 'Typography',
+      name:'Main Heading',
       open: false,
-      properties: [
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'guidelines-font-family',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-          },
+      properties: [color, typography],
+      attributes: {
+        'data-type': 'font-family',
+        'data-attribute': 'guidelines-font-family',
+        'data-target':
+          '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
+      },
+      
+      },
+      {
+        name:'Sub Heading',
+        open: false,
+        properties: [color, typography],
+        attributes: {
+          'data-type': 'font-family',
+          'data-attribute': 'guidelines-font-family',
+          'data-target':
+            '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
         },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'guidelines-font-size',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-          },
+        
         },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'guidelines-font-weight',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'guidelines-letter-spacing',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'guidelines-line-height',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'guidelines-text-align',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'guidelines-text-decoration',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-          },
-        },
-      ],
-    },
+   
     {
       name: 'Guideline',
       open: false,
@@ -2877,119 +2389,30 @@ const obj = {
 
   location_1: [
     {
-      name: 'Text Color',
-      open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'bannar-font-family',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-      ],
-    },
 
-    {
-      name: 'Typography',
+      name:'Main Heading',
       open: false,
+      properties: [color, typography],
+      attributes: {
+        'data-type': 'font-family',
+        'data-attribute': 'bannar-font-family',
+        'data-target': '.bannar-content h1 .bannar-content p',
+      },
+      
+      },
+      {
+        name:'Sub Heading',
+        open: false,
+        properties: [color, typography],
+        attributes: {
+          'data-type': 'font-family',
+          'data-attribute': 'bannar-font-family',
+          'data-target': '.bannar-content h1 .bannar-content p',
+        },
+        
+        },
 
-      properties: [
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'bannar-font-family',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'bannar-font-size',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'bannar-font-weight',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'bannar-letter-spacing',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'bannar-line-height',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'bannar-text-align',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'bannar-text-decoration',
-            'data-target': '.bannar-content h1 .bannar-content p',
-          },
-        },
-      ],
-    },
+    
     {
       name: 'Icon List',
       open: false,
@@ -3078,7 +2501,24 @@ const obj = {
     },
   ],
 
-  talent_1: [],
+  talent_1: [
+    {
+
+      name:'Main Heading',
+      open: false,
+      properties: [color, typography],
+     
+      
+      },
+      {
+        name:'Sub Heading',
+        open: false,
+        properties: [color, typography],
+      
+        
+        },
+
+  ],
 
   theme_1: [
     {
