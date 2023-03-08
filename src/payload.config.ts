@@ -89,17 +89,7 @@ export default buildConfig({
         },
 
         {
-<<<<<<< HEAD
-          path: '/collections/themes-style',
-          Component: ThemeStyle,
-          exact: true,
-          strict: true,
-        },
-        {
-          path: '/collections/page-builder',
-=======
           path: '/collections/page-builder/:id',
->>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
           Component: PageBuilder,
           exact: true,
           strict: true,

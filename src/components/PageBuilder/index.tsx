@@ -113,12 +113,7 @@ const PageBuilder: React.FC = () => {
     try {
       // Create the form data for the request
       const formData = new FormData();
-<<<<<<< HEAD
-      formData.append("file", file);
-      // formData.append('name', file.name);
-=======
       formData.append('file', file);
->>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
       let item = {
         keywords: "Media",
         mediaType: "Photo",
@@ -384,99 +379,7 @@ const PageBuilder: React.FC = () => {
     editor.DomComponents.addType("text", {
       model: {
         defaults: {
-<<<<<<< HEAD
-          traits: [
-            {
-              type: "text",
-              name: "text-title",
-              label: "Title",
-              placeholder: "Enter your title ",
-              className: "custom-text",
-            },
-            {
-              type: "select",
-              name: "class",
-              label: "HTML Tag",
-              default: "h1",
-              options: [
-                { id: "h1", name: "H1" },
-                { id: "h2", name: "H2" },
-                { id: "h3", name: "H3" },
-                { id: "h4", name: "H4" },
-                { id: "h5", name: "H5" },
-                { id: "h6", name: "H6" },
-                { id: "div", name: "div" },
-                { id: "span", name: "span" },
-                { id: "p", name: "p" },
-              ],
-            },
-            {
-              type: "select",
-              name: "class",
-              label: "Alignment",
-              default: "left",
-              options: [
-                { value: "left", name: "Left" },
-                { value: "center", name: "Center" },
-                { value: "right", name: "Right" },
-              ],
-            },
-          ],
-        },
-      },
-    });
-
-    editor.DomComponents.addType("button", {
-      model: {
-        defaults: {
-          traits: [
-            {
-              type: "text",
-              name: "button-title",
-              label: "Button Text",
-              placeholder: "Buttton ",
-            },
-            {
-              type: "select",
-              name: "class",
-              label: "Button Size",
-              default: "small",
-              options: [
-                { value: "btn-extrasmall", name: "Extra Small" },
-
-                { value: "btn-small", name: "small" },
-                { value: "btn-medium", name: "Medium" },
-                { value: "btn-large", name: "Large" },
-                { value: "btn-extralarge", name: "Extra Large" },
-              ],
-            },
-
-            {
-              type: "select",
-              name: "class",
-              label: "Button Alignment",
-              default: "btn-start",
-              options: [
-                { value: "btn-start", name: "Left" },
-                { value: "btn-center", name: "Center" },
-                { value: "btn-right", name: "Right" },
-              ],
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Alignment',
-              default: 'left',
-              options: [
-                { value: 'left', name: 'Left' },
-                { value: 'center', name: 'Center' },
-                { value: 'right', name: 'Right' },
-              ],
-            },
-          ],
-=======
           traits: TextTrait,
->>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
         },
       },
     });
@@ -587,23 +490,6 @@ const PageBuilder: React.FC = () => {
     // });
 
     //For Traits
-<<<<<<< HEAD
-    editor.on("component:selected", (component) => {
-      console.log("component:selected", component);
-      const { id } = component.attributes.attributes;
-      console.log("id", id);
-      console.log("type", component.get("content"));
-      if (component.get("type") == "text") {
-        editor?.runCommand("core:open-traits");
-        if (component.get("traits").models[0].get("value"))
-          component.components(component.get("traits").models[0].get("value"));
-      }
-
-      if (component.get("type") == "button") {
-        editor?.runCommand("core:open-traits");
-        if (component.get("traits").models[0].get("value"))
-          component.components(component.get("traits").models[0].get("value"));
-=======
     editor.on('component:selected', (component) => {
       if (component) {
         let ccid = component.ccid.split('-')[0];
@@ -617,7 +503,6 @@ const PageBuilder: React.FC = () => {
         editor?.runCommand('core:open-traits');
         if (component.get('traits').models[0].get('value'))
           component.components(component.get('traits').models[0].get('value'));
->>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
       }
       if (component.get('type') == 'button') {
         editor?.runCommand('core:open-traits');

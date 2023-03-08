@@ -137,11 +137,7 @@ payload.init({
 const router = express.Router();
 router.use(
   createProxyMiddleware({
-<<<<<<< HEAD
-    target: LOGIN_API_URL + LOGIN_MATCHER,
-=======
     target: LOGIN_API_URL + process.env.REACT_APP_LOGIN_MATCHER,
->>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
     changeOrigin: true,
     secure: false,
   })

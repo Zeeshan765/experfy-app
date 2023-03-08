@@ -257,11 +257,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-radio-item input:checked + .gjs-radio-item-label {
-<<<<<<< HEAD
-  background-color: var(--theme-primary) !important;
-=======
   background-color: var(--theme-border) !important;
->>>>>>> b194b9c3802ed69a27f015a23047f2db8054ebfe
   color: white !important;
 }
 
