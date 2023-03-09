@@ -85,44 +85,6 @@ const ThemeStyle: React.FC = () => {
     });
     localStorage.removeItem('gjsProject');
 
-    // editor.on(`block:drag:stop`, (component, block) => {
-    //   if (component) {
-    //     let ccid = component.ccid.split('-')[0];
-    //     const themeSector = editor.StyleManager.getSectors();
-    //     themeSector.reset();
-    //     themeSector.add(getSectors(ccid));
-    //   }
-    // });
-    // editor.Panels.addPanel({
-    //   id: 'views-container',
-    //   el: '.gjs-views-container',
-    //   visible: true,
-    // });
-    // const sectors = editor.getComponents().filter(component => component.get('type') === 'sector');
-
-    // let selectedSector = null;
-
-    // sectorcontainer.get('buttons').add([
-    //   {
-    //     id: 'close-all-sectors',
-    //     className: 'fa fa-times',
-    //     command: 'close-all-sectors',
-    //     attributes: { title: 'Close All Sectors' },
-    //   },
-    // ]);
-
-    // editor.Commands.add('close-all-sectors', (editor) => {
-    //   CloseAllSectors(editor);
-    // });
-
-    // editor.on('component:selected', (component) => {
-    //   ComponentSelection(editor, component);
-    // });
-
-    // editor.on('component:deselected', (component) => {
-    //   ComponentSelection(editor, component);
-    // });
-
 
     editor.onReady(() => {
       const sectors = editor.StyleManager.getSectors();

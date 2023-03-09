@@ -677,15 +677,29 @@ const obj = {
       ],
     },
   ],
-  footer_1: [
+  footerSector: [
     {
-      name: 'Text Color',
+
+      name:'Main Heading',
       open: false,
+      id:'main-footer-heading',
       properties: [color, typography],
-    },
+      
+      
+      },
+      {
+
+        name:'Sub Heading',
+        open: false,
+        id:'sub-footer-heading',
+        properties: [color, typography],
+        
+        
+        },
     {
       name: 'Image Gallery',
       open: false,
+      id:'footer-image',
       buildProps: ['border-radius', 'border-width'],
       properties: [
         {
@@ -696,22 +710,14 @@ const obj = {
             preferredFormat: 'hex',
             showInput: true,
           },
-          attributes: {
-            'data-type': 'border-color',
-            'data-attribute': 'image-border-color',
-            'data-target': '.img_container img',
-          },
+         
         },
 
         {
           type: 'slider',
           name: 'Spacing',
           property: 'padding',
-          attributes: {
-            'data-type': 'padding',
-            'data-attribute': 'image-padding',
-            'data-target': '.img_container img',
-          },
+          
           default: '1',
           units: ['px', 'em', 'rem'],
         },
@@ -720,11 +726,7 @@ const obj = {
           name: 'Border Type',
           property: 'border-style',
           default: 'solid',
-          attributes: {
-            'data-type': 'border-style',
-            'data-attribute': 'image-border-style',
-            'data-target': '.img_container img',
-          },
+          
           options: borderStyleOptions,
         },
       ],
@@ -732,17 +734,14 @@ const obj = {
     {
       name: 'Gallery Caption',
       open: false,
+      id:'img-caption',
       properties: [
         {
           type: 'select',
           name: 'Display',
           property: 'display',
           default: 'show',
-          attributes: {
-            'data-type': 'display',
-            'data-attribute': 'gallery-display',
-            'data-target': '.figure_caption',
-          },
+         
           options: [
             { value: 'block', name: 'Show' },
             { value: 'none', name: 'Hide' },
@@ -755,6 +754,7 @@ const obj = {
     {
       name: 'Button Border',
       open: false,
+      id:'footer-btn',
       buildProps: ['border-radius', 'border-style', 'box-shadow'],
       properties: [
         {
@@ -958,20 +958,24 @@ const obj = {
       ],
     },
   ],
-  benefit_1: [
+  benefitSector: [
     {
 
       name:'Main Heading',
       open: false,
+      id:'main-benefit-heading',
       properties: [color, typography],
-      attributes: {
-        'data-type': 'font-family',
-        'data-attribute': 'guidelines-font-family',
-        'data-target':
-          '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-      },
+      
       
       },
+      {
+
+        name:'Sub Heading',
+        open: false,
+        properties: [color, typography],
+        id:'sub-benefit-heading'
+        
+        },
      
     {
       name: 'Icon',
@@ -1014,324 +1018,13 @@ const obj = {
       ],
     },
   ],
-  testimonial_1: [
-    {
-      name: 'Content',
-      open: false,
-
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'content-color',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'content-font-family',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'content-font-size',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'content-font-weight',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'content-letter-spacing',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'content-line-height',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'content-text-align',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Decoration',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'content-text-decoration',
-            'data-target':
-              '.user-detail-label  .user-detail-label span  .slider-text-div p',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Blur',
-          property: 'backdrop:filter: blur',
-          default: '10',
-        },
-
-        {
-          type: 'slider',
-          name: 'Horizontal',
-          property: 'horizontal',
-          default: '0',
-        },
-        {
-          type: 'slider',
-          name: 'Vertical',
-          property: 'content-vertical',
-          default: '0',
-        },
-      ],
-    },
-    {
-      name: 'Image',
-      open: false,
-      buildProps: ['border-radius', 'border-style'],
-      properties: [
-        {
-          type: 'slider',
-          name: 'Image Size',
-          property: 'width',
-          attributes: {
-            'data-type': 'image',
-            'data-attribute': 'image-size',
-            'data-target': '.testimonial-image',
-          },
-        },
-      ],
-    },
-
-    {
-      name: 'Name',
-      open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'name-color',
-            'data-target': '.slider-content-main-div .left-container h2',
-          },
-        },
-
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'name-font-family',
-            'data-target': '.slider-content-main-div .left-container h2',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'name-font-size',
-            'data-target': '.slider-content-main-div .left-container h2',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'name-font-weight',
-            'data-target': '.slider-content-main-div .left-container h2',
-          },
-        },
-
-        {
-          type: 'select',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: textTransformOptions,
-          attributes: {
-            'data-type': 'text-transform',
-            'data-attribute': 'name-text-transform',
-            'data-target': '.slider-content-main-div .left-container h2',
-          },
-        },
-
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'name-letter-spacing',
-            'data-target': '.slider-content-main-div .left-container h2',
-          },
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'name-line-height',
-            'data-target': '.slider-content-main-div .left-container h2',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'name-text-align',
-            'data-target': '.slider-content-main-div .left-container h2',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'name-text-decoration',
-            'data-target': '.slider-content-main-div .left-container h2',
-          },
-        },
-
-        {
-          type: 'slider',
-          name: 'Blur',
-          property: 'backdrop:filter: blur',
-          default: '10',
-
-          attributes: {
-            'data-type': 'backdrop-filter: blur',
-            'data-attribute': 'name-blur',
-            'data-target': '.testimonial-image',
-          },
-        },
-
-        {
-          type: 'slider',
-          name: 'Horizontal',
-          property: 'name-horizontal',
-          default: '0',
-        },
-        {
-          type: 'slider',
-          name: 'Vertical',
-          property: 'name-vertical',
-          default: '0',
-        },
-      ],
-    },
+  testimonialSector: [
     {
       name: 'Title',
+      id:'main-testimonial-title',
       open: false,
       properties: [
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'content-color',
-            'data-target': '.section-title',
-          },
-        },
+        color,
         typography,
 
         {
@@ -1355,11 +1048,233 @@ const obj = {
         },
       ],
     },
+    {
+      name: 'Content',
+      open: false,
+     id: 'main-testimonial-content',
+      properties: [
+        {
+          type: 'color',
+          name: 'Text Color',
+          property: 'color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: fontFamilies,
+       
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+         
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options: fontWeightOptions,
+        
+        },
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+        
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+         
+        },
+        {
+          type: 'radio',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: textAlignOptions,
+       
+        },
+        {
+          type: 'radio',
+          name: 'Text Decoration',
+          property: 'text-decoration',
+          default: 'none',
+          options: textDecorationOptions,
+         
+        },
+        {
+          type: 'slider',
+          name: 'Blur',
+          property: 'backdrop:filter: blur',
+          default: '10',
+        },
+
+        {
+          type: 'slider',
+          name: 'Horizontal',
+          property: 'horizontal',
+          default: '0',
+        },
+        {
+          type: 'slider',
+          name: 'Vertical',
+          property: 'content-vertical',
+          default: '0',
+        },
+      ],
+    },
+    { 
+      name: 'Image',
+      open: false,
+      id: 'testimonial-image',
+      buildProps: ['border-radius', 'border-style'],
+      properties: [
+        {
+          type: 'slider',
+          name: 'Image Size',
+          property: 'width',
+          attributes: {
+            'data-type': 'image',
+            'data-attribute': 'image-size',
+            'data-target': '.testimonial-image',
+          },
+        },
+      ],
+    },
+
+    {
+      name: 'Name',
+      open: false,
+      id: 'main-testimonial-name',
+      properties: [
+        {
+          type: 'color',
+          name: 'Text Color',
+          property: 'color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        
+        },
+
+        {
+          type: 'select',
+          name: 'Font Family',
+          property: 'font-family',
+          options: fontFamilies,
+         
+        },
+        {
+          type: 'slider',
+          name: 'Font Size',
+          property: 'font-size',
+          default: 16,
+          units: ['px', 'rem'],
+         
+        },
+        {
+          type: 'select',
+          name: 'Font Weight',
+          property: 'font-weight',
+          default: 'normal',
+          options: fontWeightOptions,
+         
+        },
+
+        {
+          type: 'select',
+          name: 'Transform',
+          property: 'text-transform',
+          default: 'default',
+          options: textTransformOptions,
+          
+        },
+
+        {
+          type: 'slider',
+          name: 'Letter Spacing',
+          property: 'letter-spacing',
+          default: 0,
+          units: ['px', 'rem'],
+        
+        },
+        {
+          type: 'slider',
+          label: 'Line Height',
+          name: 'Line Height',
+          property: 'line-height',
+          ResizeObserver: true,
+          default: 1,
+          units: ['px', 'rem'],
+         
+        },
+        {
+          type: 'radio',
+          name: 'Text Align',
+          property: 'text-align',
+          default: 'left',
+          ResizeObserver: true,
+          options: textAlignOptions,
+          
+        },
+        {
+          type: 'radio',
+          name: 'Font Style',
+          property: 'text-decoration',
+          default: 'none',
+          options: textDecorationOptions,
+          
+        },
+
+        {
+          type: 'slider',
+          name: 'Blur',
+          property: 'backdrop:filter: blur',
+          default: '10',
+
+         
+        },
+
+        {
+          type: 'slider',
+          name: 'Horizontal',
+          property: 'name-horizontal',
+          default: '0',
+        },
+        {
+          type: 'slider',
+          name: 'Vertical',
+          property: 'name-vertical',
+          default: '0',
+        },
+      ],
+    },
+    
   ],
-  practice_area_1: [
+  practiceAreaSector: [
     {
       name: 'Background',
       open: false,
+      id:'para-div',
       properties: [
         backgroundColor,
         {
@@ -1434,6 +1349,7 @@ const obj = {
     },
     {
       name: 'Section Heading',
+      id:'main-practice-heading',
       open: false,
       properties: [color, typography, HtmlTag],
     },
@@ -1566,8 +1482,10 @@ const obj = {
       ],
     },
   ],
-  video_1: [
+  videoSector: [
     {
+      name: 'Aspect Ratio',
+      id:'video-ratio',
       properties: [
         {
           type: 'select',
@@ -1580,17 +1498,30 @@ const obj = {
             { value: '75%', name: '4:3' },
             { value: '100%', name: '1:1' },
           ],
-          attributes: {
-            'data-type': 'padding-top',
-            'data-attribute': 'video-aspect-ratio',
-            'data-target':
-              '.video-main-wrapper .video-container-main-div .video-div  ',
-          },
+         
         },
       ],
     },
     {
+
+      name:'Main Heading',
+      open: false,
+      id:'main-video-heading',
+      properties: [color, typography],
+      
+      
+      },
+      {
+
+        name:'Sub Heading',
+        open: false,
+        properties: [color, typography],
+        id:'sub-video-heading'
+        
+        },
+    {
       name: 'Css Filters',
+      id:'video-ratio',
       open: false,
       properties: [
         {
@@ -1668,7 +1599,7 @@ const obj = {
     },
   ],
 
-  number_1: [
+ numbersSection: [
 
 
 
@@ -1678,26 +1609,17 @@ const obj = {
 name:'Main Heading',
 open: false,
 properties: [color, typography],
-attributes: {
-  'data-type': 'color',
-  'data-attribute': 'paragraph-text-color',
-  'data-target': '.paragraph-container h1 .paragraph-container p',
-},
-
+id: 'main-number-heading',
 },
 {
   name:'Sub Heading',
   open: false,
+  id: 'sub-number-heading',
   properties: [color, typography],
-  attributes: {
-    'data-type': 'font-family',
-    'data-attribute': 'number-heading-font-family',
-    'data-target': '.number-container-div h1 .number-container-div h2 ',
-  },
-  
   },
     {
       name: 'Numbers',
+      id: 'number-val',
       open: false,
       properties: [
         {
@@ -1798,6 +1720,7 @@ attributes: {
     {
       name: 'Numbers Description',
       open: false,
+      id: 'number-description',
       properties: [
         {
           type: 'color',
@@ -1807,11 +1730,7 @@ attributes: {
             preferredFormat: 'hex',
             showInput: true,
           },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'number-description-color',
-            'data-target': '.number-percentages-section .percentage-info p',
-          },
+         
         },
         {
           type: 'select',
@@ -1930,6 +1849,7 @@ attributes: {
     {
       name: 'Numbers Border',
       open: false,
+      id: 'number-border',
       buildProps: [
         'border-radius',
 
@@ -1951,7 +1871,7 @@ attributes: {
           },
           attributes: {
             'data-type': 'border-color',
-            'data-attribute': 'benefit-border-color',
+            'data-attribute': 'benefit percentage-info',
             'data-target': '.benefit percentage-info',
           },
         },
@@ -1984,28 +1904,22 @@ attributes: {
       ],
     },
   ],
-  paragraph_1: [
+paragraphSector: [
 
 {
 name:'Main Heading',
 open: false,
+id:'main-paragraph-heading',
 properties: [color, typography],
-attributes: {
-  'data-type': 'color',
-  'data-attribute': 'paragraph-text-color',
-  'data-target': '.paragraph-container h1 .paragraph-container p',
-},
+
 
 },
 {
   name:'Sub Heading',
   open: false,
+  id:'sub-paragraph-heading',
   properties: [color, typography],
-  attributes: {
-    'data-type': 'color',
-    'data-attribute': 'paragraph-text-color',
-    'data-target': '.paragraph-container h1 .paragraph-container p',
-  },
+ 
   
   },
 
@@ -2019,10 +1933,11 @@ attributes: {
   
   ],
 
-  image_banner_1: [
+  bannerSector: [
     {
 
       name:'Main Heading',
+      id: 'main-banner-heading',
       open: false,
       properties: [color, typography],
       attributes: {
@@ -2034,6 +1949,7 @@ attributes: {
       },
       {
         name:'Sub Heading',
+        id: 'sub-banner-heading',
         open: false,
         properties: [color, typography],
         attributes: {
@@ -2046,34 +1962,27 @@ attributes: {
 
 
   ],
-  image_text_1: [
+  ImageTextSector: [
     {
 
       name:'Main Heading',
       open: false,
+      id: 'main-image-heading',
       properties: [color, typography],
-      attributes: {
-        'data-type': 'font-family',
-        'data-attribute': 'main-font-family',
-        'data-target': '.main_heading .sub_heading',
-      },
+     
       
       },
       {
         name:'Sub Heading',
         open: false,
-        properties: [color, typography],
-        attributes: {
-          'data-type': 'font-family',
-          'data-attribute': 'main-font-family',
-          'data-target': '.main_heading .sub_heading',
-        },
-        
+        id: 'sub-image-heading',
+        properties: [color, typography], 
         },
 
 
     {
       name: 'Image Gallery',
+      id: 'image-gallery',
       open: false,
       buildProps: ['border-radius', 'border-width'],
       properties: [
@@ -2120,6 +2029,7 @@ attributes: {
     },
     {
       name: 'Gallery Caption',
+      id:'gallery-caption',
       open: false,
       properties: [
         {
@@ -2257,30 +2167,22 @@ attributes: {
     },
   ],
 
-  guideline_1: [
+  guidelineSector: [
     {
 
       name:'Main Heading',
       open: false,
+      id:'main-guideline-heading',
       properties: [color, typography],
-      attributes: {
-        'data-type': 'font-family',
-        'data-attribute': 'guidelines-font-family',
-        'data-target':
-          '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-      },
+     
       
       },
       {
         name:'Sub Heading',
         open: false,
+        id:'sub-guideline-heading',
         properties: [color, typography],
-        attributes: {
-          'data-type': 'font-family',
-          'data-attribute': 'guidelines-font-family',
-          'data-target':
-            '.guideline-main-wrapper .guideline-container .guideline-header-section h1  .guideline-main-wrapper .guideline-container .guideline-header-section h2 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading p',
-        },
+
         
         },
    
@@ -2387,29 +2289,21 @@ attributes: {
     },
   ],
 
-  location_1: [
+  locationSector: [
     {
 
       name:'Main Heading',
       open: false,
+      id:'main-location-heading',
       properties: [color, typography],
-      attributes: {
-        'data-type': 'font-family',
-        'data-attribute': 'bannar-font-family',
-        'data-target': '.bannar-content h1 .bannar-content p',
-      },
+      
       
       },
       {
         name:'Sub Heading',
         open: false,
-        properties: [color, typography],
-        attributes: {
-          'data-type': 'font-family',
-          'data-attribute': 'bannar-font-family',
-          'data-target': '.bannar-content h1 .bannar-content p',
-        },
-        
+        id: 'sub-location-heading',
+        properties: [color, typography],  
         },
 
     
@@ -2466,17 +2360,13 @@ attributes: {
     {
       name: 'Icon',
       open: false,
+      id:'svg-location',
       properties: [
         {
           type: 'color',
           name: 'Primary Color',
           property: 'fill',
           default: '#e6e6e6',
-          attributes: {
-            'data-type': 'fill',
-            'data-attribute': 'icon-color',
-            'data-target': '.address-icon svg',
-          },
         },
 
         {
@@ -2491,21 +2381,17 @@ attributes: {
           property: 'padding',
           default: '0',
           units: ['px'],
-          attributes: {
-            'data-type': 'fill',
-            'data-attribute': 'icon-color',
-            'data-target': '.address-icon svg',
-          },
         },
       ],
     },
   ],
 
-  talent_1: [
+  talentSector: [
     {
 
       name:'Main Heading',
       open: false,
+      id:'main-talent-heading',
       properties: [color, typography],
      
       
@@ -2513,6 +2399,7 @@ attributes: {
       {
         name:'Sub Heading',
         open: false,
+        id:'sub-talent-heading',
         properties: [color, typography],
       
         

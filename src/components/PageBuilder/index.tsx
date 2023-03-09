@@ -28,6 +28,7 @@ const PageBuilder: React.FC = () => {
   const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
   const [historyExact, setHistoryExact] = useState(false);
   const [changeHistory, setChangeHistory] = useState(false);
+  var isUpdating = false;
   // ======States end=======
   // ======Hooks start=======
   const { routes, serverURL } = useConfig();
@@ -456,11 +457,18 @@ const PageBuilder: React.FC = () => {
 
     //For Traits
     editor.on('component:selected', (component) => {
+      console.log("component*******", component);
       if (component) {
         let ccid = component.ccid.split('-')[0];
+        console.log("ccid", ccid);
         const blocksector = editor.StyleManager.getSectors();
+        console.log(
+          'blocksector',
+          blocksector,
+        )
         blocksector.reset();
         blocksector.add(getSectors(ccid));
+        console.log("blocksector", blocksector.add(getSectors(ccid)));
       }
       let type = component.get('type');
       const { id } = component.attributes.attributes;
@@ -501,6 +509,72 @@ const PageBuilder: React.FC = () => {
         blocksector.add(getSectors(ccid));
       }
     });
+
+  
+//@ts-ignore
+    editor.on('style:sector:update', (props) => {
+      
+      // Get the selected block
+      !isUpdating &&
+        setTimeout(() => {
+          let sm = editor.StyleManager;
+          var selectedBlock = editor.getSelected();
+          console.log('selectedBlock', selectedBlock);
+          const { ccid } = selectedBlock;
+          isUpdating = true;
+          const sectors = sm.getSectors();
+          console.log('props', props);
+          for (let i = 0; i < sectors.length; i++) {
+            const modelId = sectors.models[i].get('id');
+            if (modelId === props.id) {
+              console.log('sectors.models[i]', sectors.models[i]);
+              let isOpen = sectors.models[i].isOpen();
+              if (isOpen) {
+             
+                editor.select(sectors.models[i]);
+              
+
+                console.log(
+                  'editor.select(sectors.models[i]);',
+                  editor.select(sectors.models[i])
+                );
+                sectors.models[i].set({
+                  open: true,
+                  active: true,
+                  select: true,
+                  focus: true,
+
+                });
+              
+             
+                sm.select(`.${ccid} .${props.id}`);
+              }
+            } else {
+              sectors.models[i].setOpen(false);
+            }
+          }
+
+          setTimeout(() => {
+            isUpdating = false;
+          }, 3000);
+        }, 100);
+
+      const categories = editor.StyleManager.getSectors();
+     
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
     localStorage.removeItem('gjsProject');
     setEditorState(editor);
     addAssets();
