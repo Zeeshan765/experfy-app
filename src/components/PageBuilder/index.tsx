@@ -86,7 +86,6 @@ const PageBuilder: React.FC = () => {
             const { pageCode } = res.data;
             setCurrentPageData(res.data);
             if (pageCode) {
-              // console.log("pageCode new", JSON.parse(pageCode));
               editor.loadProjectData(JSON.parse(pageCode));
             }
           })
@@ -177,7 +176,6 @@ const PageBuilder: React.FC = () => {
   };
   const saveHistoy = () => {
     if (historyExact) {
-      debugger;
       axios
         .patch(`${apiEndpoint}/pagehistory?PageId=${id}`, {
           PageId: id, //page id get from url
@@ -188,7 +186,6 @@ const PageBuilder: React.FC = () => {
           console.log(err);
         });
     } else {
-      debugger;
       axios
         .post(`${apiEndpoint}/pagehistory`, {
           PageId: id, //page id get from url
@@ -479,8 +476,6 @@ const PageBuilder: React.FC = () => {
 
             complete && editor.AssetManager.close();
           }
-
-          console.log('after select', selected);
         },
       });
     });
@@ -563,8 +558,6 @@ const PageBuilder: React.FC = () => {
     return () => clearTimeout(updateHistory);
   }, [changeHistory]);
   // =======Lifecycle methods end here=========
-
-  console.log('currentPageData======', currentPageData);
   return (
     <div className='main__content'>
       <Eyebrow />
