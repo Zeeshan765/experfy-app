@@ -65,7 +65,6 @@ var isUpdating = false;
         const headerLinksItem = docs.filter(
           (el: { menu_section: string }) => el.menu_section === blockId
         );
-        console.log("selection***************",headerLinksItem)
         if (headerLinksItem.length > 0) {
           let headerLinks = headerLinksItem[0];
           const { nav } = headerLinks;

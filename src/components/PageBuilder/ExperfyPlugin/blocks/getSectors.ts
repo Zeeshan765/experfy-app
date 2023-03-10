@@ -362,11 +362,8 @@ const obj = {
   header_1: [
     {
       name: 'Header',
-      open: true,
-
-      attributes: {
-        'data-target': '.header-div .header-navabr a',
-      },
+      open: false,
+      id:'header-bg',
 
       properties: [
         typography,
@@ -397,7 +394,8 @@ const obj = {
     },
     {
       name: 'Logo',
-      open: true,
+      open: false,
+      id:'header-svg',
       buildProps: ['border-radius', 'animation-name', 'backdrop-filter'],
 
       properties: [
@@ -435,11 +433,7 @@ const obj = {
           min: 0,
           max: 100,
           units: ['%', 'px'],
-          attributes: {
-            'data-type': 'width',
-            'data-attribute': 'header-logo-width',
-            'data-target': '.header-div',
-          },
+         
         },
 
         {
@@ -451,11 +445,7 @@ const obj = {
           min: 0,
           max: 100,
           units: ['%'],
-          attributes: {
-            'data-type': 'opacity',
-            'data-attribute': 'header-logo-opacity',
-            'data-target': '.logo',
-          },
+          
         },
         {
           name: 'Blur',
@@ -482,22 +472,14 @@ const obj = {
           name: 'Brightness',
           property: 'backdrop-filter: brightness(100%)',
 
-          attributes: {
-            'data-type': 'backdrop-filter',
-            'data-attribute': 'header-logo-brightness',
-            'data-target': '.logo',
-          },
+         
         },
         {
           type: 'number',
           name: 'Contrast',
           property: 'backdrop-filter',
           default: 'contrast(100%)',
-          attributes: {
-            'data-type': 'backdrop-filter',
-            'data-attribute': 'header-logo-contrast',
-            'data-target': '.logo',
-          },
+         
         },
         {
           type: 'select',
@@ -505,11 +487,7 @@ const obj = {
           property: 'backdrop-filter',
           default: 'saturate(100%)',
 
-          attributes: {
-            'data-type': 'backdrop-filter',
-            'data-attribute': 'header-logo-saturation',
-            'data-target': '.logo',
-          },
+          
         },
         {
           type: 'select',
@@ -538,8 +516,8 @@ const obj = {
 
     {
       name: 'Border',
-      open: true,
-
+      open: false,
+      id:'header-bd',
       properties: [
         {
           type: 'color',
@@ -576,10 +554,7 @@ const obj = {
             preferredFormat: 'hex',
             showInput: true,
           },
-          attributes: {
-            'data-type': 'color',
-            'data-target': 'divider',
-          },
+
         },
         {
           type: 'slider',
@@ -587,10 +562,7 @@ const obj = {
           property: 'height',
           default: 2,
           units: 'px',
-          attributes: {
-            'data-type': 'height',
-            'data-target': 'divider',
-          },
+          
         },
         {
           type: 'slider',
@@ -598,9 +570,7 @@ const obj = {
           property: 'gap',
           default: 0,
           units: 'px',
-          attributes: {
-            'data-type': 'gap',
-          },
+          
         },
       ],
     },
@@ -657,7 +627,7 @@ const obj = {
           name: 'Padding',
           property: 'padding',
           buildProps: ['padding'],
-          default: '10px',
+          dheadingefault: '10px',
           units: 'px',
         },
         {
@@ -980,7 +950,7 @@ const obj = {
     {
       name: 'Icon',
       open: false,
-
+      id:'icon-benefit',
       properties: [
         {
           type: 'color',
@@ -991,11 +961,7 @@ const obj = {
             preferredFormat: 'hex',
             showInput: true,
           },
-          attributes: {
-            'data-type': 'fill',
-            'data-attribute': 'benefit-Icon-color',
-            'data-target': '.benefit-holder svg ',
-          },
+         
         },
 
         {
@@ -1009,14 +975,26 @@ const obj = {
           property: 'padding',
           default: '0',
           units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'padding',
-            'data-attribute': 'benefit-Icon-padding',
-            'data-target': '.benefit-holder svg ',
-          },
         },
+        
       ],
     },
+    {
+
+      name:'Icon Heading',
+      id:'icon-benefit-heading',
+      open: false,
+      properties: [color, typography],
+      
+      },
+       {
+
+      name:'Icon Sub Heading',
+      id:'icon-benefit-sub-heading',
+      open: false,
+      properties: [color, typography],
+      
+      },
   ],
   testimonialSector: [
     {
@@ -2185,108 +2163,27 @@ properties: [color, typography],
 
         
         },
+
+       {
+name:'Guideline Bullet',
+open: false,
+id:'guideline-bullet',
+buildProps:['width','height'],
+properties: [color, typography,backgroundColor],
+       }, 
    
-    {
-      name: 'Guideline',
-      open: false,
-      buildProps: ['border-radius', 'box-shadow', 'padding'],
-      attributes: {
-        'data-target': '.guidline-option',
-      },
-      properties: [
-        {
-          type: 'color',
-          name: 'Bullet Point Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'background-color',
-            'data-attribute': 'guidelines-bullet-background-color',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
-          },
-        },
-
-        {
-          type: 'slider',
-          name: 'Bullet Point Size',
-          property: 'width',
-          default: '15',
-          units: ['px'],
-          attributes: {
-            'data-type': 'background-color',
-            'data-attribute': 'guidelines-bullet-background-color',
-            'data-target':
-              '.guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Bullet Font',
-          property: 'font-family',
-          default: 'Arial',
-          options: fontFamilies,
-        },
-
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-        {
-          type: 'select',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: [
-            { value: 'uppercase', name: '<span>TT</span>' },
-            { value: 'lowercase', name: '<span>tt</span>' },
-            { value: 'capitalize', name: '<span>Tt</span>' },
-          ],
-        },
-        {
-          type: 'select',
-          name: 'Decoration',
-          property: 'text-decoration',
-          default: 'default',
-          options: textDecorationOptions,
-        },
-        {
-          type: 'composite',
-          name: 'Border Width',
-          property: 'border-width',
-          properties: widthOptions,
-        },
-        {
-          type: 'color',
-          name: 'Border Color',
-          property: 'border-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
-    },
+  {
+name:'Bullet Heading',
+open: false,
+id:'bullet-heading',
+properties: [color, typography],
+  },
+   {
+name:'Bullet Sub Heading',
+open: false,
+id:'bullet-sub-heading',
+properties: [color, typography],
+  },
   ],
 
   locationSector: [
@@ -2309,21 +2206,10 @@ properties: [color, typography],
     
     {
       name: 'Icon List',
+      id:'icon-text',
       open: false,
       properties: [
-        {
-          type: 'slider',
-          name: 'Icon Size',
-          property: 'height',
-        },
-        {
-          type: 'slider',
-          name: 'Icon Rotate',
-          property: 'transform:rotate',
-          default: '0.5',
-          min: '0',
-          max: '1',
-        },
+      
         {
           type: 'radio',
           name: 'Alignment',
