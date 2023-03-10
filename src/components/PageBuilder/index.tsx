@@ -62,21 +62,38 @@ const PageBuilder: React.FC = () => {
   };
   const fetchData = () => {
     if (id) {
+      if (userData.role === 'admin' || userData.role === 'superAdmin') {
       axios({
         method: 'get',
-        url: `${apiEndpoint}/pages/${id}`,
+        url: `${apiEndpoint}/page-Template/${id}`,
       })
         .then((res) => {
           const { pageCode } = res.data;
           setCurrentPageData(res.data);
           if (pageCode) {
-            // console.log("pageCode new", JSON.parse(pageCode));
             editor.loadProjectData(JSON.parse(pageCode));
           }
         })
         .catch((err) => {
           console.log('err', err);
         });
+      } else {
+        axios({
+          method: 'get',
+          url: `${apiEndpoint}/pages/${id}`,
+        })
+          .then((res) => {
+            const { pageCode } = res.data;
+            setCurrentPageData(res.data);
+            if (pageCode) {
+              // console.log("pageCode new", JSON.parse(pageCode));
+              editor.loadProjectData(JSON.parse(pageCode));
+            }
+          })
+          .catch((err) => {
+            console.log('err', err);
+          });
+      }
     } else {
       editor.loadProjectData({ assets: [], pages: [], styles: [] });
     }
@@ -97,18 +114,22 @@ const PageBuilder: React.FC = () => {
   };
   const dataHandler = (historyUpdate) => {
     if (userData.role === 'admin' || userData.role === 'superAdmin') {
-      axios
-        .post(`${apiEndpoint}/page-Template`, {
-          ...currentPageData,
-          pageCode: JSON.stringify(editor.getProjectData()),
-        })
-        .then((res) => {
-       history.replace('/admin/collections/pages');
-        })
-        .catch((err) => {
-          console.log('err', err);
-        });
-    } else {
+    const updation = {
+      currentPageData,
+      pageCode: JSON.stringify(editor.getProjectData()),
+    };
+    axios
+      .patch(`${apiEndpoint}/page-Template/${id}`, {
+        ...updation,
+      })
+      .then((res) => {
+        history.replace('/admin/collections/page-Template');
+      })
+      .catch((err) => {
+        console.log('err', err);
+      });
+    }
+     else {
       if (id) {
         axios
           .patch(`${apiEndpoint}/pages/${id}`, {
@@ -156,8 +177,9 @@ const PageBuilder: React.FC = () => {
   };
   const saveHistoy = () => {
     if (historyExact) {
+      debugger;
       axios
-        .patch(`${apiEndpoint}/pagehistory`, {
+        .patch(`${apiEndpoint}/pagehistory?PageId=${id}`, {
           PageId: id, //page id get from url
           pageHistory: JSON.stringify(pageHistoryArray),
         })
@@ -166,6 +188,7 @@ const PageBuilder: React.FC = () => {
           console.log(err);
         });
     } else {
+      debugger;
       axios
         .post(`${apiEndpoint}/pagehistory`, {
           PageId: id, //page id get from url
@@ -536,10 +559,12 @@ const PageBuilder: React.FC = () => {
         saveHistoy();
         setChangeHistory(false); // reset the flag beacue again tracking updation
       }
-    }, 1000);
+    }, 30000);
     return () => clearTimeout(updateHistory);
   }, [changeHistory]);
   // =======Lifecycle methods end here=========
+
+  console.log('currentPageData======', currentPageData);
   return (
     <div className='main__content'>
       <Eyebrow />
