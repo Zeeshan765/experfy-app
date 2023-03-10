@@ -22,7 +22,7 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-
+var isUpdating = false;
   const sections = [
     'page-builder',
     'header',
@@ -65,7 +65,7 @@ const SectionPageBuilder: React.FC = () => {
         const headerLinksItem = docs.filter(
           (el: { section: string }) => el.section === blockId
         );
-
+        console.log("selection***************",headerLinksItem)
         if (headerLinksItem.length > 0) {
           let headerLinks = headerLinksItem[0];
           const { nav } = headerLinks;
@@ -93,6 +93,8 @@ const SectionPageBuilder: React.FC = () => {
                     </header>`;
 
           block.set('content', content);
+
+          console.log("block********",block.set('content', content))
         }
       })
       .catch((error) => {
