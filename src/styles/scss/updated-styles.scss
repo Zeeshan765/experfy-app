@@ -19,6 +19,39 @@ p {
   font-weight: 400;
 }
 
+// Material Design Overrides
+
+.MuiTypography-root {
+  font-family: var(--font-body) !important;
+
+  &.MuiTypography-h1,
+  &.MuiTypography-h2,
+  &.MuiTypography-h3,
+  &.MuiTypography-h4,
+  &.MuiTypography-h5,
+  &.MuiTypography-h5 {
+    font-weight: 500 !important;
+  }
+}
+
+.MuiFormControlLabel-root {
+  &.input-button {
+    margin-bottom: 0;
+    .MuiSvgIcon-root {
+      font-size: 24px !important;
+    }
+
+    .MuiTypography-root {
+      font-size: 16px !important;
+    }
+  }  
+}
+
+.MuiButtonBase-root {
+  font-family: var(--font-body) !important;
+}  
+
+
 // Selector
 
 ::selection {
@@ -194,6 +227,10 @@ ol {
       display: flex;
       align-items: center;
 
+      .MuiSvgIcon-root {
+        margin-right: 4px;
+      }
+
       // &::before {
       //   content: '';
       //   position: absolute;
@@ -233,7 +270,7 @@ ol {
 // Tip
 
 .tip-wrapper {
-  padding-top: calc(25px + 0.5rem);
+  padding-top: 26px;
 }
 
 // Editor Row
@@ -999,4 +1036,65 @@ ol {
     font-weight: 500;
     font-family: var(--font-body);
   }
+}
+
+// Table Basic
+
+.MuiTableContainer-root {
+  border-left: 1px solid #d3dbe3;
+  border-right: 1px solid #d3dbe3;
+  border-top: 1px solid #d3dbe3;
+  border-radius: 4px;
+}
+
+.MuiTable-root {
+  &.table-basic {
+    .MuiTableHead-root {
+      border-radius: 4px 4px 0 0;
+      .MuiTableRow-root {
+        .MuiTableCell-root {
+          font-size: 14px !important;
+          font-weight: 500 !important;
+          font-family: var(--font-body) !important;
+          text-transform: uppercase;
+          text-align: left !important;
+          color: #4a5162 !important;
+          background-color: #f1f3f5 !important;
+
+          &:first-child {
+            border-top-left-radius: 4px !important;
+          }
+
+          &:last-child {
+            text-align: center !important;
+            border-top-right-radius: 4px !important;
+          }
+        }
+      }  
+    }
+
+    .MuiTableBody-root {
+      .MuiTableRow-root {
+        .MuiTableCell-root {
+          font-size: 16px !important;
+          font-family: var(--font-body) !important;
+          text-align: left !important;
+          color: #4a5162 !important;
+          background-color: #fff !important;
+        }
+
+        &:last-child {
+          .MuiTableCell-root {
+            &:first-child {
+              border-bottom-left-radius: 4px !important;
+            }
+  
+            &:last-child {
+              border-bottom-right-radius: 4px !important;
+            }
+          }  
+        }
+      }  
+    }
+  }  
 }

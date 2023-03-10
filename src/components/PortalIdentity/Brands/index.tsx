@@ -5,6 +5,7 @@ import {
   FormControl,
   FormControlLabel,
   Grid,
+  IconButton,
   Radio,
   RadioGroup,
   Stack,
@@ -32,21 +33,25 @@ import { useConfirm } from 'material-ui-confirm';
 import { useEffect } from 'react';
 import Brandpopup from './Brandpopup';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+// import EditIcon from '@mui/icons-material/Edit';
 import { useConfig } from 'payload/components/utilities';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import TrashIcon from "../../../assets/images/icon_trash.svg";
+import TrashIconActive from "../../../assets/images/icon_trash_active.svg";
+import EditIcon from "../../../assets/images/icon_edit.svg";
+import EditIconActive from "../../../assets/images/icon_edit_active.svg";
 
 const useStyles = makeStyles({
   radioExample: {
     '& p': {
-      fontSize: '1.0625rem',
+      fontSize: '16px',
     },
     '& span': {
-      fontSize: '.9375rem',
+      fontSize: '15px',
       backgroundColor: '#ebebed',
-      padding: '.25rem .5rem',
-      borderRadius: '.25rem',
+      padding: '4px 8px',
+      borderRadius: '4px',
       display: 'inline-block',
     },
   },
@@ -54,6 +59,28 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
     gap: '0px',
+  },
+  actionButtons: {
+    '& .MuiIconButton-root': {
+      borderTop: '1px solid #d1dbe3',
+      borderBottom: '1px solid #d1dbe3',
+      borderLeft: '1px solid #d1dbe3',
+      borderRadius: '0 !important',
+      minWidth: '40px',
+      backgroundColor: '#fff',
+      '&:first-child': {
+        borderTopLeftRadius: '4px !important',
+        borderBottomLeftRadius: '4px !important',
+      },
+      '&:last-child': {
+        borderTopRightRadius: '4px !important',
+        borderBottomRightRadius: '4px !important',
+        borderRight: '1px solid #d1dbe3'
+      },
+      '&:hover': {
+        backgroundColor: '#4ba4da'
+      }
+    }
   },
 });
 
@@ -80,6 +107,8 @@ export default function Brands(props) {
     radioButtons: '',
   });
   const [brandOptionList, setBrandOptionList] = useState([]);
+  const [isHoverRemove, setIsHoverRemove] = useState<number | null>(null);
+  const [isHoverEdit, setIsHoverEdit] = useState<number | null>(null);
 
   const confirm = useConfirm();
   const { control, handleSubmit, reset, setValue, getValues } = useForm({
@@ -193,7 +222,6 @@ export default function Brands(props) {
   };
 
   const handleDelete = (index) => {
-    
     let allData = [...data];
    
     allData.splice(index, 1);
@@ -214,9 +242,11 @@ export default function Brands(props) {
     };
     setData(allData);
   };
-    const onClickBrandName = () => {
+
+  const onClickBrandName = () => {
     updateDefaultBrands();
   };
+
   const updateDefaultBrands = () => {
     let brands = getValues()?.brands || [];
 
@@ -261,7 +291,41 @@ export default function Brands(props) {
               checked={row.brandSwitch}
               label=""
             />
-            <DeleteIcon
+
+            <Stack direction={'row'} className={classes.actionButtons}>
+              <IconButton
+                disableRipple
+                onMouseEnter={() => setIsHoverEdit(index)}
+                onMouseLeave={() => setIsHoverEdit(null)}
+                onClick={() => {
+                  onUpdateClick({ ...row, index });
+                }}
+              >
+                <img
+                  src={
+                    isHoverEdit === index ? EditIconActive : EditIcon
+                  }
+                  alt='Edit'
+                />
+              </IconButton>
+              <IconButton
+                disableRipple
+                onMouseEnter={() => setIsHoverRemove(index)}
+                onMouseLeave={() => setIsHoverRemove(null)}
+                onClick={() => handleDelete(index)}
+              >
+                <img
+                  src={
+                    isHoverRemove === index
+                      ? TrashIconActive
+                      : TrashIcon
+                  }
+                  alt='Remove'
+                />
+              </IconButton>
+            </Stack>
+            
+            {/* <DeleteIcon
               style={{ cursor: 'pointer' }}
               onClick={() => handleDelete(index)}
             />
@@ -270,7 +334,7 @@ export default function Brands(props) {
               onClick={() => {
                 onUpdateClick({ ...row, index });
               }}
-            />
+            /> */}
           </Stack>
         );
       },
@@ -307,7 +371,7 @@ export default function Brands(props) {
                 control={control}
               />
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12}>
               <Typography variant="h5" mb={2}>
                 Please Choose whether you would like your microsites in your
                 career portal network ti use subdomains or sub-directories.
@@ -324,9 +388,10 @@ export default function Brands(props) {
                         name="radio-buttons-group"
                         {...field}
                       >
-                        <Grid container spacing={1} alignItems="center">
+                        <Grid container alignItems="center">
                           <Grid item xs={2}>
                             <FormControlLabel
+                              className="input-button"
                               value="sub_domains"
                               control={<Radio />}
                               label="Sub-domains"
@@ -335,7 +400,8 @@ export default function Brands(props) {
                           <Grid item xs={10}>
                             <Stack
                               className={classes.radioExample}
-                              direction="row"
+                              direction={"row"}
+                              alignItems={"center"}
                               spacing={2}
                             >
                               <Typography>Example</Typography>
@@ -347,8 +413,11 @@ export default function Brands(props) {
                               </Typography>
                             </Stack>
                           </Grid>
+                        </Grid>
+                        <Grid container alignItems="center">  
                           <Grid item xs={2}>
                             <FormControlLabel
+                              className="input-button"
                               value="sub_directories"
                               control={<Radio />}
                               label="Sub-directories"
@@ -357,7 +426,8 @@ export default function Brands(props) {
                           <Grid item xs={10}>
                             <Stack
                               className={classes.radioExample}
-                              direction="row"
+                              direction={"row"}
+                              alignItems={"center"}
                               spacing={2}
                             >
                               <Typography>Example</Typography>
@@ -390,7 +460,9 @@ export default function Brands(props) {
             </Grid>
             <Grid item xs={10}>
               <TableContainer>
-                <Table aria-label="table">
+                <Table 
+                  aria-label="table"
+                  className="table-basic">
                   <TableHead>
                     <TableRow>
                       {columns.map((column) => (
