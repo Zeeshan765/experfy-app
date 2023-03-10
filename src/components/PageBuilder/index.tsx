@@ -17,6 +17,7 @@ import { UserContext } from '../../Providers/UserProvider';
 import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
 import { getCurrentDateAndTime } from '../../utilities/dateAnd Time';
+import { log } from 'console';
 
 interface parems {
   id?: string;
@@ -25,6 +26,7 @@ interface parems {
 const PageBuilder: React.FC = () => {
   // ======States start=======
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
+  const [currentPageData, setCurrentPageData] = useState<any>(null);
   const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
   const [historyExact, setHistoryExact] = useState(false);
   const [changeHistory, setChangeHistory] = useState(false);
@@ -66,6 +68,7 @@ const PageBuilder: React.FC = () => {
       })
         .then((res) => {
           const { pageCode } = res.data;
+          setCurrentPageData(res.data);
           if (pageCode) {
             // console.log("pageCode new", JSON.parse(pageCode));
             editor.loadProjectData(JSON.parse(pageCode));
@@ -93,17 +96,31 @@ const PageBuilder: React.FC = () => {
       });
   };
   const dataHandler = (historyUpdate) => {
-    if (id) {
+    if (userData.role === 'admin' || userData.role === 'superAdmin') {
       axios
-        .patch(`${apiEndpoint}/pages/${id}`, {
+        .post(`${apiEndpoint}/page-Template`, {
+          ...currentPageData,
           pageCode: JSON.stringify(editor.getProjectData()),
         })
         .then((res) => {
-          !historyUpdate && history.replace('/admin/collections/pages');
+       history.replace('/admin/collections/pages');
         })
         .catch((err) => {
-          console.log("err", err);
+          console.log('err', err);
         });
+    } else {
+      if (id) {
+        axios
+          .patch(`${apiEndpoint}/pages/${id}`, {
+            pageCode: JSON.stringify(editor.getProjectData()),
+          })
+          .then((res) => {
+            !historyUpdate && history.replace('/admin/collections/pages');
+          })
+          .catch((err) => {
+            console.log('err', err);
+          });
+      }
     }
   };
   const uploadMedia = async (fileItem: String) => {
@@ -114,15 +131,15 @@ const PageBuilder: React.FC = () => {
       const formData = new FormData();
       formData.append('file', file);
       let item = {
-        keywords: "Media",
-        mediaType: "Photo",
-        description: "",
+        keywords: 'Media',
+        mediaType: 'Photo',
+        description: '',
       };
-      formData.append("_payload", JSON.stringify(item));
+      formData.append('_payload', JSON.stringify(item));
       // Make the POST request
       await axios.post(apiEndpoint, formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
           // Authorization: `Bearer ${apiKey}`,
         },
       });
@@ -200,9 +217,7 @@ const PageBuilder: React.FC = () => {
       ],
     },
   ];
- 
   //=========external custom Trait end here========
-
   //======== GrapesJs Canvas initialization start here========
   const initializeInstance = () => {
     const ExperfyBlocks = (
@@ -216,7 +231,7 @@ const PageBuilder: React.FC = () => {
         showGlobalStyles: false,
       });
     editor = GrapesJS.init({
-      container: ".editor",
+      container: '.editor',
       fromElement: true,
       showDevices: false,
       // dragMode: 'absolute',
@@ -227,41 +242,41 @@ const PageBuilder: React.FC = () => {
         ExperfyBlocks,
         (editor) =>
           NavBar(editor, {
-            label: "Header",
+            label: 'Header',
             block: {
-              category: "Header & Footer",
+              category: 'Header & Footer',
             },
           }),
         (editor) =>
           Basics(editor, {
-            category: "Basic Elements",
+            category: 'Basic Elements',
             flexGrid: true,
             addBasicStyle: false,
           }),
         (editor) =>
           Forms(editor, {
-            category: "Basic Elements",
+            category: 'Basic Elements',
           }),
       ],
       layerManager: {
-        appendTo: ".layers-container",
+        appendTo: '.layers-container',
         scrollCanvas: true,
       },
       selectorManager: {
-        appendTo: ".styles-container",
+        appendTo: '.styles-container',
       },
       styleManager: {
-        appendTo: ".styles-container",
+        appendTo: '.styles-container',
         highlightChanged: true,
       },
       deviceManager: {
         devices,
       },
       traitManager: {
-        appendTo: ".traits-container",
+        appendTo: '.traits-container',
       },
       blockManager: {
-        appendTo: ".blocks",
+        appendTo: '.blocks',
         blocks: [],
       },
       commands: {
@@ -294,7 +309,7 @@ const PageBuilder: React.FC = () => {
         ...Object.assign(
           {},
           { ...editor.getProjectData() },
-          { styles: userData.defaultStyle.filteredStyles }
+          { styles: userData.defaultStyle.filteredStyles ?? null }
         ),
       });
     });
@@ -314,7 +329,7 @@ const PageBuilder: React.FC = () => {
         });
       } else {
         // url file handling
-        let arr = src.split("/");
+        let arr = src.split('/');
         let filename = arr[arr.length - 1];
         fetch(src).then((response) => {
           response.blob().then((fileBlob) => {
@@ -325,7 +340,7 @@ const PageBuilder: React.FC = () => {
         });
       }
     });
-    editor.DomComponents.addType("text", {
+    editor.DomComponents.addType('text', {
       model: {
         defaults: {
           traits: TextTrait,
@@ -373,86 +388,79 @@ const PageBuilder: React.FC = () => {
       },
     });
 
-
-
-
-
-  
-      editor.DomComponents.addType("mj-image", {
-        isComponent: (el: any) => el.tagName === "MJ-IMAGE",
-        model: {
-          defaults: {
-            traits: [
-              {
-                type: "mjchange",
-                label: " ",
-                name: "mjchange",
-              },
-              {
-                type: 'select',
-                name: 'class',
-                label: 'Icon background',
-                default: 'left',
-                options: [{ value: 'left', name: 'Left' }],
-              },
-              {
-                type: 'select',
-                name: 'class',
-                label: 'Background Shape',
-                default: 'left',
-                options: [{ value: 'left', name: 'Left' }],
-              },
-            ],
-          },
+    editor.DomComponents.addType('mj-image', {
+      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'mjchange',
+              label: ' ',
+              name: 'mjchange',
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Icon background',
+              default: 'left',
+              options: [{ value: 'left', name: 'Left' }],
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Background Shape',
+              default: 'left',
+              options: [{ value: 'left', name: 'Left' }],
+            },
+          ],
         },
-      });
+      },
+    });
 
+    editor.TraitManager.addType('mjchange', {
+      noLabel: true,
+      createInput({}) {
+        let selectedSrc = editor.getSelected();
 
-      editor.TraitManager.addType("mjchange", {
-        noLabel: true,
-        createInput({}) {
-          let selectedSrc = editor.getSelected();
-    
-          let src = selectedSrc!.attributes.attributes!.src;
-          const toggleModal = () => {
-            editor.runCommand("open-assets", {
-              target: editor.getSelected(),
-            });
-          };
-          const el = document.createElement("div");
-          el.setAttribute("class", "image-trait-preview");
-          el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
+        let src = selectedSrc!.attributes.attributes!.src;
+        const toggleModal = () => {
+          editor.runCommand('open-assets', {
+            target: editor.getSelected(),
+          });
+        };
+        const el = document.createElement('div');
+        el.setAttribute('class', 'image-trait-preview');
+        el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
                     <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
-    
-          const inputType = el.querySelector("#chg-img-trait-btn");
-          const imgBox = el.querySelector("#gjs_img_preview_logo_rtl");
-    
-          imgBox!.addEventListener("click", toggleModal);
-          inputType!.addEventListener("click", toggleModal);
-    
-          return el;
+
+        const inputType = el.querySelector('#chg-img-trait-btn');
+        const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
+
+        imgBox!.addEventListener('click', toggleModal);
+        inputType!.addEventListener('click', toggleModal);
+
+        return el;
+      },
+    });
+
+    editor.on('modal:open', (component) => {
+      const $ = editor.$;
+      const am = editor.AssetManager;
+      am.open({
+        types: ['mj-image'],
+        select(assets, complete) {
+          const selected = editor.getSelected();
+          if (selected && selected.is('mj-image')) {
+            $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
+            selected.addAttributes({ src: assets.getSrc() });
+
+            complete && editor.AssetManager.close();
+          }
+
+          console.log('after select', selected);
         },
       });
-
-      editor.on("modal:open", (component) => {
-        const $ = editor.$;
-        const am = editor.AssetManager;
-        am.open({
-          types: ["mj-image"],
-          select(assets, complete) {
-            const selected = editor.getSelected();    
-            if (selected && selected.is("mj-image")) {
-
-              $("#gjs_img_preview_logo_rtl").attr("src", assets.getSrc());
-              selected.addAttributes({ src: assets.getSrc() });
-            
-              complete && editor.AssetManager.close();
-            }
-
-            console.log("after select",selected);
-          },
-        });
-      });
+    });
 
     //For Traits
     editor.on('component:selected', (component) => {
@@ -495,7 +503,7 @@ const PageBuilder: React.FC = () => {
     editor.on(`block:drag:stop`, (component, block) => {
       // if component exists, means the drop was successful
       if (component) {
-        let ccid = component.ccid.split("-")[0];
+        let ccid = component.ccid.split('-')[0];
         const blocksector = editor.StyleManager.getSectors();
         blocksector.reset();
         blocksector.add(getSectors(ccid));
@@ -505,6 +513,8 @@ const PageBuilder: React.FC = () => {
     setEditorState(editor);
     addAssets();
   };
+  // ========GrapesJS editor end here=======
+  // =========Lifecycle methods start here=========
   useEffect(() => {
     setStepNav([
       {
@@ -513,8 +523,6 @@ const PageBuilder: React.FC = () => {
       },
     ]);
   }, [setStepNav]);
-  // ========GrapesJS editor end here=======
-  // =========Lifecycle methods start here========
   useEffect(() => {
     if (userData !== null) {
       initializeInstance();
@@ -533,33 +541,33 @@ const PageBuilder: React.FC = () => {
   }, [changeHistory]);
   // =======Lifecycle methods end here=========
   return (
-    <div className="main__content">
+    <div className='main__content'>
       <Eyebrow />
-      <div className="panel__top"></div>
-      <div className="editor-row">
-        <div className="panel__basic-actions"></div>
-        <div className="panel__left">
-          <div className="back__panel panel-header">
-            <Link className="panel-header__link" to={`${admin}/`}>
+      <div className='panel__top'></div>
+      <div className='editor-row'>
+        <div className='panel__basic-actions'></div>
+        <div className='panel__left'>
+          <div className='back__panel panel-header'>
+            <Link className='panel-header__link' to={`${admin}/`}>
               <ArrowBackIosNewRoundedIcon />
             </Link>
             <span>Page Builder</span>
-            <span className="panel-header__menu">
+            <span className='panel-header__menu'>
               <AppsRoundedIcon />
             </span>
           </div>
-          <div className="panel__switcher"></div>
+          <div className='panel__switcher'></div>
           <SidebarBottom
             editor={editor}
-            consumer="pageBuilder"
+            consumer='pageBuilder'
             pageHistoryArray={pageHistoryArray}
           />
-          <div className="styles-container"></div>
-          <div className="traits-container"></div>
-          <div className="layers-container"></div>
+          <div className='styles-container'></div>
+          <div className='traits-container'></div>
+          <div className='layers-container'></div>
         </div>
-        <div className="editor-canvas">
-          <div className="editor"></div>
+        <div className='editor-canvas'>
+          <div className='editor'></div>
         </div>
       </div>
     </div>

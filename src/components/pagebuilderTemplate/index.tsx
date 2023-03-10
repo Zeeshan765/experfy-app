@@ -11,56 +11,58 @@ import join from '../../assets/images/templates/join.png';
 import tc_overview from '../../assets/images/templates/tc_overview.png';
 import { SelectInput, TextInput } from 'payload/components/forms';
 import PageTemplate from '../PageTemplate';
-const PageTheme = ({fromScratch}) => {
+const PageTheme = ({ fromScratch }) => {
   const [open, setOpen] = React.useState(false);
   const [search, setSearch] = React.useState('');
   const history = useHistory();
 
-  const themeList = [
-    {
-      id: 1,
-      image: browse_jobs,
-      link: '/admin',
-      name: 'Browse Jobs',
-    },
-    {
-      id: 2,
-      image: category,
-      link: '/admin',
-      name: 'Category',
-    },
-    {
-      id: 3,
-      image: error_404,
-      link: '/admin',
-      name: 'Error 404',
-    },
-    {
-      id: 4,
-      image: home,
-      link: '/admin',
-      name: 'Home',
-    },
-    {
-      id: 5,
-      image: job_overview,
-      link: '/admin',
-      name: 'Job Overview',
-    },
-    {
-      id: 6,
-      image: join,
-      link: '/admin',
-      name: 'Join',
-    },
-    {
-      id: 7,
-      image: tc_overview,
-      link: '/admin',
-      name: 'TC Overview',
-    },
-  ];
+
+  // const themeList = [
+  //   {
+  //     id: 1,
+  //     image: browse_jobs,
+  //     link: '/admin',
+  //     name: 'Browse Jobs',
+  //   },
+  //   {
+  //     id: 2,
+  //     image: category,
+  //     link: '/admin',
+  //     name: 'Category',
+  //   },
+  //   {
+  //     id: 3,
+  //     image: error_404,
+  //     link: '/admin',
+  //     name: 'Error 404',
+  //   },
+  //   {
+  //     id: 4,
+  //     image: home,
+  //     link: '/admin',
+  //     name: 'Home',
+  //   },
+  //   {
+  //     id: 5,
+  //     image: job_overview,
+  //     link: '/admin',
+  //     name: 'Job Overview',
+  //   },
+  //   {
+  //     id: 6,
+  //     image: join,
+  //     link: '/admin',
+  //     name: 'Join',
+  //   },
+  //   {
+  //     id: 7,
+  //     image: tc_overview,
+  //     link: '/admin',
+  //     name: 'TC Overview',
+  //   },
+  // ];
   // ======Methods===== //
+ 
   const handleOpen = () => {
     setOpen(true);
   };
@@ -79,13 +81,11 @@ const PageTheme = ({fromScratch}) => {
     <Dialog
       open={open}
       onClose={handleClose}
-      aria-labelledby="customized-dialog-title"
-      maxWidth="lg"
+      aria-labelledby='customized-dialog-title'
+      maxWidth='lg'
       fullWidth={true}
     >
-      <DialogTitle
-       className="model-title"
-      >
+      <DialogTitle className='model-title'>
         <div
           style={{
             display: 'flex',
@@ -100,16 +100,16 @@ const PageTheme = ({fromScratch}) => {
           </a>
         </div>
       </DialogTitle>
-      <div className="model-body" style={{ background: '#fff' }}>
+      <div className='model-body' style={{ background: '#fff' }}>
         <div
           style={{
             display: 'flex',
             gap: '2rem',
           }}
-        >  
+        >
           <TextInput
-            name="search"
-            path="search"
+            name='search'
+            path='search'
             label={'Search Page'}
             width={'50%'}
             onChange={handleSeach}
@@ -128,9 +128,12 @@ const PageTheme = ({fromScratch}) => {
             ]}
             path={'template_type'}
           />
-
         </div>
-        <PageTemplate search={search} fromScratch={fromScratch} templateModelClose={handleClose} />
+        <PageTemplate
+          search={search}
+          fromScratch={fromScratch}
+          templateModelClose={handleClose}
+        />
       </div>
     </Dialog>
   );

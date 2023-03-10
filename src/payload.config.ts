@@ -19,6 +19,7 @@ import AfterNav from './components/Nav/AfterNav';
 import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import PageBuilder from './components/PageBuilder';
+import DesignSystem from './components/PageBuilder/DesignSystem';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
 import ThemeStyle from './components/PageBuilder/ThemeStyle';
 import PortalIdentity from './components/PortalIdentity';

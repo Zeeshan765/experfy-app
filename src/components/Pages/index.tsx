@@ -14,6 +14,7 @@ import { Dialog, DialogTitle } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteOutlineTwoToneIcon from '@mui/icons-material/DeleteOutlineTwoTone';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { log } from 'console';
 
 const Pages = () => {
   const { selectedPageCode, setPageCreateFromScratch } = useContext(Context);
@@ -82,6 +83,7 @@ const Pages = () => {
       .then((res) => {
         const { doc, message } = res.data;
         const { pageType } = pageData;
+        console.log('pageData============', pageData);
         if (pageType === From_scratch) {
           toast.success('create a new page with page builder');
           closeModel();
@@ -145,8 +147,9 @@ const Pages = () => {
       getSinglePage();
     }
     if (selectedPageCode && pageData?.pageType === Template)
-      setPageData((pre) => ({ ...pre, pageId: selectedPageCode }));
+      setPageData((pre) => ({ ...pre, pageCode: selectedPageCode }));
   }, [selectedPageCode, id]);
+
 
   return (
     <Dialog
