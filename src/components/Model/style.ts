@@ -17,7 +17,7 @@ export const useStyles = makeStyles({
   },
   previewModal: {
     '& .MuiBackdrop-root': {
-      backgroundColor: 'rgba(33, 52, 86, .8) !important',
+      // backgroundColor: 'rgba(33, 52, 86, .8) !important',
     },
     '& .MuiDialogTitle-root': {
       borderBottom: '1px solid #d1dbe3',
@@ -29,6 +29,17 @@ export const useStyles = makeStyles({
   previewModalHeader: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    '& .MuiTypography-h4': {
+      display: 'inline-flex',
+      alignItems: 'center',
+      fontFamily: 'proxima-nova',
+      fontWeight: 500,
+      fontSize: '18px',
+      color: '#4a5162 !important',
+      cursor: 'pointer',
+      userSelect: 'none',
+    }
   },
   previewModalHeaderContent: {
     flex: 1,
@@ -39,6 +50,12 @@ export const useStyles = makeStyles({
     '& button': {
       margin: '0 1rem',
     },
+    '& > *': {
+      '&:last-child': {
+        marginRight: '0 !important',
+        marginLeft: '.5rem'
+      }
+    }
   },
   previewModalHeaderBack: {
     display: 'flex',

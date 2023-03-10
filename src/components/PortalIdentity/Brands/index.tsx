@@ -372,8 +372,8 @@ export default function Brands(props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="h5" mb={2}>
-                Please Choose whether you would like your microsites in your
+              <Typography mb={2} className="text-bold">
+                Please choose whether you would like your microsites in your
                 career portal network ti use subdomains or sub-directories.
               </Typography>
               <FormControl fullWidth>
