@@ -99,8 +99,8 @@ const PageTemplate: React.FC<Props> = ({
     templateModelClose();
   };
   return (
-    <div>
-      <Grid container spacing={2} style={{ margin: "auto", width: "100%" }}>
+
+      <Grid container spacing={2} mt={2}>
         {pageList.map(({ id, image, name, link }) => (
           <>
             {search === "" && (
@@ -108,58 +108,35 @@ const PageTemplate: React.FC<Props> = ({
                 item
                 sm={3}
                 key={id}
-                style={{
-                  width: "100%",
-                  borderRadius: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  // boxShadow:'0px 1px 3px 0px #000000',
-                  flexDirection: "column",
-                }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "100%",
-                  }}
-                >
-                  {" "}
-                  <p
-                    style={{
-                      color: "#000",
-                      fontWeight: "500",
-                      fontSize: "1.2rem",
-                      margin: "0px",
-                    }}
-                  >
-                    {name}
-                  </p>
-                  <FaceLessModel
-                    data={{ id, image, name }}
-                    templateModelClose={templateModelClose}
-                  />
-                </div>
-                <div className="image-card">
-                  {fromScratch && (
-                    <button
-                      className="template-select-button"
-                      onClick={() => createPageHandler(id)}
-                    >
-                      Select
-                    </button>
-                  )}
-                  <img
-                    src={image}
-                    alt={name}
-                    style={{
-                      width: "100%",
-                      borderRadius: "4px",
-                      boxShadow: "0px 0.5px 2px -1px #000000",
-                      background: "#f0f0f0",
-                    }}
-                  />
+                <div className="card-page-template">
+                  <div className="card-page-template__header">
+                    {" "}
+                    <h4 className="card-page-template__title">
+                      {name}
+                    </h4>
+                    <div className="card-page-template__actions">
+                      <FaceLessModel
+                        data={{ id, image, name }}
+                        templateModelClose={templateModelClose}
+                      />
+                    </div>  
+                  </div>
+                  <div className="card-page-template__body">
+                    {fromScratch && (
+                      <button
+                        className="template-select-button"
+                        onClick={() => createPageHandler(id)}
+                      >
+                        Select
+                      </button>
+                    )}
+                    <img
+                      src={image}
+                      alt={name}
+
+                    />
+                  </div>
                 </div>
               </Grid>
             )}
@@ -168,60 +145,36 @@ const PageTemplate: React.FC<Props> = ({
                 item
                 sm={3}
                 key={id}
-                style={{
-                  width: "100%",
-                  borderRadius: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  // boxShadow:'0px 1px 3px 0px #000000',
-                  flexDirection: "column",
-                }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "100%",
-                  }}
-                >
-                  {" "}
-                  <p
-                    style={{
-                      color: "#000",
-                      fontWeight: "500",
-                      fontSize: "1.2rem",
-                      margin: "0px",
-                    }}
-                  >
-                    {name}
-                  </p>
-                  <button onClick={() => createPageHandler(id)}>Select</button>
-                  <FaceLessModel
-                    data={{ id, image, name }}
-                    templateModelClose={templateModelClose}
-                  />
-                </div>
-                <div className="image-card">
-                  {fromScratch && (
-                    <button
-                      className="template-select-button"
-                      onClick={() => createPageHandler(id)}
-                    >
-                      Select
-                    </button>
-                  )}
-                  <img
-                    src={image}
-                    alt={name}
-                    style={{
-                      width: "100%",
-                      borderRadius: "4px",
-                      boxShadow: "0px 0.5px 2px -1px #000000",
-                      background: "#f0f0f0",
-                    }}
-                  />
-                </div>
+                <div className="card-page-template">
+                  <div className="card-page-template__header">
+                    {" "}
+                    <h4 className="card-page-template__title">
+                      {name}
+                    </h4>
+                    <div className="card-page-template__actions">
+                      <button onClick={() => createPageHandler(id)}>Select</button>
+                      <FaceLessModel
+                        data={{ id, image, name }}
+                        templateModelClose={templateModelClose}
+                      />
+                    </div>
+                  </div>  
+                  <div className="card-page-template__body">
+                    {fromScratch && (
+                      <button
+                        className="template-select-button"
+                        onClick={() => createPageHandler(id)}
+                      >
+                        Select
+                      </button>
+                    )}
+                    <img
+                      src={image}
+                      alt={name}
+                    />
+                  </div>
+                </div>  
               </Grid>
             ) : (
               ""
@@ -234,7 +187,6 @@ const PageTemplate: React.FC<Props> = ({
           </>
         ))}
       </Grid>
-    </div>
   );
 };
 export default PageTemplate;

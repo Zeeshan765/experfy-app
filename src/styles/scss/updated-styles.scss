@@ -17,7 +17,44 @@ $assets_path: '../../assets/images/';
 
 p {
   font-weight: 400;
+
+  &.text-bold {
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
+
+// Material Design Overrides
+
+.MuiTypography-root {
+  font-family: var(--font-body) !important;
+
+  &.MuiTypography-h1,
+  &.MuiTypography-h2,
+  &.MuiTypography-h3,
+  &.MuiTypography-h4,
+  &.MuiTypography-h5,
+  &.MuiTypography-h6 {
+    font-weight: 500 !important;
+  }
+}
+
+.MuiFormControlLabel-root {
+  &.input-button {
+    margin-bottom: 0;
+    .MuiSvgIcon-root {
+      font-size: 24px !important;
+    }
+
+    .MuiTypography-root {
+      font-size: 16px !important;
+    }
+  }  
+}
+
+.MuiButtonBase-root {
+  font-family: var(--font-body) !important;
+}  
 
 // Selector
 
@@ -194,6 +231,10 @@ ol {
       display: flex;
       align-items: center;
 
+      .MuiSvgIcon-root {
+        margin-right: 4px;
+      }
+
       // &::before {
       //   content: '';
       //   position: absolute;
@@ -233,7 +274,7 @@ ol {
 // Tip
 
 .tip-wrapper {
-  padding-top: calc(25px + 0.5rem);
+  padding-top: 26px;
 }
 
 // Editor Row
@@ -1000,3 +1041,137 @@ ol {
     font-family: var(--font-body);
   }
 }
+
+// Table Basic
+
+.MuiTableContainer-root {
+  border-left: 1px solid #d3dbe3;
+  border-right: 1px solid #d3dbe3;
+  border-top: 1px solid #d3dbe3;
+  border-radius: 4px;
+}
+
+.MuiTable-root {
+  &.table-basic {
+    .MuiTableHead-root {
+      border-radius: 4px 4px 0 0;
+      .MuiTableRow-root {
+        .MuiTableCell-root {
+          font-size: 14px !important;
+          font-weight: 500 !important;
+          font-family: var(--font-body) !important;
+          text-transform: uppercase;
+          text-align: left !important;
+          color: #4a5162 !important;
+          background-color: #f1f3f5 !important;
+
+          &:first-child {
+            border-top-left-radius: 4px !important;
+          }
+
+          &:last-child {
+            text-align: center !important;
+            border-top-right-radius: 4px !important;
+          }
+        }
+      }  
+    }
+
+    .MuiTableBody-root {
+      .MuiTableRow-root {
+        .MuiTableCell-root {
+          font-size: 16px !important;
+          font-family: var(--font-body) !important;
+          text-align: left !important;
+          color: #4a5162 !important;
+          background-color: #fff !important;
+        }
+
+        &:last-child {
+          .MuiTableCell-root {
+            &:first-child {
+              border-bottom-left-radius: 4px !important;
+            }
+  
+            &:last-child {
+              border-bottom-right-radius: 4px !important;
+            }
+          }  
+        }
+      }  
+    }
+  }  
+}
+
+// React Select
+
+.react-select {
+  .rs__control {
+    min-height: 56px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .rs__menu {
+    margin-top: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+// Card Page Template
+
+.card-page-template {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 4px;
+  }
+
+  &__body {
+    position: relative;
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #4a5162;
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    & > * + * {
+      margin-left: 4px;
+    }
+  }
+}
+
+// Grapejs inputs
+
+// .gjs-sm-property {
+//   &.gjs-sm-property__border-radius {
+//     .gjs-sm-composite {
+//       background-color: #fff !important;
+
+//       .gjs-sm-properties {
+//         padding: 8px 0 !important;
+//       }
+//     }
+
+//     .gjs-sm-property {
+//       &.gjs-sm-property__right {
+//         margin-bottom: 0 !important;
+//       }  
+//     }
+//   }
+// }  

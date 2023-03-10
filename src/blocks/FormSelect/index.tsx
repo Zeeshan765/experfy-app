@@ -68,12 +68,14 @@ import './index.scss';
 
 const useStyles = makeStyles({
   selectInput: {
+    marginBottom: '16px !important',
     '& > span': {
       display: 'inline-block',
-      fontSize: '1.0625rem',
+      fontSize: '16px',
       fontWeight: 500,
-      margin: '0 0 .125rem',
-
+      margin: '0 0 2px',
+      color: '#4a5162',
+      fontFamily: '"proxima-nova", sans-serif',
       '&.is-regular': {
         fontWeight: 400,
       },
@@ -85,16 +87,16 @@ const useStyles = makeStyles({
     },
     '& .MuiSelect-select': {
       backgroundColor: '#fff',
-      marginBottom: '.5rem',
       border: '1px solid #d2dbe2',
-
+      fontSize: '1.25rem',
+      padding: '15.75px 14px 15px',
       '&:focus': {
         border: '1px solid #4ba4da',
       },
     },
-    '& .MuiOutlinedInput-notchedOutline': {
-      display: 'none',
-    },
+    // '& .MuiOutlinedInput-notchedOutline': {
+    //   display: 'none',
+    // },
   },
 });
 // interface formSelectProps {

@@ -175,13 +175,14 @@ const useStyles = makeStyles({
   textInput: {
     '& span': {
       display: 'inline-block',
-      fontSize: '1.0625rem',
+      fontSize: '16px',
       fontWeight: 500,
-      padding: '0 0 .125rem',
+      padding: '0 0 2px',
       color: '#4a5162',
+      fontFamily: '"proxima-nova", sans-serif',
     },
     '& .MuiOutlinedInput-root': {
-      marginBottom: '.5rem',
+      marginBottom: '16px',
       backgroundColor: '#fff',
       '& fieldset': {
         border: '1px solid #d2dbe2',
@@ -191,6 +192,24 @@ const useStyles = makeStyles({
       },
       '&.Mui-focused fieldset': {
         border: '1px solid #4ba4da',
+      },
+      '& input': {
+        minHeight: '23px',
+        fontSize: '1.25rem',
+        fontFamily: '"proxima-nova", sans-serif',
+      },
+      '& .MuiInputAdornment-root': {
+        '& .MuiTypography-root': {
+          fontSize: '1.25rem',
+          fontFamily: '"proxima-nova", sans-serif',
+          fontWeight: '400'
+        }
+      },
+      '& .MuiOutlinedInput-notchedOutline': {
+        top: '0',
+        '& legend': {
+          display: 'none'
+        }
       },
     },
   },
