@@ -357,7 +357,7 @@ export const video = `
 
 export const ImageBanner = `
 <style>
-.image-banner-wrapper .main-banner-container{
+.main-banner-container{
   background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/00/02/44/5056179b42b174f.jpg);
   padding:40px 40px;
 }
@@ -426,12 +426,12 @@ display: flex;
 .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3{
   height: 35px;
   display: flex;
-  width: 35px;
+  width: 40px;
   justify-content: center;
   align-items: center;
-  
+  background-color: #399918;
   margin-right: 10px;
-  border-radius: 100%;
+  border-radius: 80%;
   }
 
   .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1{
@@ -558,11 +558,8 @@ export const headerstyle = `
 `;
 export const locationStyle = `
 <style>
-.location-main-wrapper{
 
-}
-
-.location-main-wrapper .location-container{
+.location-container{
   display: flex; 
   padding: 3rem 3rem; 
 }
@@ -602,7 +599,7 @@ export const locationStyle = `
 `;
 export const testimonialStyle = `
 <style>
-.testimonial-main-wrapper .testimonial-container{
+testimonial-container{
   padding-left: 1.25rem;
   padding-right: 1.25rem; 
   padding-top: 6rem;
@@ -610,7 +607,7 @@ export const testimonialStyle = `
   margin-left: auto;
   margin-right: auto; 
 }
-.testimonial-main-wrapper .testimonial-container .section-title{
+.testimonial-container .section-title{
   font-size:32px;
   text-align:center;
   margin-bottom: 3rem;  
@@ -682,23 +679,22 @@ export const testimonialStyle = `
 export const practiceStyle = `
 <style>
 
-.main-practice-wrapper{
-}
-.main-practice-wrapper .section-title{
+
+ .section-title{
 
  font-family: ProximaNova,sans-serif;
  line-height: 1.2;
  
  text-align: center;
 }
-.main-practice-wrapper .practice-area-container{
+ .practice-area-container{
  display: flex;
  flex-wrap: wrap;
  row-gap: 20px;
  padding: 0px 50px;
  text-align: center;
 }
-.main-practice-wrapper .practice-area-container .box-icon-text-holder{
+ .practice-area-container .box-icon-text-holder{
   height:130px;
   width:130px;
   margin: 12px 6px;
