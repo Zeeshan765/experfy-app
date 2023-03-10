@@ -82,16 +82,7 @@ export const getbuttonStyles = (parentClass: any) => {
   return parentClass.map((classname) => {
     console.log('classname', classname);
     return `<style>
-    ${classname} button {
-      background-color:#3aa17d;
-      color:#fff;
-      padding:13px 60px;
-      border-radius:3px;
-      font-weight:400;
-      
-      border:none;
-      outline:none;
-    }
+  
 
     ${classname}:focus{
       border:none;
