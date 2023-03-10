@@ -63,7 +63,7 @@ var isUpdating = false;
         const blockId = 'header';
         const block = editor?.Blocks.get(blockId);
         const headerLinksItem = docs.filter(
-          (el: { section: string }) => el.section === blockId
+          (el: { menu_section: string }) => el.menu_section === blockId
         );
         console.log("selection***************",headerLinksItem)
         if (headerLinksItem.length > 0) {
