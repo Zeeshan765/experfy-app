@@ -102,6 +102,28 @@ const ThemeStyle: React.FC = () => {
       editor.getWrapper().set('selectable', false);
       editor.getWrapper().set('deletable', false);
     });
+
+
+    const undoManager = editor.UndoManager;
+    const stack = undoManager.getStack();
+  console.log('stack------>', stack);
+
+ 
+  //   editor.on('change', () => {
+  //     const model = new editor.DomComponents().setComponents(editor.getComponents());
+
+  // // Add the new model to the undo manager
+  // undoManager.add(model);
+  //   });
+  //   editor.on('run:core:undo', () => {
+  //     // Undo the last change using the undo manager
+  //     undoManager.undo();
+  //   });
+  //   editor.on('run:core:redo', () => {
+  //     // Redo the last change using the undo manager
+  //     undoManager.redo();
+  //   });
+  
     editor.on('load', () => {
       editor.loadProjectData({
         ...Object.assign(
@@ -110,6 +132,8 @@ const ThemeStyle: React.FC = () => {
           userData.defaultStyle.pageData
         ),
       });
+
+    
     });
 
     //@ts-ignore

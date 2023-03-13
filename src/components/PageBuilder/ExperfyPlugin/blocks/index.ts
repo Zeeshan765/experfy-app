@@ -717,7 +717,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         <div class="image-text-image-section">
         <div class="img_container">
-           <img class="image-gallery" src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
+           <img class="image image-gallery" src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
               <figcaption class="figure_caption gallery-caption" >Caption Example</figcaption>
         </div>
         </div>
