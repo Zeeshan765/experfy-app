@@ -19,3 +19,9 @@ export const getCurrentDateAndTime = ()=>{
 return time;
 
 }
+
+export const procedCreatedTime = (timestring)=>{
+  const [date, time1] = timestring.split('T');
+  const time= time1.split('.')[0];
+  return `${date} @ ${time}`;
+}

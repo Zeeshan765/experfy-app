@@ -16,8 +16,8 @@ import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 import { UserContext } from '../../Providers/UserProvider';
 import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
-import { getCurrentDateAndTime } from '../../utilities/dateAnd Time';
-import { log } from 'console';
+import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
+// import { log } from 'console';
 
 interface parems {
   id?: string;
@@ -28,8 +28,8 @@ const PageBuilder: React.FC = () => {
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const [currentPageData, setCurrentPageData] = useState<any>(null);
   const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
-  const [historyExact, setHistoryExact] = useState(false);
   const [changeHistory, setChangeHistory] = useState(false);
+  const [addHistory, setAddHistory] = useState(true);
   // ======States end=======
   // ======Hooks start=======
   const { routes, serverURL } = useConfig();
@@ -63,20 +63,20 @@ const PageBuilder: React.FC = () => {
   const fetchData = () => {
     if (id) {
       if (userData.role === 'admin' || userData.role === 'superAdmin') {
-      axios({
-        method: 'get',
-        url: `${apiEndpoint}/page-Template/${id}`,
-      })
-        .then((res) => {
-          const { pageCode } = res.data;
-          setCurrentPageData(res.data);
-          if (pageCode) {
-            editor.loadProjectData(JSON.parse(pageCode));
-          }
+        axios({
+          method: 'get',
+          url: `${apiEndpoint}/page-Template/${id}`,
         })
-        .catch((err) => {
-          console.log('err', err);
-        });
+          .then((res) => {
+            const { pageCode } = res.data;
+            setCurrentPageData(res.data);
+            if (pageCode) {
+              editor.loadProjectData(JSON.parse(pageCode));
+            }
+          })
+          .catch((err) => {
+            console.log('err', err);
+          });
       } else {
         axios({
           method: 'get',
@@ -103,9 +103,7 @@ const PageBuilder: React.FC = () => {
       url: `${apiEndpoint}/pagehistory?PageId=${id}`,
     })
       .then((res) => {
-        const historyArray = JSON.parse(res.data.docs[0].pageHistory);
-        setHistoryExact(true);
-        setPageHistoryArray(historyArray);
+        setPageHistoryArray(res.data.docs);
       })
       .catch((err) => {
         console.log('err', err);
@@ -113,22 +111,21 @@ const PageBuilder: React.FC = () => {
   };
   const dataHandler = (historyUpdate) => {
     if (userData.role === 'admin' || userData.role === 'superAdmin') {
-    const updation = {
-      currentPageData,
-      pageCode: JSON.stringify(editor.getProjectData()),
-    };
-    axios
-      .patch(`${apiEndpoint}/page-Template/${id}`, {
-        ...updation,
-      })
-      .then((res) => {
-        history.replace('/admin/collections/page-Template');
-      })
-      .catch((err) => {
-        console.log('err', err);
-      });
-    }
-     else {
+      const updation = {
+        currentPageData,
+        pageCode: JSON.stringify(editor.getProjectData()),
+      };
+      axios
+        .patch(`${apiEndpoint}/page-Template/${id}`, {
+          ...updation,
+        })
+        .then((res) => {
+          history.replace('/admin/collections/page-Template');
+        })
+        .catch((err) => {
+          console.log('err', err);
+        });
+    } else {
       if (id) {
         axios
           .patch(`${apiEndpoint}/pages/${id}`, {
@@ -169,33 +166,35 @@ const PageBuilder: React.FC = () => {
     }
   };
   const pageHistoryHandler = () => {
-    const timeStemp = getCurrentDateAndTime();
-    const pageCurrentCode = JSON.stringify(editor?.getProjectData());
     setChangeHistory(true);
-    setPageHistoryArray((prev) => [...prev, { timeStemp, pageCurrentCode }]);
   };
+  const deleteHistory = (deleteId) => {
+    addHistory(false);
+    axios
+      .delete(`${apiEndpoint}/pagehistory/${deleteId}`)
+      .then((res) => {
+        console.log('delete history res ==========', res);
+        fetchHistory();
+      })
+      .catch((err) => {
+        console.log('err', err);
+      });
+  };
+
   const saveHistoy = () => {
-    if (historyExact) {
-      axios
-        .patch(`${apiEndpoint}/pagehistory?PageId=${id}`, {
-          PageId: id, //page id get from url
-          pageHistory: JSON.stringify(pageHistoryArray),
-        })
-        .then((res) => {})
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      axios
-        .post(`${apiEndpoint}/pagehistory`, {
-          PageId: id, //page id get from url
-          pageHistory: JSON.stringify(pageHistoryArray),
-        })
-        .then((res) => {})
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    axios
+      .post(`${apiEndpoint}/pagehistory`, {
+        PageId: id, //page id get from url
+        pageHistory: JSON.stringify(editor?.getProjectData()),
+      })
+      .then((res) => {
+        // console.log('res of history==========', res);
+        fetchHistory(); // call to get history
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // }
   };
   // ======= Methods end =======
 
@@ -514,8 +513,10 @@ const PageBuilder: React.FC = () => {
         component.components(component.get('traits').models[1].get('class'));
         component.components(component.get('traits').models[2].get('class'));
       }
-
-      pageHistoryHandler();
+      //  condation  for load when active history
+      if (addHistory) {
+        pageHistoryHandler();
+      }
     });
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
@@ -579,6 +580,7 @@ const PageBuilder: React.FC = () => {
             editor={editor}
             consumer='pageBuilder'
             pageHistoryArray={pageHistoryArray}
+            deleteHistory={deleteHistory}
           />
           <div className='styles-container'></div>
           <div className='traits-container'></div>

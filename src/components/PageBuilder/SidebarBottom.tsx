@@ -13,8 +13,9 @@ import { PreviewIcon } from '../../assets/images/global-theme-settings/bottom-na
 import MenuIcon from '@mui/icons-material/Menu';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import EditIcon from '@mui/icons-material/Edit';
+import { procedCreatedTime } from '../../utilities/dateAndTime';
 
-const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
+const SidebarBottom = ({ editor, consumer, pageHistoryArray,deleteHistory }) => {
   const [currentDeviceId, setCurrentDeviceId] = useState('desktop');
   const [historyDispaly, setHistoryDispaly] = useState(false);
   const handlePreview = () => {
@@ -41,11 +42,11 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
     console.log('historyView');
     setHistoryDispaly((pre) => !pre);
   };
-
+console.log('pageHistoryArray=================', pageHistoryArray);
   return (
-    <div className="blocks sidebar-bottom-custom">
+    <div className='blocks sidebar-bottom-custom'>
       <div
-        id="sidebar-bottom-device"
+        id='sidebar-bottom-device'
         style={{
           gridRow: 2,
           backgroundColor: '#3a4152',
@@ -55,14 +56,14 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
           height: '75px',
         }}
       >
-        <div id="set-desktop-view" className="btn set-view" data-view="Desktop">
+        <div id='set-desktop-view' className='btn set-view' data-view='Desktop'>
           <SettingsIcon />
         </div>
 
         <div
-          id="set-desktop-view"
-          className="btn set-view"
-          data-view="Desktop"
+          id='set-desktop-view'
+          className='btn set-view'
+          data-view='Desktop'
           onClick={handleDevices}
         >
           {currentDeviceId === 'mobile' ? (
@@ -77,26 +78,26 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
         {consumer === 'pageBuilder' && (
           <button
             onClick={historyView}
-            id="set-tablet-view"
-            className="btn set-view"
-            data-view="Tablet"
+            id='set-tablet-view'
+            className='btn set-view'
+            data-view='Tablet'
           >
             <TimerIcon />
           </button>
         )}
 
         <div
-          id="set-mobile-view"
-          className="btn set-view"
-          data-view="Mobile"
+          id='set-mobile-view'
+          className='btn set-view'
+          data-view='Mobile'
           onClick={handlePreview}
         >
           <PreviewIcon />
         </div>
 
-        <div id="set-mobile-view" className="btn set-view" data-view="Mobile">
+        <div id='set-mobile-view' className='btn set-view' data-view='Mobile'>
           <Button
-            variant="contained"
+            variant='contained'
             endIcon={
               <div
                 style={{
@@ -156,7 +157,7 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
           </div>
           <div style={{ display: 'flex', borderBottom: '1px solid gray' }}>
             <button
-              className="action-btn"
+              className='action-btn'
               style={{
                 width: '50%',
                 backgroundColor: '#fff',
@@ -167,7 +168,7 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
               Actions
             </button>
             <button
-              className="revision-btn"
+              className='revision-btn'
               style={{
                 width: '50%',
                 backgroundColor: '#fff',
@@ -193,51 +194,19 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray }) => {
             }}
           >
             {pageHistoryArray.length > 0 &&
-              pageHistoryArray.map((historyObj) => (
-                <button className="his-btn">
-                  <span>
-                    <AccountCircleIcon style={{ fontSize: '2rem' }} />
-                    &nbsp;{historyObj?.timeStemp}
-                  </span>
-                  {true ? <CloseIcon /> : <CheckIcon />}
-                </button>
-              ))}
+              pageHistoryArray?.map((historyObj) => {
+                console.log("historyObj.createdAt======",historyObj.createdAt);
+                return (
+                  <button className='his-btn'>
+                    <span>
+                      <AccountCircleIcon style={{ fontSize: '2rem' }} />
+                      &nbsp;{procedCreatedTime( historyObj.createdAt)}
+                    </span>
+                    {true ? <CloseIcon onClick={()=>{deleteHistory(historyObj.id)}} /> : <CheckIcon />}
+                  </button>
+                );
+              })}
             {pageHistoryArray.length === 0 && <p>No History</p>}
-            {/* <button className='his-btn'>
-              <span>
-                <AccountCircleIcon style={{ fontSize: '2rem' }} />
-                &nbsp; 5 min ago{' '}
-              </span>
-              {true ? <CloseIcon /> : <CheckIcon />}
-            </button>
-            <button className='his-btn'>
-              <span>
-                <AccountCircleIcon style={{ fontSize: '2rem' }} />
-                &nbsp; 5 min ago{' '}
-              </span>
-              {true ? <CloseIcon /> : <CheckIcon />}
-            </button>
-            <button className='his-btn'>
-              <span>
-                <AccountCircleIcon style={{ fontSize: '2rem' }} />
-                &nbsp; 5 min ago
-              </span>
-              {true ? <CloseIcon /> : <CheckIcon />}
-            </button>
-            <button className='his-btn'>
-              <span>
-                <AccountCircleIcon style={{ fontSize: '2rem' }} />
-                &nbsp; 5 min ago{' '}
-              </span>
-              {true ? <CloseIcon /> : <CheckIcon />}
-            </button>
-            <button className='his-btn'>
-              <span>
-                <AccountCircleIcon style={{ fontSize: '2rem' }} />
-                &nbsp; 5 min ago{' '}
-              </span>
-              {true ? <CloseIcon /> : <CheckIcon />}
-            </button> */}
           </div>
         </div>
       )}
