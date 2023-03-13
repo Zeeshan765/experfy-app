@@ -97,6 +97,18 @@ const PageBuilder: React.FC = () => {
       editor.loadProjectData({ assets: [], pages: [], styles: [] });
     }
   };
+  const loadHistory = (e,pageCurrentCode) => {
+    e.stopPropagation()
+    setChangeHistory(false); // to stop the history update on load because this action is previous history button
+    editor.loadProjectData(JSON.parse(pageCurrentCode));
+    goToTop();
+  };
+const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+};
   const fetchHistory = () => {
     axios({
       method: 'get',
@@ -168,8 +180,9 @@ const PageBuilder: React.FC = () => {
   const pageHistoryHandler = () => {
     setChangeHistory(true);
   };
-  const deleteHistory = (deleteId) => {
-    addHistory(false);
+  const deleteHistory = (e,deleteId) => {
+    e.stopPropagation();
+    setChangeHistory(false);
     axios
       .delete(`${apiEndpoint}/pagehistory/${deleteId}`)
       .then((res) => {
@@ -581,6 +594,7 @@ const PageBuilder: React.FC = () => {
             consumer='pageBuilder'
             pageHistoryArray={pageHistoryArray}
             deleteHistory={deleteHistory}
+            loadHistory={loadHistory}
           />
           <div className='styles-container'></div>
           <div className='traits-container'></div>

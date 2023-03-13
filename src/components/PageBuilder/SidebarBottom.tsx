@@ -15,7 +15,7 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import EditIcon from '@mui/icons-material/Edit';
 import { procedCreatedTime } from '../../utilities/dateAndTime';
 
-const SidebarBottom = ({ editor, consumer, pageHistoryArray,deleteHistory }) => {
+const SidebarBottom = ({ editor, consumer, pageHistoryArray,deleteHistory,loadHistory }) => {
   const [currentDeviceId, setCurrentDeviceId] = useState('desktop');
   const [historyDispaly, setHistoryDispaly] = useState(false);
   const handlePreview = () => {
@@ -197,12 +197,14 @@ console.log('pageHistoryArray=================', pageHistoryArray);
               pageHistoryArray?.map((historyObj) => {
                 console.log("historyObj.createdAt======",historyObj.createdAt);
                 return (
-                  <button className='his-btn'>
+                  <button className='his-btn'
+ onClick={(e)=>loadHistory(e,historyObj.pageHistory)}
+                  >
                     <span>
                       <AccountCircleIcon style={{ fontSize: '2rem' }} />
                       &nbsp;{procedCreatedTime( historyObj.createdAt)}
                     </span>
-                    {true ? <CloseIcon onClick={()=>{deleteHistory(historyObj.id)}} /> : <CheckIcon />}
+                    {true ? <CloseIcon onClick={(e)=>{deleteHistory(e,historyObj.id)}} /> : <CheckIcon />}
                   </button>
                 );
               })}
