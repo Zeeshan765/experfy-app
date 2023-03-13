@@ -327,43 +327,14 @@ const widthOptions = [
     name: 'Left',
   },
 ];
-// const borderRadiusOptions = [
-//   {
-//     type: 'number',
-//     units: ['px'],
-//     default: 0,
-//     property: 'border-top-radius',
-//     name: 'Top',
-//   },
-//   {
-//     type: 'number',
-//     units: ['px'],
-//     default: 0,
-//     property: 'border-right-radius',
-//     name: 'Right',
-//   },
-//   {
-//     type: 'number',
-//     units: ['px'],
-//     default: 0,
-//     property: 'border-bottom-radius',
-//     name: 'Bottom',
-//   },
-//   {
-//     type: 'number',
-//     units: ['px'],
-//     default: 0,
-//     property: 'border-left-radius',
-//     name: 'Left',
-//   },
-// ];
+
 
 const obj = {
   header_1: [
     {
       name: 'Header',
       open: false,
-      id:'header-bg',
+      id:'header-bd',
 
       properties: [
         typography,
@@ -2592,44 +2563,50 @@ properties: [color, typography],
     },
   ],
 
-  department_1: [
+  departmentSector: [
     {
       name: 'Section Heading',
+      id:'dept_section',
       open: false,
       properties: [color, typography],
     },
     {
       name: 'Sub Section Heading',
       open: false,
-      properties: [color, typography, HtmlTag],
+      properties: [color, typography],
     },
     {
       name: 'Job Title',
+      id:'job_title',
       open: false,
-      properties: [color, typography, HtmlTag],
+      properties: [color, typography],
     },
     {
       name: 'Company Name',
       open: false,
-      properties: [color, typography, HtmlTag],
+      id:'company_name',
+      properties: [color, typography],
     },
     {
       name: 'Date Posted',
+      id:'posted',
       open: false,
-      properties: [color, typography, HtmlTag],
+      properties: [color, typography],
     },
     {
       name: 'Descriptive Text',
+      id:'descriptive_text',
       open: false,
-      properties: [color, typography, HtmlTag],
+      properties: [color, typography],
     },
     {
       name: 'Feature List',
+      id:'feature_list',
       open: false,
       properties: [
         color,
         typography,
-        HtmlTag,
+       
 
         {
           type: 'slider',
