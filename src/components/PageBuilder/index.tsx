@@ -16,7 +16,8 @@ import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 import { UserContext } from '../../Providers/UserProvider';
 import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
-import { getCurrentDateAndTime } from '../../utilities/dateAnd Time';
+import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
+// import { log } from 'console';
 
 interface parems {
   id?: string;
@@ -25,9 +26,10 @@ interface parems {
 const PageBuilder: React.FC = () => {
   // ======States start=======
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
+  const [currentPageData, setCurrentPageData] = useState<any>(null);
   const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
-  const [historyExact, setHistoryExact] = useState(false);
   const [changeHistory, setChangeHistory] = useState(false);
+  const [addHistory, setAddHistory] = useState(true);
   var isUpdating = false;
   // ======States end=======
   // ======Hooks start=======
@@ -61,50 +63,94 @@ const PageBuilder: React.FC = () => {
   };
   const fetchData = () => {
     if (id) {
-      axios({
-        method: 'get',
-        url: `${apiEndpoint}/pages/${id}`,
-      })
-        .then((res) => {
-          const { pageCode } = res.data;
-          if (pageCode) {
-            // console.log("pageCode new", JSON.parse(pageCode));
-            editor.loadProjectData(JSON.parse(pageCode));
-          }
+      if (userData.role === 'admin' || userData.role === 'superAdmin') {
+        axios({
+          method: 'get',
+          url: `${apiEndpoint}/page-Template/${id}`,
         })
-        .catch((err) => {
-          console.log('err', err);
-        });
+          .then((res) => {
+            const { pageCode } = res.data;
+            setCurrentPageData(res.data);
+            if (pageCode) {
+              editor.loadProjectData(JSON.parse(pageCode));
+            }
+          })
+          .catch((err) => {
+            console.log('err', err);
+          });
+      } else {
+        axios({
+          method: 'get',
+          url: `${apiEndpoint}/pages/${id}`,
+        })
+          .then((res) => {
+            const { pageCode } = res.data;
+            setCurrentPageData(res.data);
+            if (pageCode) {
+              editor.loadProjectData(JSON.parse(pageCode));
+            }
+          })
+          .catch((err) => {
+            console.log('err', err);
+          });
+      }
     } else {
       editor.loadProjectData({ assets: [], pages: [], styles: [] });
     }
   };
+  const loadHistory = (e,pageCurrentCode) => {
+    e.stopPropagation()
+    setChangeHistory(false); // to stop the history update on load because this action is previous history button
+    editor.loadProjectData(JSON.parse(pageCurrentCode));
+    goToTop();
+  };
+const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+};
   const fetchHistory = () => {
     axios({
       method: 'get',
       url: `${apiEndpoint}/pagehistory?PageId=${id}`,
     })
       .then((res) => {
-        const historyArray = JSON.parse(res.data.docs[0].pageHistory);
-        setHistoryExact(true);
-        setPageHistoryArray(historyArray);
+        setPageHistoryArray(res.data.docs);
       })
       .catch((err) => {
         console.log('err', err);
       });
   };
   const dataHandler = (historyUpdate) => {
-    if (id) {
+    if (userData.role === 'admin' || userData.role === 'superAdmin') {
+      const updation = {
+        currentPageData,
+        pageCode: JSON.stringify(editor.getProjectData()),
+      };
       axios
-        .patch(`${apiEndpoint}/pages/${id}`, {
-          pageCode: JSON.stringify(editor.getProjectData()),
+        .patch(`${apiEndpoint}/page-Template/${id}`, {
+          ...updation,
         })
         .then((res) => {
-          !historyUpdate && history.replace('/admin/collections/pages');
+          history.replace('/admin/collections/page-Template');
         })
         .catch((err) => {
           console.log('err', err);
         });
+    } else {
+      if (id) {
+        axios
+          .patch(`${apiEndpoint}/pages/${id}`, {
+            pageCode: JSON.stringify(editor.getProjectData()),
+          })
+          .then((res) => {
+            !historyUpdate && history.replace('/admin/collections/pages');
+          })
+          .catch((err) => {
+            console.log('err', err);
+          });
+      }
     }
   };
   const uploadMedia = async (fileItem: String) => {
@@ -133,33 +179,36 @@ const PageBuilder: React.FC = () => {
     }
   };
   const pageHistoryHandler = () => {
-    const timeStemp = getCurrentDateAndTime();
-    const pageCurrentCode = JSON.stringify(editor?.getProjectData());
     setChangeHistory(true);
-    setPageHistoryArray((prev) => [...prev, { timeStemp, pageCurrentCode }]);
   };
+  const deleteHistory = (e,deleteId) => {
+    e.stopPropagation();
+    setChangeHistory(false);
+    axios
+      .delete(`${apiEndpoint}/pagehistory/${deleteId}`)
+      .then((res) => {
+        console.log('delete history res ==========', res);
+        fetchHistory();
+      })
+      .catch((err) => {
+        console.log('err', err);
+      });
+  };
+
   const saveHistoy = () => {
-    if (historyExact) {
-      axios
-        .patch(`${apiEndpoint}/pagehistory`, {
-          PageId: id, //page id get from url
-          pageHistory: JSON.stringify(pageHistoryArray),
-        })
-        .then((res) => {})
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      axios
-        .post(`${apiEndpoint}/pagehistory`, {
-          PageId: id, //page id get from url
-          pageHistory: JSON.stringify(pageHistoryArray),
-        })
-        .then((res) => {})
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    axios
+      .post(`${apiEndpoint}/pagehistory`, {
+        PageId: id, //page id get from url
+        pageHistory: JSON.stringify(editor?.getProjectData()),
+      })
+      .then((res) => {
+        // console.log('res of history==========', res);
+        fetchHistory(); // call to get history
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // }
   };
   // ======= Methods end =======
 
@@ -347,7 +396,7 @@ const PageBuilder: React.FC = () => {
         ...Object.assign(
           {},
           { ...editor.getProjectData() },
-          { styles: userData.defaultStyle.filteredStyles }
+          { styles: userData.defaultStyle.filteredStyles ?? null }
         ),
       });
     });
@@ -426,8 +475,50 @@ const PageBuilder: React.FC = () => {
       },
     });
 
+    editor.DomComponents.addType('mj-image', {
+      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'mjchange',
+              label: ' ',
+              name: 'mjchange',
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Icon background',
+              default: 'left',
+              options: [{ value: 'left', name: 'Left' }],
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Background Shape',
+              default: 'left',
+              options: [{ value: 'left', name: 'Left' }],
+            },
+          ],
+        },
+      },
+    });
 
+    editor.TraitManager.addType('mjchange', {
+      noLabel: true,
+      createInput({}) {
+        let selectedSrc = editor.getSelected();
 
+        let src = selectedSrc!.attributes.attributes!.src;
+        const toggleModal = () => {
+          editor.runCommand('open-assets', {
+            target: editor.getSelected(),
+          });
+        };
+        const el = document.createElement('div');
+        el.setAttribute('class', 'image-trait-preview');
+        el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
+                    <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
 
 //=========Custom Image Trait start here========
   
@@ -460,33 +551,26 @@ const PageBuilder: React.FC = () => {
         },
       });
 
+        return el;
+      },
+    });
 
-      editor.TraitManager.addType("mjchange", {
-        noLabel: true,
-        createInput({}) {
-          let selectedSrc = editor.getSelected();
-    
-          let src = selectedSrc!.attributes.attributes!.src;
-          const toggleModal = () => {
-            editor.runCommand("open-assets", {
-              target: editor.getSelected(),
-            });
-          };
-          const el = document.createElement("div");
-          el.setAttribute("class", "image-trait-preview");
-          el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
-                    <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
-    
-          const inputType = el.querySelector("#chg-img-trait-btn");
-          const imgBox = el.querySelector("#gjs_img_preview_logo_rtl");
-    
-          imgBox!.addEventListener("click", toggleModal);
-          inputType!.addEventListener("click", toggleModal);
-    
-          return el;
+    editor.on('modal:open', (component) => {
+      const $ = editor.$;
+      const am = editor.AssetManager;
+      am.open({
+        types: ['mj-image'],
+        select(assets, complete) {
+          const selected = editor.getSelected();
+          if (selected && selected.is('mj-image')) {
+            $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
+            selected.addAttributes({ src: assets.getSrc() });
+
+            complete && editor.AssetManager.close();
+          }
         },
       });
-
+    });
       editor.on("modal:open", (component) => {
         const $ = editor.$;
         const am = editor.AssetManager;
@@ -553,8 +637,10 @@ const PageBuilder: React.FC = () => {
         component.components(component.get('traits').models[1].get('class'));
         component.components(component.get('traits').models[2].get('class'));
       }
-
-      pageHistoryHandler();
+      //  condation  for load when active history
+      if (addHistory) {
+        pageHistoryHandler();
+      }
     });
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
@@ -644,6 +730,8 @@ console.log("editor.DomComponents.getWrapper().ccid",editor.DomComponents.getWra
     setEditorState(editor);
     addAssets();
   };
+  // ========GrapesJS editor end here=======
+  // =========Lifecycle methods start here=========
   useEffect(() => {
     setStepNav([
       {
@@ -652,8 +740,6 @@ console.log("editor.DomComponents.getWrapper().ccid",editor.DomComponents.getWra
       },
     ]);
   }, [setStepNav]);
-  // ========GrapesJS editor end here=======
-  // =========Lifecycle methods start here========
   useEffect(() => {
     if (userData !== null) {
       initializeInstance();
@@ -667,38 +753,40 @@ console.log("editor.DomComponents.getWrapper().ccid",editor.DomComponents.getWra
         saveHistoy();
         setChangeHistory(false); // reset the flag beacue again tracking updation
       }
-    }, 1000);
+    }, 30000);
     return () => clearTimeout(updateHistory);
   }, [changeHistory]);
   // =======Lifecycle methods end here=========
   return (
-    <div className="main__content">
+    <div className='main__content'>
       <Eyebrow />
-      <div className="panel__top"></div>
-      <div className="editor-row">
-        <div className="panel__basic-actions"></div>
-        <div className="panel__left">
-          <div className="back__panel panel-header">
-            <Link className="panel-header__link" to={`${admin}/`}>
+      <div className='panel__top'></div>
+      <div className='editor-row'>
+        <div className='panel__basic-actions'></div>
+        <div className='panel__left'>
+          <div className='back__panel panel-header'>
+            <Link className='panel-header__link' to={`${admin}/`}>
               <ArrowBackIosNewRoundedIcon />
             </Link>
             <span>Page Builder</span>
-            <span className="panel-header__menu">
+            <span className='panel-header__menu'>
               <AppsRoundedIcon />
             </span>
           </div>
-          <div className="panel__switcher"></div>
+          <div className='panel__switcher'></div>
           <SidebarBottom
             editor={editor}
-            consumer="pageBuilder"
+            consumer='pageBuilder'
             pageHistoryArray={pageHistoryArray}
+            deleteHistory={deleteHistory}
+            loadHistory={loadHistory}
           />
-          <div className="styles-container"></div>
-          <div className="traits-container"></div>
-          <div className="layers-container"></div>
+          <div className='styles-container'></div>
+          <div className='traits-container'></div>
+          <div className='layers-container'></div>
         </div>
-        <div className="editor-canvas">
-          <div className="editor"></div>
+        <div className='editor-canvas'>
+          <div className='editor'></div>
         </div>
       </div>
     </div>

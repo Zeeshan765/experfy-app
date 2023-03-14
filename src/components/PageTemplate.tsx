@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import browse_jobs from "../assets/images/templates/browse_jobs.png";
 // import browse_jobs from "../../assets/images/templates/browse_jobs.png";
 import { Grid } from "@mui/material";
@@ -11,6 +11,8 @@ import join from "../assets/images/templates/join.png";
 import tc_overview from "../assets/images/templates/tc_overview.png";
 import FaceLessModel from "./Model";
 import { Context } from "../Providers/MyProvider";
+import { useConfig } from 'payload/components/utilities';
+import axios from 'axios';
 
 const useStyles = makeStyles({
   templateCardGrid: {
@@ -48,7 +50,11 @@ const PageTemplate: React.FC<Props> = ({
   fromScratch,
 }) => {
   const classes = useStyles();
+  const [templateList, setTemplateList] = React.useState<any>([]);
   const { setSelectedPageCode } = useContext(Context);
+  
+  const { routes, serverURL } = useConfig();
+  const apiEndpoint = `${serverURL}/api`;
   const pageList = [
     {
       id: 1,
@@ -93,15 +99,33 @@ const PageTemplate: React.FC<Props> = ({
       name: "TC Overview",
     },
   ];
-
-  const createPageHandler = (id) => {
-    setSelectedPageCode(id);
+// ========== Method to create page from template =================
+const fetchData = () => {
+  axios({
+    method: 'get',
+    url: `${apiEndpoint}/page-Template`,
+  })
+    .then((res) => {
+      const { docs } = res.data;
+      setTemplateList(docs);
+    })
+    .catch((err) => {
+      console.log('err', err);
+    });
+};
+  const createPageHandler = (template) => {
+    console.log("template__________________", template);
+    setSelectedPageCode(template);
     templateModelClose();
   };
+  // ================== End of Method to create page from template =================
+  // ================== Life Cycle Method =================
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
-
-      <Grid container spacing={2} mt={2}>
-        {pageList.map(({ id, image, name, link }) => (
+      <Grid container spacing={2} style={{ margin: "auto", width: "100%" }}>
+        {pageList.map(({ id, image, name, link },index) => (
           <>
             {search === "" && (
               <Grid

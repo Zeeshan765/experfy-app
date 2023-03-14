@@ -1,8 +1,7 @@
 import { CollectionConfig } from 'payload/types';
 import PageTheme from '../components/PageBuilderTemplate';
 import FaceLessModel from '../components/Model';
-// import PageBuilder from '../components/PageBuilder/SectionTemplates';
-// import PageTheme from '../components/PageBuilderTemplate';
+import PageTemplates from '../components/pageTemplates';
 export type Type = {
   title: string;
   slug: string;
@@ -12,12 +11,18 @@ export type Type = {
 export const PageTemplateCollection: CollectionConfig = {
   slug: 'page-Template',
 
-  //   admin: {
-  //     useAsTitle: "title",
-  //     defaultColumns: ["title", "pageType", "updatedAt"],
-  //   },
   admin: {
+    useAsTitle: "title",
+    defaultColumns: ["title", "pageType", "updatedAt"],
     disableDuplicate: true,
+    
+    components: {
+      views: {
+        Edit: PageTemplates ,
+      
+        // List: Pages,
+      },
+    },
   },
 
   access: {
@@ -34,8 +39,13 @@ export const PageTemplateCollection: CollectionConfig = {
       required: true,
     },
     {
-      name: 'pageAssets',
-      label: 'Page Assets',
+      name: 'pageThumnail',
+      label: 'Page Thumnail',
+      type: 'text',
+    },
+    {
+      name: 'pageCode',
+      label: 'Page Code',
       type: 'text',
     },
   ],

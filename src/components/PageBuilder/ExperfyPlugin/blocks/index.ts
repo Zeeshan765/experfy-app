@@ -1155,3 +1155,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
 
 };
+
+
+
