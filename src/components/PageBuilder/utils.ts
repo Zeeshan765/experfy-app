@@ -24,6 +24,8 @@ export const sections = [
   'logo',
   'department',
   'image',
+  'button',
+  'a',
 ];
 export const canvasStyle = `
 #sidebar-bottom-buttons {

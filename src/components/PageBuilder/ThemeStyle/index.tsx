@@ -179,6 +179,16 @@ const ThemeStyle: React.FC = () => {
       'input',
       'textarea',
     ];
+console.log("editor.getProjectData().styles",editor.getProjectData().styles)
+
+
+
+
+
+
+
+
+
 
     let filteredStyles = editor
       .getProjectData()

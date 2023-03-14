@@ -287,6 +287,7 @@ const PageBuilder: React.FC = () => {
           Forms(editor, {
             category: 'Basic Elements',
           }),
+          
       ],
       layerManager: {
         appendTo: '.layers-container',

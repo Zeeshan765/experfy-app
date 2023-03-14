@@ -2539,7 +2539,7 @@ properties: [color, typography],
     {
       name: 'Links',
       open: false,
-      id: 'link',
+      id: 'a',
       properties: [color, typography],
     },
     {

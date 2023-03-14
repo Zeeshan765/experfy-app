@@ -47,7 +47,7 @@ export function ComponentSelection(
       case 'h6':
         editor.select(wrapperCmp.find('h6')[0]);
         break;
-      case 'link':
+      case 'a':
         editor.select(wrapperCmp.find('a')[0]);
         break;
       case 'label':
