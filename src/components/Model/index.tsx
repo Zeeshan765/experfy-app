@@ -2,7 +2,7 @@
 import React, { memo, useState, useEffect, useContext } from 'react';
 import { useModal } from '@faceless-ui/modal';
 import { Modal, ModalToggler } from '@faceless-ui/modal';
-import { Dialog, DialogContent, DialogTitle } from '@mui/material';
+import { Dialog, DialogContent, DialogTitle, Divider, IconButton, Typography } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import CloseIcon from '@mui/icons-material/Close';
 import { useStyles } from './style';
@@ -39,49 +39,28 @@ const FaceLessModel = ({ data, templateModelClose }) => {
         fullWidth={true}
         className={classes.previewModal}
       >
-        <DialogTitle sx={{ boxShadow: 3 }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: '95%',
-              margin: '0px auto',
-            }}
+        <DialogTitle sx={{ boxShadow: 3 }} className={classes.previewModalHeader}> 
+          <Typography variant='h4'
+            onClick={handleClose}
           >
-            <p
-              onClick={handleClose}
-              style={{
-                cursor: 'pointer',
-                margin: '0px',
-                fontSize: '16px',
-                fontWeight: '600',
-              }}
+            <ArrowBackIosIcon />
+            Back to page
+          </Typography>
+          <div className={classes.previewModalHeaderActions}>
+            <Button
+              type="button"
+              onClick={createPageHandler}
+              buttonStyle="primary"
             >
-              <ArrowBackIosIcon />
-              Back to page
-            </p>
-            <div className={classes.previewModalHeaderActions}>
-              <Button
-                type="button"
-                onClick={createPageHandler}
-                buttonStyle="primary"
-              >
-                Create Page
-              </Button>
-              <a
-                onClick={handleClose}
-                className={classes.previewModalHeaderClose}
-                style={{
-                  color: '#fff',
-                  backgroundColor: '#dfdfdf',
-                  padding: '8px',
-                  borderRadius: '15%',
-                }}
-              >
-                <CloseIcon />
-              </a>
-            </div>
+              Create Page
+            </Button>
+            <Divider orientation="vertical" flexItem />
+            <IconButton
+              onClick={handleClose}
+              className={classes.previewModalHeaderClose}
+            >
+              <CloseIcon />
+            </IconButton>
           </div>
         </DialogTitle>
         {/* <Modal slug="my-modal" > */}

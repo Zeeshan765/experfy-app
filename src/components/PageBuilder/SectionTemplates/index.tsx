@@ -22,7 +22,7 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-
+var isUpdating = false;
   const sections = [
     'page-builder',
     'header',
@@ -63,9 +63,8 @@ const SectionPageBuilder: React.FC = () => {
         const blockId = 'header';
         const block = editor?.Blocks.get(blockId);
         const headerLinksItem = docs.filter(
-          (el: { section: string }) => el.section === blockId
+          (el: { menu_section: string }) => el.menu_section === blockId
         );
-
         if (headerLinksItem.length > 0) {
           let headerLinks = headerLinksItem[0];
           const { nav } = headerLinks;
@@ -93,6 +92,8 @@ const SectionPageBuilder: React.FC = () => {
                     </header>`;
 
           block.set('content', content);
+
+          console.log("block********",block.set('content', content))
         }
       })
       .catch((error) => {
@@ -193,6 +194,70 @@ const SectionPageBuilder: React.FC = () => {
         editor?.runCommand('core:open-styles');
       }
     });
+
+    editor.on('style:sector:update', (props) => {
+      
+      // Get the selected block
+      !isUpdating &&
+        setTimeout(() => {
+          let sm = editor.StyleManager;
+          var selectedBlock = editor.getSelected();
+          console.log('selectedBlock', selectedBlock);
+          const { ccid } = selectedBlock;
+          isUpdating = true;
+          const sectors = sm.getSectors();
+          console.log('props', props);
+          for (let i = 0; i < sectors.length; i++) {
+            const modelId = sectors.models[i].get('id');
+            if (modelId === props.id) {
+              console.log('sectors.models[i]', sectors.models[i]);
+              let isOpen = sectors.models[i].isOpen();
+              if (isOpen) {
+             
+                editor.select(sectors.models[i]);
+              
+
+                console.log(
+                  'editor.select(sectors.models[i]);',
+                  editor.select(sectors.models[i])
+                );
+                sectors.models[i].set({
+                  open: true,
+                  active: true,
+                  select: true,
+                  focus: true,
+
+                });
+              
+             
+                sm.select(`.${ccid} .${props.id}`);
+              }
+            } else {
+              sectors.models[i].setOpen(false);
+            }
+          }
+
+          setTimeout(() => {
+            isUpdating = false;
+          }, 3000);
+        }, 100);
+
+      const categories = editor.StyleManager.getSectors();
+     
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
     const addAssets = async () => {
       const assetManager = editor?.AssetManager;
       axios

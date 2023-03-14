@@ -17,6 +17,11 @@ $assets_path: '../../assets/images/';
 
 p {
   font-weight: 400;
+
+  &.text-bold {
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
 
 // Material Design Overrides
@@ -29,7 +34,7 @@ p {
   &.MuiTypography-h3,
   &.MuiTypography-h4,
   &.MuiTypography-h5,
-  &.MuiTypography-h5 {
+  &.MuiTypography-h6 {
     font-weight: 500 !important;
   }
 }
@@ -50,7 +55,6 @@ p {
 .MuiButtonBase-root {
   font-family: var(--font-body) !important;
 }  
-
 
 // Selector
 
@@ -1098,3 +1102,76 @@ ol {
     }
   }  
 }
+
+// React Select
+
+.react-select {
+  .rs__control {
+    min-height: 56px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .rs__menu {
+    margin-top: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+// Card Page Template
+
+.card-page-template {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 4px;
+  }
+
+  &__body {
+    position: relative;
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #4a5162;
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    & > * + * {
+      margin-left: 4px;
+    }
+  }
+}
+
+// Grapejs inputs
+
+// .gjs-sm-property {
+//   &.gjs-sm-property__border-radius {
+//     .gjs-sm-composite {
+//       background-color: #fff !important;
+
+//       .gjs-sm-properties {
+//         padding: 8px 0 !important;
+//       }
+//     }
+
+//     .gjs-sm-property {
+//       &.gjs-sm-property__right {
+//         margin-bottom: 0 !important;
+//       }  
+//     }
+//   }
+// }  

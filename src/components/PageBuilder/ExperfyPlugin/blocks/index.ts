@@ -62,23 +62,22 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   `,
     content: ` 
 
-    <header id=header_1 class="header-div">
-    
-    <div class="header-container">
+    <header id=header_1 class="header-container">
+   
     <a  class="a">
-    <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" fill="#159576"  width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
+    <svg class="header-svg" id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" fill="#159576"  width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
     <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
     <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)"/>
   </svg>
-       <span class="header-logo-text">Logo</span>
+       <span class="header-logo-text header-bg">Logo</span>
     </a>
     <nav class="header-navabr">
-    <a class="a" >Home</a>
-    <a class="a" >About</a>
-    <a class="a">Services</a>
-    <a class="a">Contact</a></nav>
+    <a class="a header-bd" >Home</a>
+    <a class="a header-bd" >About</a>
+    <a class="a header-bd">Services</a>
+    <a class="a header-bd">Contact</a></nav>
  
-    </div>
+  
  
    </header>
    ${headerstyle}
@@ -102,15 +101,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<footer id="footer_1" class="main-footer-wrapper">
+    content: `<footer id="footerSector" class="main-footer-wrapper footerSector">
     <div class="footer-container">
        <div class="footer-grid">
 
        <div class="footer-address-section margin-class">
-       <h2 class="h2">Add Your Title Here </h2>
+       <h2 class="h2 sub-footer-heading">Add Your Title Here </h2>
 
              <ul class="address-list">
-             <li class="h1">Footer section allow you to add links and information for your users to easily locate.</li>
+             <li class="h1 main-footer-heading">Footer section allow you to add links and information for your users to easily locate.</li>
 
              <li class="address"><span class="h4">Address:</span> <h4 class="h4"> 0101 Address, OR, 77873</h4></li>
 
@@ -121,25 +120,25 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
 
           <div class="footer-images-section margin-class">
-             <h2 class="h2">Add Your Social Media Link</h2>
+             <h2 class="h2 img-caption">Add Your Social Media Link</h2>
              <div class="images-holder">
-             <img src={SettingsIcon} alt='Settings'data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image" />
-             <img src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image" />
+             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
              </div>
-             <button class="button">Visit Instagram</button>
+             <button class="button footer-btn">Visit Instagram</button>
           </div>
           <div  class="margin-class">
-             <h2 class="h2">Add Your Social Media Link</h2>
+             <h2 class="h2 img-caption">Add Your Social Media Link</h2>
           </div>
        </div>
     </div>
@@ -179,21 +178,21 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section data-gjs-type= "testimonial" id= "testimonial_1" class="testimonial-main-wrapper">
-    <div class="testimonial-container">
-       <h1 class="h1">You are in Good</h1>   
+    content: `<section  id= "testimonialSector" class="testimonial-container testimonialSector">
+    
+       <h1 class="h1 main-testimonial-title">You are in Good</h1>   
           <div class="slider-content-main-div">
 
           <div class="left-container">
           
           <div class="img-container">
-          <img alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+          <img data-gjs-type="mj-image" class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
           </div>
       
-          <h2 class="h2">Daniel Samarov</h2>
+          <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
           <span class="user-details">
-          <h5 class="h5">Chief Data Scientist, DS Box</h5>
-          PhD, Statistics University of North</span>
+          <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
+          <h5 class="h5 main-testimonial-content"></h5>PhD, Statistics University of North</h5></span>
           </div>
            
           <div class="divider"></div>
@@ -203,14 +202,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                 </svg>
                
-                <h6 class="h6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+                <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
                
                    <svg fill="#4ba4da" width="20" height="20"  viewBox="0 0 975.036 975.036">
                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                 </svg>
              </div>
           </div>
-       </div>
+  
    
  </section>
  ${testimonialStyle}
@@ -231,12 +230,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section  id= "benefit_1" class="benefits-main-wrapper">
+    content: `<section  id= "benefitSector" class="benefits-main-wrapper benefitSector">
     <div class="benefits-container" >
 
        <div class="benefits-title-div">
-          <h1 class="h1">Add your heading title here</h1>
-          <h2 class="h2">The benefits module highlights the positive characteristics and values within your
+          <h1 class="h1 main-benefit-heading">Add your heading title here</h1>
+          <h2 class="h2 sub-benefit-heading">The benefits module highlights the positive characteristics and values within your
              company or business. Add perks, benefits, or milestones.
           </h2>
        </div>
@@ -244,7 +243,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        <div class="benefits-option-section">
 
           <div class="benefit-holder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
+          <svg class="icon-benefit" xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
               <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
@@ -252,8 +251,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </g>
         </svg>
         
-             <h1 class="h1">Benefit 01</h1>
-             <h6 class="h6">Lorem ipsum dolor sit amet. Est
+             <h1 class="h1 icon-benefit-heading">Benefit 01</h1>
+             <h6 class="h6 icon-benefit-sub-heading">Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
              </h6>
@@ -263,7 +262,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="benefits-option-section">
 
           <div class="benefit-holder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
+          <svg class="icon-benefit" xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
               <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
@@ -271,8 +270,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </g>
         </svg>
         
-             <h1 class="h1">Benefit 01</h1>
-             <h6 class="h6">Lorem ipsum dolor sit amet. Est
+             <h1 class="h1 icon-benefit-heading">Benefit 01</h1>
+             <h6 class="h6 icon-benefit-sub-heading">Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
              </h6>
@@ -281,7 +280,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="benefits-option-section">
 
           <div class="benefit-holder">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
+          <svg  class="icon-benefit" xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
               <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
@@ -289,8 +288,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </g>
         </svg>
         
-             <h1 class="h1">Benefit 01</h1>
-             <h6 class="h6">Lorem ipsum dolor sit amet. Est
+             <h1 class="h1 icon-benefit-heading">Benefit 01</h1>
+             <h6 class="h6 icon-benefit-sub-heading">Lorem ipsum dolor sit amet. Est
                 porro distinctio eum eius odit ea
                 facere consequuntur.
              </h6>
@@ -346,10 +345,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section id="practice_area_1" class="main-practice-wrapper">
-   
+    content: `<section id="practiceAreaSector" class=" para-div practiceAreaSector">
+  
 
-    <h1 class="h1"> Practice Areas</h1>
+    <h1 class="h1 main-practice-heading"> Practice Areas</h1>
 
     
  
@@ -358,7 +357,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     
  
     </div>
-
+    </div>
  </section>
   ${practiceStyle}
   ${getStyles(['.box-text-div'])}
@@ -380,14 +379,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   
   `,
     content: `
-    <section id=video_1 class="video-main-wrapper">
+    <section id="videoSector"class="video-main-wrapper videoSector">
       <div class="video-container-main-div">
         <div class="video-header">
-          <h1 class="h1">Add your heading title here</h1>
-          <h6 class="h6">The Video Module is a place where you can visually show your user or client aspects of your company or product.</h6>
+          <h1 class="h1 main-video-heading">Add your heading title here</h1>
+          <h6 class="h6 sub-video-heading">The Video Module is a place where you can visually show your user or client aspects of your company or product.</h6>
         </div>
         <div class="video-div">
-          <video width="100%" height="auto" controls></video>
+          <video class="video-ratio"width="100%" height="auto" controls></video>
         </div>
       </div>
     </section>
@@ -406,33 +405,33 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>  
   `,
-    content: ` <section  id= "guideline_1" class="guideline-main-wrapper">
+    content: ` <section  id= "guidelineSector" class="guideline-main-wrapper guidelineSector">
     <div id=guideline_1 class="guideline-container">
       <div class="guideline-header-section">
-        <h1 class="h1">Add your heading title here</h1>
-        <h2 class="h2">The guideline module allows you to give directions or lead users to use a product,
+        <h1 class="h1 main-guideline-heading">Add your heading title here</h1>
+        <h2 class="h2 sub-guideline-heading">The guideline module allows you to give directions or lead users to use a product,
             perform an action, or lead them to a Call-to-action.
         </h2>
       </div>
       <div class="guidline-option">
       
       <div class="guideline">
-            <div class="heading">
-              <h3 class="h3">1</h3>
-              <h1 class="h1">Add Step Title</h1>
-            </div>
-            <h6  class="h6">Add information in steps in
-              order to explain what the user
-              should do next
-            </h6>
-        </div>
+    <div class="heading">
+      <h3 class="h3 guideline-bullet">1</h3>
+      <h1 class="h1 bullet-heading">Add Step Title</h1>
+    </div>
+    <h6 class="h6 bullet-sub-heading">Add information in steps in
+      order to explain what the user
+      should do next
+    </h6>
+</div>
       
         <div class="guideline">
         <div class="heading">
-          <h3 class="h3">1</h3>
-          <h1 class="h1">Add Step Title</h1>
+          <h3 class="h3 guideline-bullet">1</h3>
+          <h1 class="h1 bullet-heading">Add Step Title</h1>
         </div>
-        <h6 class="h6">Add information in steps in
+        <h6 class="h6 bullet-sub-heading">Add information in steps in
           order to explain what the user
           should do next
         </h6>
@@ -440,10 +439,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
     <div class="guideline">
     <div class="heading">
-      <h3 class="h3">1</h3>
-      <h1 class="h1">Add Step Title</h1>
+      <h3 class="h3 guideline-bullet">1</h3>
+      <h1 class="h1 bullet-heading">Add Step Title</h1>
     </div>
-    <h6 class="h6">Add information in steps in
+    <h6 class="h6 bullet-sub-heading">Add information in steps in
       order to explain what the user
       should do next
     </h6>
@@ -466,18 +465,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <path id="noun-location-4491946" d="M168.4,30.763a8.653,8.653,0,0,0-6.33-2.469,8.807,8.807,0,0,0-8.484,8.613,8.6,8.6,0,0,0,1.731,5.313c.16.239,4.292,5.985,5.668,7.892a1.577,1.577,0,0,0,1.268.652h.007a1.576,1.576,0,0,0,1.265-.64c.64-.869,5.624-7.683,5.755-7.848l.021-.028h0a8.835,8.835,0,0,0,1.741-5.23,8.658,8.658,0,0,0-2.642-6.256ZM162.317,41.03a3.893,3.893,0,1,1,2.748-1.14A3.888,3.888,0,0,1,162.317,41.03Z" transform="translate(-153.589 -28.289)" />
   </svg>
   `,
-    content: `<section  id= "location_1" class="location-main-wrapper">
-      <div class="location-container">
+    content: `<section  id= "locationSector" class="location-container locationSector">
+     
         <div class="address-content-main-holder">
-            <h1 class="h1">Add your heading title here</h1>
-            <h2 class="h2">The Location module contains your building’s address
+            <h1 class="h1 main-location-heading">Add your heading title here</h1>
+            <h2 class="h2 sub-location-heading">The Location module contains your building’s address
               and contact information. Please add as much or little
               information you need.
             </h2>
 
             <div class="address-content-div">
               <div class="address-icon">
-              <svg xmlns="http://www.w3.org/2000/svg"  fill="#159576" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
+              <svg class="svg-location" xmlns="http://www.w3.org/2000/svg"  fill="#159576" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
               <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
                 <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
                   <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
@@ -486,13 +485,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             </svg>
               </div>
               <div class="address-text-div">
-                  <h6 class="h6">Add address, phone number, or social media</h6>
+                  <h6 class="h6 icon-text">Add address, phone number, or social media</h6>
               </div>
             </div>
 
             <div class="address-content-div">
             <div class="address-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
+            <svg class="svg-location" xmlns="http://www.w3.org/2000/svg" fill="#159576" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
             <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
               <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
                 <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
@@ -501,14 +500,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </svg>
             </div>
             <div class="address-text-div">
-                <h6 class="h6">Add address, phone number, or social media</h6>
+                <h6 class="h6 icon-text">Add address, phone number, or social media</h6>
             </div>
           </div>
 
 
           <div class="address-content-div">
           <div class="address-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
+          <svg class="svg-location"xmlns="http://www.w3.org/2000/svg" fill="#159576" width="30" height="30" viewBox="0 0 78.576 74.885" style="margin:auto">
           <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
             <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
               <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
@@ -517,7 +516,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </svg>
           </div>
           <div class="address-text-div">
-              <h6 class="h6">Add address, phone number, or social media</h6>
+              <h6 class="h6 icon-text">Add address, phone number, or social media</h6>
           </div>
          
         </div>
@@ -525,10 +524,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         
         </div>
         <div class="address-map-div">
-            <img class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
+            <img class="location-image" data-gjs-type="mj-image" class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
               height: 400px;">
         </div>
-      </div>
+     
   </section>
   ${locationStyle}
   ${getStyles([
@@ -555,10 +554,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section  id= "paragraph_1" class="main-paragraph-wrapper">
+    content: `<section  id= "paragraphSector" class="main-paragraph-wrapper paragraphSector">
        <div class="paragraph-container">
-          <h1 class="h1">Master Cleanse Reliac Heirloom</h1>
-          <h6 class="h6">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+          <h1 class="h1 main-paragraph-heading">Master Cleanse Reliac Heirloom</h1>
+          <h6 class="h6 sub-paragraph-heading">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h6>
@@ -579,34 +578,34 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section class="main_wrapper" id= "number_1">
+    content: `<section class="main_wrapper numbersSection" id= "numbersSection">
         <div class="number-container-div">
           
         <div class="title-div">
-              <h1 class="h1">Add your heading title here</h1>
-              <h2 class="h2">The numbers module allows you to showcase your company’s metrics and
+              <h1 class="h1 main-number-heading">Add your heading title here</h1>
+              <h2 class="h2 sub-number-heading">The numbers module allows you to showcase your company’s metrics and
                 statistical accomplishments
               </h2>
           </div>
 
           <div class="number-percentagges-section">
          
-              <div class="benefit percentage-info">
+              <div class="benefit percentage-info number-border">
                 <i class="fa fa-star"></i>
-                <h1 class="h1">10 <span> % </span></h1>
-                <h4 class="h4">INSERT STATISTIC INFORMATION</h4>
+                <h1 class="h1 number-val">10  % </h1>
+                <h4 class="h4 number-description">INSERT STATISTIC INFORMATION</h4>
               </div>
 
-              <div class="benefit percentage-info">
+              <div class="benefit percentage-info number-border">
                 <i class="fa fa-star"></i>
-                <h1 class="h1" >10 <span> % </span></h1>
-                <h4 class="h4" >INSERT STATISTIC INFORMATION</h4>
+                <h1 class="h1 number-val" >10  % </h1>
+                <h4 class="h4 number-description" >INSERT STATISTIC INFORMATION</h4>
               </div>
 
-                <div class="benefit percentage-info">
+                <div class="benefit percentage-info number-border">
                 <i class="fa fa-star"></i>
-                <h1 class="h1" >10 <span> % </span></h1>
-                <h4 class="h4" >INSERT STATISTIC INFORMATION</h4>
+                <h1 class="h1 number-val" >10 % </h1>
+                <h4 class="h4 number-description" >INSERT STATISTIC INFORMATION</h4>
               </div>
 
               </div>
@@ -628,23 +627,22 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<talent id= "talent_1">
+    content: `<section id= "talentSector" class="talent-cloud-main-wrapper talentSector">
     
-<div class="talent-cloud-main-wrapper" >
+
     <div class="talent-cloud-container">
      <div class="img-holder">
        <img src="https://cdn.pixabay.com/photo/2013/07/12/18/35/world-153534_960_720.png" alt="...">
      </div>
    
     <div class="content-div">
-          <h1 class="h1">Join Talent Clouds</h1>
-          <h6 class="h6">You can apply to be considered for the opportunities that match your skills, interests and availability. 
+          <h1 class="h1 main-talent-heading">Join Talent Clouds</h1>
+          <h6 class="h6 sub-talent-heading">You can apply to be considered for the opportunities that match your skills, interests and availability. 
              </h6>
-             <h6 class="h6">Most opportunities are remote, but some travel may be required depending on the project need.
+             <h6 class="h6 sub-talent-heading">Most opportunities are remote, but some travel may be required depending on the project need.
           </h6>
        </div>
     </div>
- </div>
  </section> 
     ${talentCloud}
     ${getStyles(['.content-div'])}
@@ -658,12 +656,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <path id="Path_170799" data-name="Path 170799" d="M90.466,39.2H70.632a.633.633,0,0,0-.633.633V56.5a.633.633,0,0,0,.633.633H90.466A.633.633,0,0,0,91.1,56.5V39.832A.633.633,0,0,0,90.466,39.2ZM83.292,54.417a.442.442,0,0,1-.434.4H72.264a.382.382,0,0,1-.366-.4v-.053a.382.382,0,0,1,.366-.4H82.857a.442.442,0,0,1,.434.4Zm-11.04-2.98H82.479a.414.414,0,0,1,.405.382V51.9a.414.414,0,0,1-.405.382H72.252A.369.369,0,0,1,71.9,51.9v-.079a.369.369,0,0,1,.354-.383ZM71.9,49.353V49.3a.382.382,0,0,1,.366-.4h9.617a.4.4,0,0,1,.393.4v.053a.4.4,0,0,1-.393.4H72.264A.382.382,0,0,1,71.9,49.353Zm17.251,4.822-.672.5a.283.283,0,0,1-.168.056.272.272,0,0,1-.043,0,.284.284,0,0,1-.185-.113l-1.355-1.869-.778.573a.282.282,0,0,1-.442-.163l-.958-4.085a.282.282,0,0,1,.414-.31l3.645,2.078a.282.282,0,0,1,.031.469l-.788.6,1.359,1.876a.281.281,0,0,1-.06.392Zm.472-8.225a.633.633,0,0,1-.633.633H72.109a.633.633,0,0,1-.633-.633V41.941a.633.633,0,0,1,.633-.633h16.88a.633.633,0,0,1,.633.633Z" transform="translate(-69.999 -39.199)"/>
   </svg>
   `,
-    content: `<section id="image_banner_1" class="image-banner-wrapper">
-        <div class="main-banner-container">
+    content: `<section id="bannerSector" class="main-banner-container bannerSector">
+        
       <div class="bannar-wrap">
       <div class="bannar-content">
-         <h1 class="h1">Add your heading title here</h1>
-         <h6 class="h6">Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
+         <h1 class="h1 main-banner-heading">Add your heading title here</h1>
+         <h6 class="h6 sub-banner-heading">Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Nunc nec posuere risus. Phasellus nunc nisl, vulputate nec magna vel, sodales sollicitudin velit. Fusce scelerisque odio risus, eu euismod felis
             pellentesque a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In pulvinar aliquam felis, eu sodales ligula
             mollis ut. Aliquam eu pellentesque turpis. Nullam lectus nulla, vehicula quis odio vitae, vestibulum sollicitudin massa. Aenean pretium mauris nec ex
@@ -675,7 +673,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
       </div>
    </div>
-</div>
+
         </section>
         ${ImageBanner}
         ${getStyles(['.bannar-content'])}
@@ -708,23 +706,22 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section  id= "image_text_1">
-        <div class="main_container">
+    content: `<section class="main_container ImageTextSector"  id= "ImageTextSector">
+ 
         <div class="content-section">
-           <h1 class="h1" >Add your heading title here</h1>
-           <h2 class="h2">The Image and Text module is a place where you can
+           <h1 class="h1 main-image-heading" >Add your heading title here</h1>
+           <h2 class="h2 sub-image-heading">The Image and Text module is a place where you can
               visually show your user or client aspects of your
               company or product.
            </h2>
         </div>
         <div class="image-text-image-section">
         <div class="img_container">
-           <img src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
-              <figcaption class="figure_caption" >Caption Example</figcaption>
+           <img class="image-gallery" src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
+              <figcaption class="figure_caption gallery-caption" >Caption Example</figcaption>
         </div>
         </div>
-     
-        </div>
+  
         </section>
     ${ImageText}
     ${getStyles(['.content-section'])}
