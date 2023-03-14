@@ -52,10 +52,10 @@ export const Page: CollectionConfig = {
       required: true,
       },
     // page Id when select from template field
-    {
-      name: "pageId",
-      type: "text",
-    },
+    // {
+    //   name: "pageId",
+    //   type: "text",
+    // },
     {name:"pageCode",
     type:"text",}
   ],

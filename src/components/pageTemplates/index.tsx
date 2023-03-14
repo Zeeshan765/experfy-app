@@ -16,12 +16,12 @@ import DeleteOutlineTwoToneIcon from '@mui/icons-material/DeleteOutlineTwoTone';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { log } from 'console';
 
-const Pages = () => {
+const PageTemplates = () => {
   const { selectedPageCode, setPageCreateFromScratch } = useContext(Context);
 
   const history = useHistory();
   let { id } = useParams();
-  const [pageData, setPageData] = useState({ pageType: '' });
+  const [pageData, setPageData] = useState({  });
   const [open, setOpen] = React.useState(false);
   const {
     admin: { user: userSlug },
@@ -62,7 +62,7 @@ const Pages = () => {
   const getSinglePage = () => {
     axios({
       method: `get`,
-      url: `${serverURL}${api}/pages/${id}`,
+      url: `${serverURL}${api}/page-Template/${id}`,
     })
       .then((res) => {
         const { data } = res;
@@ -74,52 +74,34 @@ const Pages = () => {
       });
   };
   // create page
-  const createPage = () => {
+  const createTemplate = () => {
     axios({
       method: 'post',
-      url: `${serverURL}${api}/pages`,
+      url: `${serverURL}${api}/page-Template`,
       data: pageData,
     })
       .then((res) => {
         const { doc, message } = res.data;
-        const { pageType } = pageData;
-        console.log('pageData============', pageData);
-        if (pageType === From_scratch) {
           toast.success('create a new page with page builder');
           closeModel();
           history.push(`/admin/collections/page-builder/${doc.id}`);
-        } else {
-          setPageCreateFromScratch('');
-          toast.success(message);
-          closeModel();
-          history.push('/admin/collections/templates-library');
-        }
+       
       })
       .catch((err) => {
         console.log('err', err);
       });
   };
-  //
-  const updatePage = () => {
+  const updateTemplate = () => {
     axios({
       method: 'patch',
-      url: `${serverURL}${api}/pages/${id}`,
+      url: `${serverURL}${api}/page-Template/${id}`,
       data: pageData,
     })
       .then((res) => {
         const { doc, message } = res.data;
-        const { pageType } = pageData;
         closeModel();
-        if (pageType === From_scratch) {
           toast.success('create a new page with page builder');
           history.push(`/admin/collections/page-builder/${doc.id}`);
-        }
-        //  else {
-        //   setPageCreateFromScratch("");
-        //   toast.success(message);
-        //   handleClose();
-        //   history.push("/admin/collections/pages");
-        // }
       })
       .catch((err) => {
         console.log('err', err);
@@ -129,7 +111,7 @@ const Pages = () => {
   const deletePage = () => {
     axios({
       method: `delete`,
-      url: `${serverURL}${api}/pages/${id}`,
+      url: `${serverURL}${api}/page-Template/${id}`,
     })
       .then((res) => {
         console.log('res', res);
@@ -146,7 +128,7 @@ const Pages = () => {
     if (id) {
       getSinglePage();
     }
-    if (selectedPageCode && pageData?.pageType === Template)
+    if (selectedPageCode)
       setPageData((pre) => ({ ...pre, pageCode: selectedPageCode }));
   }, [selectedPageCode, id]);
 
@@ -172,7 +154,7 @@ const Pages = () => {
         >
           <span className='page-title'>
             {' '}
-            {id ? 'Update Page' : 'Create New Page'}{' '}
+            {id ? 'Update Page Template' : 'Create New Page Template'}{' '}
           </span>
           <a onClick={handleClose} style={{ color: '#000', padding: '8px' }}>
             <CloseIcon />
@@ -180,7 +162,7 @@ const Pages = () => {
         </div>
       </DialogTitle>
       <div className='model-body'>
-        <Form onSubmit={() => (id ? updatePage() : createPage())}>
+        <Form onSubmit={() => (id ? updateTemplate() : createTemplate())}>
           <div style={{ marginBottom: '1rem' }}>
             <TextInput
               label={'*Page Name'}
@@ -190,35 +172,16 @@ const Pages = () => {
               className='page-name'
             />
           </div>
-          <span className='select-radio-title'>*Choose the page type</span>
-          <span className='page-radio-selection'>
-            <input
-              type='radio'
-              name='pageType'
-              disabled={id}
-              checked={pageData['pageType'] === Template}
-              value={Template}
+         {!id && <div>
+            <TextInput
+            type='file'
+              label={'Page Thumnail'}
               onChange={handelChange}
+              value={id?'':pageData['pageThumnail']}
+              name='pageThumnail'
+              className='page-name'
             />
-            &nbsp;&nbsp; Create Page from Template
-          </span>
-          <span className='page-radio-selection'>
-            <input
-              type='radio'
-              name='pageType'
-              disabled={id}
-              checked={pageData['pageType'] === From_scratch}
-              value={From_scratch}
-              onChange={handelChange}
-            />
-            &nbsp;&nbsp; Create Page from Scratch
-          </span>
-
-          {!id && pageData?.pageType === Template && (
-            <>
-              <PageTheme fromScratch='fromScratch' />
-            </>
-          )}
+          </div>}
           <div
             style={{
               display: 'flex',
@@ -248,4 +211,4 @@ const Pages = () => {
   );
 };
 
-export default Pages;
+export default PageTemplates;

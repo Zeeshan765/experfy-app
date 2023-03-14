@@ -19,6 +19,7 @@ import AfterNav from './components/Nav/AfterNav';
 import ExperfyLogo from './components/Nav/AppLogo';
 import BeforeNav from './components/Nav/BeforeNav';
 import PageBuilder from './components/PageBuilder';
+import DesignSystem from './components/PageBuilder/DesignSystem';
 import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
 import ThemeStyle from './components/PageBuilder/ThemeStyle';
 import PortalIdentity from './components/PortalIdentity';
@@ -90,7 +91,23 @@ export default buildConfig({
           exact: true,
         },
         {
-          path: '/collections/section-templates',
+          path: "/collections/themes-style",
+          Component: DesignSystem,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: '/collections/page-builder',
+          Component: PageBuilder,
+          exact: true,
+          strict: true,
+        },
+        {
+          path: "/collections/templates-library",
+          Component: TemplatesLibrary,
+        },
+        {
+          path: "/collections/section-templates",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
