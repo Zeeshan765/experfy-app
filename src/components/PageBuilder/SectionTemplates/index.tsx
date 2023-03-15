@@ -12,7 +12,7 @@ import { UserContext } from '../../../Providers/UserProvider';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import SidebarBottom from '../SidebarBottom';
-import { canvasStyle,devices } from '../utils';
+import { canvasStyle, devices } from '../utils';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -22,7 +22,8 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-var isUpdating = false;
+  const [ccid, setccid] = useState(null)
+  var isUpdating = false;
   const sections = [
     'page-builder',
     'header',
@@ -43,6 +44,7 @@ var isUpdating = false;
     'department',
   ];
   let showSections = true;
+  const apiEndpoint = `${serverURL}/api`;
 
   useEffect(() => {
     let arr = pathname.split('/');
@@ -93,7 +95,7 @@ var isUpdating = false;
 
           block.set('content', content);
 
-          console.log("block********",block.set('content', content))
+          console.log('block********', block.set('content', content));
         }
       })
       .catch((error) => {
@@ -124,7 +126,7 @@ var isUpdating = false;
       showOffsets: true,
       showDevices: false,
       showOffsetsSelected: true,
-      style: canvasStyle ,
+      style: canvasStyle,
       plugins: [Blocks],
 
       blockManager: {
@@ -195,8 +197,27 @@ var isUpdating = false;
       }
     });
 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+     
+
+
+
+
+
     editor.on('style:sector:update', (props) => {
-      
       // Get the selected block
       !isUpdating &&
         setTimeout(() => {
@@ -207,30 +228,22 @@ var isUpdating = false;
           isUpdating = true;
           const sectors = sm.getSectors();
           console.log('props', props);
+          console.log("changed")
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
-              console.log('sectors.models[i]', sectors.models[i]);
               let isOpen = sectors.models[i].isOpen();
               if (isOpen) {
-             
                 editor.select(sectors.models[i]);
-              
-
-                console.log(
-                  'editor.select(sectors.models[i]);',
-                  editor.select(sectors.models[i])
-                );
                 sectors.models[i].set({
                   open: true,
                   active: true,
                   select: true,
                   focus: true,
-
                 });
-              
-             
+
                 sm.select(`.${ccid} .${props.id}`);
+                console.log("------------")
               }
             } else {
               sectors.models[i].setOpen(false);
@@ -243,20 +256,14 @@ var isUpdating = false;
         }, 100);
 
       const categories = editor.StyleManager.getSectors();
-     
     });
 
-
-
-
-
-
-
-
-
-
-
-
+    editor.on('component:selected', (component) => {
+      if (ccid !== component.ccid) {
+        setccid(component.ccid)
+      }
+    });
+   
 
     const addAssets = async () => {
       const assetManager = editor?.AssetManager;
@@ -281,6 +288,45 @@ var isUpdating = false;
     setEditor(editor);
   }, []);
 
+  const saveHistoy = () => {
+    axios
+      .post(`${apiEndpoint}/pagehistory`, {
+        PageId: "123456",
+        pageHistory: JSON.stringify(editor?.getProjectData()),
+      })
+      .then((res) => {
+      
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // }
+  };
+
+
+
+let check = editor?.getProjectData();
+
+
+
+
+
+  useEffect(() => {
+    console.log("ccid ", ccid)
+    if (ccid) {  
+      saveHistoy();
+    }
+  }, [ccid]);
+
+
+useEffect(() => {
+
+    console.log("check")
+},[check]);
+
+
+
+
   return (
     <div className="main__content">
       <Eyebrow />
@@ -297,9 +343,8 @@ var isUpdating = false;
               <AppsRoundedIcon />
             </span>
           </div>
-
-          <SidebarBottom editor={editor}  /> {/*  this warning is stylable. work is in progress*/}
-
+          <SidebarBottom editor={editor} />{' '}
+          {/*  this warning is stylable. work is in progress*/}
           <div className="styles-container"></div>
           <div className="traits-container"></div>
           <div className="layers-container"></div>

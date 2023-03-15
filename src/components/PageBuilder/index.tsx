@@ -595,7 +595,9 @@ const goToTop = () => {
 
 
 
-
+console.log(
+  "checkk;sksd",editor.getSelected()
+);
     //For Traits
     editor.on('component:selected', (component) => {
       console.log("component*******", component);
