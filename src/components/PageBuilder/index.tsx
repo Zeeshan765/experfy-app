@@ -30,6 +30,7 @@ const PageBuilder: React.FC = () => {
   const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
   const [changeHistory, setChangeHistory] = useState(false);
   const [addHistory, setAddHistory] = useState(true);
+  const[newstateDirty,setnewstateDirty] = useState(null);
   var isUpdating = false;
   // ======States end=======
   // ======Hooks start=======
@@ -385,6 +386,17 @@ const goToTop = () => {
       },
     });
 
+
+    editor.on('change:changesCount', () => {
+      const editorModel = editor.getModel();
+      const changes = editorModel.get('changesCount');
+      console.log("chnages))))))))",changes)
+      if (changes) {
+        console.log("chnages detected",)
+        setnewstateDirty(editor?.getDirtyCount());
+      }
+ });
+ console.log("chnages detected hdhdhdhdhhd",newstateDirty)
 
 
 
@@ -758,6 +770,8 @@ console.log("editor.DomComponents.getWrapper().ccid",editor.DomComponents.getWra
     }, 30000);
     return () => clearTimeout(updateHistory);
   }, [changeHistory]);
+  // let newDirty = editor?.getDirtyCount();
+console.log("count************",newstateDirty)
   // =======Lifecycle methods end here=========
   return (
     <div className='main__content'>

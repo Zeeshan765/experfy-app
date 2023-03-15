@@ -288,6 +288,30 @@ const SectionPageBuilder: React.FC = () => {
     setEditor(editor);
   }, []);
 
+let newDirty = editor?.getDirtyCount();
+console.log("newDirty",newDirty)
+
+
+
+const handleCount = ()=>{
+  let dirty = editor?.getDirtyCount();
+  console.log("Dirty Count is here",dirty);
+}
+
+
+
+
+  // useEffect(() => {
+  //   console.log("dirty", dirty)
+
+  // }, [dirty]);
+
+
+
+
+
+
+
   const saveHistoy = () => {
     axios
       .post(`${apiEndpoint}/pagehistory`, {
@@ -311,18 +335,18 @@ let check = editor?.getProjectData();
 
 
 
-  useEffect(() => {
-    console.log("ccid ", ccid)
-    if (ccid) {  
-      saveHistoy();
-    }
-  }, [ccid]);
+  // useEffect(() => {
+  //   console.log("ccid ", ccid)
+  //   if (ccid) {  
+  //     saveHistoy();
+  //   }
+  // }, [ccid]);
 
 
-useEffect(() => {
+// useEffect(() => {
 
-    console.log("check")
-},[check]);
+//     console.log("check")
+// },[check]);
 
 
 
@@ -330,7 +354,10 @@ useEffect(() => {
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="panel__top"></div>
+      <div className="panel__top">
+       
+        <button onClick={handleCount}>CLick Me</button>
+      </div>
       <div className="editor-row">
         <div className="panel__basic-actions"></div>
         <div className="panel__left">
