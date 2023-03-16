@@ -706,7 +706,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section class="main_container ImageTextSector"  id= "ImageTextSector">
+    content: `<section class="main_container ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
  
         <div class="content-section">
            <h1 class="h1 main-image-heading" >Add your heading title here</h1>
