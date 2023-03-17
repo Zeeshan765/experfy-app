@@ -226,6 +226,7 @@ const goToTop = () => {
       type: 'select',
       name: 'class',
       label: 'HTML Tag',
+      ChangeProp: 1,
       default: 'h1',
       options: [
         { id: 'h1', name: 'H1' },
@@ -456,6 +457,7 @@ const goToTop = () => {
         defaults: {
           traits: TextTrait,
         },
+        changeProp: 1,
       },
     });
 
