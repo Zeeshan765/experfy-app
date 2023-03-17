@@ -501,10 +501,36 @@ const goToTop = () => {
       },
     });
 
+    editor.DomComponents.addType('mj-image', {
+      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'mjchange',
+              label: ' ',
+              name: 'mjchange',
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Icon background',
+              default: 'left',
+              options: [{ value: 'left', name: 'Left' }],
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Background Shape',
+              default: 'left',
+              options: [{ value: 'left', name: 'Left' }],
+            },
+          ],
+        },
+      },
+    });
 
-
-
-
+   
 
 
     editor.DomComponents.addType("mj-image", {
