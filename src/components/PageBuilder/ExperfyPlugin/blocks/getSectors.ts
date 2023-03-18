@@ -327,43 +327,14 @@ const widthOptions = [
     name: 'Left',
   },
 ];
-// const borderRadiusOptions = [
-//   {
-//     type: 'number',
-//     units: ['px'],
-//     default: 0,
-//     property: 'border-top-radius',
-//     name: 'Top',
-//   },
-//   {
-//     type: 'number',
-//     units: ['px'],
-//     default: 0,
-//     property: 'border-right-radius',
-//     name: 'Right',
-//   },
-//   {
-//     type: 'number',
-//     units: ['px'],
-//     default: 0,
-//     property: 'border-bottom-radius',
-//     name: 'Bottom',
-//   },
-//   {
-//     type: 'number',
-//     units: ['px'],
-//     default: 0,
-//     property: 'border-left-radius',
-//     name: 'Left',
-//   },
-// ];
+
 
 const obj = {
   header_1: [
     {
       name: 'Header',
       open: false,
-      id:'header-bg',
+      id:'header-bd',
 
       properties: [
         typography,
@@ -1972,11 +1943,6 @@ properties: [color, typography],
             preferredFormat: 'hex',
             showInput: true,
           },
-          attributes: {
-            'data-type': 'border-color',
-            'data-attribute': 'image-border-color',
-            'data-target': '.img_container img',
-          },
         },
 
         {
@@ -1996,11 +1962,6 @@ properties: [color, typography],
           name: 'Border Type',
           property: 'border-style',
           default: 'solid',
-          attributes: {
-            'data-type': 'border-style',
-            'data-attribute': 'image-border-style',
-            'data-target': '.img_container img',
-          },
           options: borderStyleOptions,
         },
       ],
@@ -2015,11 +1976,7 @@ properties: [color, typography],
           name: 'Display',
           property: 'display',
           default: 'show',
-          attributes: {
-            'data-type': 'display',
-            'data-attribute': 'gallery-display',
-            'data-target': '.figure_caption',
-          },
+          
           options: [
             { value: 'block', name: 'Show' },
             { value: 'none', name: 'Hide' },
@@ -2033,11 +1990,7 @@ properties: [color, typography],
             preferredFormat: 'hex',
             showInput: true,
           },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'gallery-color',
-            'data-target': '.figure_caption',
-          },
+         
         },
 
         {
@@ -2045,11 +1998,7 @@ properties: [color, typography],
           name: 'Font Family',
           property: 'font-family',
           options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'gallery-font-family',
-            'data-target': '.figure_caption',
-          },
+          
         },
         {
           type: 'slider',
@@ -2057,11 +2006,6 @@ properties: [color, typography],
           property: 'font-size',
           default: 16,
           units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'gallery-font-size',
-            'data-target': '.figure_caption',
-          },
         },
         {
           type: 'select',
@@ -2069,11 +2013,6 @@ properties: [color, typography],
           property: 'font-weight',
           default: 'normal',
           options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'gallery-font-weight',
-            'data-target': '.figure_caption',
-          },
         },
 
         {
@@ -2086,9 +2025,6 @@ properties: [color, typography],
             { value: 'lowercase', name: '<span>tt</span>' },
             { value: 'capitalize', name: '<span>Tt</span>' },
           ],
-          attributes: {
-            'data-type': 'transform',
-          },
         },
         {
           type: 'slider',
@@ -2096,11 +2032,6 @@ properties: [color, typography],
           property: 'letter-spacing',
           default: 0,
           units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'gallery-letter-spacing',
-            'data-target': '.figure_caption',
-          },
         },
         {
           type: 'slider',
@@ -2110,11 +2041,6 @@ properties: [color, typography],
           ResizeObserver: true,
           default: 1,
           units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'gallery-line-height',
-            'data-target': '.figure_caption',
-          },
         },
         {
           type: 'radio',
@@ -2123,11 +2049,6 @@ properties: [color, typography],
           default: 'left',
           ResizeObserver: true,
           options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'gallery-text-align',
-            'data-target': '.figure_caption',
-          },
         },
         {
           type: 'radio',
@@ -2135,11 +2056,6 @@ properties: [color, typography],
           property: 'text-decoration',
           default: 'none',
           options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'gallery-text-decoration',
-            'data-target': '.figure_caption',
-          },
         },
       ],
     },
@@ -2623,7 +2539,7 @@ properties: [color, typography],
     {
       name: 'Links',
       open: false,
-      id: 'link',
+      id: 'a',
       properties: [color, typography],
     },
     {
@@ -2647,44 +2563,50 @@ properties: [color, typography],
     },
   ],
 
-  department_1: [
+  departmentSector: [
     {
       name: 'Section Heading',
+      id:'dept_section',
       open: false,
       properties: [color, typography],
     },
     {
       name: 'Sub Section Heading',
       open: false,
-      properties: [color, typography, HtmlTag],
+      properties: [color, typography],
     },
     {
       name: 'Job Title',
+      id:'job_title',
       open: false,
-      properties: [color, typography, HtmlTag],
+      properties: [color, typography],
     },
     {
       name: 'Company Name',
       open: false,
-      properties: [color, typography, HtmlTag],
+      id:'company_name',
+      properties: [color, typography],
     },
     {
       name: 'Date Posted',
+      id:'posted',
       open: false,
-      properties: [color, typography, HtmlTag],
+      properties: [color, typography],
     },
     {
       name: 'Descriptive Text',
+      id:'descriptive_text',
       open: false,
-      properties: [color, typography, HtmlTag],
+      properties: [color, typography],
     },
     {
       name: 'Feature List',
+      id:'feature_list',
       open: false,
       properties: [
         color,
         typography,
-        HtmlTag,
+       
 
         {
           type: 'slider',

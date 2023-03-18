@@ -117,7 +117,7 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
     // Panels.removeButton('panel__switcher', openStyles);
     Panels.removeButton('panel__switcher', openLayers);
     Panels.removeButton('panel__switcher', openBlocks);
-    Panels.removeButton('panel__switcher', openTraits);
+    // Panels.removeButton('panel__switcher', openTraits);
     Panels.removeButton('panel-top', 'settings');
     Panels.removeButton('panel-top', 'device-desktop');
     Panels.removeButton('panel-top', 'history');

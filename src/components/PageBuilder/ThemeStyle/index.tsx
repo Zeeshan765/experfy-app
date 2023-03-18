@@ -21,6 +21,7 @@ const ThemeStyle: React.FC = () => {
   const { admin } = routes;
   const { userData, setUserData } = useContext(UserContext);
   const { serverURL } = useConfig();
+  const [hello,setHello] = React.useState();
 
   useEffect(() => {
     setStepNav([
@@ -102,6 +103,10 @@ const ThemeStyle: React.FC = () => {
       editor.getWrapper().set('selectable', false);
       editor.getWrapper().set('deletable', false);
     });
+
+
+ 
+  
     editor.on('load', () => {
       editor.loadProjectData({
         ...Object.assign(
@@ -109,13 +114,18 @@ const ThemeStyle: React.FC = () => {
           { ...editor.getProjectData() },
           userData.defaultStyle.pageData
         ),
+
+        
       });
+
+    
     });
 
     //@ts-ignore
     editor.on('style:sector:update', (sector) => {
       ComponentSelection(sector, editor);
     });
+    
 
     //@ts-ignore
     editor.on('style:target', (component) => {
@@ -155,6 +165,16 @@ const ThemeStyle: React.FC = () => {
       'input',
       'textarea',
     ];
+console.log("editor.getProjectData().styles",editor.getProjectData().styles)
+
+
+
+
+
+
+
+
+
 
     let filteredStyles = editor
       .getProjectData()

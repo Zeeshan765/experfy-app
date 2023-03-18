@@ -706,7 +706,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section class="main_container ImageTextSector"  id= "ImageTextSector">
+    content: `<section class="main_container ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
  
         <div class="content-section">
            <h1 class="h1 main-image-heading" >Add your heading title here</h1>
@@ -717,7 +717,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
         <div class="image-text-image-section">
         <div class="img_container">
-           <img class="image-gallery" src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
+           <img class="image image-gallery" src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
               <figcaption class="figure_caption gallery-caption" >Caption Example</figcaption>
         </div>
         </div>
@@ -929,7 +929,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         </div>
           
         <div  data-gjs-highlightable="false" class="link-holder">
-          <a href="#" class="link" >Link 1</a>
+          <a href="#" class="a" >Link 1</a>
         </div>
 
         <div data-gjs-highlightable="false" class="page-builder-form-div">
@@ -948,7 +948,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     ],
   });
 
-  addBlock('department', {
+  addBlock('department', { 
     label: 'Department',
     category: 'Section Modules',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -957,12 +957,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     content: `
 
+<section id="departmentSector" class="departmentSector" >
 
-
-
-
-    <div class="dept-header-section">
-    <h1 class="h1">Browes Job Opportunities and Projects</h1>
+<div class="dept-header-section">
+    <h1 class="h1 dept_section">Browes Job Opportunities and Projects</h1>
   </div>
   <div class="searchbar-main-section">
     <input type="text" class="locationSearch">
@@ -1026,13 +1024,13 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     
     
     
-    <div id="department_1" class="department-container">
+    <div class="department-container">
     <div class="department-left">
-<h2 class="h2">Conversational AI Testers</h2>
-<h4 class="h4">Delootte, posted July 21,</h4>
+<h2 class="h2 job_title">Conversational AI Testers</h2>
+<h4 class="h4 company_name">Delootte,</h4><span class="h4 posted">posted July 21</span>
 
-<h4 class="h4">6+ years of relevant work experience</h4>
-<h4 class="h4">2+ experiences testing virtual agents or virtual assistants involving assistants IPSoft Amelia , Kore.ai, Nuance Nina, Amazon Lex & Alexa, Dialgoflow, or IBM Watson</h4>
+<h4 class="h4 descriptive_text">6+ years of relevant work experience</h4>
+<h4 class="h4 descriptive_text">2+ experiences testing virtual agents or virtual assistants involving assistants IPSoft Amelia , Kore.ai, Nuance Nina, Amazon Lex & Alexa, Dialgoflow, or IBM Watson</h4>
 
     </div>
     <div class="department-right">
@@ -1052,12 +1050,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 	</g>
 </g>
 </svg>
-  <span class="h5">Boston, MA,</span>
+  <span class="h5 feature_list">Boston, MA,</span>
 
     </li>
     <li>
     <svg fill="#000000" width="30px" height="30px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M760 380.4l-61.6-61.6-263.2 263.1-109.6-109.5L264 534l171.2 171.2L760 380.4z"/></svg>
-  <span class="h5">Open to Remote</span>
+  <span class="h5 feature_list">Open to Remote</span>
 
     </li>
     <li>
@@ -1078,12 +1076,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 		c-34.891,0-63.141,28.281-63.156,63.156v24.828h32V72.906z"/>
 </g>
 </svg>
-  <span class="h5">Full-time</span>
+  <span class="h5 feature_list">Full-time</span>
 
     </li>
     <li>
     <svg width="30px" hight="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <g> <path fill="none" d="M0 0h24v24H0z"/> <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-3.5-8v2H11v2h2v-2h1a2.5 2.5 0 1 0 0-5h-4a.5.5 0 1 1 0-1h5.5V8H13V6h-2v2h-1a2.5 2.5 0 0 0 0 5h4a.5.5 0 1 1 0 1H8.5z"/> </g> </svg>
-  <span class="h5">$100/hr - $150hr</span>
+  <span class="h5 feature_list">$100/hr - $150hr</span>
 
     </li>
     <li>
@@ -1097,7 +1095,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    </g>
  </g>
  </svg>
-  <span class="h5">2</span>
+  <span class="h5 feature_list">2</span>
 
     </li>
     </ul>
@@ -1107,6 +1105,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    
     
     </div>
+
+</section>
+
+
+
+    
     ${departmentstyle}
   
         `,
@@ -1123,6 +1127,54 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
         `,
   });
+
+
+
+  addBlock('button', {
+    label: 'Button',
+    category: 'Basic Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
+    content: `
+    <button class="button">Hello World</button>
+ 
+        `,
+  });
+
+  addBlock('a', {
+    label: 'Link',
+    category: 'Basic Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
+    content: `
+    <a  href="#"class="a">Link</a>
+ 
+        `,
+  });
+
+
+  addBlock('form', {
+    label: 'Form',
+    category: 'Basic Elements',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
+    content: `
+    <form>
+    <div data-gjs-highlightable="false" class="form-builder">
+      <span class="label" for="text">Name:</span>
+      <input type="text" class="input" value="Enter your name" >
+      </div>
+      <div>
+      <span class="label" for="text">Email</span>
+      <input type="text" class="input" value="Enter your email" >
+      </div>
+
+      <div>
+      <button class="button">Submit</button>
+     </div>
+  </form>
+ 
+        `,
+  });
+
+
 };
 
 

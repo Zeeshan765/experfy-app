@@ -30,6 +30,7 @@ const PageBuilder: React.FC = () => {
   const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
   const [changeHistory, setChangeHistory] = useState(false);
   const [addHistory, setAddHistory] = useState(true);
+  const[newstateDirty,setnewstateDirty] = useState(null);
   var isUpdating = false;
   // ======States end=======
   // ======Hooks start=======
@@ -225,6 +226,7 @@ const goToTop = () => {
       type: 'select',
       name: 'class',
       label: 'HTML Tag',
+      ChangeProp: 1,
       default: 'h1',
       options: [
         { id: 'h1', name: 'H1' },
@@ -336,6 +338,7 @@ const goToTop = () => {
           Forms(editor, {
             category: 'Basic Elements',
           }),
+          
       ],
       layerManager: {
         appendTo: '.layers-container',
@@ -390,6 +393,29 @@ const goToTop = () => {
 
 
 
+
+
+
+
+
+
+    
+    editor.on('change:changesCount', () => {
+      const editorModel = editor.getModel();
+      const changes = editorModel.get('changesCount');
+      console.log("chnages))))))))",changes)
+      if (changes) {
+        console.log("chnages detected",)
+        setnewstateDirty(editor?.getDirtyCount());
+      }
+ });
+ console.log("chnages detected hdhdhdhdhhd",newstateDirty)
+
+
+
+
+
+
     editor.on('load', () => {
       editor.loadProjectData({
         ...Object.assign(
@@ -431,6 +457,7 @@ const goToTop = () => {
         defaults: {
           traits: TextTrait,
         },
+        changeProp: 1,
       },
     });
 
@@ -503,73 +530,105 @@ const goToTop = () => {
       },
     });
 
-    editor.TraitManager.addType('mjchange', {
+   
+
+
+    editor.DomComponents.addType("mj-image", {
+      isComponent: (el: any) => el.tagName === "MJ-IMAGE",
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: "mjchange",
+              label: " ",
+              name: "mjchange",
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Icon background',
+              default: 'left',
+              options: [{ value: 'left', name: 'Left' }],
+            },
+            {
+              type: 'select',
+              name: 'class',
+              label: 'Background Shape',
+              default: 'left',
+              options: [{ value: 'left', name: 'Left' }],
+            },
+          ],
+        },
+      },
+    });
+    editor.TraitManager.addType("mjchange", {
       noLabel: true,
       createInput({}) {
         let selectedSrc = editor.getSelected();
-
         let src = selectedSrc!.attributes.attributes!.src;
         const toggleModal = () => {
-          editor.runCommand('open-assets', {
+          editor.runCommand("open-assets", {
             target: editor.getSelected(),
           });
         };
-        const el = document.createElement('div');
-        el.setAttribute('class', 'image-trait-preview');
+        const el = document.createElement("div");
+        el.setAttribute("class", "image-trait-preview");
         el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
-                    <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
-
-        const inputType = el.querySelector('#chg-img-trait-btn');
-        const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
-
-        imgBox!.addEventListener('click', toggleModal);
-        inputType!.addEventListener('click', toggleModal);
-
+                  <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
+        const inputType = el.querySelector("#chg-img-trait-btn");
+        const imgBox = el.querySelector("#gjs_img_preview_logo_rtl");
+        imgBox!.addEventListener("click", toggleModal);
+        inputType!.addEventListener("click", toggleModal);
         return el;
       },
     });
-
-    editor.on('modal:open', (component) => {
+    editor.on("modal:open", (component) => {
       const $ = editor.$;
       const am = editor.AssetManager;
       am.open({
-        types: ['mj-image'],
+        types: ["mj-image"],
         select(assets, complete) {
           const selected = editor.getSelected();
-          if (selected && selected.is('mj-image')) {
-            $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
+          console.log("page seletcted",selected);
+          if (selected && selected.is("mj-image")) {
+            $("#gjs_img_preview_logo_rtl").attr("src", assets.getSrc());
             selected.addAttributes({ src: assets.getSrc() });
-
             complete && editor.AssetManager.close();
           }
+          console.log("after select",selected);
         },
       });
     });
-      editor.on("modal:open", (component) => {
-        const $ = editor.$;
-        const am = editor.AssetManager;
-        am.open({
-          types: ["mj-image"],
-          select(assets, complete) {
-            const selected = editor.getSelected();    
-            if (selected && selected.is("mj-image")) {
-
-              $("#gjs_img_preview_logo_rtl").attr("src", assets.getSrc());
-              selected.addAttributes({ src: assets.getSrc() });
-            
-              complete && editor.AssetManager.close();
-            }
-
-            console.log("after select",selected);
-          },
-        });
-      });
-//=========Custom Image Trait end here========
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+console.log(
+  "checkk;sksd",editor.getSelected()
+);
     //For Traits
     editor.on('component:selected', (component) => {
       console.log("component*******", component);
@@ -730,6 +789,8 @@ console.log("editor.DomComponents.getWrapper().ccid",editor.DomComponents.getWra
     }, 30000);
     return () => clearTimeout(updateHistory);
   }, [changeHistory]);
+  // let newDirty = editor?.getDirtyCount();
+console.log("count************",newstateDirty)
   // =======Lifecycle methods end here=========
   return (
     <div className='main__content'>
