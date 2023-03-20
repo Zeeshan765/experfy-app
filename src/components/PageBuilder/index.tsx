@@ -383,8 +383,8 @@ const PageBuilder: React.FC = () => {
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
 
-              console.log("isChanged", isChanged);
               if (isChanged) {
+                saveHistoy();
                 const store = editor.store();
                 dataHandler();
                 toast.success('Changes saved successfully');
