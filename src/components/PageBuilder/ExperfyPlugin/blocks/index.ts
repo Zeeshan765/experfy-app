@@ -613,7 +613,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </section> 
     
     ${numbermetric}
-    ${getStyles(['.title-div', '.benefit percentage-info'])}
+    ${getStyles(['.title-div'])}
     `,
   });
 

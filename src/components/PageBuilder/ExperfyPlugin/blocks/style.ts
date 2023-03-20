@@ -1,55 +1,7 @@
 export const getStyles = (parentClass: any) => {
   return `<style>
   ${parentClass.map(
-    (el) => `  ${el} .h1 {
-    font-size: 32px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  
-  
-  ${el} .h2 {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  
-  ${el} .h3 {
-    font-size: 19px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .h4 {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .h5 {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .h6 {
-    font-size: 11px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .span {
-    font-size: 10px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .div {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .p {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .left {
+    (el) => `${el} .left {
     text-align: left;
   }
   ${el} .center {

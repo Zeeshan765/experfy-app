@@ -22,7 +22,7 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-  const [ccid, setccid] = useState(null)
+  const [ccid, setccid] = useState(null);
   var isUpdating = false;
   const sections = [
     'page-builder',
@@ -57,7 +57,6 @@ const SectionPageBuilder: React.FC = () => {
     ]);
   }, [setStepNav]);
 
-
   let TextTrait = [
     {
       type: 'text',
@@ -68,7 +67,7 @@ const SectionPageBuilder: React.FC = () => {
     },
     {
       type: 'select',
-      name: 'class',
+      name: 'tagName',
       label: 'HTML Tag',
       ChangeProp: 1,
       default: 'h1',
@@ -83,6 +82,18 @@ const SectionPageBuilder: React.FC = () => {
         { id: 'span', name: 'span' },
         { id: 'p', name: 'p' },
       ],
+      // type: 'select',
+      // options: [
+      //   { value: 'h1', name: 'Heading 1' },
+      //   { value: 'h2', name: 'Heading 2' },
+      //   { value: 'h3', name: 'Heading 3' },
+      //   { value: 'h4', name: 'Heading 4' },
+      //   { value: 'h5', name: 'Heading 5' },
+      //   { value: 'h6', name: 'Heading 6' },
+      // ],
+      // label: 'Size',
+      // name: 'tagName',
+      changeProp: 1,
     },
     {
       type: 'select',
@@ -96,16 +107,6 @@ const SectionPageBuilder: React.FC = () => {
       ],
     },
   ];
-
-
-
-
-
-
-
-
-
-
 
   const updateHeaderBlock = async () => {
     axios
@@ -165,8 +166,6 @@ const SectionPageBuilder: React.FC = () => {
         blocks: blocks,
         showPanelsOnLoad: true,
         themeStylePanels: true,
-         
-
       });
 
     editor = GrapesJS.init({
@@ -251,15 +250,18 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
-
-
-
     editor.DomComponents.addType('text', {
       model: {
         defaults: {
           traits: TextTrait,
         },
-        changeProp: 1,
+        // changeProp: 1,
+        init() {
+          this.on('change:attributes:htmltag', this.handleHtmltagChange);
+        },
+        handleHtmltagChange() {
+          this.set('tagName', this.getAttributes().htmltag);
+        },
       },
     });
 
@@ -303,18 +305,8 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-
-
-
-
-
-
-
-
-
-
     editor.DomComponents.addType('mj-image', {
-      isComponent: (el: any) => el.tagName === "MJ-IMAGE",
+      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
       model: {
         defaults: {
           traits: [
@@ -322,9 +314,9 @@ const SectionPageBuilder: React.FC = () => {
               type: 'text',
               name: 'title',
               label: 'Title',
-              placeholder: 'Enter Title Here', 
+              placeholder: 'Enter Title Here',
             },
- {
+            {
               type: 'select',
               name: 'class',
               label: 'HTML Tag',
@@ -352,84 +344,67 @@ const SectionPageBuilder: React.FC = () => {
                 { value: 'right', name: 'Right' },
               ],
             },
-           
           ],
         },
       },
     });
 
-// Image  Trait
-    editor.DomComponents.addType("mj-image", {
-      isComponent: (el: any) => el.tagName === "MJ-IMAGE",
+    // Image  Trait
+    editor.DomComponents.addType('mj-image', {
+      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
       model: {
         defaults: {
           traits: [
             {
-              type: "mjchange",
-              label: " ",
-              name: "mjchange",
+              type: 'mjchange',
+              label: ' ',
+              name: 'mjchange',
             },
           ],
         },
       },
     });
 
-    editor.TraitManager.addType("mjchange", {
+    editor.TraitManager.addType('mjchange', {
       noLabel: true,
       createInput({}) {
         let selectedSrc = editor.getSelected();
         let src = selectedSrc!.attributes.attributes!.src;
         const toggleModal = () => {
-          editor.runCommand("open-assets", {
+          editor.runCommand('open-assets', {
             target: editor.getSelected(),
           });
         };
-        const el = document.createElement("div");
-        el.setAttribute("class", "image-trait-preview");
+        const el = document.createElement('div');
+        el.setAttribute('class', 'image-trait-preview');
         el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
                   <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
-        const inputType = el.querySelector("#chg-img-trait-btn");
-        const imgBox = el.querySelector("#gjs_img_preview_logo_rtl");
-        imgBox!.addEventListener("click", toggleModal);
-        inputType!.addEventListener("click", toggleModal);
+        const inputType = el.querySelector('#chg-img-trait-btn');
+        const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
+        imgBox!.addEventListener('click', toggleModal);
+        inputType!.addEventListener('click', toggleModal);
         return el;
       },
     });
-    editor.on("modal:open", (component) => {
+    editor.on('modal:open', (component) => {
       const $ = editor.$;
       const am = editor.AssetManager;
       am.open({
-        types: ["mj-image"],
+        types: ['mj-image'],
         select(assets, complete) {
           const selected = editor.getSelected();
-          console.log("seletcted",selected);
-          if (selected && selected.is("mj-image")) {
-            $("#gjs_img_preview_logo_rtl").attr("src", assets.getSrc());
+          console.log('seletcted', selected);
+          if (selected && selected.is('mj-image')) {
+            $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
             selected.addAttributes({ src: assets.getSrc() });
             complete && editor.AssetManager.close();
           }
-          console.log("after select",selected);
+          console.log('after select', selected);
         },
       });
     });
 
-
-
-
-
-
-
-
-  
-
-  
-
-     
-
-
-
-
-//@ts-ignore
+    //@ts-ignore
     editor.on('style:sector:update', (props) => {
       // Get the selected block
       !isUpdating &&
@@ -441,7 +416,7 @@ const SectionPageBuilder: React.FC = () => {
           isUpdating = true;
           const sectors = sm.getSectors();
           console.log('props', props);
-          console.log("changed")
+          console.log('changed');
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
@@ -456,7 +431,7 @@ const SectionPageBuilder: React.FC = () => {
                 });
 
                 sm.select(`.${ccid} .${props.id}`);
-                console.log("------------")
+                console.log('------------');
               }
             } else {
               sectors.models[i].setOpen(false);
@@ -473,7 +448,7 @@ const SectionPageBuilder: React.FC = () => {
 
     editor.on('component:selected', (component) => {
       if (ccid !== component.ccid) {
-        setccid(component.ccid)
+        setccid(component.ccid);
       }
 
       if (component.get('type') == 'text') {
@@ -485,41 +460,19 @@ const SectionPageBuilder: React.FC = () => {
       if (component.get('type') == 'mj-image') {
         editor?.runCommand('core:open-traits');
       }
-     
-
     });
 
     editor.on('component:update', (component) => {
-
-
       if (component.get('type') == 'text') {
         component.components(component.get('traits').models[0].get('value'));
-        component.components(component.get('traits').models[1].get('class'));
+        // component.components(component.get('traits').models[1].get('class'));
       }
       if (component.get('type') == 'button') {
         component.components(component.get('traits').models[0].get('value'));
         component.components(component.get('traits').models[1].get('class'));
         component.components(component.get('traits').models[2].get('class'));
       }
-   
     });
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     const addAssets = async () => {
       const assetManager = editor?.AssetManager;
@@ -544,74 +497,50 @@ const SectionPageBuilder: React.FC = () => {
     setEditor(editor);
   }, []);
 
-let newDirty = editor?.getDirtyCount();
-console.log("newDirty",newDirty)
+  let newDirty = editor?.getDirtyCount();
+  console.log('newDirty', newDirty);
 
-
-
-const handleCount = ()=>{
-  let dirty = editor?.getDirtyCount();
-  console.log("Dirty Count is here",dirty);
-}
-
-
-
+  const handleCount = () => {
+    let dirty = editor?.getDirtyCount();
+    console.log('Dirty Count is here', dirty);
+  };
 
   // useEffect(() => {
   //   console.log("dirty", dirty)
 
   // }, [dirty]);
 
-
-
-
-
-
-
   const saveHistoy = () => {
     axios
       .post(`${apiEndpoint}/pagehistory`, {
-        PageId: "123456",
+        PageId: '123456',
         pageHistory: JSON.stringify(editor?.getProjectData()),
       })
-      .then((res) => {
-      
-      })
+      .then((res) => {})
       .catch((err) => {
         console.log(err);
       });
     // }
   };
 
-
-
-let check = editor?.getProjectData();
-
-
-
-
+  let check = editor?.getProjectData();
 
   // useEffect(() => {
   //   console.log("ccid ", ccid)
-  //   if (ccid) {  
+  //   if (ccid) {
   //     saveHistoy();
   //   }
   // }, [ccid]);
 
+  // useEffect(() => {
 
-// useEffect(() => {
-
-//     console.log("check")
-// },[check]);
-
-
-
+  //     console.log("check")
+  // },[check]);
 
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="panel__top">
-      </div>
+      <div className="panel__top"></div>
       <div className="editor-row">
         <div className="panel__basic-actions"></div>
         <div className="panel__left">
@@ -624,7 +553,7 @@ let check = editor?.getProjectData();
               <AppsRoundedIcon />
             </span>
           </div>
-          <div className='panel__switcher'></div>
+          <div className="panel__switcher"></div>
           <SidebarBottom editor={editor} />{' '}
           {/*  this warning is stylable. work is in progress*/}
           <div className="styles-container"></div>
