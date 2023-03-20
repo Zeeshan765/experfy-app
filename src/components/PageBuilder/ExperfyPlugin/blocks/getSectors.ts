@@ -1895,7 +1895,6 @@ const obj = {
           name: 'Display',
           property: 'display',
           default: 'show',
-
           options: [
             { value: 'block', name: 'Show' },
             { value: 'none', name: 'Hide' },

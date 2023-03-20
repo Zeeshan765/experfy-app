@@ -22,7 +22,7 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-  const [ccid, setccid] = useState(null);
+  const [ccid, setccid] = useState(null)
   var isUpdating = false;
   const sections = [
     'page-builder',
@@ -166,6 +166,8 @@ const SectionPageBuilder: React.FC = () => {
         blocks: blocks,
         showPanelsOnLoad: true,
         themeStylePanels: true,
+         
+
       });
 
     editor = GrapesJS.init({
@@ -540,7 +542,8 @@ const SectionPageBuilder: React.FC = () => {
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="panel__top"></div>
+      <div className="panel__top">
+      </div>
       <div className="editor-row">
         <div className="panel__basic-actions"></div>
         <div className="panel__left">
