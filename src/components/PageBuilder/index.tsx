@@ -119,7 +119,7 @@ const PageBuilder: React.FC = () => {
       url: `${apiEndpoint}/pagehistory?PageId=${id}`,
     })
       .then((res) => {
-        console.log("fetching data",res.data.docs)
+        console.log('fetching data', res.data.docs);
         setPageHistoryArray(res.data.docs);
       })
       .catch((err) => {
@@ -382,13 +382,13 @@ const PageBuilder: React.FC = () => {
             id: 'save-editor',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-
+              console.log("before changed",isChanged)
               if (isChanged) {
+                console.log("isChanged", isChanged)
                 saveHistoy();
                 const store = editor.store();
                 dataHandler();
                 toast.success('Changes saved successfully');
-                
               }
             },
           },
@@ -396,11 +396,8 @@ const PageBuilder: React.FC = () => {
       },
     });
 
-    //  editor.on('component:mount', (component) => {
-    //   console.log("component mount called");
-    //  });
+   
     function isObjEmpty(obj) {
-      // console.log('obj', obj)
       if (obj === undefined) {
         return true;
       }
@@ -419,25 +416,33 @@ const PageBuilder: React.FC = () => {
     editor.on('component:update', (component) => {
       const { changed } = component;
       const { attributes } = changed;
-      console.log('abcd !isObjEmpty(attributes)', !isObjEmpty(attributes));
-      // console.log('abcd !isObjEmpty(attributes)', !isObjEmpty(attributes));
       if (!isObjEmpty(attributes)) {
-        console.log('abcd  component:update called', component);
         isChanged = true;
       }
     });
 
-    editor.on('component:styleUpdate', (component) => {
-      console.log('component:styleUpdate called', component);
+
+//@ts-ignore
+    editor.on('style:property:update', (component) => {
+      isChanged = true;
+
+      // const um = editor.UndoManager;
+
+      // const stack = um.getStack();
+      // console.log('stack.length, ln', stack.length, ln)
+      // if (stack.length > 0 && ln !== stack.length) {
+      //   console.log('Stack Changes', stack);
+      //   ln = stack.length;
+      //   // stack.map((item) => {
+      //   //   console.log('item type',  component);
+      //   // });
+      //   console.log(
+      //     '----------------------------------------------------------------------'
+      //   );
+      // }
     });
 
-    editor.on('component:type:update', (component) => {
-      console.log('component:type:update called', component);
-    });
 
-    editor.on('styleManager:update:target', (component) => {
-      console.log('styleManager:update:target', component);
-    });
 
     editor.on('load', () => {
       editor.loadProjectData({
@@ -649,9 +654,9 @@ const PageBuilder: React.FC = () => {
         editor?.runCommand('core:open-traits');
       }
 
-      if (isChanged) {
-        saveHistoy();
-      }
+      // if (isChanged) {
+      //   saveHistoy();
+      // }
     });
     editor.on('component:update', (component) => {
       if (component.get('type') == 'text') {
@@ -666,21 +671,6 @@ const PageBuilder: React.FC = () => {
       //  condation  for load when active history
       // if (addHistory) {
       //   pageHistoryHandler();
-      // }
-
-      const um = editor.UndoManager;
-
-      const stack = um.getStack();
-
-      // console.log('Stack Changes', stack);
-      // if (stack.length > 0 && ln !== stack.length) {
-      //   ln = stack.length;
-      //   stack.map((item) => {
-      //     console.log('item type', item.attributes.type, component);
-      //   });
-      //   console.log(
-      //     '----------------------------------------------------------------------'
-      //   );
       // }
     });
     //This is for all section templates Style Manager
@@ -698,26 +688,24 @@ const PageBuilder: React.FC = () => {
     editor.on('style:sector:update', (props) => {
       console.log('style:sector:update', props);
 
-      // Get the selected block
+      
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
           var selectedBlock = editor.getSelected();
-         
+
           const { ccid } = selectedBlock;
-        
+
           isUpdating = true;
           const sectors = sm.getSectors();
-       
+
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
-            
               let isOpen = sectors.models[i].isOpen();
               if (isOpen) {
                 editor.select(sectors.models[i]);
 
-              
                 sectors.models[i].set({
                   open: true,
                   active: true,
