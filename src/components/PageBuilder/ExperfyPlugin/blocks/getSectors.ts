@@ -181,7 +181,7 @@ let color = {
   type: 'color',
   name: 'Color',
   property: 'color',
-  default: '#ea4c89',
+  // default: '#ea4c89',
   colorPicker: {
     preferredFormat: 'hex',
     showInput: true,
@@ -193,7 +193,7 @@ let backgroundColor = {
   type: 'color',
   name: 'Background Color',
   property: 'background-color',
-  default: '#ea4c89',
+  // default: '#ea4c89',
   colorPicker: {
     preferredFormat: 'hex',
     showInput: true,
@@ -329,47 +329,41 @@ const widthOptions = [
 ];
 
 const obj = {
-  header_1: [
+  headerSector: [
     {
-      name: 'Header',
+      name: 'Background',
       open: false,
-      id: 'header-bd',
-
+      id: 'headerSector',
+      buildProps: ['background-image'],
+      // properties: [backgroundColor],
       properties: [
-        typography,
-        color,
-        backgroundColor,
         {
           type: 'color',
-          name: 'Border Color',
-          property: 'border-color',
+          name: 'Background Color',
+          property: 'background-color',
+          // default: '#ea4c89',
           colorPicker: {
             preferredFormat: 'hex',
             showInput: true,
           },
         },
-        {
-          type: 'composite',
-          name: 'Border Width',
-          property: 'border-width',
-          properties: widthOptions,
-        },
-        {
-          type: 'select',
-          name: 'Border Style',
-          property: 'border-style',
-          options: borderStyleOptions,
-        },
       ],
+    },
+
+    {
+      name: 'Header Text Color',
+      open: false,
+      id: 'a',
+
+      properties: [typography, color],
     },
     {
       name: 'Logo',
       open: false,
       id: 'header-svg',
-      buildProps: ['border-radius', 'animation-name', 'backdrop-filter'],
+      buildProps: ['animation-name', 'backdrop-filter'],
 
       properties: [
-        backgroundColor,
         {
           type: 'composite',
           name: 'Border Radius',
@@ -379,6 +373,7 @@ const obj = {
         {
           type: 'color',
           name: 'Border Color',
+          property: 'border-color',
           preferredFormat: 'hex',
           showInput: true,
         },
@@ -477,135 +472,135 @@ const obj = {
       ],
     },
 
-    {
-      name: 'Border',
-      open: false,
-      id: 'header-bd',
-      properties: [
-        {
-          type: 'color',
-          name: 'Border Color',
-          property: 'border-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-        {
-          type: 'composite',
-          name: 'Border Width',
-          property: 'border-width',
-          properties: widthOptions,
-        },
-        {
-          type: 'select',
-          name: 'Border Style',
-          property: 'border-style',
-          options: borderStyleOptions,
-        },
-      ],
-    },
-    {
-      name: 'Divider',
-      open: true,
-      properties: [
-        {
-          type: 'color',
-          name: 'Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Weight',
-          property: 'height',
-          default: 2,
-          units: 'px',
-        },
-        {
-          type: 'slider',
-          name: 'Gap',
-          property: 'gap',
-          default: 0,
-          units: 'px',
-        },
-      ],
-    },
-    {
-      name: 'Social Media',
-      open: true,
+    // {
+    //   name: 'Border',
+    //   open: false,
+    //   id: 'header-bd',
+    //   properties: [
+    //     {
+    //       type: 'color',
+    //       name: 'Border Color',
+    //       property: 'border-color',
+    //       colorPicker: {
+    //         preferredFormat: 'hex',
+    //         showInput: true,
+    //       },
+    //     },
+    //     {
+    //       type: 'composite',
+    //       name: 'Border Width',
+    //       property: 'border-width',
+    //       properties: widthOptions,
+    //     },
+    //     {
+    //       type: 'select',
+    //       name: 'Border Style',
+    //       property: 'border-style',
+    //       options: borderStyleOptions,
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: 'Divider',
+    //   open: true,
+    //   properties: [
+    //     {
+    //       type: 'color',
+    //       name: 'Color',
+    //       property: 'color',
+    //       colorPicker: {
+    //         preferredFormat: 'hex',
+    //         showInput: true,
+    //       },
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Weight',
+    //       property: 'height',
+    //       default: 2,
+    //       units: 'px',
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Gap',
+    //       property: 'gap',
+    //       default: 0,
+    //       units: 'px',
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: 'Social Media',
+    //   open: true,
 
-      properties: [
-        {
-          type: 'color',
-          name: 'Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'color',
-          name: 'Border Color',
-          property: 'border-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-        {
-          type: 'composite',
-          name: 'Border Width',
-          property: 'border-width',
-          properties: widthOptions,
-        },
-        {
-          type: 'select',
-          name: 'Border Style',
-          property: 'border-style',
-          options: borderStyleOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Size',
-          property: 'width',
-          default: '14px',
-          attributes: {
-            'data-type': 'width',
-            'data-target': 'social-media',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Padding',
-          property: 'padding',
-          buildProps: ['padding'],
-          dheadingefault: '10px',
-          units: 'px',
-        },
-        {
-          type: 'slider',
-          name: 'Spacing',
-          property: 'letter-spacing',
-          default: '5px',
-          units: 'px',
-        },
-        {
-          type: 'slider',
-          name: 'Rows Gap',
-          property: 'gap',
-          default: '10px',
-          units: 'px',
-        },
-      ],
-    },
+    //   properties: [
+    //     {
+    //       type: 'color',
+    //       name: 'Color',
+    //       property: 'color',
+    //       colorPicker: {
+    //         preferredFormat: 'hex',
+    //         showInput: true,
+    //       },
+    //       attributes: {
+    //         'data-type': 'color',
+    //       },
+    //     },
+    //     {
+    //       type: 'color',
+    //       name: 'Border Color',
+    //       property: 'border-color',
+    //       colorPicker: {
+    //         preferredFormat: 'hex',
+    //         showInput: true,
+    //       },
+    //     },
+    //     {
+    //       type: 'composite',
+    //       name: 'Border Width',
+    //       property: 'border-width',
+    //       properties: widthOptions,
+    //     },
+    //     {
+    //       type: 'select',
+    //       name: 'Border Style',
+    //       property: 'border-style',
+    //       options: borderStyleOptions,
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Size',
+    //       property: 'width',
+    //       default: '14px',
+    //       attributes: {
+    //         'data-type': 'width',
+    //         'data-target': 'social-media',
+    //       },
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Padding',
+    //       property: 'padding',
+    //       buildProps: ['padding'],
+    //       dheadingefault: '10px',
+    //       units: 'px',
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Spacing',
+    //       property: 'letter-spacing',
+    //       default: '5px',
+    //       units: 'px',
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Rows Gap',
+    //       property: 'gap',
+    //       default: '10px',
+    //       units: 'px',
+    //     },
+    //   ],
+    // },
   ],
   footerSector: [
     {
@@ -1500,14 +1495,14 @@ const obj = {
       open: false,
       properties: [color, typography],
       id: 'main-number-heading',
-      changeProp: 1
+      changeProp: 1,
     },
     {
       name: 'Sub Heading',
       open: false,
       id: 'sub-number-heading',
       properties: [color, typography],
-      changeProp: 1
+      changeProp: 1,
     },
     {
       name: 'Numbers',

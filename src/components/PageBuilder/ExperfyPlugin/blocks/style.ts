@@ -467,6 +467,12 @@ export const headerstyle = `
   }
 }
 
+
+.header-container a {
+display: flex;
+align-items: center;
+justify-content: center;
+}
 .logo-link {
   display: flex;
   align-items: center;
@@ -485,6 +491,9 @@ export const headerstyle = `
   .header-navabr {
     margin-left: 0rem;
   }
+}
+.header-navabr{
+  display: flex;
 }
 .header-navabr a {
 

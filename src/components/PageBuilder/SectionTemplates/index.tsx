@@ -13,6 +13,7 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import SidebarBottom from '../SidebarBottom';
 import { canvasStyle, devices } from '../utils';
+import {headerstyle} from "../ExperfyPlugin/style";
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -22,7 +23,7 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-  const [ccid, setccid] = useState(null)
+  const [ccid, setccid] = useState(null);
   var isUpdating = false;
   const sections = [
     'page-builder',
@@ -126,27 +127,30 @@ const SectionPageBuilder: React.FC = () => {
           nav.map((navItem: { link: { label: any; url: any } }) => {
             const { label, url } = navItem.link;
             let href = `${url}`;
-            return (linksDiv += `<a href="${href}" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">${label}</a>`);
+            return (linksDiv += `<a href="${href}" class="a mr-5" style="margin: 0px 20px;">${label}</a>`);
           });
 
           let content = `
-                    <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
-                      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                          <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
-                            <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
-                            <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50ae81"/>
-                          </svg>
-                          <span class="ml-3 text-xl" style="color:#ffffff; font-weight:700; font-size:28px;">Logo</span>
-                        </a>
-                        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                        ${linksDiv}
-                      </div>
-                    </header>`;
+                           <header id="headerSector" class="header-container headerSector" style="padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center;">
+   
+                    <a  class="a" style="display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                    align-items: center;">
+                    <img data-gjs-type="mj-image" class="header-svg" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" style="width: 30%; height:auto;" id="gjs_img_preview_logo_rtl"/>
+                      <span class="header-logo-text header-bg">Logo</span>
+                    </a>
+                    <nav class="header-navabr">
+                    ${linksDiv}
+                 
+                  
+                 
+                   </header>
+                
+                   `;
 
           block.set('content', content);
 
-          console.log('block********', block.set('content', content));
         }
       })
       .catch((error) => {
@@ -166,8 +170,6 @@ const SectionPageBuilder: React.FC = () => {
         blocks: blocks,
         showPanelsOnLoad: true,
         themeStylePanels: true,
-         
-
       });
 
     editor = GrapesJS.init({
@@ -372,6 +374,7 @@ const SectionPageBuilder: React.FC = () => {
       createInput({}) {
         let selectedSrc = editor.getSelected();
         let src = selectedSrc!.attributes.attributes!.src;
+        console.log("src", src)
         const toggleModal = () => {
           editor.runCommand('open-assets', {
             target: editor.getSelected(),
@@ -422,6 +425,8 @@ const SectionPageBuilder: React.FC = () => {
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
+              console.log("model id",modelId)
+              console.log("props id",props.id)
               let isOpen = sectors.models[i].isOpen();
               if (isOpen) {
                 editor.select(sectors.models[i]);
@@ -433,7 +438,7 @@ const SectionPageBuilder: React.FC = () => {
                 });
 
                 sm.select(`.${ccid} .${props.id}`);
-                console.log('------------');
+               
               }
             } else {
               sectors.models[i].setOpen(false);
@@ -542,8 +547,7 @@ const SectionPageBuilder: React.FC = () => {
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="panel__top">
-      </div>
+      <div className="panel__top"></div>
       <div className="editor-row">
         <div className="panel__basic-actions"></div>
         <div className="panel__left">
