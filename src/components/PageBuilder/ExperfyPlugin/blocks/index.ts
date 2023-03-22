@@ -63,6 +63,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: ` 
 
     <header id="headerSector" class="header-container headerSector">
+    <div class="header-gym">
    
     <a  class="a">
 
@@ -75,7 +76,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <a class="a" >About</a>
     <a class="a">Services</a>
     <a class="a">Contact</a></nav>
- 
+    </div>
   
  
    </header>

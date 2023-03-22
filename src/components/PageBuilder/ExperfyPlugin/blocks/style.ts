@@ -467,7 +467,14 @@ export const headerstyle = `
   }
 }
 
+.header-gym{
 
+
+  padding:1.5rem 2rem; 
+  display:flex; 
+  justify-content:space-between;
+   align-items:center;
+}
 .header-container a {
 display: flex;
 align-items: center;

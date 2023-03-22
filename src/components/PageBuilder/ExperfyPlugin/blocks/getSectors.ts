@@ -333,7 +333,7 @@ const obj = {
     {
       name: 'Background',
       open: false,
-      id: 'headerSector',
+      id: 'header-gym',
       buildProps: ['background-image'],
       // properties: [backgroundColor],
       properties: [
