@@ -136,7 +136,6 @@ export const paragraphStyle = `
   }
 
   .paragraph-container h6{
-    text-align: justify;
     margin-left: auto;
     margin-right: auto; 
  
