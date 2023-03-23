@@ -122,6 +122,7 @@ align-items: center;
 export const paragraphStyle = `
 <style> 
 .main-paragraph-wrapper .paragraph-container{
+  display: grid;
   width: 100%;
   padding: 6rem 3.25rem;
   margin-left: auto;
@@ -135,6 +136,7 @@ export const paragraphStyle = `
   }
 
   .paragraph-container h6{
+    text-align: justify;
     margin-left: auto;
     margin-right: auto; 
  
@@ -198,18 +200,13 @@ export const ImageText = `
 export const talentCloud = `
 <style>
 .talent-cloud-main-wrapper{
-  padding:50px; 
-  background-color:#399918;
-  padding-left: 1rem;
-  padding-right: 1rem; 
-  margin-left: auto;
-  margin-right: auto; 
+  
 }
 
 .talent-cloud-main-wrapper .talent-cloud-container{
   display: flex;
-  align-items:center; 
-  margin:50px 150px;
+  justify-content: center;
+  align-items: center;
   
 }
 
@@ -221,8 +218,6 @@ margin-left: auto;
 width: 65%; 
 }
 .talent-cloud-main-wrapper .talent-cloud-container .img-holder img{
-width : 100%;
-height: 100%;
 object-fit: cover;
 }
 
@@ -479,6 +474,11 @@ export const headerstyle = `
   justify-content:space-between;
    align-items:center;
 }
+@media (min-width: 768px) {
+  .header-gym {
+   background-color: #2f3d55;
+  }
+}
 .header-container a {
 display: flex;
 align-items: center;
@@ -523,8 +523,11 @@ export const locationStyle = `
 <style>
 
 .location-container{
+   
+}
+.location-content{
   display: flex; 
-  padding: 3rem 3rem; 
+  padding: 3rem 3rem;
 }
 
 .address-content-main-holder{

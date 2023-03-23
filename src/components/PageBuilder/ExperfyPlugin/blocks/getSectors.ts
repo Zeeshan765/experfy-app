@@ -878,6 +878,23 @@ const obj = {
   ],
   benefitSector: [
     {
+      name: 'Background',
+      open: false,
+      id: 'benefits-container',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+    {
       name: 'Main Heading',
       open: false,
       id: 'main-benefit-heading',
@@ -893,32 +910,57 @@ const obj = {
     {
       name: 'Icon',
       open: false,
-      id: 'icon-benefit',
+      id: 'image-benefit',
       properties: [
-        {
-          type: 'color',
-          name: 'Primary Color',
 
-          property: 'fill',
-          colorPicker: {
+          {
+            type: 'composite',
+            name: 'Border Radius',
+            property: 'border-radius',
+            properties: widthOptions,
+          },
+          {
+            type: 'color',
+            name: 'Border Color',
+            property: 'border-color',
             preferredFormat: 'hex',
             showInput: true,
           },
-        },
-
-        {
-          type: 'slider',
-          name: 'Icon Size',
-          property: 'width',
-        },
-        {
-          type: 'slider',
-          name: 'Padding',
-          property: 'padding',
-          default: '0',
-          units: ['px', 'rem'],
-        },
-      ],
+  
+          {
+            type: 'composite',
+            name: 'Border Width',
+            property: 'border-width',
+            properties: widthOptions,
+          },
+          {
+            type: 'select',
+            name: 'Border Style',
+            property: 'border-style',
+            options: borderStyleOptions,
+          },
+          {
+            type: 'slider',
+            name: 'Icon Size',
+            property: 'width',
+            default: '100%',
+            min: 0,
+            max: 100,
+            units: ['%', 'px'],
+          },
+  
+          {
+            type: 'slider',
+            name: 'Opacity',
+            property: 'opacity',
+            default: 1,
+            step: 1,
+            min: 0,
+            max: 100,
+            units: ['%'],
+          },
+        ],
+    
     },
     {
       name: 'Icon Heading',
@@ -1491,6 +1533,23 @@ const obj = {
 
   numbersSection: [
     {
+      name: 'Background',
+      open: false,
+      id: 'number-container-div',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+    {
       name: 'Main Heading',
       open: false,
       properties: [color, typography],
@@ -2050,6 +2109,23 @@ const obj = {
 
   locationSector: [
     {
+      name: 'Background',
+      open: false,
+      id: 'location-content',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+    {
       name: 'Main Heading',
       open: false,
       id: 'main-location-heading',
@@ -2103,21 +2179,56 @@ const obj = {
     {
       name: 'Icon',
       open: false,
-      id: 'svg-location',
+      id: 'image-location',
       properties: [
-        {
-          type: 'color',
-          name: 'Primary Color',
-          property: 'fill',
-          default: '#e6e6e6',
-        },
-
-        {
-          type: 'slider',
-          name: 'Icon Size',
-          property: 'icon-size',
-          default: '0',
-        },
+        
+          {
+            type: 'composite',
+            name: 'Border Radius',
+            property: 'border-radius',
+            properties: widthOptions,
+          },
+          {
+            type: 'color',
+            name: 'Border Color',
+            property: 'border-color',
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+  
+          {
+            type: 'composite',
+            name: 'Border Width',
+            property: 'border-width',
+            properties: widthOptions,
+          },
+          {
+            type: 'select',
+            name: 'Border Style',
+            property: 'border-style',
+            options: borderStyleOptions,
+          },
+          {
+            type: 'slider',
+            name: 'Width',
+            property: 'width',
+            default: '100%',
+            min: 0,
+            max: 100,
+            units: ['%', 'px'],
+          },
+  
+          {
+            type: 'slider',
+            name: 'Opacity',
+            property: 'opacity',
+            default: 1,
+            step: 1,
+            min: 0,
+            max: 100,
+            units: ['%'],
+          },
+       
         {
           type: 'slider',
           name: 'Padding',
@@ -2131,6 +2242,23 @@ const obj = {
 
   talentSector: [
     {
+      name: 'Background',
+      open: false,
+      id: 'talent-cloud-container',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+    {
       name: 'Main Heading',
       open: false,
       id: 'main-talent-heading',
@@ -2141,6 +2269,59 @@ const obj = {
       open: false,
       id: 'sub-talent-heading',
       properties: [color, typography],
+    },
+    {
+      name: 'Image Gallery',
+      open: false,
+      id: 'talent-image',
+      properties: [
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        },
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          preferredFormat: 'hex',
+          showInput: true,
+        },
+
+        {
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+        },
+        {
+          type: 'select',
+          name: 'Border Style',
+          property: 'border-style',
+          options: borderStyleOptions,
+        },
+        {
+          type: 'slider',
+          name: 'Width',
+          property: 'width',
+          default: '100%',
+          min: 0,
+          max: 100,
+          units: ['%', 'px'],
+        },
+
+        {
+          type: 'slider',
+          name: 'Opacity',
+          property: 'opacity',
+          default: 1,
+          step: 1,
+          min: 0,
+          max: 100,
+          units: ['%'],
+        },
+      ],
     },
   ],
 
