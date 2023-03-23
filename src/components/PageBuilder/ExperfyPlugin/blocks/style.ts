@@ -122,7 +122,7 @@ align-items: center;
 export const paragraphStyle = `
 <style> 
 .main-paragraph-wrapper .paragraph-container{
-  width: 90%;
+  width: 100%;
   padding: 6rem 3.25rem;
   margin-left: auto;
   margin-right: auto; 
@@ -301,15 +301,19 @@ export const video = `
 export const ImageBanner = `
 <style>
 .main-banner-container{
-  background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/00/02/44/5056179b42b174f.jpg);
-  padding:40px 40px;
-}
 
+}
+.bannar-content{
+  display: grid;
+  padding: 40px 40px;
+  
+}
 .bannar-content h1 {
   text-align: center;
   
 }
  .bannar-content h6 {
+  align-items: justify;
   text-align: left;
  
 }
@@ -317,7 +321,7 @@ export const ImageBanner = `
 
 .bannar-content  .h6{
  
-  text-align:left;
+  text-align:justify;
 
   margin: 0px auto 20px;
 }

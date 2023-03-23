@@ -1791,6 +1791,28 @@ const obj = {
     },
   ],
   paragraphSector: [
+
+    {
+      name: 'Background',
+      open: false,
+      id: 'paragraph-container',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+
+
+
+
     {
       name: 'Main Heading',
       open: false,
@@ -1806,6 +1828,24 @@ const obj = {
   ],
 
   bannerSector: [
+    {
+      name: 'Background',
+      open: false,
+      id: 'bannar-content',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+
     {
       name: 'Main Heading',
       id: 'main-banner-heading',

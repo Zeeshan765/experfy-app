@@ -658,7 +658,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   `,
     content: `<section id="bannerSector" class="main-banner-container bannerSector">
         
-      <div class="bannar-wrap">
+      
       <div class="bannar-content">
          <h1 class="h1 main-banner-heading">Add your heading title here</h1>
          <h6 class="h6 sub-banner-heading">Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -672,7 +672,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
          </div>
 
       </div>
-   </div>
+  
 
         </section>
         ${ImageBanner}
