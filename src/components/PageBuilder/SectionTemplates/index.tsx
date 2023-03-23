@@ -13,6 +13,7 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import SidebarBottom from '../SidebarBottom';
 import { canvasStyle, devices } from '../utils';
+import {headerstyle} from "../ExperfyPlugin/style";
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -22,7 +23,7 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-  const [ccid, setccid] = useState(null)
+  const [ccid, setccid] = useState(null);
   var isUpdating = false;
   const sections = [
     'page-builder',
@@ -57,7 +58,6 @@ const SectionPageBuilder: React.FC = () => {
     ]);
   }, [setStepNav]);
 
-
   let TextTrait = [
     {
       type: 'text',
@@ -68,7 +68,7 @@ const SectionPageBuilder: React.FC = () => {
     },
     {
       type: 'select',
-      name: 'class',
+      name: 'tagName',
       label: 'HTML Tag',
       ChangeProp: 1,
       default: 'h1',
@@ -83,6 +83,18 @@ const SectionPageBuilder: React.FC = () => {
         { id: 'span', name: 'span' },
         { id: 'p', name: 'p' },
       ],
+      // type: 'select',
+      // options: [
+      //   { value: 'h1', name: 'Heading 1' },
+      //   { value: 'h2', name: 'Heading 2' },
+      //   { value: 'h3', name: 'Heading 3' },
+      //   { value: 'h4', name: 'Heading 4' },
+      //   { value: 'h5', name: 'Heading 5' },
+      //   { value: 'h6', name: 'Heading 6' },
+      // ],
+      // label: 'Size',
+      // name: 'tagName',
+      changeProp: 1,
     },
     {
       type: 'select',
@@ -96,16 +108,6 @@ const SectionPageBuilder: React.FC = () => {
       ],
     },
   ];
-
-
-
-
-
-
-
-
-
-
 
   const updateHeaderBlock = async () => {
     axios
@@ -125,27 +127,33 @@ const SectionPageBuilder: React.FC = () => {
           nav.map((navItem: { link: { label: any; url: any } }) => {
             const { label, url } = navItem.link;
             let href = `${url}`;
-            return (linksDiv += `<a href="${href}" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">${label}</a>`);
+            return (linksDiv += `<a href="${href}" class="a mr-5" style="margin: 0px 20px;">${label}</a>`);
           });
 
           let content = `
-                    <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
-                      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                          <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
-                            <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
-                            <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50ae81"/>
-                          </svg>
-                          <span class="ml-3 text-xl" style="color:#ffffff; font-weight:700; font-size:28px;">Logo</span>
-                        </a>
-                        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                        ${linksDiv}
-                      </div>
-                    </header>`;
+                           <header id="headerSector" class="header-container headerSector">
+   <div class="header-gym" style="padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center;">
+   
+   
+   <a  class="a" style="display: flex;
+   justify-content: center;
+   gap: 20px;
+   align-items: center;">
+   <img data-gjs-type="mj-image" class="header-svg" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" id="gjs_img_preview_logo_rtl"/>
+     <span class="header-logo-text header-bg">Logo</span>
+   </a>
+   <nav class="header-navabr">
+   ${linksDiv}
+
+ 
+   </div>
+                 
+                   </header>
+                
+                   `;
 
           block.set('content', content);
 
-          console.log('block********', block.set('content', content));
         }
       })
       .catch((error) => {
@@ -165,8 +173,6 @@ const SectionPageBuilder: React.FC = () => {
         blocks: blocks,
         showPanelsOnLoad: true,
         themeStylePanels: true,
-         
-
       });
 
     editor = GrapesJS.init({
@@ -251,15 +257,18 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
-
-
-
     editor.DomComponents.addType('text', {
       model: {
         defaults: {
           traits: TextTrait,
         },
-        changeProp: 1,
+        // changeProp: 1,
+        init() {
+          this.on('change:attributes:htmltag', this.handleHtmltagChange);
+        },
+        handleHtmltagChange() {
+          this.set('tagName', this.getAttributes().htmltag);
+        },
       },
     });
 
@@ -303,18 +312,8 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-
-
-
-
-
-
-
-
-
-
     editor.DomComponents.addType('mj-image', {
-      isComponent: (el: any) => el.tagName === "MJ-IMAGE",
+      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
       model: {
         defaults: {
           traits: [
@@ -322,9 +321,9 @@ const SectionPageBuilder: React.FC = () => {
               type: 'text',
               name: 'title',
               label: 'Title',
-              placeholder: 'Enter Title Here', 
+              placeholder: 'Enter Title Here',
             },
- {
+            {
               type: 'select',
               name: 'class',
               label: 'HTML Tag',
@@ -352,84 +351,68 @@ const SectionPageBuilder: React.FC = () => {
                 { value: 'right', name: 'Right' },
               ],
             },
-           
           ],
         },
       },
     });
 
-// Image  Trait
-    editor.DomComponents.addType("mj-image", {
-      isComponent: (el: any) => el.tagName === "MJ-IMAGE",
+    // Image  Trait
+    editor.DomComponents.addType('mj-image', {
+      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
       model: {
         defaults: {
           traits: [
             {
-              type: "mjchange",
-              label: " ",
-              name: "mjchange",
+              type: 'mjchange',
+              label: ' ',
+              name: 'mjchange',
             },
           ],
         },
       },
     });
 
-    editor.TraitManager.addType("mjchange", {
+    editor.TraitManager.addType('mjchange', {
       noLabel: true,
       createInput({}) {
         let selectedSrc = editor.getSelected();
         let src = selectedSrc!.attributes.attributes!.src;
+        console.log("src", src)
         const toggleModal = () => {
-          editor.runCommand("open-assets", {
+          editor.runCommand('open-assets', {
             target: editor.getSelected(),
           });
         };
-        const el = document.createElement("div");
-        el.setAttribute("class", "image-trait-preview");
+        const el = document.createElement('div');
+        el.setAttribute('class', 'image-trait-preview');
         el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
                   <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
-        const inputType = el.querySelector("#chg-img-trait-btn");
-        const imgBox = el.querySelector("#gjs_img_preview_logo_rtl");
-        imgBox!.addEventListener("click", toggleModal);
-        inputType!.addEventListener("click", toggleModal);
+        const inputType = el.querySelector('#chg-img-trait-btn');
+        const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
+        imgBox!.addEventListener('click', toggleModal);
+        inputType!.addEventListener('click', toggleModal);
         return el;
       },
     });
-    editor.on("modal:open", (component) => {
+    editor.on('modal:open', (component) => {
       const $ = editor.$;
       const am = editor.AssetManager;
       am.open({
-        types: ["mj-image"],
+        types: ['mj-image'],
         select(assets, complete) {
           const selected = editor.getSelected();
-          console.log("seletcted",selected);
-          if (selected && selected.is("mj-image")) {
-            $("#gjs_img_preview_logo_rtl").attr("src", assets.getSrc());
+          console.log('seletcted', selected);
+          if (selected && selected.is('mj-image')) {
+            $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
             selected.addAttributes({ src: assets.getSrc() });
             complete && editor.AssetManager.close();
           }
-          console.log("after select",selected);
+          console.log('after select', selected);
         },
       });
     });
 
-
-
-
-
-
-
-
-  
-
-  
-
-     
-
-
-
-
-//@ts-ignore
+    //@ts-ignore
     editor.on('style:sector:update', (props) => {
       // Get the selected block
       !isUpdating &&
@@ -441,10 +424,12 @@ const SectionPageBuilder: React.FC = () => {
           isUpdating = true;
           const sectors = sm.getSectors();
           console.log('props', props);
-          console.log("changed")
+          console.log('changed');
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
+              console.log("model id",modelId)
+              console.log("props id",props.id)
               let isOpen = sectors.models[i].isOpen();
               if (isOpen) {
                 editor.select(sectors.models[i]);
@@ -456,7 +441,7 @@ const SectionPageBuilder: React.FC = () => {
                 });
 
                 sm.select(`.${ccid} .${props.id}`);
-                console.log("------------")
+               
               }
             } else {
               sectors.models[i].setOpen(false);
@@ -473,7 +458,7 @@ const SectionPageBuilder: React.FC = () => {
 
     editor.on('component:selected', (component) => {
       if (ccid !== component.ccid) {
-        setccid(component.ccid)
+        setccid(component.ccid);
       }
 
       if (component.get('type') == 'text') {
@@ -485,41 +470,19 @@ const SectionPageBuilder: React.FC = () => {
       if (component.get('type') == 'mj-image') {
         editor?.runCommand('core:open-traits');
       }
-     
-
     });
 
     editor.on('component:update', (component) => {
-
-
       if (component.get('type') == 'text') {
         component.components(component.get('traits').models[0].get('value'));
-        component.components(component.get('traits').models[1].get('class'));
+        // component.components(component.get('traits').models[1].get('class'));
       }
       if (component.get('type') == 'button') {
         component.components(component.get('traits').models[0].get('value'));
         component.components(component.get('traits').models[1].get('class'));
         component.components(component.get('traits').models[2].get('class'));
       }
-   
     });
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     const addAssets = async () => {
       const assetManager = editor?.AssetManager;
@@ -544,74 +507,50 @@ const SectionPageBuilder: React.FC = () => {
     setEditor(editor);
   }, []);
 
-let newDirty = editor?.getDirtyCount();
-console.log("newDirty",newDirty)
+  let newDirty = editor?.getDirtyCount();
+  console.log('newDirty', newDirty);
 
-
-
-const handleCount = ()=>{
-  let dirty = editor?.getDirtyCount();
-  console.log("Dirty Count is here",dirty);
-}
-
-
-
+  const handleCount = () => {
+    let dirty = editor?.getDirtyCount();
+    console.log('Dirty Count is here', dirty);
+  };
 
   // useEffect(() => {
   //   console.log("dirty", dirty)
 
   // }, [dirty]);
 
-
-
-
-
-
-
   const saveHistoy = () => {
     axios
       .post(`${apiEndpoint}/pagehistory`, {
-        PageId: "123456",
+        PageId: '123456',
         pageHistory: JSON.stringify(editor?.getProjectData()),
       })
-      .then((res) => {
-      
-      })
+      .then((res) => {})
       .catch((err) => {
         console.log(err);
       });
     // }
   };
 
-
-
-let check = editor?.getProjectData();
-
-
-
-
+  let check = editor?.getProjectData();
 
   // useEffect(() => {
   //   console.log("ccid ", ccid)
-  //   if (ccid) {  
+  //   if (ccid) {
   //     saveHistoy();
   //   }
   // }, [ccid]);
 
+  // useEffect(() => {
 
-// useEffect(() => {
-
-//     console.log("check")
-// },[check]);
-
-
-
+  //     console.log("check")
+  // },[check]);
 
   return (
     <div className="main__content">
       <Eyebrow />
-      <div className="panel__top">
-      </div>
+      <div className="panel__top"></div>
       <div className="editor-row">
         <div className="panel__basic-actions"></div>
         <div className="panel__left">
@@ -624,7 +563,7 @@ let check = editor?.getProjectData();
               <AppsRoundedIcon />
             </span>
           </div>
-          <div className='panel__switcher'></div>
+          <div className="panel__switcher"></div>
           <SidebarBottom editor={editor} />{' '}
           {/*  this warning is stylable. work is in progress*/}
           <div className="styles-container"></div>

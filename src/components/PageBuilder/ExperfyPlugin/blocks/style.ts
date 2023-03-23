@@ -1,55 +1,7 @@
 export const getStyles = (parentClass: any) => {
   return `<style>
   ${parentClass.map(
-    (el) => `  ${el} .h1 {
-    font-size: 32px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  
-  
-  ${el} .h2 {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  
-  ${el} .h3 {
-    font-size: 19px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .h4 {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .h5 {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .h6 {
-    font-size: 11px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .span {
-    font-size: 10px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .div {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .p {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  ${el} .left {
+    (el) => `${el} .left {
     text-align: left;
   }
   ${el} .center {
@@ -170,7 +122,8 @@ align-items: center;
 export const paragraphStyle = `
 <style> 
 .main-paragraph-wrapper .paragraph-container{
-  width: 90%;
+  display: grid;
+  width: 100%;
   padding: 6rem 3.25rem;
   margin-left: auto;
   margin-right: auto; 
@@ -246,18 +199,13 @@ export const ImageText = `
 export const talentCloud = `
 <style>
 .talent-cloud-main-wrapper{
-  padding:50px; 
-  background-color:#399918;
-  padding-left: 1rem;
-  padding-right: 1rem; 
-  margin-left: auto;
-  margin-right: auto; 
+  
 }
 
 .talent-cloud-main-wrapper .talent-cloud-container{
   display: flex;
-  align-items:center; 
-  margin:50px 150px;
+  justify-content: center;
+  align-items: center;
   
 }
 
@@ -269,8 +217,6 @@ margin-left: auto;
 width: 65%; 
 }
 .talent-cloud-main-wrapper .talent-cloud-container .img-holder img{
-width : 100%;
-height: 100%;
 object-fit: cover;
 }
 
@@ -349,15 +295,19 @@ export const video = `
 export const ImageBanner = `
 <style>
 .main-banner-container{
-  background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/00/02/44/5056179b42b174f.jpg);
-  padding:40px 40px;
-}
 
+}
+.bannar-content{
+  display: grid;
+  padding: 40px 40px;
+  
+}
 .bannar-content h1 {
   text-align: center;
   
 }
  .bannar-content h6 {
+  align-items: justify;
   text-align: left;
  
 }
@@ -365,7 +315,7 @@ export const ImageBanner = `
 
 .bannar-content  .h6{
  
-  text-align:left;
+  text-align:justify;
 
   margin: 0px auto 20px;
 }
@@ -515,6 +465,24 @@ export const headerstyle = `
   }
 }
 
+.header-gym{
+
+
+  padding:1.5rem 2rem; 
+  display:flex; 
+  justify-content:space-between;
+   align-items:center;
+}
+@media (min-width: 768px) {
+  .header-gym {
+   background-color: #2f3d55;
+  }
+}
+.header-container a {
+display: flex;
+align-items: center;
+justify-content: center;
+}
 .logo-link {
   display: flex;
   align-items: center;
@@ -534,6 +502,9 @@ export const headerstyle = `
     margin-left: 0rem;
   }
 }
+.header-navabr{
+  display: flex;
+}
 .header-navabr a {
 
   margin: 0px 20px;
@@ -551,8 +522,11 @@ export const locationStyle = `
 <style>
 
 .location-container{
+   
+}
+.location-content{
   display: flex; 
-  padding: 3rem 3rem; 
+  padding: 3rem 3rem;
 }
 
 .address-content-main-holder{

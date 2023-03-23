@@ -181,7 +181,7 @@ let color = {
   type: 'color',
   name: 'Color',
   property: 'color',
-  default: '#ea4c89',
+  // default: '#ea4c89',
   colorPicker: {
     preferredFormat: 'hex',
     showInput: true,
@@ -193,7 +193,7 @@ let backgroundColor = {
   type: 'color',
   name: 'Background Color',
   property: 'background-color',
-  default: '#ea4c89',
+  // default: '#ea4c89',
   colorPicker: {
     preferredFormat: 'hex',
     showInput: true,
@@ -328,49 +328,42 @@ const widthOptions = [
   },
 ];
 
-
 const obj = {
-  header_1: [
+  headerSector: [
     {
-      name: 'Header',
+      name: 'Background',
       open: false,
-      id:'header-bd',
-
+      id: 'header-gym',
+      buildProps: ['background-image'],
+      // properties: [backgroundColor],
       properties: [
-        typography,
-        color,
-        backgroundColor,
         {
           type: 'color',
-          name: 'Border Color',
-          property: 'border-color',
+          name: 'Background Color',
+          property: 'background-color',
+          // default: '#ea4c89',
           colorPicker: {
             preferredFormat: 'hex',
             showInput: true,
           },
         },
-        {
-          type: 'composite',
-          name: 'Border Width',
-          property: 'border-width',
-          properties: widthOptions,
-        },
-        {
-          type: 'select',
-          name: 'Border Style',
-          property: 'border-style',
-          options: borderStyleOptions,
-        },
       ],
+    },
+
+    {
+      name: 'Header Text Color',
+      open: false,
+      id: 'a',
+
+      properties: [typography, color],
     },
     {
       name: 'Logo',
       open: false,
-      id:'header-svg',
-      buildProps: ['border-radius', 'animation-name', 'backdrop-filter'],
+      id: 'header-svg',
+      buildProps: ['animation-name', 'backdrop-filter'],
 
       properties: [
-        backgroundColor,
         {
           type: 'composite',
           name: 'Border Radius',
@@ -380,6 +373,7 @@ const obj = {
         {
           type: 'color',
           name: 'Border Color',
+          property: 'border-color',
           preferredFormat: 'hex',
           showInput: true,
         },
@@ -404,7 +398,6 @@ const obj = {
           min: 0,
           max: 100,
           units: ['%', 'px'],
-         
         },
 
         {
@@ -416,7 +409,6 @@ const obj = {
           min: 0,
           max: 100,
           units: ['%'],
-          
         },
         {
           name: 'Blur',
@@ -442,23 +434,18 @@ const obj = {
           type: 'number',
           name: 'Brightness',
           property: 'backdrop-filter: brightness(100%)',
-
-         
         },
         {
           type: 'number',
           name: 'Contrast',
           property: 'backdrop-filter',
           default: 'contrast(100%)',
-         
         },
         {
           type: 'select',
           name: 'Saturation',
           property: 'backdrop-filter',
           default: 'saturate(100%)',
-
-          
         },
         {
           type: 'select',
@@ -485,162 +472,153 @@ const obj = {
       ],
     },
 
-    {
-      name: 'Border',
-      open: false,
-      id:'header-bd',
-      properties: [
-        {
-          type: 'color',
-          name: 'Border Color',
-          property: 'border-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-        {
-          type: 'composite',
-          name: 'Border Width',
-          property: 'border-width',
-          properties: widthOptions,
-        },
-        {
-          type: 'select',
-          name: 'Border Style',
-          property: 'border-style',
-          options: borderStyleOptions,
-        },
-      ],
-    },
-    {
-      name: 'Divider',
-      open: true,
-      properties: [
-        {
-          type: 'color',
-          name: 'Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
+    // {
+    //   name: 'Border',
+    //   open: false,
+    //   id: 'header-bd',
+    //   properties: [
+    //     {
+    //       type: 'color',
+    //       name: 'Border Color',
+    //       property: 'border-color',
+    //       colorPicker: {
+    //         preferredFormat: 'hex',
+    //         showInput: true,
+    //       },
+    //     },
+    //     {
+    //       type: 'composite',
+    //       name: 'Border Width',
+    //       property: 'border-width',
+    //       properties: widthOptions,
+    //     },
+    //     {
+    //       type: 'select',
+    //       name: 'Border Style',
+    //       property: 'border-style',
+    //       options: borderStyleOptions,
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: 'Divider',
+    //   open: true,
+    //   properties: [
+    //     {
+    //       type: 'color',
+    //       name: 'Color',
+    //       property: 'color',
+    //       colorPicker: {
+    //         preferredFormat: 'hex',
+    //         showInput: true,
+    //       },
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Weight',
+    //       property: 'height',
+    //       default: 2,
+    //       units: 'px',
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Gap',
+    //       property: 'gap',
+    //       default: 0,
+    //       units: 'px',
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: 'Social Media',
+    //   open: true,
 
-        },
-        {
-          type: 'slider',
-          name: 'Weight',
-          property: 'height',
-          default: 2,
-          units: 'px',
-          
-        },
-        {
-          type: 'slider',
-          name: 'Gap',
-          property: 'gap',
-          default: 0,
-          units: 'px',
-          
-        },
-      ],
-    },
-    {
-      name: 'Social Media',
-      open: true,
-
-      properties: [
-        {
-          type: 'color',
-          name: 'Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-          },
-        },
-        {
-          type: 'color',
-          name: 'Border Color',
-          property: 'border-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-        {
-          type: 'composite',
-          name: 'Border Width',
-          property: 'border-width',
-          properties: widthOptions,
-        },
-        {
-          type: 'select',
-          name: 'Border Style',
-          property: 'border-style',
-          options: borderStyleOptions,
-        },
-        {
-          type: 'slider',
-          name: 'Size',
-          property: 'width',
-          default: '14px',
-          attributes: {
-            'data-type': 'width',
-            'data-target': 'social-media',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Padding',
-          property: 'padding',
-          buildProps: ['padding'],
-          dheadingefault: '10px',
-          units: 'px',
-        },
-        {
-          type: 'slider',
-          name: 'Spacing',
-          property: 'letter-spacing',
-          default: '5px',
-          units: 'px',
-        },
-        {
-          type: 'slider',
-          name: 'Rows Gap',
-          property: 'gap',
-          default: '10px',
-          units: 'px',
-        },
-      ],
-    },
+    //   properties: [
+    //     {
+    //       type: 'color',
+    //       name: 'Color',
+    //       property: 'color',
+    //       colorPicker: {
+    //         preferredFormat: 'hex',
+    //         showInput: true,
+    //       },
+    //       attributes: {
+    //         'data-type': 'color',
+    //       },
+    //     },
+    //     {
+    //       type: 'color',
+    //       name: 'Border Color',
+    //       property: 'border-color',
+    //       colorPicker: {
+    //         preferredFormat: 'hex',
+    //         showInput: true,
+    //       },
+    //     },
+    //     {
+    //       type: 'composite',
+    //       name: 'Border Width',
+    //       property: 'border-width',
+    //       properties: widthOptions,
+    //     },
+    //     {
+    //       type: 'select',
+    //       name: 'Border Style',
+    //       property: 'border-style',
+    //       options: borderStyleOptions,
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Size',
+    //       property: 'width',
+    //       default: '14px',
+    //       attributes: {
+    //         'data-type': 'width',
+    //         'data-target': 'social-media',
+    //       },
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Padding',
+    //       property: 'padding',
+    //       buildProps: ['padding'],
+    //       dheadingefault: '10px',
+    //       units: 'px',
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Spacing',
+    //       property: 'letter-spacing',
+    //       default: '5px',
+    //       units: 'px',
+    //     },
+    //     {
+    //       type: 'slider',
+    //       name: 'Rows Gap',
+    //       property: 'gap',
+    //       default: '10px',
+    //       units: 'px',
+    //     },
+    //   ],
+    // },
   ],
   footerSector: [
     {
-
-      name:'Main Heading',
+      name: 'Main Heading',
       open: false,
-      id:'main-footer-heading',
+      id: 'main-footer-heading',
       properties: [color, typography],
-      
-      
-      },
-      {
-
-        name:'Sub Heading',
-        open: false,
-        id:'sub-footer-heading',
-        properties: [color, typography],
-        
-        
-        },
+    },
+    {
+      name: 'Sub Heading',
+      open: false,
+      id: 'sub-footer-heading',
+      properties: [color, typography],
+    },
     {
       name: 'Image Gallery',
       open: false,
-      id:'footer-image',
+      id: 'footer-image',
       buildProps: ['border-radius', 'border-width'],
       properties: [
         {
@@ -651,14 +629,13 @@ const obj = {
             preferredFormat: 'hex',
             showInput: true,
           },
-         
         },
 
         {
           type: 'slider',
           name: 'Spacing',
           property: 'padding',
-          
+
           default: '1',
           units: ['px', 'em', 'rem'],
         },
@@ -667,7 +644,7 @@ const obj = {
           name: 'Border Type',
           property: 'border-style',
           default: 'solid',
-          
+
           options: borderStyleOptions,
         },
       ],
@@ -675,14 +652,14 @@ const obj = {
     {
       name: 'Gallery Caption',
       open: false,
-      id:'img-caption',
+      id: 'img-caption',
       properties: [
         {
           type: 'select',
           name: 'Display',
           property: 'display',
           default: 'show',
-         
+
           options: [
             { value: 'block', name: 'Show' },
             { value: 'none', name: 'Hide' },
@@ -695,7 +672,7 @@ const obj = {
     {
       name: 'Button Border',
       open: false,
-      id:'footer-btn',
+      id: 'footer-btn',
       buildProps: ['border-radius', 'border-style', 'box-shadow'],
       properties: [
         {
@@ -901,76 +878,107 @@ const obj = {
   ],
   benefitSector: [
     {
-
-      name:'Main Heading',
+      name: 'Background',
       open: false,
-      id:'main-benefit-heading',
-      properties: [color, typography],
-      
-      
-      },
-      {
-
-        name:'Sub Heading',
-        open: false,
-        properties: [color, typography],
-        id:'sub-benefit-heading'
-        
-        },
-     
-    {
-      name: 'Icon',
-      open: false,
-      id:'icon-benefit',
+      id: 'benefits-container',
+      buildProps: ['background-image'],
       properties: [
         {
           type: 'color',
-          name: 'Primary Color',
-
-          property: 'fill',
+          name: 'Background Color',
+          property: 'background-color',
           colorPicker: {
             preferredFormat: 'hex',
             showInput: true,
           },
-         
         },
-
-        {
-          type: 'slider',
-          name: 'Icon Size',
-          property: 'width',
-        },
-        {
-          type: 'slider',
-          name: 'Padding',
-          property: 'padding',
-          default: '0',
-          units: ['px', 'rem'],
-        },
-        
       ],
     },
     {
-
-      name:'Icon Heading',
-      id:'icon-benefit-heading',
+      name: 'Main Heading',
+      open: false,
+      id: 'main-benefit-heading',
+      properties: [color, typography],
+    },
+    {
+      name: 'Sub Heading',
       open: false,
       properties: [color, typography],
-      
-      },
-       {
+      id: 'sub-benefit-heading',
+    },
 
-      name:'Icon Sub Heading',
-      id:'icon-benefit-sub-heading',
+    {
+      name: 'Icon',
+      open: false,
+      id: 'image-benefit',
+      properties: [
+
+          {
+            type: 'composite',
+            name: 'Border Radius',
+            property: 'border-radius',
+            properties: widthOptions,
+          },
+          {
+            type: 'color',
+            name: 'Border Color',
+            property: 'border-color',
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+  
+          {
+            type: 'composite',
+            name: 'Border Width',
+            property: 'border-width',
+            properties: widthOptions,
+          },
+          {
+            type: 'select',
+            name: 'Border Style',
+            property: 'border-style',
+            options: borderStyleOptions,
+          },
+          {
+            type: 'slider',
+            name: 'Icon Size',
+            property: 'width',
+            default: '100%',
+            min: 0,
+            max: 100,
+            units: ['%', 'px'],
+          },
+  
+          {
+            type: 'slider',
+            name: 'Opacity',
+            property: 'opacity',
+            default: 1,
+            step: 1,
+            min: 0,
+            max: 100,
+            units: ['%'],
+          },
+        ],
+    
+    },
+    {
+      name: 'Icon Heading',
+      id: 'icon-benefit-heading',
       open: false,
       properties: [color, typography],
-      
-      },
+    },
+    {
+      name: 'Icon Sub Heading',
+      id: 'icon-benefit-sub-heading',
+      open: false,
+      properties: [color, typography],
+    },
   ],
   testimonialSector: [
     {
       name: 'Title',
-      id:'main-testimonial-title',
+      id: 'main-testimonial-title',
       open: false,
       properties: [
         color,
@@ -1000,7 +1008,7 @@ const obj = {
     {
       name: 'Content',
       open: false,
-     id: 'main-testimonial-content',
+      id: 'main-testimonial-content',
       properties: [
         {
           type: 'color',
@@ -1016,7 +1024,6 @@ const obj = {
           name: 'Font Family',
           property: 'font-family',
           options: fontFamilies,
-       
         },
         {
           type: 'slider',
@@ -1024,7 +1031,6 @@ const obj = {
           property: 'font-size',
           default: 16,
           units: ['px', 'rem'],
-         
         },
         {
           type: 'select',
@@ -1032,7 +1038,6 @@ const obj = {
           property: 'font-weight',
           default: 'normal',
           options: fontWeightOptions,
-        
         },
         {
           type: 'slider',
@@ -1040,7 +1045,6 @@ const obj = {
           property: 'letter-spacing',
           default: 0,
           units: ['px', 'rem'],
-        
         },
         {
           type: 'slider',
@@ -1050,7 +1054,6 @@ const obj = {
           ResizeObserver: true,
           default: 1,
           units: ['px', 'rem'],
-         
         },
         {
           type: 'radio',
@@ -1059,7 +1062,6 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: textAlignOptions,
-       
         },
         {
           type: 'radio',
@@ -1067,7 +1069,6 @@ const obj = {
           property: 'text-decoration',
           default: 'none',
           options: textDecorationOptions,
-         
         },
         {
           type: 'slider',
@@ -1090,7 +1091,7 @@ const obj = {
         },
       ],
     },
-    { 
+    {
       name: 'Image',
       open: false,
       id: 'testimonial-image',
@@ -1122,7 +1123,6 @@ const obj = {
             preferredFormat: 'hex',
             showInput: true,
           },
-        
         },
 
         {
@@ -1130,7 +1130,6 @@ const obj = {
           name: 'Font Family',
           property: 'font-family',
           options: fontFamilies,
-         
         },
         {
           type: 'slider',
@@ -1138,7 +1137,6 @@ const obj = {
           property: 'font-size',
           default: 16,
           units: ['px', 'rem'],
-         
         },
         {
           type: 'select',
@@ -1146,7 +1144,6 @@ const obj = {
           property: 'font-weight',
           default: 'normal',
           options: fontWeightOptions,
-         
         },
 
         {
@@ -1155,7 +1152,6 @@ const obj = {
           property: 'text-transform',
           default: 'default',
           options: textTransformOptions,
-          
         },
 
         {
@@ -1164,7 +1160,6 @@ const obj = {
           property: 'letter-spacing',
           default: 0,
           units: ['px', 'rem'],
-        
         },
         {
           type: 'slider',
@@ -1174,7 +1169,6 @@ const obj = {
           ResizeObserver: true,
           default: 1,
           units: ['px', 'rem'],
-         
         },
         {
           type: 'radio',
@@ -1183,7 +1177,6 @@ const obj = {
           default: 'left',
           ResizeObserver: true,
           options: textAlignOptions,
-          
         },
         {
           type: 'radio',
@@ -1191,7 +1184,6 @@ const obj = {
           property: 'text-decoration',
           default: 'none',
           options: textDecorationOptions,
-          
         },
 
         {
@@ -1199,8 +1191,6 @@ const obj = {
           name: 'Blur',
           property: 'backdrop:filter: blur',
           default: '10',
-
-         
         },
 
         {
@@ -1217,13 +1207,12 @@ const obj = {
         },
       ],
     },
-    
   ],
   practiceAreaSector: [
     {
       name: 'Background',
       open: false,
-      id:'para-div',
+      id: 'para-div',
       properties: [
         backgroundColor,
         {
@@ -1298,7 +1287,7 @@ const obj = {
     },
     {
       name: 'Section Heading',
-      id:'main-practice-heading',
+      id: 'main-practice-heading',
       open: false,
       properties: [color, typography, HtmlTag],
     },
@@ -1434,7 +1423,7 @@ const obj = {
   videoSector: [
     {
       name: 'Aspect Ratio',
-      id:'video-ratio',
+      id: 'video-ratio',
       properties: [
         {
           type: 'select',
@@ -1447,30 +1436,24 @@ const obj = {
             { value: '75%', name: '4:3' },
             { value: '100%', name: '1:1' },
           ],
-         
         },
       ],
     },
     {
-
-      name:'Main Heading',
+      name: 'Main Heading',
       open: false,
-      id:'main-video-heading',
+      id: 'main-video-heading',
       properties: [color, typography],
-      
-      
-      },
-      {
-
-        name:'Sub Heading',
-        open: false,
-        properties: [color, typography],
-        id:'sub-video-heading'
-        
-        },
+    },
+    {
+      name: 'Sub Heading',
+      open: false,
+      properties: [color, typography],
+      id: 'sub-video-heading',
+    },
     {
       name: 'Css Filters',
-      id:'video-ratio',
+      id: 'video-ratio',
       open: false,
       properties: [
         {
@@ -1548,24 +1531,38 @@ const obj = {
     },
   ],
 
- numbersSection: [
-
-
-
-
-{
-
-name:'Main Heading',
-open: false,
-properties: [color, typography],
-id: 'main-number-heading',
-},
-{
-  name:'Sub Heading',
-  open: false,
-  id: 'sub-number-heading',
-  properties: [color, typography],
-  },
+  numbersSection: [
+    {
+      name: 'Background',
+      open: false,
+      id: 'number-container-div',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+    {
+      name: 'Main Heading',
+      open: false,
+      properties: [color, typography],
+      id: 'main-number-heading',
+      changeProp: 1,
+    },
+    {
+      name: 'Sub Heading',
+      open: false,
+      id: 'sub-number-heading',
+      properties: [color, typography],
+      changeProp: 1,
+    },
     {
       name: 'Numbers',
       id: 'number-val',
@@ -1679,7 +1676,6 @@ id: 'main-number-heading',
             preferredFormat: 'hex',
             showInput: true,
           },
-         
         },
         {
           type: 'select',
@@ -1853,39 +1849,64 @@ id: 'main-number-heading',
       ],
     },
   ],
-paragraphSector: [
+  paragraphSector: [
 
-{
-name:'Main Heading',
-open: false,
-id:'main-paragraph-heading',
-properties: [color, typography],
-
-
-},
-{
-  name:'Sub Heading',
-  open: false,
-  id:'sub-paragraph-heading',
-  properties: [color, typography],
- 
-  
-  },
-
-
-
+    {
+      name: 'Background',
+      open: false,
+      id: 'paragraph-container',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
 
 
 
-  
-   
-  
+
+    {
+      name: 'Main Heading',
+      open: false,
+      id: 'main-paragraph-heading',
+      properties: [color, typography],
+    },
+    {
+      name: 'Sub Heading',
+      open: false,
+      id: 'sub-paragraph-heading',
+      properties: [color, typography],
+    },
   ],
 
   bannerSector: [
     {
+      name: 'Background',
+      open: false,
+      id: 'bannar-content',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
 
-      name:'Main Heading',
+    {
+      name: 'Main Heading',
       id: 'main-banner-heading',
       open: false,
       properties: [color, typography],
@@ -1894,40 +1915,32 @@ properties: [color, typography],
         'data-attribute': 'bannar-font-family',
         'data-target': '.bannar-content h1 .bannar-content p',
       },
-      
+    },
+    {
+      name: 'Sub Heading',
+      id: 'sub-banner-heading',
+      open: false,
+      properties: [color, typography],
+      attributes: {
+        'data-type': 'font-family',
+        'data-attribute': 'bannar-font-family',
+        'data-target': '.bannar-content h1 .bannar-content p',
       },
-      {
-        name:'Sub Heading',
-        id: 'sub-banner-heading',
-        open: false,
-        properties: [color, typography],
-        attributes: {
-          'data-type': 'font-family',
-          'data-attribute': 'bannar-font-family',
-          'data-target': '.bannar-content h1 .bannar-content p',
-        },
-        
-        },
-
-
+    },
   ],
   ImageTextSector: [
     {
-
-      name:'Main Heading',
+      name: 'Main Heading',
       open: false,
       id: 'main-image-heading',
       properties: [color, typography],
-     
-      
-      },
-      {
-        name:'Sub Heading',
-        open: false,
-        id: 'sub-image-heading',
-        properties: [color, typography], 
-        },
-
+    },
+    {
+      name: 'Sub Heading',
+      open: false,
+      id: 'sub-image-heading',
+      properties: [color, typography],
+    },
 
     {
       name: 'Image Gallery',
@@ -1968,7 +1981,7 @@ properties: [color, typography],
     },
     {
       name: 'Gallery Caption',
-      id:'gallery-caption',
+      id: 'gallery-caption',
       open: false,
       properties: [
         {
@@ -1976,7 +1989,6 @@ properties: [color, typography],
           name: 'Display',
           property: 'display',
           default: 'show',
-          
           options: [
             { value: 'block', name: 'Show' },
             { value: 'none', name: 'Hide' },
@@ -1990,7 +2002,6 @@ properties: [color, typography],
             preferredFormat: 'hex',
             showInput: true,
           },
-         
         },
 
         {
@@ -1998,7 +2009,6 @@ properties: [color, typography],
           name: 'Font Family',
           property: 'font-family',
           options: fontFamilies,
-          
         },
         {
           type: 'slider',
@@ -2063,69 +2073,76 @@ properties: [color, typography],
 
   guidelineSector: [
     {
-
-      name:'Main Heading',
+      name: 'Main Heading',
       open: false,
-      id:'main-guideline-heading',
+      id: 'main-guideline-heading',
       properties: [color, typography],
-     
-      
-      },
-      {
-        name:'Sub Heading',
-        open: false,
-        id:'sub-guideline-heading',
-        properties: [color, typography],
+    },
+    {
+      name: 'Sub Heading',
+      open: false,
+      id: 'sub-guideline-heading',
+      properties: [color, typography],
+    },
 
-        
-        },
+    {
+      name: 'Guideline Bullet',
+      open: false,
+      id: 'guideline-bullet',
+      buildProps: ['width', 'height'],
+      properties: [color, typography, backgroundColor],
+    },
 
-       {
-name:'Guideline Bullet',
-open: false,
-id:'guideline-bullet',
-buildProps:['width','height'],
-properties: [color, typography,backgroundColor],
-       }, 
-   
-  {
-name:'Bullet Heading',
-open: false,
-id:'bullet-heading',
-properties: [color, typography],
-  },
-   {
-name:'Bullet Sub Heading',
-open: false,
-id:'bullet-sub-heading',
-properties: [color, typography],
-  },
+    {
+      name: 'Bullet Heading',
+      open: false,
+      id: 'bullet-heading',
+      properties: [color, typography],
+    },
+    {
+      name: 'Bullet Sub Heading',
+      open: false,
+      id: 'bullet-sub-heading',
+      properties: [color, typography],
+    },
   ],
 
   locationSector: [
     {
-
-      name:'Main Heading',
+      name: 'Background',
       open: false,
-      id:'main-location-heading',
-      properties: [color, typography],
-      
-      
-      },
-      {
-        name:'Sub Heading',
-        open: false,
-        id: 'sub-location-heading',
-        properties: [color, typography],  
+      id: 'location-content',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
         },
+      ],
+    },
+    {
+      name: 'Main Heading',
+      open: false,
+      id: 'main-location-heading',
+      properties: [color, typography],
+    },
+    {
+      name: 'Sub Heading',
+      open: false,
+      id: 'sub-location-heading',
+      properties: [color, typography],
+    },
 
-    
     {
       name: 'Icon List',
-      id:'icon-text',
+      id: 'icon-text',
       open: false,
       properties: [
-      
         {
           type: 'radio',
           name: 'Alignment',
@@ -2162,21 +2179,56 @@ properties: [color, typography],
     {
       name: 'Icon',
       open: false,
-      id:'svg-location',
+      id: 'image-location',
       properties: [
-        {
-          type: 'color',
-          name: 'Primary Color',
-          property: 'fill',
-          default: '#e6e6e6',
-        },
-
-        {
-          type: 'slider',
-          name: 'Icon Size',
-          property: 'icon-size',
-          default: '0',
-        },
+        
+          {
+            type: 'composite',
+            name: 'Border Radius',
+            property: 'border-radius',
+            properties: widthOptions,
+          },
+          {
+            type: 'color',
+            name: 'Border Color',
+            property: 'border-color',
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+  
+          {
+            type: 'composite',
+            name: 'Border Width',
+            property: 'border-width',
+            properties: widthOptions,
+          },
+          {
+            type: 'select',
+            name: 'Border Style',
+            property: 'border-style',
+            options: borderStyleOptions,
+          },
+          {
+            type: 'slider',
+            name: 'Width',
+            property: 'width',
+            default: '100%',
+            min: 0,
+            max: 100,
+            units: ['%', 'px'],
+          },
+  
+          {
+            type: 'slider',
+            name: 'Opacity',
+            property: 'opacity',
+            default: 1,
+            step: 1,
+            min: 0,
+            max: 100,
+            units: ['%'],
+          },
+       
         {
           type: 'slider',
           name: 'Padding',
@@ -2190,23 +2242,87 @@ properties: [color, typography],
 
   talentSector: [
     {
-
-      name:'Main Heading',
+      name: 'Background',
       open: false,
-      id:'main-talent-heading',
+      id: 'talent-cloud-container',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+    {
+      name: 'Main Heading',
+      open: false,
+      id: 'main-talent-heading',
       properties: [color, typography],
-     
-      
-      },
-      {
-        name:'Sub Heading',
-        open: false,
-        id:'sub-talent-heading',
-        properties: [color, typography],
-      
-        
+    },
+    {
+      name: 'Sub Heading',
+      open: false,
+      id: 'sub-talent-heading',
+      properties: [color, typography],
+    },
+    {
+      name: 'Image Gallery',
+      open: false,
+      id: 'talent-image',
+      properties: [
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        },
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          preferredFormat: 'hex',
+          showInput: true,
         },
 
+        {
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+        },
+        {
+          type: 'select',
+          name: 'Border Style',
+          property: 'border-style',
+          options: borderStyleOptions,
+        },
+        {
+          type: 'slider',
+          name: 'Width',
+          property: 'width',
+          default: '100%',
+          min: 0,
+          max: 100,
+          units: ['%', 'px'],
+        },
+
+        {
+          type: 'slider',
+          name: 'Opacity',
+          property: 'opacity',
+          default: 1,
+          step: 1,
+          min: 0,
+          max: 100,
+          units: ['%'],
+        },
+      ],
+    },
   ],
 
   theme_1: [
@@ -2566,7 +2682,7 @@ properties: [color, typography],
   departmentSector: [
     {
       name: 'Section Heading',
-      id:'dept_section',
+      id: 'dept_section',
       open: false,
       properties: [color, typography],
     },
@@ -2577,36 +2693,35 @@ properties: [color, typography],
     },
     {
       name: 'Job Title',
-      id:'job_title',
+      id: 'job_title',
       open: false,
       properties: [color, typography],
     },
     {
       name: 'Company Name',
       open: false,
-      id:'company_name',
+      id: 'company_name',
       properties: [color, typography],
     },
     {
       name: 'Date Posted',
-      id:'posted',
+      id: 'posted',
       open: false,
       properties: [color, typography],
     },
     {
       name: 'Descriptive Text',
-      id:'descriptive_text',
+      id: 'descriptive_text',
       open: false,
       properties: [color, typography],
     },
     {
       name: 'Feature List',
-      id:'feature_list',
+      id: 'feature_list',
       open: false,
       properties: [
         color,
         typography,
-       
 
         {
           type: 'slider',

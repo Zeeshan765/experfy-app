@@ -22,6 +22,7 @@ import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
 interface parems {
   id?: string;
 }
+let ln = 0;
 
 const PageBuilder: React.FC = () => {
   // ======States start=======
@@ -30,8 +31,9 @@ const PageBuilder: React.FC = () => {
   const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
   const [changeHistory, setChangeHistory] = useState(false);
   const [addHistory, setAddHistory] = useState(true);
-  const[newstateDirty,setnewstateDirty] = useState(null);
+  const [newstateDirty, setnewstateDirty] = useState(null);
   var isUpdating = false;
+  let isChanged = false;
   // ======States end=======
   // ======Hooks start=======
   const { routes, serverURL } = useConfig();
@@ -99,24 +101,25 @@ const PageBuilder: React.FC = () => {
       editor.loadProjectData({ assets: [], pages: [], styles: [] });
     }
   };
-  const loadHistory = (e,pageCurrentCode) => {
-    e.stopPropagation()
+  const loadHistory = (e, pageCurrentCode) => {
+    e.stopPropagation();
     setChangeHistory(false); // to stop the history update on load because this action is previous history button
     editor.loadProjectData(JSON.parse(pageCurrentCode));
     goToTop();
   };
-const goToTop = () => {
+  const goToTop = () => {
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
+      top: 0,
+      behavior: 'smooth',
     });
-};
+  };
   const fetchHistory = () => {
     axios({
       method: 'get',
       url: `${apiEndpoint}/pagehistory?PageId=${id}`,
     })
       .then((res) => {
+        console.log('fetching data', res.data.docs);
         setPageHistoryArray(res.data.docs);
       })
       .catch((err) => {
@@ -182,13 +185,13 @@ const goToTop = () => {
   const pageHistoryHandler = () => {
     setChangeHistory(true);
   };
-  const deleteHistory = (e,deleteId) => {
+  const deleteHistory = (e, deleteId) => {
     e.stopPropagation();
     setChangeHistory(false);
     axios
       .delete(`${apiEndpoint}/pagehistory/${deleteId}`)
       .then((res) => {
-        console.log('delete history res ==========', res);
+        // console.log('delete history res ==========', res);
         fetchHistory();
       })
       .catch((err) => {
@@ -205,6 +208,8 @@ const goToTop = () => {
       .then((res) => {
         // console.log('res of history==========', res);
         fetchHistory(); // call to get history
+        console.log('res', res);
+        isChanged = false;
       })
       .catch((err) => {
         console.log(err);
@@ -291,7 +296,7 @@ const goToTop = () => {
 
           block.set('content', content);
 
-          console.log("block********",block.set('content', content))
+          // console.log('block********', block.set('content', content));
         }
       })
       .catch((error) => {
@@ -338,7 +343,6 @@ const goToTop = () => {
           Forms(editor, {
             category: 'Basic Elements',
           }),
-          
       ],
       layerManager: {
         appendTo: '.layers-container',
@@ -378,41 +382,65 @@ const goToTop = () => {
             id: 'save-editor',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-              const store = editor.store();
-              dataHandler();
-              toast.success('Changes saved successfully');
+              console.log("before changed",isChanged)
+              if (isChanged) {
+                console.log("isChanged", isChanged)
+                saveHistoy();
+                const store = editor.store();
+                dataHandler();
+                toast.success('Changes saved successfully');
+              }
             },
           },
         ],
       },
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    editor.on('change:changesCount', () => {
-      const editorModel = editor.getModel();
-      const changes = editorModel.get('changesCount');
-      console.log("chnages))))))))",changes)
-      if (changes) {
-        console.log("chnages detected",)
-        setnewstateDirty(editor?.getDirtyCount());
+   
+    function isObjEmpty(obj) {
+      if (obj === undefined) {
+        return true;
       }
- });
- console.log("chnages detected hdhdhdhdhhd",newstateDirty)
+      let len = Object.keys(obj).length;
+      let isEmpty = len === 0;
+      if (len === 1) {
+        let objValue = Object.values(obj)[0];
+        let valueType = typeof objValue;
+        let isChanged =
+          valueType === 'boolean' ||
+          (valueType === 'string' && objValue.length > 0);
+        return isEmpty && !isChanged;
+      }
+      return isEmpty;
+    }
+    editor.on('component:update', (component) => {
+      const { changed } = component;
+      const { attributes } = changed;
+      if (!isObjEmpty(attributes)) {
+        isChanged = true;
+      }
+    });
 
 
+//@ts-ignore
+    editor.on('style:property:update', (component) => {
+      isChanged = true;
 
+      // const um = editor.UndoManager;
+
+      // const stack = um.getStack();
+      // console.log('stack.length, ln', stack.length, ln)
+      // if (stack.length > 0 && ln !== stack.length) {
+      //   console.log('Stack Changes', stack);
+      //   ln = stack.length;
+      //   // stack.map((item) => {
+      //   //   console.log('item type',  component);
+      //   // });
+      //   console.log(
+      //     '----------------------------------------------------------------------'
+      //   );
+      // }
+    });
 
 
 
@@ -530,18 +558,15 @@ const goToTop = () => {
       },
     });
 
-   
-
-
-    editor.DomComponents.addType("mj-image", {
-      isComponent: (el: any) => el.tagName === "MJ-IMAGE",
+    editor.DomComponents.addType('mj-image', {
+      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
       model: {
         defaults: {
           traits: [
             {
-              type: "mjchange",
-              label: " ",
-              name: "mjchange",
+              type: 'mjchange',
+              label: ' ',
+              name: 'mjchange',
             },
             {
               type: 'select',
@@ -561,88 +586,57 @@ const goToTop = () => {
         },
       },
     });
-    editor.TraitManager.addType("mjchange", {
+    editor.TraitManager.addType('mjchange', {
       noLabel: true,
       createInput({}) {
         let selectedSrc = editor.getSelected();
         let src = selectedSrc!.attributes.attributes!.src;
         const toggleModal = () => {
-          editor.runCommand("open-assets", {
+          editor.runCommand('open-assets', {
             target: editor.getSelected(),
           });
         };
-        const el = document.createElement("div");
-        el.setAttribute("class", "image-trait-preview");
+        const el = document.createElement('div');
+        el.setAttribute('class', 'image-trait-preview');
         el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
                   <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
-        const inputType = el.querySelector("#chg-img-trait-btn");
-        const imgBox = el.querySelector("#gjs_img_preview_logo_rtl");
-        imgBox!.addEventListener("click", toggleModal);
-        inputType!.addEventListener("click", toggleModal);
+        const inputType = el.querySelector('#chg-img-trait-btn');
+        const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
+        imgBox!.addEventListener('click', toggleModal);
+        inputType!.addEventListener('click', toggleModal);
         return el;
       },
     });
-    editor.on("modal:open", (component) => {
+    editor.on('modal:open', (component) => {
       const $ = editor.$;
       const am = editor.AssetManager;
       am.open({
-        types: ["mj-image"],
+        types: ['mj-image'],
         select(assets, complete) {
           const selected = editor.getSelected();
-          console.log("page seletcted",selected);
-          if (selected && selected.is("mj-image")) {
-            $("#gjs_img_preview_logo_rtl").attr("src", assets.getSrc());
+          // console.log('page seletcted', selected);
+          if (selected && selected.is('mj-image')) {
+            $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
             selected.addAttributes({ src: assets.getSrc() });
             complete && editor.AssetManager.close();
           }
-          console.log("after select",selected);
+          // console.log('after select', selected);
         },
       });
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-console.log(
-  "checkk;sksd",editor.getSelected()
-);
+    // console.log('checkk;sksd', editor.getSelected());
     //For Traits
     editor.on('component:selected', (component) => {
-      console.log("component*******", component);
+      console.log('component*******', component);
       if (component) {
         let ccid = component.ccid.split('-')[0];
-        console.log("ccid", ccid);
+        // console.log('ccid', ccid);
         const blocksector = editor.StyleManager.getSectors();
-        console.log(
-          'blocksector',
-          blocksector,
-        )
+        // console.log('blocksector', blocksector);
         blocksector.reset();
         blocksector.add(getSectors(ccid));
-        console.log("blocksector", blocksector.add(getSectors(ccid)));
+        // console.log('blocksector', blocksector.add(getSectors(ccid)));
       }
       let type = component.get('type');
       const { id } = component.attributes.attributes;
@@ -659,6 +653,10 @@ console.log(
       if (component.get('type') == 'mj-image') {
         editor?.runCommand('core:open-traits');
       }
+
+      // if (isChanged) {
+      //   saveHistoy();
+      // }
     });
     editor.on('component:update', (component) => {
       if (component.get('type') == 'text') {
@@ -671,9 +669,9 @@ console.log(
         component.components(component.get('traits').models[2].get('class'));
       }
       //  condation  for load when active history
-      if (addHistory) {
-        pageHistoryHandler();
-      }
+      // if (addHistory) {
+      //   pageHistoryHandler();
+      // }
     });
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
@@ -686,50 +684,35 @@ console.log(
       }
     });
 
-  
-//@ts-ignore
+    //@ts-ignore
     editor.on('style:sector:update', (props) => {
-
-
-console.log("editor.DomComponents.getWrapper().ccid",editor.DomComponents.getWrapper().ccid);
+      console.log('style:sector:update', props);
 
       
-      // Get the selected block
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
           var selectedBlock = editor.getSelected();
-          console.log('selectedBlock-----------------', selectedBlock);
+
           const { ccid } = selectedBlock;
-          console.log("ccid------------->*******", ccid);
+
           isUpdating = true;
           const sectors = sm.getSectors();
-          console.log('props', props);
-          console.log('sectors', sectors);
+
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
-              console.log("matched")
-              console.log('sectors.models[i]', sectors.models[i]);
               let isOpen = sectors.models[i].isOpen();
               if (isOpen) {
-             
                 editor.select(sectors.models[i]);
-              
 
-                console.log(
-                  'editor.select(sectors.models[i]);',
-                  editor.select(sectors.models[i])
-                );
                 sectors.models[i].set({
                   open: true,
                   active: true,
                   select: true,
                   focus: true,
-
                 });
-              
-             
+
                 sm.select(`.${ccid} .${props.id}`);
               }
             } else {
@@ -743,20 +726,7 @@ console.log("editor.DomComponents.getWrapper().ccid",editor.DomComponents.getWra
         }, 100);
 
       const categories = editor.StyleManager.getSectors();
-     
     });
-
-
-
-
-
-
-
-
-
-
-
-
 
     localStorage.removeItem('gjsProject');
     updateHeaderBlock();
@@ -780,48 +750,48 @@ console.log("editor.DomComponents.getWrapper().ccid",editor.DomComponents.getWra
       fetchHistory();
     }
   }, []);
-  useEffect(() => {
-    const updateHistory = setTimeout(() => {
-      if (changeHistory) {
-        saveHistoy();
-        setChangeHistory(false); // reset the flag beacue again tracking updation
-      }
-    }, 30000);
-    return () => clearTimeout(updateHistory);
-  }, [changeHistory]);
+  // useEffect(() => {
+  //   const updateHistory = setTimeout(() => {
+  //     if (changeHistory) {
+  //       // saveHistoy();
+  //       setChangeHistory(false); // reset the flag beacue again tracking updation
+  //     }
+  //   }, 30000);
+  //   return () => clearTimeout(updateHistory);
+  // }, [changeHistory]);
+
   // let newDirty = editor?.getDirtyCount();
-console.log("count************",newstateDirty)
   // =======Lifecycle methods end here=========
   return (
-    <div className='main__content'>
+    <div className="main__content">
       <Eyebrow />
-      <div className='panel__top'></div>
-      <div className='editor-row'>
-        <div className='panel__basic-actions'></div>
-        <div className='panel__left'>
-          <div className='back__panel panel-header'>
-            <Link className='panel-header__link' to={`${admin}/`}>
+      <div className="panel__top"></div>
+      <div className="editor-row">
+        <div className="panel__basic-actions"></div>
+        <div className="panel__left">
+          <div className="back__panel panel-header">
+            <Link className="panel-header__link" to={`${admin}/`}>
               <ArrowBackIosNewRoundedIcon />
             </Link>
             <span>Page Builder</span>
-            <span className='panel-header__menu'>
+            <span className="panel-header__menu">
               <AppsRoundedIcon />
             </span>
           </div>
-          <div className='panel__switcher'></div>
+          <div className="panel__switcher"></div>
           <SidebarBottom
             editor={editor}
-            consumer='pageBuilder'
+            consumer="pageBuilder"
             pageHistoryArray={pageHistoryArray}
             deleteHistory={deleteHistory}
             loadHistory={loadHistory}
           />
-          <div className='styles-container'></div>
-          <div className='traits-container'></div>
-          <div className='layers-container'></div>
+          <div className="styles-container"></div>
+          <div className="traits-container"></div>
+          <div className="layers-container"></div>
         </div>
-        <div className='editor-canvas'>
-          <div className='editor'></div>
+        <div className="editor-canvas">
+          <div className="editor"></div>
         </div>
       </div>
     </div>
