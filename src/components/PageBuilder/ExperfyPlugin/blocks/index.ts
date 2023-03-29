@@ -639,7 +639,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             feugiat convallis. Nulla sit amet odio dui. Nulla vulputate dictum tellus vel iaculis.
          </h6>
          <div class="button-container">
-            <button class="button">Button Label</button>
+            <button class="button banner-button">Button Label</button>
          </div>
 
       </div>

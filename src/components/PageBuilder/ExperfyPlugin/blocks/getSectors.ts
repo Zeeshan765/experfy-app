@@ -1838,7 +1838,7 @@ const obj = {
 
   bannerSector: [
     {
-      name: 'Background',
+      name: 'Banner Background',
       open: false,
       id: 'bannar-content',
       buildProps: ['background-image'],
@@ -1856,27 +1856,26 @@ const obj = {
     },
 
     {
-      name: 'Main Heading',
+      name: 'Banner Heading',
       id: 'main-banner-heading',
       open: false,
       properties: [color, typography],
-      attributes: {
-        'data-type': 'font-family',
-        'data-attribute': 'bannar-font-family',
-        'data-target': '.bannar-content h1 .bannar-content p',
-      },
     },
     {
-      name: 'Sub Heading',
+      name: 'Banner Description',
       id: 'sub-banner-heading',
       open: false,
       properties: [color, typography],
-      attributes: {
-        'data-type': 'font-family',
-        'data-attribute': 'bannar-font-family',
-        'data-target': '.bannar-content h1 .bannar-content p',
-      },
     },
+    {
+      name: 'Banner Button',
+      id: 'banner-button',
+      open: false,
+      buildProps: ['background-color'],
+      properties: [color,typography],
+
+    },
+
   ],
   ImageTextSector: [
     {
