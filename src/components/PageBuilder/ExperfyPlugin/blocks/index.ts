@@ -677,8 +677,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section class="main_container ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
- 
+    content: `<section class="ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
+ <div class="main_container">
         <div class="content-section">
            <h1 class="h1 main-image-heading" >Add your heading title here</h1>
            <h2 class="h2 sub-image-heading">The Image and Text module is a place where you can
@@ -692,7 +692,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
               <figcaption class="figure_caption gallery-caption" >Caption Example</figcaption>
         </div>
         </div>
-  
+        </div>
         </section>
     ${ImageText}
     ${getStyles(['.content-section'])}

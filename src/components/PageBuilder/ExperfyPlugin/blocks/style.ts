@@ -147,7 +147,7 @@ export const ImageText = `
 <style>
 .main_container {
   display: flex;
-  margin: 0 auto;
+ margin: 1rem 1rem;
   padding: 4rem 4rem;
   align-items: center;
 }

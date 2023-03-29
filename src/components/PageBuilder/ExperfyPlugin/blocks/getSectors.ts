@@ -1878,14 +1878,35 @@ const obj = {
 
   ],
   ImageTextSector: [
+
     {
-      name: 'Main Heading',
+      name: 'Section Background',
+      open: false,
+      id: 'main_container',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+
+
+
+    {
+      name: 'Main Title',
       open: false,
       id: 'main-image-heading',
       properties: [color, typography],
     },
     {
-      name: 'Sub Heading',
+      name: 'Description',
       open: false,
       id: 'sub-image-heading',
       properties: [color, typography],
@@ -1895,7 +1916,7 @@ const obj = {
       name: 'Image Gallery',
       id: 'image-gallery',
       open: false,
-      buildProps: ['border-radius', 'border-width'],
+      buildProps: ['border-radius'],
       properties: [
         {
           type: 'color',
@@ -1906,19 +1927,6 @@ const obj = {
             showInput: true,
           },
         },
-
-        {
-          type: 'slider',
-          name: 'Spacing',
-          property: 'padding',
-          attributes: {
-            'data-type': 'padding',
-            'data-attribute': 'image-padding',
-            'data-target': '.img_container img',
-          },
-          default: '1',
-          units: ['px', 'em', 'rem'],
-        },
         {
           type: 'select',
           name: 'Border Type',
@@ -1926,6 +1934,21 @@ const obj = {
           default: 'solid',
           options: borderStyleOptions,
         },
+        {
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+        },
+
+        {
+          type: 'slider',
+          name: 'Spacing',
+          property: 'padding',
+          default: '1',
+          units: ['px', 'em', 'rem'],
+        },
+      
       ],
     },
     {
@@ -1943,79 +1966,10 @@ const obj = {
             { value: 'none', name: 'Hide' },
           ],
         },
-        {
-          type: 'color',
-          name: 'Text Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
+       
+       color,typography
 
-        {
-          type: 'select',
-          name: 'Font Family',
-          property: 'font-family',
-          options: fontFamilies,
-        },
-        {
-          type: 'slider',
-          name: 'Font Size',
-          property: 'font-size',
-          default: 16,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'select',
-          name: 'Font Weight',
-          property: 'font-weight',
-          default: 'normal',
-          options: fontWeightOptions,
-        },
-
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: [
-            { value: 'uppercase', name: '<span>TT</span>' },
-            { value: 'lowercase', name: '<span>tt</span>' },
-            { value: 'capitalize', name: '<span>Tt</span>' },
-          ],
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: 0,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          label: 'Line Height',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'text-decoration',
-          default: 'none',
-          options: textDecorationOptions,
-        },
+        
       ],
     },
   ],
