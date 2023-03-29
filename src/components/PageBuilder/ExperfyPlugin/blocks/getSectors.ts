@@ -340,6 +340,203 @@ const widthOptions = [
   },
 ];
 
+
+
+let NumbersProp=[
+  {
+    type: 'color',
+    name: 'Number',
+    property: 'color',
+    colorPicker: {
+      preferredFormat: 'hex',
+      showInput: true,
+    },
+  },
+  {
+    type: 'select',
+    name: 'Number Font',
+    property: 'font-family',
+    defaults: 'Arial, Helvetica, sans-serif',
+    options: fontFamilies,
+  },
+  {
+    type: 'select',
+    name: 'Weight',
+    property: 'font-weight',
+    default: 'default',
+    options: fontWeightOptions,
+  },
+  {
+    type: 'radio',
+    name: 'Font Style',
+    property: 'font-style',
+    default: 'default',
+
+    options: [
+      {
+        value: 'bold',
+        name: '<span>B</span>',
+      },
+      {
+        value: 'italic',
+        name: '<span style="font-style: italic;">I</span>',
+      },
+      {
+        value: 'underline',
+        name: '<span  style="font-style: underline;">U</span>',
+      },
+    ],
+  },
+
+  {
+    type: 'radio',
+    name: 'Transform',
+    property: 'text-transform',
+    default: 'default',
+    options: [
+      { value: 'uppercase', name: '<span>TT</span>' },
+      { value: 'lowercase', name: '<span>tt</span>' },
+      { value: 'capitalize', name: '<span>Tt</span>' },
+    ],
+  },
+  {
+    type: 'radio',
+    name: 'Decoration',
+    property: 'text-decoration',
+    default: 'default',
+    options: textDecorationOptions,
+  },
+];
+
+let NumbersDescription = [
+  {
+    type: 'color',
+    name: 'Color',
+    property: 'color',
+    colorPicker: {
+      preferredFormat: 'hex',
+      showInput: true,
+    },
+  },
+  {
+    type: 'select',
+    name: 'Text Font',
+    property: 'font-family',
+    default: 'Arial, Helvetica, sans-serif',
+    options: fontFamilies,
+  },
+  {
+    type: 'slider',
+    name: 'Text Font Size',
+    property: 'font-size',
+    default: 14,
+    units: ['px', 'em', 'rem'],
+  },
+  {
+    type: 'select',
+    name: 'Weight',
+    property: 'font-weight',
+    default: 'default',
+    options: fontWeightOptions,
+  },
+  {
+    type: 'radio',
+    name: 'Font Style',
+    property: 'font-style',
+    default: 'default',
+
+    options: [
+      {
+        value: 'bold',
+        name: '<span>B</span>',
+      },
+      {
+        value: 'italic',
+        name: '<span style="font-style: underline;"></span>',
+      },
+      {
+        value: 'underline',
+        name: '<span  style="font-style: underline;">U</span>',
+      },
+    ],
+  },
+
+  {
+    type: 'radio',
+    name: ' Transform',
+    property: 'text-transform',
+    default: 'default',
+    options: [
+      { value: 'uppercase', name: '<span>TT</span>' },
+      { value: 'lowercase', name: '<span>tt</span>' },
+      { value: 'capitalize', name: '<span>Tt</span>' },
+    ],
+  },
+  {
+    type: 'radio',
+    name: 'Decoration',
+    property: 'text-decoration',
+    default: 'default',
+    options: textDecorationOptions,
+  },
+  {
+    type: 'slider',
+    name: 'Letter Spacing',
+    property: 'letter-spacing',
+    default: '0 px',
+    units: ['px', 'rem'],
+  },
+  {
+    type: 'slider',
+    name: 'Line Height',
+    property: 'line-height',
+    ResizeObserver: true,
+    default: '1',
+    units: ['px', 'em', 'rem'],
+  },
+  {
+    type: 'slider',
+    name: 'Paragraph Spacing',
+    property: 'margin-bottom',
+    ResizeObserver: true,
+    default: '1',
+    units: ['px', 'em', 'rem'],
+  },
+];
+
+
+let NumbersBorder= [
+  {
+    type: 'color',
+    name: 'Border Color',
+    property: 'border-color',
+    colorPicker: {
+      preferredFormat: 'hex',
+      showInput: true,
+    },
+  },
+
+  {
+    type: 'composite',
+    name: 'Border Width',
+    property: 'border-width',
+    properties: widthOptions,
+  },
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const obj = {
   headerSector: [
     {
@@ -1545,7 +1742,7 @@ const obj = {
 
   numbersSection: [
     {
-      name: 'Background',
+      name: 'Section Background',
       open: false,
       id: 'number-container-div',
       buildProps: ['background-image'],
@@ -1562,14 +1759,14 @@ const obj = {
       ],
     },
     {
-      name: 'Main Heading',
+      name: 'Section Heading',
       open: false,
       properties: [color, typography],
       id: 'main-number-heading',
       changeProp: 1,
     },
     {
-      name: 'Sub Heading',
+      name: 'Section Description',
       open: false,
       id: 'sub-number-heading',
       properties: [color, typography],
@@ -1579,228 +1776,13 @@ const obj = {
       name: 'Numbers',
       id: 'number-val',
       open: false,
-      properties: [
-        {
-          type: 'color',
-          name: 'Number',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'color',
-            'data-attribute': 'number-value-color',
-            'data-target':
-              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Number Font',
-          property: 'font-family',
-          defaults: 'Arial, Helvetica, sans-serif',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'number-value-font',
-            'data-target':
-              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Weight',
-          property: 'font-weight',
-          default: 'default',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'number-value-weight',
-            'data-target':
-              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span style="font-style: italic;">I</span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-
-        {
-          type: 'radio',
-          name: 'Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: [
-            { value: 'uppercase', name: '<span>TT</span>' },
-            { value: 'lowercase', name: '<span>tt</span>' },
-            { value: 'capitalize', name: '<span>Tt</span>' },
-          ],
-          attributes: {
-            'data-type': 'transform',
-            'data-attribute': 'number-value-transform',
-            'data-target':
-              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Decoration',
-          property: 'text-decoration',
-          default: 'default',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'number-value-decoration',
-            'data-target':
-              '.number-percentages-section .percentage-info  h1  .number-percentages-section .percentage-info  h1 span',
-          },
-        },
-      ],
+      properties: NumbersProp,
     },
     {
       name: 'Numbers Description',
       open: false,
       id: 'number-description',
-      properties: [
-        {
-          type: 'color',
-          name: 'Color',
-          property: 'color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-        {
-          type: 'select',
-          name: 'Text Font',
-          property: 'font-family',
-          default: 'Arial, Helvetica, sans-serif',
-          options: fontFamilies,
-          attributes: {
-            'data-type': 'font-family',
-            'data-attribute': 'number-description-font',
-            'data-target': '.number-percentages-section .percentage-info p',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Text Font Size',
-          property: 'font-size',
-          default: 14,
-          units: ['px', 'em', 'rem'],
-          attributes: {
-            'data-type': 'font-size',
-            'data-attribute': 'number-description-font-size',
-            'data-target': '.number-percentages-section .percentage-info p',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Weight',
-          property: 'font-weight',
-          default: 'default',
-          options: fontWeightOptions,
-          attributes: {
-            'data-type': 'font-weight',
-            'data-attribute': 'number-description-weight',
-            'data-target': '.number-percentages-section .percentage-info p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Font Style',
-          property: 'font-style',
-          default: 'default',
-
-          options: [
-            {
-              value: 'bold',
-              name: '<span>B</span>',
-            },
-            {
-              value: 'italic',
-              name: '<span style="font-style: underline;"></span>',
-            },
-            {
-              value: 'underline',
-              name: '<span  style="font-style: underline;">U</span>',
-            },
-          ],
-        },
-
-        {
-          type: 'radio',
-          name: ' Transform',
-          property: 'text-transform',
-          default: 'default',
-          options: [
-            { value: 'uppercase', name: '<span>TT</span>' },
-            { value: 'lowercase', name: '<span>tt</span>' },
-            { value: 'capitalize', name: '<span>Tt</span>' },
-          ],
-          attributes: {
-            'data-type': 'text-transform',
-            'data-attribute': 'number-description-transform',
-            'data-target': '.number-percentages-section .percentage-info p',
-          },
-        },
-        {
-          type: 'radio',
-          name: 'Decoration',
-          property: 'text-decoration',
-          default: 'default',
-          options: textDecorationOptions,
-          attributes: {
-            'data-type': 'text-decoration',
-            'data-attribute': 'number-description-decoration',
-            'data-target': '.number-percentages-section .percentage-info p',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Letter Spacing',
-          property: 'letter-spacing',
-          default: '0 px',
-          units: ['px', 'rem'],
-          attributes: {
-            'data-type': 'letter-spacing',
-            'data-attribute': 'number-description-letter-spacing',
-            'data-target': '.number-percentages-section .percentage-info p',
-          },
-        },
-        {
-          type: 'slider',
-          name: 'Line Height',
-          property: 'line-height',
-          ResizeObserver: true,
-          default: '1',
-          units: ['px', 'em', 'rem'],
-          attributes: {
-            'data-type': 'line-height',
-            'data-attribute': 'number-description-line-height',
-            'data-target': '.number-percentages-section .percentage-info p',
-          },
-        },
-      ],
+      properties:NumbersDescription,
     },
 
     {
@@ -1812,53 +1794,9 @@ const obj = {
 
         'border-style',
         'box-shadow',
-        // 'padding',
+        'padding',
       ],
-      attributes: {
-        'data-target': '.benefit percentage-info',
-      },
-      properties: [
-        {
-          type: 'color',
-          name: 'Border Color',
-          property: 'border-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-          attributes: {
-            'data-type': 'border-color',
-            'data-attribute': 'benefit percentage-info',
-            'data-target': '.benefit percentage-info',
-          },
-        },
-
-        {
-          type: 'composite',
-          name: 'Border Width',
-          property: 'border-width',
-          properties: widthOptions,
-          attributes: {
-            'data-type': 'border-width',
-            'data-attribute': 'benefit-border-width',
-            'data-target': '.benefit percentage-info',
-          },
-        },
-
-        {
-          type: 'radio',
-          name: 'Text Align',
-          property: 'text-align',
-          default: 'left',
-          ResizeObserver: true,
-          options: textAlignOptions,
-          attributes: {
-            'data-type': 'text-align',
-            'data-attribute': 'benefit-text-align',
-            'data-target': '.benefit percentage-info',
-          },
-        },
-      ],
+      properties:NumbersBorder,
     },
   ],
   paragraphSector: [

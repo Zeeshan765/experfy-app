@@ -71,15 +71,6 @@ const SectionPageBuilder: React.FC = () => {
     },
 
     {
-      type: 'text',
-      name: 'text-title1',
-      id: 'h2 sub-number-heading',
-      label: 'Sub Title',
-      placeholder: 'Enter your title ',
-      className: 'custom-text',
-    },
-
-    {
       type: 'select',
       name: 'tagName',
       label: 'HTML Tag',
@@ -96,17 +87,7 @@ const SectionPageBuilder: React.FC = () => {
         { id: 'span', name: 'span' },
         { id: 'p', name: 'p' },
       ],
-      // type: 'select',
-      // options: [
-      //   { value: 'h1', name: 'Heading 1' },
-      //   { value: 'h2', name: 'Heading 2' },
-      //   { value: 'h3', name: 'Heading 3' },
-      //   { value: 'h4', name: 'Heading 4' },
-      //   { value: 'h5', name: 'Heading 5' },
-      //   { value: 'h6', name: 'Heading 6' },
-      // ],
-      // label: 'Size',
-      // name: 'tagName',
+   
       changeProp: 1,
     },
     {
@@ -114,7 +95,6 @@ const SectionPageBuilder: React.FC = () => {
       name: 'class',
       label: 'Alignment',
       default: 'left',
-       id: 'h1 main-number-heading',
       options: [
         { value: 'left', name: 'Left' },
         { value: 'center', name: 'Center' },
