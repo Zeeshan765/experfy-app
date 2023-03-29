@@ -547,7 +547,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section class="main_wrapper numbersSection" id= "numbersSection">
+    content: `<section data-gjs-type="numbersSection" class="main_wrapper numbersSection" id= "numbersSection">
         <div class="number-container-div">
           
         <div class="title-div">

@@ -2123,6 +2123,15 @@ const obj = {
             showInput: true,
           },
         },
+
+
+
+
+
+
+
+
+
       ],
     },
     {
@@ -2130,6 +2139,7 @@ const obj = {
       open: false,
       id: 'main-location-heading',
       properties: [color, typography],
+      
     },
     {
       name: 'Sub Heading',
