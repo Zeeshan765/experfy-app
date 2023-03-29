@@ -121,21 +121,20 @@ align-items: center;
 
 export const paragraphStyle = `
 <style> 
-.main-paragraph-wrapper .paragraph-container{
+.main-paragraph-wrapper {
   display: grid;
   width: 100%;
   padding: 6rem 3.25rem;
   margin-left: auto;
   margin-right: auto; 
   }
-
-  .paragraph-container h1{
+  .main-paragraph-wrapper h1{
   
     margin-bottom: 1.5rem;
     text-align: center;
   }
 
-  .paragraph-container h6{
+  .main-paragraph-wrapper h6{
     margin-left: auto;
     margin-right: auto; 
  

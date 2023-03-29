@@ -221,7 +221,7 @@ let typography = {
       type: 'slider',
       name: 'Font Size',
       property: 'font-size',
-      default: 14,
+      // default: 14,
       unit: 'px',
       min: 8,
       max: 72,
@@ -251,17 +251,17 @@ let typography = {
       type: 'radio',
       name: 'Text Align',
       property: 'text-align',
-      default: 'left',
+      // default: 'center',
       options: textAlignOptions,
     },
     {
       type: 'slider',
       Name: 'Letter Spacing',
       property: 'letter-spacing',
-      default: 0,
-      unit: 'rem',
+      // default: 0,
+      unit: 'px',
       min: 0,
-      max: 10,
+      max: 15,
       step: 1,
     },
     {
@@ -270,11 +270,23 @@ let typography = {
       type: 'slider',
       name: 'Line Height',
       property: 'line-height',
-      default: 1,
-      unit: 'rem',
+      // default: 1,
+      unit: 'px',
       min: 0,
-      max: 10,
+      max: 15,
       step: 0.1,
+    },
+    {
+      id: makeId(),
+      cid: makeId(),
+      type: 'slider',
+      name: 'Paragraph Spacing',
+      property: 'margin-bottom',
+      // default: 1,
+      unit:'px',
+      min: 0,
+      max: 15,
+    
     },
   ],
 };
@@ -1854,7 +1866,7 @@ const obj = {
     {
       name: 'Background',
       open: false,
-      id: 'paragraph-container',
+      id: 'main-paragraph-wrapper',
       buildProps: ['background-image'],
       properties: [
         {
@@ -1873,13 +1885,13 @@ const obj = {
 
 
     {
-      name: 'Main Heading',
+      name: 'Paragraph Heading',
       open: false,
       id: 'main-paragraph-heading',
       properties: [color, typography],
     },
     {
-      name: 'Sub Heading',
+      name: 'Paragraph Description',
       open: false,
       id: 'sub-paragraph-heading',
       properties: [color, typography],

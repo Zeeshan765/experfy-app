@@ -523,17 +523,19 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section  id= "paragraphSector" class="main-paragraph-wrapper paragraphSector">
-       <div class="paragraph-container">
+    content: `<section  id= "paragraphSector" class="paragraphSector" data-gjs-type="paragraphSector">
+    <div class="main-paragraph-wrapper">
+       
           <h1 class="h1 main-paragraph-heading">Master Cleanse Reliac Heirloom</h1>
           <h6 class="h6 sub-paragraph-heading">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h6>
-       </div>
+      
+    </div>
  </section>
  ${paragraphStyle}
- ${getStyles(['.paragraph-container'])}
+ ${getStyles([ 'main-paragraph-wrapper'])}
  `,
   });
 

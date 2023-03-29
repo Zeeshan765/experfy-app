@@ -420,6 +420,7 @@ const SectionPageBuilder: React.FC = () => {
         types: ['mj-image'],
         select(assets, complete) {
           const selected = editor.getSelected();
+          console.log("selection",selected)
           selected.toHTML({
             attributes(component, attributes) {
               if (component.get('type') == 'mj-image') {
