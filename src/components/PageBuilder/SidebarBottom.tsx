@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
+import {
+  Button,
+  ButtonGroup,
+  Grow,
+  Paper,
+  Popper,
+  MenuItem,
+  MenuList
+} from '@mui/material';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
@@ -15,9 +24,20 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import EditIcon from '@mui/icons-material/Edit';
 import { procedCreatedTime } from '../../utilities/dateAndTime';
 
-const SidebarBottom = ({ editor, consumer, pageHistoryArray,deleteHistory,loadHistory }) => {
+const SidebarBottom = ({ editor, consumer, pageHistoryArray, deleteHistory, loadHistory, hasBottomToolbar }) => {
   const [currentDeviceId, setCurrentDeviceId] = useState('desktop');
-  const [historyDispaly, setHistoryDispaly] = useState(false);
+  const [historyDisplay, setHistoryDisplay] = useState(false);
+  const [publishLinksDisplay, setPublishLinksDisplay] = useState(false);
+  const [displayLinksDisplay, setDisplayLinksDisplay] = useState(false);
+
+  const handleShowDisplayOptions = () => {
+    
+  };
+
+  const handleShowPublishOptions = () => {
+    setPublishLinksDisplay(value => !value)
+  };
+  
   const handlePreview = () => {
     editor.runCommand('preview');
   };
@@ -38,89 +58,94 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray,deleteHistory,loadHi
     deviceManager.select(updatedId);
     setCurrentDeviceId(updatedId);
   };
+
   const historyView = () => {
     console.log('historyView');
-    setHistoryDispaly((pre) => !pre);
+    setHistoryDisplay((pre) => !pre);
   };
-console.log('pageHistoryArray=================', pageHistoryArray);
+
+  console.log('pageHistoryArray=================', pageHistoryArray);
+
   return (
-    <div className='blocks sidebar-bottom-custom'>
-      <div
-        id='sidebar-bottom-device'
-        style={{
-          gridRow: 2,
-          backgroundColor: '#3a4152',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '75px',
-        }}
-      >
-        <div id='set-desktop-view' className='btn set-view' data-view='Desktop'>
-          <SettingsIcon />
-        </div>
-
+    <div className={`${hasBottomToolbar ? "sidebar-bottom" : ""} blocks sidebar-bottom-custom`}>
+      {hasBottomToolbar &&
         <div
-          id='set-desktop-view'
-          className='btn set-view'
-          data-view='Desktop'
-          onClick={handleDevices}
+          className='sidebar-bottom__toolbar'
+          id='sidebar-bottom-device'
         >
-          {currentDeviceId === 'mobile' ? (
-            <MobileIcon />
-          ) : currentDeviceId === 'tablet' ? (
-            <TabletIcon />
-          ) : (
-            <DesktopIcon />
-          )}
-        </div>
+          <div className='sidebar-bottom__toolbar__inner'>
+            <div className='sidebar-bottom__toolbar__menu'>
+              {displayLinksDisplay &&
+                <>
+                  <a className='sidebar-bottom__toolbar__menu__link'>Desktop View</a>
+                  <a className='sidebar-bottom__toolbar__menu__link'>Tablet View</a>
+                  <a className='sidebar-bottom__toolbar__menu__link'>Mobile View</a>
+                </>
+              }
+              {publishLinksDisplay &&
+                <>
+                  <a className='sidebar-bottom__toolbar__menu__link'>Save as a Draft</a>
+                  <a className='sidebar-bottom__toolbar__menu__link'>Save as a Template</a>
+                </> 
+              }  
+            </div>  
+            <div className='sidebar-bottom__toolbar__content'>
+              <div className='sidebar-toolbar__actions'>
+                <div id='sidebar-toolbar-settings' data-view='Desktop'>
+                  <SettingsIcon />
+                </div>
 
-        {consumer === 'pageBuilder' && (
-          <button
-            onClick={historyView}
-            id='set-tablet-view'
-            className='btn set-view'
-            data-view='Tablet'
-          >
-            <TimerIcon />
-          </button>
-        )}
+                <div
+                  id='sidebar-toolbar-device'
+                  data-view='Desktop'
+                  onClick={handleDevices}
+                >
+                  {currentDeviceId === 'mobile' ? (
+                    <MobileIcon />
+                  ) : currentDeviceId === 'tablet' ? (
+                    <TabletIcon />
+                  ) : (
+                    <DesktopIcon />
+                  )}
+                </div>
 
-        <div
-          id='set-mobile-view'
-          className='btn set-view'
-          data-view='Mobile'
-          onClick={handlePreview}
-        >
-          <PreviewIcon />
-        </div>
+                {consumer === 'pageBuilder' && (
+                  <button
+                    onClick={historyView}
+                    id='set-tablet-view'
+                    data-view='Tablet'
+                  >
+                    <TimerIcon />
+                  </button>
+                )}
 
-        <div id='set-mobile-view' className='btn set-view' data-view='Mobile'>
-          <Button
-            variant='contained'
-            endIcon={
-              <div
-                style={{
-                  borderLeft: '1px solid white',
-                }}
-              >
-                <ArrowDropUpIcon
-                  style={{
-                    verticalAlign: 'text-top',
-                  }}
-                />
+                <div
+                  id='sidebar-toolbar-preview'
+                  data-view='Mobile'
+                  onClick={handlePreview}
+                >
+                  <PreviewIcon />
+                </div>
               </div>
-            }
-            style={{
-              backgroundColor: '#48a3d7',
-              padding: '0px 16px',
-            }}
-          >
-            Publish
-          </Button>
+              <div id='sidebar-toolbar-publish' data-view='Mobile'>
+                <ButtonGroup variant="contained" aria-label="split button">
+                  <Button disableRipple>Publish</Button>
+                  <Button
+                    disableRipple
+                    size="small"
+                    aria-label="select merge strategy"
+                    aria-haspopup="menu"
+                    onClick={handleShowPublishOptions}
+                  >
+                    <ArrowDropUpIcon />
+                  </Button>
+                </ButtonGroup>
+              </div>
+            </div>  
+          </div>  
         </div>
-      </div>
-      {historyDispaly && (
+      }  
+      {historyDisplay && (
         <div style={{}}>
           <div
             style={{

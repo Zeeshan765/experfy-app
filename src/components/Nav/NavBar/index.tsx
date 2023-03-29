@@ -81,89 +81,89 @@ const CustomDefaultRoute: AdminView = ({ user, canAccessAdmin }) => {
         </Button>
 
 
-        <div className="main__content">
-      <Box sx={{ p: 4 }}>
-        <Grid container spacing={4} alignItems="stretch">
-          <Grid item xs={12}>
-            <Card className={classes.portalBanner}>
-              <CardContent>
-                <Typography component="span">Welcome to</Typography>
-                <Typography component="h1" variant="h1">
-                  <Typography component="span">Experfy</Typography> Studio
-                </Typography>
-                <Typography>
-                  Experfy Studio is a recruitment suite specifically developed
-                  for talent sourcing, pipelining, and hiring. It comes with the
-                  drag and drop website editor, widgets, and prebuilt modules
-                  like job listing, TalentClouds and Practice Areas that are
-                  needed for recruitment Marketing and pipelining of talent.
-                </Typography>
-              </CardContent>
-            </Card>
+      <div className="main__content">
+        <Box sx={{ p: 4 }}>
+          <Grid container spacing={4} alignItems="stretch">
+            <Grid item xs={12}>
+              <Card className={classes.portalBanner}>
+                <CardContent>
+                  <Typography component="span">Welcome to</Typography>
+                  <Typography component="h1" variant="h1">
+                    <Typography component="span">Experfy</Typography> Studio
+                  </Typography>
+                  <Typography>
+                    Experfy Studio is a recruitment suite specifically developed
+                    for talent sourcing, pipelining, and hiring. It comes with the
+                    drag and drop website editor, widgets, and prebuilt modules
+                    like job listing, TalentClouds and Practice Areas that are
+                    needed for recruitment Marketing and pipelining of talent.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={6}>
+              <Card className={classes.portalCard}>
+                <CardContent
+                  className={`${classes.portalCardContent}`}
+                >
+                  <Typography component="h3" variant="h3">
+                    External TalentCloud Career Portal
+                  </Typography>
+                  <List sx={{ color: "#4a5162" }}>
+                    <ListItem disableGutters>
+                      Initiate the creation and enter basic information
+                    </ListItem>
+                    <ListItem disableGutters>Confige the Portal</ListItem>
+                    <ListItem disableGutters>
+                      Configure theme(s) for your portal
+                    </ListItem>
+                    <ListItem disableGutters>
+                      Add pages and create custom content through pre-configured
+                      sections and elements.
+                    </ListItem>
+                    <ListItem disableGutters>
+                      Publish the portal to start pipelining and recruiting talent
+                      from external channels.
+                    </ListItem>
+                  </List>
+                </CardContent>
+                <CardActions>
+                <Button
+            el="link"
+            to={`${adminRoute}/collections/tags`}
+            buttonStyle="primary"
+            className='dashboard-home-page-btn'
+          >
+            Configure
+          </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={6}>
+              <Card className={classes.portalCard}>
+                <CardContent
+                  
+                >
+                  <Typography component="h3" variant="h3">
+                    Inner Mobility through Internal TalentCloud Marketplace
+                  </Typography>
+                  <Typography variant="body1">
+                    Mapping and discovery of internal talent through TalentCloud
+                    enables Managers to easily identify the resources that are
+                    needed for roles, projects and gigs. Fully brand and customize
+                    your internal opportunity marketplace and provide your
+                    employees a way to engage with new opportunities within your
+                    organization.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button buttonStyle='secondary'>
+                    Create New
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <Card className={classes.portalCard}>
-              <CardContent
-                className={`${classes.portalCardContent}`}
-              >
-                <Typography component="h3" variant="h3">
-                  External TalentCloud Career Portal
-                </Typography>
-                <List sx={{ color: "#4a5162" }}>
-                  <ListItem disableGutters>
-                    Initiate the creation and enter basic information
-                  </ListItem>
-                  <ListItem disableGutters>Confige the Portal</ListItem>
-                  <ListItem disableGutters>
-                    Configure theme(s) for your portal
-                  </ListItem>
-                  <ListItem disableGutters>
-                    Add pages and create custom content through pre-configured
-                    sections and elements.
-                  </ListItem>
-                  <ListItem disableGutters>
-                    Publish the portal to start pipelining and recruiting talent
-                    from external channels.
-                  </ListItem>
-                </List>
-              </CardContent>
-              <CardActions>
-              <Button
-          el="link"
-          to={`${adminRoute}/collections/tags`}
-          buttonStyle="primary"
-          className='dashboard-home-page-btn'
-        >
-          Configure
-        </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={6}>
-            <Card className={classes.portalCard}>
-              <CardContent
-                
-              >
-                <Typography component="h3" variant="h3">
-                  Inner Mobility through Internal TalentCloud Marketplace
-                </Typography>
-                <Typography variant="body1">
-                  Mapping and discovery of internal talent through TalentCloud
-                  enables Managers to easily identify the resources that are
-                  needed for roles, projects and gigs. Fully brand and customize
-                  your internal opportunity marketplace and provide your
-                  employees a way to engage with new opportunities within your
-                  organization.
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button buttonStyle='secondary'>
-                  Create New
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        </Grid>
         </Box>
       </div>
 
