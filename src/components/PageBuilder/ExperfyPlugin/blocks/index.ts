@@ -523,17 +523,19 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section  id= "paragraphSector" class="main-paragraph-wrapper paragraphSector">
-       <div class="paragraph-container">
+    content: `<section  id= "paragraphSector" class="paragraphSector" data-gjs-type="paragraphSector">
+    <div class="main-paragraph-wrapper">
+       
           <h1 class="h1 main-paragraph-heading">Master Cleanse Reliac Heirloom</h1>
           <h6 class="h6 sub-paragraph-heading">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h6>
-       </div>
+      
+    </div>
  </section>
  ${paragraphStyle}
- ${getStyles(['.paragraph-container'])}
+ ${getStyles([ 'main-paragraph-wrapper'])}
  `,
   });
 
@@ -547,7 +549,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section class="main_wrapper numbersSection" id= "numbersSection">
+    content: `<section data-gjs-type="numbersSection" class="main_wrapper numbersSection" id= "numbersSection">
         <div class="number-container-div">
           
         <div class="title-div">
@@ -637,7 +639,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             feugiat convallis. Nulla sit amet odio dui. Nulla vulputate dictum tellus vel iaculis.
          </h6>
          <div class="button-container">
-            <button class="button">Button Label</button>
+            <button class="button banner-button">Button Label</button>
          </div>
 
       </div>
@@ -675,8 +677,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section class="main_container ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
- 
+    content: `<section class="ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
+ <div class="main_container">
         <div class="content-section">
            <h1 class="h1 main-image-heading" >Add your heading title here</h1>
            <h2 class="h2 sub-image-heading">The Image and Text module is a place where you can
@@ -690,7 +692,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
               <figcaption class="figure_caption gallery-caption" >Caption Example</figcaption>
         </div>
         </div>
-  
+        </div>
         </section>
     ${ImageText}
     ${getStyles(['.content-section'])}

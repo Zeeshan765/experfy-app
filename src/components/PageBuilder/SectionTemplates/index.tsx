@@ -13,7 +13,7 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import SidebarBottom from '../SidebarBottom';
 import { canvasStyle, devices } from '../utils';
-import {headerstyle} from "../ExperfyPlugin/style";
+import { headerstyle } from '../ExperfyPlugin/style';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -25,6 +25,7 @@ const SectionPageBuilder: React.FC = () => {
   const { userData } = useContext(UserContext);
   const [ccid, setccid] = useState(null);
   var isUpdating = false;
+  var isTrait = false;
   const sections = [
     'page-builder',
     'header',
@@ -62,10 +63,13 @@ const SectionPageBuilder: React.FC = () => {
     {
       type: 'text',
       name: 'text-title',
+      id: 'h1 main-number-heading',
       label: 'Title',
       placeholder: 'Enter your title ',
       className: 'custom-text',
+      changeProp: 1,
     },
+
     {
       type: 'select',
       name: 'tagName',
@@ -83,17 +87,7 @@ const SectionPageBuilder: React.FC = () => {
         { id: 'span', name: 'span' },
         { id: 'p', name: 'p' },
       ],
-      // type: 'select',
-      // options: [
-      //   { value: 'h1', name: 'Heading 1' },
-      //   { value: 'h2', name: 'Heading 2' },
-      //   { value: 'h3', name: 'Heading 3' },
-      //   { value: 'h4', name: 'Heading 4' },
-      //   { value: 'h5', name: 'Heading 5' },
-      //   { value: 'h6', name: 'Heading 6' },
-      // ],
-      // label: 'Size',
-      // name: 'tagName',
+   
       changeProp: 1,
     },
     {
@@ -153,7 +147,6 @@ const SectionPageBuilder: React.FC = () => {
                    `;
 
           block.set('content', content);
-
         }
       })
       .catch((error) => {
@@ -206,7 +199,7 @@ const SectionPageBuilder: React.FC = () => {
     });
     localStorage.removeItem('gjsProject');
     editor.on('load', () => {
-      console.log('defaultStyle---', userData);
+      // console.log('defaultStyle---', userData);
       editor.loadProjectData({
         ...Object.assign(
           {},
@@ -217,7 +210,7 @@ const SectionPageBuilder: React.FC = () => {
     });
     //This is for Single Section
     editor.onReady(() => {
-      console.log('ready');
+      // console.log('ready');
       if (blocks.length === 1) {
         const sectors = editor.StyleManager.getSectors();
         const block = editor.BlockManager.get(blocks[0]);
@@ -229,7 +222,7 @@ const SectionPageBuilder: React.FC = () => {
         component[0].set('layerable', false);
         component[0].set('draggable', false);
         editor.select(component[0]);
-        console.log(component[0].getId());
+        // console.log(component[0].getId());
         sectors.reset();
         sectors.add(getSectors(component[0].getId()));
         editor.runCommand('core:open-styles');
@@ -238,9 +231,26 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
+    editor.DomComponents.addType('numbersSection', {
+      model: {
+        defaults: {
+          traits: TextTrait,
+        },
+        // changeProp: 1,
+        init() {
+          this.on('change:attributes:htmltag', this.handleHtmltagChange);
+        },
+        handleHtmltagChange() {
+          this.set('tagName', this.getAttributes().htmltag);
+        },
+      },
+    });
+
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
       // if component exists, means the drop was successful
+      // console.log('component show', component);
+      // console.log('Trait Manager', component.getTraits());
       if (component) {
         const sectors = editor.StyleManager.getSectors();
         sectors.reset();
@@ -253,7 +263,7 @@ const SectionPageBuilder: React.FC = () => {
         const sectors = editor.StyleManager.getSectors();
         sectors.reset();
         sectors.add(getSectors(component[0].getId()));
-        editor?.runCommand('core:open-styles');
+        // editor?.runCommand('core:open-styles');
       }
     });
 
@@ -311,35 +321,24 @@ const SectionPageBuilder: React.FC = () => {
         },
       },
     });
-
+    editor.DomComponents.addType('ImageTextSector', {
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'mjchange',
+              label: ' ',
+              name: 'mjchange',
+            },
+          ],
+        },
+      },
+    });
     editor.DomComponents.addType('mj-image', {
       isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
       model: {
         defaults: {
           traits: [
-            {
-              type: 'text',
-              name: 'title',
-              label: 'Title',
-              placeholder: 'Enter Title Here',
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'HTML Tag',
-              default: 'h1',
-              options: [
-                { id: 'h1', name: 'H1' },
-                { id: 'h2', name: 'H2' },
-                { id: 'h3', name: 'H3' },
-                { id: 'h4', name: 'H4' },
-                { id: 'h5', name: 'H5' },
-                { id: 'h6', name: 'H6' },
-                { id: 'div', name: 'div' },
-                { id: 'span', name: 'span' },
-                { id: 'p', name: 'p' },
-              ],
-            },
             {
               type: 'select',
               name: 'class',
@@ -377,7 +376,7 @@ const SectionPageBuilder: React.FC = () => {
       createInput({}) {
         let selectedSrc = editor.getSelected();
         let src = selectedSrc!.attributes.attributes!.src;
-        console.log("src", src)
+        // console.log('src', src);
         const toggleModal = () => {
           editor.runCommand('open-assets', {
             target: editor.getSelected(),
@@ -401,35 +400,38 @@ const SectionPageBuilder: React.FC = () => {
         types: ['mj-image'],
         select(assets, complete) {
           const selected = editor.getSelected();
-          console.log('seletcted', selected);
-          if (selected && selected.is('mj-image')) {
-            $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
-            selected.addAttributes({ src: assets.getSrc() });
-            complete && editor.AssetManager.close();
-          }
-          console.log('after select', selected);
+          console.log("selection",selected)
+          selected.toHTML({
+            attributes(component, attributes) {
+              if (component.get('type') == 'mj-image') {
+                $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
+                component.addAttributes({ src: assets.getSrc() });
+                complete && editor.AssetManager.close();
+              }
+            },
+          });
         },
       });
     });
 
     //@ts-ignore
     editor.on('style:sector:update', (props) => {
+      // console.log('sector called', props);
       // Get the selected block
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
           var selectedBlock = editor.getSelected();
-          console.log('selectedBlock', selectedBlock);
+          // console.log('selectedBlock', selectedBlock);
           const { ccid } = selectedBlock;
           isUpdating = true;
           const sectors = sm.getSectors();
-          console.log('props', props);
-          console.log('changed');
+          // console.log('sectors', sectors);
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
-              console.log("model id",modelId)
-              console.log("props id",props.id)
+              // console.log('model id', modelId);
+              // console.log('props id', props.id);
               let isOpen = sectors.models[i].isOpen();
               if (isOpen) {
                 editor.select(sectors.models[i]);
@@ -441,7 +443,6 @@ const SectionPageBuilder: React.FC = () => {
                 });
 
                 sm.select(`.${ccid} .${props.id}`);
-               
               }
             } else {
               sectors.models[i].setOpen(false);
@@ -472,7 +473,137 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
+    //@ts-ignore
+    // editor.on('component:update:attributes', (component) => {
+    //   console.log('component:update:attributes', component);
+
+    //   editor.Selectors.select(`.${'main-number-heading'}`);
+    // });
+
     editor.on('component:update', (component) => {
+      // console.log('component update called', component);
+
+      const attrs = component.getAttributes();
+      // console.log('attrs', attrs);
+      component.set('main-number-heading', '');
+
+      // const isActive = event.changed.attributes['my-parent-trait'];
+      // const displayStyle = true ? 'block' : 'none';
+
+      // TextTrait.forEach((traitProps) => {
+      //   const trait = component.getTrait(traitProps.name);
+      //   console.log('trait', trait);
+      //   if (trait) {
+      //     trait.view.el.style.display = displayStyle;
+      //   }
+      // });
+
+      var selected = editor.getSelected();
+
+      // console.log('selectedTrait', selected);
+      // const el = selectedTrait.getEl();
+      // console.log('el', el)
+
+      var selectedTrait = component.getTraits();
+      // console.log('selectedTrait1', selectedTrait);
+      // const traitTitle = component.getTrait('main-number-heading');
+      // if (traitTitle) {
+      //   //   console.log('traitTitle', traitTitle);
+      //   //   traitTitle &&
+      //   //     traitTitle.set('class', 'h1 main-number-heading gjs-selected');
+      // }
+
+      const { ccid } = selectedTrait;
+      // console.log('ccid', ccid);
+
+      for (let i = 0; i < selectedTrait.length; i++) {
+        const modelId = selectedTrait[i].get('id');
+        const modelValue = selectedTrait[i].get('value');
+        // console.log("model is '''''''''' ", modelId);
+        selected.toHTML({
+          attributes(component, attributes) {
+            console.log('component old', component);
+            if (attributes?.class === modelId) {
+              console.log(
+                'attributes?.class, modelValue',
+                attributes?.class,
+                modelValue
+              );
+              console.log('component', component);
+              component.components(modelValue);
+              // component.addAttributes({ value: modelValue });
+            }
+            // console.log("class",attributes.get('class'))
+
+            // if (attributes.get('class') == modelId) {
+            //   console.log("yes-------------------->")
+
+            //   // attributes.title = 'Custom attribute';
+            //   // attributes.value = 'Custom Value';
+            // }
+            // return attributes;
+          },
+        });
+
+        // console.log('modelIdNew', modelId);
+        // console.log('props id d d ', component.id);
+        // const modelId = sectors.models[i].get('id');
+        // if (modelId === component.id) {
+        //   console.log('model id', modelId);
+        //   console.log('component id', component.id);
+        //   let isOpen = sectors.models[i].isOpen();
+        //   if (isOpen) {
+        //     editor.select(sectors.models[i]);
+        //     sectors.models[i].set({
+        //       open: true,
+        //       active: true,
+        //       select: true,
+        //       focus: true,
+        //     });
+
+        //     sm.select(`.${ccid} .${component.id}`);
+        //   }
+        // } else {
+        //   sectors.models[i].setOpen(false);
+        // }
+      }
+
+      // !isTrait &&
+      // setTimeout(() => {
+      //   var selectedTrait = component.getTraits()
+      //   console.log('selectedTrait', selectedTrait);
+      //   const { ccid } = selectedTrait;
+      //   console.log("ccid",ccid)
+      //   isTrait = true;
+
+      //   // for (let i = 0; i < sectors.length; i++) {
+      //   //   const modelId = sectors.models[i].get('id');
+      //   //   if (modelId === props.id) {
+      //   //     console.log("model id",modelId)
+      //   //     console.log("props id",props.id)
+      //   //     let isOpen = sectors.models[i].isOpen();
+      //   //     if (isOpen) {
+      //   //       editor.select(sectors.models[i]);
+      //   //       sectors.models[i].set({
+      //   //         open: true,
+      //   //         active: true,
+      //   //         select: true,
+      //   //         focus: true,
+      //   //       });
+
+      //   //       sm.select(`.${ccid} .${props.id}`);
+
+      //   //     }
+      //   //   } else {
+      //   //     sectors.models[i].setOpen(false);
+      //   //   }
+      //   // }
+
+      //   setTimeout(() => {
+      //     isTrait = false;
+      //   }, 3000);
+      // }, 100);
+
       if (component.get('type') == 'text') {
         component.components(component.get('traits').models[0].get('value'));
         // component.components(component.get('traits').models[1].get('class'));
@@ -508,11 +639,11 @@ const SectionPageBuilder: React.FC = () => {
   }, []);
 
   let newDirty = editor?.getDirtyCount();
-  console.log('newDirty', newDirty);
+  // console.log('newDirty', newDirty);
 
   const handleCount = () => {
     let dirty = editor?.getDirtyCount();
-    console.log('Dirty Count is here', dirty);
+    // console.log('Dirty Count is here', dirty);
   };
 
   // useEffect(() => {
