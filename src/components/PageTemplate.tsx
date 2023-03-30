@@ -124,7 +124,8 @@ const fetchData = () => {
     fetchData();
   }, []);
   return (
-      <Grid container spacing={2} style={{ margin: "auto", width: "100%" }}>
+    <>
+      <Grid container spacing={3} mt={1}>
         {pageList.map(({ id, image, name, link },index) => (
           <>
             {search === "" && (
@@ -211,6 +212,7 @@ const fetchData = () => {
           </>
         ))}
       </Grid>
+    </>  
   );
 };
 export default PageTemplate;

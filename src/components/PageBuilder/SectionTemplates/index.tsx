@@ -90,7 +90,6 @@ const SectionPageBuilder: React.FC = () => {
         { id: 'span', name: 'span' },
         { id: 'p', name: 'p' },
       ],
-
       changeProp: 1,
     },
     {
@@ -233,6 +232,21 @@ const SectionPageBuilder: React.FC = () => {
       } else {
         editor?.runCommand('core:open-blocks');
       }
+    });
+
+    editor.DomComponents.addType('numbersSection', {
+      model: {
+        defaults: {
+          traits: TextTrait,
+        },
+        // changeProp: 1,
+        init() {
+          this.on('change:attributes:htmltag', this.handleHtmltagChange);
+        },
+        handleHtmltagChange() {
+          this.set('tagName', this.getAttributes().htmltag);
+        },
+      },
     });
 
     //This is for all section templates Style Manager
@@ -470,6 +484,13 @@ const SectionPageBuilder: React.FC = () => {
     //   editor.Selectors.select(`.${'main-number-heading'}`);
     // });
 
+    //@ts-ignore
+    // editor.on('component:update:attributes', (component) => {
+    //   console.log('component:update:attributes', component);
+
+    //   editor.Selectors.select(`.${'main-number-heading'}`);
+    // });
+
     editor.on('component:update', (component) => {
       // console.log('component update called', component);
 
@@ -670,12 +691,12 @@ const SectionPageBuilder: React.FC = () => {
   // },[check]);
 
   return (
-    <div className="main__content">
+    <div className="main__content main__content__editor">
       <Eyebrow />
       <div className="panel__top"></div>
-      <div className="editor-row">
+      <div className="editor-row fixed-toolbar">
         <div className="panel__basic-actions"></div>
-        <div className="panel__left">
+        <div className="panel__left bottom-controls">
           <div className="back__panel panel-header">
             <Link className="panel-header__link" to={`${admin}/`}>
               <ArrowBackIosNewRoundedIcon />
@@ -685,12 +706,18 @@ const SectionPageBuilder: React.FC = () => {
               <AppsRoundedIcon />
             </span>
           </div>
-          <div className="panel__switcher"></div>
-          <SidebarBottom editor={editor} />{' '}
-          {/*  this warning is stylable. work is in progress*/}
-          <div className="styles-container"></div>
-          <div className="traits-container"></div>
-          <div className="layers-container"></div>
+          <div className="panel-body has-bottom-controls">
+            <div className="panel-body__inner">
+              <div className="panel-body__content">
+                <div className='panel__switcher'></div>
+                <div className="styles-container"></div>
+                <div className="traits-container"></div>
+                <div className="layers-container"></div>
+              </div>
+              <SidebarBottom editor={editor} hasBottomToolbar={true} />{' '}
+              {/*  this warning is stylable. work is in progress*/}
+            </div>  
+          </div>
         </div>
         <div className="editor-canvas">
           <div id="sections"></div>

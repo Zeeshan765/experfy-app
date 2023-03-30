@@ -778,17 +778,23 @@ const PageBuilder: React.FC = () => {
               <AppsRoundedIcon />
             </span>
           </div>
-          <div className="panel__switcher"></div>
-          <SidebarBottom
-            editor={editor}
-            consumer="pageBuilder"
-            pageHistoryArray={pageHistoryArray}
-            deleteHistory={deleteHistory}
-            loadHistory={loadHistory}
-          />
-          <div className="styles-container"></div>
-          <div className="traits-container"></div>
-          <div className="layers-container"></div>
+          <div className="panel-body has-bottom-controls">
+            <div className="panel-body__inner">
+              <div className="panel-body__content">
+                <div className="panel__switcher"></div>
+                <SidebarBottom
+                  editor={editor}
+                  consumer="pageBuilder"
+                  pageHistoryArray={pageHistoryArray}
+                  deleteHistory={deleteHistory}
+                  loadHistory={loadHistory}
+                />
+                <div className="styles-container"></div>
+                <div className="traits-container"></div>
+                <div className="layers-container"></div>
+              </div>
+            </div>
+          </div>      
         </div>
         <div className="editor-canvas">
           <div className="editor"></div>
