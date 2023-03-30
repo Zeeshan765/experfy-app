@@ -129,11 +129,14 @@ const ThemeStyle: React.FC = () => {
 
     //@ts-ignore
     editor.on('style:target', (component) => {
+      console.log("Target Component",component);
       if (!component) return;
 
       const selectedSector = component.getSelectorsString().replace('.', '');
       const sectors = editor.StyleManager.getSectors();
+      console.log("editor.select",editor.select(selectedSector));
       console.log('selected', selectedSector);
+      console.log("sectors",sectors)
       for (let i = 0; i < sectors.length; i++) {
         if (selectedSector.includes(sectors.models[i].get('id'))) {
           sectors.models[i].setOpen(true);

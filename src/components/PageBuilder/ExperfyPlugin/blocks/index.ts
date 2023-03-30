@@ -523,7 +523,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section  id= "paragraphSector" class="paragraphSector" data-gjs-type="paragraphSector">
+    content: `<section  id= "paragraphSector" class="paragraphSector" data-gjs-type="paragraphSector mj-image">
     <div class="main-paragraph-wrapper">
        
           <h1 class="h1 main-paragraph-heading">Master Cleanse Reliac Heirloom</h1>
@@ -535,7 +535,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </section>
  ${paragraphStyle}
- ${getStyles([ 'main-paragraph-wrapper'])}
+ ${getStyles([ '.main-paragraph-wrapper'])}
  `,
   });
 
