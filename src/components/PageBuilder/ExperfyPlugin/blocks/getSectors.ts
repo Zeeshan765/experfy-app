@@ -1745,7 +1745,7 @@ const obj = {
       name: 'Section Background',
       open: false,
       id: 'number-container-div',
-      buildProps: ['background-image'],
+      buildProps: ['background'],
       properties: [
         {
           type: 'color',
@@ -1805,7 +1805,7 @@ const obj = {
       name: 'Background',
       open: false,
       id: 'main-paragraph-wrapper',
-      buildProps: ['background-image'],
+      buildProps: ['background'],
       properties: [
         {
           type: 'color',

@@ -19,6 +19,8 @@ export function ComponentSelection(
 ) {
   if (sector.isOpen()) {
     const wrapperCmp = editor.DomComponents.getWrapper();
+    console.log("hello",sector.attributes.id)
+
     switch (sector.attributes.id) {
       case 'button':
         editor.select(wrapperCmp.find('button')[0]);

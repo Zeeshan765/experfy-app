@@ -131,7 +131,7 @@ export const paragraphStyle = `
   .main-paragraph-wrapper h1{
   
     margin-bottom: 1.5rem;
-    text-align: center;
+  
   }
 
   .main-paragraph-wrapper h6{
