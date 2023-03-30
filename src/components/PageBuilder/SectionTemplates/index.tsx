@@ -13,10 +13,10 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import SidebarBottom from '../SidebarBottom';
 import { canvasStyle, devices } from '../utils';
-import { headerstyle } from '../ExperfyPlugin/style';
 import backgroundPlugin from 'grapesjs-style-bg';
 // import 'grapesjs/dist/css/grapes.min.css';
 import 'grapick/dist/grapick.min.css';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -78,7 +78,7 @@ const SectionPageBuilder: React.FC = () => {
       name: 'tagName',
       label: 'HTML Tag',
       ChangeProp: 1,
-      default: 'h1',
+      // default: 'h1',
       options: [
         { id: 'h1', name: 'H1' },
         { id: 'h2', name: 'H2' },
@@ -92,17 +92,17 @@ const SectionPageBuilder: React.FC = () => {
       ],
       changeProp: 1,
     },
-    {
-      type: 'select',
-      name: 'class',
-      label: 'Alignment',
-      default: 'center',
-      options: [
-        { value: 'left', name: 'Left' },
-        { value: 'center', name: 'Center' },
-        { value: 'right', name: 'Right' },
-      ],
-    },
+    // {
+    //   type: 'select',
+    //   name: 'class',
+    //   label: 'Alignment',
+    //   // default: 'center',
+    //   options: [
+    //     { value: 'left', name: 'Left' },
+    //     { value: 'center', name: 'Center' },
+    //     { value: 'right', name: 'Right' },
+    //   ],
+    // },
   ];
 
   const updateHeaderBlock = async () => {
@@ -356,87 +356,76 @@ const SectionPageBuilder: React.FC = () => {
     // });
 
     // // Image  Trait
-    // editor.DomComponents.addType('mj-image', {
-    //   isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
-    //   model: {
-    //     defaults: {
-    //       traits: [
-    //         {
-    //           type: 'mjchange',
-    //           label: ' ',
-    //           name: 'mjchange',
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
+    editor.DomComponents.addType('image', {
+      // isComponent: (el: any) => el.tagName === 'IMAGE',
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'myimg',
+              label: ' ',
+              name: 'myimg',
+            },
+         
+          ],
+        },
 
-    // editor.TraitManager.addType('mjchange', {
-    //   noLabel: true,
-    //   createInput({}) {
-    //     let selectedSrc = editor.getSelected();
-    //     let src = selectedSrc!.attributes.attributes!.src;
-    //     // console.log('src', src);
-    //     const toggleModal = () => {
-    //       editor.runCommand('open-assets', {
-    //         target: editor.getSelected(),
-    //       });
-    //     };
-    //     const el = document.createElement('div');
-    //     el.setAttribute('class', 'image-trait-preview');
-    //     el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
-    //               <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
-    //     const inputType = el.querySelector('#chg-img-trait-btn');
-    //     const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
-    //     imgBox!.addEventListener('click', toggleModal);
-    //     inputType!.addEventListener('click', toggleModal);
-    //     return el;
-    //   },
-    // });
-    // editor.on('modal:open', (component) => {
-    //   const $ = editor.$;
-    //   const am = editor.AssetManager;
-    //   am.open({
-    //     types: ['mj-image'],
-    //     select(assets, complete) {
-    //       const selected = editor.getSelected();
-    //       console.log("selection",selected)
-    //       selected.toHTML({
-    //         attributes(component, attributes) {
-    //           if (component.get('type') == 'mj-image') {
-    //             $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
-    //             component.addAttributes({ src: assets.getSrc() });
-    //             complete && editor.AssetManager.close();
-    //           }
-    //         },
-    //       });
-    //     },
-    //   });
-    // });
+      },
+    });
+
+    editor.TraitManager.addType('myimg', {
+      noLabel: true,
+      createInput({}) {
+        let selectedSrc = editor.getSelected();
+        let src = selectedSrc!.attributes.attributes!.src;
+        const toggleModal = () => {
+          editor.runCommand('open-assets', {
+            target: editor.getSelected(),
+          });
+        };
+        const el = document.createElement('div');
+        el.setAttribute('class', 'image-trait-preview');
+        el.innerHTML = `${<CloudUploadIcon />}
+        <img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
+                  <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
+        const inputType = el.querySelector('#chg-img-trait-btn');
+        const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
+        imgBox!.addEventListener('click', toggleModal);
+        inputType!.addEventListener('click', toggleModal);
+        return el;
+      },
+    });
+
+
+   
+
+
+
+
+
+
+
+
+
+
+  
 
     //@ts-ignore
     editor.on('style:sector:update', (props) => {
-      // console.log('sector called', props);
-      // Get the selected block
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
           var selectedBlock = editor.getSelected();
-          // console.log('selectedBlock', selectedBlock);
-          const { ccid } = selectedBlock;
           isUpdating = true;
           const sectors = sm.getSectors();
-          // console.log('sectors', sectors);
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
-              // console.log('model id', modelId);
-              // console.log('props id', props.id);
+              console.log('props id', props.id);
               let isOpen = sectors.models[i].isOpen();
-              // const wrapperCmp = editor.DomComponents.getWrapper();
               if (isOpen) {
                 const wrapperCmp = editor.DomComponents.getWrapper();
-               
+               console.log("wrapperCmp.find(`.${props.id}`)[0]",wrapperCmp.find(`.${props.id}`)[0])
                 editor.select(wrapperCmp.find(`.${props.id}`)[0]);
                 // editor.select(sectors.models[i]);
                 // sectors.models[i].set({
@@ -462,19 +451,24 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     // editor.on('component:selected', (component) => {
-    //   if (ccid !== component.ccid) {
-    //     setccid(component.ccid);
-    //   }
+    //   var selectedBlock = editor.getSelected();
+    //   console.log('selectedBlock', selectedBlock);
+    //   const sectors = editor.StyleManager.getSectors();
+    //   console.log('sectors check', sectors);
 
-    //   // if (component.get('type') == 'text') {
+    //   // if (ccid !== component.ccid) {
+    //   //   setccid(component.ccid);
+    //   // }
+
+    //   // // if (component.get('type') == 'text') {
+    //   // //   editor?.runCommand('core:open-traits');
+    //   // // }
+    //   // if (component.get('type') == 'button') {
     //   //   editor?.runCommand('core:open-traits');
     //   // }
-    //   if (component.get('type') == 'button') {
-    //     editor?.runCommand('core:open-traits');
-    //   }
-    //   if (component.get('type') == 'mj-image') {
-    //     editor?.runCommand('core:open-traits');
-    //   }
+    //   // if (component.get('type') == 'mj-image') {
+    //   //   editor?.runCommand('core:open-traits');
+    //   // }
     // });
 
     //@ts-ignore
