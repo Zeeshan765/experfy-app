@@ -137,24 +137,24 @@ const PageBuilder: React.FC = () => {
           ...updation,
         })
         .then((res) => {
-          history.replace('/admin/collections/page-Template');
+          toast.success(res.data.message);
         })
         .catch((err) => {
           console.log('err', err);
         });
     } else {
-      if (id) {
+      // if (id) {
         axios
           .patch(`${apiEndpoint}/pages/${id}`, {
             pageCode: JSON.stringify(editor.getProjectData()),
           })
           .then((res) => {
-            !historyUpdate && history.replace('/admin/collections/pages');
+            toast.success(res.data.message);
           })
           .catch((err) => {
             console.log('err', err);
           });
-      }
+      // }
     }
   };
   const uploadMedia = async (fileItem: String) => {
@@ -763,18 +763,18 @@ const PageBuilder: React.FC = () => {
   // let newDirty = editor?.getDirtyCount();
   // =======Lifecycle methods end here=========
   return (
-    <div className="main__content">
+    <div className='main__content'>
       <Eyebrow />
-      <div className="panel__top"></div>
-      <div className="editor-row">
-        <div className="panel__basic-actions"></div>
-        <div className="panel__left">
-          <div className="back__panel panel-header">
-            <Link className="panel-header__link" to={`${admin}/`}>
+      <div className='panel__top'></div>
+      <div className='editor-row'>
+        <div className='panel__basic-actions'></div>
+        <div className='panel__left'>
+          <div className='back__panel panel-header'>
+            <Link className='panel-header__link' to={`${admin}/`}>
               <ArrowBackIosNewRoundedIcon />
             </Link>
             <span>Page Builder</span>
-            <span className="panel-header__menu">
+            <span className='panel-header__menu'>
               <AppsRoundedIcon />
             </span>
           </div>
@@ -796,8 +796,8 @@ const PageBuilder: React.FC = () => {
             </div>
           </div>      
         </div>
-        <div className="editor-canvas">
-          <div className="editor"></div>
+        <div className='editor-canvas'>
+          <div className='editor'></div>
         </div>
       </div>
     </div>

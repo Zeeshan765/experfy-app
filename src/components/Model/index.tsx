@@ -11,7 +11,7 @@ import { Context } from '../../Providers/MyProvider';
 
 const FaceLessModel = ({ data, templateModelClose }) => {
   const classes = useStyles();
-  const { id, name, image } = data;
+  const { id, name, pageThumnail,pageCode } = data;
   const { setSelectedPageCode } = useContext(Context);
 
   const [subModelopen, setSubModelOpen] = useState(false);
@@ -23,14 +23,13 @@ const FaceLessModel = ({ data, templateModelClose }) => {
     setSubModelOpen(false);
   };
   const createPageHandler = () => {
-    setSelectedPageCode(id);
+    setSelectedPageCode(pageCode);
     handleClose();
     templateModelClose();
   };
 
   return (
     <>
-      {/* <input name="htmlCode" value={htmlCode}/> */}
       <Dialog
         open={subModelopen}
         onClose={handleClose}
@@ -63,10 +62,9 @@ const FaceLessModel = ({ data, templateModelClose }) => {
             </IconButton>
           </div>
         </DialogTitle>
-        {/* <Modal slug="my-modal" > */}
         <DialogContent>
           <div className={classes.previewModalContent} key={id}>
-            <img src={image} alt={name} />
+            <img src={pageThumnail} alt={name} />
           </div>
         </DialogContent>
       </Dialog>
