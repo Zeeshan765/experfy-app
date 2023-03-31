@@ -399,7 +399,45 @@ const SectionPageBuilder: React.FC = () => {
 
    
 
+editor.on('asset:upload:response', (response) => {
+      const img = document.querySelector('#gjs_img_preview_logo_rtl');
+      img!.setAttribute('src', response.data.url);
+    });
 
+
+//@ts-ignore
+// editor.on('style:sector:update', (props) => {
+//   let sm = editor.StyleManager;
+//   var selectedBlock = editor.getSelected();
+//   isUpdating = true;
+//   const sectors = sm.getSectors();
+//   for (let i = 0; i < sectors.length; i++) {
+//     const modelId = sectors.models[i].get('id');
+//     if (modelId === props.id) {
+//       console.log("yes")
+//       console.log('props id', props.id);
+//       let isOpen = sectors.models[i].isOpen();
+//       console.log('isOpen', isOpen);
+//       if (isOpen) {
+//         const wrapperCmp = editor.DomComponents.getWrapper();
+//        console.log("wrapperCmp.find(`.${props.id}`)[0]",wrapperCmp.find(`.${props.id}`)[0])
+//         editor.select(wrapperCmp.find(`.${props.id}`)[0]);
+//         // editor.select(sectors.models[i]);
+//         sectors.models[i].set({
+//           open: true,
+//           active: true,
+//           select: true,
+//           focus: true,
+//         });
+
+//         // sm.select(`.${props.id}`);
+//       }
+//     } else {
+//       sectors.models[i].setOpen(false);
+//     }
+//   }
+
+// });
 
 
 
@@ -410,7 +448,7 @@ const SectionPageBuilder: React.FC = () => {
 
   
 
-    //@ts-ignore
+   // @ts-ignore
     editor.on('style:sector:update', (props) => {
       !isUpdating &&
         setTimeout(() => {
@@ -423,6 +461,7 @@ const SectionPageBuilder: React.FC = () => {
             if (modelId === props.id) {
               console.log('props id', props.id);
               let isOpen = sectors.models[i].isOpen();
+              console.log('isOpen', isOpen);
               if (isOpen) {
                 const wrapperCmp = editor.DomComponents.getWrapper();
                console.log("wrapperCmp.find(`.${props.id}`)[0]",wrapperCmp.find(`.${props.id}`)[0])
@@ -444,10 +483,10 @@ const SectionPageBuilder: React.FC = () => {
 
           setTimeout(() => {
             isUpdating = false;
-          }, 3000);
+          }, 300);
         }, 100);
 
-      const categories = editor.StyleManager.getSectors();
+    //   const categories = editor.StyleManager.getSectors();
     });
 
     // editor.on('component:selected', (component) => {
