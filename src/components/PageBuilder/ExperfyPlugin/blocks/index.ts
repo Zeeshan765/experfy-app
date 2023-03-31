@@ -631,7 +631,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         
       
       <div class="bannar-content">
-         <h1 class="h1 main-banner-heading">Add your heading title here</h1>
+         <h1 id ="main-banner-heading" class="h1 main-banner-heading">Add your heading title here</h1>
          <h6 class="h6 sub-banner-heading">Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Nunc nec posuere risus. Phasellus nunc nisl, vulputate nec magna vel, sodales sollicitudin velit. Fusce scelerisque odio risus, eu euismod felis
             pellentesque a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In pulvinar aliquam felis, eu sodales ligula
@@ -639,7 +639,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             feugiat convallis. Nulla sit amet odio dui. Nulla vulputate dictum tellus vel iaculis.
          </h6>
          <div class="button-container">
-            <button class="button banner-button">Button Label</button>
+            <button class="button banner-button" data-gjs-type="button">Button Label</button>
          </div>
 
       </div>
@@ -647,7 +647,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
         </section>
         ${ImageBanner}
-        ${getStyles(['.bannar-content'])}
         ${getbuttonStyles(['.button-container'])}
       
         `,
@@ -1094,7 +1093,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z"></path>
   </svg>`,
     content: `<div id="image" class="image">
-    <img src="https://dummyimage.com/1200x500" alt="step" data-gjs-type="mj-image" >
+    <img src="https://dummyimage.com/1200x500" alt="step"  >
     </div>
         `,
   });
