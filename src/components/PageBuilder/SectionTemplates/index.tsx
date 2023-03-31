@@ -66,10 +66,10 @@ const SectionPageBuilder: React.FC = () => {
     {
       type: 'text',
       name: 'text-title',
-      id: 'h1 main-number-heading',
+
       label: 'Title',
       placeholder: 'Enter your title ',
-      className: 'custom-text',
+      // className: 'custom-text',
       changeProp: 1,
     },
 
@@ -103,6 +103,40 @@ const SectionPageBuilder: React.FC = () => {
     //     { value: 'right', name: 'Right' },
     //   ],
     // },
+  ];
+
+  let ButtonTrait = [
+    {
+      type: 'text',
+      name: 'value',
+      label: 'Button Text',
+      placeholder: 'Buttton ',
+    },
+    {
+      type: 'select',
+      name: 'class',
+      label: 'Button Size',
+      // default: 'small',
+      options: [
+        { value: 'btn-extrasmall', name: 'Extra Small' },
+
+        { value: 'btn-small', name: 'small' },
+        { value: 'btn-medium', name: 'Medium' },
+        { value: 'btn-large', name: 'Large' },
+        { value: 'btn-extralarge', name: 'Extra Large' },
+      ],
+    },
+    {
+      type: 'select',
+      name: 'class',
+      label: 'Button Alignment',
+      // default: 'btn-start',
+      options: [
+        { value: 'btn-start', name: 'Left' },
+        { value: 'btn-center', name: 'Center' },
+        { value: 'btn-right', name: 'Right' },
+      ],
+    },
   ];
 
   const updateHeaderBlock = async () => {
@@ -285,39 +319,7 @@ const SectionPageBuilder: React.FC = () => {
     editor.DomComponents.addType('button', {
       model: {
         defaults: {
-          traits: [
-            {
-              type: 'text',
-              name: 'button-title',
-              label: 'Button Text',
-              placeholder: 'Buttton ',
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Button Size',
-              default: 'small',
-              options: [
-                { value: 'btn-extrasmall', name: 'Extra Small' },
-
-                { value: 'btn-small', name: 'small' },
-                { value: 'btn-medium', name: 'Medium' },
-                { value: 'btn-large', name: 'Large' },
-                { value: 'btn-extralarge', name: 'Extra Large' },
-              ],
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Button Alignment',
-              default: 'btn-start',
-              options: [
-                { value: 'btn-start', name: 'Left' },
-                { value: 'btn-center', name: 'Center' },
-                { value: 'btn-right', name: 'Right' },
-              ],
-            },
-          ],
+          traits: ButtonTrait,
         },
       },
     });
@@ -357,7 +359,6 @@ const SectionPageBuilder: React.FC = () => {
 
     // // Image  Trait
     editor.DomComponents.addType('image', {
-      // isComponent: (el: any) => el.tagName === 'IMAGE',
       model: {
         defaults: {
           traits: [
@@ -366,10 +367,8 @@ const SectionPageBuilder: React.FC = () => {
               label: ' ',
               name: 'myimg',
             },
-         
           ],
         },
-
       },
     });
 
@@ -385,7 +384,7 @@ const SectionPageBuilder: React.FC = () => {
         };
         const el = document.createElement('div');
         el.setAttribute('class', 'image-trait-preview');
-        el.innerHTML = `${<CloudUploadIcon />}
+        el.innerHTML = `${(<CloudUploadIcon />)}
         <img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
                   <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
         const inputType = el.querySelector('#chg-img-trait-btn');
@@ -396,22 +395,10 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-
    
-
-
-
-
-
-
-
-
-
-
-  
-
-    //@ts-ignore
+    // @ts-ignore
     editor.on('style:sector:update', (props) => {
+      console.log('props', props);
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
@@ -423,9 +410,13 @@ const SectionPageBuilder: React.FC = () => {
             if (modelId === props.id) {
               console.log('props id', props.id);
               let isOpen = sectors.models[i].isOpen();
+              console.log('isOpen', isOpen);
               if (isOpen) {
                 const wrapperCmp = editor.DomComponents.getWrapper();
-               console.log("wrapperCmp.find(`.${props.id}`)[0]",wrapperCmp.find(`.${props.id}`)[0])
+                console.log(
+                  'wrapperCmp.find(`.${props.id}`)[0]',
+                  wrapperCmp.find(`.${props.id}`)[0]
+                );
                 editor.select(wrapperCmp.find(`.${props.id}`)[0]);
                 // editor.select(sectors.models[i]);
                 // sectors.models[i].set({
@@ -444,17 +435,68 @@ const SectionPageBuilder: React.FC = () => {
 
           setTimeout(() => {
             isUpdating = false;
-          }, 3000);
+          }, 300);
         }, 100);
 
-      const categories = editor.StyleManager.getSectors();
+        const categories = editor.StyleManager.getSectors();
     });
 
     // editor.on('component:selected', (component) => {
-    //   var selectedBlock = editor.getSelected();
-    //   console.log('selectedBlock', selectedBlock);
-    //   const sectors = editor.StyleManager.getSectors();
-    //   console.log('sectors check', sectors);
+    //   console.log('hello selection', component);
+
+    //   // var selectedBlock = editor.getSelected();
+    //   // console.log('selectedBlock', selectedBlock);
+    //   // let sectors = editor.StyleManager.getSectors();
+    //   // console.log('sectors check', sectors);
+    //   // for (let i = 0; i < sectors.length; i++) {
+    //   //   const modelId = sectors.models[i].get('id');
+    //   //   console.log('modelId', modelId);
+    //   //   const wrapperCmp = editor.DomComponents.getWrapper();
+    //   //   console.log(
+    //   //     'wrapperCmp.find(`.${modelId}`)[0]',
+    //   //     wrapperCmp.find(`.${modelId}`)[0]
+    //   //   );
+    //   //   if (wrapperCmp) {
+    //   //     sectors.models[i].setOpen(true);
+    //   //   } else {
+    //   //     sectors.models[i].setOpen(false);
+    //   //   }
+    //   // }
+
+
+    //   !isUpdating &&
+    //   setTimeout(() => {
+    //     let sectors = editor.StyleManager.getSectors();
+    //     isUpdating = true;
+    //     for (let i = 0; i < sectors.length; i++) {
+    //       const modelId = sectors.models[i].get('id');
+    //         const wrapperCmp = editor.DomComponents.getWrapper();
+    //         const newWrap = wrapperCmp.find(`.${modelId}`)[0];
+    //         console.log(
+    //           'wrapperCmp.find(`.${modelId}`)[0]',
+    //           wrapperCmp.find(`.${modelId}`)[0]
+    //         );
+    //         if (newWrap) {
+    //           sectors.models[i].setOpen(true);
+    //         } 
+          
+    //     }
+
+    //     setTimeout(() => {
+    //       isUpdating = false;
+    //     }, 300);
+    //   }, 100);
+
+
+
+
+
+
+
+
+
+
+
 
     //   // if (ccid !== component.ccid) {
     //   //   setccid(component.ccid);
@@ -486,7 +528,7 @@ const SectionPageBuilder: React.FC = () => {
     // });
 
     editor.on('component:update', (component) => {
-      // console.log('component update called', component);
+      console.log('component update called', component);
 
       // const attrs = component.getAttributes();
       // // console.log('attrs', attrs);
@@ -611,13 +653,13 @@ const SectionPageBuilder: React.FC = () => {
 
       if (component.get('type') == 'text') {
         component.components(component.get('traits').models[0].get('value'));
-        component.components(component.get('traits').models[2].get('class'));
+        component.components(component.get('traits').models[1].get('class'));
         // component.components(component.get('traits').models[1].get('class'));
       }
       if (component.get('type') == 'button') {
         component.components(component.get('traits').models[0].get('value'));
-        component.components(component.get('traits').models[1].get('class'));
-        component.components(component.get('traits').models[2].get('class'));
+        // component.components(component.get('traits').models[1].get('class'));
+        // component.components(component.get('traits').models[2].get('class'));
       }
     });
 
@@ -703,14 +745,14 @@ const SectionPageBuilder: React.FC = () => {
           <div className="panel-body has-bottom-controls">
             <div className="panel-body__inner">
               <div className="panel-body__content">
-                <div className='panel__switcher'></div>
+                <div className="panel__switcher"></div>
                 <div className="styles-container"></div>
                 <div className="traits-container"></div>
                 <div className="layers-container"></div>
               </div>
               <SidebarBottom editor={editor} hasBottomToolbar={true} />{' '}
               {/*  this warning is stylable. work is in progress*/}
-            </div>  
+            </div>
           </div>
         </div>
         <div className="editor-canvas">

@@ -1841,7 +1841,7 @@ const obj = {
       name: 'Banner Background',
       open: false,
       id: 'bannar-content',
-      buildProps: ['background-image'],
+      buildProps: ['background'],
       properties: [
         {
           type: 'color',
@@ -1883,7 +1883,7 @@ const obj = {
       name: 'Section Background',
       open: false,
       id: 'main_container',
-      buildProps: ['background-image'],
+      buildProps: ['background'],
       properties: [
         {
           type: 'color',
