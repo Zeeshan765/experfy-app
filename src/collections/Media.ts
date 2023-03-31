@@ -130,32 +130,6 @@ export const Media: CollectionConfig = {
       required: true,
     },
   ],
-  hooks: {
-    //     beforeLogin: [
-    //       (args) => {
-    //         console.log("brfore login called", args);
-    //       },
-    //     ],
-    //     afterLogin: [
-    //       (args) => {
-    //         console.log("After Login Called", args);
-    //       },
-    //     ],
-    //     afterLogout: [
-    //       (args) => {
-    //         console.log("After Logout Called", args);
-    //       },
-    //     ],
-    //     afterRefresh: [
-    //       (args) => {
-    //         console.log("After Refresh Called", args);
-    //       },
-    //     ],
-    //     afterMe: [
-    //       (args) => {
-    //         console.log("After Me Called", args);
-    //       },
-    //     ],
-  },
+  
 };
 export default Media;

@@ -16,24 +16,24 @@ import axios from 'axios';
 
 const useStyles = makeStyles({
   templateCardGrid: {
-    width: "calc(100% + 40px)",
-    marginTop: "-32px !important",
+    width: 'calc(100% + 40px)',
+    marginTop: '-32px !important',
   },
   templateCard: {
-    backgroundColor: "transparent!important",
-    boxShadow: "none!important",
-    "& .MuiCardHeader-root": {
-      padding: "0 0 .5rem",
-      "& .MuiTypography-root": {
-        fontFamily: "proxima-nova",
+    backgroundColor: 'transparent!important',
+    boxShadow: 'none!important',
+    '& .MuiCardHeader-root': {
+      padding: '0 0 .5rem',
+      '& .MuiTypography-root': {
+        fontFamily: 'proxima-nova',
         fontWeight: 500,
-        color: "#4a5162 !important",
+        color: '#4a5162 !important',
       },
-      "& .MuiCardHeader-action": {
-        display: "inline-flex",
-        alignItems: "center",
-        "& button": {
-          marginTop: "8px",
+      '& .MuiCardHeader-action': {
+        display: 'inline-flex',
+        alignItems: 'center',
+        '& button': {
+          marginTop: '8px',
         },
       },
     },
@@ -42,7 +42,7 @@ const useStyles = makeStyles({
 type Props = {
   search?: string;
   templateModelClose?: () => void;
-  fromScratch?:any;
+  fromScratch?: any;
 };
 const PageTemplate: React.FC<Props> = ({
   search,
@@ -52,69 +52,25 @@ const PageTemplate: React.FC<Props> = ({
   const classes = useStyles();
   const [templateList, setTemplateList] = React.useState<any>([]);
   const { setSelectedPageCode } = useContext(Context);
-  
+
   const { routes, serverURL } = useConfig();
   const apiEndpoint = `${serverURL}/api`;
-  const pageList = [
-    {
-      id: 1,
-      image: browse_jobs,
-      link: "/admin",
-      name: "Browse Jobs",
-    },
-    {
-      id: 2,
-      image: category,
-      link: "/admin",
-      name: "Category",
-    },
-    {
-      id: 3,
-      image: error_404,
-      link: "/admin",
-      name: "Error 404",
-    },
-    {
-      id: 4,
-      image: home,
-      link: "/admin",
-      name: "Home",
-    },
-    {
-      id: 5,
-      image: job_overview,
-      link: "/admin",
-      name: "Job Overview",
-    },
-    {
-      id: 6,
-      image: join,
-      link: "/admin",
-      name: "Join",
-    },
-    {
-      id: 7,
-      image: tc_overview,
-      link: "/admin",
-      name: "TC Overview",
-    },
-  ];
-// ========== Method to create page from template =================
-const fetchData = () => {
-  axios({
-    method: 'get',
-    url: `${apiEndpoint}/page-Template`,
-  })
-    .then((res) => {
-      const { docs } = res.data;
-      setTemplateList(docs);
+  // ========== Method to create page from template =================
+  const fetchData = () => {
+    axios({
+      method: 'get',
+      url: `${apiEndpoint}/page-Template`,
     })
-    .catch((err) => {
-      console.log('err', err);
-    });
-};
+      .then((res) => {
+        const { docs } = res.data;
+        console.log('docs=======', res.data.docs);
+        setTemplateList(docs);
+      })
+      .catch((err) => {
+        console.log('err', err);
+      });
+  };
   const createPageHandler = (template) => {
-    console.log("template__________________", template);
     setSelectedPageCode(template);
     templateModelClose();
   };
@@ -124,85 +80,73 @@ const fetchData = () => {
     fetchData();
   }, []);
   return (
-    <>
-      <Grid container spacing={3} mt={1}>
-        {pageList.map(({ id, image, name, link },index) => (
+    <Grid container spacing={2} style={{ margin: 'auto', width: '100%' }}>
+      {templateList.map((template) => {
+        const { id, pageThumnail, title,pageCode } = template;
+        console.log('templateList', template);
+        
+        return (
           <>
-            {search === "" && (
-              <Grid
-                item
-                sm={3}
-                key={id}
-              >
-                <div className="card-page-template">
-                  <div className="card-page-template__header">
-                    {" "}
-                    <h4 className="card-page-template__title">
-                      {name}
-                    </h4>
-                    <div className="card-page-template__actions">
+            {console.log('templateList', templateList)}
+            {search === '' && (
+              <Grid item sm={3} key={id}>
+                <div className='card-page-template'>
+                  <div className='card-page-template__header'>
+                    {' '}
+                    <h4 className='card-page-template__title'>{title}</h4>
+                    <div className='card-page-template__actions'>
                       <FaceLessModel
-                        data={{ id, image, name }}
+                        data={{ id, pageThumnail, title,pageCode }}
                         templateModelClose={templateModelClose}
                       />
-                    </div>  
+                    </div>
                   </div>
-                  <div className="card-page-template__body">
+                  <div className='card-page-template__body image-card'>
                     {fromScratch && (
                       <button
-                        className="template-select-button"
-                        onClick={() => createPageHandler(id)}
+                        className='template-select-button'
+                        onClick={() => createPageHandler(pageCode)}
                       >
                         Select
                       </button>
                     )}
-                    <img
-                      src={image}
-                      alt={name}
-
-                    />
+                    <img src={pageThumnail} alt={title} />
                   </div>
                 </div>
               </Grid>
             )}
-            {search && name?.toLowerCase().includes(search.toLowerCase()) ? (
-              <Grid
-                item
-                sm={3}
-                key={id}
-              >
-                <div className="card-page-template">
-                  <div className="card-page-template__header">
-                    {" "}
-                    <h4 className="card-page-template__title">
-                      {name}
-                    </h4>
-                    <div className="card-page-template__actions">
-                      <button onClick={() => createPageHandler(id)}>Select</button>
+            {search && title?.toLowerCase().includes(search.toLowerCase()) ? (
+              <Grid item sm={3} key={id}>
+                <div className='card-page-template'>
+                  <div className='card-page-template__header'>
+                    {' '}
+                    <h4 className='card-page-template__title'>{title}</h4>
+                    <div className='card-page-template__actions'>
+                      <button onClick={() => createPageHandler(pageCode)}>
+                        Select
+                      </button>
                       <FaceLessModel
-                        data={{ id, image, name }}
+                        data={{ id, pageThumnail, title }}
                         templateModelClose={templateModelClose}
                       />
                     </div>
-                  </div>  
-                  <div className="card-page-template__body">
+                  </div>
+                  {/* <div className="image-card"> */}
+                  <div className='card-page-template__body image-card'>
                     {fromScratch && (
                       <button
-                        className="template-select-button"
-                        onClick={() => createPageHandler(id)}
+                        className='template-select-button'
+                        onClick={() => createPageHandler(pageCode)}
                       >
                         Select
                       </button>
                     )}
-                    <img
-                      src={image}
-                      alt={name}
-                    />
+                    <img src={pageThumnail} alt={title} />
                   </div>
-                </div>  
+                </div>
               </Grid>
             ) : (
-              ""
+              ''
             )}
             {/* {
               (
@@ -210,9 +154,9 @@ const fetchData = () => {
               )
             } */}
           </>
-        ))}
-      </Grid>
-    </>  
+        );
+      })}
+    </Grid>
   );
 };
 export default PageTemplate;

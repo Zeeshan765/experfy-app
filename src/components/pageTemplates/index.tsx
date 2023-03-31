@@ -14,14 +14,14 @@ import { Dialog, DialogTitle } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteOutlineTwoToneIcon from '@mui/icons-material/DeleteOutlineTwoTone';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { log } from 'console';
+import { debug, log } from 'console';
 
 const PageTemplates = () => {
   const { selectedPageCode, setPageCreateFromScratch } = useContext(Context);
 
   const history = useHistory();
   let { id } = useParams();
-  const [pageData, setPageData] = useState({  });
+  const [pageData, setPageData] = useState({ title: '', pageThumnail: '' });
   const [open, setOpen] = React.useState(false);
   const {
     admin: { user: userSlug },
@@ -52,10 +52,33 @@ const PageTemplates = () => {
       state: { id },
     });
   };
-
   const handelChange = (e) => {
     const { name, value } = e.target;
+    // if (name === 'pageThumnail') {
+    //   console.log('e.target.files[0]', e.target.files[0]);
+    //   setPageData((pre) => ({
+    //     ...pre,
+    //     [name]: e.target.files[0],
+    //   }));
+    // } else {
     setPageData((pre) => ({ ...pre, [name]: value }));
+    // }
+  };
+  function getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  }
+  const handleFileSelect = async (event) => {
+    const file = event.target.files[0];
+    const base64String = await getBase64(file);
+    setPageData((pre) => ({
+      ...pre,
+      [event.target.name]: base64String,
+    }));
   };
 
   // get page on load screen
@@ -66,6 +89,7 @@ const PageTemplates = () => {
     })
       .then((res) => {
         const { data } = res;
+
         setPageData({ ...data });
         setPageCreateFromScratch({ ...data });
       })
@@ -75,23 +99,33 @@ const PageTemplates = () => {
   };
   // create page
   const createTemplate = () => {
+    const formData = new FormData();
+    formData.append('pageThumnail', pageData?.pageThumnail);
+    formData.append('title', pageData?.title);
     axios({
       method: 'post',
       url: `${serverURL}${api}/page-Template`,
-      data: pageData,
+      data:formData, 
+      // {
+      //   title: pageData?.title,
+      //   pageThumnail: pageData?.pageThumnail,
+      // },
     })
       .then((res) => {
         const { doc, message } = res.data;
-          toast.success('create a new page with page builder');
-          closeModel();
-          history.push(`/admin/collections/page-builder/${doc.id}`);
-       
+        toast.success('create a new page with page builder');
+        closeModel();
+        history.push(`/admin/collections/page-builder/${doc.id}`);
       })
       .catch((err) => {
         console.log('err', err);
       });
   };
   const updateTemplate = () => {
+    let formData = new FormData();
+    for (const key in pageData) {
+      formData.append(key, pageData[key]);
+    }
     axios({
       method: 'patch',
       url: `${serverURL}${api}/page-Template/${id}`,
@@ -100,8 +134,8 @@ const PageTemplates = () => {
       .then((res) => {
         const { doc, message } = res.data;
         closeModel();
-          toast.success('create a new page with page builder');
-          history.push(`/admin/collections/page-builder/${doc.id}`);
+        toast.success('create a new page with page builder');
+        history.push(`/admin/collections/page-builder/${doc.id}`);
       })
       .catch((err) => {
         console.log('err', err);
@@ -131,7 +165,6 @@ const PageTemplates = () => {
     if (selectedPageCode)
       setPageData((pre) => ({ ...pre, pageCode: selectedPageCode }));
   }, [selectedPageCode, id]);
-
 
   return (
     <Dialog
@@ -166,22 +199,33 @@ const PageTemplates = () => {
           <div style={{ marginBottom: '1rem' }}>
             <TextInput
               label={'*Page Name'}
-              onChange={handelChange}
+              onChange={
+                handelChange
+                // (e)=>{setTitle(e.target.value)}
+              }
               value={pageData['title']}
               name='title'
               className='page-name'
             />
           </div>
-         {!id && <div>
-            <TextInput
-            type='file'
-              label={'Page Thumnail'}
-              onChange={handelChange}
-              value={id?'':pageData['pageThumnail']}
-              name='pageThumnail'
-              className='page-name'
-            />
-          </div>}
+          {
+          !id &&
+            <div>
+              {pageData?.pageThumnail && (
+                <img src={pageData.pageThumnail} style={{ width: '60px' }} />
+              )}
+              <TextInput
+                type='file'
+                label={'Page Thumnail'}
+                onChange={
+                  handleFileSelect
+                }
+                // value={id ? '' : pageData['pageThumnail']}
+                name='pageThumnail'
+                className='page-name'
+              />
+            </div>
+          }
           <div
             style={{
               display: 'flex',

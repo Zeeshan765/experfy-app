@@ -399,10 +399,16 @@ const SectionPageBuilder: React.FC = () => {
 
    
 
-editor.on('asset:upload:response', (response) => {
-      const img = document.querySelector('#gjs_img_preview_logo_rtl');
-      img!.setAttribute('src', response.data.url);
-    });
+
+
+
+
+
+
+
+
+
+  
 
 
 //@ts-ignore

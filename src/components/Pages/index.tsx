@@ -83,7 +83,6 @@ const Pages = () => {
       .then((res) => {
         const { doc, message } = res.data;
         const { pageType } = pageData;
-        console.log('pageData============', pageData);
         if (pageType === From_scratch) {
           toast.success('create a new page with page builder');
           closeModel();
@@ -92,7 +91,8 @@ const Pages = () => {
           setPageCreateFromScratch('');
           toast.success(message);
           closeModel();
-          history.push('/admin/collections/templates-library');
+          history.push(`/admin/collections/page-builder/${doc.id}`);
+          // history.push('/admin/collections/templates-library');
         }
       })
       .catch((err) => {
@@ -146,11 +146,9 @@ const Pages = () => {
     if (id) {
       getSinglePage();
     }
-    if (selectedPageCode && pageData?.pageType === Template)
-      setPageData((pre) => ({ ...pre, pageCode: selectedPageCode }));
+    if (selectedPageCode && pageData?.pageType === Template){
+      setPageData((pre) => ({ ...pre, pageCode: selectedPageCode }));}
   }, [selectedPageCode, id]);
-
-
   return (
     <Dialog
       open={open}
