@@ -17,6 +17,7 @@ import backgroundPlugin from 'grapesjs-style-bg';
 // import 'grapesjs/dist/css/grapes.min.css';
 import 'grapick/dist/grapick.min.css';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { style } from '@mui/system';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -268,20 +269,6 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
-    editor.DomComponents.addType('numbersSection', {
-      model: {
-        defaults: {
-          traits: TextTrait,
-        },
-        // changeProp: 1,
-        init() {
-          this.on('change:attributes:htmltag', this.handleHtmltagChange);
-        },
-        handleHtmltagChange() {
-          this.set('tagName', this.getAttributes().htmltag);
-        },
-      },
-    });
 
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
@@ -375,8 +362,8 @@ const SectionPageBuilder: React.FC = () => {
     editor.TraitManager.addType('myimg', {
       noLabel: true,
       createInput({}) {
-        let selectedSrc = editor.getSelected();
-        let src = selectedSrc!.attributes.attributes!.src;
+        // let selectedSrc = editor.getSelected();
+        // let src = selectedSrc!.attributes.attributes!.src;
         const toggleModal = () => {
           editor.runCommand('open-assets', {
             target: editor.getSelected(),
@@ -384,12 +371,21 @@ const SectionPageBuilder: React.FC = () => {
         };
         const el = document.createElement('div');
         el.setAttribute('class', 'image-trait-preview');
-        el.innerHTML = `${(<CloudUploadIcon />)}
-        <img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
-                  <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
+        el.innerHTML = `
+
+     <div style="border:1px dashed #48a3d7; padding:15px 10px; border-radius:5px;text-align:center;" id="chg-img-trait-btn">
+    <p style="margin-bottom:5px"> <i class="fa fa-upload " style="color:#48a3d7;font-size:30px;"></i></p>
+     <span style="font-size:13px;">Drop ﬁle here or <span style="color:#48a3d7; font-size:13px;">Browse</span> to <br>
+     add your attachment</span>
+     </div>
+
+
+
+                  
+                 `;
         const inputType = el.querySelector('#chg-img-trait-btn');
-        const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
-        imgBox!.addEventListener('click', toggleModal);
+        // const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
+        // imgBox!.addEventListener('click', toggleModal);
         inputType!.addEventListener('click', toggleModal);
         return el;
       },
@@ -444,24 +440,30 @@ const SectionPageBuilder: React.FC = () => {
     // editor.on('component:selected', (component) => {
     //   console.log('hello selection', component);
 
-    //   // var selectedBlock = editor.getSelected();
-    //   // console.log('selectedBlock', selectedBlock);
-    //   // let sectors = editor.StyleManager.getSectors();
-    //   // console.log('sectors check', sectors);
-    //   // for (let i = 0; i < sectors.length; i++) {
-    //   //   const modelId = sectors.models[i].get('id');
-    //   //   console.log('modelId', modelId);
-    //   //   const wrapperCmp = editor.DomComponents.getWrapper();
-    //   //   console.log(
-    //   //     'wrapperCmp.find(`.${modelId}`)[0]',
-    //   //     wrapperCmp.find(`.${modelId}`)[0]
-    //   //   );
-    //   //   if (wrapperCmp) {
-    //   //     sectors.models[i].setOpen(true);
-    //   //   } else {
-    //   //     sectors.models[i].setOpen(false);
-    //   //   }
-    //   // }
+    //   var selectedBlock = editor.getSelected();
+    //   console.log('selectedBlock', selectedBlock);
+    //   let sectors = editor.StyleManager.getSectors();
+    //   console.log('sectors check', sectors);
+    //   for (let i = 0; i < sectors.length; i++) {
+    //     const modelId = sectors.models[i].get('id');
+    //     console.log('modelId', modelId);
+    //     const wrapperCmp = editor.DomComponents.getWrapper();
+    //     const newWrap = wrapperCmp.find(`.${modelId}`)[0];
+    //     console.log(
+    //       'wrapperCmp.find(`.${modelId}`)[0]',
+    //       wrapperCmp.find(`.${modelId}`)[0]
+    //     );
+    //     if(newWrap){
+    //      console.log("yess")
+    //      sectors.models[i].setOpen(true);
+    //     }
+    //     // if (newWrap) {
+    //     //   sectors.models[i].setOpen(true);
+    //     // } else {
+    //     //   sectors.models[i].setOpen(false);
+    //     // }
+    //   }
+    // });
 
 
     //   !isUpdating &&

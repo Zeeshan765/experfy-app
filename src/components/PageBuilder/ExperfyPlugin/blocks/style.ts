@@ -14,21 +14,21 @@ export const getStyles = (parentClass: any) => {
   </style>`;
 };
 
-// export const getButtonALignment = (parentClass: any) => {
-//   return `<style>
+export const getButtonALignment = (parentClass: any) => {
+  return `<style>
   
-//   ${parentClass} .btn-start {
-//     text-align: left;
-//   }
-//   ${parentClass} .btn-center {
-//    text-align: center;
-//   }
-//   ${parentClass} .btn-right{
-//  text-align: right;
-//   }
+  ${parentClass} .btn-start {
+    text-align: left;
+  }
+  ${parentClass} .btn-center {
+   text-align: center;
+  }
+  ${parentClass} .btn-right{
+ text-align: right;
+  }
 
-//   </style>`;
-// };
+  </style>`;
+};
 
 export const getbuttonStyles = (parentClass: any) => {
   return parentClass.map((classname) => {
@@ -318,7 +318,9 @@ export const ImageBanner = `
 
   margin: 0px auto 20px;
 }
-
+.button-container{
+  width: 90%;
+}
 
 </style>
 
