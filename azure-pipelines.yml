@@ -17,6 +17,10 @@ resources:
     endpoint: AzureRepos
     name: Infrastructure/azure-pipeline-templates
     ref: main
+  - repository: HelmChartsGitHub
+    type: GitHub
+    endpoint: experfy
+    name: experfy/helm-charts
 
 variables:
   tag: '$(Build.SourceVersion)-latest'
