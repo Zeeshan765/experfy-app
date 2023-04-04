@@ -88,11 +88,10 @@ const Pages = () => {
           closeModel();
           history.push(`/admin/collections/page-builder/${doc.id}`);
         } else {
-          setPageCreateFromScratch('');
-          toast.success(message);
           closeModel();
           history.push(`/admin/collections/page-builder/${doc.id}`);
-          // history.push('/admin/collections/templates-library');
+          setPageCreateFromScratch('');
+          toast.success(message);
         }
       })
       .catch((err) => {

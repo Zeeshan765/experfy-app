@@ -126,7 +126,8 @@ const PageBuilder: React.FC = () => {
         console.log('err', err);
       });
   };
-  const dataHandler = (historyUpdate) => {
+  const dataHandler = () => {
+    debugger;
     if (userData.role === 'admin' || userData.role === 'superAdmin') {
       const updation = {
         currentPageData,
@@ -383,13 +384,10 @@ const PageBuilder: React.FC = () => {
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
               console.log("before changed",isChanged)
-              if (isChanged) {
                 console.log("isChanged", isChanged)
                 saveHistoy();
                 const store = editor.store();
                 dataHandler();
-                toast.success('Changes saved successfully');
-              }
             },
           },
         ],
