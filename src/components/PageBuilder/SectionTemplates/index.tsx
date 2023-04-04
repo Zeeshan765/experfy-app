@@ -65,12 +65,10 @@ const SectionPageBuilder: React.FC = () => {
 
   let TextTrait = [
     {
-      type: 'text',
-      name: 'text-title',
+      name: 'text',
 
       label: 'Title',
-      placeholder: 'Enter your title ',
-      // className: 'custom-text',
+
       changeProp: 1,
     },
 
@@ -79,7 +77,7 @@ const SectionPageBuilder: React.FC = () => {
       name: 'tagName',
       label: 'HTML Tag',
       ChangeProp: 1,
-      // default: 'h1',
+
       options: [
         { id: 'h1', name: 'H1' },
         { id: 'h2', name: 'H2' },
@@ -93,51 +91,39 @@ const SectionPageBuilder: React.FC = () => {
       ],
       changeProp: 1,
     },
-    // {
-    //   type: 'select',
-    //   name: 'class',
-    //   label: 'Alignment',
-    //   // default: 'center',
-    //   options: [
-    //     { value: 'left', name: 'Left' },
-    //     { value: 'center', name: 'Center' },
-    //     { value: 'right', name: 'Right' },
-    //   ],
-    // },
   ];
 
   let ButtonTrait = [
     {
-      type: 'text',
-      name: 'value',
+      name: 'text',
       label: 'Button Text',
-      placeholder: 'Buttton ',
+      changeProp: 1,
     },
-    {
-      type: 'select',
-      name: 'class',
-      label: 'Button Size',
-      // default: 'small',
-      options: [
-        { value: 'btn-extrasmall', name: 'Extra Small' },
+    // {
+    //   type: 'select',
+    //   name: 'class',
+    //   label: 'Button Size',
+    //   // default: 'small',
+    //   options: [
+    //     { value: 'btn-extrasmall', name: 'Extra Small' },
 
-        { value: 'btn-small', name: 'small' },
-        { value: 'btn-medium', name: 'Medium' },
-        { value: 'btn-large', name: 'Large' },
-        { value: 'btn-extralarge', name: 'Extra Large' },
-      ],
-    },
-    {
-      type: 'select',
-      name: 'class',
-      label: 'Button Alignment',
-      // default: 'btn-start',
-      options: [
-        { value: 'btn-start', name: 'Left' },
-        { value: 'btn-center', name: 'Center' },
-        { value: 'btn-right', name: 'Right' },
-      ],
-    },
+    //     { value: 'btn-small', name: 'small' },
+    //     { value: 'btn-medium', name: 'Medium' },
+    //     { value: 'btn-large', name: 'Large' },
+    //     { value: 'btn-extralarge', name: 'Extra Large' },
+    //   ],
+    // },
+    // {
+    //   type: 'select',
+    //   name: 'class',
+    //   label: 'Button Alignment',
+    //   // default: 'btn-start',
+    //   options: [
+    //     { value: 'btn-start', name: 'Left' },
+    //     { value: 'btn-center', name: 'Center' },
+    //     { value: 'btn-right', name: 'Right' },
+    //   ],
+    // },
   ];
 
   const updateHeaderBlock = async () => {
@@ -269,7 +255,6 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
-
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
       if (component) {
@@ -295,7 +280,19 @@ const SectionPageBuilder: React.FC = () => {
         },
         // changeProp: 1,
         init() {
+          const comps = this.components();
+          console.log('comps', comps);
+          const tChild = comps.length === 1 && comps.models[0];
+          const chCnt =
+            (tChild && tChild.is('textnode') && tChild.get('content')) || '';
+          const text = chCnt || this.get('text');
+          this.set('text', text);
+          this.on('change:text', this.__onTextChange);
+          text !== chCnt && this.__onTextChange();
           this.on('change:attributes:htmltag', this.handleHtmltagChange);
+        },
+        __onTextChange() {
+          this.components(this.get('text'));
         },
         handleHtmltagChange() {
           this.set('tagName', this.getAttributes().htmltag);
@@ -304,9 +301,25 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     editor.DomComponents.addType('button', {
+      isComponent: (el) => el.tagName == 'BUTTON',
       model: {
         defaults: {
           traits: ButtonTrait,
+        },
+        init() {
+          const comps = this.components();
+
+          const tChild = comps.length === 1 && comps.models[0];
+          const chCnt =
+            (tChild && tChild.is('textnode') && tChild.get('content')) || '';
+          const text = chCnt || this.get('text');
+          this.set('text', text);
+          this.on('change:text', this.__onTextChange);
+          text !== chCnt && this.__onTextChange();
+        },
+
+        __onTextChange() {
+          this.components(this.get('text'));
         },
       },
     });
@@ -362,8 +375,6 @@ const SectionPageBuilder: React.FC = () => {
     editor.TraitManager.addType('myimg', {
       noLabel: true,
       createInput({}) {
-        // let selectedSrc = editor.getSelected();
-        // let src = selectedSrc!.attributes.attributes!.src;
         const toggleModal = () => {
           editor.runCommand('open-assets', {
             target: editor.getSelected(),
@@ -384,14 +395,11 @@ const SectionPageBuilder: React.FC = () => {
                   
                  `;
         const inputType = el.querySelector('#chg-img-trait-btn');
-        // const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
-        // imgBox!.addEventListener('click', toggleModal);
         inputType!.addEventListener('click', toggleModal);
         return el;
       },
     });
 
-   
     // @ts-ignore
     editor.on('style:sector:update', (props) => {
       console.log('props', props);
@@ -434,7 +442,7 @@ const SectionPageBuilder: React.FC = () => {
           }, 300);
         }, 100);
 
-        const categories = editor.StyleManager.getSectors();
+      const categories = editor.StyleManager.getSectors();
     });
 
     // editor.on('component:selected', (component) => {
@@ -465,7 +473,6 @@ const SectionPageBuilder: React.FC = () => {
     //   }
     // });
 
-
     //   !isUpdating &&
     //   setTimeout(() => {
     //     let sectors = editor.StyleManager.getSectors();
@@ -480,25 +487,14 @@ const SectionPageBuilder: React.FC = () => {
     //         );
     //         if (newWrap) {
     //           sectors.models[i].setOpen(true);
-    //         } 
-          
+    //         }
+
     //     }
 
     //     setTimeout(() => {
     //       isUpdating = false;
     //     }, 300);
     //   }, 100);
-
-
-
-
-
-
-
-
-
-
-
 
     //   // if (ccid !== component.ccid) {
     //   //   setccid(component.ccid);
@@ -653,16 +649,10 @@ const SectionPageBuilder: React.FC = () => {
       // //   }, 3000);
       // // }, 100);
 
-      if (component.get('type') == 'text') {
-        component.components(component.get('traits').models[0].get('value'));
-        component.components(component.get('traits').models[1].get('class'));
-        // component.components(component.get('traits').models[1].get('class'));
-      }
-      if (component.get('type') == 'button') {
-        component.components(component.get('traits').models[0].get('value'));
-        // component.components(component.get('traits').models[1].get('class'));
-        // component.components(component.get('traits').models[2].get('class'));
-      }
+      // if (component.get('type') == 'text') {
+      //   component.components(component.get('traits').models[0].get('value'));
+      //   component.components(component.get('traits').models[1].get('class'));
+      // }
     });
 
     const addAssets = async () => {
