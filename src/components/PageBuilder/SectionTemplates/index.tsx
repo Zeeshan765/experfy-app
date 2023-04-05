@@ -156,7 +156,7 @@ const SectionPageBuilder: React.FC = () => {
    justify-content: center;
    gap: 20px;
    align-items: center;">
-   <img data-gjs-type="mj-image" class="header-svg" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" id="gjs_img_preview_logo_rtl"/>
+   <img  class="header-svg" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" id="gjs_img_preview_logo_rtl"/>
      <span class="header-logo-text header-bg">Logo</span>
    </a>
    <nav class="header-navabr">
@@ -257,6 +257,7 @@ const SectionPageBuilder: React.FC = () => {
 
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
+      console.log('ccid', component);
       if (component) {
         const sectors = editor.StyleManager.getSectors();
         sectors.reset();
@@ -323,39 +324,6 @@ const SectionPageBuilder: React.FC = () => {
         },
       },
     });
-    // editor.DomComponents.addType('ImageTextSector', {
-    //   model: {
-    //     defaults: {
-    //       traits: [
-    //         {
-    //           type: 'mjchange',
-    //           label: ' ',
-    //           name: 'mjchange',
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
-    // editor.DomComponents.addType('mj-image', {
-    //   isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
-    //   model: {
-    //     defaults: {
-    //       traits: [
-    //         {
-    //           type: 'select',
-    //           name: 'class',
-    //           label: 'Alignment',
-    //           default: 'left',
-    //           options: [
-    //             { value: 'left', name: 'Left' },
-    //             { value: 'center', name: 'Center' },
-    //             { value: 'right', name: 'Right' },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
 
     // // Image  Trait
     editor.DomComponents.addType('image', {
@@ -388,15 +356,110 @@ const SectionPageBuilder: React.FC = () => {
     <p style="margin-bottom:5px"> <i class="fa fa-upload " style="color:#48a3d7;font-size:30px;"></i></p>
      <span style="font-size:13px;">Drop ﬁle here or <span style="color:#48a3d7; font-size:13px;">Browse</span> to <br>
      add your attachment</span>
-     </div>
-
-
-
-                  
-                 `;
+     </div> `;
         const inputType = el.querySelector('#chg-img-trait-btn');
         inputType!.addEventListener('click', toggleModal);
         return el;
+      },
+    });
+
+    editor.DomComponents.addType('btn', {
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'mybtn',
+              label: ' ',
+              name: 'mybtn',
+            },
+          ],
+        },
+      },
+    });
+
+    //Add Trait on click
+    const toggleBtn = () => {
+      const component = editor.getSelected();
+      component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;">
+       <div style="display: flex;">
+       <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
+       <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
+     </div>
+     <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
+      order to explain what the user
+      should do next
+     </h6>
+     </div>`);
+      component.addTrait(
+        {
+          name: 'mysection',
+          label: ' ',
+          type: 'mysection',
+        },
+        { at: 0 }
+      );
+    };
+    //Close Trait on click
+    const CloseTrait = () => {
+      const component = editor.getSelected();
+      component.removeTrait('mysection');
+      // component.removed();
+    };
+
+    editor.TraitManager.addType('mysection', {
+      noLabel: true,
+      createInput({}) {
+        const el = document.createElement('div');
+        el.setAttribute('class', 'section-trait-preview');
+        el.innerHTML = `
+
+        <label style="color:#222;font-weight:400;margin-bottom:5px">Item</label>
+        <div style=" border: 1px solid #CED4DA; borderRadius: 0.25rem;"}}>
+          <div style="display:flex">
+            <input type="text" placeholder="Guideline Text" style=" display:block;  padding:0.375rem 0.75rem;fontSize:1rem; lineHeight:1.5; border:1px solid #CED4DA; borderRadius:0.25rem 0px 0px 0px; "/>
+          <button type="button" style="backgroundColor:#fff;borderRadius:0px 0.25rem 0px 0px; border:1px solid #CED4DA;" id="close-btn-trait-btn">X</button>
+          </div>
+          <div style="padding:15px 10px;">
+          <label style="color:#222;font-weight:400;margin-bottom:5px">Number</label>
+          <input type="text" placeholder="Guidline Step" style=" display:block; padding:0.375rem 0.75rem;fontSize:1rem;lineHeight:1.5;border:1px solid #CED4DA;borderRadius:0.25rem; "/>
+          <br />
+          <label style="color:#222;font-weight:400;margin-bottom:5px">Description Text</label>
+          <textarea  rows="4" placeholder="Text" style="display:block;padding:0.375rem 0.75rem;fontSize:1rem;lineHeight:1.5;border:1px solid #CED4DA;borderRadius:0.25rem;"></textarea>
+          </div>
+        </div>
+     
+     
+     `;
+        const inputType = el.querySelector('#close-btn-trait-btn');
+        inputType!.addEventListener('click', CloseTrait);
+        return el;
+      },
+    });
+
+    editor.TraitManager.addType('mybtn', {
+      noLabel: true,
+      createInput({}) {
+        const el = document.createElement('div');
+        // el.setAttribute('class', 'btn-trait-preview');
+        el.innerHTML = `<button type="submit"  class="btn btn-primary btn-md"  id="chg-btn-trait-btn">Add Step</button>`;
+        const inputType = el.querySelector('#chg-btn-trait-btn');
+        inputType!.addEventListener('click', toggleBtn);
+        return el;
+      },
+    });
+
+    //Section Div Trait
+    editor.DomComponents.addType('Sectiondiv', {
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'mybtn',
+              label: ' ',
+              name: 'mybtn',
+            },
+          ],
+        },
       },
     });
 
@@ -527,133 +590,134 @@ const SectionPageBuilder: React.FC = () => {
 
     editor.on('component:update', (component) => {
       console.log('component update called', component);
-
-      // const attrs = component.getAttributes();
-      // // console.log('attrs', attrs);
-      // component.set('main-number-heading', '');
-
-      // // const isActive = event.changed.attributes['my-parent-trait'];
-      // // const displayStyle = true ? 'block' : 'none';
-
-      // // TextTrait.forEach((traitProps) => {
-      // //   const trait = component.getTrait(traitProps.name);
-      // //   console.log('trait', trait);
-      // //   if (trait) {
-      // //     trait.view.el.style.display = displayStyle;
-      // //   }
-      // // });
-
-      // var selected = editor.getSelected();
-
-      // // console.log('selectedTrait', selected);
-      // // const el = selectedTrait.getEl();
-      // // console.log('el', el)
-
-      // var selectedTrait = component.getTraits();
-      // // console.log('selectedTrait1', selectedTrait);
-      // // const traitTitle = component.getTrait('main-number-heading');
-      // // if (traitTitle) {
-      // //   //   console.log('traitTitle', traitTitle);
-      // //   //   traitTitle &&
-      // //   //     traitTitle.set('class', 'h1 main-number-heading gjs-selected');
-      // // }
-
-      // const { ccid } = selectedTrait;
-      // // console.log('ccid', ccid);
-
-      // for (let i = 0; i < selectedTrait.length; i++) {
-      //   const modelId = selectedTrait[i].get('id');
-      //   const modelValue = selectedTrait[i].get('value');
-      //   // console.log("model is '''''''''' ", modelId);
-      //   selected.toHTML({
-      //     attributes(component, attributes) {
-      //       console.log('component old', component);
-      //       if (attributes?.class === modelId) {
-      //         console.log(
-      //           'attributes?.class, modelValue',
-      //           attributes?.class,
-      //           modelValue
-      //         );
-      //         console.log('component', component);
-      //         component.components(modelValue);
-      //         // component.addAttributes({ value: modelValue });
-      //       }
-      //       // console.log("class",attributes.get('class'))
-
-      //       // if (attributes.get('class') == modelId) {
-      //       //   console.log("yes-------------------->")
-
-      //       //   // attributes.title = 'Custom attribute';
-      //       //   // attributes.value = 'Custom Value';
-      //       // }
-      //       // return attributes;
-      //     },
-      //   });
-
-      //   // console.log('modelIdNew', modelId);
-      //   // console.log('props id d d ', component.id);
-      //   // const modelId = sectors.models[i].get('id');
-      //   // if (modelId === component.id) {
-      //   //   console.log('model id', modelId);
-      //   //   console.log('component id', component.id);
-      //   //   let isOpen = sectors.models[i].isOpen();
-      //   //   if (isOpen) {
-      //   //     editor.select(sectors.models[i]);
-      //   //     sectors.models[i].set({
-      //   //       open: true,
-      //   //       active: true,
-      //   //       select: true,
-      //   //       focus: true,
-      //   //     });
-
-      //   //     sm.select(`.${ccid} .${component.id}`);
-      //   //   }
-      //   // } else {
-      //   //   sectors.models[i].setOpen(false);
-      //   // }
-      // }
-
-      // // !isTrait &&
-      // // setTimeout(() => {
-      // //   var selectedTrait = component.getTraits()
-      // //   console.log('selectedTrait', selectedTrait);
-      // //   const { ccid } = selectedTrait;
-      // //   console.log("ccid",ccid)
-      // //   isTrait = true;
-
-      // //   // for (let i = 0; i < sectors.length; i++) {
-      // //   //   const modelId = sectors.models[i].get('id');
-      // //   //   if (modelId === props.id) {
-      // //   //     console.log("model id",modelId)
-      // //   //     console.log("props id",props.id)
-      // //   //     let isOpen = sectors.models[i].isOpen();
-      // //   //     if (isOpen) {
-      // //   //       editor.select(sectors.models[i]);
-      // //   //       sectors.models[i].set({
-      // //   //         open: true,
-      // //   //         active: true,
-      // //   //         select: true,
-      // //   //         focus: true,
-      // //   //       });
-
-      // //   //       sm.select(`.${ccid} .${props.id}`);
-
-      // //   //     }
-      // //   //   } else {
-      // //   //     sectors.models[i].setOpen(false);
-      // //   //   }
-      // //   // }
-
-      // //   setTimeout(() => {
-      // //     isTrait = false;
-      // //   }, 3000);
-      // // }, 100);
-
-      // if (component.get('type') == 'text') {
-      //   component.components(component.get('traits').models[0].get('value'));
-      //   component.components(component.get('traits').models[1].get('class'));
-      // }
     });
+
+    //   // const attrs = component.getAttributes();
+    //   // // console.log('attrs', attrs);
+    //   // component.set('main-number-heading', '');
+
+    //   // // const isActive = event.changed.attributes['my-parent-trait'];
+    //   // // const displayStyle = true ? 'block' : 'none';
+
+    //   // // TextTrait.forEach((traitProps) => {
+    //   // //   const trait = component.getTrait(traitProps.name);
+    //   // //   console.log('trait', trait);
+    //   // //   if (trait) {
+    //   // //     trait.view.el.style.display = displayStyle;
+    //   // //   }
+    //   // // });
+
+    //   // var selected = editor.getSelected();
+
+    //   // // console.log('selectedTrait', selected);
+    //   // // const el = selectedTrait.getEl();
+    //   // // console.log('el', el)
+
+    //   // var selectedTrait = component.getTraits();
+    //   // // console.log('selectedTrait1', selectedTrait);
+    //   // // const traitTitle = component.getTrait('main-number-heading');
+    //   // // if (traitTitle) {
+    //   // //   //   console.log('traitTitle', traitTitle);
+    //   // //   //   traitTitle &&
+    //   // //   //     traitTitle.set('class', 'h1 main-number-heading gjs-selected');
+    //   // // }
+
+    //   // const { ccid } = selectedTrait;
+    //   // // console.log('ccid', ccid);
+
+    //   // for (let i = 0; i < selectedTrait.length; i++) {
+    //   //   const modelId = selectedTrait[i].get('id');
+    //   //   const modelValue = selectedTrait[i].get('value');
+    //   //   // console.log("model is '''''''''' ", modelId);
+    //   //   selected.toHTML({
+    //   //     attributes(component, attributes) {
+    //   //       console.log('component old', component);
+    //   //       if (attributes?.class === modelId) {
+    //   //         console.log(
+    //   //           'attributes?.class, modelValue',
+    //   //           attributes?.class,
+    //   //           modelValue
+    //   //         );
+    //   //         console.log('component', component);
+    //   //         component.components(modelValue);
+    //   //         // component.addAttributes({ value: modelValue });
+    //   //       }
+    //   //       // console.log("class",attributes.get('class'))
+
+    //   //       // if (attributes.get('class') == modelId) {
+    //   //       //   console.log("yes-------------------->")
+
+    //   //       //   // attributes.title = 'Custom attribute';
+    //   //       //   // attributes.value = 'Custom Value';
+    //   //       // }
+    //   //       // return attributes;
+    //   //     },
+    //   //   });
+
+    //   //   // console.log('modelIdNew', modelId);
+    //   //   // console.log('props id d d ', component.id);
+    //   //   // const modelId = sectors.models[i].get('id');
+    //   //   // if (modelId === component.id) {
+    //   //   //   console.log('model id', modelId);
+    //   //   //   console.log('component id', component.id);
+    //   //   //   let isOpen = sectors.models[i].isOpen();
+    //   //   //   if (isOpen) {
+    //   //   //     editor.select(sectors.models[i]);
+    //   //   //     sectors.models[i].set({
+    //   //   //       open: true,
+    //   //   //       active: true,
+    //   //   //       select: true,
+    //   //   //       focus: true,
+    //   //   //     });
+
+    //   //   //     sm.select(`.${ccid} .${component.id}`);
+    //   //   //   }
+    //   //   // } else {
+    //   //   //   sectors.models[i].setOpen(false);
+    //   //   // }
+    //   // }
+
+    //   // // !isTrait &&
+    //   // // setTimeout(() => {
+    //   // //   var selectedTrait = component.getTraits()
+    //   // //   console.log('selectedTrait', selectedTrait);
+    //   // //   const { ccid } = selectedTrait;
+    //   // //   console.log("ccid",ccid)
+    //   // //   isTrait = true;
+
+    //   // //   // for (let i = 0; i < sectors.length; i++) {
+    //   // //   //   const modelId = sectors.models[i].get('id');
+    //   // //   //   if (modelId === props.id) {
+    //   // //   //     console.log("model id",modelId)
+    //   // //   //     console.log("props id",props.id)
+    //   // //   //     let isOpen = sectors.models[i].isOpen();
+    //   // //   //     if (isOpen) {
+    //   // //   //       editor.select(sectors.models[i]);
+    //   // //   //       sectors.models[i].set({
+    //   // //   //         open: true,
+    //   // //   //         active: true,
+    //   // //   //         select: true,
+    //   // //   //         focus: true,
+    //   // //   //       });
+
+    //   // //   //       sm.select(`.${ccid} .${props.id}`);
+
+    //   // //   //     }
+    //   // //   //   } else {
+    //   // //   //     sectors.models[i].setOpen(false);
+    //   // //   //   }
+    //   // //   // }
+
+    //   // //   setTimeout(() => {
+    //   // //     isTrait = false;
+    //   // //   }, 3000);
+    //   // // }, 100);
+
+    //   // if (component.get('type') == 'text') {
+    //   //   component.components(component.get('traits').models[0].get('value'));
+    //   //   component.components(component.get('traits').models[1].get('class'));
+    //   // }
+    // });
 
     const addAssets = async () => {
       const assetManager = editor?.AssetManager;

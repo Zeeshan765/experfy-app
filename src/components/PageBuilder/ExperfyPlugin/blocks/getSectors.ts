@@ -2075,6 +2075,23 @@ const obj = {
       id: 'sub-guideline-heading',
       properties: [color, typography],
     },
+    {
+      name: 'Guideline Step',
+      open: false,
+      id: 'guidline-option',
+      
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
 
     {
       name: 'Guideline Bullet',

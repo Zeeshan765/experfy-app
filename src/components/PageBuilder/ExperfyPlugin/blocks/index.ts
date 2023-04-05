@@ -67,7 +67,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    
     <a  class="a">
 
-    <img data-gjs-type="mj-image" class="header-svg" style="width:30%" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" style="width: 100%; height:auto;" id="gjs_img_preview_logo_rtl"/>
+    <img  class="header-svg" style="width:30%" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" style="width: 100%; height:auto;" id="gjs_img_preview_logo_rtl"/>
     
        <span class="header-logo-text header-bg">Logo</span>
     </a>
@@ -122,18 +122,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="footer-images-section margin-class">
              <h2 class="h2 img-caption">Add Your Social Media Link</h2>
              <div class="images-holder">
-             <img class="footer-image" src={SettingsIcon} alt='Settings'data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image" />
-             <img class="footer-image" src={SettingsIcon} alt='Settings' data-gjs-type="mj-image"/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
+             <img class="footer-image" src={SettingsIcon} alt='Settings' />
+             <img class="footer-image" src={SettingsIcon} alt='Settings'/>
              </div>
              <button class="button footer-btn">Visit Instagram</button>
           </div>
@@ -397,40 +397,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             perform an action, or lead them to a Call-to-action.
         </h2>
       </div>
-      <div class="guidline-option">
+      <div class="guidline-option" data-gjs-type="Sectiondiv" id="Sectiondiv">
+    
       
-      <div class="guideline">
-    <div class="heading">
-      <h3 class="h3 guideline-bullet">1</h3>
-      <h1 class="h1 bullet-heading">Add Step Title</h1>
-    </div>
-    <h6 class="h6 bullet-sub-heading">Add information in steps in
-      order to explain what the user
-      should do next
-    </h6>
-</div>
       
-        <div class="guideline">
-        <div class="heading">
-          <h3 class="h3 guideline-bullet">1</h3>
-          <h1 class="h1 bullet-heading">Add Step Title</h1>
-        </div>
-        <h6 class="h6 bullet-sub-heading">Add information in steps in
-          order to explain what the user
-          should do next
-        </h6>
-    </div>
-
-    <div class="guideline">
-    <div class="heading">
-      <h3 class="h3 guideline-bullet">1</h3>
-      <h1 class="h1 bullet-heading">Add Step Title</h1>
-    </div>
-    <h6 class="h6 bullet-sub-heading">Add information in steps in
-      order to explain what the user
-      should do next
-    </h6>
-</div>
+      
+    
 
 
 
@@ -535,7 +507,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
  </section>
  ${paragraphStyle}
- ${getStyles([ '.main-paragraph-wrapper'])}
+ ${getStyles(['.main-paragraph-wrapper'])}
  `,
   });
 
@@ -1142,6 +1114,3 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         `,
   });
 };
-
-
-
