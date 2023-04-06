@@ -282,7 +282,7 @@ const SectionPageBuilder: React.FC = () => {
         // changeProp: 1,
         init() {
           const comps = this.components();
-          console.log('comps', comps);
+          // console.log('comps', comps);
           const tChild = comps.length === 1 && comps.models[0];
           const chCnt =
             (tChild && tChild.is('textnode') && tChild.get('content')) || '';
@@ -311,6 +311,7 @@ const SectionPageBuilder: React.FC = () => {
           const comps = this.components();
 
           const tChild = comps.length === 1 && comps.models[0];
+          console.log('Old tChild', tChild);
           const chCnt =
             (tChild && tChild.is('textnode') && tChild.get('content')) || '';
           const text = chCnt || this.get('text');
@@ -380,7 +381,10 @@ const SectionPageBuilder: React.FC = () => {
     //Add Trait on click
     const toggleBtn = () => {
       const component = editor.getSelected();
-      component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;">
+ 
+      console.log('component', component);
+
+      component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;" data-gjs-type="Checkmate">
        <div style="display: flex;">
        <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
        <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
@@ -395,6 +399,7 @@ const SectionPageBuilder: React.FC = () => {
           name: 'mysection',
           label: ' ',
           type: 'mysection',
+          changeProp: 1,
         },
         { at: 0 }
       );
@@ -402,8 +407,8 @@ const SectionPageBuilder: React.FC = () => {
     //Close Trait on click
     const CloseTrait = () => {
       const component = editor.getSelected();
-      component.removeTrait('mysection');
-      // component.removed();
+      component.removeTrait('mysection') &&   component.getChildAt(0).remove();
+     
     };
 
     editor.TraitManager.addType('mysection', {
@@ -416,7 +421,7 @@ const SectionPageBuilder: React.FC = () => {
         <label style="color:#222;font-weight:400;margin-bottom:5px">Item</label>
         <div style=" border: 1px solid #CED4DA; borderRadius: 0.25rem;"}}>
           <div style="display:flex">
-            <input type="text" placeholder="Guideline Text" style=" display:block;  padding:0.375rem 0.75rem;fontSize:1rem; lineHeight:1.5; border:1px solid #CED4DA; borderRadius:0.25rem 0px 0px 0px; "/>
+            <input id="first-id" type="text" placeholder="Guideline Text" style=" display:block;  padding:0.375rem 0.75rem;fontSize:1rem; lineHeight:1.5; border:1px solid #CED4DA; borderRadius:0.25rem 0px 0px 0px; "/>
           <button type="button" style="backgroundColor:#fff;borderRadius:0px 0.25rem 0px 0px; border:1px solid #CED4DA;" id="close-btn-trait-btn">X</button>
           </div>
           <div style="padding:15px 10px;">
@@ -440,7 +445,6 @@ const SectionPageBuilder: React.FC = () => {
       noLabel: true,
       createInput({}) {
         const el = document.createElement('div');
-        // el.setAttribute('class', 'btn-trait-preview');
         el.innerHTML = `<button type="submit"  class="btn btn-primary btn-md"  id="chg-btn-trait-btn">Add Step</button>`;
         const inputType = el.querySelector('#chg-btn-trait-btn');
         inputType!.addEventListener('click', toggleBtn);
@@ -454,14 +458,90 @@ const SectionPageBuilder: React.FC = () => {
         defaults: {
           traits: [
             {
+              name: 'mysection',
+              label: ' ',
+              type: 'mysection',
+              changeProp: 1,
+            },
+            {
               type: 'mybtn',
               label: ' ',
               name: 'mybtn',
             },
           ],
         },
+        init() {
+          const comps = this.components();
+          console.log('compsCheck', comps);
+
+          const tChild = comps.length === 1 && comps.models[0]; 
+          console.log('tChild', tChild);
+          // const chCnt =
+          //   (tChild && tChild.is('textnode') && tChild.get('content')) || '';
+          // const text = chCnt || this.get('text');
+          // this.set('text', text);
+          // this.on('change:text', this.__onTextChange);
+          // text !== chCnt && this.__onTextChange();
+        },
+
+        // __onTextChange() {
+        //   this.components(this.get('text'));
+        // },
       },
     });
+
+
+
+
+
+
+    editor.DomComponents.addType('Checkmate', {
+      model: {
+        defaults: {
+          traits: [
+            {
+              name: 'mysection',
+              label: ' ',
+              type: 'mysection',
+              changeProp: 1,
+            },
+           
+          ],
+        },
+        init() {
+          const comps = this.components();
+          console.log('compsCheckmate', comps);
+
+          const tChild = comps.length === 1 && comps.models[0]; 
+          console.log('tChildNew', tChild);
+          // const chCnt =
+          //   (tChild && tChild.is('textnode') && tChild.get('content')) || '';
+          // const text = chCnt || this.get('text');
+          // this.set('text', text);
+          // this.on('change:text', this.__onTextChange);
+          // text !== chCnt && this.__onTextChange();
+        },
+
+        // __onTextChange() {
+        //   this.components(this.get('text'));
+        // },
+      },
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // @ts-ignore
     editor.on('style:sector:update', (props) => {
