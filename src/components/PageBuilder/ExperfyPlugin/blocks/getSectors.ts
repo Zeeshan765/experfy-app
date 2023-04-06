@@ -1157,7 +1157,15 @@ const obj = {
             max: 100,
             units: ['%', 'px'],
           },
-  
+          {
+            type: 'slider',
+            name: 'Padding',
+            property: 'padding',
+           
+            min: 0,
+            max: 100,
+            units: ['%', 'px'],
+          },
           {
             type: 'slider',
             name: 'Opacity',
@@ -1852,6 +1860,29 @@ const obj = {
             showInput: true,
           },
         },
+        {
+          type: 'slider',
+          name: 'Overlay Opacity',
+          property: 'opacity',
+          defaults: 27,
+          units: ['%'],
+          step: 0.01,
+      
+          min: 6,
+        },
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          options: borderStyleOptions,
+
+        },
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        }
       ],
     },
 
@@ -1872,7 +1903,41 @@ const obj = {
       id: 'banner-button',
       open: false,
       buildProps: ['background-color'],
-      properties: [color,typography],
+      properties: [color,typography,
+        {
+        
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+        },
+        {
+      
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+        {
+      
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          options: borderStyleOptions,
+        },
+        {
+          
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        },
+        'box-shadow',
+        'padding',
+      ],
 
     },
 
@@ -1894,6 +1959,29 @@ const obj = {
             showInput: true,
           },
         },
+        {
+          type: 'slider',
+          name: 'Overlay Opacity',
+          property: 'opacity',
+          defaults: 27,
+          units: ['%'],
+          step: 0.01,
+      
+          min: 6,
+        },
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          options: borderStyleOptions,
+
+        },
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        }
       ],
     },
 
@@ -1986,6 +2074,23 @@ const obj = {
       open: false,
       id: 'sub-guideline-heading',
       properties: [color, typography],
+    },
+    {
+      name: 'Guideline Step',
+      open: false,
+      id: 'guidline-option',
+      
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
     },
 
     {
