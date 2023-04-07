@@ -483,7 +483,6 @@ const SectionPageBuilder: React.FC = () => {
           // this.on('change:text', this.__onTextChange);
           // text !== chCnt && this.__onTextChange();
         },
-
         // __onTextChange() {
         //   this.components(this.get('text'));
         // },

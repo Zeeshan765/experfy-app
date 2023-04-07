@@ -1101,7 +1101,79 @@ export const themestyle = `
       }    
     </style>`;
 
-export const departmentstyle = `
+
+
+
+    export const departmentstyle = `
+    <style>
+    .guideline-main-wrapper .guideline-container{
+      width: 70%;
+      margin: auto;
+      padding: 6rem 
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center; 
+    }
+    
+    .guideline-main-wrapper .guideline-container .guideline-header-section{
+      text-align: center; 
+    }
+    
+    .guideline-main-wrapper .guideline-container .guideline-header-section h1{
+    
+      margin-bottom: 0.5rem; 
+    
+    }
+    
+    .guideline-main-wrapper .guideline-container .guideline-header-section h2{
+     
+    }
+    
+    .guideline-main-wrapper .guideline-container .guidline-option{
+      display: flex; 
+      padding: 3rem 1.25rem;
+      margin-left: auto;
+      margin-right: auto; 
+      align-items: center; 
+    }
+    .guideline-main-wrapper .guideline-container .guidline-option .guideline{
+      padding: 0.75rem; 
+      margin: 0.75rem; 
+    }
+    .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading{
+    display: flex;
+    }
+    
+    .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h3{
+      height: 35px;
+      display: flex;
+      width: 40px;
+      justify-content: center;
+      align-items: center;
+      background-color: #399918;
+      margin-right: 10px;
+      border-radius: 80%;
+      }
+    
+      .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h1{
+       
+        text-align:left;
+       
+      }
+    
+      .guideline-main-wrapper .guideline-container .guidline-option .guideline .heading h6{
+        text-align:left; 
+        padding: 10px;
+        margin-top: 5px;
+      }
+    
+    
+    </style>
+    `;
+
+
+
+export const jobstyle = `
 <style>
 .dept-header-section{
   padding: 20px 0px;
