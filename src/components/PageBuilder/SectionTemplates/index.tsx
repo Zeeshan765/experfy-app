@@ -383,6 +383,10 @@ const SectionPageBuilder: React.FC = () => {
       const component = editor.getSelected();
  
       console.log('component', component);
+ 
+      
+
+      
 
       component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;" data-gjs-type="Checkmate">
        <div style="display: flex;">
@@ -416,12 +420,10 @@ const SectionPageBuilder: React.FC = () => {
       createInput({}) {
         const el = document.createElement('div');
         el.setAttribute('class', 'section-trait-preview');
-        el.innerHTML = `
-
-        <label style="color:#222;font-weight:400;margin-bottom:5px">Item</label>
+        el.innerHTML = `<label style="color:#222;font-weight:400;margin-bottom:5px">Item</label>
         <div style=" border: 1px solid #CED4DA; borderRadius: 0.25rem;"}}>
           <div style="display:flex">
-            <input id="first-id" type="text" placeholder="Guideline Text" style=" display:block;  padding:0.375rem 0.75rem;fontSize:1rem; lineHeight:1.5; border:1px solid #CED4DA; borderRadius:0.25rem 0px 0px 0px; "/>
+            <input id="first-id" type="text" placeholder=" Text" style=" display:block;  padding:0.375rem 0.75rem;fontSize:1rem; lineHeight:1.5; border:1px solid #CED4DA; borderRadius:0.25rem 0px 0px 0px; "/>
           <button type="button" style="backgroundColor:#fff;borderRadius:0px 0.25rem 0px 0px; border:1px solid #CED4DA;" id="close-btn-trait-btn">X</button>
           </div>
           <div style="padding:15px 10px;">
@@ -429,12 +431,9 @@ const SectionPageBuilder: React.FC = () => {
           <input type="text" placeholder="Guidline Step" style=" display:block; padding:0.375rem 0.75rem;fontSize:1rem;lineHeight:1.5;border:1px solid #CED4DA;borderRadius:0.25rem; "/>
           <br />
           <label style="color:#222;font-weight:400;margin-bottom:5px">Description Text</label>
-          <textarea  rows="4" placeholder="Text" style="display:block;padding:0.375rem 0.75rem;fontSize:1rem;lineHeight:1.5;border:1px solid #CED4DA;borderRadius:0.25rem;"></textarea>
+          <textarea  rows="4" style="display:block;padding:0.375rem 0.75rem;fontSize:1rem;lineHeight:1.5;border:1px solid #CED4DA;borderRadius:0.25rem;"></textarea>
           </div>
-        </div>
-     
-     
-     `;
+        </div>`;
         const inputType = el.querySelector('#close-btn-trait-btn');
         inputType!.addEventListener('click', CloseTrait);
         return el;
