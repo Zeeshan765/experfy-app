@@ -134,7 +134,6 @@ const ThemeStyle: React.FC = () => {
 
       const selectedSector = component.getSelectorsString().replace('.', '');
       const sectors = editor.StyleManager.getSectors();
-      console.log("editor.select",editor.select(selectedSector));
       console.log('selected', selectedSector);
       console.log("sectors",sectors)
       for (let i = 0; i < sectors.length; i++) {

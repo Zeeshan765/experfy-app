@@ -7,11 +7,6 @@ trigger:
 
 resources:
   repositories:
-  - repository: HelmCharts
-    type: git
-    endpoint: AzureRepos
-    name: Infrastructure/helm-charts
-    ref: main
   - repository: AzurePipelineTemplates
     type: git
     endpoint: AzureRepos
