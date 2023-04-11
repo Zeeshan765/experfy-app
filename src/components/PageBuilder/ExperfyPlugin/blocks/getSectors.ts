@@ -233,7 +233,7 @@ let typography = {
       type: 'select',
       name: 'Font Weight',
       property: 'font-weight',
-      default: '400',
+      // default: '400',
       options: fontWeightOptions,
     },
     {

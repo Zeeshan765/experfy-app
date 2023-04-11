@@ -398,7 +398,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
             perform an action, or lead them to a Call-to-action.
         </h2>
       </div>
-      <div class="guidline-option" data-gjs-type="Sectiondiv" id="Sectiondiv">
+      <div class="guidline-option" data-gjs-type="GuidelineDiv" id="GuidelineDiv">
       <div style=" padding: 0.75rem; margin: 0.75rem;">
        
        <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>

@@ -286,7 +286,7 @@ const SectionPageBuilder: React.FC = () => {
           const tChild = comps.length === 1 && comps.models[0];
           const chCnt =
             (tChild && tChild.is('textnode') && tChild.get('content')) || '';
-            console.log("here value",tChild.is('textnode'))
+          console.log('here value', tChild.is('textnode'));
           const text = chCnt || this.get('text');
           this.set('text', text);
           this.on('change:text', this.__onTextChange);
@@ -382,34 +382,71 @@ const SectionPageBuilder: React.FC = () => {
     //Add Trait on click
     const toggleBtn = () => {
       const component = editor.getSelected();
+      console.log('component Selection', component);
+
       component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;" data-gjs-type="Checkmate">
        
-       <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
-       <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
-     
-     <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
-      order to explain what the user
-      should do next
-     </h6>
-     </div>`);
-      // component.addTrait(
-      //   {
-      //     name: 'mysection',
-      //     label: ' ',
-      //     type: 'mysection',
-      //     changeProp: 1,
-      //   },
-      //   { at: 0 }
-      // );
+        <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
+        <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
+      
+      <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
+       order to explain what the user
+       should do next
+      </h6>
+      </div>`);
+
+      component.addTrait(
+        {
+          name: 'mysection',
+          label: ' ',
+          type: 'mysection',
+          changeProp: 1,
+        },
+        { at: 0 }
+      );
     };
     //Close Trait on click
     const CloseTrait = () => {
       const component = editor.getSelected();
-      component.removeTrait('mysection') &&   component.getChildAt(0).remove();
-     
+      component.removeTrait('mysection') && component.getChildAt(0).remove();
     };
+    editor.TraitManager.addType('mysection', {
+      noLabel: true,
+      createInput({}) {
+        const el = document.createElement('div');
+        el.setAttribute('class', 'section-trait-preview');
+        el.innerHTML = `
 
-   
+        <label style="color:#222;font-weight:400;margin-bottom:5px">Item</label>
+        <div style=" border: 1px solid #CED4DA; borderRadius: 0.25rem;"}}>
+          <div style="display:flex">
+            <input id="first-id" type="text" placeholder="Guideline Text" style=" display:block;  padding:0.375rem 0.75rem;fontSize:1rem; lineHeight:1.5; border:1px solid #CED4DA; borderRadius:0.25rem 0px 0px 0px; "/>
+          <button type="button" style="backgroundColor:#fff;borderRadius:0px 0.25rem 0px 0px; border:1px solid #CED4DA;" id="close-btn-trait-btn">X</button>
+          </div>
+          <div style="padding:15px 10px;">
+          <label style="color:#222;font-weight:400;margin-bottom:5px">Number</label>
+          <input type="text" placeholder="Guidline Step" style=" display:block; padding:0.375rem 0.75rem;fontSize:1rem;lineHeight:1.5;border:1px solid #CED4DA;borderRadius:0.25rem; "/>
+          <br />
+          <label style="color:#222;font-weight:400;margin-bottom:5px">Description Text</label>
+          <textarea  rows="4" placeholder="Text" style="display:block;padding:0.375rem 0.75rem;fontSize:1rem;lineHeight:1.5;border:1px solid #CED4DA;borderRadius:0.25rem;"></textarea>
+          </div>
+        </div>
+     
+     
+     `;
+        const inputType = el.querySelector('#close-btn-trait-btn');
+        inputType!.addEventListener('click', CloseTrait);
+        return el;
+      },
+
+      onUpdate({ elInput, component }) {
+        const wrapperCmp = editor.DomComponents.getWrapper();
+        let target = `.guidline-option`;
+        console.log('target', target)
+        console.log('wrapperCmp.find(target)', wrapperCmp.find(target))
+        editor.select(wrapperCmp.find(target)[0]);
+      },
+    });
 
     editor.TraitManager.addType('mybtn', {
       noLabel: true,
@@ -423,16 +460,16 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     //Section Div Trait
-    editor.DomComponents.addType('Sectiondiv', {
+    editor.DomComponents.addType('GuidelineDiv', {
       model: {
         defaults: {
           traits: [
-            // {
-            //   name: 'mysection',
-            //   label: ' ',
-            //   type: 'mysection',
-            //   changeProp: 1,
-            // },
+            {
+              name: 'mysection',
+              label: ' ',
+              type: 'mysection',
+              changeProp: 1,
+            },
             {
               type: 'mybtn',
               label: ' ',
@@ -444,7 +481,7 @@ const SectionPageBuilder: React.FC = () => {
         //   const comps = this.components();
         //   console.log('compsCheck', comps);
 
-        //   const tChild = comps.models[0]; 
+        //   const tChild = comps.models[0];
         //   console.log('tChildCheck', tChild);
         //   // const chCnt =
         //   //   (tChild && tChild.is('textnode') && tChild.get('content')) || '';
@@ -458,27 +495,6 @@ const SectionPageBuilder: React.FC = () => {
         // },
       },
     });
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // @ts-ignore
     editor.on('style:sector:update', (props) => {
