@@ -29,7 +29,7 @@ const SectionPageBuilder: React.FC = () => {
   const { userData } = useContext(UserContext);
   const [ccid, setccid] = useState(null);
   var isUpdating = false;
-  var isTrait = false;
+  var isSelect = false;
   const sections = [
     'page-builder',
     'header',
@@ -383,27 +383,30 @@ const SectionPageBuilder: React.FC = () => {
     const toggleBtn = () => {
       const component = editor.getSelected();
       console.log('component Selection', component);
-
+//@ts-ignore
+     if(component.ccid == 'GuidelineDiv'){
       component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;" data-gjs-type="Checkmate">
        
-        <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
-        <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
-      
-      <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
-       order to explain what the user
-       should do next
-      </h6>
-      </div>`);
+      <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
+      <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
+    
+    <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
+     order to explain what the user
+     should do next
+    </h6>
+    </div>`);
 
-      component.addTrait(
-        {
-          name: 'mysection',
-          label: ' ',
-          type: 'mysection',
-          changeProp: 1,
-        },
-        { at: 0 }
-      );
+     }
+
+      // component.addTrait(
+      //   {
+      //     name: 'mysection',
+      //     label: ' ',
+      //     type: 'mysection',
+      //     changeProp: 1,
+      //   },
+      //   { at: 0 }
+      // );
     };
     //Close Trait on click
     const CloseTrait = () => {
@@ -442,8 +445,8 @@ const SectionPageBuilder: React.FC = () => {
       onUpdate({ elInput, component }) {
         const wrapperCmp = editor.DomComponents.getWrapper();
         let target = `.guidline-option`;
-        console.log('target', target)
-        console.log('wrapperCmp.find(target)', wrapperCmp.find(target))
+        console.log('target', target);
+        console.log('wrapperCmp.find(target)', wrapperCmp.find(target));
         editor.select(wrapperCmp.find(target)[0]);
       },
     });
@@ -477,22 +480,7 @@ const SectionPageBuilder: React.FC = () => {
             },
           ],
         },
-        // init() {
-        //   const comps = this.components();
-        //   console.log('compsCheck', comps);
-
-        //   const tChild = comps.models[0];
-        //   console.log('tChildCheck', tChild);
-        //   // const chCnt =
-        //   //   (tChild && tChild.is('textnode') && tChild.get('content')) || '';
-        //   // const text = chCnt || this.get('text');
-        //   // this.set('text', text);
-        //   // this.on('change:text', this.__onTextChange);
-        //   // text !== chCnt && this.__onTextChange();
-        // },
-        // __onTextChange() {
-        //   this.components(this.get('text'));
-        // },
+    
       },
     });
 
@@ -518,15 +506,7 @@ const SectionPageBuilder: React.FC = () => {
                   wrapperCmp.find(`.${props.id}`)[0]
                 );
                 editor.select(wrapperCmp.find(`.${props.id}`)[0]);
-                // editor.select(sectors.models[i]);
-                // sectors.models[i].set({
-                //   open: true,
-                //   active: true,
-                //   select: true,
-                //   focus: true,
-                // });
-
-                // sm.select(`.${props.id}`);
+              
               }
             } else {
               sectors.models[i].setOpen(false);
@@ -541,216 +521,75 @@ const SectionPageBuilder: React.FC = () => {
       const categories = editor.StyleManager.getSectors();
     });
 
-    // editor.on('component:selected', (component) => {
-    //   console.log('hello selection', component);
-
-    //   var selectedBlock = editor.getSelected();
-    //   console.log('selectedBlock', selectedBlock);
-    //   let sectors = editor.StyleManager.getSectors();
-    //   console.log('sectors check', sectors);
-    //   for (let i = 0; i < sectors.length; i++) {
-    //     const modelId = sectors.models[i].get('id');
-    //     console.log('modelId', modelId);
-    //     const wrapperCmp = editor.DomComponents.getWrapper();
-    //     const newWrap = wrapperCmp.find(`.${modelId}`)[0];
-    //     console.log(
-    //       'wrapperCmp.find(`.${modelId}`)[0]',
-    //       wrapperCmp.find(`.${modelId}`)[0]
-    //     );
-    //     if(newWrap){
-    //      console.log("yess")
-    //      sectors.models[i].setOpen(true);
-    //     }
-    //     // if (newWrap) {
-    //     //   sectors.models[i].setOpen(true);
-    //     // } else {
-    //     //   sectors.models[i].setOpen(false);
-    //     // }
-    //   }
-    // });
-
-    //   !isUpdating &&
-    //   setTimeout(() => {
-    //     let sectors = editor.StyleManager.getSectors();
-    //     isUpdating = true;
-    //     for (let i = 0; i < sectors.length; i++) {
-    //       const modelId = sectors.models[i].get('id');
-    //         const wrapperCmp = editor.DomComponents.getWrapper();
-    //         const newWrap = wrapperCmp.find(`.${modelId}`)[0];
-    //         console.log(
-    //           'wrapperCmp.find(`.${modelId}`)[0]',
-    //           wrapperCmp.find(`.${modelId}`)[0]
-    //         );
-    //         if (newWrap) {
-    //           sectors.models[i].setOpen(true);
-    //         }
-
-    //     }
-
-    //     setTimeout(() => {
-    //       isUpdating = false;
-    //     }, 300);
-    //   }, 100);
-
-    //   // if (ccid !== component.ccid) {
-    //   //   setccid(component.ccid);
-    //   // }
-
-    //   // // if (component.get('type') == 'text') {
-    //   // //   editor?.runCommand('core:open-traits');
-    //   // // }
-    //   // if (component.get('type') == 'button') {
-    //   //   editor?.runCommand('core:open-traits');
-    //   // }
-    //   // if (component.get('type') == 'mj-image') {
-    //   //   editor?.runCommand('core:open-traits');
-    //   // }
-    // });
-
     //@ts-ignore
-    // editor.on('component:update:attributes', (component) => {
-    //   console.log('component:update:attributes', component);
+    editor.on('style:target', (component) => {
+      if (!component) return;
+      let selected = component.attributes.selectors.models[1].id;
+      // console.log('selected', selected);
+      // const selectedSector = component.getSelectorsString().replace('.', '');
+      // console.log('selectedSector', selectedSector);
+      // console.log('component.getSelectorsString()',component.getSelectorsString())
+      // const sectors = editor.StyleManager.getSectors();
+      // console.log('sectors', sectors);
+      // for (let i = 0; i < sectors.length; i++) {
+      //   if (selectedSector.includes(sectors.models[i].get('id'))) {
+      //     sectors.models[i].setOpen(true);
+      //   } else {
+      //     sectors.models[i].setOpen(false);
+      //   }
+      // }
+      !isUpdating &&
+        setTimeout(() => {
+          isUpdating = true;
 
-    //   editor.Selectors.select(`.${'main-number-heading'}`);
-    // });
+          const selectedSector = component
+            .getSelectorsString()
+            .replace('.', '');
+          console.log('selectedSector', selectedSector);
+          console.log(
+            'component.getSelectorsString()',
+            component.getSelectorsString()
+          );
+          const sectors = editor.StyleManager.getSectors();
+          console.log('sectors', sectors);
+          for (let i = 0; i < sectors.length; i++) {
+            if (selectedSector.includes(sectors.models[i].get('id'))) {
+              sectors.models[i].setOpen(true);
+            } else {
+              sectors.models[i].setOpen(false);
+            }
+          }
 
+          setTimeout(() => {
+            isUpdating = false;
+          }, 300);
+        }, 100);
+    });
+
+editor.on('component:selected', (component) => {
+  if (component.get('type') == 'text') {
     //@ts-ignore
-    // editor.on('component:update:attributes', (component) => {
-    //   console.log('component:update:attributes', component);
+    editor?.runCommand('core:open-traits');
+  }
+  if (component.get('type') == 'button') {
+    //@ts-ignore
+    editor?.runCommand('core:open-traits');
+  }
+  if (component.get('type') == 'image') {
+    //@ts-ignore
+    editor?.runCommand('core:open-traits');
+  }
+    
+});
 
-    //   editor.Selectors.select(`.${'main-number-heading'}`);
-    // });
+  
 
+  
     editor.on('component:update', (component) => {
       console.log('component update called', component);
     });
 
-    //   // const attrs = component.getAttributes();
-    //   // // console.log('attrs', attrs);
-    //   // component.set('main-number-heading', '');
-
-    //   // // const isActive = event.changed.attributes['my-parent-trait'];
-    //   // // const displayStyle = true ? 'block' : 'none';
-
-    //   // // TextTrait.forEach((traitProps) => {
-    //   // //   const trait = component.getTrait(traitProps.name);
-    //   // //   console.log('trait', trait);
-    //   // //   if (trait) {
-    //   // //     trait.view.el.style.display = displayStyle;
-    //   // //   }
-    //   // // });
-
-    //   // var selected = editor.getSelected();
-
-    //   // // console.log('selectedTrait', selected);
-    //   // // const el = selectedTrait.getEl();
-    //   // // console.log('el', el)
-
-    //   // var selectedTrait = component.getTraits();
-    //   // // console.log('selectedTrait1', selectedTrait);
-    //   // // const traitTitle = component.getTrait('main-number-heading');
-    //   // // if (traitTitle) {
-    //   // //   //   console.log('traitTitle', traitTitle);
-    //   // //   //   traitTitle &&
-    //   // //   //     traitTitle.set('class', 'h1 main-number-heading gjs-selected');
-    //   // // }
-
-    //   // const { ccid } = selectedTrait;
-    //   // // console.log('ccid', ccid);
-
-    //   // for (let i = 0; i < selectedTrait.length; i++) {
-    //   //   const modelId = selectedTrait[i].get('id');
-    //   //   const modelValue = selectedTrait[i].get('value');
-    //   //   // console.log("model is '''''''''' ", modelId);
-    //   //   selected.toHTML({
-    //   //     attributes(component, attributes) {
-    //   //       console.log('component old', component);
-    //   //       if (attributes?.class === modelId) {
-    //   //         console.log(
-    //   //           'attributes?.class, modelValue',
-    //   //           attributes?.class,
-    //   //           modelValue
-    //   //         );
-    //   //         console.log('component', component);
-    //   //         component.components(modelValue);
-    //   //         // component.addAttributes({ value: modelValue });
-    //   //       }
-    //   //       // console.log("class",attributes.get('class'))
-
-    //   //       // if (attributes.get('class') == modelId) {
-    //   //       //   console.log("yes-------------------->")
-
-    //   //       //   // attributes.title = 'Custom attribute';
-    //   //       //   // attributes.value = 'Custom Value';
-    //   //       // }
-    //   //       // return attributes;
-    //   //     },
-    //   //   });
-
-    //   //   // console.log('modelIdNew', modelId);
-    //   //   // console.log('props id d d ', component.id);
-    //   //   // const modelId = sectors.models[i].get('id');
-    //   //   // if (modelId === component.id) {
-    //   //   //   console.log('model id', modelId);
-    //   //   //   console.log('component id', component.id);
-    //   //   //   let isOpen = sectors.models[i].isOpen();
-    //   //   //   if (isOpen) {
-    //   //   //     editor.select(sectors.models[i]);
-    //   //   //     sectors.models[i].set({
-    //   //   //       open: true,
-    //   //   //       active: true,
-    //   //   //       select: true,
-    //   //   //       focus: true,
-    //   //   //     });
-
-    //   //   //     sm.select(`.${ccid} .${component.id}`);
-    //   //   //   }
-    //   //   // } else {
-    //   //   //   sectors.models[i].setOpen(false);
-    //   //   // }
-    //   // }
-
-    //   // // !isTrait &&
-    //   // // setTimeout(() => {
-    //   // //   var selectedTrait = component.getTraits()
-    //   // //   console.log('selectedTrait', selectedTrait);
-    //   // //   const { ccid } = selectedTrait;
-    //   // //   console.log("ccid",ccid)
-    //   // //   isTrait = true;
-
-    //   // //   // for (let i = 0; i < sectors.length; i++) {
-    //   // //   //   const modelId = sectors.models[i].get('id');
-    //   // //   //   if (modelId === props.id) {
-    //   // //   //     console.log("model id",modelId)
-    //   // //   //     console.log("props id",props.id)
-    //   // //   //     let isOpen = sectors.models[i].isOpen();
-    //   // //   //     if (isOpen) {
-    //   // //   //       editor.select(sectors.models[i]);
-    //   // //   //       sectors.models[i].set({
-    //   // //   //         open: true,
-    //   // //   //         active: true,
-    //   // //   //         select: true,
-    //   // //   //         focus: true,
-    //   // //   //       });
-
-    //   // //   //       sm.select(`.${ccid} .${props.id}`);
-
-    //   // //   //     }
-    //   // //   //   } else {
-    //   // //   //     sectors.models[i].setOpen(false);
-    //   // //   //   }
-    //   // //   // }
-
-    //   // //   setTimeout(() => {
-    //   // //     isTrait = false;
-    //   // //   }, 3000);
-    //   // // }, 100);
-
-    //   // if (component.get('type') == 'text') {
-    //   //   component.components(component.get('traits').models[0].get('value'));
-    //   //   component.components(component.get('traits').models[1].get('class'));
-    //   // }
-    // });
+    
 
     const addAssets = async () => {
       const assetManager = editor?.AssetManager;
