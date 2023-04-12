@@ -2696,85 +2696,244 @@ const obj = {
       properties: [color, typography, 'background-color'],
     },
   ],
-
   departmentSector: [
     {
-      name: 'Section Heading',
-      id: 'dept_section',
+      name: 'Background',
       open: false,
-      properties: [color, typography],
-    },
-    {
-      name: 'Sub Section Heading',
-      open: false,
-      properties: [color, typography],
-    },
-    {
-      name: 'Job Title',
-      id: 'job_title',
-      open: false,
-      properties: [color, typography],
-    },
-    {
-      name: 'Company Name',
-      open: false,
-      id: 'company_name',
-      properties: [color, typography],
-    },
-    {
-      name: 'Date Posted',
-      id: 'posted',
-      open: false,
-      properties: [color, typography],
-    },
-    {
-      name: 'Descriptive Text',
-      id: 'descriptive_text',
-      open: false,
-      properties: [color, typography],
-    },
-    {
-      name: 'Feature List',
-      id: 'feature_list',
-      open: false,
+      id: 'department-container',
+      buildProps: ['background-image'],
       properties: [
-        color,
-        typography,
-
-        {
-          type: 'slider',
-          name: 'Space Between',
-          property: 'space-between',
-          default: 1,
-          units: ['px', 'rem'],
-        },
         {
           type: 'color',
-          name: 'Icon Color',
-          property: 'color',
-
+          name: 'Background Color',
+          property: 'background-color',
           colorPicker: {
             preferredFormat: 'hex',
             showInput: true,
           },
         },
+      ],
+    },
+    {
+      name: 'Department Heading',
+      open: false,
+      id: 'main-department-heading',
+      properties: [color, typography],
+    },
+    {
+      name: 'Department Sub Heading',
+      open: false,
+      properties: [color, typography],
+      id: 'sub-department-heading',
+    },
+
+    {
+      name: 'Department Icon',
+      open: false,
+      id: 'department-option',
+      properties: [
         {
-          type: 'slider',
-          name: 'Icon Size',
-          property: 'icon-size',
-          default: 1,
-          units: ['px', 'rem'],
-        },
-        {
-          type: 'slider',
-          name: 'Text Indent',
-          property: 'text-indent',
-          default: 1,
-          units: ['px', 'rem'],
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
         },
       ],
     },
+
+    {
+      name: 'Icon',
+      open: false,
+      id: 'image-department',
+      properties: [
+
+          {
+            type: 'composite',
+            name: 'Border Radius',
+            property: 'border-radius',
+            properties: widthOptions,
+          },
+          {
+            type: 'color',
+            name: 'Border Color',
+            property: 'border-color',
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+  
+          {
+            type: 'composite',
+            name: 'Border Width',
+            property: 'border-width',
+            properties: widthOptions,
+          },
+          {
+            type: 'select',
+            name: 'Border Style',
+            property: 'border-style',
+            options: borderStyleOptions,
+          },
+          {
+            type: 'slider',
+            name: 'Icon Size',
+            property: 'width',
+            default: '100%',
+            min: 0,
+            max: 100,
+            units: ['%', 'px'],
+          },
+          {
+            type: 'slider',
+            name: 'Padding',
+            property: 'padding',
+           
+            min: 0,
+            max: 100,
+            units: ['%', 'px'],
+          },
+          {
+            type: 'slider',
+            name: 'Opacity',
+            property: 'opacity',
+            default: 1,
+            step: 1,
+            min: 0,
+            max: 100,
+            units: ['%'],
+          },
+        ],
+    
+    },
+    {
+      name: 'Icon Heading',
+      id: 'icon-department-heading',
+      open: false,
+      properties: [color, typography],
+    },
+    {
+      name: 'Icon Sub Heading',
+      id: 'icon-department-sub-heading',
+      open: false,
+      properties: [color, typography],
+    },
   ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // departmentSector: [
+  //   {
+  //     name: 'Section Heading',
+  //     id: 'dept_section',
+  //     open: false,
+  //     properties: [color, typography],
+  //   },
+  //   {
+  //     name: 'Sub Section Heading',
+  //     open: false,
+  //     properties: [color, typography],
+  //   },
+  //   {
+  //     name: 'Job Title',
+  //     id: 'job_title',
+  //     open: false,
+  //     properties: [color, typography],
+  //   },
+  //   {
+  //     name: 'Company Name',
+  //     open: false,
+  //     id: 'company_name',
+  //     properties: [color, typography],
+  //   },
+  //   {
+  //     name: 'Date Posted',
+  //     id: 'posted',
+  //     open: false,
+  //     properties: [color, typography],
+  //   },
+  //   {
+  //     name: 'Descriptive Text',
+  //     id: 'descriptive_text',
+  //     open: false,
+  //     properties: [color, typography],
+  //   },
+  //   {
+  //     name: 'Feature List',
+  //     id: 'feature_list',
+  //     open: false,
+  //     properties: [
+  //       color,
+  //       typography,
+
+  //       {
+  //         type: 'slider',
+  //         name: 'Space Between',
+  //         property: 'space-between',
+  //         default: 1,
+  //         units: ['px', 'rem'],
+  //       },
+  //       {
+  //         type: 'color',
+  //         name: 'Icon Color',
+  //         property: 'color',
+
+  //         colorPicker: {
+  //           preferredFormat: 'hex',
+  //           showInput: true,
+  //         },
+  //       },
+  //       {
+  //         type: 'slider',
+  //         name: 'Icon Size',
+  //         property: 'icon-size',
+  //         default: 1,
+  //         units: ['px', 'rem'],
+  //       },
+  //       {
+  //         type: 'slider',
+  //         name: 'Text Indent',
+  //         property: 'text-indent',
+  //         default: 1,
+  //         units: ['px', 'rem'],
+  //       },
+  //     ],
+  //   },
+  // ],
 
   wrapper: [
     // Default
