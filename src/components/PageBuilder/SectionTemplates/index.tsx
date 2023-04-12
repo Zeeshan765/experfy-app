@@ -279,17 +279,15 @@ const SectionPageBuilder: React.FC = () => {
         defaults: {
           traits: TextTrait,
         },
-        // changeProp: 1,
         init() {
           const comps = this.components();
-          // console.log('comps', comps);
           const tChild = comps.length === 1 && comps.models[0];
-          const chCnt =
-            (tChild && tChild.is('textnode') && tChild.get('content')) || '';
-          console.log('here value', tChild.is('textnode'));
+          const chCnt = (tChild && tChild.is('textnode') && tChild.get('content')) || '';
           const text = chCnt || this.get('text');
           this.set('text', text);
+          //@ts-ignore
           this.on('change:text', this.__onTextChange);
+          //@ts-ignore
           text !== chCnt && this.__onTextChange();
           this.on('change:attributes:htmltag', this.handleHtmltagChange);
         },
