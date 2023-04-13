@@ -574,20 +574,7 @@ editor.DomComponents.addType('Departmentdiv', {
     //@ts-ignore
     editor.on('style:target', (component) => {
       if (!component) return;
-      let selected = component.attributes.selectors.models[1].id;
-      // console.log('selected', selected);
-      // const selectedSector = component.getSelectorsString().replace('.', '');
-      // console.log('selectedSector', selectedSector);
-      // console.log('component.getSelectorsString()',component.getSelectorsString())
-      // const sectors = editor.StyleManager.getSectors();
-      // console.log('sectors', sectors);
-      // for (let i = 0; i < sectors.length; i++) {
-      //   if (selectedSector.includes(sectors.models[i].get('id'))) {
-      //     sectors.models[i].setOpen(true);
-      //   } else {
-      //     sectors.models[i].setOpen(false);
-      //   }
-      // }
+      
       !isUpdating &&
         setTimeout(() => {
           isUpdating = true;

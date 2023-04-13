@@ -548,11 +548,14 @@ export const locationStyle = `
   display: flex; 
   align-items: center;
 }
-
-.address-content-div .address-text-div h6{
+.address-content-div .address-icon{
+  display: contents;
+}
+.address-content-div h6{
 
   padding-left: 20px;
   margin:10px 0px
+  margin-left: 1rem;
 }
 .address-map-div{
   width:50%;

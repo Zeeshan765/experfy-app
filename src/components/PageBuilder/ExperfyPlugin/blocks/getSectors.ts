@@ -2120,7 +2120,7 @@ const obj = {
       name: 'Background',
       open: false,
       id: 'location-content',
-      buildProps: ['background-image'],
+      buildProps: ['background'],
       properties: [
         {
           type: 'color',
@@ -2165,32 +2165,32 @@ const obj = {
           type: 'radio',
           name: 'Alignment',
           property: 'text-align',
-          default: 'left',
+         
           options: textAlignOptions,
         },
         {
           type: 'color',
           name: 'Text Cover',
           property: 'color',
-          default: '#4aa4da',
+         
         },
         {
           type: 'color',
           name: 'Hover Cover',
           property: ':hover',
-          default: '#4aa4da',
+       
         },
         {
           type: 'slider',
           name: 'Text Indent',
           property: 'text-indent',
-          default: '1',
+        
         },
         {
           type: 'color',
           name: 'List Typography',
           property: 'color',
-          default: '#4aa4da',
+        
         },
       ],
     },
@@ -2230,7 +2230,7 @@ const obj = {
             type: 'slider',
             name: 'Width',
             property: 'width',
-            default: '100%',
+           
             min: 0,
             max: 100,
             units: ['%', 'px'],
@@ -2240,7 +2240,6 @@ const obj = {
             type: 'slider',
             name: 'Opacity',
             property: 'opacity',
-            default: 1,
             step: 1,
             min: 0,
             max: 100,
@@ -2251,7 +2250,6 @@ const obj = {
           type: 'slider',
           name: 'Padding',
           property: 'padding',
-          default: '0',
           units: ['px'],
         },
       ],
