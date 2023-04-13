@@ -2115,7 +2115,7 @@ const obj = {
     },
   ],
 
-  locationSector: [
+  locationSector: [ 
     {
       name: 'Background',
       open: false,
