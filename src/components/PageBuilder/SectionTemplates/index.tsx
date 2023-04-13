@@ -29,7 +29,7 @@ const SectionPageBuilder: React.FC = () => {
   const { userData } = useContext(UserContext);
   const [ccid, setccid] = useState(null);
   var isUpdating = false;
-  var isTrait = false;
+  var isSelect = false;
   const sections = [
     'page-builder',
     'header',
@@ -279,17 +279,18 @@ const SectionPageBuilder: React.FC = () => {
         defaults: {
           traits: TextTrait,
         },
-        // changeProp: 1,
         init() {
           const comps = this.components();
-          // console.log('comps', comps);
+          console.log("Text comps", comps);
           const tChild = comps.length === 1 && comps.models[0];
-          const chCnt =
-            (tChild && tChild.is('textnode') && tChild.get('content')) || '';
+          const chCnt = (tChild && tChild.is('textnode') && tChild.get('content')) || '';
           const text = chCnt || this.get('text');
           this.set('text', text);
+          //@ts-ignore
           this.on('change:text', this.__onTextChange);
+          //@ts-ignore
           text !== chCnt && this.__onTextChange();
+          //@ts-ignore
           this.on('change:attributes:htmltag', this.handleHtmltagChange);
         },
         __onTextChange() {
@@ -381,36 +382,61 @@ const SectionPageBuilder: React.FC = () => {
     //Add Trait on click
     const toggleBtn = () => {
       const component = editor.getSelected();
- 
-      console.log('component', component);
-
+      console.log('component Selection', component);
+//@ts-ignore
+     if(component.ccid == 'GuidelineDiv'){
       component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;" data-gjs-type="Checkmate">
-       <div style="display: flex;">
-       <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
-       <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
-     </div>
-     <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
-      order to explain what the user
-      should do next
-     </h6>
-     </div>`);
-      component.addTrait(
-        {
-          name: 'mysection',
-          label: ' ',
-          type: 'mysection',
-          changeProp: 1,
-        },
-        { at: 0 }
-      );
+       
+      <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
+      <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
+    
+    <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
+     order to explain what the user
+     should do next
+    </h6>
+    </div>`);
+
+
+     }
+//@ts-ignore
+     if(component.ccid == 'Departmentdiv'){
+
+component.append(`
+<div class="department-holder" style="padding: 0.75rem;margin: 0.75rem; ">
+      <img class="image-department" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+    
+         <h1 class="h1 icon-department-heading" style="margin-top: 1.25rem; margin-bottom: 1.25rem; ">Department 1</h1>
+         <h6 class="h6 icon-department-sub-heading">Lorem ipsum dolor sit amet. Est
+            porro distinctio eum eius odit ea
+            facere consequuntur.
+         </h6>
+      </div>
+`);
+
+
+
+
+
+
+
+
+     }
+
+      // component.addTrait(
+      //   {
+      //     name: 'mysection',
+      //     label: ' ',
+      //     type: 'mysection',
+      //     changeProp: 1,
+      //   },
+      //   { at: 0 }
+      // );
     };
     //Close Trait on click
     const CloseTrait = () => {
       const component = editor.getSelected();
-      component.removeTrait('mysection') &&   component.getChildAt(0).remove();
-     
+      component.removeTrait('mysection') && component.getChildAt(0).remove();
     };
-
     editor.TraitManager.addType('mysection', {
       noLabel: true,
       createInput({}) {
@@ -439,6 +465,14 @@ const SectionPageBuilder: React.FC = () => {
         inputType!.addEventListener('click', CloseTrait);
         return el;
       },
+
+      onUpdate({ elInput, component }) {
+        const wrapperCmp = editor.DomComponents.getWrapper();
+        let target = `.guidline-option`;
+        console.log('target', target);
+        console.log('wrapperCmp.find(target)', wrapperCmp.find(target));
+        editor.select(wrapperCmp.find(target)[0]);
+      },
     });
 
     editor.TraitManager.addType('mybtn', {
@@ -452,8 +486,8 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-    //Section Div Trait
-    editor.DomComponents.addType('Sectiondiv', {
+    //Guideline Div Trait
+    editor.DomComponents.addType('GuidelineDiv', {
       model: {
         defaults: {
           traits: [
@@ -470,75 +504,32 @@ const SectionPageBuilder: React.FC = () => {
             },
           ],
         },
-        init() {
-          const comps = this.components();
-          console.log('compsCheck', comps);
-
-          const tChild = comps.length === 1 && comps.models[0]; 
-          console.log('tChild', tChild);
-          // const chCnt =
-          //   (tChild && tChild.is('textnode') && tChild.get('content')) || '';
-          // const text = chCnt || this.get('text');
-          // this.set('text', text);
-          // this.on('change:text', this.__onTextChange);
-          // text !== chCnt && this.__onTextChange();
-        },
-
-        // __onTextChange() {
-        //   this.components(this.get('text'));
-        // },
+    
       },
     });
 
 
-
-
-
-
-    editor.DomComponents.addType('Checkmate', {
-      model: {
-        defaults: {
-          traits: [
-            {
-              name: 'mysection',
-              label: ' ',
-              type: 'mysection',
-              changeProp: 1,
-            },
-           
-          ],
-        },
-        init() {
-          const comps = this.components();
-          console.log('compsCheckmate', comps);
-
-          const tChild = comps.length === 1 && comps.models[0]; 
-          console.log('tChildNew', tChild);
-          // const chCnt =
-          //   (tChild && tChild.is('textnode') && tChild.get('content')) || '';
-          // const text = chCnt || this.get('text');
-          // this.set('text', text);
-          // this.on('change:text', this.__onTextChange);
-          // text !== chCnt && this.__onTextChange();
-        },
-
-        // __onTextChange() {
-        //   this.components(this.get('text'));
+// Department Div Trait
+editor.DomComponents.addType('Departmentdiv', {
+  model: {
+    defaults: {
+      traits: [
+        // {
+        //   name: 'mysection',
+        //   label: ' ',
+        //   type: 'mysection',
+        //   changeProp: 1,
         // },
-      },
-    });
+        {
+          type: 'mybtn',
+          label: ' ',
+          name: 'mybtn',
+        },
+      ],
+    },
 
-
-
-
-
-
-
-
-
-
-
-
+  },
+});
 
 
 
@@ -565,15 +556,7 @@ const SectionPageBuilder: React.FC = () => {
                   wrapperCmp.find(`.${props.id}`)[0]
                 );
                 editor.select(wrapperCmp.find(`.${props.id}`)[0]);
-                // editor.select(sectors.models[i]);
-                // sectors.models[i].set({
-                //   open: true,
-                //   active: true,
-                //   select: true,
-                //   focus: true,
-                // });
-
-                // sm.select(`.${props.id}`);
+              
               }
             } else {
               sectors.models[i].setOpen(false);
@@ -588,216 +571,62 @@ const SectionPageBuilder: React.FC = () => {
       const categories = editor.StyleManager.getSectors();
     });
 
-    // editor.on('component:selected', (component) => {
-    //   console.log('hello selection', component);
-
-    //   var selectedBlock = editor.getSelected();
-    //   console.log('selectedBlock', selectedBlock);
-    //   let sectors = editor.StyleManager.getSectors();
-    //   console.log('sectors check', sectors);
-    //   for (let i = 0; i < sectors.length; i++) {
-    //     const modelId = sectors.models[i].get('id');
-    //     console.log('modelId', modelId);
-    //     const wrapperCmp = editor.DomComponents.getWrapper();
-    //     const newWrap = wrapperCmp.find(`.${modelId}`)[0];
-    //     console.log(
-    //       'wrapperCmp.find(`.${modelId}`)[0]',
-    //       wrapperCmp.find(`.${modelId}`)[0]
-    //     );
-    //     if(newWrap){
-    //      console.log("yess")
-    //      sectors.models[i].setOpen(true);
-    //     }
-    //     // if (newWrap) {
-    //     //   sectors.models[i].setOpen(true);
-    //     // } else {
-    //     //   sectors.models[i].setOpen(false);
-    //     // }
-    //   }
-    // });
-
-    //   !isUpdating &&
-    //   setTimeout(() => {
-    //     let sectors = editor.StyleManager.getSectors();
-    //     isUpdating = true;
-    //     for (let i = 0; i < sectors.length; i++) {
-    //       const modelId = sectors.models[i].get('id');
-    //         const wrapperCmp = editor.DomComponents.getWrapper();
-    //         const newWrap = wrapperCmp.find(`.${modelId}`)[0];
-    //         console.log(
-    //           'wrapperCmp.find(`.${modelId}`)[0]',
-    //           wrapperCmp.find(`.${modelId}`)[0]
-    //         );
-    //         if (newWrap) {
-    //           sectors.models[i].setOpen(true);
-    //         }
-
-    //     }
-
-    //     setTimeout(() => {
-    //       isUpdating = false;
-    //     }, 300);
-    //   }, 100);
-
-    //   // if (ccid !== component.ccid) {
-    //   //   setccid(component.ccid);
-    //   // }
-
-    //   // // if (component.get('type') == 'text') {
-    //   // //   editor?.runCommand('core:open-traits');
-    //   // // }
-    //   // if (component.get('type') == 'button') {
-    //   //   editor?.runCommand('core:open-traits');
-    //   // }
-    //   // if (component.get('type') == 'mj-image') {
-    //   //   editor?.runCommand('core:open-traits');
-    //   // }
-    // });
-
     //@ts-ignore
-    // editor.on('component:update:attributes', (component) => {
-    //   console.log('component:update:attributes', component);
+    editor.on('style:target', (component) => {
+      if (!component) return;
+      
+      !isUpdating &&
+        setTimeout(() => {
+          isUpdating = true;
 
-    //   editor.Selectors.select(`.${'main-number-heading'}`);
-    // });
+          const selectedSector = component
+            .getSelectorsString()
+            .replace('.', '');
+          console.log('selectedSector', selectedSector);
+          console.log(
+            'component.getSelectorsString()',
+            component.getSelectorsString()
+          );
+          const sectors = editor.StyleManager.getSectors();
+          console.log('sectors', sectors);
+          for (let i = 0; i < sectors.length; i++) {
+            if (selectedSector.includes(sectors.models[i].get('id'))) {
+              sectors.models[i].setOpen(true);
+            } else {
+              sectors.models[i].setOpen(false);
+            }
+          }
 
+          setTimeout(() => {
+            isUpdating = false;
+          }, 300);
+        }, 100);
+    });
+
+editor.on('component:selected', (component) => {
+  if (component.get('type') == 'text') {
     //@ts-ignore
-    // editor.on('component:update:attributes', (component) => {
-    //   console.log('component:update:attributes', component);
+    editor?.runCommand('core:open-traits');
+  }
+  if (component.get('type') == 'button') {
+    //@ts-ignore
+    editor?.runCommand('core:open-traits');
+  }
+  if (component.get('type') == 'image') {
+    //@ts-ignore
+    editor?.runCommand('core:open-traits');
+  }
+    
+});
 
-    //   editor.Selectors.select(`.${'main-number-heading'}`);
-    // });
+  
 
+  
     editor.on('component:update', (component) => {
       console.log('component update called', component);
     });
 
-    //   // const attrs = component.getAttributes();
-    //   // // console.log('attrs', attrs);
-    //   // component.set('main-number-heading', '');
-
-    //   // // const isActive = event.changed.attributes['my-parent-trait'];
-    //   // // const displayStyle = true ? 'block' : 'none';
-
-    //   // // TextTrait.forEach((traitProps) => {
-    //   // //   const trait = component.getTrait(traitProps.name);
-    //   // //   console.log('trait', trait);
-    //   // //   if (trait) {
-    //   // //     trait.view.el.style.display = displayStyle;
-    //   // //   }
-    //   // // });
-
-    //   // var selected = editor.getSelected();
-
-    //   // // console.log('selectedTrait', selected);
-    //   // // const el = selectedTrait.getEl();
-    //   // // console.log('el', el)
-
-    //   // var selectedTrait = component.getTraits();
-    //   // // console.log('selectedTrait1', selectedTrait);
-    //   // // const traitTitle = component.getTrait('main-number-heading');
-    //   // // if (traitTitle) {
-    //   // //   //   console.log('traitTitle', traitTitle);
-    //   // //   //   traitTitle &&
-    //   // //   //     traitTitle.set('class', 'h1 main-number-heading gjs-selected');
-    //   // // }
-
-    //   // const { ccid } = selectedTrait;
-    //   // // console.log('ccid', ccid);
-
-    //   // for (let i = 0; i < selectedTrait.length; i++) {
-    //   //   const modelId = selectedTrait[i].get('id');
-    //   //   const modelValue = selectedTrait[i].get('value');
-    //   //   // console.log("model is '''''''''' ", modelId);
-    //   //   selected.toHTML({
-    //   //     attributes(component, attributes) {
-    //   //       console.log('component old', component);
-    //   //       if (attributes?.class === modelId) {
-    //   //         console.log(
-    //   //           'attributes?.class, modelValue',
-    //   //           attributes?.class,
-    //   //           modelValue
-    //   //         );
-    //   //         console.log('component', component);
-    //   //         component.components(modelValue);
-    //   //         // component.addAttributes({ value: modelValue });
-    //   //       }
-    //   //       // console.log("class",attributes.get('class'))
-
-    //   //       // if (attributes.get('class') == modelId) {
-    //   //       //   console.log("yes-------------------->")
-
-    //   //       //   // attributes.title = 'Custom attribute';
-    //   //       //   // attributes.value = 'Custom Value';
-    //   //       // }
-    //   //       // return attributes;
-    //   //     },
-    //   //   });
-
-    //   //   // console.log('modelIdNew', modelId);
-    //   //   // console.log('props id d d ', component.id);
-    //   //   // const modelId = sectors.models[i].get('id');
-    //   //   // if (modelId === component.id) {
-    //   //   //   console.log('model id', modelId);
-    //   //   //   console.log('component id', component.id);
-    //   //   //   let isOpen = sectors.models[i].isOpen();
-    //   //   //   if (isOpen) {
-    //   //   //     editor.select(sectors.models[i]);
-    //   //   //     sectors.models[i].set({
-    //   //   //       open: true,
-    //   //   //       active: true,
-    //   //   //       select: true,
-    //   //   //       focus: true,
-    //   //   //     });
-
-    //   //   //     sm.select(`.${ccid} .${component.id}`);
-    //   //   //   }
-    //   //   // } else {
-    //   //   //   sectors.models[i].setOpen(false);
-    //   //   // }
-    //   // }
-
-    //   // // !isTrait &&
-    //   // // setTimeout(() => {
-    //   // //   var selectedTrait = component.getTraits()
-    //   // //   console.log('selectedTrait', selectedTrait);
-    //   // //   const { ccid } = selectedTrait;
-    //   // //   console.log("ccid",ccid)
-    //   // //   isTrait = true;
-
-    //   // //   // for (let i = 0; i < sectors.length; i++) {
-    //   // //   //   const modelId = sectors.models[i].get('id');
-    //   // //   //   if (modelId === props.id) {
-    //   // //   //     console.log("model id",modelId)
-    //   // //   //     console.log("props id",props.id)
-    //   // //   //     let isOpen = sectors.models[i].isOpen();
-    //   // //   //     if (isOpen) {
-    //   // //   //       editor.select(sectors.models[i]);
-    //   // //   //       sectors.models[i].set({
-    //   // //   //         open: true,
-    //   // //   //         active: true,
-    //   // //   //         select: true,
-    //   // //   //         focus: true,
-    //   // //   //       });
-
-    //   // //   //       sm.select(`.${ccid} .${props.id}`);
-
-    //   // //   //     }
-    //   // //   //   } else {
-    //   // //   //     sectors.models[i].setOpen(false);
-    //   // //   //   }
-    //   // //   // }
-
-    //   // //   setTimeout(() => {
-    //   // //     isTrait = false;
-    //   // //   }, 3000);
-    //   // // }, 100);
-
-    //   // if (component.get('type') == 'text') {
-    //   //   component.components(component.get('traits').models[0].get('value'));
-    //   //   component.components(component.get('traits').models[1].get('class'));
-    //   // }
-    // });
+    
 
     const addAssets = async () => {
       const assetManager = editor?.AssetManager;

@@ -207,7 +207,6 @@ const PageBuilder: React.FC = () => {
         pageHistory: JSON.stringify(editor?.getProjectData()),
       })
       .then((res) => {
-        // console.log('res of history==========', res);
         fetchHistory(); // call to get history
         console.log('res', res);
         isChanged = false;
