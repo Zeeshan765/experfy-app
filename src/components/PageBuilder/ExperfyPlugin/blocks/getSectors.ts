@@ -1090,7 +1090,7 @@ const obj = {
       name: 'Background',
       open: false,
       id: 'benefits-container',
-      buildProps: ['background-image'],
+      buildProps: ['background'],
       properties: [
         {
           type: 'color',
@@ -1638,6 +1638,31 @@ const obj = {
     },
   ],
   videoSector: [
+
+
+     {
+      name: 'Background',
+      open: false,
+      id: 'video-main-wrapper',
+      buildProps: ['background'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+    
+  
+
+   
+
+    
     {
       name: 'Aspect Ratio',
       id: 'video-ratio',
