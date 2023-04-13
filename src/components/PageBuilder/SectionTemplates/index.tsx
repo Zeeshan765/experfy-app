@@ -281,6 +281,7 @@ const SectionPageBuilder: React.FC = () => {
         },
         init() {
           const comps = this.components();
+          console.log("Text comps", comps);
           const tChild = comps.length === 1 && comps.models[0];
           const chCnt = (tChild && tChild.is('textnode') && tChild.get('content')) || '';
           const text = chCnt || this.get('text');
@@ -289,6 +290,7 @@ const SectionPageBuilder: React.FC = () => {
           this.on('change:text', this.__onTextChange);
           //@ts-ignore
           text !== chCnt && this.__onTextChange();
+          //@ts-ignore
           this.on('change:attributes:htmltag', this.handleHtmltagChange);
         },
         __onTextChange() {
