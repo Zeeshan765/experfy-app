@@ -48,6 +48,7 @@ const SectionPageBuilder: React.FC = () => {
     'testimonial',
     'video',
     'department',
+    'photo-gallery',
   ];
   let showSections = true;
   const apiEndpoint = `${serverURL}/api`;

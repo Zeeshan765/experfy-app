@@ -119,6 +119,74 @@ align-items: center;
 
 </style>`;
 
+
+
+export const photoGalleryStyle = `<style>
+
+
+.photo-container{
+width: 70%;
+margin: auto;
+text-align: center; 
+}
+
+.photo-title-div{
+  text-align: center;
+}
+.photo-title-div h1{
+ 
+  margin-bottom: 0.5rem; 
+
+}
+
+.photo-title-div h2{
+
+}
+
+.photo-title-div h6 {
+  text-align: center;
+}
+
+.photo-option-section{
+display: flex; 
+margin-left: auto;
+margin-right: auto; 
+align-items: center; 
+}
+
+.photo-option-section .photo_img_container{
+  width: 33%;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+}
+.photo-option-section .photo_img_container img{
+  width: 100%;
+  height: 250px;
+}
+
+.photo_figure_caption{
+  padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    background-color: rgb(248, 248, 250);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+
+
+
+
+
+</style>`;
+
+
 export const paragraphStyle = `
 <style> 
 .main-paragraph-wrapper {

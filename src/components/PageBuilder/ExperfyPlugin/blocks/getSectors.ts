@@ -2087,6 +2087,140 @@ const obj = {
     },
   ],
 
+
+  photoSector: [
+
+    {
+      name: 'Section Background',
+      open: false,
+      id: 'photo-container',
+      buildProps: ['background'],
+      properties: [
+        {
+          type: 'slider',
+          name: 'Overlay Opacity',
+          property: 'opacity',
+          defaults: 27,
+          units: ['%'],
+          step: 0.01,
+      
+          min: 6,
+        },
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          options: borderStyleOptions,
+
+        },
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        }
+      ],
+    },
+
+
+
+    {
+      name: 'Photo Gallery Heading',
+      open: false,
+      id: 'main-photo-heading',
+      properties: [color, typography],
+    },
+    {
+      name: 'Photo Gallery Description',
+      open: false,
+      id: 'sub-photo-heading',
+      properties: [color, typography],
+    },
+
+    {
+      name: 'Image Gallery',
+      id: 'photo-image-gallery',
+      open: false,
+      buildProps: ['border-radius'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          default: 'solid',
+          options: borderStyleOptions,
+        },
+        {
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+        },
+
+        {
+          type: 'slider',
+          name: 'Spacing',
+          property: 'padding',
+          default: '1',
+          units: ['px', 'em', 'rem'],
+        },
+      
+      ],
+    },
+    {
+      name: 'Gallery Caption',
+      id: 'photo_figure_caption',
+      open: false,
+      properties: [
+        {
+          type: 'select',
+          name: 'Display',
+          property: 'display',
+          default: 'show',
+          options: [
+            { value: 'block', name: 'Show' },
+            { value: 'none', name: 'Hide' },
+          ],
+        },
+       
+       color,typography
+
+        
+      ],
+    },
+  ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   guidelineSector: [
     {
       name: 'Main Heading',
