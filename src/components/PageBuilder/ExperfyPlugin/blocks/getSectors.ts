@@ -3013,84 +3013,84 @@ const obj = {
 
 
 
-  // departmentSector: [
-  //   {
-  //     name: 'Section Heading',
-  //     id: 'dept_section',
-  //     open: false,
-  //     properties: [color, typography],
-  //   },
-  //   {
-  //     name: 'Sub Section Heading',
-  //     open: false,
-  //     properties: [color, typography],
-  //   },
-  //   {
-  //     name: 'Job Title',
-  //     id: 'job_title',
-  //     open: false,
-  //     properties: [color, typography],
-  //   },
-  //   {
-  //     name: 'Company Name',
-  //     open: false,
-  //     id: 'company_name',
-  //     properties: [color, typography],
-  //   },
-  //   {
-  //     name: 'Date Posted',
-  //     id: 'posted',
-  //     open: false,
-  //     properties: [color, typography],
-  //   },
-  //   {
-  //     name: 'Descriptive Text',
-  //     id: 'descriptive_text',
-  //     open: false,
-  //     properties: [color, typography],
-  //   },
-  //   {
-  //     name: 'Feature List',
-  //     id: 'feature_list',
-  //     open: false,
-  //     properties: [
-  //       color,
-  //       typography,
+  JobsSector: [
+    {
+      name: 'Section Heading',
+      id: 'dept_section',
+      open: false,
+      properties: [color, typography],
+    },
+    {
+      name: 'Sub Section Heading',
+      open: false,
+      properties: [color, typography],
+    },
+    {
+      name: 'Job Title',
+      id: 'job_title',
+      open: false,
+      properties: [color, typography],
+    },
+    {
+      name: 'Company Name',
+      open: false,
+      id: 'company_name',
+      properties: [color, typography],
+    },
+    {
+      name: 'Date Posted',
+      id: 'posted',
+      open: false,
+      properties: [color, typography],
+    },
+    {
+      name: 'Descriptive Text',
+      id: 'descriptive_text',
+      open: false,
+      properties: [color, typography],
+    },
+    {
+      name: 'Feature List',
+      id: 'feature_list',
+      open: false,
+      properties: [
+        color,
+        typography,
 
-  //       {
-  //         type: 'slider',
-  //         name: 'Space Between',
-  //         property: 'space-between',
-  //         default: 1,
-  //         units: ['px', 'rem'],
-  //       },
-  //       {
-  //         type: 'color',
-  //         name: 'Icon Color',
-  //         property: 'color',
+        {
+          type: 'slider',
+          name: 'Space Between',
+          property: 'space-between',
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'color',
+          name: 'Icon Color',
+          property: 'color',
 
-  //         colorPicker: {
-  //           preferredFormat: 'hex',
-  //           showInput: true,
-  //         },
-  //       },
-  //       {
-  //         type: 'slider',
-  //         name: 'Icon Size',
-  //         property: 'icon-size',
-  //         default: 1,
-  //         units: ['px', 'rem'],
-  //       },
-  //       {
-  //         type: 'slider',
-  //         name: 'Text Indent',
-  //         property: 'text-indent',
-  //         default: 1,
-  //         units: ['px', 'rem'],
-  //       },
-  //     ],
-  //   },
-  // ],
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+        {
+          type: 'slider',
+          name: 'Icon Size',
+          property: 'icon-size',
+          default: 1,
+          units: ['px', 'rem'],
+        },
+        {
+          type: 'slider',
+          name: 'Text Indent',
+          property: 'text-indent',
+          default: 1,
+          units: ['px', 'rem'],
+        },
+      ],
+    },
+  ],
 
   wrapper: [
     // Default

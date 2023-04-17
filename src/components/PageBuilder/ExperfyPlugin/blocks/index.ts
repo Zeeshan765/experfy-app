@@ -1023,7 +1023,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     content: `
 
-<section id="departmentSector" class="departmentSector" >
+<section id="JobsSector" class="JobsSector" >
 
 <div class="dept-header-section">
     <h1 class="h1 dept_section">Browes Job Opportunities and Projects</h1>
