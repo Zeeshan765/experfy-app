@@ -67,7 +67,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <header id="headerSector" class="header-container headerSector">
     <div class="header-gym">
    
-    <a  class="a">
+    <a  class="al">
 
     <img  class="header-svg" style="width:30%" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" style="width: 100%; height:auto;" id="gjs_img_preview_logo_rtl"/>
     
@@ -108,10 +108,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        <div class="footer-grid">
 
        <div class="footer-address-section margin-class">
-       <h2 class="h2 sub-footer-heading">Add Your Title Here </h2>
+       <h1 class="h1 main-footer-heading">Add Your Title Here </h1>
 
              <ul class="address-list">
-             <li class="h1 main-footer-heading">Footer section allow you to add links and information for your users to easily locate.</li>
+             <li class="h2 sub-footer-heading">Footer section allow you to add links and information for your users to easily locate.</li>
 
              <li class="address"><span class="h4">Address:</span> <h4 class="h4"> 0101 Address, OR, 77873</h4></li>
 
@@ -122,7 +122,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
 
           <div class="footer-images-section margin-class">
-             <h2 class="h2 img-caption">Add Your Social Media Link</h2>
+             <h1 class="h1 img-caption">Add Your Social Media Link</h1>
              <div class="images-holder">
              <img class="footer-image" src={SettingsIcon} alt='Settings'/>
              <img class="footer-image" src={SettingsIcon} alt='Settings'/>
@@ -140,7 +140,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              <button class="button footer-btn">Visit Instagram</button>
           </div>
           <div  class="margin-class">
-             <h2 class="h2 img-caption">Add Your Social Media Link</h2>
+             <h1 class="h1 img-caption">Add Your Social Media Link</h1>
           </div>
        </div>
     </div>
@@ -690,20 +690,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  ${getStyles(['.photo-title-div', '.photo-option-section'])}
  `,
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

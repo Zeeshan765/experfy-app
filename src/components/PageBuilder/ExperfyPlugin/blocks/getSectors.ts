@@ -543,7 +543,7 @@ const obj = {
       name: 'Background',
       open: false,
       id: 'header-gym',
-      buildProps: ['background-image'],
+      buildProps: ['background'],
       // properties: [backgroundColor],
       properties: [
         {
@@ -603,7 +603,7 @@ const obj = {
           type: 'slider',
           name: 'Width',
           property: 'width',
-          default: '100%',
+        
           min: 0,
           max: 100,
           units: ['%', 'px'],
@@ -613,7 +613,7 @@ const obj = {
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
-          default: 1,
+          // default: 1,
           step: 1,
           min: 0,
           max: 100,
@@ -680,6 +680,12 @@ const obj = {
         },
       ],
     },
+    {
+      name: 'Logo Text',
+      open: false,
+      id: 'header-logo-text',
+      properties: [color, typography],
+    }
 
     // {
     //   name: 'Border',
