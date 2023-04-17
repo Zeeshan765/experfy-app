@@ -266,14 +266,7 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
-    // editor.on('component:drag:end', (component) => {
-    //   if (component) {
-    //     const sectors = editor.StyleManager.getSectors();
-    //     sectors.reset();
-    //     sectors.add(getSectors(component[0].getId()));
-    //     // editor?.runCommand('core:open-styles');
-    //   }
-    // });
+ 
 
     editor.DomComponents.addType('text', {
       model: {
@@ -651,20 +644,6 @@ editor.on('component:selected', (component) => {
     updateHeaderBlock();
     setEditor(editor);
   }, []);
-
-  let newDirty = editor?.getDirtyCount();
-  // console.log('newDirty', newDirty);
-
-  const handleCount = () => {
-    let dirty = editor?.getDirtyCount();
-    // console.log('Dirty Count is here', dirty);
-  };
-
-  // useEffect(() => {
-  //   console.log("dirty", dirty)
-
-  // }, [dirty]);
-
   const saveHistoy = () => {
     axios
       .post(`${apiEndpoint}/pagehistory`, {
@@ -677,20 +656,6 @@ editor.on('component:selected', (component) => {
       });
     // }
   };
-
-  let check = editor?.getProjectData();
-
-  // useEffect(() => {
-  //   console.log("ccid ", ccid)
-  //   if (ccid) {
-  //     saveHistoy();
-  //   }
-  // }, [ccid]);
-
-  // useEffect(() => {
-
-  //     console.log("check")
-  // },[check]);
 
   return (
     <div className="main__content main__content__editor">

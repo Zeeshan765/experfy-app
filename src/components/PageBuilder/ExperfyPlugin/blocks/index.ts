@@ -188,7 +188,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="left-container">
           
           <div class="img-container">
-          <img data-gjs-type="mj-image" class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+          <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
           </div>
       
           <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
