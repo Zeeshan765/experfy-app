@@ -19,7 +19,7 @@ import 'grapick/dist/grapick.min.css';
 import { Context } from '../../../Providers/MyProvider';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { style } from '@mui/system';
-
+import { toast } from 'react-toastify';
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
   const { setStepNav } = useStepNav();
@@ -31,6 +31,7 @@ const SectionPageBuilder: React.FC = () => {
   // const [ccid, setccid] = useState(null);
   const { setSectionBlocksArray } = useContext(Context);
   const [currentGtedBlock, setCurrentGetBlock] = useState(null);
+  
   const [updatedCode, setUpdatedCode] = useState({
     blockHtml: '',
     blockCss: '',
@@ -118,32 +119,41 @@ const SectionPageBuilder: React.FC = () => {
         console.error(error);
       });
   };
-  // const getCurrentBlock = () => {
-  //   let arr = pathname.split('/');
-  //   currentBlockId = arr[arr.length - 1];
-  //   // debugger;
-  //   axios
-  //     .get(`${serverURL}/api/section-templates-list?blockId=${currentBlockId}&limit=20`)
-  //     .then((res) => {
-  //       const { docs } = res.data;
-  //       setSectionBlocksArray(docs);
-  //       // debugger;
-  //       if (docs?.length > 0) {
-  //         const currentItem = docs?.find(
-  //           (el: { blockId: string }) => el.blockId === currentBlockId
-  //         );
-  //         console.log("currentItems",currentItem);
-  //         setCurrentGetBlock(currentItem);
-  //         setIsSectionTemplateExist(true);
-  //       } else {
-  //         setIsSectionTemplateExist(false);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const getCurrentBlock = () => {
+    let arr = pathname.split('/');
+    currentBlockId = arr[arr.length - 1];
+    // debugger;
+    axios
+      .get(`${serverURL}/api/section-templates-list?blockId=${currentBlockId}&limit=20`)
+      .then((res) => {
+        const { docs } = res.data;
+        setSectionBlocksArray(docs);
+        // debugger;
+        if (docs?.length > 0) {
+          const currentItem = docs?.find(
+            (el: { blockId: string }) => el.blockId === currentBlockId
+          );
+          console.log("currentItems",currentItem);
+          setCurrentGetBlock(currentItem);
+          setIsSectionTemplateExist(true);
+        } else {
+          setIsSectionTemplateExist(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  
+  console.log("currentGtedBlockbefore",currentGtedBlock);
   const saveSectionTemplate = () => {
+    console.log("saveSectionTemplate");
+    
+    console.log("currentGtedBlockafter",currentGtedBlock);
+    
+    
+    
+    
     if (currentGtedBlock?.id) {
       axios
         .patch(
@@ -153,6 +163,7 @@ const SectionPageBuilder: React.FC = () => {
           }
         )
         .then((res) => {
+          console.log(res.data);
           toast.success(res.data.message);
         })
         .catch((err) => {
@@ -875,6 +886,7 @@ const SectionPageBuilder: React.FC = () => {
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
               console.log('save-editor Called');
+              saveSectionTemplate();
             
             },
           },
@@ -1375,7 +1387,7 @@ editor.on('component:selected', (component) => {
 
     
 
-    
+    getCurrentBlock();
     addAssets();
     updateHeaderBlock();
     setEditor(editor);

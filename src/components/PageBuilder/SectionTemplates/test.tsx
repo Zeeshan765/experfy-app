@@ -34,6 +34,7 @@ const SectionTemplatesBuilder: React.FC = () => {
   const { setSectionBlocksArray } = useContext(Context);
 
   const [currentGtedBlock, setCurrentGetBlock] = useState(null);
+  console.log('currentGtedBlock', currentGtedBlock);
   const [updatedCode, setUpdatedCode] = useState({
     blockHtml: '',
     blockCss: '',
