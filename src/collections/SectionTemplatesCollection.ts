@@ -6,7 +6,7 @@ const SectionTemplateCollection: CollectionConfig = {
     singular: 'Section Template',
     plural: 'Section Templates',
   },
-  slug: 'section-templates',
+  slug: 'templates-library',
 
   access: {
     read: () => true,

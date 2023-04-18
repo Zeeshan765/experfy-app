@@ -27,6 +27,7 @@ import TemplatesLibrary from './components/TemplateLibrary';
 import AssetsProvider from './Providers/AssetsProvider';
 import MyProvider from './Providers/MyProvider';
 import UserProvider from './Providers/UserProvider';
+import SectionBuilder from './collections/SectionBuilder';
 
 dotenv.config();
 
@@ -107,7 +108,7 @@ export default buildConfig({
           Component: TemplatesLibrary,
         },
         {
-          path: "/collections/section-templates",
+          path: "/collections/templates-library",
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
@@ -272,6 +273,7 @@ export default buildConfig({
     SectionTemplateCollection,
     Brand,
     PageHistory,
+    SectionBuilder,
   ],
   i18n: {
     supportedLngs: ['en', 'es'],

@@ -15,6 +15,7 @@ const MyProvider: React.FC<any> = ({ children }) => {
   const [brands, setBrands] = useState(['hey']);
   const [seo_setting, setSeo_Setting] = useState({});
   const [selectedPageCode, setSelectedPageCode] = useState();
+  const [sectionBlocksArray, setSectionBlocksArray] = useState([]);
   const value = {
     adminPortal,
     setAdminPortal,
@@ -25,6 +26,8 @@ const MyProvider: React.FC<any> = ({ children }) => {
     adminRoute,
     setSelectedPageCode,
     selectedPageCode,
+    sectionBlocksArray,
+    setSectionBlocksArray,
   };
   // const LOGIN_URL = 'https://landing-ui-service.develop.experfy.com/login';
   const getTokenApi = async () => {

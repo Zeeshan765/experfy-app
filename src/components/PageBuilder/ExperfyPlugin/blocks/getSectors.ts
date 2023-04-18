@@ -1786,15 +1786,15 @@ const obj = {
       id: 'number-container-div',
       buildProps: ['background'],
       properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Background Color',
+        //   property: 'background-color',
+        //   colorPicker: {
+        //     preferredFormat: 'hex',
+        //     showInput: true,
+        //   },
+        // },
       ],
     },
     {
@@ -1815,13 +1815,16 @@ const obj = {
       name: 'Numbers',
       id: 'number-val',
       open: false,
-      properties: NumbersProp,
+      properties: [color, typography],
+      // properties: NumbersProp,
     },
     {
       name: 'Numbers Description',
       open: false,
       id: 'number-description',
-      properties:NumbersDescription,
+      // properties:NumbersDescription,
+      properties: [color, typography],
+
     },
 
     {
@@ -1845,17 +1848,17 @@ const obj = {
       open: false,
       id: 'main-paragraph-wrapper',
       buildProps: ['background'],
-      properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      // properties: [
+      //   {
+      //     type: 'color',
+      //     name: 'Background Color',
+      //     property: 'background-color',
+      //     colorPicker: {
+      //       preferredFormat: 'hex',
+      //       showInput: true,
+      //     },
+      //   },
+      // ],
     },
 
 

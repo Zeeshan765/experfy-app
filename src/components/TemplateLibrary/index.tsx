@@ -73,7 +73,7 @@ function a11yProps(index) {
 
 const TemplatesLibrary: React.FC = () => {
   const [search, setSearch] = React.useState('');
-  const [template, setTemplate] = React.useState('pages');
+  const [template, setTemplate] = React.useState('sections');
   const { setStepNav } = useStepNav();
 
   React.useEffect(() => {
