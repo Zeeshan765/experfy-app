@@ -851,10 +851,14 @@ const SectionPageBuilder: React.FC = () => {
 
   useEffect(() => {
     let arr = pathname.split('/');
+    console.log("arr", arr)
     let str = arr[arr.length - 1];
+    console.log("str", str)
     let isInclude = sections.includes(str);
+    console.log("isInclude", isInclude)
 
     let blocks = isInclude ? [str] : sections;
+    console.log("blocks", blocks)
     const Blocks = (editor: GrapesJS.Editor, options: any) =>
       Experfy(editor, {
         ...options,
@@ -1144,7 +1148,7 @@ const SectionPageBuilder: React.FC = () => {
       console.log('component Selection', component);
 //@ts-ignore
      if(component.ccid == 'GuidelineDiv'){
-      component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;" data-gjs-type="Checkmate">
+      component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;">
        
       <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
       <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>

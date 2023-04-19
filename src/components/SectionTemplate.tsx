@@ -119,7 +119,7 @@ const SectionTemplate: React.FC<Props> = ({ search }) => {
     {
       id: 8,
       image: image_gallery,
-      link: '/admin/collections/photo-gallery',
+      link: '/admin/collections/section-templates/photo-gallery',
       name: 'Photo Gallery',
       text: 'Add a banner image with text and a button. This is a section usually on top portion of the site and is used to emphasize highlight certain messaging.',
     },
