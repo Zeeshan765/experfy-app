@@ -1098,14 +1098,37 @@ const obj = {
       id: 'benefits-container',
       buildProps: ['background'],
       properties: [
+        // {
+        //   type: 'color',
+        //   name: 'Background Color',
+        //   property: 'background-color',
+        //   colorPicker: {
+        //     preferredFormat: 'hex',
+        //     showInput: true,
+        //   },
+        // },
         {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
+          type: 'slider',
+          name: 'Overlay Opacity',
+          property: 'opacity',
+          defaults: 27,
+          units: ['%'],
+          step: 0.01,
+      
+          min: 6,
+        },
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          options: borderStyleOptions,
+
+        },
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
         },
       ],
     },
@@ -1158,7 +1181,7 @@ const obj = {
             type: 'slider',
             name: 'Icon Size',
             property: 'width',
-            default: '100%',
+            default: '0%',
             min: 0,
             max: 100,
             units: ['%', 'px'],
