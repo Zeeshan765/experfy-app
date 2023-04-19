@@ -156,40 +156,13 @@ export default buildConfig({
           strict: true,
         },
 
-        {
-          path: '/collections/section-templates/paragraph',
-          Component: SectionPageBuilder,
-          exact: true,
-          strict: true,
-        },
+       
 
-        {
-          path: '/collections/section-templates/metrics-numbers',
-          Component: SectionPageBuilder,
-          exact: true,
-          strict: true,
-        },
+        
 
-        {
-          path: '/collections/section-templates/image-banner',
-          Component: SectionPageBuilder,
-          exact: true,
-          strict: true,
-        },
+       
 
-        {
-          path: '/collections/section-templates/image-and-text',
-          Component: SectionPageBuilder,
-          exact: true,
-          strict: true,
-        },
-
-        {
-          path: '/collections/section-templates/talent-cloud-candidates',
-          Component: SectionPageBuilder,
-          exact: true,
-          strict: true,
-        },
+        
 
         {
           path: '/collections/section-templates/paragraph',
@@ -211,6 +184,12 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
+        {
+          path: '/collections/section-templates/photo-gallery',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
 
         {
           path: '/collections/section-templates/image-and-text',
@@ -225,12 +204,7 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
-        {
-          path: '/collections/section-templates/testimonial',
-          Component: SectionPageBuilder,
-          exact: true,
-          strict: true,
-        },
+       
         {
           path: '/collections/section-templates/testimonial',
           Component: SectionPageBuilder,

@@ -402,7 +402,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <div class="guidline-option" data-gjs-type="GuidelineDiv" id="GuidelineDiv">
       <div style=" padding: 0.75rem; margin: 0.75rem;">
        
-       <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
+       <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
        <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
     
      <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in

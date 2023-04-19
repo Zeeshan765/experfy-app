@@ -119,72 +119,72 @@ const SectionPageBuilder: React.FC = () => {
         console.error(error);
       });
   };
-  const getCurrentBlock = () => {
-    let arr = pathname.split('/');
-    currentBlockId = arr[arr.length - 1];
-    // debugger;
-    axios
-      .get(`${serverURL}/api/section-templates-list?blockId=${currentBlockId}&limit=20`)
-      .then((res) => {
-        const { docs } = res.data;
-        setSectionBlocksArray(docs);
-        // debugger;
-        if (docs?.length > 0) {
-          const currentItem = docs?.find(
-            (el: { blockId: string }) => el.blockId === currentBlockId
-          );
-          console.log("currentItems",currentItem);
-          setCurrentGetBlock(currentItem);
-          setIsSectionTemplateExist(true);
-        } else {
-          setIsSectionTemplateExist(false);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const getCurrentBlock = () => {
+  //   let arr = pathname.split('/');
+  //   currentBlockId = arr[arr.length - 1];
+  //   // debugger;
+  //   axios
+  //     .get(`${serverURL}/api/section-templates-list?blockId=${currentBlockId}&limit=20`)
+  //     .then((res) => {
+  //       const { docs } = res.data;
+  //       setSectionBlocksArray(docs);
+  //       // debugger;
+  //       if (docs?.length > 0) {
+  //         const currentItem = docs?.find(
+  //           (el: { blockId: string }) => el.blockId === currentBlockId
+  //         );
+  //         console.log("currentItems",currentItem);
+  //         setCurrentGetBlock(currentItem);
+  //         setIsSectionTemplateExist(true);
+  //       } else {
+  //         setIsSectionTemplateExist(false);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
   
-  console.log("currentGtedBlockbefore",currentGtedBlock);
-  const saveSectionTemplate = () => {
-    console.log("saveSectionTemplate");
-    // debugger;
-    console.log("currentGtedBlockafter",currentGtedBlock);
+  // console.log("currentGtedBlockbefore",currentGtedBlock);
+  // const saveSectionTemplate = () => {
+  //   console.log("saveSectionTemplate");
+  //   // debugger;
+  //   console.log("currentGtedBlockafter",currentGtedBlock);
     
     
     
     
-    if (currentGtedBlock?.id) {
-      axios
-        .patch(
-          `${serverURL}/api/section-templates-list/${currentGtedBlock?.id}`,
-          {
-            ...updatedCode,
-          }
-        )
-        .then((res) => {
-          console.log(res.data);
-          toast.success(res.data.message);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    // else {
-    //   axios
-    //     .post(`${serverURL}/api/section-templates-list`, {
-    //       blockHtml: editor?.getHtml(),
-    //       blockCss: editor?.getCss(),
-    //       ...currentGtedBlock
-    //      })
-    //     .then((res) => {
-    //       console.log(res.data);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // }
-  };
+  //   if (currentGtedBlock?.id) {
+  //     axios
+  //       .patch(
+  //         `${serverURL}/api/section-templates-list/${currentGtedBlock?.id}`,
+  //         {
+  //           ...updatedCode,
+  //         }
+  //       )
+  //       .then((res) => {
+  //         console.log(res.data);
+  //         toast.success(res.data.message);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  //   // else {
+  //   //   axios
+  //   //     .post(`${serverURL}/api/section-templates-list`, {
+  //   //       blockHtml: editor?.getHtml(),
+  //   //       blockCss: editor?.getCss(),
+  //   //       ...currentGtedBlock
+  //   //      })
+  //   //     .then((res) => {
+  //   //       console.log(res.data);
+  //   //     })
+  //   //     .catch((err) => {
+  //   //       console.log(err);
+  //   //     });
+  //   // }
+  // };
   const addAssets = async () => {
     const assetManager = editor?.AssetManager;
     axios
@@ -886,7 +886,7 @@ const SectionPageBuilder: React.FC = () => {
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
               console.log('save-editor Called');
-              saveSectionTemplate();
+              // saveSectionTemplate();
             
             },
           },
@@ -1146,7 +1146,7 @@ const SectionPageBuilder: React.FC = () => {
      if(component.ccid == 'GuidelineDiv'){
       component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;" data-gjs-type="Checkmate">
        
-      <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
+      <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
       <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
     
     <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
@@ -1264,12 +1264,12 @@ component.append(`
       model: {
         defaults: {
           traits: [
-            {
-              name: 'mysection',
-              label: ' ',
-              type: 'mysection',
-              changeProp: 1,
-            },
+            // {
+            //   name: 'mysection',
+            //   label: ' ',
+            //   type: 'mysection',
+            //   changeProp: 1,
+            // },
             {
               type: 'mybtn',
               label: ' ',
@@ -1401,7 +1401,7 @@ editor.on('component:selected', (component) => {
 
     
 
-    getCurrentBlock();
+    // getCurrentBlock();
     addAssets();
     updateHeaderBlock();
     setEditor(editor);
