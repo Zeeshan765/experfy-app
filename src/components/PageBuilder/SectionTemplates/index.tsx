@@ -148,7 +148,7 @@ const SectionPageBuilder: React.FC = () => {
   console.log("currentGtedBlockbefore",currentGtedBlock);
   const saveSectionTemplate = () => {
     console.log("saveSectionTemplate");
-    
+    // debugger;
     console.log("currentGtedBlockafter",currentGtedBlock);
     
     
@@ -908,7 +908,7 @@ const SectionPageBuilder: React.FC = () => {
 
     localStorage.removeItem('gjsProject');
     editor.on('load', () => {
-      // console.log('defaultStyle---', userData);
+      
       editor.loadProjectData({
         ...Object.assign(
           {},
@@ -919,7 +919,7 @@ const SectionPageBuilder: React.FC = () => {
     });
     //This is for Single Section
     editor.onReady(() => {
-      // console.log('ready');
+     
       if (blocks.length === 1) {
         const sectors = editor.StyleManager.getSectors();
         const block = editor.BlockManager.get(blocks[0]);
@@ -1244,6 +1244,20 @@ component.append(`
         return el;
       },
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Guideline Div Trait
     editor.DomComponents.addType('GuidelineDiv', {

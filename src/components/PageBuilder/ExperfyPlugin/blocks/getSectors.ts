@@ -1984,15 +1984,15 @@ const obj = {
       id: 'main_container',
       buildProps: ['background'],
       properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Background Color',
+        //   property: 'background-color',
+        //   colorPicker: {
+        //     preferredFormat: 'hex',
+        //     showInput: true,
+        //   },
+        // },
         {
           type: 'slider',
           name: 'Overlay Opacity',
@@ -2082,7 +2082,7 @@ const obj = {
           type: 'select',
           name: 'Display',
           property: 'display',
-          default: 'show',
+          default: 'Show',
           options: [
             { value: 'block', name: 'Show' },
             { value: 'none', name: 'Hide' },
