@@ -32,6 +32,7 @@ import {
   Navmenu,
   themestyle,
   departmentstyle,
+  photoGalleryStyle,
 } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
@@ -66,7 +67,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <header id="headerSector" class="header-container headerSector">
     <div class="header-gym">
    
-    <a  class="a">
+    <a  class="al">
 
     <img  class="header-svg" style="width:30%" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" style="width: 100%; height:auto;" id="gjs_img_preview_logo_rtl"/>
     
@@ -107,10 +108,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        <div class="footer-grid">
 
        <div class="footer-address-section margin-class">
-       <h2 class="h2 sub-footer-heading">Add Your Title Here </h2>
+       <h1 class="h1 main-footer-heading">Add Your Title Here </h1>
 
              <ul class="address-list">
-             <li class="h1 main-footer-heading">Footer section allow you to add links and information for your users to easily locate.</li>
+             <li class="h2 sub-footer-heading">Footer section allow you to add links and information for your users to easily locate.</li>
 
              <li class="address"><span class="h4">Address:</span> <h4 class="h4"> 0101 Address, OR, 77873</h4></li>
 
@@ -121,7 +122,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           </div>
 
           <div class="footer-images-section margin-class">
-             <h2 class="h2 img-caption">Add Your Social Media Link</h2>
+             <h1 class="h1 img-caption">Add Your Social Media Link</h1>
              <div class="images-holder">
              <img class="footer-image" src={SettingsIcon} alt='Settings'/>
              <img class="footer-image" src={SettingsIcon} alt='Settings'/>
@@ -139,7 +140,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
              <button class="button footer-btn">Visit Instagram</button>
           </div>
           <div  class="margin-class">
-             <h2 class="h2 img-caption">Add Your Social Media Link</h2>
+             <h1 class="h1 img-caption">Add Your Social Media Link</h1>
           </div>
        </div>
     </div>
@@ -187,7 +188,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
           <div class="left-container">
           
           <div class="img-container">
-          <img data-gjs-type="mj-image" class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+          <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
           </div>
       
           <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
@@ -401,7 +402,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <div class="guidline-option" data-gjs-type="GuidelineDiv" id="GuidelineDiv">
       <div style=" padding: 0.75rem; margin: 0.75rem;">
        
-       <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center; background-color: #399918;margin-right: 10px;border-radius: 80%;">1</h3>
+       <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
        <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
     
      <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
@@ -640,6 +641,57 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       
         `,
   });
+
+
+  addBlock('photo-gallery', {
+    label: 'Photo Gallery',
+    category: 'Section Modules',
+    media: `<svg width="21" height="22.477" xmlns="http://www.w3.org/2000/svg">
+    <g>
+     <g id="noun-health-insurance-1893284">
+      <path id="Path_169632" data-name="Path 169632" d="m8.286,22.33901l0.209,0.14l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.771,18.771 0 0 0 2.967,-10.75l0,-0.314l-0.279,-0.035a11.443,11.443 0 0 1 -4.258,-1.326a11.685,11.685 0 0 1 -3.8,-3.351l-0.279,-0.314l-0.279,0.349a12.267,12.267 0 0 1 -7.923,4.642l-0.314,0.035l0,0.314a18.6,18.6 0 0 0 3,10.925a18.058,18.058 0 0 0 5.27,5.27l-0.003,0zm-4.363,-11.483a0.35,0.35 0 0 1 0.349,-0.349l3.141,0l0,-3.141a0.35,0.35 0 0 1 0.349,-0.349l1.745,0a0.35,0.35 0 0 1 0.349,0.349l0,3.141l3.142,0a0.35,0.35 0 0 1 0.349,0.349l0,1.745a0.35,0.35 0 0 1 -0.349,0.349l-3.141,0l0,3.141a0.35,0.35 0 0 1 -0.349,0.349l-1.745,0a0.35,0.35 0 0 1 -0.349,-0.349l0,-3.141l-3.141,0a0.35,0.35 0 0 1 -0.349,-0.349l-0.001,-1.745z" />
+      <path id="Path_169633" data-name="Path 169633" d="m20.536,5.026l-0.279,-0.035a12.53,12.53 0 0 1 -4.293,-1.326a11.933,11.933 0 0 1 -3.281,-2.618l-0.768,-1.047l-1.815,1.815l0,0.384a11.757,11.757 0 0 0 2.653,2.059a10.888,10.888 0 0 0 4.153,1.291l0.593,0.07l0,0.593a19.216,19.216 0 0 1 -3.037,10.925a18.581,18.581 0 0 1 -3.455,3.944l0.838,0.558l0.035,-0.035l0.035,0.035l0.209,-0.14a18.286,18.286 0 0 0 5.41,-5.445a18.772,18.772 0 0 0 2.967,-10.75l0.035,-0.278z" />
+      <path id="Path_169634" data-name="Path 169634" d="m29.82099,11.23901z"/>
+     </g>
+    </g>
+   
+   </svg>`,
+    content: `<section  id= "photoSector" class="photo-main-wrapper photoSector">
+    <div class="photo-container" >
+
+       <div class="photo-title-div">
+          <h1 class="h1 main-photo-heading">Add your heading title here</h1>
+          <h2 class="h2 sub-photo-heading">The  Photo Gallery module is a place where can visibily show your user or
+           client aspects of your company or product.
+          </h2>
+       </div>
+    
+       <div class="photo-option-section">
+
+       <div class="photo_img_container">
+       <img class="image photo-image-gallery" src="https://dummyimage.com/1200x500" alt="step" >
+          <figcaption class="photo_figure_caption " >Caption Example</figcaption>
+    </div>
+    <div class="photo_img_container">
+       <img class="image photo-image-gallery" src="https://dummyimage.com/1200x500" alt="step" >
+          <figcaption class="photo_figure_caption " >Caption Example</figcaption>
+    </div>
+    <div class="photo_img_container">
+       <img class="image photo-image-gallery" src="https://dummyimage.com/1200x500" alt="step" >
+          <figcaption class="photo_figure_caption " >Caption Example</figcaption>
+    </div>
+
+
+
+       </div>
+    </div>
+ </section>
+ ${photoGalleryStyle}
+ ${getStyles(['.photo-title-div', '.photo-option-section'])}
+ `,
+  });
+
+
 
   addBlock('image-and-text', {
     label: 'Image & Text',
@@ -957,7 +1009,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     content: `
 
-<section id="departmentSector" class="departmentSector" >
+<section id="JobsSector" class="JobsSector" >
 
 <div class="dept-header-section">
     <h1 class="h1 dept_section">Browes Job Opportunities and Projects</h1>

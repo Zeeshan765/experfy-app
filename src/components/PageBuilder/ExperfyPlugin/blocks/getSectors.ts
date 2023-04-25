@@ -543,7 +543,7 @@ const obj = {
       name: 'Background',
       open: false,
       id: 'header-gym',
-      buildProps: ['background-image'],
+      buildProps: ['background'],
       // properties: [backgroundColor],
       properties: [
         {
@@ -603,7 +603,7 @@ const obj = {
           type: 'slider',
           name: 'Width',
           property: 'width',
-          default: '100%',
+        
           min: 0,
           max: 100,
           units: ['%', 'px'],
@@ -613,7 +613,7 @@ const obj = {
           type: 'slider',
           name: 'Opacity',
           property: 'opacity',
-          default: 1,
+          // default: 1,
           step: 1,
           min: 0,
           max: 100,
@@ -680,6 +680,12 @@ const obj = {
         },
       ],
     },
+    {
+      name: 'Logo Text',
+      open: false,
+      id: 'header-logo-text',
+      properties: [color, typography],
+    }
 
     // {
     //   name: 'Border',
@@ -1092,14 +1098,37 @@ const obj = {
       id: 'benefits-container',
       buildProps: ['background'],
       properties: [
+        // {
+        //   type: 'color',
+        //   name: 'Background Color',
+        //   property: 'background-color',
+        //   colorPicker: {
+        //     preferredFormat: 'hex',
+        //     showInput: true,
+        //   },
+        // },
         {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
+          type: 'slider',
+          name: 'Overlay Opacity',
+          property: 'opacity',
+          defaults: 27,
+          units: ['%'],
+          step: 0.01,
+      
+          min: 6,
+        },
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          options: borderStyleOptions,
+
+        },
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
         },
       ],
     },
@@ -1152,7 +1181,7 @@ const obj = {
             type: 'slider',
             name: 'Icon Size',
             property: 'width',
-            default: '100%',
+            default: '0%',
             min: 0,
             max: 100,
             units: ['%', 'px'],
@@ -1780,15 +1809,15 @@ const obj = {
       id: 'number-container-div',
       buildProps: ['background'],
       properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Background Color',
+        //   property: 'background-color',
+        //   colorPicker: {
+        //     preferredFormat: 'hex',
+        //     showInput: true,
+        //   },
+        // },
       ],
     },
     {
@@ -1809,13 +1838,16 @@ const obj = {
       name: 'Numbers',
       id: 'number-val',
       open: false,
-      properties: NumbersProp,
+      properties: [color, typography],
+      // properties: NumbersProp,
     },
     {
       name: 'Numbers Description',
       open: false,
       id: 'number-description',
-      properties:NumbersDescription,
+      // properties:NumbersDescription,
+      properties: [color, typography],
+
     },
 
     {
@@ -1839,17 +1871,17 @@ const obj = {
       open: false,
       id: 'main-paragraph-wrapper',
       buildProps: ['background'],
-      properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      // properties: [
+      //   {
+      //     type: 'color',
+      //     name: 'Background Color',
+      //     property: 'background-color',
+      //     colorPicker: {
+      //       preferredFormat: 'hex',
+      //       showInput: true,
+      //     },
+      //   },
+      // ],
     },
 
 
@@ -1975,15 +2007,15 @@ const obj = {
       id: 'main_container',
       buildProps: ['background'],
       properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Background Color',
+        //   property: 'background-color',
+        //   colorPicker: {
+        //     preferredFormat: 'hex',
+        //     showInput: true,
+        //   },
+        // },
         {
           type: 'slider',
           name: 'Overlay Opacity',
@@ -2073,6 +2105,118 @@ const obj = {
           type: 'select',
           name: 'Display',
           property: 'display',
+          default: 'Show',
+          options: [
+            { value: 'block', name: 'Show' },
+            { value: 'none', name: 'Hide' },
+          ],
+        },
+       
+       color,typography
+
+        
+      ],
+    },
+  ],
+
+
+  photoSector: [
+
+    {
+      name: 'Section Background',
+      open: false,
+      id: 'photo-container',
+      buildProps: ['background'],
+      properties: [
+        {
+          type: 'slider',
+          name: 'Overlay Opacity',
+          property: 'opacity',
+          defaults: 27,
+          units: ['%'],
+          step: 0.01,
+      
+          min: 6,
+        },
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          options: borderStyleOptions,
+
+        },
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        }
+      ],
+    },
+
+
+
+    {
+      name: 'Photo Gallery Heading',
+      open: false,
+      id: 'main-photo-heading',
+      properties: [color, typography],
+    },
+    {
+      name: 'Photo Gallery Description',
+      open: false,
+      id: 'sub-photo-heading',
+      properties: [color, typography],
+    },
+
+    {
+      name: 'Image Gallery',
+      id: 'photo-image-gallery',
+      open: false,
+      buildProps: ['border-radius'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          default: 'solid',
+          options: borderStyleOptions,
+        },
+        {
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+        },
+
+        {
+          type: 'slider',
+          name: 'Spacing',
+          property: 'padding',
+          default: '1',
+          units: ['px', 'em', 'rem'],
+        },
+      
+      ],
+    },
+    {
+      name: 'Gallery Caption',
+      id: 'photo_figure_caption',
+      open: false,
+      properties: [
+        {
+          type: 'select',
+          name: 'Display',
+          property: 'display',
           default: 'show',
           options: [
             { value: 'block', name: 'Show' },
@@ -2086,6 +2230,28 @@ const obj = {
       ],
     },
   ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   guidelineSector: [
     {
@@ -2722,6 +2888,167 @@ const obj = {
   departmentSector: [
     {
       name: 'Background',
+      open: false,
+      id: 'department-container',
+      buildProps: ['background-image'],
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+    {
+      name: 'Department Heading',
+      open: false,
+      id: 'main-department-heading',
+      properties: [color, typography],
+    },
+    {
+      name: 'Department Sub Heading',
+      open: false,
+      properties: [color, typography],
+      id: 'sub-department-heading',
+    },
+
+    {
+      name: 'Department Icon',
+      open: false,
+      id: 'department-option',
+      properties: [
+        {
+          type: 'color',
+          name: 'Background Color',
+          property: 'background-color',
+          colorPicker: {
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+        },
+      ],
+    },
+
+    {
+      name: 'Icon',
+      open: false,
+      id: 'image-department',
+      properties: [
+
+          {
+            type: 'composite',
+            name: 'Border Radius',
+            property: 'border-radius',
+            properties: widthOptions,
+          },
+          {
+            type: 'color',
+            name: 'Border Color',
+            property: 'border-color',
+            preferredFormat: 'hex',
+            showInput: true,
+          },
+  
+          {
+            type: 'composite',
+            name: 'Border Width',
+            property: 'border-width',
+            properties: widthOptions,
+          },
+          {
+            type: 'select',
+            name: 'Border Style',
+            property: 'border-style',
+            options: borderStyleOptions,
+          },
+          {
+            type: 'slider',
+            name: 'Icon Size',
+            property: 'width',
+            default: '100%',
+            min: 0,
+            max: 100,
+            units: ['%', 'px'],
+          },
+          {
+            type: 'slider',
+            name: 'Padding',
+            property: 'padding',
+           
+            min: 0,
+            max: 100,
+            units: ['%', 'px'],
+          },
+          {
+            type: 'slider',
+            name: 'Opacity',
+            property: 'opacity',
+            default: 1,
+            step: 1,
+            min: 0,
+            max: 100,
+            units: ['%'],
+          },
+        ],
+    
+    },
+    {
+      name: 'Icon Heading',
+      id: 'icon-department-heading',
+      open: false,
+      properties: [color, typography],
+    },
+    {
+      name: 'Icon Sub Heading',
+      id: 'icon-department-sub-heading',
+      open: false,
+      properties: [color, typography],
+    },
+  ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  JobsSector: [
+    {
+      name: 'Section Heading',
+      // id: 'dept_section',
       open: false,
       id: 'department-container',
       buildProps: ['background-image'],

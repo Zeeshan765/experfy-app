@@ -964,3 +964,14 @@ $deviceBackground: #2f3d55;
     top: -34px;
   }
 }
+
+.gjs-sm-properties{
+  .gjs-sm-property__background{
+    display: block !important;
+    #gjs-sm-add{
+      width: 25px !important;
+      height: 25px !important;
+      top: -40px !important;
+    }
+  }
+}
