@@ -170,6 +170,12 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
+        {
+          path: '/collections/section-templates/department',
+          Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
 
         {
           path: '/collections/section-templates/metrics-numbers',

@@ -50,7 +50,7 @@ const SectionPageBuilder: React.FC = () => {
     'paragraph',
     'practice-areas',
     'benefits',
-    'departments',
+    // 'departments',
     'guidelines',
     'location',
     'metrics-numbers',

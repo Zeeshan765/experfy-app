@@ -126,7 +126,7 @@ const SectionTemplate: React.FC<Props> = ({ search }) => {
     {
       id: 9,
       image: departments,
-      link: '/admin/collections/department',
+      link: '/admin/collections/section-templates/department',
       name: 'Departments',
       text: 'Add a banner image with text and a button. This is a section usually on top portion of the site and is used to emphasize highlight certain messaging.',
     },
