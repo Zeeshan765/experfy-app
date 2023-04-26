@@ -156,14 +156,6 @@ export default buildConfig({
           strict: true,
         },
 
-       
-
-        
-
-       
-
-        
-
         {
           path: '/collections/section-templates/paragraph',
           Component: SectionPageBuilder,

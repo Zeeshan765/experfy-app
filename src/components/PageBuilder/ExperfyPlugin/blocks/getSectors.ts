@@ -2368,13 +2368,14 @@ const obj = {
         {
           type: 'color',
           name: 'Hover Cover',
-          property: ':hover',
+          property: `${`hover`}:${color}`,
        
         },
         {
           type: 'slider',
           name: 'Text Indent',
           property: 'text-indent',
+          units: ['px'],
         
         },
         {
