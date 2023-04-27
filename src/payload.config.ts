@@ -188,16 +188,15 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
-
         {
-          path: '/collections/section-templates/image-and-text',
+          path: '/collections/section-templates/photo-gallery',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
         },
 
         {
-          path: '/collections/section-templates/talent-cloud-candidates',
+          path: '/collections/section-templates/image-and-text',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
