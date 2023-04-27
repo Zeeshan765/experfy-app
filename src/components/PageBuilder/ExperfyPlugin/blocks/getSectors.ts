@@ -1672,19 +1672,19 @@ const obj = {
      {
       name: 'Background',
       open: false,
-      id: 'video-main-wrapper',
+      id: 'video-wrap',
       buildProps: ['background'],
-      properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      // properties: [
+      //   {
+      //     type: 'color',
+      //     name: 'Background Color',
+      //     property: 'background-color',
+      //     colorPicker: {
+      //       preferredFormat: 'hex',
+      //       showInput: true,
+      //     },
+      //   },
+      // ],
     },
     
   
@@ -1695,6 +1695,7 @@ const obj = {
     {
       name: 'Aspect Ratio',
       id: 'video-ratio',
+      open: false,
       properties: [
         {
           type: 'select',
@@ -2365,12 +2366,12 @@ const obj = {
           property: 'color',
          
         },
-        {
-          type: 'color',
-          name: 'Hover Cover',
-          property: `${`hover`}:${color}`,
+        // {
+        //   type: 'color',
+        //   name: 'Hover Cover',
+        //   property: 'hover',
        
-        },
+        // },
         {
           type: 'slider',
           name: 'Text Indent',
