@@ -64,7 +64,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   `,
     content: ` 
 
-    <header id="headerSector" class="header-container headerSector">
+    <div data-gjs-type="Headermain" id="headerSector" >
+    <div class="header-container headerSector header-main">
     <div class="header-gym">
    
     <a  class="al">
@@ -74,14 +75,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        <span class="header-logo-text header-bg">Logo</span>
     </a>
     <nav class="header-navabr">
-    <a class="a" >Home</a>
-    <a class="a" >About</a>
-    <a class="a">Services</a>
-    <a class="a">Contact</a></nav>
+    <a class="a check-link" >Home</a>
+    <a class="a check-link" >About</a>
+    <a class="a check-link">Services</a>
+    <a class="a check-link">Contact</a></nav>
     </div>
   
- 
-   </header>
+    </div>
+   </div>
    ${headerstyle}
 
    `,

@@ -542,29 +542,21 @@ const obj = {
     {
       name: 'Background',
       open: false,
-      id: 'header-gym',
+      id: 'header-main',
       buildProps: ['background'],
       // properties: [backgroundColor],
       properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          // default: '#ea4c89',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Background Color',
+        //   property: 'background-color',
+        //   // default: '#ea4c89',
+        //   colorPicker: {
+        //     preferredFormat: 'hex',
+        //     showInput: true,
+        //   },
+        // },
       ],
-    },
-
-    {
-      name: 'Header Text Color',
-      open: false,
-      id: 'a',
-
-      properties: [typography, color],
     },
     {
       name: 'Logo',
@@ -685,7 +677,15 @@ const obj = {
       open: false,
       id: 'header-logo-text',
       properties: [color, typography],
-    }
+    },
+
+    {
+      name: 'Link Text',
+      open: false,
+      id: 'check-link',
+
+      properties: [typography, color],
+    },
 
     // {
     //   name: 'Border',
