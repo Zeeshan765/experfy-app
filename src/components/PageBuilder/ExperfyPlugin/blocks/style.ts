@@ -525,7 +525,6 @@ export const headerstyle = `
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2f3d55;
 }
 
 @media (min-width: 768px) {
@@ -541,10 +540,10 @@ export const headerstyle = `
   display:flex; 
   justify-content:space-between;
    align-items:center;
+   width: 100%;
 }
 @media (min-width: 768px) {
   .header-gym {
-   background-color: #2f3d55;
   }
 }
 .header-container a {
@@ -558,7 +557,6 @@ justify-content: center;
 }
 
 .header-logo-text {
-  color: #ffffff;
   font-weight: 700;
   font-size: 28px;
   margin-left: 0.75rem;
@@ -762,8 +760,7 @@ export const footerStyle = `
 <style>
 
 .main-footer-wrapper {
-  background-color:#40526e;
-  color:#ffffff;
+  
  }
 
  .footer-container{

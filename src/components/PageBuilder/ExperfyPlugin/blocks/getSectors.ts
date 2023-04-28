@@ -542,29 +542,21 @@ const obj = {
     {
       name: 'Background',
       open: false,
-      id: 'header-gym',
+      id: 'header-main',
       buildProps: ['background'],
       // properties: [backgroundColor],
       properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          // default: '#ea4c89',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
+        // {
+        //   type: 'color',
+        //   name: 'Background Color',
+        //   property: 'background-color',
+        //   // default: '#ea4c89',
+        //   colorPicker: {
+        //     preferredFormat: 'hex',
+        //     showInput: true,
+        //   },
+        // },
       ],
-    },
-
-    {
-      name: 'Header Text Color',
-      open: false,
-      id: 'a',
-
-      properties: [typography, color],
     },
     {
       name: 'Logo',
@@ -685,7 +677,15 @@ const obj = {
       open: false,
       id: 'header-logo-text',
       properties: [color, typography],
-    }
+    },
+
+    {
+      name: 'Link Text',
+      open: false,
+      id: 'check-link',
+
+      properties: [typography, color],
+    },
 
     // {
     //   name: 'Border',
@@ -1672,19 +1672,34 @@ const obj = {
      {
       name: 'Background',
       open: false,
-      id: 'video-main-wrapper',
+      id: 'video-wrap',
       buildProps: ['background'],
-      properties: [
+      properties:[
         {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
+          type: 'slider',
+          name: 'Overlay Opacity',
+          property: 'opacity',
+          defaults: 27,
+          units: ['%'],
+          step: 0.01,
+      
+          min: 6,
         },
-      ],
+        {
+          type: 'select',
+          name: 'Border Type',
+          property: 'border-style',
+          options: borderStyleOptions,
+
+        },
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        }
+      ]
+
     },
     
   
@@ -1695,6 +1710,7 @@ const obj = {
     {
       name: 'Aspect Ratio',
       id: 'video-ratio',
+      open: false,
       properties: [
         {
           type: 'select',
@@ -2351,7 +2367,15 @@ const obj = {
       name: 'Icon List',
       id: 'icon-text',
       open: false,
+      
       properties: [
+        {
+          type: 'select',
+          name: 'Divider',
+          property: 'border-style',
+          options: borderStyleOptions,
+
+        },
         {
           type: 'radio',
           name: 'Alignment',
@@ -2365,24 +2389,26 @@ const obj = {
           property: 'color',
          
         },
-        {
-          type: 'color',
-          name: 'Hover Cover',
-          property: ':hover',
+        // {
+        //   type: 'color',
+        //   name: 'Hover Cover',
+        //   property: 'hover',
        
-        },
+        // },
         {
           type: 'slider',
           name: 'Text Indent',
           property: 'text-indent',
+          units: ['px'],
         
         },
-        {
-          type: 'color',
-          name: 'List Typography',
-          property: 'color',
+        typography,
+        // {
+        //   type: 'stack',
+        //   name: 'List Typography',
+        //   property: [typography],
         
-        },
+        // },
       ],
     },
     {
@@ -2391,35 +2417,11 @@ const obj = {
       id: 'image-location',
       properties: [
         
-          {
-            type: 'composite',
-            name: 'Border Radius',
-            property: 'border-radius',
-            properties: widthOptions,
-          },
-          {
-            type: 'color',
-            name: 'Border Color',
-            property: 'border-color',
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-  
-          {
-            type: 'composite',
-            name: 'Border Width',
-            property: 'border-width',
-            properties: widthOptions,
-          },
-          {
-            type: 'select',
-            name: 'Border Style',
-            property: 'border-style',
-            options: borderStyleOptions,
-          },
+          
+          
           {
             type: 'slider',
-            name: 'Width',
+            name: 'Icon Size',
             property: 'width',
            
             min: 0,
@@ -2427,15 +2429,7 @@ const obj = {
             units: ['%', 'px'],
           },
   
-          {
-            type: 'slider',
-            name: 'Opacity',
-            property: 'opacity',
-            step: 1,
-            min: 0,
-            max: 100,
-            units: ['%'],
-          },
+        
        
         {
           type: 'slider',
