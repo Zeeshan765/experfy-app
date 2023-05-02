@@ -179,6 +179,13 @@ const SectionTemplate: React.FC<Props> = ({ search }) => {
       name: 'Testimonial',
       text: 'To attract talent, add testimonials of employees ot talentCloud members who have worked for your company and have rave reviews of their experience.',
     },
+    // {
+    //   id: 17,
+    //   image: testimonial,
+    //   link: '/admin/collections/section-templates/swiper',
+    //   name: 'Swiper',
+    //   text: 'To attract talent, add testimonials of employees ot talentCloud members who have worked for your company and have rave reviews of their experience.',
+    // },
   ];
   return (
     <>

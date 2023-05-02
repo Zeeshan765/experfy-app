@@ -208,6 +208,12 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
+        // {
+        //   path: '/collections/section-templates/swiper',
+        //   Component: SectionPageBuilder,
+        //   exact: true,
+        //   strict: true,
+        // },
       ],
       providers: [UserProvider, AssetsProvider, MyProvider],
     },

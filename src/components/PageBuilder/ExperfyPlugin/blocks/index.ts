@@ -33,6 +33,7 @@ import {
   themestyle,
   departmentstyle,
   photoGalleryStyle,
+  swiperStyle,
 } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
@@ -167,6 +168,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  ])}
  `,
   });
+
+
+
+
+
+
   addBlock('testimonial', {
     label: 'Testimonial',
     category: 'Section Modules',
@@ -181,44 +188,145 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section  id= "testimonialSector" class="testimonial-container testimonialSector">
+    content: `
+    <section  id= "testimonialSector" class="testimonial-container testimonialSector">
+    <h1 class="h1 main-testimonial-title">You are in Good</h1> 
+    <div class="swiper-container  mySwiper">
     
-       <h1 class="h1 main-testimonial-title">You are in Good</h1>   
-          <div class="slider-content-main-div">
+    <div class="swiper-wrapper">
+    <div class="swiper-slide">
+    slide2
+    </div>
 
-          <div class="left-container">
-          
-          <div class="img-container">
-          <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
-          </div>
-      
-          <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
-          <span class="user-details">
-          <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
-          <h5 class="h5 main-testimonial-content"></h5>PhD, Statistics University of North</h5></span>
-          </div>
-           
-          <div class="divider"></div>
-               
-             <div class="slider-text-div">
-                <svg fill="#4ba4da" width="20" height="20" viewBox="0 0 975.036 975.036">
-                   <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-               
-                <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
-               
-                   <svg fill="#4ba4da" width="20" height="20"  viewBox="0 0 975.036 975.036">
-                   <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-             </div>
-          </div>
-  
+
+    <div class="swiper-slide">
+    <div class="slider-content-main-div">
    
- </section>
- ${testimonialStyle}
- ${getStyles(['.left-container', '.slider-text-div'])}
+    <div class="left-container">
+    <div class="img-container">
+         <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+         </div>
+         <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
+         <span class="user-details">
+         <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
+         <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5></span>
+         </div>
+         <div class="divider"></div>
+         <div class="slider-text-div">
+         <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    
+     </div>
+     </div>
+
+     
+     
+
+
+
+   
+     
+    
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+   
+    
+  </div>
+  </section>
+  ${swiperStyle}
  `,
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   addBlock('testimonial', {
+//     label: 'Testimonial',
+//     category: 'Section Modules',
+//     media: `<svg xmlns="http://www.w3.org/2000/svg" width="26.698" height="22.67" viewBox="0 0 26.698 22.67">
+//     <g id="noun-testimonial-1065389" transform="translate(-73.647 -37.379)">
+//       <path id="Path_169430" data-name="Path 169430" d="M184.376,89.6a12.294,12.294,0,0,0-2.19.2.633.633,0,0,0,.227,1.245,11.026,11.026,0,0,1,1.964-.175c5.332,0,9.671,3.812,9.671,8.5a7.778,7.778,0,0,1-1.967,5.136.631.631,0,0,0-.143.531l.59,3.135-3.165-1.073a.63.63,0,0,0-.412,0,17.849,17.849,0,0,1-4.573.768c-5.332,0-9.67-3.812-9.67-8.5a.633.633,0,1,0-1.265,0c0,5.383,4.905,9.763,10.936,9.763a19.124,19.124,0,0,0,4.78-.768l3.99,1.354a.64.64,0,0,0,.2.033.632.632,0,0,0,.622-.75l-.735-3.9a8.987,8.987,0,0,0,2.077-5.727c0-5.383-4.907-9.762-10.937-9.762Z" transform="translate(-94.969 -49.7)" />
+//       <path id="Path_169431" data-name="Path 169431" d="M82.455,48.369a.506.506,0,0,0,.734-.533l-.578-3.368,2.448-2.386a.506.506,0,0,0-.281-.863L81.4,40.727l-1.514-3.066a.506.506,0,0,0-.908,0l-1.513,3.066-3.382.492a.506.506,0,0,0-.281.863l2.447,2.386-.577,3.368a.506.506,0,0,0,.734.533l3.024-1.589Z" />
+//       <path id="Path_169432" data-name="Path 169432" d="M299.29,209.74h-9.42a.633.633,0,0,0,0,1.265h9.42a.633.633,0,1,0,0-1.265Z" transform="translate(-205.165 -164.026)" />
+//       <path id="Path_169433" data-name="Path 169433" d="M299.931,278.257a.633.633,0,0,0-.633-.633h-9.42a.633.633,0,0,0,0,1.266h9.42a.632.632,0,0,0,.633-.633Z" transform="translate(-205.173 -228.627)" />
+//       <path id="Path_169434" data-name="Path 169434" d="M289.871,345.51a.633.633,0,0,0,0,1.266h3.812a.633.633,0,0,0,0-1.266Z" transform="translate(-205.165 -293.23)" fill="#7c8189"/>
+//     </g>
+//   </svg>
+  
+//   `,
+//     content: `<section  id= "testimonialSector" class="testimonial-container testimonialSector">
+    
+//        <h1 class="h1 main-testimonial-title">You are in Good</h1>   
+//           <div class="slider-content-main-div">
+
+//           <div class="left-container">
+          
+//           <div class="img-container">
+//           <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+//           </div>
+      
+//           <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
+//           <span class="user-details">
+//           <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
+//           <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5></span>
+//           </div>
+           
+//           <div class="divider"></div>
+               
+//              <div class="slider-text-div">
+//                 <svg fill="#4ba4da" width="20" height="20" viewBox="0 0 975.036 975.036">
+//                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+//                 </svg>
+               
+//                 <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+               
+//                    <svg fill="#4ba4da" width="20" height="20"  viewBox="0 0 975.036 975.036">
+//                    <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+//                 </svg>
+//              </div>
+//           </div>
+  
+   
+//  </section>
+//  ${testimonialStyle}
+//  ${getStyles(['.left-container', '.slider-text-div'])}
+//  `,
+//   });
   addBlock('benefits', {
     label: 'Benefits',
     category: 'Section Modules',

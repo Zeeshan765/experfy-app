@@ -1230,25 +1230,25 @@ const obj = {
         color,
         typography,
 
-        {
-          type: 'slider',
-          name: 'Blur',
-          property: 'title-blur',
-          default: '10',
-        },
+        // {
+        //   type: 'slider',
+        //   name: 'Blur',
+        //   property: 'title-blur',
+        //   default: '10',
+        // },
 
-        {
-          type: 'slider',
-          name: 'Horizontal',
-          property: 'title-horizontal',
-          default: '0',
-        },
-        {
-          type: 'slider',
-          name: 'Vertical',
-          property: 'title-vertical',
-          default: '0',
-        },
+        // {
+        //   type: 'slider',
+        //   name: 'Horizontal',
+        //   property: 'title-horizontal',
+        //   default: '0',
+        // },
+        // {
+        //   type: 'slider',
+        //   name: 'Vertical',
+        //   property: 'title-vertical',
+        //   default: '0',
+        // },
       ],
     },
     {
