@@ -28,6 +28,7 @@ import AssetsProvider from './Providers/AssetsProvider';
 import MyProvider from './Providers/MyProvider';
 import UserProvider from './Providers/UserProvider';
 import SectionBuilder from './collections/SectionBuilder';
+import SectionSaveCollection from './collections/SectionSave';
 
 dotenv.config();
 
@@ -251,6 +252,7 @@ export default buildConfig({
     Brand,
     PageHistory,
     SectionBuilder,
+    SectionSaveCollection,
   ],
   i18n: {
     supportedLngs: ['en', 'es'],
