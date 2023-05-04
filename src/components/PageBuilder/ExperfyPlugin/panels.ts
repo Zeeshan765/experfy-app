@@ -113,17 +113,22 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
     ]);
   }
 
-  if (opts.themeStylePanels) {
+  console.log('outside opts.showElements', opts.showElements);
+  if (opts.showElements) {
+    console.log('inside opts.showElements', opts.showElements);
+
     // Panels.removeButton('panel__switcher', openTraits);
     // Panels.removeButton('panel__switcher', openStyles);
     Panels.removeButton('panel__switcher', openLayers);
-    // Panels.removeButton('panel__switcher', openBlocks);
-    
+    Panels.removeButton('panel__switcher', openBlocks);
+
     Panels.removeButton('panel-top', 'settings');
     Panels.removeButton('panel-top', 'device-desktop');
     Panels.removeButton('panel-top', 'history');
     Panels.removeButton('panel-top', 'publish');
     Panels.removeButton('panel-top', 'preview');
+  } else {
+    Panels.removeButton('panel__switcher', openLayers);
   }
 
   const openSmBtn = Panels.getButton('panel__switcher', openStyles);

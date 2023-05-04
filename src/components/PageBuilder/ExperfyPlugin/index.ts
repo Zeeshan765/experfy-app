@@ -87,6 +87,7 @@ export type PluginOptions = {
   BlockManager?: any;
   LayerManager?: any;
   SelectorManager?: any;
+  showElements?:boolean;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
@@ -114,6 +115,7 @@ const plugin: GrapesJS.Plugin<PluginOptions> = (
     BlockManager: opts.BlockManager,
     LayerManager: opts.LayerManager,
     themeStylePanels: opts.themeStylePanels || false,
+    showElements: opts.themeStylePanels || false,
     ...opts,
   };
 

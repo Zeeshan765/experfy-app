@@ -265,7 +265,7 @@ const basicElements=[
   };
 
 
-
+let themeStylePanels= true;
 
   //Initialize the Instance
   const initializeInstance = () => {
@@ -274,7 +274,11 @@ const basicElements=[
         ...options,
         blocks: blocks,
         showPanelsOnLoad: true,
-        themeStylePanels: true,
+        // //@ts-ignore
+        // str ?  themeStylePanels : checktheme,
+      
+        // themeStylePanels: true,
+        showElements: sections.includes(str),
       });
 
     editor = GrapesJS.init({
