@@ -77,11 +77,7 @@ export default buildConfig({
           Component: ThemeStyle,
           exact: true,
         },
-        {
-          path: '/collections/page-builder',
-          Component: PageBuilder,
-          exact: true,
-        },
+        
         {
           path: '/collections/templates-library',
           Component: TemplatesLibrary,
@@ -104,12 +100,15 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
+       
+        // {
+        //   path: "/collections/templates-library",
+        //   Component: SectionPageBuilder,
+        //   exact: true,
+        //   strict: true,
+        // },
         {
-          path: "/collections/templates-library",
-          Component: TemplatesLibrary,
-        },
-        {
-          path: "/collections/templates-library",
+          path: '/collections/section-templates',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,

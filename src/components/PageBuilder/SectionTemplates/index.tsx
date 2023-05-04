@@ -15,6 +15,9 @@ import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRound
 import SidebarBottom from '../SidebarBottom';
 import { canvasStyle, devices } from '../utils';
 import backgroundPlugin from 'grapesjs-style-bg';
+import Basics from 'grapesjs-blocks-basic';
+
+import Forms from 'grapesjs-plugin-forms';
 
 import 'grapick/dist/grapick.min.css';
 
@@ -22,6 +25,7 @@ import { Context } from '../../../Providers/MyProvider';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { style } from '@mui/system';
 import { toast } from 'react-toastify';
+import SectionModel from './SectionModel';
 
 const SectionPageBuilder: React.FC = () => {
   let [editor, setEditor] = useState<GrapesJS.Editor>();
@@ -33,6 +37,9 @@ const SectionPageBuilder: React.FC = () => {
   const { userData } = useContext(UserContext);
   const { setSectionBlocksArray } = useContext(Context);
   const [filtered ,  setFiltered] = useState("");
+  const [modelIsOPen, setModelIsOPen] = useState(false);
+  const [name,setName] = useState("");
+  console.log("name",name)
   console.log("filtered",filtered)
 
   let sectionData = {
@@ -63,6 +70,37 @@ const SectionPageBuilder: React.FC = () => {
     'jobs',
     // 'swiper',
   ];
+
+
+const basicElements=[
+  'search',
+  'divider',
+  'spacer',
+  'icon',
+  'page-title',
+  'nav-menu',
+  'icon-list',
+  'logo',
+  'image',
+  'button',
+  'a',
+  'form',
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   let showSections = true;
   const apiEndpoint = `${serverURL}/api`;
 
@@ -149,8 +187,10 @@ const SectionPageBuilder: React.FC = () => {
   let str = arr[arr.length - 1];
 
   let isInclude = sections.includes(str);
+  console.log("IsInclude",isInclude);
 
-  let blocks = isInclude ? [str] : sections;
+  let blocks = isInclude ? [str] : '';
+  console.log("blocks",blocks)
  
   //Save the Section
   const saveSectionTemplate = () => {
@@ -180,6 +220,24 @@ const SectionPageBuilder: React.FC = () => {
         });
     }
   };
+
+
+
+  const handleScratchSave = ()=>{
+    axios
+    .post(`${apiEndpoint}/section-save`, {
+      sectionTitle: name,
+      sectionCode: JSON.stringify(editor.getProjectData()),
+    })
+    .then((res) => {
+      toast.success('Section Created Successfully');
+      window.location.reload(true); 
+     })
+
+    .catch((err) => {
+      console.log('err', err);
+    });
+  }
 
 
   //Fetch Section Data from Backend
@@ -229,7 +287,30 @@ const SectionPageBuilder: React.FC = () => {
       showDevices: false,
       showOffsetsSelected: true,
       style: canvasStyle,
-      plugins: [Blocks, backgroundPlugin],
+      plugins: [Blocks, backgroundPlugin,
+      
+        (editor) =>
+        Basics(editor, {
+          category: 'Basic Elements',
+          flexGrid: true,
+          addBasicStyle: false,
+        }),
+      (editor) =>
+        Forms(editor, {
+          category: 'Basic Elements',
+        }),
+      
+      
+      
+      
+      
+      
+      
+      ],
+
+
+  
+    
 
       blockManager: {
         appendTo: '.blocks',
@@ -242,7 +323,15 @@ const SectionPageBuilder: React.FC = () => {
             name: sectionData?.isUpdate ? 'Update' : 'Save',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-              saveSectionTemplate();
+              if(isInclude){
+                saveSectionTemplate();
+              }
+              else{
+                // prompt("Enter Section Name")
+                setModelIsOPen(true);
+
+              }
+              
             },
           },
         ],
@@ -821,7 +910,8 @@ const SectionPageBuilder: React.FC = () => {
   useEffect(() => {
     initializeInstance();
   }, []);
-  return (
+  return (<>
+  <SectionModel modelIsOPen={modelIsOPen} setName ={setName} handleScratchSave ={handleScratchSave} />
     <div className="main__content main__content__editor">
       <Eyebrow />
       <div className="panel__top"></div>
@@ -858,6 +948,7 @@ const SectionPageBuilder: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 export default SectionPageBuilder;
