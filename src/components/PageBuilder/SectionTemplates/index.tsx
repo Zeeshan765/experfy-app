@@ -288,17 +288,7 @@ const basicElements=[
       showOffsetsSelected: true,
       style: canvasStyle,
       plugins: [Blocks, backgroundPlugin,
-      
-        (editor) =>
-        Basics(editor, {
-          category: 'Basic Elements',
-          flexGrid: true,
-          addBasicStyle: false,
-        }),
-      (editor) =>
-        Forms(editor, {
-          category: 'Basic Elements',
-        }),
+        Basics,
       
       
       
@@ -307,6 +297,9 @@ const basicElements=[
       
       
       ],
+      pluginsOpts:{
+        Basics:{},
+      },
 
 
   
@@ -578,7 +571,7 @@ const basicElements=[
       if (component.ccid == 'GuidelineDiv') {
         component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;">
      
-    <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
+    <h3 class="h3 guideline-bullet" style="height: 35px;border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
     <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
   
   <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
@@ -681,10 +674,7 @@ const basicElements=[
               var swiper = new Swiper('.mySwiper', {
                 spaceBetween: 30,
                 centeredSlides: true,
-                // autoplay: {
-                //   // delay: 2500,
-                //   disableOnInteraction: false,
-                // },
+                
                 navigation: {
                   nextEl: ".swiper-button-next",
                   prevEl: ".swiper-button-prev",

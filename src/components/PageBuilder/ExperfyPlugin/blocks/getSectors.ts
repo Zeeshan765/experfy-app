@@ -2283,7 +2283,7 @@ const obj = {
       properties: [color, typography],
     },
     {
-      name: 'Guideline Step',
+      name: 'Add Guideline',
       open: false,
       id: 'guidline-option',
       
@@ -2304,7 +2304,6 @@ const obj = {
       name: 'Guideline Bullet',
       open: false,
       id: 'guideline-bullet',
-      buildProps: ['width', 'height'],
       properties: [color, typography, backgroundColor],
     },
 
