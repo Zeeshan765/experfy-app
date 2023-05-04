@@ -195,26 +195,51 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     
     <div class="swiper-wrapper">
     <div class="swiper-slide">
-    slide2
+    <div class="slider-content-main-div">
+   
+    <div class="left-container">
+       <div class="img-container">
+             <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+         </div>
+               <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
+              <span class="user-details">
+               <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
+             <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5></span>
+     </div>
+         <div class="divider"></div>
+         <div class="slider-text-div">
+         <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+            </div>
     </div>
+
+
+
+
+
+
+
+
+
+    
+     </div>
 
 
     <div class="swiper-slide">
     <div class="slider-content-main-div">
    
     <div class="left-container">
-    <div class="img-container">
-         <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+       <div class="img-container">
+             <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
          </div>
-         <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
-         <span class="user-details">
-         <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
-         <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5></span>
-         </div>
+               <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
+              <span class="user-details">
+               <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
+             <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5></span>
+     </div>
          <div class="divider"></div>
          <div class="slider-text-div">
          <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
-    </div>
+            </div>
     </div>
 
 
@@ -614,8 +639,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: `<section  id= "paragraphSector" class="paragraphSector" data-gjs-type="paragraphSector mj-image">
     <div class="main-paragraph-wrapper">
        
-          <h1 class="h1 main-paragraph-heading">Master Cleanse Reliac Heirloom</h1>
-          <h6 class="h6 sub-paragraph-heading">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+          <h1 class="h1 main-paragraph-heading" data-gjs-type="mysection">Master Cleanse Reliac Heirloom</h1>
+          <h6 class="h6 sub-paragraph-heading" data-gjs-type="mysection">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h6>
