@@ -384,6 +384,7 @@ let themeStylePanels= true;
       console.log('ccid', component);
       if (component) {
         const sectors = editor.StyleManager.getSectors();
+        console.log("ccid sectors",sectors)
         sectors.reset();
         sectors.add(getSectors(component.ccid));
       }

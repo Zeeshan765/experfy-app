@@ -1158,7 +1158,7 @@ export const SectionStyle = `<style>
     border-bottom: 1px solid #000 !important;
   }
   .page-builder-spacer .page-builder-spacer-inner {
-    height: 50px;
+    
   }
 
 

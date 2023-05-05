@@ -2342,6 +2342,37 @@ const obj = {
     },
   ],
 
+
+  spaceSector:[
+    {
+      name:'Gap',
+      open:'false',
+      id : 'page-builder-spacer-inner',
+      properties:[
+        {
+          type: 'slider',
+          name: 'Height',
+          property: 'height',
+          units: ['px', 'em', 'rem'],
+          defaults: '1',
+        },
+      ],
+    }
+  ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   locationSector: [ 
     {
       name: 'Background',

@@ -823,7 +823,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <polyline points="16 16 12 20 8 16" />
     </svg>`,
     content: `
-    <div class="divider"></div>
+<div>
+<hr>
+</div>
         ${dividerStyle}
         `,
   });
@@ -832,9 +834,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><path d="M3,1V17a2,2,0,0,0,2,2H47a2,2,0,0,0,2-2V1H45V15H7V1ZM49,51V35a2,2,0,0,0-2-2H5a2,2,0,0,0-2,2V51H7V37H45V51ZM12,28H4V24h8Zm4,0h8V24H16Zm20,0H28V24h8Zm4,0h8V24H40Z" fill-rule="evenodd"/></svg>`,
-    content: `<div class="page-builder-spacer">
+    content: `<section class="page-builder-spacer spaceSector"  id ="spaceSector">
     <div class="page-builder-spacer-inner"></div>
-  </div>
+  </section>
         ${style}
         `,
   });
@@ -1229,9 +1231,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-    <div id="headingSector" class="headingSector">
+    <section id="headingSector" class="headingSector">
     <h1 class="h1 heading-1">Add Your Heading Title here</h1>
-    </div>
+    </section>
         `,
   });
 
@@ -1240,7 +1242,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-  <div class="paraSect" id ="paraSect">
+  <section class="paraSect" id ="paraSect">
   <h5 class="h5 para-1">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
@@ -1249,7 +1251,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   
   
   
-  </div>
+  </section>
         `,
   });
 
