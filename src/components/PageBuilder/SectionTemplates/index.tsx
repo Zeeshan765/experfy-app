@@ -22,8 +22,6 @@ import Forms from 'grapesjs-plugin-forms';
 import 'grapick/dist/grapick.min.css';
 
 import { Context } from '../../../Providers/MyProvider';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { style } from '@mui/system';
 import { toast } from 'react-toastify';
 import SectionModel from './SectionModel';
 
@@ -39,8 +37,7 @@ const SectionPageBuilder: React.FC = () => {
   const [filtered ,  setFiltered] = useState("");
   const [modelIsOPen, setModelIsOPen] = useState(false);
   const [name,setName] = useState("");
-  console.log("name",name)
-  console.log("filtered",filtered)
+
 
   let sectionData = {
     isUpdate: false,
@@ -73,18 +70,15 @@ const SectionPageBuilder: React.FC = () => {
 
 
 const basicElements=[
-  'search',
-  'divider',
-  'spacer',
-  'icon',
-  'page-title',
-  'nav-menu',
-  'icon-list',
-  'logo',
-  'image',
+  'text',
+  'paragraph-1',
   'button',
-  'a',
-  'form',
+  'divider',
+   'spacer',
+   'image',
+   'icon',
+   'icon-list',
+
 
 ]
 
@@ -189,8 +183,8 @@ const basicElements=[
   let isInclude = sections.includes(str);
   console.log("IsInclude",isInclude);
 
-  let blocks = isInclude ? [str] : '';
-  console.log("blocks",blocks)
+  let blocks = isInclude ? [str] : basicElements;
+
  
   //Save the Section
   const saveSectionTemplate = () => {
@@ -274,10 +268,6 @@ let themeStylePanels= true;
         ...options,
         blocks: blocks,
         showPanelsOnLoad: true,
-        // //@ts-ignore
-        // str ?  themeStylePanels : checktheme,
-      
-        // themeStylePanels: true,
         showElements: sections.includes(str),
       });
 
@@ -303,6 +293,7 @@ let themeStylePanels= true;
       ],
       pluginsOpts:{
         Basics:{},
+        Blocks:{},
       },
 
 

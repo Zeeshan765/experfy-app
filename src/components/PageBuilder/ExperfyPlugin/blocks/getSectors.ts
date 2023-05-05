@@ -2321,6 +2321,27 @@ const obj = {
     },
   ],
 
+
+
+  headingSector: [
+    {
+      name: 'Heading',
+      open: false,
+      id: 'heading-1',
+      properties: [color, typography],
+    },
+   
+  ],
+
+  paraSect:[
+    {
+      name: 'Paragraph',
+      open: false,
+      id: 'para-1',
+      properties: [color, typography],
+    },
+  ],
+
   locationSector: [ 
     {
       name: 'Background',

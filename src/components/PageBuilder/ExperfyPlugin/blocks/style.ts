@@ -468,7 +468,12 @@ export const swiperStyle =
 
 
 
-
+export const dividerStyle=
+`<style>
+.divider{
+  border-right: 1px solid #ccc;
+}
+</style>`
 
 
 

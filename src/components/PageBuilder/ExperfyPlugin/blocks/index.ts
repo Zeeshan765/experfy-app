@@ -34,6 +34,7 @@ import {
   departmentstyle,
   photoGalleryStyle,
   swiperStyle,
+  dividerStyle,
 } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
@@ -560,8 +561,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: `<section  id= "paragraphSector" class="paragraphSector" data-gjs-type="paragraphSector mj-image">
     <div class="main-paragraph-wrapper">
        
-          <h1 class="h1 main-paragraph-heading" data-gjs-type="mysection">Master Cleanse Reliac Heirloom</h1>
-          <h6 class="h6 sub-paragraph-heading" data-gjs-type="mysection">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+          <h1 class="h1 main-paragraph-heading">Master Cleanse Reliac Heirloom</h1>
+          <h6 class="h6 sub-paragraph-heading">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h6>
@@ -786,7 +787,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('search', {
     label: 'Search',
-    category: 'Header & Footer',
+    category: 'Basic Elements',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
         <path d="M1458.948 1305.626c104.637-136.95 167.527-307.187 167.527-492.388C1626.475 364.764 1261.711 0 813.238 0 364.764 0 0 364.764 0 813.238c0 448.473 364.764 813.237 813.238 813.237 185.201 0 355.547-62.89 492.496-167.527L1766.678 1920 1920 1766.678l-461.052-461.052Zm-645.71 103.986c-328.874 0-596.375-267.61-596.375-596.374 0-328.765 267.501-596.375 596.375-596.375 328.873 0 596.374 267.61 596.374 596.375s-267.501 596.374-596.374 596.374Z" fill-rule="evenodd"/>
@@ -804,7 +805,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('divider', {
     label: 'Divider',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg 
       xmlns="http://www.w3.org/2000/svg"
@@ -821,15 +822,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <polyline points="8 8 12 4 16 8" />
       <polyline points="16 16 12 20 8 16" />
     </svg>`,
-    content: `<div class="page-builder-divider">
-    <span class="page-builder-divider-seprator"></span>
-   </div>
-        ${style}
+    content: `
+    <div class="divider"></div>
+        ${dividerStyle}
         `,
   });
   addBlock('spacer', {
     label: 'Spacer',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><path d="M3,1V17a2,2,0,0,0,2,2H47a2,2,0,0,0,2-2V1H45V15H7V1ZM49,51V35a2,2,0,0,0-2-2H5a2,2,0,0,0-2,2V51H7V37H45V51ZM12,28H4V24h8Zm4,0h8V24H16Zm20,0H28V24h8Zm4,0h8V24H40Z" fill-rule="evenodd"/></svg>`,
     content: `<div class="page-builder-spacer">
@@ -852,7 +852,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('icon', {
     label: 'Icon',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>ICON icon</title><path d="M21.605.021a2.397 2.397 0 00-.47 4.747 2.397 2.397 0 10.47-4.746zm-9.584 2.395C6.73 2.416 2.437 6.707 2.437 12c0 2.142.703 4.121 1.891 5.717l2.586-2.586a5.99 5.99 0 018.236-8.238l2.586-2.586a9.537 9.537 0 00-5.715-1.891zm7.692 3.867L17.127 8.87a5.989 5.989 0 01-8.236 8.238l-2.586 2.584a9.543 9.543 0 005.716 1.893c5.293 0 9.583-4.29 9.583-9.584 0-2.142-.704-4.12-1.891-5.717zM2.396 19.187a2.398 2.398 0 00-.47 4.749 2.402 2.402 0 002.822-2.823 2.399 2.399 0 00-2.352-1.925z"/></svg>`,
     content: `<div class="icon-wrapper">
@@ -908,7 +908,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('icon-list', {
     label: 'Icon List',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
         <path d="M169.412 1355.412c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.411-169.412 169.411C76.009 1694.235 0 1618.225 0 1524.824c0-93.403 76.01-169.412 169.412-169.412ZM1920 1468.352v112.942H564.706v-112.941H1920ZM169.412 790.707c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.411-169.412 169.411C76.009 1129.53 0 1053.52 0 960.118c0-93.403 76.01-169.412 169.412-169.412ZM1920 903.647v112.941H564.706v-112.94H1920ZM169.412 226c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.412-169.412 169.412C76.009 564.824 0 488.814 0 395.412 0 302.009 76.01 226 169.412 226ZM1920 338.941v112.941H564.706v-112.94H1920Z" fill-rule="evenodd"/>
@@ -1215,7 +1215,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
   addBlock('image', {
     label: 'Image',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z"></path>
   </svg>`,
@@ -1224,10 +1224,38 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </div>
         `,
   });
+  addBlock('text', {
+    label: 'Heading',
+    category: 'Basic',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
+    content: `
+    <div id="headingSector" class="headingSector">
+    <h1 class="h1 heading-1">Add Your Heading Title here</h1>
+    </div>
+        `,
+  });
+
+  addBlock('paragraph-1', {
+    label: 'Paragraph',
+    category: 'Basic',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
+    content: `
+  <div class="paraSect" id ="paraSect">
+  <h5 class="h5 para-1">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h5>
+
+  
+  
+  
+  </div>
+        `,
+  });
 
   addBlock('button', {
     label: 'Button',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
     <button class="button">Hello World</button>
