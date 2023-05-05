@@ -923,7 +923,7 @@ let themeStylePanels= true;
                 <div className="traits-container"></div>
                 <div className="layers-container"></div>
               </div>
-              <SidebarBottom editor={editor} hasBottomToolbar={true} />{' '}
+              <SidebarBottom editor={editor} hasBottomToolbar={false} />{' '}
               {/*  this warning is stylable. work is in progress*/}
             </div>
           </div>
