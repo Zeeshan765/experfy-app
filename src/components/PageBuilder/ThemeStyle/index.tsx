@@ -156,7 +156,7 @@ const ThemeStyle: React.FC = () => {
     let apiEndpoint = `${serverURL}/api/users/${user.id}`;
     let arr = [
       'button',
-      'img',
+      'image',
       'h1',
       'h2',
       'h3',
