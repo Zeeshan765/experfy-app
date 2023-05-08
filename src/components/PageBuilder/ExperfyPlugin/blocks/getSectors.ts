@@ -2018,6 +2018,181 @@ const obj = {
       properties: [color, typography],
     },
     {
+      name:"Animation",
+      open:false,
+      id:"content-section",
+      properties:[
+
+        {
+                    type: 'select',
+                    name: 'Animation',
+                    property: 'animation',
+                    options: [
+                      { value: 'none', name: 'None' },
+                      { value: 'fadeIn', name: 'Fade In' },
+                      { value: 'fadeInDown', name: 'Fade In Down' },
+                      { value: 'fadeInLeft', name: 'Fade In Left' },
+                      { value: 'fadeInRight', name: 'Fade In Right' },
+                      { value: 'fadeInUp', name: 'Fade In Up' },
+                      { value: 'zoomIn', name: 'Zoom In' },
+                    ],
+          
+          },
+
+
+
+{
+          type: 'select',
+          name: 'Animation Delay',
+         
+          property: 'animation-delay',
+          options: [
+            { value: '0s', name: '0s' },
+            { value: '1s', name: '1s' },
+            { value: '2s', name: '2s' },
+            { value: '3s', name: '3s' },
+          ],
+
+},
+{
+  name:'Transform',
+  type:'select',
+  property:'transform',
+  options:[
+    {value:'none',name:'None'},
+    {value:'scale(1.1)',name:'Scale(1.1)'},
+    {value:'scale(1.2)',name:'Scale(1.2)'},
+    {value:'scale(1.3)',name:'Scale(1.3)'},
+    {value:'scale(1.4)',name:'Scale(1.4)'},
+  ],
+
+},
+{
+  name:'Transform Origin',
+  type:'select',
+  property:'transform-origin',
+  options:[
+    {value:'center',name:'Center'},
+    {value:'top',name:'Top'},
+    {value:'bottom',name:'Bottom'},
+    {value:'left',name:'Left'},
+    {value:'right',name:'Right'},
+  ]
+
+},
+{
+
+  name:'Transition',
+  type:'select',
+  property:'transition',
+  options:[
+    {value:'none',name:'None'},
+    {value:'all 0.3s ease-in-out',name:'All 0.3s ease-in-out'},
+    {value:'all 0.5s ease-in-out',name:'All 0.5s ease-in-out'},
+    {value:'all 0.7s ease-in-out',name:'All 0.7s ease-in-out'},
+    {value:'all 0.9s ease-in-out',name:'All 0.9s ease-in-out'},
+  ]
+
+},
+{
+  name:'Transition Delay',
+  type:'select',
+  property:'transition-delay',
+  options:[
+    {value:'0s',name:'0s'},
+    {value:'3s',name:'3s'},
+    {value:'5s',name:'5s'},
+  ],
+
+},{
+  name:'Transition Duration',
+  type:'select',
+  property:'transition-duration',
+  options:[
+    {
+      value:'0.3s',name:'0.3s'
+    }
+    ,{
+      value: '0.4s' , name: '0.4s'
+}
+
+
+
+
+
+
+      ],
+    },
+    {
+      name:'Transition Property',
+      type:'select',
+      property:'transition-property',
+      options:[
+        {value:'all',name:'All'},
+        {value:'opacity',name:'Opacity'},
+        {value:'transform',name:'Transform'},
+        {value:'color',name:'Color'},
+      ],
+    },
+    {
+      name:'Transition Timing Function',
+      type:'select',
+      property:'transition-timing-function',
+      options:[
+        {value:'ease',name:'Ease'},
+        {value:'ease-in',name:'Ease In'},
+        {value:'ease-out',name:'Ease Out'},
+        {value:'ease-in-out',name:'Ease In Out'},
+        {value:'linear',name:'Linear'},
+      ],
+
+    },
+  ],
+},
+    
+
+// {
+//       name: 'Main Title Animation', 
+
+//       open: false,
+//       id: 'main-image-heading',
+
+//       properties: [
+//         {
+//           type: 'select',
+//           name: 'Animation',
+//           property: 'animation',
+//           options: [
+//             { value: 'none', name: 'None' },
+//             { value: 'fadeIn', name: 'Fade In' },
+//             { value: 'fadeInDown', name: 'Fade In Down' },
+//             { value: 'fadeInLeft', name: 'Fade In Left' },
+//             { value: 'fadeInRight', name: 'Fade In Right' },
+//             { value: 'fadeInUp', name: 'Fade In Up' },
+//             { value: 'zoomIn', name: 'Zoom In' },
+//           ],
+
+// },
+// {
+//           type: 'select',
+//           name: 'Animation Delay',
+//           ID:'main-image-heading',
+//           property: 'animation-delay',
+//           options: [
+//             { value: '0s', name: '0s' },
+//             { value: '0.1s', name: '0.1s' },
+//             { value: '0.2s', name: '0.2s' },
+//             { value: '0.3s', name: '0.3s' },
+//           ],
+
+// },
+//       ],
+
+// },
+
+
+
+    {
       name: 'Description',
       open: false,
       id: 'sub-image-heading',

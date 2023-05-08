@@ -311,19 +311,7 @@ const SectionPageBuilder: React.FC = () => {
 
     localStorage.removeItem('gjsProject');
     editor.on('load', () => {
-      console.log('zee load');
-
-      // console.log('sectionDataContext', fetchSectionDetail);
-      let { data, found, filtering } = fetchSectionDetail(str);
-      // console.log('data, found,filtering', data, found);
-
-      if (found) {
-        // const { sectionCode } = filtering;
-        // // editor.loadProjectData({ ...JSON.parse(sectionCode) });
-        // editor.loadProjectData({
-        //   ...Object.assign({}, { ...JSON.parse(sectionCode) }),
-        // });
-      } else {
+     
         editor.loadProjectData({
           ...Object.assign(
             {},
@@ -331,7 +319,7 @@ const SectionPageBuilder: React.FC = () => {
             { styles: userData.defaultStyle.filteredStyles }
           ),
         });
-      }
+      
      
     });
     //This is for Single Section
@@ -343,11 +331,6 @@ const SectionPageBuilder: React.FC = () => {
         const { sectionCode, sectionTitle } = filtering;
         window.sectionData = { ...filtering, isUpdate: true };
 
-        console.log('...JSON.parse(sectionCode)', JSON.parse(sectionCode));
-        // editor.loadProjectData({ ...JSON.parse(sectionCode) });
-        // editor.loadProjectData({
-        //   ...Object.assign({}, { ...JSON.parse(sectionCode) }),
-        // });
 
         const blo = editor.BlockManager.getAll();
         console.log('blo', blo);

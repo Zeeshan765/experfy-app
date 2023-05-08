@@ -126,14 +126,14 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
     Panels.removeButton('panel-top', 'device-desktop');
     Panels.removeButton('panel-top', 'history');
     Panels.removeButton('panel-top', 'publish');
-    Panels.removeButton('panel-top', 'preview');
+    // Panels.removeButton('panel-top', 'preview');
   } else {
     Panels.removeButton('panel__switcher', openLayers);
     Panels.removeButton('panel-top', 'settings');
     Panels.removeButton('panel-top', 'device-desktop');
     Panels.removeButton('panel-top', 'history');
     Panels.removeButton('panel-top', 'publish');
-    Panels.removeButton('panel-top', 'preview');
+    // Panels.removeButton('panel-top', 'preview');
   }
 
   const openSmBtn = Panels.getButton('panel__switcher', openStyles);
