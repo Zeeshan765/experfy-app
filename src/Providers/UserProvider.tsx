@@ -32,6 +32,10 @@ const GetUserData: React.FC<any> = ({ children }) => {
       fetchUserDetail();
     }
   }, [user?.id]);
+
+
+  
+
   const value = {
     userData,
     setUserData,

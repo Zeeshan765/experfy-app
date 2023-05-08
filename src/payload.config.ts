@@ -25,9 +25,12 @@ import ThemeStyle from './components/PageBuilder/ThemeStyle';
 import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
 import AssetsProvider from './Providers/AssetsProvider';
+import DataProvider from './Providers/DataProvider';
 import MyProvider from './Providers/MyProvider';
 import UserProvider from './Providers/UserProvider';
 import SectionBuilder from './collections/SectionBuilder';
+import SectionSaveCollection from './collections/SectionSave';
+import { DataContext } from './Providers/DataProvider';
 
 dotenv.config();
 
@@ -76,11 +79,7 @@ export default buildConfig({
           Component: ThemeStyle,
           exact: true,
         },
-        {
-          path: '/collections/page-builder',
-          Component: PageBuilder,
-          exact: true,
-        },
+        
         {
           path: '/collections/templates-library',
           Component: TemplatesLibrary,
@@ -103,12 +102,15 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
+       
+        // {
+        //   path: "/collections/templates-library",
+        //   Component: SectionPageBuilder,
+        //   exact: true,
+        //   strict: true,
+        // },
         {
-          path: "/collections/templates-library",
-          Component: TemplatesLibrary,
-        },
-        {
-          path: "/collections/templates-library",
+          path: '/collections/section-templates',
           Component: SectionPageBuilder,
           exact: true,
           strict: true,
@@ -208,8 +210,14 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
+        // {
+        //   path: '/collections/section-templates/swiper',
+        //   Component: SectionPageBuilder,
+        //   exact: true,
+        //   strict: true,
+        // },
       ],
-      providers: [UserProvider, AssetsProvider, MyProvider],
+      providers: [UserProvider, AssetsProvider, MyProvider, DataProvider],
     },
     webpack: (config) => {
       config.module.rules.push({
@@ -245,6 +253,7 @@ export default buildConfig({
     Brand,
     PageHistory,
     SectionBuilder,
+    SectionSaveCollection,
   ],
   i18n: {
     supportedLngs: ['en', 'es'],

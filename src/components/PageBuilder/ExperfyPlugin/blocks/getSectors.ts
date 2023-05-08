@@ -283,10 +283,9 @@ let typography = {
       name: 'Paragraph Spacing',
       property: 'margin-bottom',
       // default: 1,
-      unit:'px',
+      unit: 'px',
       min: 0,
       max: 15,
-    
     },
   ],
 };
@@ -340,9 +339,7 @@ const widthOptions = [
   },
 ];
 
-
-
-let NumbersProp=[
+let NumbersProp = [
   {
     type: 'color',
     name: 'Number',
@@ -504,8 +501,7 @@ let NumbersDescription = [
   },
 ];
 
-
-let NumbersBorder= [
+let NumbersBorder = [
   {
     type: 'color',
     name: 'Border Color',
@@ -523,19 +519,6 @@ let NumbersBorder= [
     properties: widthOptions,
   },
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const obj = {
   headerSector: [
@@ -595,7 +578,7 @@ const obj = {
           type: 'slider',
           name: 'Width',
           property: 'width',
-        
+
           min: 0,
           max: 100,
           units: ['%', 'px'],
@@ -1114,7 +1097,7 @@ const obj = {
           defaults: 27,
           units: ['%'],
           step: 0.01,
-      
+
           min: 6,
         },
         {
@@ -1122,7 +1105,6 @@ const obj = {
           name: 'Border Type',
           property: 'border-style',
           options: borderStyleOptions,
-
         },
         {
           type: 'composite',
@@ -1150,63 +1132,61 @@ const obj = {
       open: false,
       id: 'image-benefit',
       properties: [
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        },
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          preferredFormat: 'hex',
+          showInput: true,
+        },
 
-          {
-            type: 'composite',
-            name: 'Border Radius',
-            property: 'border-radius',
-            properties: widthOptions,
-          },
-          {
-            type: 'color',
-            name: 'Border Color',
-            property: 'border-color',
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-  
-          {
-            type: 'composite',
-            name: 'Border Width',
-            property: 'border-width',
-            properties: widthOptions,
-          },
-          {
-            type: 'select',
-            name: 'Border Style',
-            property: 'border-style',
-            options: borderStyleOptions,
-          },
-          {
-            type: 'slider',
-            name: 'Icon Size',
-            property: 'width',
-            default: '0%',
-            min: 0,
-            max: 100,
-            units: ['%', 'px'],
-          },
-          {
-            type: 'slider',
-            name: 'Padding',
-            property: 'padding',
-           
-            min: 0,
-            max: 100,
-            units: ['%', 'px'],
-          },
-          {
-            type: 'slider',
-            name: 'Opacity',
-            property: 'opacity',
-            default: 1,
-            step: 1,
-            min: 0,
-            max: 100,
-            units: ['%'],
-          },
-        ],
-    
+        {
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+        },
+        {
+          type: 'select',
+          name: 'Border Style',
+          property: 'border-style',
+          options: borderStyleOptions,
+        },
+        {
+          type: 'slider',
+          name: 'Icon Size',
+          property: 'width',
+          default: '0%',
+          min: 0,
+          max: 100,
+          units: ['%', 'px'],
+        },
+        {
+          type: 'slider',
+          name: 'Padding',
+          property: 'padding',
+
+          min: 0,
+          max: 100,
+          units: ['%', 'px'],
+        },
+        {
+          type: 'slider',
+          name: 'Opacity',
+          property: 'opacity',
+          default: 1,
+          step: 1,
+          min: 0,
+          max: 100,
+          units: ['%'],
+        },
+      ],
     },
     {
       name: 'Icon Heading',
@@ -1230,25 +1210,25 @@ const obj = {
         color,
         typography,
 
-        {
-          type: 'slider',
-          name: 'Blur',
-          property: 'title-blur',
-          default: '10',
-        },
+        // {
+        //   type: 'slider',
+        //   name: 'Blur',
+        //   property: 'title-blur',
+        //   default: '10',
+        // },
 
-        {
-          type: 'slider',
-          name: 'Horizontal',
-          property: 'title-horizontal',
-          default: '0',
-        },
-        {
-          type: 'slider',
-          name: 'Vertical',
-          property: 'title-vertical',
-          default: '0',
-        },
+        // {
+        //   type: 'slider',
+        //   name: 'Horizontal',
+        //   property: 'title-horizontal',
+        //   default: '0',
+        // },
+        // {
+        //   type: 'slider',
+        //   name: 'Vertical',
+        //   property: 'title-vertical',
+        //   default: '0',
+        // },
       ],
     },
     {
@@ -1667,14 +1647,12 @@ const obj = {
     },
   ],
   videoSector: [
-
-
-     {
+    {
       name: 'Background',
       open: false,
       id: 'video-wrap',
       buildProps: ['background'],
-      properties:[
+      properties: [
         {
           type: 'slider',
           name: 'Overlay Opacity',
@@ -1682,7 +1660,7 @@ const obj = {
           defaults: 27,
           units: ['%'],
           step: 0.01,
-      
+
           min: 6,
         },
         {
@@ -1690,23 +1668,16 @@ const obj = {
           name: 'Border Type',
           property: 'border-style',
           options: borderStyleOptions,
-
         },
         {
           type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
           properties: widthOptions,
-        }
-      ]
-
+        },
+      ],
     },
-    
-  
 
-   
-
-    
     {
       name: 'Aspect Ratio',
       id: 'video-ratio',
@@ -1863,25 +1834,17 @@ const obj = {
       id: 'number-description',
       // properties:NumbersDescription,
       properties: [color, typography],
-
     },
 
     {
       name: 'Numbers Border',
       open: false,
       id: 'number-border',
-      buildProps: [
-        'border-radius',
-
-        'border-style',
-        'box-shadow',
-        'padding',
-      ],
-      properties:NumbersBorder,
+      buildProps: ['border-radius', 'border-style', 'box-shadow', 'padding'],
+      properties: NumbersBorder,
     },
   ],
   paragraphSector: [
-
     {
       name: 'Background',
       open: false,
@@ -1899,9 +1862,6 @@ const obj = {
       //   },
       // ],
     },
-
-
-
 
     {
       name: 'Paragraph Heading',
@@ -1940,7 +1900,7 @@ const obj = {
           defaults: 27,
           units: ['%'],
           step: 0.01,
-      
+
           min: 6,
         },
         {
@@ -1948,14 +1908,13 @@ const obj = {
           name: 'Border Type',
           property: 'border-style',
           options: borderStyleOptions,
-
         },
         {
           type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
           properties: widthOptions,
-        }
+        },
       ],
     },
 
@@ -1976,16 +1935,16 @@ const obj = {
       id: 'banner-button',
       open: false,
       buildProps: ['background-color'],
-      properties: [color,typography,
+      properties: [
+        color,
+        typography,
         {
-        
           type: 'composite',
           name: 'Border Width',
           property: 'border-width',
           properties: widthOptions,
         },
         {
-      
           type: 'color',
           name: 'Border Color',
           property: 'border-color',
@@ -1995,14 +1954,12 @@ const obj = {
           },
         },
         {
-      
           type: 'select',
           name: 'Border Type',
           property: 'border-style',
           options: borderStyleOptions,
         },
         {
-          
           type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
@@ -2011,12 +1968,9 @@ const obj = {
         'box-shadow',
         'padding',
       ],
-
     },
-
   ],
   ImageTextSector: [
-
     {
       name: 'Section Background',
       open: false,
@@ -2039,7 +1993,7 @@ const obj = {
           defaults: 27,
           units: ['%'],
           step: 0.01,
-      
+
           min: 6,
         },
         {
@@ -2047,18 +2001,15 @@ const obj = {
           name: 'Border Type',
           property: 'border-style',
           options: borderStyleOptions,
-
         },
         {
           type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
           properties: widthOptions,
-        }
+        },
       ],
     },
-
-
 
     {
       name: 'Main Title',
@@ -2066,6 +2017,181 @@ const obj = {
       id: 'main-image-heading',
       properties: [color, typography],
     },
+    {
+      name:"Animation",
+      open:false,
+      id:"content-section",
+      properties:[
+
+        {
+                    type: 'select',
+                    name: 'Animation',
+                    property: 'animation',
+                    options: [
+                      { value: 'none', name: 'None' },
+                      { value: 'fadeIn', name: 'Fade In' },
+                      { value: 'fadeInDown', name: 'Fade In Down' },
+                      { value: 'fadeInLeft', name: 'Fade In Left' },
+                      { value: 'fadeInRight', name: 'Fade In Right' },
+                      { value: 'fadeInUp', name: 'Fade In Up' },
+                      { value: 'zoomIn', name: 'Zoom In' },
+                    ],
+          
+          },
+
+
+
+{
+          type: 'select',
+          name: 'Animation Delay',
+         
+          property: 'animation-delay',
+          options: [
+            { value: '0s', name: '0s' },
+            { value: '1s', name: '1s' },
+            { value: '2s', name: '2s' },
+            { value: '3s', name: '3s' },
+          ],
+
+},
+{
+  name:'Transform',
+  type:'select',
+  property:'transform',
+  options:[
+    {value:'none',name:'None'},
+    {value:'scale(1.1)',name:'Scale(1.1)'},
+    {value:'scale(1.2)',name:'Scale(1.2)'},
+    {value:'scale(1.3)',name:'Scale(1.3)'},
+    {value:'scale(1.4)',name:'Scale(1.4)'},
+  ],
+
+},
+{
+  name:'Transform Origin',
+  type:'select',
+  property:'transform-origin',
+  options:[
+    {value:'center',name:'Center'},
+    {value:'top',name:'Top'},
+    {value:'bottom',name:'Bottom'},
+    {value:'left',name:'Left'},
+    {value:'right',name:'Right'},
+  ]
+
+},
+{
+
+  name:'Transition',
+  type:'select',
+  property:'transition',
+  options:[
+    {value:'none',name:'None'},
+    {value:'all 0.3s ease-in-out',name:'All 0.3s ease-in-out'},
+    {value:'all 0.5s ease-in-out',name:'All 0.5s ease-in-out'},
+    {value:'all 0.7s ease-in-out',name:'All 0.7s ease-in-out'},
+    {value:'all 0.9s ease-in-out',name:'All 0.9s ease-in-out'},
+  ]
+
+},
+{
+  name:'Transition Delay',
+  type:'select',
+  property:'transition-delay',
+  options:[
+    {value:'0s',name:'0s'},
+    {value:'3s',name:'3s'},
+    {value:'5s',name:'5s'},
+  ],
+
+},{
+  name:'Transition Duration',
+  type:'select',
+  property:'transition-duration',
+  options:[
+    {
+      value:'0.3s',name:'0.3s'
+    }
+    ,{
+      value: '0.4s' , name: '0.4s'
+}
+
+
+
+
+
+
+      ],
+    },
+    {
+      name:'Transition Property',
+      type:'select',
+      property:'transition-property',
+      options:[
+        {value:'all',name:'All'},
+        {value:'opacity',name:'Opacity'},
+        {value:'transform',name:'Transform'},
+        {value:'color',name:'Color'},
+      ],
+    },
+    {
+      name:'Transition Timing Function',
+      type:'select',
+      property:'transition-timing-function',
+      options:[
+        {value:'ease',name:'Ease'},
+        {value:'ease-in',name:'Ease In'},
+        {value:'ease-out',name:'Ease Out'},
+        {value:'ease-in-out',name:'Ease In Out'},
+        {value:'linear',name:'Linear'},
+      ],
+
+    },
+  ],
+},
+    
+
+// {
+//       name: 'Main Title Animation', 
+
+//       open: false,
+//       id: 'main-image-heading',
+
+//       properties: [
+//         {
+//           type: 'select',
+//           name: 'Animation',
+//           property: 'animation',
+//           options: [
+//             { value: 'none', name: 'None' },
+//             { value: 'fadeIn', name: 'Fade In' },
+//             { value: 'fadeInDown', name: 'Fade In Down' },
+//             { value: 'fadeInLeft', name: 'Fade In Left' },
+//             { value: 'fadeInRight', name: 'Fade In Right' },
+//             { value: 'fadeInUp', name: 'Fade In Up' },
+//             { value: 'zoomIn', name: 'Zoom In' },
+//           ],
+
+// },
+// {
+//           type: 'select',
+//           name: 'Animation Delay',
+//           ID:'main-image-heading',
+//           property: 'animation-delay',
+//           options: [
+//             { value: '0s', name: '0s' },
+//             { value: '0.1s', name: '0.1s' },
+//             { value: '0.2s', name: '0.2s' },
+//             { value: '0.3s', name: '0.3s' },
+//           ],
+
+// },
+//       ],
+
+// },
+
+
+
     {
       name: 'Description',
       open: false,
@@ -2109,7 +2235,6 @@ const obj = {
           default: '1',
           units: ['px', 'em', 'rem'],
         },
-      
       ],
     },
     {
@@ -2127,17 +2252,14 @@ const obj = {
             { value: 'none', name: 'Hide' },
           ],
         },
-       
-       color,typography
 
-        
+        color,
+        typography,
       ],
     },
   ],
 
-
   photoSector: [
-
     {
       name: 'Section Background',
       open: false,
@@ -2151,7 +2273,7 @@ const obj = {
           defaults: 27,
           units: ['%'],
           step: 0.01,
-      
+
           min: 6,
         },
         {
@@ -2159,18 +2281,15 @@ const obj = {
           name: 'Border Type',
           property: 'border-style',
           options: borderStyleOptions,
-
         },
         {
           type: 'composite',
           name: 'Border Radius',
           property: 'border-radius',
           properties: widthOptions,
-        }
+        },
       ],
     },
-
-
 
     {
       name: 'Photo Gallery Heading',
@@ -2221,7 +2340,6 @@ const obj = {
           default: '1',
           units: ['px', 'em', 'rem'],
         },
-      
       ],
     },
     {
@@ -2239,35 +2357,12 @@ const obj = {
             { value: 'none', name: 'Hide' },
           ],
         },
-       
-       color,typography
 
-        
+        color,
+        typography,
       ],
     },
   ],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   guidelineSector: [
     {
@@ -2283,10 +2378,10 @@ const obj = {
       properties: [color, typography],
     },
     {
-      name: 'Guideline Step',
+      name: 'Add Guideline',
       open: false,
       id: 'guidline-option',
-      
+
       properties: [
         {
           type: 'color',
@@ -2304,7 +2399,6 @@ const obj = {
       name: 'Guideline Bullet',
       open: false,
       id: 'guideline-bullet',
-      buildProps: ['width', 'height'],
       properties: [color, typography, backgroundColor],
     },
 
@@ -2322,7 +2416,278 @@ const obj = {
     },
   ],
 
-  locationSector: [ 
+  headingSector: [
+    {
+      name: 'Heading',
+      open: false,
+      id: 'heading-1',
+      properties: [color, typography],
+    },
+  ],
+
+  paraSect: [
+    {
+      name: 'Paragraph',
+      open: false,
+      id: 'para-1',
+      properties: [color, typography],
+    },
+  ],
+
+  spaceSector: [
+    {
+      name: 'Gap',
+      open: 'false',
+      id: 'page-builder-spacer-inner',
+      properties: [
+        {
+          type: 'slider',
+          name: 'Height',
+          property: 'height',
+          units: ['px', 'em', 'rem'],
+          // defaults: '1',
+        },
+      ],
+    },
+  ],
+
+  dividerSector: [
+    {
+      name: 'Divder',
+      id: 'divider-1',
+      open: false,
+
+      properties: [
+        {
+          type: 'select',
+          name: 'Style',
+          property: 'border-style',
+          options: borderStyleOptions,
+        },
+        {
+          type: 'slider',
+          name: 'Width',
+          property: 'width',
+          units: ['px', '%', 'rem'],
+        },
+        {
+          type: 'slider',
+          name: 'Weight',
+          property: 'font-size',
+          units: ['px', '%', 'rem'],
+        },
+        color,
+      ],
+    },
+  ],
+
+
+
+
+  buttonSector:[
+  {
+    name: 'Button',
+    open: false,
+    id: 'btn-save',
+
+    properties: [
+      typography,
+      'text-shadow',
+    
+      {
+        type: 'color',
+        name: 'Text Color',
+        property: 'color',
+        colorPicker: {
+          preferredFormat: 'hex',
+          showInput: true,
+        },
+      },
+      {
+       
+        type: 'color',
+        name: 'Background Color',
+        property: 'background-color',
+        colorPicker: {
+          preferredFormat: 'hex',
+          showInput: true,
+        },
+      },
+
+      {
+      
+        type: 'select',
+        name: 'Border Type',
+        property: 'border-style',
+        options: borderStyleOptions,
+      },
+      {
+       
+        type: 'composite',
+        name: 'Border Width',
+        property: 'border-width',
+        properties: widthOptions,
+        detached: false,
+      },
+      {
+       
+        type: 'color',
+        name: 'Border Color',
+        property: 'border-color',
+        colorPicker: {
+          preferredFormat: 'hex',
+          showInput: true,
+        },
+      },
+      {
+        
+        type: 'composite',
+        name: 'Border Radius',
+        property: 'border-radius',
+        properties: widthOptions,
+        detached: false,
+      },
+      'box-shadow',
+      'padding',
+    ],
+  },
+],
+
+imageSector:[
+  {
+    name: 'Images',
+    id: 'img-link',
+    open: false,
+
+    buildProps: [
+      'border-style',
+      'border-radius',
+      'opacity',
+      'box-shadow',
+    ],
+    properties: [
+    
+      {
+        
+        type: 'slider',
+        name: 'Opacity',
+        property: 'opacity',
+        default: 100,
+        min: 0,
+        max: 100,
+        step: 1,
+        units: ['%'],
+      },
+      {
+       
+        type: 'composite',
+        name: 'Border Width',
+        property: 'border-width',
+        properties: widthOptions,
+        detached: false,
+      },
+      {
+        type: 'color',
+        name: 'Border Color',
+        property: 'border-color',
+        colorPicker: {
+          preferredFormat: 'hex',
+          showInput: true,
+        },
+      },
+      {
+       
+        type: 'composite',
+        name: 'Border Radius',
+        property: 'border-radius',
+        properties: widthOptions,
+        detached: false,
+      },
+    ],
+  },
+
+],
+
+linkSector:[
+  {
+    name: 'Link',
+    open: false,
+    id: 'link-sec',
+    properties: [color, typography],
+  },
+
+],
+
+iconSector:[
+  {
+    name: 'Icon',
+    id: 'icon-sec',
+    open: false,
+
+    buildProps: [
+      'border-style',
+      'border-radius',
+      'opacity',
+      'box-shadow',
+     
+    ],
+    properties: [
+    
+      {
+        
+        type: 'slider',
+        name: 'Opacity',
+        property: 'opacity',
+        default: 100,
+        min: 0,
+        max: 100,
+        step: 1,
+        units: ['%'],
+      },
+      {
+       
+        type: 'composite',
+        name: 'Border Width',
+        property: 'border-width',
+        properties: widthOptions,
+        detached: false,
+      },
+      {
+        type: 'color',
+        name: 'Border Color',
+        property: 'border-color',
+        colorPicker: {
+          preferredFormat: 'hex',
+          showInput: true,
+        },
+      },
+      {
+       
+        type: 'composite',
+        name: 'Border Radius',
+        property: 'border-radius',
+        properties: widthOptions,
+        detached: false,
+      },
+      {
+        type: 'slider',
+        name: 'Icon Size',
+        property: 'width',
+       
+        min: 0,
+        max: 100,
+        units: ['%', 'px'],
+      },
+    ],
+  },
+],
+
+
+
+
+
+
+  locationSector: [
     {
       name: 'Background',
       open: false,
@@ -2338,15 +2703,6 @@ const obj = {
             showInput: true,
           },
         },
-
-
-
-
-
-
-
-
-
       ],
     },
     {
@@ -2354,7 +2710,6 @@ const obj = {
       open: false,
       id: 'main-location-heading',
       properties: [color, typography],
-      
     },
     {
       name: 'Sub Heading',
@@ -2367,47 +2722,44 @@ const obj = {
       name: 'Icon List',
       id: 'icon-text',
       open: false,
-      
+
       properties: [
         {
           type: 'select',
           name: 'Divider',
           property: 'border-style',
           options: borderStyleOptions,
-
         },
         {
           type: 'radio',
           name: 'Alignment',
           property: 'text-align',
-         
+
           options: textAlignOptions,
         },
         {
           type: 'color',
           name: 'Text Cover',
           property: 'color',
-         
         },
         // {
         //   type: 'color',
         //   name: 'Hover Cover',
         //   property: 'hover',
-       
+
         // },
         {
           type: 'slider',
           name: 'Text Indent',
           property: 'text-indent',
           units: ['px'],
-        
         },
         typography,
         // {
         //   type: 'stack',
         //   name: 'List Typography',
         //   property: [typography],
-        
+
         // },
       ],
     },
@@ -2416,21 +2768,16 @@ const obj = {
       open: false,
       id: 'image-location',
       properties: [
-        
-          
-          
-          {
-            type: 'slider',
-            name: 'Icon Size',
-            property: 'width',
-           
-            min: 0,
-            max: 100,
-            units: ['%', 'px'],
-          },
-  
-        
-       
+        {
+          type: 'slider',
+          name: 'Icon Size',
+          property: 'width',
+
+          min: 0,
+          max: 100,
+          units: ['%', 'px'],
+        },
+
         {
           type: 'slider',
           name: 'Padding',
@@ -2932,63 +3279,61 @@ const obj = {
       open: false,
       id: 'image-department',
       properties: [
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        },
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          preferredFormat: 'hex',
+          showInput: true,
+        },
 
-          {
-            type: 'composite',
-            name: 'Border Radius',
-            property: 'border-radius',
-            properties: widthOptions,
-          },
-          {
-            type: 'color',
-            name: 'Border Color',
-            property: 'border-color',
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-  
-          {
-            type: 'composite',
-            name: 'Border Width',
-            property: 'border-width',
-            properties: widthOptions,
-          },
-          {
-            type: 'select',
-            name: 'Border Style',
-            property: 'border-style',
-            options: borderStyleOptions,
-          },
-          {
-            type: 'slider',
-            name: 'Icon Size',
-            property: 'width',
-            default: '100%',
-            min: 0,
-            max: 100,
-            units: ['%', 'px'],
-          },
-          {
-            type: 'slider',
-            name: 'Padding',
-            property: 'padding',
-           
-            min: 0,
-            max: 100,
-            units: ['%', 'px'],
-          },
-          {
-            type: 'slider',
-            name: 'Opacity',
-            property: 'opacity',
-            default: 1,
-            step: 1,
-            min: 0,
-            max: 100,
-            units: ['%'],
-          },
-        ],
-    
+        {
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+        },
+        {
+          type: 'select',
+          name: 'Border Style',
+          property: 'border-style',
+          options: borderStyleOptions,
+        },
+        {
+          type: 'slider',
+          name: 'Icon Size',
+          property: 'width',
+          default: '100%',
+          min: 0,
+          max: 100,
+          units: ['%', 'px'],
+        },
+        {
+          type: 'slider',
+          name: 'Padding',
+          property: 'padding',
+
+          min: 0,
+          max: 100,
+          units: ['%', 'px'],
+        },
+        {
+          type: 'slider',
+          name: 'Opacity',
+          property: 'opacity',
+          default: 1,
+          step: 1,
+          min: 0,
+          max: 100,
+          units: ['%'],
+        },
+      ],
     },
     {
       name: 'Icon Heading',
@@ -3003,41 +3348,6 @@ const obj = {
       properties: [color, typography],
     },
   ],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   JobsSector: [
     {
@@ -3093,63 +3403,61 @@ const obj = {
       open: false,
       id: 'image-department',
       properties: [
+        {
+          type: 'composite',
+          name: 'Border Radius',
+          property: 'border-radius',
+          properties: widthOptions,
+        },
+        {
+          type: 'color',
+          name: 'Border Color',
+          property: 'border-color',
+          preferredFormat: 'hex',
+          showInput: true,
+        },
 
-          {
-            type: 'composite',
-            name: 'Border Radius',
-            property: 'border-radius',
-            properties: widthOptions,
-          },
-          {
-            type: 'color',
-            name: 'Border Color',
-            property: 'border-color',
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-  
-          {
-            type: 'composite',
-            name: 'Border Width',
-            property: 'border-width',
-            properties: widthOptions,
-          },
-          {
-            type: 'select',
-            name: 'Border Style',
-            property: 'border-style',
-            options: borderStyleOptions,
-          },
-          {
-            type: 'slider',
-            name: 'Icon Size',
-            property: 'width',
-            default: '100%',
-            min: 0,
-            max: 100,
-            units: ['%', 'px'],
-          },
-          {
-            type: 'slider',
-            name: 'Padding',
-            property: 'padding',
-           
-            min: 0,
-            max: 100,
-            units: ['%', 'px'],
-          },
-          {
-            type: 'slider',
-            name: 'Opacity',
-            property: 'opacity',
-            default: 1,
-            step: 1,
-            min: 0,
-            max: 100,
-            units: ['%'],
-          },
-        ],
-    
+        {
+          type: 'composite',
+          name: 'Border Width',
+          property: 'border-width',
+          properties: widthOptions,
+        },
+        {
+          type: 'select',
+          name: 'Border Style',
+          property: 'border-style',
+          options: borderStyleOptions,
+        },
+        {
+          type: 'slider',
+          name: 'Icon Size',
+          property: 'width',
+          default: '100%',
+          min: 0,
+          max: 100,
+          units: ['%', 'px'],
+        },
+        {
+          type: 'slider',
+          name: 'Padding',
+          property: 'padding',
+
+          min: 0,
+          max: 100,
+          units: ['%', 'px'],
+        },
+        {
+          type: 'slider',
+          name: 'Opacity',
+          property: 'opacity',
+          default: 1,
+          step: 1,
+          min: 0,
+          max: 100,
+          units: ['%'],
+        },
+      ],
     },
     {
       name: 'Icon Heading',
@@ -3164,41 +3472,6 @@ const obj = {
       properties: [color, typography],
     },
   ],
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // departmentSector: [
   //   {

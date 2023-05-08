@@ -33,6 +33,8 @@ import {
   themestyle,
   departmentstyle,
   photoGalleryStyle,
+  swiperStyle,
+  dividerStyle,
 } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
@@ -167,6 +169,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  ])}
  `,
   });
+
+
+
+
+
+
   addBlock('testimonial', {
     label: 'Testimonial',
     category: 'Section Modules',
@@ -181,44 +189,91 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section  id= "testimonialSector" class="testimonial-container testimonialSector">
+    content: `
+    <section  id= "testimonialSector" class="testimonial-container testimonialSector">
+    <h1 class="h1 main-testimonial-title">You are in Good</h1> 
+    <div class="swiper-container  mySwiper">
     
-       <h1 class="h1 main-testimonial-title">You are in Good</h1>   
-          <div class="slider-content-main-div">
-
-          <div class="left-container">
-          
-          <div class="img-container">
-          <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
-          </div>
-      
-          <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
-          <span class="user-details">
-          <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
-          <h5 class="h5 main-testimonial-content"></h5>PhD, Statistics University of North</h5></span>
-          </div>
-           
-          <div class="divider"></div>
-               
-             <div class="slider-text-div">
-                <svg fill="#4ba4da" width="20" height="20" viewBox="0 0 975.036 975.036">
-                   <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-               
-                <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
-               
-                   <svg fill="#4ba4da" width="20" height="20"  viewBox="0 0 975.036 975.036">
-                   <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                </svg>
-             </div>
-          </div>
-  
+    <div class="swiper-wrapper">
+    <div class="swiper-slide">
+    <div class="slider-content-main-div">
    
- </section>
- ${testimonialStyle}
- ${getStyles(['.left-container', '.slider-text-div'])}
+    <div class="left-container">
+       <div class="img-container">
+             <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+         </div>
+               <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
+              <span class="user-details">
+               <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
+             <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5></span>
+     </div>
+         <div class="divider"></div>
+         <div class="slider-text-div">
+         <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+            </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    
+     </div>
+
+
+    <div class="swiper-slide">
+    <div class="slider-content-main-div">
+   
+    <div class="left-container">
+       <div class="img-container">
+             <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+         </div>
+               <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
+              <span class="user-details">
+               <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
+             <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5></span>
+     </div>
+         <div class="divider"></div>
+         <div class="slider-text-div">
+         <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+            </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    
+     </div>
+     </div>
+
+     
+     
+
+
+
+   
+     
+    
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+   
+    
+  </div>
+  </section>
+  ${swiperStyle}
  `,
   });
+
+
   addBlock('benefits', {
     label: 'Benefits',
     category: 'Section Modules',
@@ -399,7 +454,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <div class="guidline-option" data-gjs-type="GuidelineDiv" id="GuidelineDiv">
       <div style=" padding: 0.75rem; margin: 0.75rem;">
        
-       <h3 class="h3 guideline-bullet" style="height: 35px; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
+       <h3 class="h3 guideline-bullet" style="height: 35px; border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
        <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
     
      <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
@@ -732,7 +787,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('search', {
     label: 'Search',
-    category: 'Header & Footer',
+    category: 'Basic Elements',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
         <path d="M1458.948 1305.626c104.637-136.95 167.527-307.187 167.527-492.388C1626.475 364.764 1261.711 0 813.238 0 364.764 0 0 364.764 0 813.238c0 448.473 364.764 813.237 813.238 813.237 185.201 0 355.547-62.89 492.496-167.527L1766.678 1920 1920 1766.678l-461.052-461.052Zm-645.71 103.986c-328.874 0-596.375-267.61-596.375-596.374 0-328.765 267.501-596.375 596.375-596.375 328.873 0 596.374 267.61 596.374 596.375s-267.501 596.374-596.374 596.374Z" fill-rule="evenodd"/>
@@ -750,7 +805,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('divider', {
     label: 'Divider',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg 
       xmlns="http://www.w3.org/2000/svg"
@@ -767,20 +822,21 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       <polyline points="8 8 12 4 16 8" />
       <polyline points="16 16 12 20 8 16" />
     </svg>`,
-    content: `<div class="page-builder-divider">
-    <span class="page-builder-divider-seprator"></span>
-   </div>
-        ${style}
+    content: `
+<section class="dividerSector" id ="dividerSector">
+<hr class="divider-1">
+</section>
+        ${dividerStyle}
         `,
   });
   addBlock('spacer', {
     label: 'Spacer',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"><path d="M3,1V17a2,2,0,0,0,2,2H47a2,2,0,0,0,2-2V1H45V15H7V1ZM49,51V35a2,2,0,0,0-2-2H5a2,2,0,0,0-2,2V51H7V37H45V51ZM12,28H4V24h8Zm4,0h8V24H16Zm20,0H28V24h8Zm4,0h8V24H40Z" fill-rule="evenodd"/></svg>`,
-    content: `<div class="page-builder-spacer">
+    content: `<section class="page-builder-spacer spaceSector"  id ="spaceSector">
     <div class="page-builder-spacer-inner"></div>
-  </div>
+  </section>
         ${style}
         `,
   });
@@ -798,18 +854,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('icon', {
     label: 'Icon',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>ICON icon</title><path d="M21.605.021a2.397 2.397 0 00-.47 4.747 2.397 2.397 0 10.47-4.746zm-9.584 2.395C6.73 2.416 2.437 6.707 2.437 12c0 2.142.703 4.121 1.891 5.717l2.586-2.586a5.99 5.99 0 018.236-8.238l2.586-2.586a9.537 9.537 0 00-5.715-1.891zm7.692 3.867L17.127 8.87a5.989 5.989 0 01-8.236 8.238l-2.586 2.584a9.543 9.543 0 005.716 1.893c5.293 0 9.583-4.29 9.583-9.584 0-2.142-.704-4.12-1.891-5.717zM2.396 19.187a2.398 2.398 0 00-.47 4.749 2.402 2.402 0 002.822-2.823 2.399 2.399 0 00-2.352-1.925z"/></svg>`,
-    content: `<div class="icon-wrapper">
+    content: `<div class="icon-wrapper iconSector" id="iconSector">
     <div class="page-builder-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#159576" width="60" height="60" viewBox="0 0 78.576 74.885">
-    <g id="ZJE27B.tif" transform="translate(535.211 -1346.566)">
-      <g id="Group_54858" data-name="Group 54858" transform="translate(-535.211 1346.566)">
-        <path id="Path_170183" data-name="Path 170183" d="M-496.028,1346.566a2.84,2.84,0,0,1,2.794,1.775c3.342,6.817,6.721,13.616,10.063,20.433a1.383,1.383,0,0,0,1.2.884c7.435,1.054,14.865,2.151,22.3,3.224,2.148.31,3.3,1.442,2.987,3.2a3.8,3.8,0,0,1-1.062,1.892q-8.151,8.038-16.38,16a1.242,1.242,0,0,0-.419,1.272c1.324,7.595,2.608,15.2,3.913,22.8a2.711,2.711,0,0,1-1.1,2.886,2.753,2.753,0,0,1-3.092.095q-10.153-5.349-20.311-10.691a1.4,1.4,0,0,0-1.5-.021q-10.067,5.329-20.158,10.612a3.084,3.084,0,0,1-2.642.352,2.717,2.717,0,0,1-1.759-3.1q1.7-10.041,3.428-20.076c.16-.936.263-1.885.488-2.8a1.244,1.244,0,0,0-.428-1.35c-5.355-5.193-10.683-10.414-16.044-15.6-1.013-.98-1.8-2-1.311-3.478.5-1.53,1.8-1.82,3.209-2.02,7.35-1.04,14.693-2.136,22.042-3.183a1.323,1.323,0,0,0,1.141-.844c3.358-6.841,6.746-13.668,10.1-20.51A2.747,2.747,0,0,1-496.028,1346.566Z" transform="translate(535.211 -1346.566)"/>
-      </g>
-    </g>
-  </svg>
+    <img class="image-department icon-sec" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
     </div>
     </div>
         ${IconStyle}
@@ -854,7 +904,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   });
   addBlock('icon-list', {
     label: 'Icon List',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
     <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
         <path d="M169.412 1355.412c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.411-169.412 169.411C76.009 1694.235 0 1618.225 0 1524.824c0-93.403 76.01-169.412 169.412-169.412ZM1920 1468.352v112.942H564.706v-112.941H1920ZM169.412 790.707c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.411-169.412 169.411C76.009 1129.53 0 1053.52 0 960.118c0-93.403 76.01-169.412 169.412-169.412ZM1920 903.647v112.941H564.706v-112.94H1920ZM169.412 226c93.402 0 169.412 76.01 169.412 169.412s-76.01 169.412-169.412 169.412C76.009 564.824 0 488.814 0 395.412 0 302.009 76.01 226 169.412 226ZM1920 338.941v112.941H564.706v-112.94H1920Z" fill-rule="evenodd"/>
@@ -1161,32 +1211,64 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
   addBlock('image', {
     label: 'Image',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z"></path>
   </svg>`,
-    content: `<div id="image" class="image">
-    <img src="https://dummyimage.com/1200x500" alt="step"  >
+    content: `<div id="imageSector" class="imageSector">
+    <img  class="image img-link"src="https://dummyimage.com/1200x500" alt="step"  >
     </div>
+        `,
+  });
+  addBlock('text', {
+    label: 'Heading',
+    category: 'Basic',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
+    content: `
+    <section id="headingSector" class="headingSector">
+    <h1 class="h1 heading-1">Add Your Heading Title here</h1>
+    </section>
+        `,
+  });
+
+  addBlock('paragraph-1', {
+    label: 'Paragraph',
+    category: 'Basic',
+    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
+    content: `
+  <section class="paraSect" id ="paraSect">
+  <h5 class="h5 para-1">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h5>
+
+  
+  
+  
+  </section>
         `,
   });
 
   addBlock('button', {
     label: 'Button',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-    <button class="button">Hello World</button>
+   <div class="buttonSector" id ="buttonSector">
+   <button class="button btn-save">Hello World</button>
+   </div>
  
         `,
   });
 
-  addBlock('a', {
+  addBlock('link', {
     label: 'Link',
-    category: 'Basic Elements',
+    category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-    <a  href="#"class="a">Link</a>
+    <section class="linkSector" id="linkSector">
+    <a  href="#" class="a link-sec">Link</a>
+    </section>
  
         `,
   });

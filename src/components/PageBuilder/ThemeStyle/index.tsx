@@ -156,7 +156,7 @@ const ThemeStyle: React.FC = () => {
     let apiEndpoint = `${serverURL}/api/users/${user.id}`;
     let arr = [
       'button',
-      'img',
+      'image',
       'h1',
       'h2',
       'h3',
@@ -181,6 +181,7 @@ console.log("editor.getProjectData().styles",editor.getProjectData().styles)
     let filteredStyles = editor
       .getProjectData()
       .styles.filter((el) => arr.includes(el.selectors[0]));
+      console.log("")
     console.log('filteredStyles', filteredStyles);
     try {
       const formData = new FormData();
