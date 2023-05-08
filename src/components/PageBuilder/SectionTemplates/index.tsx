@@ -22,6 +22,7 @@ import Forms from 'grapesjs-plugin-forms';
 import 'grapick/dist/grapick.min.css';
 
 import { Context } from '../../../Providers/MyProvider';
+import { DataContext } from '../../../Providers/DataProvider';
 import { toast } from 'react-toastify';
 import SectionModel from './SectionModel';
 
@@ -33,17 +34,17 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
+  const { fetchSectionDetail } = useContext(DataContext);
   const { setSectionBlocksArray } = useContext(Context);
-  const [filtered ,  setFiltered] = useState("");
+  const [filtered, setFiltered] = useState('');
   const [modelIsOPen, setModelIsOPen] = useState(false);
-  const [name,setName] = useState("");
+  const [name, setName] = useState('');
+  console.log("userData.defaultStyle.filteredStyles",userData.defaultStyle.filteredStyles)
 
+  // let sectionData = {
+  //   isUpdate: false,
+  // };
 
-  let sectionData = {
-    isUpdate: false,
-  };
-
- 
   var isUpdating = false;
   const sections = [
     'page-builder',
@@ -68,32 +69,17 @@ const SectionPageBuilder: React.FC = () => {
     // 'swiper',
   ];
 
-
-const basicElements=[
-  'text',
-  'paragraph-1',
-  'button',
-  'divider',
-   'spacer',
-   'image',
-   'icon',
-   'icon-list',
-
-
-]
-
-
-
-
-
-
-
-
-
-
-
-
-
+  const basicElements = [
+    'text',
+    'paragraph-1',
+    'button',
+    'divider',
+    'spacer',
+    'image',
+    'icon',
+    'icon-list',
+    'link',
+  ];
 
   let showSections = true;
   const apiEndpoint = `${serverURL}/api`;
@@ -152,7 +138,7 @@ const basicElements=[
         console.error(error);
       });
   };
- 
+
   const addAssets = async () => {
     const assetManager = editor?.AssetManager;
     axios
@@ -172,25 +158,22 @@ const basicElements=[
       });
   };
 
-
-
-  
-
   let arr = pathname.split('/');
 
   let str = arr[arr.length - 1];
 
   let isInclude = sections.includes(str);
-  console.log("IsInclude",isInclude);
+  console.log('IsInclude', isInclude);
 
   let blocks = isInclude ? [str] : basicElements;
 
- 
   //Save the Section
   const saveSectionTemplate = () => {
-    if (sectionData.isUpdate) {
+    console.log('sectionData', window?.sectionData);
+
+    if (window?.sectionData?.isUpdate) {
       axios
-        .patch(`${apiEndpoint}/section-save/${sectionData?.id}`, {
+        .patch(`${apiEndpoint}/section-save/${window?.sectionData?.id}`, {
           sectionTitle: str,
           sectionCode: JSON.stringify(editor.getProjectData()),
         })
@@ -215,51 +198,50 @@ const basicElements=[
     }
   };
 
+  const handleScratchSave = (e) => {
+    if (name) {
+      axios
+        .post(`${apiEndpoint}/section-save`, {
+          sectionTitle: name,
+          sectionCode: JSON.stringify(editor.getProjectData()),
+        })
+        .then((res) => {
+          toast.success('Section Created Successfully');
+          window.location.reload(true);
+        })
 
-
-  const handleScratchSave = ()=>{
-    axios
-    .post(`${apiEndpoint}/section-save`, {
-      sectionTitle: name,
-      sectionCode: JSON.stringify(editor.getProjectData()),
-    })
-    .then((res) => {
-      toast.success('Section Created Successfully');
-      window.location.reload(true); 
-     })
-
-    .catch((err) => {
-      console.log('err', err);
-    });
-  }
-
+        .catch((err) => {
+          console.log('err', err);
+        });
+    } else {
+      toast.error('Please Enter the Section Name');
+    }
+  };
 
   //Fetch Section Data from Backend
   const getData = () => {
     axios
       .get(`${apiEndpoint}/section-save`)
       .then((res) => {
-        let arr = pathname.split('/');
-        let str = arr[arr.length - 1];
+        // console.log('res.data', res.data);
         const filtered = res.data.docs.filter((el) => el.sectionTitle === str);
-        console.log("old filtered",filtered)
+        // console.log('old filtered', filtered);
         setFiltered(filtered.sectionTitle);
-     
+
         if (filtered.length > 0) {
-          sectionData = { ...filtered[0], isUpdate: true };
+          window.sectionData = { ...filtered[0], isUpdate: true };
           const { sectionCode } = filtered[0];
           editor.loadProjectData({
             ...Object.assign({}, { ...JSON.parse(sectionCode) }),
           });
-        } 
+        }
       })
       .catch((err) => {
         console.log('err', err);
       });
   };
 
-
-let themeStylePanels= true;
+  let themeStylePanels = true;
 
   //Initialize the Instance
   const initializeInstance = () => {
@@ -281,24 +263,11 @@ let themeStylePanels= true;
       showDevices: false,
       showOffsetsSelected: true,
       style: canvasStyle,
-      plugins: [Blocks, backgroundPlugin,
-        Basics,
-      
-      
-      
-      
-      
-      
-      
-      ],
-      pluginsOpts:{
-        Basics:{},
-        Blocks:{},
+      plugins: [Blocks, backgroundPlugin, Basics],
+      pluginsOpts: {
+        Basics: {},
+        Blocks: {},
       },
-
-
-  
-    
 
       blockManager: {
         appendTo: '.blocks',
@@ -308,18 +277,16 @@ let themeStylePanels= true;
         defaults: [
           {
             id: 'save-editor',
-            name: sectionData?.isUpdate ? 'Update' : 'Save',
+            // name: sectionData?.isUpdate ? 'Update' : 'Save',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-              if(isInclude){
+             
+              if (isInclude) {
                 saveSectionTemplate();
-              }
-              else{
+              } else {
                 // prompt("Enter Section Name")
                 setModelIsOPen(true);
-
               }
-              
             },
           },
         ],
@@ -344,8 +311,18 @@ let themeStylePanels= true;
 
     localStorage.removeItem('gjsProject');
     editor.on('load', () => {
-      if (sectionData.isUpdate) {
-        getData();
+      console.log('zee load');
+
+      // console.log('sectionDataContext', fetchSectionDetail);
+      let { data, found, filtering } = fetchSectionDetail(str);
+      // console.log('data, found,filtering', data, found);
+
+      if (found) {
+        // const { sectionCode } = filtering;
+        // // editor.loadProjectData({ ...JSON.parse(sectionCode) });
+        // editor.loadProjectData({
+        //   ...Object.assign({}, { ...JSON.parse(sectionCode) }),
+        // });
       } else {
         editor.loadProjectData({
           ...Object.assign(
@@ -353,15 +330,37 @@ let themeStylePanels= true;
             { ...editor.getProjectData() },
             { styles: userData.defaultStyle.filteredStyles }
           ),
-        }); 
+        });
       }
+     
     });
     //This is for Single Section
     editor.onReady(() => {
-      if (blocks.length === 1) {
+      console.log('zee editor.onReady');
+      let { data, found, filtering } = fetchSectionDetail(str);
+      console.log('data, found,filtering', data, found);
+      if (found) {
+        const { sectionCode, sectionTitle } = filtering;
+        window.sectionData = { ...filtering, isUpdate: true };
+
+        console.log('...JSON.parse(sectionCode)', JSON.parse(sectionCode));
+        // editor.loadProjectData({ ...JSON.parse(sectionCode) });
+        // editor.loadProjectData({
+        //   ...Object.assign({}, { ...JSON.parse(sectionCode) }),
+        // });
+
+        const blo = editor.BlockManager.getAll();
+        console.log('blo', blo);
+
+        const filtered = blo.filter((block) => block.id === sectionTitle);
+        console.log('filtered', filtered);
+
         const sectors = editor.StyleManager.getSectors();
-        const block = editor.BlockManager.get(blocks[0]);
+        console.log('sectors', sectors);
+        const block = editor.BlockManager.get(filtered[0]);
+        console.log('block', block);
         const component = editor.addComponents(block.get('content'));
+        console.log('component', component);
         component[0].set('selectable', false);
         component[0].set('removable', false);
         component[0].set('stylable', true);
@@ -370,21 +369,45 @@ let themeStylePanels= true;
         component[0].set('draggable', false);
         editor.select(component[0]);
         sectors.reset();
+        editor.loadProjectData({
+          ...Object.assign({}, { ...JSON.parse(sectionCode) }),
+        });
+        console.log('component[0].getId()', component[0].getId());
+        sectors.add(getSectors(component[0].getId()));
+        //@ts-ignore
+        editor.runCommand('core:open-styles');
+      } else if (blocks.length === 1 && !found) {
+        window.sectionData = { ...filtering, isUpdate: false };
+
+        const sectors = editor.StyleManager.getSectors();
+        console.log('sectors', sectors);
+        const block = editor.BlockManager.get(blocks[0]);
+        console.log('block', block);
+        const component = editor.addComponents(block.get('content'));
+        console.log('component', component);
+        component[0].set('selectable', false);
+        component[0].set('removable', false);
+        component[0].set('stylable', true);
+        component[0].set('copyable', false);
+        component[0].set('layerable', false);
+        component[0].set('draggable', false);
+        editor.select(component[0]);
+        sectors.reset();
+        console.log('component[0].getId()', component[0].getId());
         sectors.add(getSectors(component[0].getId()));
         //@ts-ignore
         editor.runCommand('core:open-styles');
       } else {
-        //@ts-ignore
-        editor?.runCommand('core:open-blocks');
       }
+
     });
 
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
-      console.log('ccid', component);
+
       if (component) {
         const sectors = editor.StyleManager.getSectors();
-        console.log("ccid sectors",sectors)
+   
         sectors.reset();
         sectors.add(getSectors(component.ccid));
       }
@@ -460,7 +483,7 @@ let themeStylePanels= true;
         },
         init() {
           const comps = this.components();
-          console.log('Text comps', comps);
+          // console.log('Text comps', comps);
           const tChild = comps.length === 1 && comps.models[0];
           const chCnt =
             (tChild && tChild.is('textnode') && tChild.get('content')) || '';
@@ -492,7 +515,7 @@ let themeStylePanels= true;
           const comps = this.components();
 
           const tChild = comps.length === 1 && comps.models[0];
-          console.log('Old tChild', tChild);
+          // console.log('Old tChild', tChild);
           const chCnt =
             (tChild && tChild.is('textnode') && tChild.get('content')) || '';
           const text = chCnt || this.get('text');
@@ -562,7 +585,7 @@ let themeStylePanels= true;
     //Add Trait on click
     const toggleBtn = () => {
       const component = editor.getSelected();
-      console.log('component Selection', component);
+      // console.log('component Selection', component);
       //@ts-ignore
       if (component.ccid == 'GuidelineDiv') {
         component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;">
@@ -638,8 +661,7 @@ let themeStylePanels= true;
       onUpdate({ elInput, component }) {
         const wrapperCmp = editor.DomComponents.getWrapper();
         let target = `.guidline-option`;
-        console.log('target', target);
-        console.log('wrapperCmp.find(target)', wrapperCmp.find(target));
+        
         editor.select(wrapperCmp.find(target)[0]);
       },
     });
@@ -670,10 +692,10 @@ let themeStylePanels= true;
               var swiper = new Swiper('.mySwiper', {
                 spaceBetween: 30,
                 centeredSlides: true,
-                
+
                 navigation: {
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
                 },
               });
 
@@ -696,7 +718,7 @@ let themeStylePanels= true;
               //   //   prevEl: ".swiper-button-prev",
               //   // },
               // });
-              console.log('swiper :>> ', swiper);
+              // console.log('swiper :>> ', swiper);
             };
             initLib();
 
@@ -802,7 +824,7 @@ let themeStylePanels= true;
 
     // @ts-ignore
     editor.on('style:sector:update', (props) => {
-      console.log('props', props);
+   
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
@@ -812,15 +834,12 @@ let themeStylePanels= true;
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
-              console.log('props id', props.id);
+           
               let isOpen = sectors.models[i].isOpen();
-              console.log('isOpen', isOpen);
+    
               if (isOpen) {
                 const wrapperCmp = editor.DomComponents.getWrapper();
-                console.log(
-                  'wrapperCmp.find(`.${props.id}`)[0]',
-                  wrapperCmp.find(`.${props.id}`)[0]
-                );
+               
                 editor.select(wrapperCmp.find(`.${props.id}`)[0]);
               }
             } else {
@@ -847,13 +866,9 @@ let themeStylePanels= true;
           const selectedSector = component
             .getSelectorsString()
             .replace('.', '');
-          console.log('selectedSector', selectedSector);
-          console.log(
-            'component.getSelectorsString()',
-            component.getSelectorsString()
-          );
+          
           const sectors = editor.StyleManager.getSectors();
-          console.log('sectors', sectors);
+          
           for (let i = 0; i < sectors.length; i++) {
             if (selectedSector.includes(sectors.models[i].get('id'))) {
               sectors.models[i].setOpen(true);
@@ -884,7 +899,7 @@ let themeStylePanels= true;
     });
 
     editor.on('component:update', (component) => {
-      console.log('component update called', component);
+      // console.log('component update called', component);
     });
 
     // getCurrentBlock();
@@ -896,44 +911,49 @@ let themeStylePanels= true;
   useEffect(() => {
     initializeInstance();
   }, []);
-  return (<>
-  <SectionModel modelIsOPen={modelIsOPen} setName ={setName} handleScratchSave ={handleScratchSave} />
-    <div className="main__content main__content__editor">
-      <Eyebrow />
-      <div className="panel__top"></div>
-      <div className="editor-row fixed-toolbar">
-        <div className="panel__basic-actions"></div>
-        <div className="panel__left bottom-controls">
-          <div className="back__panel panel-header">
-            <Link
-              className="panel-header__link"
-              to={`${admin}/collections/templates-library`}
-            >
-              <ArrowBackIosNewRoundedIcon />
-            </Link>
-            <span>{`${str} Module`}</span>
-            <span className="panel-header__menu">
-              <AppsRoundedIcon />
-            </span>
-          </div>
-          <div className="panel-body has-bottom-controls">
-            <div className="panel-body__inner">
-              <div className="panel-body__content">
-                <div className="panel__switcher"></div>
-                <div className="styles-container"></div>
-                <div className="traits-container"></div>
-                <div className="layers-container"></div>
+  return (
+    <>
+      <SectionModel
+        modelIsOPen={modelIsOPen}
+        setName={setName}
+        handleScratchSave={handleScratchSave}
+      />
+      <div className="main__content main__content__editor">
+        <Eyebrow />
+        <div className="panel__top"></div>
+        <div className="editor-row fixed-toolbar">
+          <div className="panel__basic-actions"></div>
+          <div className="panel__left bottom-controls">
+            <div className="back__panel panel-header">
+              <Link
+                className="panel-header__link"
+                to={`${admin}/collections/templates-library`}
+              >
+                <ArrowBackIosNewRoundedIcon />
+              </Link>
+              <span>{`${str} Module`}</span>
+              <span className="panel-header__menu">
+                <AppsRoundedIcon />
+              </span>
+            </div>
+            <div className="panel-body has-bottom-controls">
+              <div className="panel-body__inner">
+                <div className="panel-body__content">
+                  <div className="panel__switcher"></div>
+                  <div className="styles-container"></div>
+                  <div className="traits-container"></div>
+                  <div className="layers-container"></div>
+                </div>
+                <SidebarBottom editor={editor} hasBottomToolbar={false} />{' '}
+                {/*  this warning is stylable. work is in progress*/}
               </div>
-              <SidebarBottom editor={editor} hasBottomToolbar={false} />{' '}
-              {/*  this warning is stylable. work is in progress*/}
             </div>
           </div>
-        </div>
-        <div className="editor-canvas">
-          <div id="sections"></div>
+          <div className="editor-canvas">
+            <div id="sections"></div>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
