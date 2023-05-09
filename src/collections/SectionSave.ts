@@ -24,7 +24,12 @@ export const SectionSaveCollection: CollectionConfig = {
       type: 'text',
     //   required: true,
     },
-    
+    {
+      name: 'category',
+      label: 'Section Category',
+      type: 'text',
+    //   required: true,
+    },
   
     {
       name: 'sectionCode',

@@ -35,6 +35,7 @@ import {
   photoGalleryStyle,
   swiperStyle,
   dividerStyle,
+  HeadingStyle,
 } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
@@ -170,11 +171,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  `,
   });
 
-
-
-
-
-
   addBlock('testimonial', {
     label: 'Testimonial',
     category: 'Section Modules',
@@ -272,7 +268,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   ${swiperStyle}
  `,
   });
-
 
   addBlock('benefits', {
     label: 'Benefits',
@@ -540,7 +535,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         `,
     //       <img class="location-image" data-gjs-type="mj-image" class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
     //         height: 400px;">
-   
   });
   addBlock('paragraph', {
     label: 'Paragraph',
@@ -688,7 +682,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         `,
   });
 
-
   addBlock('photo-gallery', {
     label: 'Photo Gallery',
     category: 'Section Modules',
@@ -736,8 +729,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  ${getStyles(['.photo-title-div', '.photo-option-section'])}
  `,
   });
-
-
 
   addBlock('image-and-text', {
     label: 'Image & Text',
@@ -1225,9 +1216,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-    <section id="headingSector" class="headingSector">
+    <section id="headingSector" class="headingSector" data-gjs-type="headingSector">
+    <div class="heading-div">
     <h1 class="h1 heading-1">Add Your Heading Title here</h1>
+    </div>
     </section>
+    ${HeadingStyle}
         `,
   });
 

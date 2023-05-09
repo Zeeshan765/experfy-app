@@ -1234,6 +1234,17 @@ export const SectionStyle = `<style>
 
 </style>`;
 
+
+
+export const HeadingStyle=`<style>
+.heading-div{
+  margin: 2rem;
+  width: 80%;
+}
+
+</style>`
+
+
 export const themestyle = `
     <style>
       .header-block {

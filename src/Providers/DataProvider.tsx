@@ -17,7 +17,7 @@ const GetSectionData: React.FC<any> = ({ children }) => {
       let apiEndpoint = `${serverURL}/api/section-save`;
       const res = await axios.get(apiEndpoint);
       const { docs } = res.data;
-      // console.log('data', docs);
+      console.log('hello world', docs);
       setSectionData(docs);
     } catch (error) {
       console.error(error);
@@ -25,11 +25,10 @@ const GetSectionData: React.FC<any> = ({ children }) => {
   };
 
   const fetchSectionDetail = (parem) => {
-    // console.log('sectionData', sectionData)
-    // console.log('parem', parem)
+ 
     const filtered = sectionData.filter((el) => el.sectionTitle === parem);
     setFiltered(filtered.sectionTitle)
-    // console.log('old filtered', filtered);
+    
 
     let res = {};
     if (filtered.length > 0) {
@@ -50,6 +49,8 @@ const GetSectionData: React.FC<any> = ({ children }) => {
 
   const value = {
     fetchSectionDetail,
+    sectionData,
+
   };
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };

@@ -14,6 +14,7 @@ import { toast } from 'react-toastify';
 import Experfy from './ExperfyPlugin';
 import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 import { UserContext } from '../../Providers/UserProvider';
+import { DataContext } from '../../Providers/DataProvider';
 import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
 import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
@@ -39,8 +40,18 @@ const PageBuilder: React.FC = () => {
   const { routes, serverURL } = useConfig();
   const { id }: parems = useParams();
   const { userData } = useContext(UserContext);
+  const { sectionData,fetchSectionDetail } = useContext(DataContext);
   const { setStepNav } = useStepNav();
   const history = useHistory();
+
+  console.log('sectionData', sectionData);
+
+  let custom = 'Custom Module';
+  let Filtered = sectionData
+    .filter((el) => el.category === custom)
+    .map((section) => section); // sectionTitle.replace(' ', '-')
+  console.log('Custom Module', Filtered);
+
   // ======Hooks end=======
   const { admin } = routes;
   const apiEndpoint = `${serverURL}/api`;
@@ -145,16 +156,16 @@ const PageBuilder: React.FC = () => {
         });
     } else {
       // if (id) {
-        axios
-          .patch(`${apiEndpoint}/pages/${id}`, {
-            pageCode: JSON.stringify(editor.getProjectData()),
-          })
-          .then((res) => {
-            toast.success(res.data.message);
-          })
-          .catch((err) => {
-            console.log('err', err);
-          });
+      axios
+        .patch(`${apiEndpoint}/pages/${id}`, {
+          pageCode: JSON.stringify(editor.getProjectData()),
+        })
+        .then((res) => {
+          toast.success(res.data.message);
+        })
+        .catch((err) => {
+          console.log('err', err);
+        });
       // }
     }
   };
@@ -306,13 +317,17 @@ const PageBuilder: React.FC = () => {
 
   //======== GrapesJs Canvas initialization start here========
   const initializeInstance = () => {
+    console.log('sections', sections);
+    console.log('Filtered', Filtered);
+    let blocks = [...sections];
+    console.log('blocks', blocks);
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,
       options: GrapesJS.EditorConfig
     ) =>
       Experfy(editor, {
         ...options,
-        blocks: sections,
+        blocks,
         showPanelsOnLoad: true,
         showGlobalStyles: false,
       });
@@ -326,24 +341,29 @@ const PageBuilder: React.FC = () => {
       canvasCss: '.blocks: {display: grid;}',
       plugins: [
         ExperfyBlocks,
-        (editor) =>
-          NavBar(editor, {
-            label: 'Header',
-            block: {
-              category: 'Header & Footer',
-            },
-          }),
-        (editor) =>
-          Basics(editor, {
-            category: 'Basic Elements',
-            flexGrid: true,
-            addBasicStyle: false,
-          }),
-        (editor) =>
-          Forms(editor, {
-            category: 'Basic Elements',
-          }),
+        // (editor) =>
+        //   NavBar(editor, {
+        //     label: 'Header',
+        //     block: {
+        //       category: 'Header & Footer',
+        //     },
+        //   }),
+        // (editor) =>
+        //   Basics(editor, {
+        //     category: 'Basic Elements',
+        //     flexGrid: true,
+        //     addBasicStyle: false,
+        //   }),
+
+        // (editor) =>
+        //   Forms(editor, {
+        //     category: 'Basic Elements',
+        //   }),
       ],
+      pluginsOpts: {
+        ExperfyBlocks: {},
+        Filtered: {},
+      },
       layerManager: {
         appendTo: '.layers-container',
         scrollCanvas: true,
@@ -382,18 +402,17 @@ const PageBuilder: React.FC = () => {
             id: 'save-editor',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-              console.log("before changed",isChanged)
-                console.log("isChanged", isChanged)
-                saveHistoy();
-                const store = editor.store();
-                dataHandler();
+              console.log('before changed', isChanged);
+              console.log('isChanged', isChanged);
+              saveHistoy();
+              const store = editor.store();
+              dataHandler();
             },
           },
         ],
       },
     });
 
-   
     function isObjEmpty(obj) {
       if (obj === undefined) {
         return true;
@@ -417,31 +436,83 @@ const PageBuilder: React.FC = () => {
         isChanged = true;
       }
     });
+    let TextTrait = [
+      {
+        name: 'text',
 
+        label: 'Title',
 
-//@ts-ignore
+        changeProp: 1,
+      },
+
+      {
+        type: 'select',
+        name: 'tagName',
+        label: 'HTML Tag',
+        ChangeProp: 1,
+
+        options: [
+          { id: 'h1', name: 'H1' },
+          { id: 'h2', name: 'H2' },
+          { id: 'h3', name: 'H3' },
+          { id: 'h4', name: 'H4' },
+          { id: 'h5', name: 'H5' },
+          { id: 'h6', name: 'H6' },
+          { id: 'div', name: 'div' },
+          { id: 'span', name: 'span' },
+          { id: 'p', name: 'p' },
+        ],
+        changeProp: 1,
+      },
+    ];
+    editor.DomComponents.addType('text', {
+      model: {
+        defaults: {
+          traits: TextTrait,
+        },
+        init() {
+          const comps = this.components();
+          // console.log('Text comps', comps);
+          const tChild = comps.length === 1 && comps.models[0];
+          const chCnt =
+            (tChild && tChild.is('textnode') && tChild.get('content')) || '';
+          const text = chCnt || this.get('text');
+          this.set('text', text);
+          //@ts-ignore
+          this.on('change:text', this.__onTextChange);
+          //@ts-ignore
+          text !== chCnt && this.__onTextChange();
+          //@ts-ignore
+          this.on('change:attributes:htmltag', this.handleHtmltagChange);
+        },
+        __onTextChange() {
+          this.components(this.get('text'));
+        },
+        handleHtmltagChange() {
+          this.set('tagName', this.getAttributes().htmltag);
+        },
+      },
+    });
+
+    //@ts-ignore
     editor.on('style:property:update', (component) => {
       isChanged = true;
 
-      // const um = editor.UndoManager;
-
-      // const stack = um.getStack();
-      // console.log('stack.length, ln', stack.length, ln)
-      // if (stack.length > 0 && ln !== stack.length) {
-      //   console.log('Stack Changes', stack);
-      //   ln = stack.length;
-      //   // stack.map((item) => {
-      //   //   console.log('item type',  component);
-      //   // });
-      //   console.log(
-      //     '----------------------------------------------------------------------'
-      //   );
-      // }
     });
 
-
-
     editor.on('load', () => {
+      Filtered.forEach((element) => {
+        console.log('element', element);
+        const { category, id, sectionCode, sectionTitle } = element;
+
+        editor.BlockManager.add(sectionTitle.replace(' ', '-'), {
+          label: sectionTitle,
+          category,
+          // media:
+          content: JSON.parse(sectionCode),
+        });
+      });
+
       editor.loadProjectData({
         ...Object.assign(
           {},
@@ -477,164 +548,70 @@ const PageBuilder: React.FC = () => {
         });
       }
     });
-    editor.DomComponents.addType('text', {
-      model: {
-        defaults: {
-          traits: TextTrait,
-        },
-        changeProp: 1,
-      },
-    });
+    // editor.DomComponents.addType('text', {
+    //   model: {
+    //     defaults: {
+    //       traits: TextTrait,
+    //     },
+    //     changeProp: 1,
+    //   },
+    // });
 
-    editor.DomComponents.addType('button', {
-      model: {
-        defaults: {
-          traits: [
-            {
-              type: 'text',
-              name: 'button-title',
-              label: 'Button Text',
-              placeholder: 'Buttton ',
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Button Size',
-              default: 'small',
-              options: [
-                { value: 'btn-extrasmall', name: 'Extra Small' },
+    // editor.DomComponents.addType('button', {
+    //   model: {
+    //     defaults: {
+    //       traits: [
+    //         {
+    //           type: 'text',
+    //           name: 'button-title',
+    //           label: 'Button Text',
+    //           placeholder: 'Buttton ',
+    //         },
+    //         {
+    //           type: 'select',
+    //           name: 'class',
+    //           label: 'Button Size',
+    //           default: 'small',
+    //           options: [
+    //             { value: 'btn-extrasmall', name: 'Extra Small' },
 
-                { value: 'btn-small', name: 'small' },
-                { value: 'btn-medium', name: 'Medium' },
-                { value: 'btn-large', name: 'Large' },
-                { value: 'btn-extralarge', name: 'Extra Large' },
-              ],
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Button Alignment',
-              default: 'btn-start',
-              options: [
-                { value: 'btn-start', name: 'Left' },
-                { value: 'btn-center', name: 'Center' },
-                { value: 'btn-right', name: 'Right' },
-              ],
-            },
-          ],
-        },
-      },
-    });
+    //             { value: 'btn-small', name: 'small' },
+    //             { value: 'btn-medium', name: 'Medium' },
+    //             { value: 'btn-large', name: 'Large' },
+    //             { value: 'btn-extralarge', name: 'Extra Large' },
+    //           ],
+    //         },
+    //         {
+    //           type: 'select',
+    //           name: 'class',
+    //           label: 'Button Alignment',
+    //           default: 'btn-start',
+    //           options: [
+    //             { value: 'btn-start', name: 'Left' },
+    //             { value: 'btn-center', name: 'Center' },
+    //             { value: 'btn-right', name: 'Right' },
+    //           ],
+    //         },
+    //       ],
+    //     },
+    //   },
+    // });
 
-    editor.DomComponents.addType('mj-image', {
-      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
-      model: {
-        defaults: {
-          traits: [
-            {
-              type: 'mjchange',
-              label: ' ',
-              name: 'mjchange',
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Icon background',
-              default: 'left',
-              options: [{ value: 'left', name: 'Left' }],
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Background Shape',
-              default: 'left',
-              options: [{ value: 'left', name: 'Left' }],
-            },
-          ],
-        },
-      },
-    });
+  
 
-    editor.DomComponents.addType('mj-image', {
-      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
-      model: {
-        defaults: {
-          traits: [
-            {
-              type: 'mjchange',
-              label: ' ',
-              name: 'mjchange',
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Icon background',
-              default: 'left',
-              options: [{ value: 'left', name: 'Left' }],
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Background Shape',
-              default: 'left',
-              options: [{ value: 'left', name: 'Left' }],
-            },
-          ],
-        },
-      },
-    });
-    editor.TraitManager.addType('mjchange', {
-      noLabel: true,
-      createInput({}) {
-        let selectedSrc = editor.getSelected();
-        let src = selectedSrc!.attributes.attributes!.src;
-        const toggleModal = () => {
-          editor.runCommand('open-assets', {
-            target: editor.getSelected(),
-          });
-        };
-        const el = document.createElement('div');
-        el.setAttribute('class', 'image-trait-preview');
-        el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
-                  <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
-        const inputType = el.querySelector('#chg-img-trait-btn');
-        const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
-        imgBox!.addEventListener('click', toggleModal);
-        inputType!.addEventListener('click', toggleModal);
-        return el;
-      },
-    });
-    editor.on('modal:open', (component) => {
-      const $ = editor.$;
-      const am = editor.AssetManager;
-      am.open({
-        types: ['mj-image'],
-        select(assets, complete) {
-          const selected = editor.getSelected();
-          // console.log('page seletcted', selected);
-          if (selected && selected.is('mj-image')) {
-            $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
-            selected.addAttributes({ src: assets.getSrc() });
-            complete && editor.AssetManager.close();
-          }
-          // console.log('after select', selected);
-        },
-      });
-    });
-
-    // console.log('checkk;sksd', editor.getSelected());
+  
     //For Traits
     editor.on('component:selected', (component) => {
       console.log('component*******', component);
-      if (component) {
-        let ccid = component.ccid.split('-')[0];
-        // console.log('ccid', ccid);
-        const blocksector = editor.StyleManager.getSectors();
-        // console.log('blocksector', blocksector);
-        blocksector.reset();
-        blocksector.add(getSectors(ccid));
-        // console.log('blocksector', blocksector.add(getSectors(ccid)));
-      }
+      // if (component) {
+      //   let ccid = component.ccid.split('-')[0];
+      //   // console.log('ccid', ccid);
+      //   const blocksector = editor.StyleManager.getSectors();
+      //   // console.log('blocksector', blocksector);
+      //   blocksector.reset();
+      //   blocksector.add(getSectors(ccid));
+      //   // console.log('blocksector', blocksector.add(getSectors(ccid)));
+      // }
       let type = component.get('type');
       const { id } = component.attributes.attributes;
       if (component.get('type') == 'text') {
@@ -672,45 +649,115 @@ const PageBuilder: React.FC = () => {
     });
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
-      // if component exists, means the drop was successful
-      if (component) {
+      console.log('block', block);
+      console.log("component",component);
+      let { data, found, filtering } = fetchSectionDetail(block.id);
+      console.log("found",found);
+      //Updated
+      if (found ) {
+        
+        const { sectionCode } = filtering;
+        let content = JSON.parse(sectionCode)
+        
+        editor.loadProjectData({ ...content});
+        console.log(" ...JSON.parse(sectionCode)}",JSON.parse(sectionCode))
+        const sectorId =
+        content.pages[0].frames[0].component.components[0].attributes.id;
+
+        console.log('sectorId', sectorId);
+
+       
+        const blocksector = editor.StyleManager.getSectors();
+        blocksector.reset();
+        blocksector.add(getSectors(sectorId));
+      } 
+      else if (component) {
         let ccid = component.ccid.split('-')[0];
         const blocksector = editor.StyleManager.getSectors();
         blocksector.reset();
         blocksector.add(getSectors(ccid));
       }
+//Custom
+      if (component === null) {
+        const blocksector = editor.StyleManager.getSectors();
+
+        const { content } = block.attributes;
+        
+        editor.loadProjectData({ ...content });
+        console.log('content.pages[0]', content.pages[0]);
+        const sectorId =
+          content.pages[0].frames[0].component.components[0].attributes.id;
+        console.log('sectorId', sectorId);
+
+   
+        blocksector.reset();
+        blocksector.add(getSectors(sectorId));
+      }
     });
 
     //@ts-ignore
-    editor.on('style:sector:update', (props) => {
-      console.log('style:sector:update', props);
+    // editor.on('style:sector:update', (props) => {
+    //   console.log('style:sector:update', props);
 
-      
+    //   !isUpdating &&
+    //     setTimeout(() => {
+    //       let sm = editor.StyleManager;
+    //       var selectedBlock = editor.getSelected();
+    //       console.log("selected",selectedBlock)
+
+    //       const { ccid } = selectedBlock;
+
+    //       isUpdating = true;
+    //       const sectors = sm.getSectors();
+
+    //       for (let i = 0; i < sectors.length; i++) {
+    //         const modelId = sectors.models[i].get('id');
+    //         if (modelId === props.id) {
+    //           let isOpen = sectors.models[i].isOpen();
+    //           if (isOpen) {
+    //             editor.select(sectors.models[i]);
+
+    //             sectors.models[i].set({
+    //               open: true,
+    //               active: true,
+    //               select: true,
+    //               focus: true,
+    //             });
+
+    //             sm.select(`.${ccid} .${props.id}`);
+    //           }
+    //         } else {
+    //           sectors.models[i].setOpen(false);
+    //         }
+    //       }
+
+    //       setTimeout(() => {
+    //         isUpdating = false;
+    //       }, 3000);
+    //     }, 100);
+
+    //   const categories = editor.StyleManager.getSectors();
+    // });
+     // @ts-ignore
+     editor.on('style:sector:update', (props) => {
+   
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
           var selectedBlock = editor.getSelected();
-
-          const { ccid } = selectedBlock;
-
+          console.log("selectedBlock",selectedBlock)
           isUpdating = true;
           const sectors = sm.getSectors();
-
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
+           
               let isOpen = sectors.models[i].isOpen();
+    
               if (isOpen) {
-                editor.select(sectors.models[i]);
-
-                sectors.models[i].set({
-                  open: true,
-                  active: true,
-                  select: true,
-                  focus: true,
-                });
-
-                sm.select(`.${ccid} .${props.id}`);
+                const wrapperCmp = editor.DomComponents.getWrapper();
+               
+                editor.select(wrapperCmp.find(`.${props.id}`)[0]);
               }
             } else {
               sectors.models[i].setOpen(false);
@@ -719,12 +766,38 @@ const PageBuilder: React.FC = () => {
 
           setTimeout(() => {
             isUpdating = false;
-          }, 3000);
+          }, 300);
         }, 100);
 
       const categories = editor.StyleManager.getSectors();
     });
+ //@ts-ignore
+ editor.on('style:target', (component) => {
+  if (!component) return;
 
+  !isUpdating &&
+    setTimeout(() => {
+      isUpdating = true;
+
+      const selectedSector = component
+        .getSelectorsString()
+        .replace('.', '');
+      
+      const sectors = editor.StyleManager.getSectors();
+      
+      for (let i = 0; i < sectors.length; i++) {
+        if (selectedSector.includes(sectors.models[i].get('id'))) {
+          sectors.models[i].setOpen(true);
+        } else {
+          sectors.models[i].setOpen(false);
+        }
+      }
+
+      setTimeout(() => {
+        isUpdating = false;
+      }, 300);
+    }, 100);
+});
     localStorage.removeItem('gjsProject');
     updateHeaderBlock();
     setEditorState(editor);
@@ -760,18 +833,18 @@ const PageBuilder: React.FC = () => {
   // let newDirty = editor?.getDirtyCount();
   // =======Lifecycle methods end here=========
   return (
-    <div className='main__content'>
+    <div className="main__content">
       <Eyebrow />
-      <div className='panel__top'></div>
-      <div className='editor-row'>
-        <div className='panel__basic-actions'></div>
-        <div className='panel__left'>
-          <div className='back__panel panel-header'>
-            <Link className='panel-header__link' to={`${admin}/`}>
+      <div className="panel__top"></div>
+      <div className="editor-row">
+        <div className="panel__basic-actions"></div>
+        <div className="panel__left">
+          <div className="back__panel panel-header">
+            <Link className="panel-header__link" to={`${admin}/`}>
               <ArrowBackIosNewRoundedIcon />
             </Link>
             <span>Page Builder</span>
-            <span className='panel-header__menu'>
+            <span className="panel-header__menu">
               <AppsRoundedIcon />
             </span>
           </div>
@@ -785,16 +858,17 @@ const PageBuilder: React.FC = () => {
                   pageHistoryArray={pageHistoryArray}
                   deleteHistory={deleteHistory}
                   loadHistory={loadHistory}
+                  // hasBottomToolbar={true}
                 />
                 <div className="styles-container"></div>
                 <div className="traits-container"></div>
                 <div className="layers-container"></div>
               </div>
             </div>
-          </div>      
+          </div>
         </div>
-        <div className='editor-canvas'>
-          <div className='editor'></div>
+        <div className="editor-canvas">
+          <div className="editor"></div>
         </div>
       </div>
     </div>
