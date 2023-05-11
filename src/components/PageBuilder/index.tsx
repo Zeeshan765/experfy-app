@@ -897,54 +897,39 @@ add your attachment</span>
 
     editor.on(`block:drag:stop`, (component, block) => {
       console.log('block', block);
-      console.log('component', component);
+      console.log("component",component);
       let { data, found, filtering } = fetchSectionDetail(block.id);
-      console.log('found', found, filtering);
-      const { sectionCode, category } = filtering;
-
-      //Custom
-      if (component && found) {
-        const blocksector = editor.StyleManager.getSectors();
-
-        const { content } = block.attributes;
-        console.log('content', content);
-        console.log('...JSON.parse(sectionCode)', {
-          ...JSON.parse(sectionCode),
-        });
-        // let prev = editor.getProjectData();
-        // console.log('prev', prev);
-        // console.log('content', content);
-        // let updated = Object.assign({});
-        // editor.loadProjectData({ ...content });
-
-        editor.loadProjectData({
-          ...Object.assign({}, { ...editor.getProjectData() }, content),
-        });
-
-        console.log('content.pages[0]', content.pages[0]);
+      console.log("found",found,filtering);
+      const { sectionCode,category } = filtering;
+      //Updated
+      if (found ) {
+        let content = JSON.parse(sectionCode)
+        editor.loadProjectData({ ...content});
+        console.log(" ...JSON.parse(sectionCode)}",JSON.parse(sectionCode))
         const sectorId =
-          content.pages[0].frames[0].component.components[0].attributes.id;
-        console.log('sectorId', sectorId);
-
+        content.pages[0].frames[0].component.components[0].attributes.id;
+        console.log('sectorIsd', sectorId);
+        const blocksector = editor.StyleManager.getSectors();
         blocksector.reset();
         blocksector.add(getSectors(sectorId));
       }
-      //Updated
-      if (found) {
-        // let content = JSON.parse(sectionCode);
-        // editor.loadProjectData({ ...content });
-        // console.log(' ...JSON.parse(sectionCode)}', JSON.parse(sectionCode));
-        // const sectorId =
-        //   content.pages[0].frames[0].component.components[0].attributes.id;
-        // console.log('sectorIsd', sectorId);
-        // const blocksector = editor.StyleManager.getSectors();
-        // blocksector.reset();
-        // blocksector.add(getSectors(sectorId));
-      } else if (component) {
+      else if (component) {
         let ccid = component.ccid.split('-')[0];
         const blocksector = editor.StyleManager.getSectors();
         blocksector.reset();
         blocksector.add(getSectors(ccid));
+      }
+//Custom
+      if (component === null) {
+        const blocksector = editor.StyleManager.getSectors();
+        const { content } = block.attributes;
+        editor.loadProjectData({ ...content });
+        console.log('content.pages[0]', content.pages[0]);
+        const sectorId =
+          content.pages[0].frames[0].component.components[0].attributes.id;
+        console.log('sectorId', sectorId);
+        blocksector.reset();
+        blocksector.add(getSectors(sectorId));
       }
     });
 
