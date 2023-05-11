@@ -23,7 +23,9 @@ import {
   ImageBanner,
   numbermetric,
   talentCloud,
+  imageStyle,
   ImageText,
+  paraStyle,
   SectionStyle as style,
   IconListStyle,
   IconStyle,
@@ -31,6 +33,7 @@ import {
   pageTitle,
   Navmenu,
   themestyle,
+  buttonStyle,
   departmentstyle,
   photoGalleryStyle,
   swiperStyle,
@@ -1206,9 +1209,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z"></path>
   </svg>`,
-    content: `<div id="imageSector" class="imageSector">
+    content: `<section id="imageSector" class="img-sector imageSector" data-gjs-type="imageSector">
+    <div class="img-div">
     <img  class="image img-link"src="https://dummyimage.com/1200x500" alt="step"  >
     </div>
+    </section>
+    ${imageStyle}
         `,
   });
   addBlock('text', {
@@ -1225,49 +1231,26 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         `,
   });
 
-  addBlock('paragraph-1', {
-    label: 'Paragraph',
-    category: 'Basic',
-    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
-    content: `
-  <section class="paraSect" id ="paraSect">
-  <h5 class="h5 para-1">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
-  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
-  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
-  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h5>
 
   
-  
-  
-  </section>
-        `,
-  });
-  addBlock('text', {
-    label: 'Heading',
-    category: 'Basic',
-    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
-    content: `
-    <section id="headingSector" class="headingSector">
-    <h1 class="h1 heading-1">Add Your Heading Title here</h1>
-    </section>
-        `,
-  });
 
   addBlock('paragraph-1', {
     label: 'Paragraph',
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-  <section class="paraSect" id ="paraSect">
-  <h5 class="h5 para-1">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  <section class="paragraph-1 paraSect" id ="paraSect" data-gjs-type="paraSect">
+  <div class="para-1">
+  <h5 class="h5 para-11">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h5>
-
+  </div>
   
   
   
   </section>
+  ${paraStyle}
         `,
   });
 
@@ -1276,10 +1259,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-   <div class="buttonSector" id ="buttonSector">
+   <div class="btn-sect buttonSector" id ="buttonSector">
    <button class="button btn-save">Hello World</button>
    </div>
- 
+ ${buttonStyle}
         `,
   });
 

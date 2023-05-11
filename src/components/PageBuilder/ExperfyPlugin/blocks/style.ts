@@ -1362,10 +1362,34 @@ text-align: center;
 </style>
 `;
 
+export const buttonStyle = `
+<style>
+.btn-sect button{
+  margin: 1rem;
 
+}
+</style>
+`
+export const paraStyle =`
+<style>
+.para-1{ 
+  margin-left: 1.5rem;
+}
+.para-11{
+  margin: 1rem;
 
+}
+</style>`
 
-
+export const imageStyle =`
+<style>
+.img-sector{
+  margin: 1.5rem;
+}
+.img-div{
+  margin: 3rem;
+}
+</style>`
 
 
 
