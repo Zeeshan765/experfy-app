@@ -34,12 +34,13 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-  const { fetchSectionDetail } = useContext(DataContext);
+  const { fetchSectionDetail} = useContext(DataContext);
   const { setSectionBlocksArray } = useContext(Context);
   const [filtered, setFiltered] = useState('');
   const [modelIsOPen, setModelIsOPen] = useState(false);
   const [name, setName] = useState('');
-  console.log("userData.defaultStyle.filteredStyles",userData.defaultStyle.filteredStyles)
+
+
 
   // let sectionData = {
   //   isUpdate: false,
@@ -166,6 +167,8 @@ const SectionPageBuilder: React.FC = () => {
   console.log('IsInclude', isInclude);
 
   let blocks = isInclude ? [str] : basicElements;
+  let custom ='Custom Module';
+  let sectcatgy = 'Section Module'
 
   //Save the Section
   const saveSectionTemplate = () => {
@@ -175,6 +178,7 @@ const SectionPageBuilder: React.FC = () => {
       axios
         .patch(`${apiEndpoint}/section-save/${window?.sectionData?.id}`, {
           sectionTitle: str,
+          category: sectcatgy,
           sectionCode: JSON.stringify(editor.getProjectData()),
         })
         .then((res) => {
@@ -187,6 +191,7 @@ const SectionPageBuilder: React.FC = () => {
       axios
         .post(`${apiEndpoint}/section-save`, {
           sectionTitle: str,
+          category: sectcatgy,
           sectionCode: JSON.stringify(editor.getProjectData()),
         })
         .then((res) => {
@@ -203,6 +208,7 @@ const SectionPageBuilder: React.FC = () => {
       axios
         .post(`${apiEndpoint}/section-save`, {
           sectionTitle: name,
+          category:custom,
           sectionCode: JSON.stringify(editor.getProjectData()),
         })
         .then((res) => {
@@ -867,6 +873,13 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     editor.on('component:selected', (component) => {
+
+
+console.log("component selected",component)
+
+
+
+
       if (component.get('type') == 'text') {
         //@ts-ignore
         editor?.runCommand('core:open-traits');
@@ -879,6 +892,20 @@ const SectionPageBuilder: React.FC = () => {
         //@ts-ignore
         editor?.runCommand('core:open-traits');
       }
+
+      if (component) {
+        const sectors = editor.StyleManager.getSectors();
+      
+        // sectors.reset();
+        sectors.add(getSectors(component.ccid));
+      }
+
+
+
+
+
+
+
     });
 
     editor.on('component:update', (component) => {

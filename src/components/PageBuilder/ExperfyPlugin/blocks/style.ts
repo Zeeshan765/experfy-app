@@ -68,7 +68,7 @@ export const benefitsStyle = `<style>
 }
 .benefits-container{
 width: 70%;
-margin: auto;
+margin-left: 10rem;
 text-align: center; 
 }
 
@@ -126,7 +126,7 @@ export const photoGalleryStyle = `<style>
 
 .photo-container{
 width: 70%;
-margin: auto;
+margin-left: 5rem;
 text-align: center; 
 }
 
@@ -193,8 +193,8 @@ export const paragraphStyle = `
   display: grid;
   width: 100%;
   padding: 6rem 3.25rem;
-  margin-left: auto;
-  margin-right: auto; 
+  margin-left: 1.5rem;
+  margin-right: 1.5rem; 
   }
   .main-paragraph-wrapper h1{
   
@@ -215,7 +215,7 @@ export const ImageText = `
 <style>
 .main_container {
   display: flex;
- margin: 1rem 1rem;
+ margin: 2rem 1rem;
   padding: 4rem 4rem;
   align-items: center;
 }
@@ -366,6 +366,9 @@ export const swiperStyle =
  
   height: 500px;
 }
+.test-sector{
+  margin-left: 1rem;
+}
 
 .swiper-slide {
   text-align: center;
@@ -497,6 +500,7 @@ export const ImageBanner = `
 
 }
 .bannar-content{
+  margin-left : 2rem;
   display: grid;
   padding: 40px 40px;
   
@@ -726,6 +730,7 @@ export const locationStyle = `
 .location-content{
   display: flex; 
   padding: 3rem 3rem;
+  margin-left:3rem;
 }
 
 .address-content-main-holder{
@@ -1234,6 +1239,17 @@ export const SectionStyle = `<style>
 
 </style>`;
 
+
+
+export const HeadingStyle=`<style>
+.heading-div{
+  margin: 2rem;
+  width: 80%;
+}
+
+</style>`
+
+
 export const themestyle = `
     <style>
       .header-block {
@@ -1351,10 +1367,34 @@ text-align: center;
 </style>
 `;
 
+export const buttonStyle = `
+<style>
+.btn-sect button{
+  margin: 1rem;
 
+}
+</style>
+`
+export const paraStyle =`
+<style>
+.para-1{ 
+  margin-left: 1.5rem;
+}
+.para-11{
+  margin: 1rem;
 
+}
+</style>`
 
-
+export const imageStyle =`
+<style>
+.img-sector{
+  margin: 1.5rem;
+}
+.img-div{
+  margin: 3rem;
+}
+</style>`
 
 
 

@@ -27,6 +27,9 @@ export const sections = [
   'button',
   'a',
   'form',
+  'text',
+  'paragraph-1',
+  'photo-gallery',
   // 'swiper',
 ];
 export const canvasStyle = `

@@ -23,7 +23,9 @@ import {
   ImageBanner,
   numbermetric,
   talentCloud,
+  imageStyle,
   ImageText,
+  paraStyle,
   SectionStyle as style,
   IconListStyle,
   IconStyle,
@@ -31,10 +33,12 @@ import {
   pageTitle,
   Navmenu,
   themestyle,
+  buttonStyle,
   departmentstyle,
   photoGalleryStyle,
   swiperStyle,
   dividerStyle,
+  HeadingStyle,
 } from './style';
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
@@ -170,11 +174,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  `,
   });
 
-
-
-
-
-
   addBlock('testimonial', {
     label: 'Testimonial',
     category: 'Section Modules',
@@ -191,6 +190,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   `,
     content: `
     <section  id= "testimonialSector" class="testimonial-container testimonialSector">
+    <div class="test-sector">
     <h1 class="h1 main-testimonial-title">You are in Good</h1> 
     <div class="swiper-container  mySwiper">
     
@@ -268,11 +268,11 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    
     
   </div>
+  </div>
   </section>
   ${swiperStyle}
  `,
   });
-
 
   addBlock('benefits', {
     label: 'Benefits',
@@ -288,7 +288,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section  id= "benefitSector" class="benefits-main-wrapper benefitSector">
+    content: `<section  id= "benefitSector" class="benefits-main-wrapper benefitSector" data-gjs-type="benefitSector">
     <div class="benefits-container" >
 
        <div class="benefits-title-div">
@@ -540,7 +540,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         `,
     //       <img class="location-image" data-gjs-type="mj-image" class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
     //         height: 400px;">
-   
   });
   addBlock('paragraph', {
     label: 'Paragraph',
@@ -662,7 +661,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <path id="Path_170799" data-name="Path 170799" d="M90.466,39.2H70.632a.633.633,0,0,0-.633.633V56.5a.633.633,0,0,0,.633.633H90.466A.633.633,0,0,0,91.1,56.5V39.832A.633.633,0,0,0,90.466,39.2ZM83.292,54.417a.442.442,0,0,1-.434.4H72.264a.382.382,0,0,1-.366-.4v-.053a.382.382,0,0,1,.366-.4H82.857a.442.442,0,0,1,.434.4Zm-11.04-2.98H82.479a.414.414,0,0,1,.405.382V51.9a.414.414,0,0,1-.405.382H72.252A.369.369,0,0,1,71.9,51.9v-.079a.369.369,0,0,1,.354-.383ZM71.9,49.353V49.3a.382.382,0,0,1,.366-.4h9.617a.4.4,0,0,1,.393.4v.053a.4.4,0,0,1-.393.4H72.264A.382.382,0,0,1,71.9,49.353Zm17.251,4.822-.672.5a.283.283,0,0,1-.168.056.272.272,0,0,1-.043,0,.284.284,0,0,1-.185-.113l-1.355-1.869-.778.573a.282.282,0,0,1-.442-.163l-.958-4.085a.282.282,0,0,1,.414-.31l3.645,2.078a.282.282,0,0,1,.031.469l-.788.6,1.359,1.876a.281.281,0,0,1-.06.392Zm.472-8.225a.633.633,0,0,1-.633.633H72.109a.633.633,0,0,1-.633-.633V41.941a.633.633,0,0,1,.633-.633h16.88a.633.633,0,0,1,.633.633Z" transform="translate(-69.999 -39.199)"/>
   </svg>
   `,
-    content: `<section id="bannerSector" class="main-banner-container bannerSector">
+    content: `<section id="bannerSector" class="main-banner-container bannerSector" data-gjs-type="bannerSector">
         
       
       <div class="bannar-content">
@@ -688,7 +687,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         `,
   });
 
-
   addBlock('photo-gallery', {
     label: 'Photo Gallery',
     category: 'Section Modules',
@@ -702,7 +700,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section  id= "photoSector" class="photo-main-wrapper photoSector">
+    content: `<section  id= "photoSector" class="photo-main-wrapper photoSector" data-gjs-type="photoSector">
     <div class="photo-container" >
 
        <div class="photo-title-div">
@@ -736,8 +734,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
  ${getStyles(['.photo-title-div', '.photo-option-section'])}
  `,
   });
-
-
 
   addBlock('image-and-text', {
     label: 'Image & Text',
@@ -1215,9 +1211,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z"></path>
   </svg>`,
-    content: `<div id="imageSector" class="imageSector">
+    content: `<section id="imageSector" class="img-sector imageSector" data-gjs-type="imageSector">
+    <div class="img-div">
     <img  class="image img-link"src="https://dummyimage.com/1200x500" alt="step"  >
     </div>
+    </section>
+    ${imageStyle}
         `,
   });
   addBlock('text', {
@@ -1225,9 +1224,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-    <section id="headingSector" class="headingSector">
+    <section id="headingSector" class="headingSector" data-gjs-type="headingSector">
+    <div class="heading-div">
     <h1 class="h1 heading-1">Add Your Heading Title here</h1>
+    </div>
     </section>
+    ${HeadingStyle}
         `,
   });
 
@@ -1236,16 +1238,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-  <section class="paraSect" id ="paraSect">
-  <h5 class="h5 para-1">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  <section class="paragraph-1 paraSect" id ="paraSect" data-gjs-type="paraSect">
+  <div class="para-1">
+  <h5 class="h5 para-11">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h5>
-
+  </div>
   
   
   
   </section>
+  ${paraStyle}
         `,
   });
 
@@ -1254,10 +1258,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-   <div class="buttonSector" id ="buttonSector">
+   <div class="btn-sect buttonSector" id ="buttonSector">
    <button class="button btn-save">Hello World</button>
    </div>
- 
+ ${buttonStyle}
         `,
   });
 

@@ -14,10 +14,10 @@ import { toast } from 'react-toastify';
 import Experfy from './ExperfyPlugin';
 import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 import { UserContext } from '../../Providers/UserProvider';
+import { DataContext } from '../../Providers/DataProvider';
 import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
 import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
-// import { log } from 'console';
 
 interface parems {
   id?: string;
@@ -39,8 +39,18 @@ const PageBuilder: React.FC = () => {
   const { routes, serverURL } = useConfig();
   const { id }: parems = useParams();
   const { userData } = useContext(UserContext);
+  const { sectionData, fetchSectionDetail } = useContext(DataContext);
   const { setStepNav } = useStepNav();
   const history = useHistory();
+
+  console.log('sectionData', sectionData);
+
+  let custom = 'Custom Module';
+  let Filtered = sectionData
+    .filter((el) => el.category === custom)
+    .map((section) => section); // sectionTitle.replace(' ', '-')
+  console.log('Custom Module', Filtered);
+
   // ======Hooks end=======
   const { admin } = routes;
   const apiEndpoint = `${serverURL}/api`;
@@ -145,16 +155,16 @@ const PageBuilder: React.FC = () => {
         });
     } else {
       // if (id) {
-        axios
-          .patch(`${apiEndpoint}/pages/${id}`, {
-            pageCode: JSON.stringify(editor.getProjectData()),
-          })
-          .then((res) => {
-            toast.success(res.data.message);
-          })
-          .catch((err) => {
-            console.log('err', err);
-          });
+      axios
+        .patch(`${apiEndpoint}/pages/${id}`, {
+          pageCode: JSON.stringify(editor.getProjectData()),
+        })
+        .then((res) => {
+          toast.success(res.data.message);
+        })
+        .catch((err) => {
+          console.log('err', err);
+        });
       // }
     }
   };
@@ -218,46 +228,6 @@ const PageBuilder: React.FC = () => {
   };
   // ======= Methods end =======
 
-  // ========external custom Trait start here========
-  let TextTrait = [
-    {
-      type: 'text',
-      name: 'text-title',
-      label: 'Title',
-      placeholder: 'Enter your title ',
-      className: 'custom-text',
-    },
-    {
-      type: 'select',
-      name: 'class',
-      label: 'HTML Tag',
-      ChangeProp: 1,
-      default: 'h1',
-      options: [
-        { id: 'h1', name: 'H1' },
-        { id: 'h2', name: 'H2' },
-        { id: 'h3', name: 'H3' },
-        { id: 'h4', name: 'H4' },
-        { id: 'h5', name: 'H5' },
-        { id: 'h6', name: 'H6' },
-        { id: 'div', name: 'div' },
-        { id: 'span', name: 'span' },
-        { id: 'p', name: 'p' },
-      ],
-    },
-    {
-      type: 'select',
-      name: 'class',
-      label: 'Alignment',
-      default: 'left',
-      options: [
-        { value: 'left', name: 'Left' },
-        { value: 'center', name: 'Center' },
-        { value: 'right', name: 'Right' },
-      ],
-    },
-  ];
-
   const updateHeaderBlock = async () => {
     axios
       .get(`${serverURL}/api/mega-menu`)
@@ -306,13 +276,17 @@ const PageBuilder: React.FC = () => {
 
   //======== GrapesJs Canvas initialization start here========
   const initializeInstance = () => {
+    console.log('sections', sections);
+    console.log('Filtered', Filtered);
+    let blocks = [...sections];
+    console.log('blocks', blocks);
     const ExperfyBlocks = (
       editor: GrapesJS.Editor,
       options: GrapesJS.EditorConfig
     ) =>
       Experfy(editor, {
         ...options,
-        blocks: sections,
+        blocks,
         showPanelsOnLoad: true,
         showGlobalStyles: false,
       });
@@ -326,24 +300,29 @@ const PageBuilder: React.FC = () => {
       canvasCss: '.blocks: {display: grid;}',
       plugins: [
         ExperfyBlocks,
-        (editor) =>
-          NavBar(editor, {
-            label: 'Header',
-            block: {
-              category: 'Header & Footer',
-            },
-          }),
-        (editor) =>
-          Basics(editor, {
-            category: 'Basic Elements',
-            flexGrid: true,
-            addBasicStyle: false,
-          }),
-        (editor) =>
-          Forms(editor, {
-            category: 'Basic Elements',
-          }),
+        // (editor) =>
+        //   NavBar(editor, {
+        //     label: 'Header',
+        //     block: {
+        //       category: 'Header & Footer',
+        //     },
+        //   }),
+        // (editor) =>
+        //   Basics(editor, {
+        //     category: 'Basic Elements',
+        //     flexGrid: true,
+        //     addBasicStyle: false,
+        //   }),
+
+        // (editor) =>
+        //   Forms(editor, {
+        //     category: 'Basic Elements',
+        //   }),
       ],
+      pluginsOpts: {
+        ExperfyBlocks: {},
+        Filtered: {},
+      },
       layerManager: {
         appendTo: '.layers-container',
         scrollCanvas: true,
@@ -365,6 +344,10 @@ const PageBuilder: React.FC = () => {
         appendTo: '.blocks',
         blocks: [],
       },
+      canvas: {
+        styles: ['https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css'],
+        scripts: ['https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'],
+      },
       commands: {
         defaults: [
           {
@@ -382,18 +365,17 @@ const PageBuilder: React.FC = () => {
             id: 'save-editor',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-              console.log("before changed",isChanged)
-                console.log("isChanged", isChanged)
-                saveHistoy();
-                const store = editor.store();
-                dataHandler();
+              console.log('before changed', isChanged);
+              console.log('isChanged', isChanged);
+              saveHistoy();
+              const store = editor.store();
+              dataHandler();
             },
           },
         ],
       },
     });
 
-   
     function isObjEmpty(obj) {
       if (obj === undefined) {
         return true;
@@ -417,31 +399,431 @@ const PageBuilder: React.FC = () => {
         isChanged = true;
       }
     });
+    let TextTrait = [
+      {
+        name: 'text',
 
+        label: 'Title',
 
-//@ts-ignore
-    editor.on('style:property:update', (component) => {
-      isChanged = true;
+        changeProp: 1,
+      },
 
-      // const um = editor.UndoManager;
+      {
+        type: 'select',
+        name: 'tagName',
+        label: 'HTML Tag',
+        ChangeProp: 1,
 
-      // const stack = um.getStack();
-      // console.log('stack.length, ln', stack.length, ln)
-      // if (stack.length > 0 && ln !== stack.length) {
-      //   console.log('Stack Changes', stack);
-      //   ln = stack.length;
-      //   // stack.map((item) => {
-      //   //   console.log('item type',  component);
-      //   // });
-      //   console.log(
-      //     '----------------------------------------------------------------------'
-      //   );
-      // }
+        options: [
+          { id: 'h1', name: 'H1' },
+          { id: 'h2', name: 'H2' },
+          { id: 'h3', name: 'H3' },
+          { id: 'h4', name: 'H4' },
+          { id: 'h5', name: 'H5' },
+          { id: 'h6', name: 'H6' },
+          { id: 'div', name: 'div' },
+          { id: 'span', name: 'span' },
+          { id: 'p', name: 'p' },
+        ],
+        changeProp: 1,
+      },
+    ];
+    let ButtonTrait = [
+      {
+        name: 'text',
+        label: 'Button Text',
+        changeProp: 1,
+      },
+      // {
+      //   type: 'select',
+      //   name: 'class',
+      //   label: 'Button Size',
+      //   // default: 'small',
+      //   options: [
+      //     { value: 'btn-extrasmall', name: 'Extra Small' },
+
+      //     { value: 'btn-small', name: 'small' },
+      //     { value: 'btn-medium', name: 'Medium' },
+      //     { value: 'btn-large', name: 'Large' },
+      //     { value: 'btn-extralarge', name: 'Extra Large' },
+      //   ],
+      // },
+      // {
+      //   type: 'select',
+      //   name: 'class',
+      //   label: 'Button Alignment',
+      //   // default: 'btn-start',
+      //   options: [
+      //     { value: 'btn-start', name: 'Left' },
+      //     { value: 'btn-center', name: 'Center' },
+      //     { value: 'btn-right', name: 'Right' },
+      //   ],
+      // },
+    ];
+    editor.DomComponents.addType('text', {
+      model: {
+        defaults: {
+          traits: TextTrait,
+        },
+        init() {
+          const comps = this.components();
+          // console.log('Text comps', comps);
+          const tChild = comps.length === 1 && comps.models[0];
+          const chCnt =
+            (tChild && tChild.is('textnode') && tChild.get('content')) || '';
+          const text = chCnt || this.get('text');
+          this.set('text', text);
+          //@ts-ignore
+          this.on('change:text', this.__onTextChange);
+          //@ts-ignore
+          text !== chCnt && this.__onTextChange();
+          //@ts-ignore
+          this.on('change:attributes:htmltag', this.handleHtmltagChange);
+        },
+        __onTextChange() {
+          this.components(this.get('text'));
+        },
+        handleHtmltagChange() {
+          this.set('tagName', this.getAttributes().htmltag);
+        },
+      },
     });
 
+    editor.DomComponents.addType('button', {
+      isComponent: (el) => el.tagName == 'BUTTON',
+      model: {
+        defaults: {
+          traits: ButtonTrait,
+        },
+        init() {
+          const comps = this.components();
 
+          const tChild = comps.length === 1 && comps.models[0];
+          // console.log('Old tChild', tChild);
+          const chCnt =
+            (tChild && tChild.is('textnode') && tChild.get('content')) || '';
+          const text = chCnt || this.get('text');
+          this.set('text', text);
+          this.on('change:text', this.__onTextChange);
+          text !== chCnt && this.__onTextChange();
+        },
+
+        __onTextChange() {
+          this.components(this.get('text'));
+        },
+      },
+    });
+
+    // // Image  Trait
+    editor.DomComponents.addType('image', {
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'myimg',
+              label: ' ',
+              name: 'myimg',
+            },
+          ],
+        },
+      },
+    });
+
+    editor.TraitManager.addType('myimg', {
+      noLabel: true,
+      createInput({}) {
+        const toggleModal = () => {
+          editor.runCommand('open-assets', {
+            target: editor.getSelected(),
+          });
+        };
+        const el = document.createElement('div');
+        el.setAttribute('class', 'image-trait-preview');
+        el.innerHTML = `
+
+<div style="border:1px dashed #48a3d7; padding:15px 10px; border-radius:5px;text-align:center;" id="chg-img-trait-btn">
+<p style="margin-bottom:5px"> <i class="fa fa-upload " style="color:#48a3d7;font-size:30px;"></i></p>
+<span style="font-size:13px;">Drop ﬁle here or <span style="color:#48a3d7; font-size:13px;">Browse</span> to <br>
+add your attachment</span>
+</div> `;
+        const inputType = el.querySelector('#chg-img-trait-btn');
+        inputType!.addEventListener('click', toggleModal);
+        return el;
+      },
+    });
+
+    editor.DomComponents.addType('btn', {
+      model: {
+        defaults: {
+          traits: [
+            {
+              type: 'mybtn',
+              label: ' ',
+              name: 'mybtn',
+            },
+          ],
+        },
+      },
+    });
+
+    //Add Trait on click
+    const toggleBtn = () => {
+      const component = editor.getSelected();
+      // console.log('component Selection', component);
+      //@ts-ignore
+      if (component.ccid == 'GuidelineDiv') {
+        component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;">
+   
+  <h3 class="h3 guideline-bullet" style="height: 35px;border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
+  <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
+
+<h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
+ order to explain what the user
+ should do next
+</h6>
+</div>`);
+      }
+      //@ts-ignore
+      if (component.ccid == 'Departmentdiv') {
+        component.append(`
+<div class="department-holder" style="padding: 0.75rem;margin: 0.75rem; ">
+  <img class="image-department" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+
+     <h1 class="h1 icon-department-heading" style="margin-top: 1.25rem; margin-bottom: 1.25rem; ">Department 1</h1>
+     <h6 class="h6 icon-department-sub-heading">Lorem ipsum dolor sit amet. Est
+        porro distinctio eum eius odit ea
+        facere consequuntur.
+     </h6>
+  </div>
+`);
+      }
+
+      // component.addTrait(
+      //   {
+      //     name: 'mysection',
+      //     label: ' ',
+      //     type: 'mysection',
+      //     changeProp: 1,
+      //   },
+      //   { at: 0 }
+      // );
+    };
+    //Close Trait on click
+    const CloseTrait = () => {
+      const component = editor.getSelected();
+      component.removeTrait('mysection') && component.getChildAt(0).remove();
+    };
+    editor.TraitManager.addType('mysection', {
+      noLabel: true,
+      createInput({}) {
+        const el = document.createElement('div');
+        el.setAttribute('class', 'section-trait-preview');
+        el.innerHTML = `
+
+    <label style="color:#222;font-weight:400;margin-bottom:5px">Item</label>
+    <div style=" border: 1px solid #CED4DA; borderRadius: 0.25rem;"}}>
+      <div style="display:flex">
+        <input id="first-id" type="text" placeholder="Guideline Text" style=" display:block;  padding:0.375rem 0.75rem;fontSize:1rem; lineHeight:1.5; border:1px solid #CED4DA; borderRadius:0.25rem 0px 0px 0px; "/>
+      <button type="button" style="backgroundColor:#fff;borderRadius:0px 0.25rem 0px 0px; border:1px solid #CED4DA;" id="close-btn-trait-btn">X</button>
+      </div>
+      <div style="padding:15px 10px;">
+      <label style="color:#222;font-weight:400;margin-bottom:5px">Number</label>
+      <input type="text" placeholder="Guidline Step" style=" display:block; padding:0.375rem 0.75rem;fontSize:1rem;lineHeight:1.5;border:1px solid #CED4DA;borderRadius:0.25rem; "/>
+      <br />
+      <label style="color:#222;font-weight:400;margin-bottom:5px">Description Text</label>
+      <textarea  rows="4" placeholder="Text" style="display:block;padding:0.375rem 0.75rem;fontSize:1rem;lineHeight:1.5;border:1px solid #CED4DA;borderRadius:0.25rem;"></textarea>
+      </div>
+    </div>
+ 
+ 
+ `;
+        const inputType = el.querySelector('#close-btn-trait-btn');
+        inputType!.addEventListener('click', CloseTrait);
+        return el;
+      },
+
+      onUpdate({ elInput, component }) {
+        const wrapperCmp = editor.DomComponents.getWrapper();
+        let target = `.guidline-option`;
+
+        editor.select(wrapperCmp.find(target)[0]);
+      },
+    });
+
+    editor.TraitManager.addType('mybtn', {
+      noLabel: true,
+      createInput({}) {
+        const el = document.createElement('div');
+        el.innerHTML = `<button type="submit"  class="btn btn-primary btn-md"  id="chg-btn-trait-btn">Add Step</button>`;
+        const inputType = el.querySelector('#chg-btn-trait-btn');
+        inputType!.addEventListener('click', toggleBtn);
+        return el;
+      },
+    });
+
+    // let opts="Swiper"
+    /* eslint-disable no-undef */
+    const defaultType = editor.DomComponents.getType('default');
+    const defaultView = defaultType.view;
+    editor.DomComponents.addType('testimonial', {
+      model: {
+        defaults: {
+          script: function () {
+            // const dynamicProgress = "{[ dynamicProgress ]}";
+            // const progressType = "{[ progressType ]}";
+
+            const initLib = function () {
+              var swiper = new Swiper('.mySwiper', {
+                spaceBetween: 30,
+                centeredSlides: true,
+
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                },
+              });
+
+              // const swiper = new Swiper(".mySwiper"
+              // , {
+              //   // spaceBetween: 30,
+              //   // centeredSlides: true,
+              //   // autoplay: {
+              //   //   delay: 2500,
+              //   //   disableOnInteraction: false,
+              //   // },
+              //   // // pagination: {
+              //   // //   el: ".swiper-pagination",
+              //   // //   clickable: true,
+              //   // //   // dynamicBullets: !!dynamicProgress,
+              //   // //   // type: progr essType,
+              //   // // },
+              //   // navigation: {
+              //   //   nextEl: ".swiper-button-next",
+              //   //   prevEl: ".swiper-button-prev",
+              //   // },
+              // });
+              // console.log('swiper :>> ', swiper);
+            };
+            initLib();
+
+            //  if (typeof Swiper == "undefined") {
+            //           const script = document.createElement("script");
+            //           script.onload = initLib;
+            //           script.src = "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js";
+            //           document.body.appendChild(script);
+            //         } else {
+            //           initLib();
+            //         }
+
+            // const initLib = function () {
+            //   const swiper = new Swiper(".mySwiper", {
+            //     spaceBetween: 30,
+            //     centeredSlides: true,
+            //     autoplay: {
+            //       delay: 2500,
+            //       disableOnInteraction: false,
+            //     },
+            //     // pagination: {
+            //     //   el: ".swiper-pagination",
+            //     //   clickable: true,
+            //     //   // dynamicBullets: !!dynamicProgress,
+            //     //   // type: progressType,
+            //     // },
+            //     navigation: {
+            //       nextEl: ".swiper-button-next",
+            //       prevEl: ".swiper-button-prev",
+            //     },
+            //   });
+            //   console.log("swiper :>> ", swiper);
+            // };
+            // initLib();
+
+            // if (typeof Swiper == "undefined") {
+            //   const script = document.createElement("script");
+            //   script.onload = initLib;
+            //   script.src = "https://unpkg.com/swiper@7/swiper-bundle.min.js";
+            //   document.body.appendChild(script);
+            // } else {
+            //   initLib();
+            // }
+          },
+        },
+      },
+      isComponent: (el) => {
+        if (el.className && el.className.includes('swiper-container')) {
+          return {
+            type: 'testimonial',
+          };
+        }
+      },
+      // view: defaultView.extend({
+      //   init({ model }) {
+      //     this.listenTo(model, "change:dynamicProgress", this.updateScript);
+      //     this.listenTo(model, "change:progressType", this.updateScript);
+      //   },
+      // }),
+    });
+
+    //Guideline Div Trait
+    editor.DomComponents.addType('GuidelineDiv', {
+      model: {
+        defaults: {
+          traits: [
+            // {
+            //   name: 'mysection',
+            //   label: ' ',
+            //   type: 'mysection',
+            //   changeProp: 1,
+            // },
+            {
+              type: 'mybtn',
+              label: ' ',
+              name: 'mybtn',
+            },
+          ],
+        },
+      },
+    });
+
+    // Department Div Trait
+    editor.DomComponents.addType('Departmentdiv', {
+      model: {
+        defaults: {
+          traits: [
+            // {
+            //   name: 'mysection',
+            //   label: ' ',
+            //   type: 'mysection',
+            //   changeProp: 1,
+            // },
+            {
+              type: 'mybtn',
+              label: ' ',
+              name: 'mybtn',
+            },
+          ],
+        },
+      },
+    });
+
+    //@ts-ignore
+    editor.on('style:property:update', (component) => {
+      isChanged = true;
+    });
 
     editor.on('load', () => {
+      Filtered.forEach((element) => {
+        console.log('element', element);
+        const { category, id, sectionCode, sectionTitle } = element;
+
+        editor.BlockManager.add(sectionTitle.replace(' ', '-'), {
+          label: sectionTitle,
+          category,
+          // media:
+          content: JSON.parse(sectionCode),
+        });
+      });
+
       editor.loadProjectData({
         ...Object.assign(
           {},
@@ -477,177 +859,27 @@ const PageBuilder: React.FC = () => {
         });
       }
     });
-    editor.DomComponents.addType('text', {
-      model: {
-        defaults: {
-          traits: TextTrait,
-        },
-        changeProp: 1,
-      },
-    });
 
-    editor.DomComponents.addType('button', {
-      model: {
-        defaults: {
-          traits: [
-            {
-              type: 'text',
-              name: 'button-title',
-              label: 'Button Text',
-              placeholder: 'Buttton ',
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Button Size',
-              default: 'small',
-              options: [
-                { value: 'btn-extrasmall', name: 'Extra Small' },
-
-                { value: 'btn-small', name: 'small' },
-                { value: 'btn-medium', name: 'Medium' },
-                { value: 'btn-large', name: 'Large' },
-                { value: 'btn-extralarge', name: 'Extra Large' },
-              ],
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Button Alignment',
-              default: 'btn-start',
-              options: [
-                { value: 'btn-start', name: 'Left' },
-                { value: 'btn-center', name: 'Center' },
-                { value: 'btn-right', name: 'Right' },
-              ],
-            },
-          ],
-        },
-      },
-    });
-
-    editor.DomComponents.addType('mj-image', {
-      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
-      model: {
-        defaults: {
-          traits: [
-            {
-              type: 'mjchange',
-              label: ' ',
-              name: 'mjchange',
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Icon background',
-              default: 'left',
-              options: [{ value: 'left', name: 'Left' }],
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Background Shape',
-              default: 'left',
-              options: [{ value: 'left', name: 'Left' }],
-            },
-          ],
-        },
-      },
-    });
-
-    editor.DomComponents.addType('mj-image', {
-      isComponent: (el: any) => el.tagName === 'MJ-IMAGE',
-      model: {
-        defaults: {
-          traits: [
-            {
-              type: 'mjchange',
-              label: ' ',
-              name: 'mjchange',
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Icon background',
-              default: 'left',
-              options: [{ value: 'left', name: 'Left' }],
-            },
-            {
-              type: 'select',
-              name: 'class',
-              label: 'Background Shape',
-              default: 'left',
-              options: [{ value: 'left', name: 'Left' }],
-            },
-          ],
-        },
-      },
-    });
-    editor.TraitManager.addType('mjchange', {
-      noLabel: true,
-      createInput({}) {
-        let selectedSrc = editor.getSelected();
-        let src = selectedSrc!.attributes.attributes!.src;
-        const toggleModal = () => {
-          editor.runCommand('open-assets', {
-            target: editor.getSelected(),
-          });
-        };
-        const el = document.createElement('div');
-        el.setAttribute('class', 'image-trait-preview');
-        el.innerHTML = `<img src="${src}" style="width: 100%; height:auto;background:#f9f9f9;" id="gjs_img_preview_logo_rtl"/>
-                  <button type="submit"  class="btn btn-primary btn-md"  id="chg-img-trait-btn">Add Image</button>`;
-        const inputType = el.querySelector('#chg-img-trait-btn');
-        const imgBox = el.querySelector('#gjs_img_preview_logo_rtl');
-        imgBox!.addEventListener('click', toggleModal);
-        inputType!.addEventListener('click', toggleModal);
-        return el;
-      },
-    });
-    editor.on('modal:open', (component) => {
-      const $ = editor.$;
-      const am = editor.AssetManager;
-      am.open({
-        types: ['mj-image'],
-        select(assets, complete) {
-          const selected = editor.getSelected();
-          // console.log('page seletcted', selected);
-          if (selected && selected.is('mj-image')) {
-            $('#gjs_img_preview_logo_rtl').attr('src', assets.getSrc());
-            selected.addAttributes({ src: assets.getSrc() });
-            complete && editor.AssetManager.close();
-          }
-          // console.log('after select', selected);
-        },
-      });
-    });
-
-    // console.log('checkk;sksd', editor.getSelected());
     //For Traits
     editor.on('component:selected', (component) => {
       console.log('component*******', component);
       if (component) {
         let ccid = component.ccid.split('-')[0];
-        // console.log('ccid', ccid);
+        console.log('ccid', ccid);
         const blocksector = editor.StyleManager.getSectors();
-        // console.log('blocksector', blocksector);
-        blocksector.reset();
+        console.log('blocksector', blocksector);
         blocksector.add(getSectors(ccid));
-        // console.log('blocksector', blocksector.add(getSectors(ccid)));
+
+        // blocksector.reset();
+
+        console.log('blocksector new', blocksector.add(getSectors(ccid)));
       }
       let type = component.get('type');
       const { id } = component.attributes.attributes;
       if (component.get('type') == 'text') {
         editor?.runCommand('core:open-traits');
-        if (component.get('traits').models[0].get('value'))
-          component.components(component.get('traits').models[0].get('value'));
       }
       if (component.get('type') == 'button') {
-        editor?.runCommand('core:open-traits');
-        if (component.get('traits').models[0].get('value'))
-          component.components(component.get('traits').models[0].get('value'));
-      }
-      if (component.get('type') == 'mj-image') {
         editor?.runCommand('core:open-traits');
       }
 
@@ -656,61 +888,112 @@ const PageBuilder: React.FC = () => {
       // }
     });
     editor.on('component:update', (component) => {
-      if (component.get('type') == 'text') {
-        component.components(component.get('traits').models[0].get('value'));
-        component.components(component.get('traits').models[1].get('class'));
-      }
-      if (component.get('type') == 'button') {
-        component.components(component.get('traits').models[0].get('value'));
-        component.components(component.get('traits').models[1].get('class'));
-        component.components(component.get('traits').models[2].get('class'));
-      }
       //  condation  for load when active history
       // if (addHistory) {
       //   pageHistoryHandler();
       // }
     });
     //This is for all section templates Style Manager
+
     editor.on(`block:drag:stop`, (component, block) => {
-      // if component exists, means the drop was successful
-      if (component) {
+      console.log('block', block);
+      console.log("component",component);
+      let { data, found, filtering } = fetchSectionDetail(block.id);
+      console.log("found",found,filtering);
+      const { sectionCode,category } = filtering;
+      //Updated
+      if (found ) {
+        let content = JSON.parse(sectionCode)
+        editor.loadProjectData({ ...content});
+        console.log(" ...JSON.parse(sectionCode)}",JSON.parse(sectionCode))
+        const sectorId =
+        content.pages[0].frames[0].component.components[0].attributes.id;
+        console.log('sectorIsd', sectorId);
+        const blocksector = editor.StyleManager.getSectors();
+        blocksector.reset();
+        blocksector.add(getSectors(sectorId));
+      }
+      else if (component) {
         let ccid = component.ccid.split('-')[0];
         const blocksector = editor.StyleManager.getSectors();
         blocksector.reset();
         blocksector.add(getSectors(ccid));
       }
+//Custom
+      if (component === null) {
+        const blocksector = editor.StyleManager.getSectors();
+        const { content } = block.attributes;
+        editor.loadProjectData({ ...content });
+        console.log('content.pages[0]', content.pages[0]);
+        const sectorId =
+          content.pages[0].frames[0].component.components[0].attributes.id;
+        console.log('sectorId', sectorId);
+        blocksector.reset();
+        blocksector.add(getSectors(sectorId));
+      }
     });
 
     //@ts-ignore
-    editor.on('style:sector:update', (props) => {
-      console.log('style:sector:update', props);
+    // editor.on('style:sector:update', (props) => {
+    //   console.log('style:sector:update', props);
 
-      
+    //   !isUpdating &&
+    //     setTimeout(() => {
+    //       let sm = editor.StyleManager;
+    //       var selectedBlock = editor.getSelected();
+    //       console.log("selected",selectedBlock)
+
+    //       const { ccid } = selectedBlock;
+
+    //       isUpdating = true;
+    //       const sectors = sm.getSectors();
+
+    //       for (let i = 0; i < sectors.length; i++) {
+    //         const modelId = sectors.models[i].get('id');
+    //         if (modelId === props.id) {
+    //           let isOpen = sectors.models[i].isOpen();
+    //           if (isOpen) {
+    //             editor.select(sectors.models[i]);
+
+    //             sectors.models[i].set({
+    //               open: true,
+    //               active: true,
+    //               select: true,
+    //               focus: true,
+    //             });
+
+    //             sm.select(`.${ccid} .${props.id}`);
+    //           }
+    //         } else {
+    //           sectors.models[i].setOpen(false);
+    //         }
+    //       }
+
+    //       setTimeout(() => {
+    //         isUpdating = false;
+    //       }, 3000);
+    //     }, 100);
+
+    //   const categories = editor.StyleManager.getSectors();
+    // });
+    // @ts-ignore
+    editor.on('style:sector:update', (props) => {
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
           var selectedBlock = editor.getSelected();
-
-          const { ccid } = selectedBlock;
-
+          console.log('selectedBlock', selectedBlock);
           isUpdating = true;
           const sectors = sm.getSectors();
-
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
               let isOpen = sectors.models[i].isOpen();
+
               if (isOpen) {
-                editor.select(sectors.models[i]);
+                const wrapperCmp = editor.DomComponents.getWrapper();
 
-                sectors.models[i].set({
-                  open: true,
-                  active: true,
-                  select: true,
-                  focus: true,
-                });
-
-                sm.select(`.${ccid} .${props.id}`);
+                editor.select(wrapperCmp.find(`.${props.id}`)[0]);
               }
             } else {
               sectors.models[i].setOpen(false);
@@ -719,12 +1002,38 @@ const PageBuilder: React.FC = () => {
 
           setTimeout(() => {
             isUpdating = false;
-          }, 3000);
+          }, 300);
         }, 100);
 
       const categories = editor.StyleManager.getSectors();
     });
+    //@ts-ignore
+    editor.on('style:target', (component) => {
+      if (!component) return;
 
+      !isUpdating &&
+        setTimeout(() => {
+          isUpdating = true;
+
+          const selectedSector = component
+            .getSelectorsString()
+            .replace('.', '');
+
+          const sectors = editor.StyleManager.getSectors();
+
+          for (let i = 0; i < sectors.length; i++) {
+            if (selectedSector.includes(sectors.models[i].get('id'))) {
+              sectors.models[i].setOpen(true);
+            } else {
+              sectors.models[i].setOpen(false);
+            }
+          }
+
+          setTimeout(() => {
+            isUpdating = false;
+          }, 300);
+        }, 100);
+    });
     localStorage.removeItem('gjsProject');
     updateHeaderBlock();
     setEditorState(editor);
@@ -760,18 +1069,18 @@ const PageBuilder: React.FC = () => {
   // let newDirty = editor?.getDirtyCount();
   // =======Lifecycle methods end here=========
   return (
-    <div className='main__content'>
+    <div className="main__content">
       <Eyebrow />
-      <div className='panel__top'></div>
-      <div className='editor-row'>
-        <div className='panel__basic-actions'></div>
-        <div className='panel__left'>
-          <div className='back__panel panel-header'>
-            <Link className='panel-header__link' to={`${admin}/`}>
+      <div className="panel__top"></div>
+      <div className="editor-row">
+        <div className="panel__basic-actions"></div>
+        <div className="panel__left">
+          <div className="back__panel panel-header">
+            <Link className="panel-header__link" to={`${admin}/`}>
               <ArrowBackIosNewRoundedIcon />
             </Link>
             <span>Page Builder</span>
-            <span className='panel-header__menu'>
+            <span className="panel-header__menu">
               <AppsRoundedIcon />
             </span>
           </div>
@@ -785,16 +1094,17 @@ const PageBuilder: React.FC = () => {
                   pageHistoryArray={pageHistoryArray}
                   deleteHistory={deleteHistory}
                   loadHistory={loadHistory}
+                  // hasBottomToolbar={true}
                 />
                 <div className="styles-container"></div>
                 <div className="traits-container"></div>
                 <div className="layers-container"></div>
               </div>
             </div>
-          </div>      
+          </div>
         </div>
-        <div className='editor-canvas'>
-          <div className='editor'></div>
+        <div className="editor-canvas">
+          <div className="editor"></div>
         </div>
       </div>
     </div>
