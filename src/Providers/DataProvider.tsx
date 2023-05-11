@@ -41,7 +41,7 @@ const GetSectionData: React.FC<any> = ({ children }) => {
       res = {
         found: false,
         data: null,
-        filtering: null,
+        filtering: {},
       };
     }
     return res;

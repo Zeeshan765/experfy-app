@@ -190,6 +190,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   `,
     content: `
     <section  id= "testimonialSector" class="testimonial-container testimonialSector">
+    <div class="test-sector">
     <h1 class="h1 main-testimonial-title">You are in Good</h1> 
     <div class="swiper-container  mySwiper">
     
@@ -267,6 +268,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    
     
   </div>
+  </div>
   </section>
   ${swiperStyle}
  `,
@@ -286,7 +288,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section  id= "benefitSector" class="benefits-main-wrapper benefitSector">
+    content: `<section  id= "benefitSector" class="benefits-main-wrapper benefitSector" data-gjs-type="benefitSector">
     <div class="benefits-container" >
 
        <div class="benefits-title-div">
@@ -659,7 +661,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <path id="Path_170799" data-name="Path 170799" d="M90.466,39.2H70.632a.633.633,0,0,0-.633.633V56.5a.633.633,0,0,0,.633.633H90.466A.633.633,0,0,0,91.1,56.5V39.832A.633.633,0,0,0,90.466,39.2ZM83.292,54.417a.442.442,0,0,1-.434.4H72.264a.382.382,0,0,1-.366-.4v-.053a.382.382,0,0,1,.366-.4H82.857a.442.442,0,0,1,.434.4Zm-11.04-2.98H82.479a.414.414,0,0,1,.405.382V51.9a.414.414,0,0,1-.405.382H72.252A.369.369,0,0,1,71.9,51.9v-.079a.369.369,0,0,1,.354-.383ZM71.9,49.353V49.3a.382.382,0,0,1,.366-.4h9.617a.4.4,0,0,1,.393.4v.053a.4.4,0,0,1-.393.4H72.264A.382.382,0,0,1,71.9,49.353Zm17.251,4.822-.672.5a.283.283,0,0,1-.168.056.272.272,0,0,1-.043,0,.284.284,0,0,1-.185-.113l-1.355-1.869-.778.573a.282.282,0,0,1-.442-.163l-.958-4.085a.282.282,0,0,1,.414-.31l3.645,2.078a.282.282,0,0,1,.031.469l-.788.6,1.359,1.876a.281.281,0,0,1-.06.392Zm.472-8.225a.633.633,0,0,1-.633.633H72.109a.633.633,0,0,1-.633-.633V41.941a.633.633,0,0,1,.633-.633h16.88a.633.633,0,0,1,.633.633Z" transform="translate(-69.999 -39.199)"/>
   </svg>
   `,
-    content: `<section id="bannerSector" class="main-banner-container bannerSector">
+    content: `<section id="bannerSector" class="main-banner-container bannerSector" data-gjs-type="bannerSector">
         
       
       <div class="bannar-content">
@@ -698,7 +700,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section  id= "photoSector" class="photo-main-wrapper photoSector">
+    content: `<section  id= "photoSector" class="photo-main-wrapper photoSector" data-gjs-type="photoSector">
     <div class="photo-container" >
 
        <div class="photo-title-div">
@@ -1230,9 +1232,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     ${HeadingStyle}
         `,
   });
-
-
-  
 
   addBlock('paragraph-1', {
     label: 'Paragraph',
