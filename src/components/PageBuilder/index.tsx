@@ -820,7 +820,7 @@ add your attachment</span>
           label: sectionTitle,
           category,
           // media:
-          content: JSON.parse(sectionCode),
+          content: {...JSON.parse(sectionCode)},
         });
       });
 
@@ -872,7 +872,7 @@ add your attachment</span>
 
         // blocksector.reset();
 
-        console.log('blocksector new', blocksector.add(getSectors(ccid)));
+        // console.log('blocksector new', blocksector.add(getSectors(ccid)));
       }
       let type = component.get('type');
       const { id } = component.attributes.attributes;
@@ -1009,6 +1009,7 @@ add your attachment</span>
     });
     //@ts-ignore
     editor.on('style:target', (component) => {
+      console.log("target component",component)
       if (!component) return;
 
       !isUpdating &&
@@ -1018,10 +1019,13 @@ add your attachment</span>
           const selectedSector = component
             .getSelectorsString()
             .replace('.', '');
+            console.log("selectedSector",selectedSector)
 
           const sectors = editor.StyleManager.getSectors();
+          console.log("target sector",sectors)
 
           for (let i = 0; i < sectors.length; i++) {
+            console.log("sectors.models[i].get('id')",sectors.models[i].get('id'))
             if (selectedSector.includes(sectors.models[i].get('id'))) {
               sectors.models[i].setOpen(true);
             } else {
