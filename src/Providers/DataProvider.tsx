@@ -27,7 +27,7 @@ const GetSectionData: React.FC<any> = ({ children }) => {
   const fetchSectionDetail = (parem) => {
  
     const filtered = sectionData.filter((el) => el.sectionTitle === parem);
-    setFiltered(filtered.sectionTitle)
+    setFiltered(filtered?.sectionTitle)
     
 
     let res = {};

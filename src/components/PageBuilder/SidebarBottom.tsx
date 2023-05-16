@@ -29,6 +29,7 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray, deleteHistory, load
   const [historyDisplay, setHistoryDisplay] = useState(false);
   const [publishLinksDisplay, setPublishLinksDisplay] = useState(false);
   const [displayLinksDisplay, setDisplayLinksDisplay] = useState(false);
+  console.log("consumer",consumer)
 
   const handleShowDisplayOptions = () => {
     
