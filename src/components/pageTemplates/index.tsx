@@ -21,7 +21,12 @@ const PageTemplates = () => {
 
   const history = useHistory();
   let { id } = useParams();
-  const [pageData, setPageData] = useState({ title: '', pageThumnail: '' });
+  const [pageData, setPageData] = useState({
+    title: '',
+    pageThumnail: '',
+    base64Img: '',
+  });
+  console.log('pageData', pageData);
   const [open, setOpen] = React.useState(false);
   const {
     admin: { user: userSlug },
@@ -74,10 +79,13 @@ const PageTemplates = () => {
   }
   const handleFileSelect = async (event) => {
     const file = event.target.files[0];
+    console.log('file', file);
     const base64String = await getBase64(file);
+    console.log('base64String', base64String);
     setPageData((pre) => ({
       ...pre,
-      [event.target.name]: base64String,
+      [event.target.name]: file,
+      base64Img: base64String,
     }));
   };
 
@@ -100,12 +108,14 @@ const PageTemplates = () => {
   // create page
   const createTemplate = () => {
     const formData = new FormData();
-    formData.append('pageThumnail', pageData?.pageThumnail);
+    formData.append('pageThumnail', pageData?.base64Img);
     formData.append('title', pageData?.title);
+    formData.append('pageCode', '');
+
     axios({
       method: 'post',
       url: `${serverURL}${api}/page-Template`,
-      data:formData, 
+      data: formData,
       // {
       //   title: pageData?.title,
       //   pageThumnail: pageData?.pageThumnail,
@@ -170,13 +180,13 @@ const PageTemplates = () => {
     <Dialog
       open={open}
       onClose={handleClose}
-      aria-labelledby='customized-dialog-title'
-      maxWidth='md'
+      aria-labelledby="customized-dialog-title"
+      maxWidth="md"
       fullWidth={true}
       sx={{ boxShadow: 1 }}
     >
       {' '}
-      <DialogTitle className='model-title'>
+      <DialogTitle className="model-title">
         <div
           style={{
             display: 'flex',
@@ -185,7 +195,7 @@ const PageTemplates = () => {
             width: '100%',
           }}
         >
-          <span className='page-title'>
+          <span className="page-title">
             {' '}
             {id ? 'Update Page Template' : 'Create New Page Template'}{' '}
           </span>
@@ -194,7 +204,7 @@ const PageTemplates = () => {
           </a>
         </div>
       </DialogTitle>
-      <div className='model-body'>
+      <div className="model-body">
         <Form onSubmit={() => (id ? updateTemplate() : createTemplate())}>
           <div style={{ marginBottom: '1rem' }}>
             <TextInput
@@ -204,28 +214,25 @@ const PageTemplates = () => {
                 // (e)=>{setTitle(e.target.value)}
               }
               value={pageData['title']}
-              name='title'
-              className='page-name'
+              name="title"
+              className="page-name"
             />
           </div>
-          {
-          !id &&
+          {!id && (
             <div>
-              {pageData?.pageThumnail && (
-                <img src={pageData.pageThumnail} style={{ width: '60px' }} />
+              {pageData?.base64Img && (
+                <img src={pageData.base64Img} style={{ width: '60px' }} />
               )}
               <TextInput
-                type='file'
+                type="file"
                 label={'Page Thumnail'}
-                onChange={
-                  handleFileSelect
-                }
+                onChange={handleFileSelect}
                 // value={id ? '' : pageData['pageThumnail']}
-                name='pageThumnail'
-                className='page-name'
+                name="pageThumnail"
+                className="page-name"
               />
             </div>
-          }
+          )}
           <div
             style={{
               display: 'flex',
@@ -235,15 +242,15 @@ const PageTemplates = () => {
               marginTop: '2rem',
             }}
           >
-            <button type='submit' className='submit-btn'>
+            <button type="submit" className="submit-btn">
               {id ? 'Update' : 'Create Page'}
             </button>
             {id && (
               <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <button className='edit-btn' onClick={handleEditPage}>
+                <button className="edit-btn" onClick={handleEditPage}>
                   <OpenInNewIcon style={{ fontSize: '2rem' }} />
                 </button>
-                <button className='delete-btn' onClick={deletePage}>
+                <button className="delete-btn" onClick={deletePage}>
                   <DeleteOutlineTwoToneIcon style={{ fontSize: '2rem' }} />
                 </button>
               </div>

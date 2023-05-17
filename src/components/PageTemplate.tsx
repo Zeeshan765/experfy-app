@@ -82,6 +82,7 @@ const PageTemplate: React.FC<Props> = ({
   return (
     <Grid container spacing={2} style={{ margin: 'auto', width: '100%' }}>
       {templateList.map((template) => {
+        console.log('template', template)
         const { id, pageThumnail, title,pageCode } = template;
         console.log('templateList', template);
         

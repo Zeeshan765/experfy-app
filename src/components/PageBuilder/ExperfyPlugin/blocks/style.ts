@@ -123,7 +123,9 @@ align-items: center;
 
 export const photoGalleryStyle = `<style>
 
-
+.photo-main-wrapper{
+  margin-left: 7rem;
+}
 .photo-container{
 width: 70%;
 margin-left: 5rem;

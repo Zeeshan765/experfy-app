@@ -1884,15 +1884,7 @@ const obj = {
       id: 'bannar-content',
       buildProps: ['background'],
       properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
+        
         {
           type: 'slider',
           name: 'Overlay Opacity',

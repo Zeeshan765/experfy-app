@@ -77,6 +77,7 @@ const SectorsArray= ['benefitSector','paragraphSector']
   };
   const fetchData = () => {
     if (id) {
+debugger;
       if (userData.role === 'admin' || userData.role === 'superAdmin') {
         axios({
           method: 'get',
@@ -98,6 +99,8 @@ const SectorsArray= ['benefitSector','paragraphSector']
           url: `${apiEndpoint}/pages/${id}`,
         })
           .then((res) => {
+            debugger;
+
             const { pageCode } = res.data;
             setCurrentPageData(res.data);
             if (pageCode) {
