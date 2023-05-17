@@ -191,7 +191,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: `
     <section  id= "testimonialSector" class="testimonial-container testimonialSector">
     <div class="test-sector">
-    <h1 class="h1 main-testimonial-title">You are in Good</h1> 
+    <h1 class="h1 main-testimonial-title testimonialSector_h1">You are in Good</h1> 
     <div class="swiper-container  mySwiper">
     
     <div class="swiper-wrapper">
@@ -200,16 +200,16 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
    
     <div class="left-container">
        <div class="img-container">
-             <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+             <img class="image testimonial-image testimonialSector_image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
          </div>
-               <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
+               <h2 class="h2 main-testimonial-name testimonialSector_h2">Daniel Samarov</h2>
               <span class="user-details">
-               <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
-             <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5></span>
+               <h5 class="h5 main-testimonial-content testimonialSector_h5">Chief Data Scientist, DS Box</h5>
+             <h5 class="h5 main-testimonial-content testimonialSector_h5">PhD, Statistics University of North</h5></span>
      </div>
          <div class="divider"></div>
          <div class="slider-text-div">
-         <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+         <h6 class="h6 main-testimonial-content testimonialSector_h6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
             </div>
     </div>
 
@@ -424,10 +424,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <div id="videoSector"class="video-main-wrapper videoSector"> 
     <div class="video-container-main-div video-wrap" data-gjs-type="video-wrap">
       <div class="video-header" >
-        <h1 class="h1 main-video-heading">Add your heading title here</h1>
-               <h6 class="h6 sub-video-heading">The Video Module is a place where you can visually show your user or client aspects of your company or product.</h6>
+        <h1 class="h1 main-video-heading videoSector_h1">Add your heading title here</h1>
+               <h6 class="h6 sub-video-heading videoSector_h6">The Video Module is a place where you can visually show your user or client aspects of your company or product.</h6>
              </div>
-    <video class="video-ratio"  src="path/to/video.mp4"></video> </div>
+    <video class="video-ratio videoSector_video"  src="path/to/video.mp4"></video> </div>
     </div>
     ${video} ${getStyles(['.video-header'])}
  `,
@@ -446,18 +446,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: ` <section  id= "guidelineSector" class="guideline-main-wrapper guidelineSector">
     <div id=guideline_1 class="guideline-container">
       <div class="guideline-header-section">
-        <h1 class="h1 main-guideline-heading">Add your heading title here</h1>
-        <h2 class="h2 sub-guideline-heading">The guideline module allows you to give directions or lead users to use a product,
+        <h1 class="h1 main-guideline-heading guidelineSector_h1">Add your heading title here</h1>
+        <h2 class="h2 sub-guideline-heading guidelineSector_h2">The guideline module allows you to give directions or lead users to use a product,
             perform an action, or lead them to a Call-to-action.
         </h2>
       </div>
       <div class="guidline-option" data-gjs-type="GuidelineDiv" id="GuidelineDiv">
       <div style=" padding: 0.75rem; margin: 0.75rem;">
        
-       <h3 class="h3 guideline-bullet" style="height: 35px; border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
-       <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
+       <h3 class="h3 guideline-bullet guidelineSector_h3" style="height: 35px; border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
+       <h1 class="h1 bullet-heading guidelineSector_h1" style="text-align:left;">Add Step Title</h1>
     
-     <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
+     <h6 class="h6 bullet-sub-heading guidelineSector_h6" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
       order to explain what the user
       should do next
      </h6>
@@ -489,32 +489,32 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <section  id= "locationSector" class="location-container locationSector">
         <div class="location-content">
         <div class="address-content-main-holder">
-            <h1 class="h1 main-location-heading">Add your heading title here</h1>
-            <h2 class="h2 sub-location-heading">The Location module contains your building’s address
+            <h1 class="h1 main-location-heading locationSector_h1">Add your heading title here</h1>
+            <h2 class="h2 sub-location-heading locationSector_h2">The Location module contains your building’s address
               and contact information. Please add as much or little
               information you need.
             </h2>
 
             <div class="address-content-div">
               <div class="address-icon">
-              <img class="image-location" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
-              <h6 class="h6 icon-text">Add address, phone number, or social media</h6>
+              <img class="image image-location locationSector_image" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+              <h6 class="h6 icon-text locationSector_h6">Add address, phone number, or social media</h6>
               </div>
              
             </div>
 
             <div class="address-content-div">
             <div class="address-icon">
-            <img class="image-location" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
-            <h6 class="h6 icon-text">Add address, phone number, or social media</h6>
+            <img class="image image-location locationSector_image" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+            <h6 class="h6 icon-text locationSector_h6">Add address, phone number, or social media</h6>
             </div>
           </div>
 
 
           <div class="address-content-div">
           <div class="address-icon">
-          <img class="image-location" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
-          <h6 class="h6 icon-text">Add address, phone number, or social media</h6>
+          <img class="image image-location locationSector_image" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+          <h6 class="h6 icon-text locationSector_h6">Add address, phone number, or social media</h6>
           </div>
 
         </div>
@@ -583,12 +583,12 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section data-gjs-type="numbersSection" class="main_wrapper numbersSection" id= "numbersSection">
+    content: `<section data-gjs-type="numbersSection" class="numbersSection" id= "numbersSection">
         <div class="number-container-div">
           
         <div class="title-div">
-              <h1 class="h1 main-number-heading">Add your heading title here</h1>
-              <h2 class="h2 sub-number-heading">The numbers module allows you to showcase your company’s metrics and
+              <h1 class="h1 main-number-heading numbersSection_h1">Add your heading title here</h1>
+              <h2 class="h2 sub-number-heading numbersSection_h2">The numbers module allows you to showcase your company’s metrics and
                 statistical accomplishments
               </h2>
           </div>
@@ -597,20 +597,20 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
          
               <div class="benefit percentage-info number-border">
                 <i class="fa fa-star"></i>
-                <h1 class="h1 number-val">10  % </h1>
-                <h4 class="h4 number-description">INSERT STATISTIC INFORMATION</h4>
+                <h1 class="h1 number-val numbersSection_h1">10  % </h1>
+                <h4 class="h4 number-description numbersSection_h4">INSERT STATISTIC INFORMATION</h4>
               </div>
 
               <div class="benefit percentage-info number-border">
                 <i class="fa fa-star"></i>
-                <h1 class="h1 number-val" >10  % </h1>
-                <h4 class="h4 number-description" >INSERT STATISTIC INFORMATION</h4>
+                <h1 class="h1 number-val numbersSection_h1" >10  % </h1>
+                <h4 class="h4 number-description" numbersSection_h4 >INSERT STATISTIC INFORMATION</h4>
               </div>
 
                 <div class="benefit percentage-info number-border">
                 <i class="fa fa-star"></i>
-                <h1 class="h1 number-val" >10 % </h1>
-                <h4 class="h4 number-description" >INSERT STATISTIC INFORMATION</h4>
+                <h1 class="h1 number-val numbersSection_h1" >10 % </h1>
+                <h4 class="h4 number-description numbersSection_h4 " >INSERT STATISTIC INFORMATION</h4>
               </div>
 
               </div>
@@ -665,15 +665,15 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         
       
       <div class="bannar-content">
-         <h1 id ="main-banner-heading" class="h1 main-banner-heading">Add your heading title here</h1>
-         <h6 class="h6 sub-banner-heading">Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
+         <h1 id ="main-banner-heading bannerSector_h1" class="h1 main-banner-heading">Add your heading title here</h1>
+         <h6 class="h6 sub-banner-heading bannerSector_h6">Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Nunc nec posuere risus. Phasellus nunc nisl, vulputate nec magna vel, sodales sollicitudin velit. Fusce scelerisque odio risus, eu euismod felis
             pellentesque a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In pulvinar aliquam felis, eu sodales ligula
             mollis ut. Aliquam eu pellentesque turpis. Nullam lectus nulla, vehicula quis odio vitae, vestibulum sollicitudin massa. Aenean pretium mauris nec ex
             feugiat convallis. Nulla sit amet odio dui. Nulla vulputate dictum tellus vel iaculis.
          </h6>
          <div class="button-container">
-            <button class="button banner-button" data-gjs-type="button">Button Label</button>
+            <button class="button banner-button bannerSector_button" data-gjs-type="button">Button Label</button>
          </div>
 
       </div>
@@ -704,8 +704,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <div class="photo-container" >
 
        <div class="photo-title-div">
-          <h1 class="h1 main-photo-heading">Add your heading title here</h1>
-          <h2 class="h2 sub-photo-heading">The  Photo Gallery module is a place where can visibily show your user or
+          <h1 class="h1 main-photo-heading photoSector_h1">Add your heading title here</h1>
+          <h2 class="h2 sub-photo-heading photoSector_h2">The  Photo Gallery module is a place where can visibily show your user or
            client aspects of your company or product.
           </h2>
        </div>
@@ -713,16 +713,16 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
        <div class="photo-option-section">
 
        <div class="photo_img_container">
-       <img class="image photo-image-gallery" src="https://dummyimage.com/1200x500" alt="step" >
-          <figcaption class="photo_figure_caption " >Caption Example</figcaption>
+       <img class="image photo-image-gallery photoSector_image" src="https://dummyimage.com/1200x500" alt="step" >
+          <figcaption class="photo_figure_caption photoSector_photo" >Caption Example</figcaption>
     </div>
     <div class="photo_img_container">
-       <img class="image photo-image-gallery" src="https://dummyimage.com/1200x500" alt="step" >
-          <figcaption class="photo_figure_caption " >Caption Example</figcaption>
+       <img class="image photo-image-gallery photoSector_image" src="https://dummyimage.com/1200x500" alt="step" >
+          <figcaption class="photo_figure_caption photoSector_photo " >Caption Example</figcaption>
     </div>
     <div class="photo_img_container">
-       <img class="image photo-image-gallery" src="https://dummyimage.com/1200x500" alt="step" >
-          <figcaption class="photo_figure_caption " >Caption Example</figcaption>
+       <img class="image photo-image-gallery photoSector_image" src="https://dummyimage.com/1200x500" alt="step" >
+          <figcaption class="photo_figure_caption photoSector_photo" >Caption Example</figcaption>
     </div>
 
 
@@ -762,16 +762,16 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     content: `<section class="ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
  <div class="main_container">
         <div class="content-section">
-           <h1 class="h1 main-image-heading" >Add your heading title here</h1>
-           <h2 class="h2 sub-image-heading">The Image and Text module is a place where you can
+           <h1 class="h1 main-image-heading ImageTextSector_h1" >Add your heading title here</h1>
+           <h2 class="h2 sub-image-heading ImageTextSector_h2">The Image and Text module is a place where you can
               visually show your user or client aspects of your
               company or product.
            </h2>
         </div>
         <div class="image-text-image-section">
         <div class="img_container">
-           <img class="image image-gallery" src="https://dummyimage.com/1200x500" alt="step" >
-              <figcaption class="figure_caption gallery-caption" >Caption Example</figcaption>
+           <img class="image image-gallery ImageTextSector_image" src="https://dummyimage.com/1200x500" alt="step" >
+              <figcaption class="figure_caption gallery-caption ImageTextSector_figure" >Caption Example</figcaption>
         </div>
         </div>
         </div>

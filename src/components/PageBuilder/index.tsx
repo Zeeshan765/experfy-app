@@ -18,6 +18,7 @@ import { DataContext } from '../../Providers/DataProvider';
 import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
 import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
+import backgroundPlugin from 'grapesjs-style-bg';
 
 interface parems {
   id?: string;
@@ -300,24 +301,8 @@ const SectorsArray= ['benefitSector','paragraphSector']
       canvasCss: '.blocks: {display: grid;}',
       plugins: [
         ExperfyBlocks,
-        // (editor) =>
-        //   NavBar(editor, {
-        //     label: 'Header',
-        //     block: {
-        //       category: 'Header & Footer',
-        //     },
-        //   }),
-        // (editor) =>
-        //   Basics(editor, {
-        //     category: 'Basic Elements',
-        //     flexGrid: true,
-        //     addBasicStyle: false,
-        //   }),
+        backgroundPlugin,
 
-        // (editor) =>
-        //   Forms(editor, {
-        //     category: 'Basic Elements',
-        //   }),
       ],
       pluginsOpts: {
         ExperfyBlocks: {},
@@ -669,8 +654,6 @@ add your attachment</span>
       model: {
         defaults: {
           script: function () {
-            // const dynamicProgress = "{[ dynamicProgress ]}";
-            // const progressType = "{[ progressType ]}";
 
             const initLib = function () {
               var swiper = new Swiper('.mySwiper', {
@@ -683,69 +666,11 @@ add your attachment</span>
                 },
               });
 
-              // const swiper = new Swiper(".mySwiper"
-              // , {
-              //   // spaceBetween: 30,
-              //   // centeredSlides: true,
-              //   // autoplay: {
-              //   //   delay: 2500,
-              //   //   disableOnInteraction: false,
-              //   // },
-              //   // // pagination: {
-              //   // //   el: ".swiper-pagination",
-              //   // //   clickable: true,
-              //   // //   // dynamicBullets: !!dynamicProgress,
-              //   // //   // type: progr essType,
-              //   // // },
-              //   // navigation: {
-              //   //   nextEl: ".swiper-button-next",
-              //   //   prevEl: ".swiper-button-prev",
-              //   // },
-              // });
-              // console.log('swiper :>> ', swiper);
+            
             };
             initLib();
 
-            //  if (typeof Swiper == "undefined") {
-            //           const script = document.createElement("script");
-            //           script.onload = initLib;
-            //           script.src = "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js";
-            //           document.body.appendChild(script);
-            //         } else {
-            //           initLib();
-            //         }
-
-            // const initLib = function () {
-            //   const swiper = new Swiper(".mySwiper", {
-            //     spaceBetween: 30,
-            //     centeredSlides: true,
-            //     autoplay: {
-            //       delay: 2500,
-            //       disableOnInteraction: false,
-            //     },
-            //     // pagination: {
-            //     //   el: ".swiper-pagination",
-            //     //   clickable: true,
-            //     //   // dynamicBullets: !!dynamicProgress,
-            //     //   // type: progressType,
-            //     // },
-            //     navigation: {
-            //       nextEl: ".swiper-button-next",
-            //       prevEl: ".swiper-button-prev",
-            //     },
-            //   });
-            //   console.log("swiper :>> ", swiper);
-            // };
-            // initLib();
-
-            // if (typeof Swiper == "undefined") {
-            //   const script = document.createElement("script");
-            //   script.onload = initLib;
-            //   script.src = "https://unpkg.com/swiper@7/swiper-bundle.min.js";
-            //   document.body.appendChild(script);
-            // } else {
-            //   initLib();
-            // }
+           
           },
         },
       },
@@ -1017,13 +942,13 @@ add your attachment</span>
  
     editor.on('component:selected', (component) => {
       if (component) {
-        console.log('component*******', component);
+        // console.log('component*******', component);
         let ccid = component.ccid.split('-')[0];
-        console.log('ccidcxcxcccxcxc', ccid);
+        // console.log('ccidcxcxcccxcxc', ccid);
         const blocksector = editor.StyleManager.getSectors();
         // blocksector.reset();
         // blocksector.add(getSectors(''));
-        console.log('blocksector$$$$$$$$$$$$$', blocksector);
+        // console.log('blocksector$$$$$$$$$$$$$', blocksector);
         // blocksector.forEach((sector) => {
         //   // console.log('sector', sector);
         //   // sector?.id && editor.StyleManager.removeSector(sector.id);
@@ -1031,7 +956,7 @@ add your attachment</span>
         let newCcid = component?.attributes?.classes?.models?.map(
           (el) => el?.id
         );
-        console.log('newCcid', newCcid);
+        // console.log('newCcid', newCcid);
         let updatedSectors = [];
         if (newCcid?.length > 0) {
           let test = newCcid.join('.');
@@ -1043,7 +968,7 @@ add your attachment</span>
           newCcid.forEach((element) => {
             console.log('element', element);
             let sector = element.split('_');
-            // console.log('sector name', sector);
+            console.log('sector name', sector);
             if (sector.length > 1) {
               // setTimeout(() => {
               let name = getSectors(element.split('_')[0]);
@@ -1073,64 +998,16 @@ add your attachment</span>
             }
           });
         } else {
+          // blocksector.add(getSectors(ccid));
           updatedSectors = getSectors(ccid);
-          console.log('else', updatedSectors);
+          // console.log('else', updatedSectors);
         }
-        console.log('updatedSectors', updatedSectors);
+        // console.log('updatedSectors', updatedSectors);
         setTimeout(() => {
           console.log('setTimeout updatedSectors', updatedSectors);
           updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
         }, 500);
-        // setTimeout(() => {
-        //   let sm = editor.StyleManager;
-        //   var selectedBlock = editor.getSelected();
-        //   console.log('selectedBlock', selectedBlock);
-        //   isUpdating = true;
-        //   const sectors = sm.getSectors();
-        //   for (let i = 0; i < sectors.length; i++) {
-        //     const modelId = sectors.models[i].get('id');
-        //     if (modelId === newCcid[1]) {
-        //       let isOpen = sectors.models[i].isOpen();
-        //       if (isOpen) {
-        // setTimeout(() => {
-        //   const wrapperCmp = editor.DomComponents.getWrapper();
-        //   let found2 = wrapperCmp.find(`${newCcid[1]}`);
-        //   console.log('found2', found2);
-        //   editor.select(found2[0]);
-        // }, 5000);
-        //     }
-        //   } else {
-        //     sectors.models[i].setOpen(false);
-        //   }
-        // }
-        // setTimeout(() => {
-        //   isUpdating = false;
-        // }, 300);
-        // }, 3000);
-        // !isUpdating &&
-        // setTimeout(() => {
-        //   let sm = editor.StyleManager;
-        //   var selectedBlock = editor.getSelected();
-        //   console.log('selectedBlock', selectedBlock);
-        //   isUpdating = true;
-        //   const sectors = sm.getSectors();
-        //   for (let i = 0; i < sectors.length; i++) {
-        //     const modelId = sectors.models[i].get('id');
-        //     if (modelId === props.id) {
-        //       let isOpen = sectors.models[i].isOpen();
-        //       if (isOpen) {
-        //         const wrapperCmp = editor.DomComponents.getWrapper();
-        //         editor.select(wrapperCmp.find(`.${props.id}`)[0]);
-        //       }
-        //     } else {
-        //       sectors.models[i].setOpen(false);
-        //     }
-        //   }
-        //   setTimeout(() => {
-        //     isUpdating = false;
-        //   }, 300);
-        // }, 100);
-        // console.log('blocksector new', blocksector.add(getSectors(ccid)));
+
       }
       let type = component.get('type');
       const { id } = component.attributes.attributes;
@@ -1159,32 +1036,18 @@ add your attachment</span>
     //This is for all section templates Style Manager
 
     editor.on(`block:drag:stop`, (component, block) => {
-      // console.log('block', block);
-      // console.log('component', component);
+     
       let { data, found, filtering } = fetchSectionDetail(block.id);
       // console.log('found', found, filtering, data);
       const { sectionCode, category } = filtering;
-      // console.log('category', category);
-      // console.log('sectionCode', sectionCode);
+      
       //Updated
       if (component && found) {
         let content = JSON.parse(sectionCode);
-        // console.log('parse', content);
-        // console.log('before data', editor.getProjectData());
-        // editor.loadProjectData({ ...content});
         editor.loadProjectData({
           ...Object.assign({ ...editor.getProjectData() }, { ...content }),
         });
-        // console.log('after data', editor.getProjectData());
-        // editor.loadProjectData({
-        //   ...Object.assign(
-        //     {},
-        //     { ...editor.getProjectData()},
-        //     {...content}
-        //   ),
-        // });
-
-        // console.log(" ...JSON.parse(sectionCode)}",editor.loadProjectData())
+        
         const sectorId =
           content.pages[0].frames[0].component.components[0].attributes.id;
         // console.log('sectorIsd', sectorId);
@@ -1194,15 +1057,11 @@ add your attachment</span>
       }
       if (component && !found) {
         let ccid = component.ccid.split('-')[0];
-        console.log('ccid', ccid);
+        // console.log('ccid', ccid);
         const blocksector = editor.StyleManager.getSectors();
-        // console.log('blocksector', blocksector);
+     
         blocksector.reset();
-        // blocksector.forEach((sector) => {
-        //   console.log('sector', sector);
-
-        //   sector?.id && editor.StyleManager.removeSector(sector.id);
-        // });
+       
         blocksector.add(getSectors(ccid));
       }
       //Custom
@@ -1221,83 +1080,42 @@ add your attachment</span>
     });
 
     //@ts-ignore
-    // editor.on('style:sector:update', (props) => {
-    //   console.log('style:sector:update', props);
-
-    //   !isUpdating &&
-    //     setTimeout(() => {
-    //       let sm = editor.StyleManager;
-    //       var selectedBlock = editor.getSelected();
-    //       console.log("selected",selectedBlock)
-
-    //       const { ccid } = selectedBlock;
-
-    //       isUpdating = true;
-    //       const sectors = sm.getSectors();
-
-    //       for (let i = 0; i < sectors.length; i++) {
-    //         const modelId = sectors.models[i].get('id');
-    //         if (modelId === props.id) {
-    //           let isOpen = sectors.models[i].isOpen();
-    //           if (isOpen) {
-    //             editor.select(sectors.models[i]);
-
-    //             sectors.models[i].set({
-    //               open: true,
-    //               active: true,
-    //               select: true,
-    //               focus: true,
-    //             });
-
-    //             sm.select(`.${ccid} .${props.id}`);
-    //           }
-    //         } else {
-    //           sectors.models[i].setOpen(false);
-    //         }
-    //       }
-
-    //       setTimeout(() => {
-    //         isUpdating = false;
-    //       }, 3000);
-    //     }, 100);
-
-    //   const categories = editor.StyleManager.getSectors();
-    // });
+   
     // @ts-ignore
-    // editor.on('style:sector:update', (props) => {
-    //   console.log('props', props);
-    //   // console.log("props.id",props.id)
-    //   // !isUpdating &&
-    //   //   setTimeout(() => {
-    //   //     console.log("Isupading in Timeout", isUpdating)
-    //   //     const sectors = editor.StyleManager.getSectors();
-    //   //     var selectedBlock = editor.getSelected();
-    //   //     console.log('selectedBlock', selectedBlock);
-    //   //     isUpdating = true;
-    //   //      for (let i = 0; i < sectors.length; i++) {
-    //   //       const modelId = sectors.models[i].get('id');
-    //   //       console.log("MOdel ID",modelId)
+    editor.on('style:sector:update', (props) => {
+      // console.log('props', props);
+      // console.log("props.id",props.id)
+      !isUpdating &&
+        setTimeout(() => {
+          // console.log("Isupading in Timeout", isUpdating)
+          const sectors = editor.StyleManager.getSectors();
+          var selectedBlock = editor.getSelected();
+          // console.log('selectedBlock', selectedBlock);
+          isUpdating = true;
+           for (let i = 0; i < sectors.length; i++) {
+            const modelId = sectors.models[i].get('id');
+            // console.log("MOdel ID",modelId)
 
-    //   //       if (modelId == props.id) {
+            if (modelId == props.id) {
 
-    //   //         let isOpen = sectors.models[i].isOpen();
+              let isOpen = sectors.models[i].isOpen();
 
-    //   //         if (isOpen) {
-    //   //           const wrapperCmp = editor.DomComponents.getWrapper();
+              if (isOpen) {
+                const wrapperCmp = editor.DomComponents.getWrapper();
 
-    //   //           editor.select(wrapperCmp.find(`.${props.id}`)[0]);
-    //   //         }
-    //   //       } else {
-    //   //         sectors.models[i].setOpen(false);
-    //   //       }
-    //   //     }
+                editor.select(wrapperCmp.find(`.${props.id}`)[0]);
+              }
+            } else {
+              sectors.models[i].setOpen(false);
+            }
+          }
 
-    //   //     setTimeout(() => {
-    //   //       isUpdating = false;
-    //   //     }, 300);
-    //   //   }, 100);
+          setTimeout(() => {
+            isUpdating = false;
+          }, 300);
+        }, 100);
 
-    // });
+    });
     // @ts-ignore
     editor.on('style:target', (component) => {
       console.log('style sector called');
@@ -1306,7 +1124,6 @@ add your attachment</span>
       let newCcid = component?.attributes?.selectors?.models?.map(
         (el) => el?.id
       );
-      // console.log('All CCIDS', newCcid);
       if (!component) return;
 
       !isUpdating &&
@@ -1316,13 +1133,13 @@ add your attachment</span>
           const selectedSector = component
             .getSelectorsString()
             .replace('.', '');
-          console.log('selectedSector', selectedSector);
+          // console.log('selectedSector', selectedSector);
 
           for (let i = 0; i < sectors.length; i++) {
-            console.log(
-              "sectors.models[i].get('id')",
-              sectors.models[i].get('id')
-            );
+            // console.log(
+            //   "sectors.models[i].get('id')",
+            //   sectors.models[i].get('id')
+            // );
             if (selectedSector.includes(sectors.models[i].get('id'))) {
               console.log('mateched successfully');
               sectors.models[i].setOpen(true);
