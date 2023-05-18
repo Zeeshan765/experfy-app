@@ -761,7 +761,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   `,
     content: `<section class="ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
  <div class="main_container">
-        <div class="content-section">
+        <div class="content-section gjs-scroll-active">
            <h1 class="h1 main-image-heading ImageTextSector_h1" >Add your heading title here</h1>
            <h2 class="h2 sub-image-heading ImageTextSector_h2">The Image and Text module is a place where you can
               visually show your user or client aspects of your

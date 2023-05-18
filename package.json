@@ -46,6 +46,7 @@
     "grapesjs-indexeddb": "^1.0.4",
     "grapesjs-navbar": "^1.0.1",
     "grapesjs-plugin-forms": "^2.0.5",
+    "grapesjs-plugin-scroll": "^1.0.7",
     "grapesjs-project-manager": "^2.0.5",
     "grapesjs-style-bg": "^2.0.1",
     "grapesjs-tailwind": "^1.0.8",

@@ -30,6 +30,10 @@ export const sections = [
   'text',
   'paragraph-1',
   'photo-gallery',
+  'column1',
+   'column2', 
+   'column3', 
+   'column3-7',
   // 'swiper',
 ];
 export const canvasStyle = `

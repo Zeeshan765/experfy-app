@@ -19,7 +19,7 @@ import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
 import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
 import backgroundPlugin from 'grapesjs-style-bg';
-
+import gjsScroll from 'grapesjs-plugin-scroll';
 interface parems {
   id?: string;
 }
@@ -77,7 +77,7 @@ const SectorsArray= ['benefitSector','paragraphSector']
   };
   const fetchData = () => {
     if (id) {
-debugger;
+// debugger;
       if (userData.role === 'admin' || userData.role === 'superAdmin') {
         axios({
           method: 'get',
@@ -99,7 +99,7 @@ debugger;
           url: `${apiEndpoint}/pages/${id}`,
         })
           .then((res) => {
-            debugger;
+            // debugger;
 
             const { pageCode } = res.data;
             setCurrentPageData(res.data);
@@ -143,7 +143,7 @@ debugger;
       });
   };
   const dataHandler = () => {
-    debugger;
+    // debugger;
     if (userData.role === 'admin' || userData.role === 'superAdmin') {
       const updation = {
         currentPageData,
@@ -303,12 +303,17 @@ debugger;
       // canvasCss: localStorage.getItem('theme_style_css') || '',
       canvasCss: '.blocks: {display: grid;}',
       plugins: [
+        
         ExperfyBlocks,
         backgroundPlugin,
+        Basics,
+        // gjsScroll,
 
       ],
       pluginsOpts: {
         ExperfyBlocks: {},
+        Basics: {},
+        // gjsScroll:{},
         Filtered: {},
       },
       layerManager: {
@@ -949,6 +954,7 @@ add your attachment</span>
         let ccid = component.ccid.split('-')[0];
         // console.log('ccidcxcxcccxcxc', ccid);
         const blocksector = editor.StyleManager.getSectors();
+        console.log("blocksector",blocksector)
         // blocksector.reset();
         // blocksector.add(getSectors(''));
         // console.log('blocksector$$$$$$$$$$$$$', blocksector);
