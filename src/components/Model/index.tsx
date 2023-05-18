@@ -8,11 +8,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useStyles } from './style';
 import { Button } from 'payload/components/elements';
 import { Context } from '../../Providers/MyProvider';
+import { Redirect, useHistory } from 'react-router-dom';
 
 const FaceLessModel = ({ data, templateModelClose }) => {
   const classes = useStyles();
   const { id, name, pageThumnail,pageCode } = data;
   const { setSelectedPageCode } = useContext(Context);
+  const history = useHistory();
 
   const [subModelopen, setSubModelOpen] = useState(false);
   const { toggleModal } = useModal();
@@ -23,6 +25,7 @@ const FaceLessModel = ({ data, templateModelClose }) => {
     setSubModelOpen(false);
   };
   const createPageHandler = () => {
+    history.replace(`page-builder/${id}`);
     setSelectedPageCode(pageCode);
     handleClose();
     templateModelClose();

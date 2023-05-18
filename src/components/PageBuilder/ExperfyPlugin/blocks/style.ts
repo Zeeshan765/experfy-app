@@ -503,6 +503,7 @@ export const ImageBanner = `
 }
 .bannar-content{
   margin-left : 2rem;
+  margin-right: 2rem;
   display: grid;
   padding: 40px 40px;
   
