@@ -67,7 +67,30 @@ const ThemeStyle: React.FC = () => {
         appendTo: '.styles-container',
         textNoElement: 'No element selected',
       },
-      selectorManager: false,
+      selectorManager: {
+        appendTo: '.styles-container',
+        states: [
+          {
+            name: 'hover',
+            label: 'Hover',
+            // class: 'button'
+            icon: 'hover',
+          },
+          {
+            name: 'active',
+            label: 'Click',
+            icon: 'active',
+
+          },{
+            name: 'focus',
+            label: 'Focus',
+            icon: 'active',
+
+          }
+
+        ]
+           
+      },
 
       commands: {
         defaults: [
@@ -108,6 +131,7 @@ const ThemeStyle: React.FC = () => {
  
   
     editor.on('load', () => {
+      console.log("editor.getProjectData()",editor.getProjectData())
       editor.loadProjectData({
         ...Object.assign(
           {},

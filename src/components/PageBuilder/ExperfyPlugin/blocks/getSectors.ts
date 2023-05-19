@@ -1967,7 +1967,7 @@ const obj = {
       name: 'Section Background',
       open: false,
       id: 'main_container',
-      buildProps: ['background'],
+      buildProps: ['background','transition', 'perspective', 'transform','opacity'],
       properties: [
         // {
         //   type: 'color',

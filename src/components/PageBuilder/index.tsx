@@ -303,17 +303,14 @@ const SectorsArray= ['benefitSector','paragraphSector']
       // canvasCss: localStorage.getItem('theme_style_css') || '',
       canvasCss: '.blocks: {display: grid;}',
       plugins: [
-        
         ExperfyBlocks,
         backgroundPlugin,
         Basics,
-        // gjsScroll,
-
+        // e => gjsScroll(e, {})
       ],
       pluginsOpts: {
         ExperfyBlocks: {},
         Basics: {},
-        // gjsScroll:{},
         Filtered: {},
       },
       layerManager: {
@@ -1052,6 +1049,7 @@ add your attachment</span>
       
       //Updated
       if (component && found) {
+       
         let content = JSON.parse(sectionCode);
         editor.loadProjectData({
           ...Object.assign({ ...editor.getProjectData() }, { ...content }),
@@ -1065,6 +1063,7 @@ add your attachment</span>
         blocksector.add(getSectors(sectorId));
       }
       if (component && !found) {
+        console.log("editor.getProjectData",editor.getProjectData())
         let ccid = component.ccid.split('-')[0];
         // console.log('ccid', ccid);
         const blocksector = editor.StyleManager.getSectors();
