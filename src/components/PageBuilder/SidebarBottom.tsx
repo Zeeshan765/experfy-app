@@ -61,11 +61,11 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray, deleteHistory, load
   };
 
   const historyView = () => {
-    console.log('historyView');
+    // console.log('historyView');
     setHistoryDisplay((pre) => !pre);
   };
 
-  console.log('pageHistoryArray=================', pageHistoryArray);
+  // console.log('pageHistoryArray=================', pageHistoryArray);
 
   return (
     <div className={`${hasBottomToolbar ? "sidebar-bottom" : ""} blocks sidebar-bottom-custom`}>

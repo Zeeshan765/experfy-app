@@ -280,6 +280,27 @@ const SectorsArray= ['benefitSector','paragraphSector']
       });
   };
 
+
+
+  const showanimation = async () =>{
+    console.log("show animation called")
+    const boxes = document.querySelectorAll('.boxes');
+    window.addEventListener('scroll',getboxes)
+
+function getboxes (){
+  const triggerBottom = window.innerHeight / 5 * 4;
+  boxes.forEach(box =>{
+    const boxTop = box.getBoundingClientRect().top;
+    if(boxTop < triggerBottom){
+      box.classList.add('show');
+    }else{
+      box.classList.remove('show');
+    }
+  })
+}
+
+  }
+
   //======== GrapesJs Canvas initialization start here========
   const initializeInstance = () => {
     let blocks = [...sections];
@@ -342,9 +363,11 @@ const SectorsArray= ['benefitSector','paragraphSector']
         defaults: [
           {
             id: 'preview-fullscreen',
-            run() {
-              editor.runCommand('preview');
-              editor.runCommand('fullscreen');
+            run(editor: { store: () => GrapesJS.Editor }) {
+              console.log("clicked")
+              // showanimation();
+              // editor.runCommand('preview');
+              // editor.runCommand('fullscreen');
             },
             stop() {
               editor.stopCommand('fullscreen');
@@ -365,6 +388,7 @@ const SectorsArray= ['benefitSector','paragraphSector']
         ],
       },
     });
+
 
     function isObjEmpty(obj) {
       if (obj === undefined) {
@@ -742,6 +766,7 @@ add your attachment</span>
     });
 
     editor.on('load', () => {
+      showanimation();
       Filtered.forEach((element) => {
         console.log('Filtered element', element);
         const { category, id, sectionCode, sectionTitle } = element;
@@ -1043,6 +1068,13 @@ add your attachment</span>
 
     editor.on(`block:drag:stop`, (component, block) => {
      
+     
+
+
+
+
+
+
       let { data, found, filtering } = fetchSectionDetail(block.id);
       // console.log('found', found, filtering, data);
       const { sectionCode, category } = filtering;
