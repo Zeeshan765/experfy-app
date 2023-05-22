@@ -295,6 +295,14 @@ const SectionPageBuilder: React.FC = () => {
               }
             },
           },
+          {
+            id: 'preview',
+            hidden: false,
+            run(editor: { store: () => GrapesJS.Editor }) {
+              console.log("animation called")
+            }
+
+          },
         ],
       },
       layerManager: null,

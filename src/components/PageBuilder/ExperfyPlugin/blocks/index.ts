@@ -43,12 +43,20 @@ import {
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
+    console.log('opts', opts);
+    console.log('opts.blocks', opts.blocks);
+    const prefixnew = opts?.gjsScrollPrefix ?? 'gjs-scroll';
+    console.log('zeeshan prefix', prefixnew);
+    const check = opts?.gjsScrollComponentType;
+    console.log('zeeshan componentType', check);
+    console.log('id', id);
     opts.blocks.indexOf(id)! >= 0 &&
       editor.Blocks.add(id, {
         select: true,
         activate: true,
         ...def,
         ...opts.block(id),
+        content: (check<any>,prefixnew),
       });
   };
 
@@ -759,15 +767,19 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: `<section class="ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
- <div class="main_container">
-        <div class="content-section boxes show">
-           <h1 class="h1 main-image-heading ImageTextSector_h1" >Add your heading title here</h1>
-           <h2 class="h2 sub-image-heading ImageTextSector_h2">The Image and Text module is a place where you can
-              visually show your user or client aspects of your
-              company or product.
-           </h2>
-        </div>
+    content: (prefixnew,check) =>
+      `<section class="ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
+ <div data-gjs-type="${prefixnew}"   class="main_container ${check}">
+       
+        <div class="content-section">
+        <h1 class="h1 main-image-heading ImageTextSector_h1" >Add your heading title here</h1>
+        <h2 class="h2 sub-image-heading ImageTextSector_h2">The Image and Text module is a place where you can
+           visually show your user or client aspects of your
+           company or product.
+        </h2>
+     </div>
+        
+        
         <div class="image-text-image-section">
         <div class="img_container">
            <img class="image image-gallery ImageTextSector_image" src="https://dummyimage.com/1200x500" alt="step" >
@@ -780,15 +792,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     ${getStyles(['.content-section'])}
   
         `,
-
-        
-
-
-
-          
-
-
-
   });
   addBlock('search', {
     label: 'Search',

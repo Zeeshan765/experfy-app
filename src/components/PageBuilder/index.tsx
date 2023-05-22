@@ -12,6 +12,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Experfy from './ExperfyPlugin';
+import gjsScroll from './ScrollPlugin';
 import { getSectors } from './ExperfyPlugin/blocks/getSectors';
 import { UserContext } from '../../Providers/UserProvider';
 import { DataContext } from '../../Providers/DataProvider';
@@ -19,7 +20,7 @@ import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
 import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
 import backgroundPlugin from 'grapesjs-style-bg';
-import gjsScroll from 'grapesjs-plugin-scroll';
+// import gjsScroll from 'grapesjs-plugin-scroll';
 interface parems {
   id?: string;
 }
@@ -43,7 +44,7 @@ const PageBuilder: React.FC = () => {
   const { sectionData, fetchSectionDetail } = useContext(DataContext);
   const { setStepNav } = useStepNav();
   const history = useHistory();
-const SectorsArray= ['benefitSector','paragraphSector']
+  const SectorsArray = ['benefitSector', 'paragraphSector'];
   console.log('sectionData', sectionData);
 
   let custom = 'Custom Module';
@@ -77,7 +78,7 @@ const SectorsArray= ['benefitSector','paragraphSector']
   };
   const fetchData = () => {
     if (id) {
-// debugger;
+      // debugger;
       if (userData.role === 'admin' || userData.role === 'superAdmin') {
         axios({
           method: 'get',
@@ -280,26 +281,28 @@ const SectorsArray= ['benefitSector','paragraphSector']
       });
   };
 
+  //<! ----------Animation Function -------- !>
+  //   const showanimation = async () =>{
+  //     console.log("show animation called----->")
+  //     const boxes = document.querySelectorAll('.boxes');
+  //     // console.log("boxes",boxes)
+  //     window.addEventListener('scroll',getboxes)
 
+  // function getboxes (){
+  //   const triggerBottom = window.innerHeight / 5 * 4;
+  //   console.log("trggerBottom",triggerBottom)
+  //   boxes?.forEach(box =>{
+  //     const boxTop = box.getBoundingClientRect().top;
+  //     console.log("boxTop",boxTop)
+  //     if(boxTop < triggerBottom){
+  //       box.classList.add('show');
+  //     }else{
+  //       box.classList.remove('show');
+  //     }
+  //   })
+  // }
 
-  const showanimation = async () =>{
-    console.log("show animation called")
-    const boxes = document.querySelectorAll('.boxes');
-    window.addEventListener('scroll',getboxes)
-
-function getboxes (){
-  const triggerBottom = window.innerHeight / 5 * 4;
-  boxes.forEach(box =>{
-    const boxTop = box.getBoundingClientRect().top;
-    if(boxTop < triggerBottom){
-      box.classList.add('show');
-    }else{
-      box.classList.remove('show');
-    }
-  })
-}
-
-  }
+  //   }
 
   //======== GrapesJs Canvas initialization start here========
   const initializeInstance = () => {
@@ -315,6 +318,18 @@ function getboxes (){
         showPanelsOnLoad: true,
         showGlobalStyles: false,
       });
+
+    const ScrollPlugin = (
+      editor: GrapesJS.Editor,
+      options: GrapesJS.EditorConfig
+    ) =>
+      gjsScroll(editor, {
+        ...options,
+        blocks,
+        showPanelsOnLoad: true,
+        showGlobalStyles: false,
+      });
+
     editor = GrapesJS.init({
       container: '.editor',
       fromElement: true,
@@ -323,15 +338,11 @@ function getboxes (){
       style: `${canvasStyle}`,
       // canvasCss: localStorage.getItem('theme_style_css') || '',
       canvasCss: '.blocks: {display: grid;}',
-      plugins: [
-        ExperfyBlocks,
-        backgroundPlugin,
-        Basics,
-        // e => gjsScroll(e, {})
-      ],
+      plugins: [ExperfyBlocks, backgroundPlugin, Basics, ScrollPlugin],
       pluginsOpts: {
         ExperfyBlocks: {},
         Basics: {},
+        ScrollPlugin: {},
         Filtered: {},
       },
       layerManager: {
@@ -362,17 +373,19 @@ function getboxes (){
       commands: {
         defaults: [
           {
-            id: 'preview-fullscreen',
+            id: 'preview',
+            hidden: false,
+
             run(editor: { store: () => GrapesJS.Editor }) {
-              console.log("clicked")
+              console.log('clicked');
               // showanimation();
               // editor.runCommand('preview');
               // editor.runCommand('fullscreen');
             },
-            stop() {
-              editor.stopCommand('fullscreen');
-              editor.stopCommand('preview');
-            },
+            // stop() {
+            //   editor.stopCommand('fullscreen');
+            //   editor.stopCommand('preview');
+            // },
           },
           {
             id: 'save-editor',
@@ -388,7 +401,6 @@ function getboxes (){
         ],
       },
     });
-
 
     function isObjEmpty(obj) {
       if (obj === undefined) {
@@ -683,7 +695,6 @@ add your attachment</span>
       model: {
         defaults: {
           script: function () {
-
             const initLib = function () {
               var swiper = new Swiper('.mySwiper', {
                 spaceBetween: 30,
@@ -694,12 +705,8 @@ add your attachment</span>
                   prevEl: '.swiper-button-prev',
                 },
               });
-
-            
             };
             initLib();
-
-           
           },
         },
       },
@@ -766,7 +773,7 @@ add your attachment</span>
     });
 
     editor.on('load', () => {
-      showanimation();
+      // showanimation();
       Filtered.forEach((element) => {
         console.log('Filtered element', element);
         const { category, id, sectionCode, sectionTitle } = element;
@@ -850,12 +857,6 @@ add your attachment</span>
     //           // setTimeout(() => {
     //           let name = getSectors(element.split('_')[0]);
 
-
-
-              
-
-
-
     //           console.log('name', name);
     //           let allSelectedNames = name.map((el) => el.id);
     //           console.log('allSectorsNames', allSectorsNames);
@@ -866,7 +867,7 @@ add your attachment</span>
     //               console.log('sect', sect?.id);
     //               const isInclude = allSelectedNames.includes(sect?.id);
     //               console.log('isInclude', isInclude);
-                 
+
     //               if (!isInclude) {
     //                 console.log('yesss');
     //                 let timers = (i + 1) * 30;
@@ -875,9 +876,9 @@ add your attachment</span>
     //                   setTimeout(() => {
     //                     editor.StyleManager.removeSector(sect.id);
     //                   }, timers);
-                   
+
     //               }
-                 
+
     //             }
     //           });
     //           updatedSectors.push(name);
@@ -969,14 +970,14 @@ add your attachment</span>
     //   //   saveHistoy();
     //   // }
     // });
- 
+
     editor.on('component:selected', (component) => {
       if (component) {
         // console.log('component*******', component);
         let ccid = component.ccid.split('-')[0];
         // console.log('ccidcxcxcccxcxc', ccid);
         const blocksector = editor.StyleManager.getSectors();
-        console.log("blocksector",blocksector)
+        console.log('blocksector', blocksector);
         // blocksector.reset();
         // blocksector.add(getSectors(''));
         // console.log('blocksector$$$$$$$$$$$$$', blocksector);
@@ -1038,7 +1039,6 @@ add your attachment</span>
           console.log('setTimeout updatedSectors', updatedSectors);
           updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
         }, 500);
-
       }
       let type = component.get('type');
       const { id } = component.attributes.attributes;
@@ -1053,40 +1053,20 @@ add your attachment</span>
       // }
     });
 
-
-
-
-
-
-
-
-
-
-
-
     //This is for all section templates Style Manager
 
     editor.on(`block:drag:stop`, (component, block) => {
-     
-     
-
-
-
-
-
-
       let { data, found, filtering } = fetchSectionDetail(block.id);
       // console.log('found', found, filtering, data);
       const { sectionCode, category } = filtering;
-      
+
       //Updated
       if (component && found) {
-       
         let content = JSON.parse(sectionCode);
         editor.loadProjectData({
           ...Object.assign({ ...editor.getProjectData() }, { ...content }),
         });
-        
+
         const sectorId =
           content.pages[0].frames[0].component.components[0].attributes.id;
         // console.log('sectorIsd', sectorId);
@@ -1095,13 +1075,13 @@ add your attachment</span>
         blocksector.add(getSectors(sectorId));
       }
       if (component && !found) {
-        console.log("editor.getProjectData",editor.getProjectData())
+        console.log('editor.getProjectData', editor.getProjectData());
         let ccid = component.ccid.split('-')[0];
         // console.log('ccid', ccid);
         const blocksector = editor.StyleManager.getSectors();
-     
+
         blocksector.reset();
-       
+
         blocksector.add(getSectors(ccid));
       }
       //Custom
@@ -1120,7 +1100,7 @@ add your attachment</span>
     });
 
     //@ts-ignore
-   
+
     // @ts-ignore
     editor.on('style:sector:update', (props) => {
       // console.log('props', props);
@@ -1132,12 +1112,11 @@ add your attachment</span>
           var selectedBlock = editor.getSelected();
           // console.log('selectedBlock', selectedBlock);
           isUpdating = true;
-           for (let i = 0; i < sectors.length; i++) {
+          for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             // console.log("MOdel ID",modelId)
 
             if (modelId == props.id) {
-
               let isOpen = sectors.models[i].isOpen();
 
               if (isOpen) {
@@ -1154,7 +1133,6 @@ add your attachment</span>
             isUpdating = false;
           }, 300);
         }, 100);
-
     });
     // @ts-ignore
     editor.on('style:target', (component) => {
