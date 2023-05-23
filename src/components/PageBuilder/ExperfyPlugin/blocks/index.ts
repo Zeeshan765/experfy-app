@@ -56,7 +56,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         activate: true,
         ...def,
         ...opts.block(id),
-        content: (check<any>,prefixnew),
+  
       });
   };
 

@@ -70,6 +70,15 @@ export const benefitsStyle = `<style>
 width: 70%;
 margin-left: 10rem;
 text-align: center; 
+padding:25px;
+color: white;
+text-align: center;
+ min-height: 500px;
+background-repeat:repeat, repeat, no-repeat;
+background-position:left top, left top, center center;
+background-size:auto, auto, auto;
+ background-image:linear-gradient(90deg, #bf4f4f 20%, rgba(142,235,15,0.17) 90%), linear-gradient(rgba(181,61,61,0.2) 0%,rgba(181,61,61,0.2) 100%), url('https://via.placeholder.com/350x250/78c5d6/fff/image1.jpg');
+    }
 }
 
 .benefits-title-div{

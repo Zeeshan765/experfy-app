@@ -545,7 +545,6 @@ const obj = {
       name: 'Logo',
       open: false,
       id: 'header-svg',
-      buildProps: ['animation-name', 'backdrop-filter'],
 
       properties: [
         {
@@ -1967,17 +1966,9 @@ const obj = {
       name: 'Section Background',
       open: false,
       id: 'main_container',
-      buildProps: ['background','transition', 'perspective', 'transform','opacity'],
+      buildProps: ['background'],
       properties: [
-        // {
-        //   type: 'color',
-        //   name: 'Background Color',
-        //   property: 'background-color',
-        //   colorPicker: {
-        //     preferredFormat: 'hex',
-        //     showInput: true,
-        //   },
-        // },
+       
         {
           type: 'slider',
           name: 'Overlay Opacity',
@@ -2013,7 +2004,8 @@ const obj = {
       name:"Animation",
       open:false,
       id:"content-section",
-      buildProps: ['transition', 'perspective', 'transform','opacity'],
+      buildProps: ['transition','perspective','transform','opacity','filter'],
+     
 },
     
 
@@ -2131,7 +2123,12 @@ const obj = {
       open: false,
       id: 'photo-container',
       buildProps: ['background'],
+    
       properties: [
+
+
+
+        
         {
           type: 'slider',
           name: 'Overlay Opacity',

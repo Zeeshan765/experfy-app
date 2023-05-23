@@ -19,8 +19,13 @@ import { DataContext } from '../../Providers/DataProvider';
 import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
 import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
-import backgroundPlugin from 'grapesjs-style-bg';
+// import backgroundPlugin from 'grapesjs-style-bg';
+import BackgroundPlugin from "./BackgroundPlugin"
+import StyleFilter from "grapesjs-style-filter"
 // import gjsScroll from 'grapesjs-plugin-scroll';
+// import 'grapesjs/dist/css/grapes.min.css';
+import 'grapick/dist/grapick.min.css';
+
 interface parems {
   id?: string;
 }
@@ -334,16 +339,18 @@ const PageBuilder: React.FC = () => {
       container: '.editor',
       fromElement: true,
       showDevices: false,
-      // dragMode: 'absolute',
+      height: '300vh',
       style: `${canvasStyle}`,
       // canvasCss: localStorage.getItem('theme_style_css') || '',
       canvasCss: '.blocks: {display: grid;}',
-      plugins: [ExperfyBlocks, backgroundPlugin, Basics, ScrollPlugin],
+      plugins: [ExperfyBlocks, BackgroundPlugin, Basics, ScrollPlugin, StyleFilter],
       pluginsOpts: {
         ExperfyBlocks: {},
         Basics: {},
+        BackgroundPlugin:{},
         ScrollPlugin: {},
         Filtered: {},
+        StyleFilter: {},
       },
       layerManager: {
         appendTo: '.layers-container',
