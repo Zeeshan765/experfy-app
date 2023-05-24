@@ -286,28 +286,7 @@ const PageBuilder: React.FC = () => {
       });
   };
 
-  //<! ----------Animation Function -------- !>
-  //   const showanimation = async () =>{
-  //     console.log("show animation called----->")
-  //     const boxes = document.querySelectorAll('.boxes');
-  //     // console.log("boxes",boxes)
-  //     window.addEventListener('scroll',getboxes)
-
-  // function getboxes (){
-  //   const triggerBottom = window.innerHeight / 5 * 4;
-  //   console.log("trggerBottom",triggerBottom)
-  //   boxes?.forEach(box =>{
-  //     const boxTop = box.getBoundingClientRect().top;
-  //     console.log("boxTop",boxTop)
-  //     if(boxTop < triggerBottom){
-  //       box.classList.add('show');
-  //     }else{
-  //       box.classList.remove('show');
-  //     }
-  //   })
-  // }
-
-  //   }
+ 
 
   //======== GrapesJs Canvas initialization start here========
   const initializeInstance = () => {
@@ -339,7 +318,7 @@ const PageBuilder: React.FC = () => {
       container: '.editor',
       fromElement: true,
       showDevices: false,
-      height: '300vh',
+      height: '400vh',
       style: `${canvasStyle}`,
       // canvasCss: localStorage.getItem('theme_style_css') || '',
       canvasCss: '.blocks: {display: grid;}',
@@ -1064,15 +1043,19 @@ add your attachment</span>
 
     editor.on(`block:drag:stop`, (component, block) => {
       let { data, found, filtering } = fetchSectionDetail(block.id);
-      // console.log('found', found, filtering, data);
+      console.log('found', found, filtering);
       const { sectionCode, category } = filtering;
-
+      let check = editor.getProjectData();
+      console.log('editor.getProjectData',  check.pages[0].frames[0].component.components[0]);
       //Updated
       if (component && found) {
         let content = JSON.parse(sectionCode);
-        editor.loadProjectData({
-          ...Object.assign({ ...editor.getProjectData() }, { ...content }),
+        let newContent = content.pages[0].frames[0].component.components[0];
+      let foundData=  editor.loadProjectData({
+          ...Object.assign({},{ ...editor.getProjectData() }, { ...content }),
         });
+
+        console.log('foundData', foundData);
 
         const sectorId =
           content.pages[0].frames[0].component.components[0].attributes.id;
@@ -1202,15 +1185,7 @@ add your attachment</span>
       fetchHistory();
     }
   }, []);
-  // useEffect(() => {
-  //   const updateHistory = setTimeout(() => {
-  //     if (changeHistory) {
-  //       // saveHistoy();
-  //       setChangeHistory(false); // reset the flag beacue again tracking updation
-  //     }
-  //   }, 30000);
-  //   return () => clearTimeout(updateHistory);
-  // }, [changeHistory]);
+
 
   // =======Lifecycle methods end here=========
   return (

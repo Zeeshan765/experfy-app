@@ -26,6 +26,12 @@ export const SectionSaveCollection: CollectionConfig = {
       type: 'text',
     //   required: true,
     },
+    {
+      name: 'media',
+      label: 'Media',
+      type: 'text',
+    //   required: true,
+    },
   
     {
       name: 'sectionCode',

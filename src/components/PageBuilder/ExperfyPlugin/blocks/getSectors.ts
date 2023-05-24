@@ -1966,8 +1966,18 @@ const obj = {
       name: 'Section Background',
       open: false,
       id: 'main_container',
-      buildProps: ['background'],
+      // buildProps: ['background'],
       properties: [
+        {
+
+         type: 'stack',
+         name: 'Background',
+         id: 'background',
+         property: 'background',
+         detached: true,
+         preview: false,
+              
+        },
        
         {
           type: 'slider',
@@ -2279,14 +2289,14 @@ const obj = {
     },
   ],
 
-  headingSector: [
-    {
-      name: 'Heading',
-      open: false,
-      id: 'heading-1',
-      properties: [color, typography],
-    },
-  ],
+  // headingSector: [
+  //   {
+  //     name: 'Heading',
+  //     open: false,
+  //     id: 'heading-1',
+  //     properties: [color, typography],
+  //   },
+  // ],
 
   paraSect: [
     {

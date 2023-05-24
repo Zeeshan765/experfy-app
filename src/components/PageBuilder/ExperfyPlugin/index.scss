@@ -971,7 +971,14 @@ $deviceBackground: #2f3d55;
     #gjs-sm-add{
       width: 25px !important;
       height: 25px !important;
-      top: -40px !important;
+      top: 5px !important;
+      right: 5px !important;
+      z-index: 1;
     }
   }
 }
+
+// .gjs-sm-layer.gjs-sm-active {
+//   width: 20rem !important;
+
+// }

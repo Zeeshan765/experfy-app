@@ -209,6 +209,9 @@ const SectionPageBuilder: React.FC = () => {
         .post(`${apiEndpoint}/section-save`, {
           sectionTitle: name,
           category:custom,
+          media:`<svg viewBox="0 0 24 24">
+          <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z"></path>
+        </svg>`,
           sectionCode: JSON.stringify(editor.getProjectData()),
         })
         .then((res) => {
@@ -819,7 +822,7 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-    // @ts-ignore
+     // @ts-ignore
     editor.on('style:sector:update', (props) => {
    
       !isUpdating &&
@@ -852,7 +855,7 @@ const SectionPageBuilder: React.FC = () => {
       const categories = editor.StyleManager.getSectors();
     });
 
-    //@ts-ignore
+     //@ts-ignore
     editor.on('style:target', (component) => {
       if (!component) return;
 
@@ -883,9 +886,11 @@ const SectionPageBuilder: React.FC = () => {
     editor.on('component:selected', (component) => {
 
 
-console.log("component selected",component)
+console.log("component selected",component?.ccid)
 
-
+let ccid = component.ccid.split('-')[0];
+console.log("editor",editor);
+console.log('ccid',ccid)
 
 
       if (component.get('type') == 'text') {
@@ -901,11 +906,20 @@ console.log("component selected",component)
         editor?.runCommand('core:open-traits');
       }
 
-      if (component) {
+      if (component && ccid ) {
         const sectors = editor.StyleManager.getSectors();
+        console.log("sectors",sectors)
       
         // sectors.reset();
         sectors.add(getSectors(component.ccid));
+      }
+      else{
+        const sectors = editor.StyleManager.getSectors();
+        console.log("sectors new",sectors)
+        sectors.add()
+      
+        // sectors.reset();
+        // sectors.add(getSectors(component.ccid));
       }
 
 

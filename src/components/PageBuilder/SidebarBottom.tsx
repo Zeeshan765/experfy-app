@@ -111,13 +111,13 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray, deleteHistory, load
                 </div>
 
                 {consumer === 'pageBuilder' && (
-                  <button
+                  <div
                     onClick={historyView}
                     id='set-tablet-view'
                     data-view='Tablet'
                   >
                     <TimerIcon />
-                  </button>
+                  </div>
                 )}
 
                 <div
@@ -143,9 +143,9 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray, deleteHistory, load
                 </ButtonGroup>
               </div>
             </div>  
-          </div>  
-        </div>
-      }  
+          </div> 
+
+           {/*history sectoion start here */}
       {historyDisplay && (
         <div style={{}}>
           <div
@@ -181,7 +181,7 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray, deleteHistory, load
               <AppsRoundedIcon style={{ fontSize: '2rem' }} />
             </p>
           </div>
-          <div style={{ display: 'flex', borderBottom: '1px solid gray' }}>
+          {/* <div style={{ display: 'flex', borderBottom: '1px solid gray' }}>
             <button
               className='action-btn'
               style={{
@@ -207,7 +207,7 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray, deleteHistory, load
               />{' '}
               Revision
             </button>
-          </div>
+          </div> */}
 
           <div
             style={{
@@ -237,7 +237,9 @@ const SidebarBottom = ({ editor, consumer, pageHistoryArray, deleteHistory, load
             {pageHistoryArray.length === 0 && <p>No History</p>}
           </div>
         </div>
-      )}
+      )} 
+        </div>
+      } 
     </div>
   );
 };
