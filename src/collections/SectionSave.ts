@@ -38,6 +38,16 @@ export const SectionSaveCollection: CollectionConfig = {
       label: 'Section Code',
       type: 'text',
     },
+    {
+      name: 'sectionHtml',
+      label: 'Section Html',
+      type: 'text',
+    },
+    {
+      name: 'sectionCss',
+      label: 'Section Css',
+      type: 'text',
+    },
   ],
 };
 

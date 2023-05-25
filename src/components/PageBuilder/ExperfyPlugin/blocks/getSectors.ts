@@ -2289,14 +2289,14 @@ const obj = {
     },
   ],
 
-  // headingSector: [
-  //   {
-  //     name: 'Heading',
-  //     open: false,
-  //     id: 'heading-1',
-  //     properties: [color, typography],
-  //   },
-  // ],
+  headingSector: [
+    {
+      name: 'Heading',
+      open: false,
+      id: 'heading-1',
+      properties: [color, typography],
+    },
+  ],
 
   paraSect: [
     {

@@ -34,13 +34,11 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-  const { fetchSectionDetail} = useContext(DataContext);
+  const { fetchSectionDetail } = useContext(DataContext);
   const { setSectionBlocksArray } = useContext(Context);
   const [filtered, setFiltered] = useState('');
   const [modelIsOPen, setModelIsOPen] = useState(false);
   const [name, setName] = useState('');
-
-
 
   // let sectionData = {
   //   isUpdate: false,
@@ -167,12 +165,13 @@ const SectionPageBuilder: React.FC = () => {
   console.log('IsInclude', isInclude);
 
   let blocks = isInclude ? [str] : basicElements;
-  let custom ='Custom Module';
-  let sectcatgy = 'Section Module'
+  let custom = 'Custom Modules';
+  let sectcatgy = 'Section Modules';
 
   //Save the Section
   const saveSectionTemplate = () => {
     console.log('sectionData', window?.sectionData);
+    console.log("editor.getHtml()",editor.getHtml())
 
     if (window?.sectionData?.isUpdate) {
       axios
@@ -180,6 +179,7 @@ const SectionPageBuilder: React.FC = () => {
           sectionTitle: str,
           category: sectcatgy,
           sectionCode: JSON.stringify(editor.getProjectData()),
+          sectionHtml: editor.getHtml(),
         })
         .then((res) => {
           toast.success('Section Updated Successfully');
@@ -193,6 +193,7 @@ const SectionPageBuilder: React.FC = () => {
           sectionTitle: str,
           category: sectcatgy,
           sectionCode: JSON.stringify(editor.getProjectData()),
+          sectionHtml: editor.getHtml(),
         })
         .then((res) => {
           toast.success('Section Created Successfully');
@@ -204,15 +205,18 @@ const SectionPageBuilder: React.FC = () => {
   };
 
   const handleScratchSave = (e) => {
+    console.log("editor.getHtml()",editor.getHtml())
     if (name) {
       axios
         .post(`${apiEndpoint}/section-save`, {
           sectionTitle: name,
-          category:custom,
-          media:`<svg viewBox="0 0 24 24">
+          category: custom,
+          media: `<svg viewBox="0 0 24 24">
           <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z"></path>
         </svg>`,
           sectionCode: JSON.stringify(editor.getProjectData()),
+          sectionHtml: editor.getHtml(),
+          // sectionCss: editor.getCss(),
         })
         .then((res) => {
           toast.success('Section Created Successfully');
@@ -289,7 +293,6 @@ const SectionPageBuilder: React.FC = () => {
             // name: sectionData?.isUpdate ? 'Update' : 'Save',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-             
               if (isInclude) {
                 saveSectionTemplate();
               } else {
@@ -302,9 +305,8 @@ const SectionPageBuilder: React.FC = () => {
             id: 'preview',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-              console.log("animation called")
-            }
-
+              console.log('animation called');
+            },
           },
         ],
       },
@@ -328,16 +330,13 @@ const SectionPageBuilder: React.FC = () => {
 
     localStorage.removeItem('gjsProject');
     editor.on('load', () => {
-     
-        editor.loadProjectData({
-          ...Object.assign(
-            {},
-            { ...editor.getProjectData() },
-            { styles: userData.defaultStyle.filteredStyles }
-          ),
-        });
-      
-     
+      editor.loadProjectData({
+        ...Object.assign(
+          {},
+          { ...editor.getProjectData() },
+          { styles: userData.defaultStyle.filteredStyles }
+        ),
+      });
     });
     //This is for Single Section
     editor.onReady(() => {
@@ -347,7 +346,6 @@ const SectionPageBuilder: React.FC = () => {
       if (found) {
         const { sectionCode, sectionTitle } = filtering;
         window.sectionData = { ...filtering, isUpdate: true };
-
 
         const blo = editor.BlockManager.getAll();
         console.log('blo', blo);
@@ -399,18 +397,22 @@ const SectionPageBuilder: React.FC = () => {
         editor.runCommand('core:open-styles');
       } else {
       }
-
     });
 
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
-
       if (component) {
         const sectors = editor.StyleManager.getSectors();
-   
-        sectors.reset();
+        // sectors.reset();
         sectors.add(getSectors(component.ccid));
       }
+      // ['general', 'flex', 'dimension', 'typography', 'decorations', 'extra'].map((el)=>{
+      //   // editor.StyleManager.getSector(el).set('open', false)
+      //   editor.StyleManager.addSector(el,{
+      //     name: el,
+      //     open: false,
+      //   })
+      // })
     });
 
     let TextTrait = [
@@ -661,7 +663,7 @@ const SectionPageBuilder: React.FC = () => {
       onUpdate({ elInput, component }) {
         const wrapperCmp = editor.DomComponents.getWrapper();
         let target = `.guidline-option`;
-        
+
         editor.select(wrapperCmp.find(target)[0]);
       },
     });
@@ -822,9 +824,8 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-     // @ts-ignore
+    // @ts-ignore
     editor.on('style:sector:update', (props) => {
-   
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
@@ -834,12 +835,11 @@ const SectionPageBuilder: React.FC = () => {
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
-           
               let isOpen = sectors.models[i].isOpen();
-    
+
               if (isOpen) {
                 const wrapperCmp = editor.DomComponents.getWrapper();
-               
+
                 editor.select(wrapperCmp.find(`.${props.id}`)[0]);
               }
             } else {
@@ -855,7 +855,7 @@ const SectionPageBuilder: React.FC = () => {
       const categories = editor.StyleManager.getSectors();
     });
 
-     //@ts-ignore
+    //@ts-ignore
     editor.on('style:target', (component) => {
       if (!component) return;
 
@@ -866,9 +866,9 @@ const SectionPageBuilder: React.FC = () => {
           const selectedSector = component
             .getSelectorsString()
             .replace('.', '');
-          
+
           const sectors = editor.StyleManager.getSectors();
-          
+
           for (let i = 0; i < sectors.length; i++) {
             if (selectedSector.includes(sectors.models[i].get('id'))) {
               sectors.models[i].setOpen(true);
@@ -884,14 +884,11 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     editor.on('component:selected', (component) => {
+      console.log('component selected', component?.ccid);
 
-
-console.log("component selected",component?.ccid)
-
-let ccid = component.ccid.split('-')[0];
-console.log("editor",editor);
-console.log('ccid',ccid)
-
+      let ccid = component.ccid.split('-')[0];
+      console.log('editor', editor);
+      console.log('ccid', ccid);
 
       if (component.get('type') == 'text') {
         //@ts-ignore
@@ -909,25 +906,25 @@ console.log('ccid',ccid)
       if (component && ccid ) {
         const sectors = editor.StyleManager.getSectors();
         console.log("sectors",sectors)
-      
+
         // sectors.reset();
         sectors.add(getSectors(component.ccid));
       }
-      else{
-        const sectors = editor.StyleManager.getSectors();
-        console.log("sectors new",sectors)
-        sectors.add()
-      
-        // sectors.reset();
-        // sectors.add(getSectors(component.ccid));
-      }
 
-
-
-
-
-
-
+      // [
+      //   'general',
+      //   'flex',
+      //   'dimension',
+      //   'typography',
+      //   'decorations',
+      //   'extra',
+      // ].map((el) => {
+      //   // editor.StyleManager.getSector(el).set('open', false)
+      //   editor.StyleManager.addSector(el, {
+      //     name: el,
+      //     open: false,
+      //   });
+      // });
     });
 
     editor.on('component:update', (component) => {

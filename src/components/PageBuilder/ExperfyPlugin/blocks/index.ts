@@ -565,14 +565,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: (prefix, componentType)=>
+    content: 
     
     
     `<section  id= "paragraphSector" class="paragraphSector" data-gjs-type="paragraphSector">
-    <div class="main-paragraph-wrapper" data-gjs-type="${componentType}">
+    <div class="main-paragraph-wrapper">
        
-          <h1 data-gjs-type="${componentType}" class="h1 main-paragraph-heading paragraphSector_h1 ${prefix}">Master Cleanse Reliac Heirloom</h1>
-          <h6 data-gjs-type="${componentType}" class="h6 sub-paragraph-heading paragraphSector_h6 ${prefix}">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+          <h1 class="h1 main-paragraph-heading paragraphSector_h1">Master Cleanse Reliac Heirloom</h1>
+          <h6 class="h6 sub-paragraph-heading paragraphSector_h6">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h6>
@@ -770,9 +770,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: (prefixnew,check) =>
+    content: 
       `<section class="ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
- <div data-gjs-type="${prefixnew}"   class="main_container ${check}">
+ <div class="main_container">
        
         <div class="content-section">
         <h1 class="h1 main-image-heading ImageTextSector_h1" >Add your heading title here</h1>
@@ -1239,9 +1239,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-    <section id="headingSector">
-    <div class="heading-div">
-    <h1 class="h1 heading-1">Add Your Heading Title here</h1>
+    <section id="headingSector" class="headingSector" data-gjs-type="headingSector">
+    <div class="heading-div headingSector_heading">
+    <h1 class="h1 heading-1 headingSector_h1">Add Your Heading Title here</h1>
     </div>
     </section>
     ${HeadingStyle}
@@ -1254,8 +1254,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
   <section class="paragraph-1 paraSect" id ="paraSect" data-gjs-type="paraSect">
-  <div class="para-1">
-  <h5 class="h5 para-11">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  <div class="para-1 paraSect_para">
+  <h5 class="h5 para-11 paraSect_h5">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h5>
