@@ -171,7 +171,6 @@ const SectionPageBuilder: React.FC = () => {
   //Save the Section
   const saveSectionTemplate = () => {
     console.log('sectionData', window?.sectionData);
-    console.log("editor.getHtml()",editor.getHtml())
 
     if (window?.sectionData?.isUpdate) {
       axios
@@ -231,28 +230,6 @@ const SectionPageBuilder: React.FC = () => {
     }
   };
 
-  //Fetch Section Data from Backend
-  const getData = () => {
-    axios
-      .get(`${apiEndpoint}/section-save`)
-      .then((res) => {
-        // console.log('res.data', res.data);
-        const filtered = res.data.docs.filter((el) => el.sectionTitle === str);
-        // console.log('old filtered', filtered);
-        setFiltered(filtered.sectionTitle);
-
-        if (filtered.length > 0) {
-          window.sectionData = { ...filtered[0], isUpdate: true };
-          const { sectionCode } = filtered[0];
-          editor.loadProjectData({
-            ...Object.assign({}, { ...JSON.parse(sectionCode) }),
-          });
-        }
-      })
-      .catch((err) => {
-        console.log('err', err);
-      });
-  };
 
   let themeStylePanels = true;
 
@@ -290,13 +267,11 @@ const SectionPageBuilder: React.FC = () => {
         defaults: [
           {
             id: 'save-editor',
-            // name: sectionData?.isUpdate ? 'Update' : 'Save',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
               if (isInclude) {
                 saveSectionTemplate();
               } else {
-                // prompt("Enter Section Name")
                 setModelIsOPen(true);
               }
             },
@@ -340,9 +315,9 @@ const SectionPageBuilder: React.FC = () => {
     });
     //This is for Single Section
     editor.onReady(() => {
-      console.log('zee editor.onReady');
+      
       let { data, found, filtering } = fetchSectionDetail(str);
-      console.log('data, found,filtering', data, found);
+      // console.log('data, found,filtering', data, found);
       if (found) {
         const { sectionCode, sectionTitle } = filtering;
         window.sectionData = { ...filtering, isUpdate: true };
@@ -378,9 +353,9 @@ const SectionPageBuilder: React.FC = () => {
         window.sectionData = { ...filtering, isUpdate: false };
 
         const sectors = editor.StyleManager.getSectors();
-        console.log('sectors', sectors);
+        // console.log('sectors', sectors);
         const block = editor.BlockManager.get(blocks[0]);
-        console.log('block', block);
+        // console.log('block', block);
         const component = editor.addComponents(block.get('content'));
         console.log('component', component);
         component[0].set('selectable', false);
@@ -403,16 +378,10 @@ const SectionPageBuilder: React.FC = () => {
     editor.on(`block:drag:stop`, (component, block) => {
       if (component) {
         const sectors = editor.StyleManager.getSectors();
-        // sectors.reset();
+        sectors.reset();
         sectors.add(getSectors(component.ccid));
       }
-      // ['general', 'flex', 'dimension', 'typography', 'decorations', 'extra'].map((el)=>{
-      //   // editor.StyleManager.getSector(el).set('open', false)
-      //   editor.StyleManager.addSector(el,{
-      //     name: el,
-      //     open: false,
-      //   })
-      // })
+     
     });
 
     let TextTrait = [
@@ -852,7 +821,6 @@ const SectionPageBuilder: React.FC = () => {
           }, 300);
         }, 100);
 
-      const categories = editor.StyleManager.getSectors();
     });
 
     //@ts-ignore
@@ -883,49 +851,120 @@ const SectionPageBuilder: React.FC = () => {
         }, 100);
     });
 
+    // editor.on('component:selected', (component) => {
+    //   console.log('component selected', component?.ccid);
+
+    //   let ccid = component.ccid.split('-')[0];
+    //   console.log('editor', editor);
+    //   console.log('ccid', ccid);
+
+    //   if (component.get('type') == 'text') {
+    //     //@ts-ignore
+    //     editor?.runCommand('core:open-traits');
+    //   }
+    //   if (component.get('type') == 'button') {
+    //     //@ts-ignore
+    //     editor?.runCommand('core:open-traits');
+    //   }
+    //   if (component.get('type') == 'image') {
+    //     //@ts-ignore
+    //     editor?.runCommand('core:open-traits');
+    //   }
+
+    //   if (component && ccid ) {
+    //     const sectors = editor.StyleManager.getSectors();
+    //     console.log("sectors",sectors)
+
+    //     // sectors.reset();
+    //     sectors.add(getSectors(component.ccid));
+    //   }
+
+    //   // [
+    //   //   'general',
+    //   //   'flex',
+    //   //   'dimension',
+    //   //   'typography',
+    //   //   'decorations',
+    //   //   'extra',
+    //   // ].map((el) => {
+    //   //   // editor.StyleManager.getSector(el).set('open', false)
+    //   //   editor.StyleManager.addSector(el, {
+    //   //     name: el,
+    //   //     open: false,
+    //   //   });
+    //   // });
+    // });
+
+
+
+
+
+    
     editor.on('component:selected', (component) => {
-      console.log('component selected', component?.ccid);
-
-      let ccid = component.ccid.split('-')[0];
-      console.log('editor', editor);
-      console.log('ccid', ccid);
-
+      if (component) {
+        let ccid = component.ccid.split('-')[0];
+        const blocksector = editor.StyleManager.getSectors();
+        console.log('blocksector', blocksector);
+        let newCcid = component?.attributes?.classes?.models?.map(
+          (el) => el?.id
+        );
+        let updatedSectors = [];
+        if (newCcid?.length > 0) {
+          let test = newCcid.join('.');
+          let allSectors = editor.StyleManager.getSectors();
+          console.log('allSectors', allSectors);
+          const allSectorsNames = allSectors.map((el) => el.name || el.id);
+ 
+          newCcid.forEach((element) => {
+            console.log('element', element);
+            let sector = element.split('_');
+            console.log('sector name', sector);
+            if (sector.length > 1) {
+              let name = getSectors(element.split('_')[0]);
+              console.log('name', name);
+              let allSelectedNames = name.map((el) => el.id);
+              console.log('allSectorsNames', allSectorsNames);
+              console.log('allSelectedNames', allSelectedNames);
+              allSectors.forEach((sect, i) => {
+                if (sect) {
+                  console.log('sect', sect?.id);
+                  const isInclude = allSelectedNames.includes(sect?.id);
+                  console.log('isInclude', isInclude);
+                  if (!isInclude) {
+                    console.log('yesss');
+                    let timers = (i + 1) * 30;
+                    console.log('yesss');
+                    sect.id &&
+                      setTimeout(() => {
+                        editor.StyleManager.removeSector(sect.id);
+                      }, timers);
+                  }
+                }
+              });
+              updatedSectors.push(name);
+            }
+          });
+        } else {
+          updatedSectors = getSectors(ccid);
+        }
+       
+        setTimeout(() => {
+          console.log('setTimeout updatedSectors', updatedSectors);
+          updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
+        }, 500);
+      }
+      let type = component.get('type');
+      const { id } = component.attributes.attributes;
       if (component.get('type') == 'text') {
-        //@ts-ignore
         editor?.runCommand('core:open-traits');
       }
       if (component.get('type') == 'button') {
-        //@ts-ignore
         editor?.runCommand('core:open-traits');
       }
-      if (component.get('type') == 'image') {
-        //@ts-ignore
-        editor?.runCommand('core:open-traits');
-      }
-
-      if (component && ccid ) {
-        const sectors = editor.StyleManager.getSectors();
-        console.log("sectors",sectors)
-
-        // sectors.reset();
-        sectors.add(getSectors(component.ccid));
-      }
-
-      // [
-      //   'general',
-      //   'flex',
-      //   'dimension',
-      //   'typography',
-      //   'decorations',
-      //   'extra',
-      // ].map((el) => {
-      //   // editor.StyleManager.getSector(el).set('open', false)
-      //   editor.StyleManager.addSector(el, {
-      //     name: el,
-      //     open: false,
-      //   });
-      // });
     });
+
+
+
 
     editor.on('component:update', (component) => {
       // console.log('component update called', component);
