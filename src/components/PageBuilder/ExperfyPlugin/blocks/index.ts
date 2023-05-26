@@ -43,13 +43,6 @@ import {
 
 export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   const addBlock = (id: string, def: grapesjs.BlockOptions) => {
-    console.log('opts', opts);
-    console.log('opts.blocks', opts.blocks);
-    const prefixnew = opts?.gjsScrollPrefix ?? 'gjs-scroll';
-    console.log('zeeshan prefix', prefixnew);
-    const check = opts?.gjsScrollComponentType;
-    console.log('zeeshan componentType', check);
-    console.log('id', id);
     opts.blocks.indexOf(id)! >= 0 &&
       editor.Blocks.add(id, {
         select: true,

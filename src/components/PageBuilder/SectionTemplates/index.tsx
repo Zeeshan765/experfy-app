@@ -289,7 +289,9 @@ const SectionPageBuilder: React.FC = () => {
       traitManager: {
         appendTo: '.traits-container',
       },
-      selectorManager: {},
+      selectorManager: {
+        appendTo: '.styles-container',
+      },
       styleManager: {
         appendTo: '.styles-container',
         sectors: getSectors(blocks),

@@ -86,12 +86,12 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts = {}) => {
 
   const onBgTypeChange = ({ property, to }: any) => {
     const newTypeValue = to.value;
-       console.log("New newTypeValue",newTypeValue)
+      //  console.log("New newTypeValue",newTypeValue)
     // Hide style properties based on selected type
     if (newTypeValue) {
       property.getParent().getProperties().forEach((prop: any) => {
         const propName = prop.getName();
-        console.log(" New propName",propName)
+        // console.log(" New propName",propName)
         let visible = false;
         // Background type is always visible
         if (propName === PROPERTY_BG_TYPE) return;
@@ -124,13 +124,13 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts = {}) => {
     detached: true,
     layerLabel: (l: any, { values, property }: any) => {
       const opt = property.getProperty(PROPERTY_BG_TYPE).getOption(values[PROPERTY_BG_TYPE]);
-      console.log("New opt",opt)
+      // console.log("New opt",opt)
       return opt?.title ? `${capitalize(opt.title)}` : '';
     },
     fromStyle(style: Record<string, string>, { property, name }: any) {
       const sep = property.getLayerSeparator();
       const props = property.getProperties();
-      console.log("New props",props)
+      // console.log("New props",props)
       let layers: any = [];
 
       if (style[PROPERTY_IMAGE]) {
@@ -140,11 +140,11 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts = {}) => {
         // Update layers by inner properties
         props.forEach((prop: any) => {
           const id = prop.getId();
-          console.log("New id ",id);
+          // console.log("New id ",id);
           const propName = prop.getName();
-          console.log("New Inner propName",propName)
+          // console.log("New Inner propName",propName)
           if (propName === PROPERTY_IMAGE) return;
-          console.log("New PROPERTY_IMAGE",PROPERTY_IMAGE)
+          // console.log("New PROPERTY_IMAGE",PROPERTY_IMAGE)
           property.__splitStyleName(style, propName, sep)
             .map((value: string) => ({ [id]: value || prop.getDefaultValue() }))
             .forEach((inLayer: any, i: number) => {
@@ -157,26 +157,26 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, opts = {}) => {
         layers = property.__splitStyleName(style, name, /(?![^)(]*\([^)(]*?\)\)),(?![^\(]*\))/)
           .map((value: string) => value.substring(0, value.lastIndexOf(')') + 1))
           .map(getLayerFromBgImage);
-          console.log("New Layer",layers)
+          // console.log("New Layer",layers)
       }
 
       return layers;
     },
     toStyle(newValues: Record<string, string>) {
       const values = { ...newValues };
-      console.log("New values",values)
+      // console.log("New values",values)
       const type = values[PROPERTY_BG_TYPE];
-      console.log("New type",type)
+      // console.log("New type",type)
       let image = values[PROPERTY_BG_IMAGE];
-      console.log("New image",image)
+      // console.log("New image",image)
 
       if (type === BackgroundType.Color) {
         const bgColor = values[PROPERTY_BG_COLOR];
-        console.log("New bgcolor",bgColor)
+        // console.log("New bgcolor",bgColor)
         image = bgColor === DEFAULT_IMAGE ? DEFAULT_IMAGE : `linear-gradient(${bgColor} 0%, ${bgColor} 100%)`;
       } else if (type === BackgroundType.Grad) {
         const parsed = parseGradient(values[PROPERTY_BG_GRAD] || '');
-         console.log("New Parsed",parsed)
+        //  console.log("New Parsed",parsed)
         image = toGradient(
           values[PROPERTY_BG_GRAD_TYPE] || GRAD_TYPES[0],
           values[PROPERTY_BG_GRAD_DIR] || GRAD_DIRS[0],

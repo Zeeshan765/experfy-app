@@ -202,13 +202,13 @@ const PageBuilder: React.FC = () => {
   const SectorsArray = ['benefitSector', 'paragraphSector'];
   console.log('sectionData', sectionData);
 
-  let custom = 'Custom Module';
+  let custom = 'Custom Modules';
 
   //Filter Custom Modules
   let Filtered = sectionData
     .filter((el) => el.category === custom)
     .map((section) => section); // sectionTitle.replace(' ', '-')
-  console.log('Custom Module', Filtered);
+  console.log('Custom Modules', Filtered);
 
  //Filter Section Modules 
   let sectionModule = 'Section Modules';
@@ -475,7 +475,7 @@ const PageBuilder: React.FC = () => {
       container: '.editor',
       fromElement: true,
       showDevices: false,
-      height: '400vh',
+      height: '300vh',
       style: `${canvasStyle}`,
       // canvasCss: localStorage.getItem('theme_style_css') || '',
       canvasCss: '.blocks: {display: grid;}',
@@ -972,6 +972,7 @@ add your attachment</span>
             content: sectionHtml, 
           });
           const { styles } = JSON.parse(sectionCode);
+          console.log("section styles",styles)
           
           styleFound = [...styleFound, ...styles];
          
@@ -1103,7 +1104,8 @@ add your attachment</span>
     editor.on(`block:drag:stop`, (component, block) => {
       let { data, found, filtering } = fetchSectionDetail(block.id);
       // console.log('found', found, filtering);
-
+      let ccid = component.ccid.split('-')[0];
+      console.log(' ccid', ccid);
       if (component && found) {
         const { sectionCode, category, sectionHtml } = filtering;
         let content = JSON.parse(sectionCode);
@@ -1164,9 +1166,7 @@ add your attachment</span>
     editor.on('style:target', (component) => {
       console.log('style sector called');
       const sectors = editor.StyleManager.getSectors();
-      let newCcid = component?.attributes?.selectors?.models?.map(
-        (el) => el?.id
-      );
+      
       if (!component) return;
 
       !isUpdating &&
