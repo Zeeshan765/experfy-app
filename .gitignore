@@ -89,6 +89,7 @@ out
 dist
 
 # Gatsby files
+
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
@@ -121,6 +122,4 @@ extensions.json
 .pnp.*
 .vscode/
 /src/media/
-yarn.lock
-package-lock.json
 

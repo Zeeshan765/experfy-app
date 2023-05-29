@@ -14,13 +14,9 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import SidebarBottom from '../SidebarBottom';
 import { canvasStyle, devices } from '../utils';
-import backgroundPlugin from 'grapesjs-style-bg';
+import backgroundPlugin from 'grapesjs-style-gradient';
 import Basics from 'grapesjs-blocks-basic';
-
-import Forms from 'grapesjs-plugin-forms';
-
 import 'grapick/dist/grapick.min.css';
-
 import { Context } from '../../../Providers/MyProvider';
 import { DataContext } from '../../../Providers/DataProvider';
 import { toast } from 'react-toastify';
@@ -34,13 +30,11 @@ const SectionPageBuilder: React.FC = () => {
   const { routes } = useConfig();
   const { admin } = routes;
   const { userData } = useContext(UserContext);
-  const { fetchSectionDetail} = useContext(DataContext);
+  const { fetchSectionDetail } = useContext(DataContext);
   const { setSectionBlocksArray } = useContext(Context);
   const [filtered, setFiltered] = useState('');
   const [modelIsOPen, setModelIsOPen] = useState(false);
   const [name, setName] = useState('');
-
-
 
   // let sectionData = {
   //   isUpdate: false,
@@ -167,8 +161,8 @@ const SectionPageBuilder: React.FC = () => {
   console.log('IsInclude', isInclude);
 
   let blocks = isInclude ? [str] : basicElements;
-  let custom ='Custom Module';
-  let sectcatgy = 'Section Module'
+  let custom = 'Custom Module';
+  let sectcatgy = 'Section Module';
 
   //Save the Section
   const saveSectionTemplate = () => {
@@ -208,7 +202,7 @@ const SectionPageBuilder: React.FC = () => {
       axios
         .post(`${apiEndpoint}/section-save`, {
           sectionTitle: name,
-          category:custom,
+          category: custom,
           sectionCode: JSON.stringify(editor.getProjectData()),
         })
         .then((res) => {
@@ -286,7 +280,6 @@ const SectionPageBuilder: React.FC = () => {
             // name: sectionData?.isUpdate ? 'Update' : 'Save',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-             
               if (isInclude) {
                 saveSectionTemplate();
               } else {
@@ -299,12 +292,12 @@ const SectionPageBuilder: React.FC = () => {
       },
       layerManager: null,
       traitManager: {
-        appendTo: '.traits-container',
+        appendTo: '.panel__switcher',
       },
       selectorManager: {},
       styleManager: {
         appendTo: '.styles-container',
-        sectors: getSectors(blocks),
+        sectors: getSectors(blocks.toLocaleString()),
       },
       deviceManager: {
         devices,
@@ -317,16 +310,13 @@ const SectionPageBuilder: React.FC = () => {
 
     localStorage.removeItem('gjsProject');
     editor.on('load', () => {
-     
-        editor.loadProjectData({
-          ...Object.assign(
-            {},
-            { ...editor.getProjectData() },
-            { styles: userData.defaultStyle.filteredStyles }
-          ),
-        });
-      
-     
+      editor.loadProjectData({
+        ...Object.assign(
+          {},
+          { ...editor.getProjectData() },
+          { styles: userData.defaultStyle.filteredStyles }
+        ),
+      });
     });
     //This is for Single Section
     editor.onReady(() => {
@@ -336,7 +326,6 @@ const SectionPageBuilder: React.FC = () => {
       if (found) {
         const { sectionCode, sectionTitle } = filtering;
         window.sectionData = { ...filtering, isUpdate: true };
-
 
         const blo = editor.BlockManager.getAll();
         console.log('blo', blo);
@@ -348,7 +337,9 @@ const SectionPageBuilder: React.FC = () => {
         console.log('sectors', sectors);
         const block = editor.BlockManager.get(filtered[0]);
         console.log('block', block);
-        const component = editor.addComponents(block.get('content'));
+        const component = editor.addComponents(block.get('content'), {
+          avoidUpdateStyle: false,
+        });
         console.log('component', component);
         component[0].set('selectable', false);
         component[0].set('removable', false);
@@ -367,12 +358,13 @@ const SectionPageBuilder: React.FC = () => {
         editor.runCommand('core:open-styles');
       } else if (blocks.length === 1 && !found) {
         window.sectionData = { ...filtering, isUpdate: false };
-
         const sectors = editor.StyleManager.getSectors();
         console.log('sectors', sectors);
         const block = editor.BlockManager.get(blocks[0]);
         console.log('block', block);
-        const component = editor.addComponents(block.get('content'));
+        const component = editor.addComponents(block.get('content'), {
+          avoidUpdateStyle: false,
+        });
         console.log('component', component);
         component[0].set('selectable', false);
         component[0].set('removable', false);
@@ -384,19 +376,17 @@ const SectionPageBuilder: React.FC = () => {
         sectors.reset();
         console.log('component[0].getId()', component[0].getId());
         sectors.add(getSectors(component[0].getId()));
-        //@ts-ignore
-        editor.runCommand('core:open-styles');
+
+        editor.runCommand('core:open-styles', null);
       } else {
       }
-
     });
 
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
-
       if (component) {
         const sectors = editor.StyleManager.getSectors();
-   
+
         sectors.reset();
         sectors.add(getSectors(component.ccid));
       }
@@ -405,9 +395,7 @@ const SectionPageBuilder: React.FC = () => {
     let TextTrait = [
       {
         name: 'text',
-
-        label: 'Title',
-
+        label: 'Text',
         changeProp: 1,
       },
 
@@ -519,7 +507,7 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-    // // Image  Trait
+    // Image  Trait
     editor.DomComponents.addType('image', {
       model: {
         defaults: {
@@ -650,7 +638,7 @@ const SectionPageBuilder: React.FC = () => {
       onUpdate({ elInput, component }) {
         const wrapperCmp = editor.DomComponents.getWrapper();
         let target = `.guidline-option`;
-        
+
         editor.select(wrapperCmp.find(target)[0]);
       },
     });
@@ -811,9 +799,16 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-    // @ts-ignore
+    // editor.StyleManager.getSectors().getProperty.onChange(
+    //   (props: PropertyProps) => {
+    //     console.log(
+    //       'editor.StyleManager.sectors.properies :>> ',
+    //       editor.StyleManager.sectors.properies
+    //     );
+    //   }
+    // );
+
     editor.on('style:sector:update', (props) => {
-   
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
@@ -823,12 +818,9 @@ const SectionPageBuilder: React.FC = () => {
           for (let i = 0; i < sectors.length; i++) {
             const modelId = sectors.models[i].get('id');
             if (modelId === props.id) {
-           
               let isOpen = sectors.models[i].isOpen();
-    
               if (isOpen) {
                 const wrapperCmp = editor.DomComponents.getWrapper();
-               
                 editor.select(wrapperCmp.find(`.${props.id}`)[0]);
               }
             } else {
@@ -855,9 +847,9 @@ const SectionPageBuilder: React.FC = () => {
           const selectedSector = component
             .getSelectorsString()
             .replace('.', '');
-          
+
           const sectors = editor.StyleManager.getSectors();
-          
+
           for (let i = 0; i < sectors.length; i++) {
             if (selectedSector.includes(sectors.models[i].get('id'))) {
               sectors.models[i].setOpen(true);
@@ -873,43 +865,16 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     editor.on('component:selected', (component) => {
-
-
-console.log("component selected",component)
-
-
-
-
-      if (component.get('type') == 'text') {
-        //@ts-ignore
-        editor?.runCommand('core:open-traits');
-      }
-      if (component.get('type') == 'button') {
-        //@ts-ignore
-        editor?.runCommand('core:open-traits');
-      }
-      if (component.get('type') == 'image') {
-        //@ts-ignore
-        editor?.runCommand('core:open-traits');
-      }
+      // TODO - in case we have to open traits on component selection
+      // if (component.get('type') == 'text' || 'button' || 'image') {
+      //   editor?.runCommand('core:open-traits');
+      // }
 
       if (component) {
         const sectors = editor.StyleManager.getSectors();
-      
         // sectors.reset();
         sectors.add(getSectors(component.ccid));
       }
-
-
-
-
-
-
-
-    });
-
-    editor.on('component:update', (component) => {
-      // console.log('component update called', component);
     });
 
     // getCurrentBlock();
