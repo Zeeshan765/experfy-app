@@ -201,7 +201,7 @@ const PageBuilder: React.FC = () => {
   const history = useHistory();
   const SectorsArray = ['benefitSector', 'paragraphSector'];
   console.log('sectionData', sectionData);
-
+  console.log("userData",userData)
   let custom = 'Custom Modules';
 
   //Filter Custom Modules
@@ -416,7 +416,9 @@ const PageBuilder: React.FC = () => {
 
           nav.map((navItem: { link: { label: any; url: any } }) => {
             const { label, url } = navItem.link;
+            console.log('navItem', navItem)
             let href = `${url}`;
+            console.log('navItem href', href)
             return (linksDiv += `<a href="${href}" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">${label}</a>`);
           });
 
@@ -860,7 +862,7 @@ add your attachment</span>
         },
       },
       isComponent: (el) => {
-        if (el.className && el.className.includes('swiper-container')) {
+        if (el?.className && el?.className?.includes('swiper-container')) {
           return {
             type: 'testimonial',
           };
@@ -922,6 +924,12 @@ add your attachment</span>
     });
 
     editor.on('load', () => {
+
+console.log("onload",editor.StyleManager.getSectors())
+
+
+
+
       // showanimation();
       let styleFound = [];
       Filtered.forEach((element) => {
@@ -960,11 +968,11 @@ add your attachment</span>
             sectionHtml,
             sectionCss,
           } = element;
-          //Remove Block
+          //Remove Block that is not updated
           //@ts-ignore
           editor.BlockManager.remove(sectionTitle);
 
-          //Then Add Block
+          //Then Add Block that is updated
           editor.BlockManager.add(sectionTitle.replace(' ', '-'), {
             label: sectionTitle,
             category,
@@ -990,6 +998,7 @@ add your attachment</span>
           }
         ),
       });
+      
     });
     editor.on('asset:add', (component) => {
       if (component.attributes.src.includes(serverURL)) {
@@ -1021,91 +1030,242 @@ add your attachment</span>
 
     
 
-    editor.on('component:selected', (component) => {
-      if (component) {
-        // console.log('component*******', component);
-        let ccid = component.ccid.split('-')[0];
-        // console.log('ccidcxcxcccxcxc', ccid);
-        const blocksector = editor.StyleManager.getSectors();
-        console.log('blocksector', blocksector);
-        // blocksector.reset();
-        // blocksector.add(getSectors(''));
-        // console.log('blocksector$$$$$$$$$$$$$', blocksector);
-        // blocksector.forEach((sector) => {
-        //   // console.log('sector', sector);
-        //   // sector?.id && editor.StyleManager.removeSector(sector.id);
-        // });
-        let newCcid = component?.attributes?.classes?.models?.map(
-          (el) => el?.id
-        );
-        // console.log('newCcid', newCcid);
-        let updatedSectors = [];
-        if (newCcid?.length > 0) {
-          let test = newCcid.join('.');
-          let allSectors = editor.StyleManager.getSectors();
-          console.log('allSectors', allSectors);
-          const allSectorsNames = allSectors.map((el) => el.name || el.id);
-          // console.log('allSectorsNames', allSectorsNames);
-          // console.log('test', test);
-          newCcid.forEach((element) => {
-            console.log('element', element);
-            let sector = element.split('_');
-            console.log('sector name', sector);
-            if (sector.length > 1) {
-              // setTimeout(() => {
-              let name = getSectors(element.split('_')[0]);
-              console.log('name', name);
-              let allSelectedNames = name.map((el) => el.id);
-              console.log('allSectorsNames', allSectorsNames);
-              console.log('allSelectedNames', allSelectedNames);
-              // allSectors.forEach(el=> console.log("el",el.id))
-              allSectors.forEach((sect, i) => {
-                if (sect) {
-                  console.log('sect', sect?.id);
-                  const isInclude = allSelectedNames.includes(sect?.id);
-                  console.log('isInclude', isInclude);
-                  if (!isInclude) {
-                    console.log('yesss');
-                    let timers = (i + 1) * 30;
-                    console.log('yesss');
-                    sect.id &&
-                      setTimeout(() => {
-                        editor.StyleManager.removeSector(sect.id);
-                      }, timers);
-                  }
-                }
-              });
-              updatedSectors.push(name);
-              // }, 100);
-            }
-          });
-        } else {
-          updatedSectors = getSectors(ccid);
-          // console.log('else', updatedSectors);
+    // editor.on('component:selected', (component) => {
+
+    //   console.log("onload select",editor.StyleManager.getSectors())
+
+
+
+    //   if (component) {
+    //     console.log('component*******', component);
+    //     let ccid = component.ccid.split('-')[0];
+    //     // console.log('ccidcxcxcccxcxc', ccid);
+    //     const blocksector = editor.StyleManager.getSectors();
+    //     console.log('blocksector', blocksector);
+        
+    //     let newCcid = component?.attributes?.classes?.models?.map(
+    //       (el) => el?.id
+    //     );
+    //     // console.log('newCcid', newCcid);
+    //     let updatedSectors = [];
+    //     if (newCcid?.length > 0) {
+    //       let test = newCcid.join('.');
+    //       let allSectors = editor.StyleManager.getSectors();
+    //       console.log('allSectors', allSectors);
+    //       const allSectorsNames = allSectors.map((el) => el.name || el.id);
+    //       // console.log('allSectorsNames', allSectorsNames);
+    //       // console.log('test', test);
+    //       newCcid.forEach((element) => {
+    //         console.log('element', element);
+    //         let sector = element.split('_');
+    //         console.log('sector name', sector);
+    //         if (sector.length > 1) {
+    //           // setTimeout(() => {
+    //           let name = getSectors(element.split('_')[0]);
+    //           console.log('name', name);
+    //           let allSelectedNames = name.map((el) => el.id);
+    //           console.log('allSectorsNames', allSectorsNames);
+    //           console.log('allSelectedNames', allSelectedNames);
+    //           // allSectors.forEach(el=> console.log("el",el.id))
+    //           allSectors.forEach((sect, i) => {
+    //             if (sect) {
+    //               console.log('sect', sect?.id);
+    //               const isInclude = allSelectedNames.includes(sect?.id);
+    //               console.log('isInclude', isInclude);
+    //               if (!isInclude) {
+    //                 console.log('yesss');
+    //                 let timers = (i + 1) * 30;
+    //                 console.log('yesss');
+    //                 sect.id &&
+    //                   setTimeout(() => {
+    //                     editor.StyleManager.removeSector(sect.id);
+    //                   }, timers);
+    //               }
+    //             }
+    //           });
+    //           updatedSectors.push(name);
+    //           // }, 100);
+    //         }
+    //       });
+    //     } else {
+    //       updatedSectors = getSectors(ccid);
+    //       // console.log('else', updatedSectors);
+    //     }
+    //     // console.log('updatedSectors', updatedSectors);
+    //     setTimeout(() => {
+    //       console.log('setTimeout updatedSectors', updatedSectors);
+    //       updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
+    //     }, 500);
+    //   }
+    //   let type = component.get('type');
+    //   const { id } = component.attributes.attributes;
+    //   if (component.get('type') == 'text') {
+    //     editor?.runCommand('core:open-traits');
+    //   }
+    //   if (component.get('type') == 'button') {
+    //     editor?.runCommand('core:open-traits');
+    //   }
+    // });
+
+
+
+    // editor.on('component:selected', (component) => {
+    //   console.log('section selected', component);
+    //   if (component) {
+    //     const sectid = component.attributes?.attributes?.sectid;
+
+    //     // let ccid = component.sectId.split('-')[0];
+    //     let sectId = component.attributes.attributes.sect;
+    //     console.log('sectId', sectId);
+    //     console.log('blocksector compoentn', component);
+    //     const blocksector = editor.StyleManager.getSectors();
+    //     blocksector.reset();
+    //     console.log('blocksector', blocksector);
+    //     // let newCcid = component?.attributes?.classes?.models?.map(
+    //     //   (el) => el?.id
+    //     // );
+    //     let updatedSectors = [];
+    //     if (newCcid?.length > 0) 
+    //     {
+    //       let allSectors = editor.StyleManager.getSectors();
+    //       console.log('allSectors', allSectors);
+    //       const allSectorsNames = allSectors.map((el) => el.name || el.id);
+
+    //       newCcid.forEach((element) => {
+    //         console.log('element', element);
+    //         let sector = element.split('_');
+    //         console.log('sector name', sector);
+
+    //         if (sector.length > 0) {
+    //           let name = getSectors(sectId);
+    //           console.log('name', name);
+    //           let allSelectedNames = name.map((el) => el.id);
+    //           console.log('allSectorsNames', allSectorsNames);
+    //           console.log('allSelectedNames', allSelectedNames);
+    //           allSectors.forEach((sect, i) => {
+    //             if (sect) {
+    //               console.log('sect', sect?.id);
+    //               const isInclude = allSelectedNames.includes(sect?.id);
+    //               console.log('isInclude', isInclude);
+    //               if (!isInclude) {
+    //                 console.log('yesss');
+    //                 let timers = (i + 1) * 30;
+    //                 console.log('yesss');
+    //                 sect.id &&
+    //                   setTimeout(() => {
+    //                     editor.StyleManager.removeSector(sect.id);
+    //                   }, timers);
+    //               }
+    //             }
+    //           });
+    //           updatedSectors.push(name);
+    //         }
+    //       });
+    //     } else {
+    //       updatedSectors = getSectors(sectId);
+    //     }
+
+    //     const sectors = editor.StyleManager.getSectors();
+    //     console.log('sectors', sectors);
+    //     for (let i = 0; i < sectors.length; i++) {
+    //       console.log('sectors.models[i].get(id)', sectors.models[i].get('id'));
+    //       if (sectid.includes(sectors.models[i].get('id'))) {
+    //         sectors.models[i].setOpen(true);
+    //       } else {
+    //         sectors.models[i].setOpen(false);
+    //       }
+    //     }
+
+    //     setTimeout(() => {
+    //       console.log('setTimeout updatedSectors', updatedSectors);
+    //       updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
+    //       const wrapperCmp = editor.DomComponents.getWrapper();
+    //       console.log(
+    //         'wrapperCmp.find(`#${component.ccid}`)',
+    //         wrapperCmp.find(`#${component.ccid}`)
+    //       );
+
+    //       editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
+
+    //       // for (let i = 0; i < sectors.length; i++) {
+    //       //   console.log(
+    //       //     'sectors.models[i].get(id)',
+    //       //     sectors.models[i].get('id')
+    //       //   );
+    //       //   if (sectid.includes(sectors.models[i].get('id'))) {
+    //       //     sectors.models[i].setOpen(true);
+    //       //   } else {
+    //       //     sectors.models[i].setOpen(false);
+    //       //   }
+    //       // }
+    //     }, 500);
+    //   }
+    //   let type = component.get('type');
+    //   const { id } = component.attributes.attributes;
+    //   if (component.get('type') == 'text') {
+    //     editor?.runCommand('core:open-traits');
+    //   }
+    //   if (component.get('type') == 'button') {
+    //     editor?.runCommand('core:open-traits');
+    //   }
+    // });
+
+
+    editor.on('component:selected',(component)=>{
+      console.log('section selected', component);
+ if (component){
+  //single sector
+       let sectid = component.attributes?.attributes?.sectid;
+  //ccid
+        let sectId = component.attributes.attributes.sect;
+       let sectors = editor.StyleManager.getSectors();
+         sectors.reset();
+       sectors.add(getSectors(sectId));
+     
+        console.log('allSectors', sectors);
+        const allSectorsNames = sectors.map((el) => el.name || el.id);
+       console.log("allSectorsNames",allSectorsNames);
+         for (let i = 0; i < sectors.length; i++) {
+          console.log('sectors.models[i].get(id)', sectors.models[i].get('id'));
+          if (sectid.includes(sectors.models[i].get('id'))) {
+            sectors.models[i].setOpen(true);
+          } else {
+            sectors.models[i].setOpen(false);
+          }
         }
-        // console.log('updatedSectors', updatedSectors);
-        setTimeout(() => {
-          console.log('setTimeout updatedSectors', updatedSectors);
-          updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
-        }, 500);
-      }
-      let type = component.get('type');
-      const { id } = component.attributes.attributes;
-      if (component.get('type') == 'text') {
-        editor?.runCommand('core:open-traits');
-      }
-      if (component.get('type') == 'button') {
-        editor?.runCommand('core:open-traits');
-      }
-    });
+
+
+ }
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //This is for all section templates Style Manager
 
     editor.on(`block:drag:stop`, (component, block) => {
+      console.log("onload drop",editor.StyleManager.getSectors())
+
+
+
       let { data, found, filtering } = fetchSectionDetail(block.id);
       // console.log('found', found, filtering);
-      let ccid = component.ccid.split('-')[0];
-      console.log(' ccid', ccid);
+      // let ccid = component.ccid.split('-')[0];
+      // console.log(' ccid', ccid);
       if (component && found) {
         const { sectionCode, category, sectionHtml } = filtering;
         let content = JSON.parse(sectionCode);
@@ -1119,14 +1279,18 @@ add your attachment</span>
         blocksector.add(getSectors(sectorId));
       }
       if (!found) {
-        let ccid = component.ccid.split('-')[0];
-        console.log('zeeshan ccid', ccid);
-        const blocksector = editor.StyleManager.getSectors();
-        console.log('zeeshan blocksector', blocksector);
+        let sectId = component.attributes.attributes.sect;
+        const sectors = editor.StyleManager.getSectors();
+        sectors.reset();
+        sectors.add(getSectors(sectId));
 
-        blocksector.reset();
+        const wrapperCmp = editor.DomComponents.getWrapper();
 
-        blocksector.add(getSectors(ccid));
+        editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
+
+        
+
+ 
       }
      
     });
@@ -1134,64 +1298,64 @@ add your attachment</span>
     //@ts-ignore
 
     // @ts-ignore
-    editor.on('style:sector:update', (props) => {
+    // editor.on('style:sector:update', (props) => {
     
-      !isUpdating &&
-        setTimeout(() => {
-          const sectors = editor.StyleManager.getSectors();
-          var selectedBlock = editor.getSelected();
-          isUpdating = true;
-          for (let i = 0; i < sectors.length; i++) {
-            const modelId = sectors.models[i].get('id');
+    //   !isUpdating &&
+    //     setTimeout(() => {
+    //       const sectors = editor.StyleManager.getSectors();
+    //       var selectedBlock = editor.getSelected();
+    //       isUpdating = true;
+    //       for (let i = 0; i < sectors.length; i++) {
+    //         const modelId = sectors.models[i].get('id');
 
-            if (modelId == props.id) {
-              let isOpen = sectors.models[i].isOpen();
+    //         if (modelId == props.id) {
+    //           let isOpen = sectors.models[i].isOpen();
 
-              if (isOpen) {
-                const wrapperCmp = editor.DomComponents.getWrapper();
+    //           if (isOpen) {
+    //             // const wrapperCmp = editor.DomComponents.getWrapper();
 
-                editor.select(wrapperCmp.find(`.${props.id}`)[0]);
-              }
-            } else {
-              sectors.models[i].setOpen(false);
-            }
-          }
+    //             // editor.select(wrapperCmp.find(`.${props.id}`)[0]);
+    //           }
+    //         } else {
+    //           sectors.models[i].setOpen(false);
+    //         }
+    //       }
 
-          setTimeout(() => {
-            isUpdating = false;
-          }, 300);
-        }, 100);
-    });
+    //       setTimeout(() => {
+    //         isUpdating = false;
+    //       }, 300);
+    //     }, 100);
+    // });
     // @ts-ignore
-    editor.on('style:target', (component) => {
-      console.log('style sector called');
-      const sectors = editor.StyleManager.getSectors();
+    // editor.on('style:target', (component) => {
+    //   console.log('style sector called', component);
+    //   const sectors = editor.StyleManager.getSectors();
       
-      if (!component) return;
+    //   if (!component) return;
 
-      !isUpdating &&
-        setTimeout(() => {
-          isUpdating = true;
+    //   !isUpdating &&
+    //     setTimeout(() => {
+    //       isUpdating = true;
 
-          const selectedSector = component
-            .getSelectorsString()
-            .replace('.', '');
+    //       const selectedSector = component
+    //         .getSelectorsString()
+    //         .replace('.', '');
 
-          for (let i = 0; i < sectors.length; i++) {
-           ;
-            if (selectedSector.includes(sectors.models[i].get('id'))) {
-              console.log('mateched successfully');
-              sectors.models[i].setOpen(true);
-            } else {
-              sectors.models[i].setOpen(false);
-            }
-          }
+    //       for (let i = 0; i < sectors.length; i++) {
+    //        ;
+    //         if (selectedSector.includes(sectors.models[i].get('id'))) {
+    //           console.log('mateched successfully');
+    //           sectors.models[i].setOpen(true);
+    //         } else {
+    //           sectors.models[i].setOpen(false);
+    //         }
+    //       }
 
-          setTimeout(() => {
-            isUpdating = false;
-          }, 300);
-        }, 500);
-    });
+    //       setTimeout(() => {
+    //         isUpdating = false;
+    //       }, 300);
+    //     }, 500);
+    // });
     localStorage.removeItem('gjsProject');
     updateHeaderBlock();
     setEditorState(editor);

@@ -545,6 +545,7 @@ const obj = {
       name: 'Logo',
       open: false,
       id: 'header-svg',
+      buildProps: ['filter'],
 
       properties: [
         {
@@ -593,65 +594,65 @@ const obj = {
           max: 100,
           units: ['%'],
         },
-        {
-          name: 'Blur',
-          type: 'slider',
-          property: {
-            name: 'backdrop-filter',
-            defaults: 'blur(1px)',
-          },
-          min: 1,
-          max: 10,
-          steps: 1,
-          units: ['px'],
-          // property: `backdrop-filter: blur(${0}px);`,
-          onChange: ({ property, from, to }) => {
-            console.log(`Changed property`, property.getName(), { from, to });
-            return `property: ${property.getName()}(${to}${
-              property.getUnits()[0]
-            })`;
-          },
-        },
+        // {
+        //   name: 'Blur',
+        //   type: 'slider',
+        //   property: {
+        //     name: 'backdrop-filter',
+        //     defaults: 'blur(1px)',
+        //   },
+        //   min: 1,
+        //   max: 10,
+        //   steps: 1,
+        //   units: ['px'],
+        //   // property: `backdrop-filter: blur(${0}px);`,
+        //   onChange: ({ property, from, to }) => {
+        //     console.log(`Changed property`, property.getName(), { from, to });
+        //     return `property: ${property.getName()}(${to}${
+        //       property.getUnits()[0]
+        //     })`;
+        //   },
+        // },
 
-        {
-          type: 'number',
-          name: 'Brightness',
-          property: 'backdrop-filter: brightness(100%)',
-        },
-        {
-          type: 'number',
-          name: 'Contrast',
-          property: 'backdrop-filter',
-          default: 'contrast(100%)',
-        },
-        {
-          type: 'select',
-          name: 'Saturation',
-          property: 'backdrop-filter',
-          default: 'saturate(100%)',
-        },
-        {
-          type: 'select',
-          name: 'Hover Text Animation',
-          property: 'animation-name',
-          default: 'none',
-          options: [
-            { value: 'none', name: 'None' },
-            { value: 'bounce', name: 'Bounce' },
-            { value: 'flash', name: 'Flash' },
-            { value: 'pulse', name: 'Pulse' },
-            { value: 'rubberBand', name: 'Rubber Band' },
-            { value: 'shake', name: 'Shake' },
-            { value: 'swing', name: 'Swing' },
-          ],
-        },
-        {
-          type: 'slider',
-          name: 'Transition Duration',
-          property: 'animation-duration',
-          default: '1s',
-          units: ['s'],
-        },
+        // {
+        //   type: 'number',
+        //   name: 'Brightness',
+        //   property: 'backdrop-filter: brightness(100%)',
+        // },
+        // {
+        //   type: 'number',
+        //   name: 'Contrast',
+        //   property: 'backdrop-filter',
+        //   default: 'contrast(100%)',
+        // },
+        // {
+        //   type: 'select',
+        //   name: 'Saturation',
+        //   property: 'backdrop-filter',
+        //   default: 'saturate(100%)',
+        // },
+        // {
+        //   type: 'select',
+        //   name: 'Hover Text Animation',
+        //   property: 'animation-name',
+        //   default: 'none',
+        //   options: [
+        //     { value: 'none', name: 'None' },
+        //     { value: 'bounce', name: 'Bounce' },
+        //     { value: 'flash', name: 'Flash' },
+        //     { value: 'pulse', name: 'Pulse' },
+        //     { value: 'rubberBand', name: 'Rubber Band' },
+        //     { value: 'shake', name: 'Shake' },
+        //     { value: 'swing', name: 'Swing' },
+        //   ],
+        // },
+        // {
+        //   type: 'slider',
+        //   name: 'Transition Duration',
+        //   property: 'animation-duration',
+        //   default: '1s',
+        //   units: ['s'],
+        // },
       ],
     },
     {
@@ -2293,7 +2294,7 @@ const obj = {
     {
       name: 'Heading',
       open: false,
-      id: 'heading-1',
+      id: 'heading_1',
       properties: [color, typography],
     },
   ],

@@ -204,7 +204,7 @@ const SectionPageBuilder: React.FC = () => {
   };
 
   const handleScratchSave = (e) => {
-    console.log("editor.getHtml()",editor.getHtml())
+    console.log('editor.getHtml()', editor.getHtml());
     if (name) {
       axios
         .post(`${apiEndpoint}/section-save`, {
@@ -229,7 +229,6 @@ const SectionPageBuilder: React.FC = () => {
       toast.error('Please Enter the Section Name');
     }
   };
-
 
   let themeStylePanels = true;
 
@@ -317,7 +316,6 @@ const SectionPageBuilder: React.FC = () => {
     });
     //This is for Single Section
     editor.onReady(() => {
-      
       let { data, found, filtering } = fetchSectionDetail(str);
       // console.log('data, found,filtering', data, found);
       if (found) {
@@ -378,12 +376,18 @@ const SectionPageBuilder: React.FC = () => {
 
     //This is for all section templates Style Manager
     editor.on(`block:drag:stop`, (component, block) => {
+      console.log('component', component);
       if (component) {
+        console.log('drag component', component.attributes.attributes.sect);
+        let sectId = component.attributes.attributes.sect;
         const sectors = editor.StyleManager.getSectors();
         sectors.reset();
-        sectors.add(getSectors(component.ccid));
+        sectors.add(getSectors(sectId));
+
+        const wrapperCmp = editor.DomComponents.getWrapper();
+
+        editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
       }
-     
     });
 
     let TextTrait = [
@@ -739,7 +743,7 @@ const SectionPageBuilder: React.FC = () => {
         },
       },
       isComponent: (el) => {
-        if (el.className && el.className.includes('swiper-container')) {
+        if (el?.className && el?.className?.includes('swiper-container')) {
           return {
             type: 'testimonial',
           };
@@ -797,6 +801,7 @@ const SectionPageBuilder: React.FC = () => {
 
     // @ts-ignore
     editor.on('style:sector:update', (props) => {
+      console.log('style:sector:update', props);
       !isUpdating &&
         setTimeout(() => {
           let sm = editor.StyleManager;
@@ -809,12 +814,14 @@ const SectionPageBuilder: React.FC = () => {
               let isOpen = sectors.models[i].isOpen();
 
               if (isOpen) {
-                const wrapperCmp = editor.DomComponents.getWrapper();
-
-                editor.select(wrapperCmp.find(`.${props.id}`)[0]);
+                // const wrapperCmp = editor.DomComponents.getWrapper();
+                // editor.select(wrapperCmp.find(`.${props.id}`)[0]);
+                // const wrapperCmp = editor.DomComponents.getWrapper();
+                // console.log('wrapperCmp.find(`#${component.ccid}`)', wrapperCmp.find(`#${component.ccid}`))
+                // editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
               }
             } else {
-              sectors.models[i].setOpen(false);
+              // sectors.models[i].setOpen(false);
             }
           }
 
@@ -822,30 +829,32 @@ const SectionPageBuilder: React.FC = () => {
             isUpdating = false;
           }, 300);
         }, 100);
-
     });
 
     //@ts-ignore
     editor.on('style:target', (component) => {
+      console.log('Section target component', component);
       if (!component) return;
 
       !isUpdating &&
         setTimeout(() => {
           isUpdating = true;
 
-          const selectedSector = component
-            .getSelectorsString()
-            .replace('.', '');
-
+          const selectedSector = component.attributes?.attributes?.sectid;
+          console.log('selectedSector', selectedSector);
           const sectors = editor.StyleManager.getSectors();
-
-          for (let i = 0; i < sectors.length; i++) {
-            if (selectedSector.includes(sectors.models[i].get('id'))) {
-              sectors.models[i].setOpen(true);
-            } else {
-              sectors.models[i].setOpen(false);
-            }
-          }
+          console.log('sectors', sectors);
+          // for (let i = 0; i < sectors.length; i++) {
+          //   console.log(
+          //     'sectors.models[i].get(id)',
+          //     sectors.models[i].get('id')
+          //   );
+          //   if (selectedSector.includes(sectors.models[i].get('id'))) {
+          //     sectors.models[i].setOpen(true);
+          //   } else {
+          //     sectors.models[i].setOpen(false);
+          //   }
+          // }
 
           setTimeout(() => {
             isUpdating = false;
@@ -897,15 +906,17 @@ const SectionPageBuilder: React.FC = () => {
     //   // });
     // });
 
-
-
-
-
-    
     editor.on('component:selected', (component) => {
+      console.log('section selected', component);
       if (component) {
-        let ccid = component.ccid.split('-')[0];
+        const sectid = component.attributes?.attributes?.sectid;
+
+        // let ccid = component.sectId.split('-')[0];
+        let sectId = component.attributes.attributes.sect;
+        console.log('sectId', sectId);
+        console.log('blocksector compoentn', component);
         const blocksector = editor.StyleManager.getSectors();
+        blocksector.reset();
         console.log('blocksector', blocksector);
         let newCcid = component?.attributes?.classes?.models?.map(
           (el) => el?.id
@@ -916,7 +927,7 @@ const SectionPageBuilder: React.FC = () => {
           let allSectors = editor.StyleManager.getSectors();
           console.log('allSectors', allSectors);
           const allSectorsNames = allSectors.map((el) => el.name || el.id);
- 
+
           newCcid.forEach((element) => {
             console.log('element', element);
             let sector = element.split('_');
@@ -947,12 +958,42 @@ const SectionPageBuilder: React.FC = () => {
             }
           });
         } else {
-          updatedSectors = getSectors(ccid);
+          updatedSectors = getSectors(sectId);
         }
-       
+
+        const sectors = editor.StyleManager.getSectors();
+        console.log('sectors', sectors);
+        for (let i = 0; i < sectors.length; i++) {
+          console.log('sectors.models[i].get(id)', sectors.models[i].get('id'));
+          if (sectid.includes(sectors.models[i].get('id'))) {
+            sectors.models[i].setOpen(true);
+          } else {
+            sectors.models[i].setOpen(false);
+          }
+        }
+
         setTimeout(() => {
           console.log('setTimeout updatedSectors', updatedSectors);
           updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
+          const wrapperCmp = editor.DomComponents.getWrapper();
+          console.log(
+            'wrapperCmp.find(`#${component.ccid}`)',
+            wrapperCmp.find(`#${component.ccid}`)
+          );
+
+          editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
+
+          for (let i = 0; i < sectors.length; i++) {
+            console.log(
+              'sectors.models[i].get(id)',
+              sectors.models[i].get('id')
+            );
+            if (sectid.includes(sectors.models[i].get('id'))) {
+              sectors.models[i].setOpen(true);
+            } else {
+              sectors.models[i].setOpen(false);
+            }
+          }
         }, 500);
       }
       let type = component.get('type');
@@ -964,9 +1005,6 @@ const SectionPageBuilder: React.FC = () => {
         editor?.runCommand('core:open-traits');
       }
     });
-
-
-
 
     editor.on('component:update', (component) => {
       // console.log('component update called', component);

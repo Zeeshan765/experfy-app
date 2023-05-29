@@ -665,28 +665,27 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <path id="Path_170799" data-name="Path 170799" d="M90.466,39.2H70.632a.633.633,0,0,0-.633.633V56.5a.633.633,0,0,0,.633.633H90.466A.633.633,0,0,0,91.1,56.5V39.832A.633.633,0,0,0,90.466,39.2ZM83.292,54.417a.442.442,0,0,1-.434.4H72.264a.382.382,0,0,1-.366-.4v-.053a.382.382,0,0,1,.366-.4H82.857a.442.442,0,0,1,.434.4Zm-11.04-2.98H82.479a.414.414,0,0,1,.405.382V51.9a.414.414,0,0,1-.405.382H72.252A.369.369,0,0,1,71.9,51.9v-.079a.369.369,0,0,1,.354-.383ZM71.9,49.353V49.3a.382.382,0,0,1,.366-.4h9.617a.4.4,0,0,1,.393.4v.053a.4.4,0,0,1-.393.4H72.264A.382.382,0,0,1,71.9,49.353Zm17.251,4.822-.672.5a.283.283,0,0,1-.168.056.272.272,0,0,1-.043,0,.284.284,0,0,1-.185-.113l-1.355-1.869-.778.573a.282.282,0,0,1-.442-.163l-.958-4.085a.282.282,0,0,1,.414-.31l3.645,2.078a.282.282,0,0,1,.031.469l-.788.6,1.359,1.876a.281.281,0,0,1-.06.392Zm.472-8.225a.633.633,0,0,1-.633.633H72.109a.633.633,0,0,1-.633-.633V41.941a.633.633,0,0,1,.633-.633h16.88a.633.633,0,0,1,.633.633Z" transform="translate(-69.999 -39.199)"/>
   </svg>
   `,
-    content: `<section id="bannerSector" class="main-banner-container bannerSector" data-gjs-type="bannerSector">
+    content: `<section  sect="bannerSector">
         
       
-      <div class="bannar-content">
-         <h1 id ="main-banner-heading bannerSector_h1" class="h1 main-banner-heading">Add your heading title here</h1>
-         <h6 class="h6 sub-banner-heading bannerSector_h6">Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
+      <div style="margin-left : 2rem; margin-right: 2rem;display: grid;padding: 40px 40px;"  sect="bannerSector"  sectid="bannar-content">
+         <h1  style="text-align: center;" sect="bannerSector" sectid="main-banner-heading">Add your heading title here</h1>
+         <h6 class="h6"  style="text-align:justify;margin: 0px auto 20px;" sect="bannerSector" sectid="sub-banner-heading">
+         Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Nunc nec posuere risus. Phasellus nunc nisl, vulputate nec magna vel, sodales sollicitudin velit. Fusce scelerisque odio risus, eu euismod felis
             pellentesque a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In pulvinar aliquam felis, eu sodales ligula
             mollis ut. Aliquam eu pellentesque turpis. Nullam lectus nulla, vehicula quis odio vitae, vestibulum sollicitudin massa. Aenean pretium mauris nec ex
             feugiat convallis. Nulla sit amet odio dui. Nulla vulputate dictum tellus vel iaculis.
          </h6>
          <div class="button-container">
-            <button class="button banner-button bannerSector_button" data-gjs-type="button">Button Label</button>
+            <button style=" width: 9%;" data-gjs-type="button" sect="bannerSector" sectid="banner-button">Button Label</button>
          </div>
 
       </div>
   
 
         </section>
-        ${ImageBanner}
-        ${getbuttonStyles(['.button-container'])}
-        ${getButtonALignment(['.button-container'])}
+       
       
         `,
   });
@@ -1232,9 +1231,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-    <section id="headingSector" class="headingSector" data-gjs-type="headingSector">
-    <div class="heading-div headingSector_heading">
-    <h1 class="h1 heading-1 headingSector_h1">Add Your Heading Title here</h1>
+    <section  class="" sect="headingSector">
+    <div class="heading-div" sect="headingSector">
+    <h1 class="" sect="headingSector" sectid="heading_1">Add Your Heading Title here</h1>
     </div>
     </section>
     ${HeadingStyle}
@@ -1246,9 +1245,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-  <section class="paragraph-1 paraSect" id ="paraSect" data-gjs-type="paraSect">
-  <div class="para-1 paraSect_para">
-  <h5 class="h5 para-11 paraSect_h5">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+  <section sect="paraSect">
+  <div class="para-1 " sect="paraSect">
+  <h5 class="" sect="paraSect" sectid="para-1">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
   Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h5>
