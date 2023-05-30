@@ -1967,42 +1967,8 @@ const obj = {
       name: 'Section Background',
       open: false,
       id: 'main_container',
-      // buildProps: ['background'],
-      properties: [
-        {
-
-         type: 'stack',
-         name: 'Background',
-         id: 'background',
-         property: 'background',
-         detached: true,
-         preview: false,
-              
-        },
-       
-        {
-          type: 'slider',
-          name: 'Overlay Opacity',
-          property: 'opacity',
-          defaults: 27,
-          units: ['%'],
-          step: 0.01,
-
-          min: 6,
-        },
-        {
-          type: 'select',
-          name: 'Border Type',
-          property: 'border-style',
-          options: borderStyleOptions,
-        },
-        {
-          type: 'composite',
-          name: 'Border Radius',
-          property: 'border-radius',
-          properties: widthOptions,
-        },
-      ],
+      buildProps: ['background'],
+  
     },
 
     {

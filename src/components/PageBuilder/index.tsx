@@ -201,7 +201,7 @@ const PageBuilder: React.FC = () => {
   const history = useHistory();
   const SectorsArray = ['benefitSector', 'paragraphSector'];
   console.log('sectionData', sectionData);
-  console.log("userData",userData)
+  console.log('userData', userData);
   let custom = 'Custom Modules';
 
   //Filter Custom Modules
@@ -210,7 +210,7 @@ const PageBuilder: React.FC = () => {
     .map((section) => section); // sectionTitle.replace(' ', '-')
   console.log('Custom Modules', Filtered);
 
- //Filter Section Modules 
+  //Filter Section Modules
   let sectionModule = 'Section Modules';
   let SectionFiltered = sectionData
     .filter((el) => el.category === sectionModule)
@@ -416,9 +416,9 @@ const PageBuilder: React.FC = () => {
 
           nav.map((navItem: { link: { label: any; url: any } }) => {
             const { label, url } = navItem.link;
-            console.log('navItem', navItem)
+            console.log('navItem', navItem);
             let href = `${url}`;
-            console.log('navItem href', href)
+            console.log('navItem href', href);
             return (linksDiv += `<a href="${href}" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">${label}</a>`);
           });
 
@@ -438,8 +438,6 @@ const PageBuilder: React.FC = () => {
                     </header>`;
 
           block.set('content', content);
-
-          
         }
       })
       .catch((error) => {
@@ -924,12 +922,6 @@ add your attachment</span>
     });
 
     editor.on('load', () => {
-
-console.log("onload",editor.StyleManager.getSectors())
-
-
-
-
       // showanimation();
       let styleFound = [];
       Filtered.forEach((element) => {
@@ -949,7 +941,7 @@ console.log("onload",editor.StyleManager.getSectors())
           label: sectionTitle,
           category,
           media,
-          content: sectionHtml, 
+          content: sectionHtml,
         });
         const { styles } = JSON.parse(sectionCode);
         styleFound = [...styleFound, ...styles];
@@ -976,14 +968,14 @@ console.log("onload",editor.StyleManager.getSectors())
           editor.BlockManager.add(sectionTitle.replace(' ', '-'), {
             label: sectionTitle,
             category,
-            media: mediaSvg[sectionTitle.replace('-', "_")],
-            content: sectionHtml, 
+            media: mediaSvg[sectionTitle.replace('-', '_')],
+            content: sectionHtml,
           });
           const { styles } = JSON.parse(sectionCode);
-          console.log("section styles",styles)
-          
+          console.log('section styles', styles);
+
           styleFound = [...styleFound, ...styles];
-         
+
           sectionId = sectionTitle;
         });
       }
@@ -998,7 +990,6 @@ console.log("onload",editor.StyleManager.getSectors())
           }
         ),
       });
-      
     });
     editor.on('asset:add', (component) => {
       if (component.attributes.src.includes(serverURL)) {
@@ -1028,13 +1019,9 @@ console.log("onload",editor.StyleManager.getSectors())
       }
     });
 
-    
-
     // editor.on('component:selected', (component) => {
 
     //   console.log("onload select",editor.StyleManager.getSectors())
-
-
 
     //   if (component) {
     //     console.log('component*******', component);
@@ -1042,7 +1029,7 @@ console.log("onload",editor.StyleManager.getSectors())
     //     // console.log('ccidcxcxcccxcxc', ccid);
     //     const blocksector = editor.StyleManager.getSectors();
     //     console.log('blocksector', blocksector);
-        
+
     //     let newCcid = component?.attributes?.classes?.models?.map(
     //       (el) => el?.id
     //     );
@@ -1107,8 +1094,6 @@ console.log("onload",editor.StyleManager.getSectors())
     //   }
     // });
 
-
-
     // editor.on('component:selected', (component) => {
     //   console.log('section selected', component);
     //   if (component) {
@@ -1125,7 +1110,7 @@ console.log("onload",editor.StyleManager.getSectors())
     //     //   (el) => el?.id
     //     // );
     //     let updatedSectors = [];
-    //     if (newCcid?.length > 0) 
+    //     if (newCcid?.length > 0)
     //     {
     //       let allSectors = editor.StyleManager.getSectors();
     //       console.log('allSectors', allSectors);
@@ -1210,57 +1195,53 @@ console.log("onload",editor.StyleManager.getSectors())
     //   }
     // });
 
+    editor.on('component:selected', (component) => {
+      //Styles from theme style
+      userData?.defaultStyle?.filteredStyles?.forEach((el) => {
+        const { selectors, style } = el;
 
-    editor.on('component:selected',(component)=>{
-      console.log('section selected', component);
- if (component){
-  //single sector
-       let sectid = component.attributes?.attributes?.sectid;
-  //ccid
+        let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
+
+        editor.CssComposer.setRule(element, { ...style });
+      });
+
+      //For Section Sector and Style
+      if (component) {
+        //single sector
+        let sectid = component.attributes?.attributes?.sectid;
+        console.log('sectid', sectid)
+        //ccid
         let sectId = component.attributes.attributes.sect;
-       let sectors = editor.StyleManager.getSectors();
-         sectors.reset();
-       sectors.add(getSectors(sectId));
-     
-        console.log('allSectors', sectors);
-        const allSectorsNames = sectors.map((el) => el.name || el.id);
-       console.log("allSectorsNames",allSectorsNames);
-         for (let i = 0; i < sectors.length; i++) {
-          console.log('sectors.models[i].get(id)', sectors.models[i].get('id'));
+        console.log("selected sectId",sectId)
+        let sectors = editor.StyleManager.getSectors();
+        sectors.reset();
+        sectors.add(getSectors(sectId));
+        for (let i = 0; i < sectors.length; i++) {
+          console.log('sectors.models[i].get', sectors.models[i].get('id'))
           if (sectid.includes(sectors.models[i].get('id'))) {
             sectors.models[i].setOpen(true);
           } else {
             sectors.models[i].setOpen(false);
           }
         }
-
-
- }
-
-    })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      }
+     
+        if (component.get('type') == 'text') {
+          editor?.runCommand('core:open-traits');
+        }
+        if (component.get('type') == 'button') {
+          editor?.runCommand('core:open-traits');
+        }
+        if (component.get('type') == 'image') {
+          editor?.runCommand('core:open-traits');
+        }
+    });
 
     //This is for all section templates Style Manager
 
     editor.on(`block:drag:stop`, (component, block) => {
-      console.log("onload drop",editor.StyleManager.getSectors())
-
-
+      console.log('drag stop', component);
+      // console.log("onload drop",editor.StyleManager.getBuiltInAll())
 
       let { data, found, filtering } = fetchSectionDetail(block.id);
       // console.log('found', found, filtering);
@@ -1269,7 +1250,6 @@ console.log("onload",editor.StyleManager.getSectors())
       if (component && found) {
         const { sectionCode, category, sectionHtml } = filtering;
         let content = JSON.parse(sectionCode);
-       
 
         const sectorId =
           content.pages[0].frames[0].component.components[0].attributes.id;
@@ -1287,19 +1267,14 @@ console.log("onload",editor.StyleManager.getSectors())
         const wrapperCmp = editor.DomComponents.getWrapper();
 
         editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
-
-        
-
- 
       }
-     
     });
 
     //@ts-ignore
 
     // @ts-ignore
     // editor.on('style:sector:update', (props) => {
-    
+
     //   !isUpdating &&
     //     setTimeout(() => {
     //       const sectors = editor.StyleManager.getSectors();
@@ -1330,7 +1305,7 @@ console.log("onload",editor.StyleManager.getSectors())
     // editor.on('style:target', (component) => {
     //   console.log('style sector called', component);
     //   const sectors = editor.StyleManager.getSectors();
-      
+
     //   if (!component) return;
 
     //   !isUpdating &&

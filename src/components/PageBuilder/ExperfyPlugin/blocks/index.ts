@@ -49,7 +49,6 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         activate: true,
         ...def,
         ...opts.block(id),
-  
       });
   };
 
@@ -487,42 +486,45 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   `,
     content: `
-    <section  id= "locationSector" class="location-container locationSector">
-        <div class="location-content">
-        <div class="address-content-main-holder">
-            <h1 class="h1 main-location-heading locationSector_h1">Add your heading title here</h1>
-            <h2 class="h2 sub-location-heading locationSector_h2">The Location module contains your building’s address
+    <section  sect= "locationSector" >
+        <div sect= "locationSector" sectid="location-content" style="display: flex; padding: 3rem 3rem;margin-left:3rem;">
+        <div sect= "locationSector" style="width:50%;padding: 40px 30px;">
+            <h1 sect= "locationSector" sectid="main-location-heading" style="margin:0px;">Add your heading title here</h1>
+            <h2 sect= "locationSector" sectid="sub-location-heading" style="line-height: 1.3;">The Location module contains your building’s address
               and contact information. Please add as much or little
               information you need.
             </h2>
 
-            <div class="address-content-div">
-              <div class="address-icon">
-              <img class="image image-location locationSector_image" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
-              <h6 class="h6 icon-text locationSector_h6">Add address, phone number, or social media</h6>
+            <div sect= "locationSector" style="  display: flex; align-items: center;" >
+              <div sect= "locationSector" style="display: contents;">
+              <img sect= "locationSector"  sectid="image-location" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+              <h6 sect= "locationSector" sectid="icon-text" style="padding-left: 20px;margin:10px 0pxmargin-left: 1rem;">Add address, phone number, or social media</h6>
               </div>
              
             </div>
 
-            <div class="address-content-div">
-            <div class="address-icon">
-            <img class="image image-location locationSector_image" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
-            <h6 class="h6 icon-text locationSector_h6">Add address, phone number, or social media</h6>
+            <div sect= "locationSector" style="  display: flex; align-items: center;" >
+            <div sect= "locationSector" style="display: contents;">
+            <img sect= "locationSector"  sectid="image-location" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+            <h6 sect= "locationSector" sectid="icon-text" style="padding-left: 20px;margin:10px 0pxmargin-left: 1rem;">Add address, phone number, or social media</h6>
             </div>
+           
           </div>
 
-
-          <div class="address-content-div">
-          <div class="address-icon">
-          <img class="image image-location locationSector_image" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
-          <h6 class="h6 icon-text locationSector_h6">Add address, phone number, or social media</h6>
+          <div sect= "locationSector" style="  display: flex; align-items: center;" >
+          <div sect= "locationSector" style="display: contents;">
+          <img sect= "locationSector"  sectid="image-location" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+          <h6 sect= "locationSector" sectid="icon-text" style="padding-left: 20px;margin:10px 0pxmargin-left: 1rem;">Add address, phone number, or social media</h6>
           </div>
-
+         
         </div>
+
+
+         
 
         
         </div>
-        <div class="address-map-div" data-gjs-type="map">
+        <div style="width:50%;padding: 0px 20px;" data-gjs-type="map">
 
         
         <iframe src="https://maps.google.com/maps?&z=14&t=q&output=embed" frameborder="0" class="gjs-no-pointer" style="height: 100%; width: 100%;"></iframe>
@@ -530,17 +532,9 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         
         </div>
         </div>
-        ${locationStyle}
-        
-        ${getStyles([
-          '.address-content-main-holder',
-          'address-content-div',
-          'address-text-div',
-        ])}
+        </section>
         
         `,
-    //       <img class="location-image" data-gjs-type="mj-image" class="object-cover object-center" src="https://dummyimage.com/1200x500" alt="step" style="width: 100%;
-    //         height: 400px;">
   });
   addBlock('paragraph', {
     label: 'Paragraph',
@@ -558,22 +552,18 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: 
-    
-    
-    `<section  id= "paragraphSector" class="paragraphSector" data-gjs-type="paragraphSector">
-    <div class="main-paragraph-wrapper">
+    content: `<section   sect="paragraphSector">
+    <div style="display: grid; width: 100%; padding: 6rem 3.25rem; margin-left: 1.5rem; margin-right: 1.5rem;" sect="paragraphSector" sectid="main-paragraph-wrapper">
        
-          <h1 class="h1 main-paragraph-heading paragraphSector_h1">Master Cleanse Reliac Heirloom</h1>
-          <h6 class="h6 sub-paragraph-heading paragraphSector_h6">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
+          <h1 style="margin-bottom: 1.5rem;" sect="paragraphSector" sectid="main-paragraph-heading">Master Cleanse Reliac Heirloom</h1>
+          <h6 style="margin-left: auto;margin-right: auto;" sect="paragraphSector" sectid="sub-paragraph-heading">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
           Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</h6>
       
     </div>
  </section>
- ${paragraphStyle}
- ${getStyles(['.main-paragraph-wrapper'])}
+
  `,
   });
 
@@ -587,42 +577,41 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section data-gjs-type="numbersSection" class="numbersSection" id= "numbersSection">
-        <div class="number-container-div">
+    content: `<section  sect= "numbersSection">
+        <div style=" width: 70%;margin-left: auto; margin-right: auto;text-align: center;" sect= "numbersSection" sectid="number-container-div">
           
-        <div class="title-div">
-              <h1 class="h1 main-number-heading numbersSection_h1">Add your heading title here</h1>
-              <h2 class="h2 sub-number-heading numbersSection_h2">The numbers module allows you to showcase your company’s metrics and
+        <div style=" text-align: center;color: #4b5563;" sect= "numbersSection">
+              <h1 style=" margin-bottom: 0.5rem;" sect= "numbersSection" sectid="main-number-heading" >Add your heading title here</h1>
+              <h2  sect= "numbersSection" sectid="sub-number-heading">The numbers module allows you to showcase your company’s metrics and
                 statistical accomplishments
               </h2>
           </div>
 
-          <div class="number-percentagges-section">
+          <div style=" display: flex;justify-content: space-between;align-items: center;padding: 3rem 1.25rem; margin-left: auto;  margin-right: auto;" sect= "numbersSection">
          
-              <div class="benefit percentage-info number-border">
-                <i class="fa fa-star"></i>
-                <h1 class="h1 number-val numbersSection_h1">10  % </h1>
-                <h4 class="h4 number-description numbersSection_h4">INSERT STATISTIC INFORMATION</h4>
+              <div sect= "numbersSection" sectid="number-border" style=" border: 3px solid #196932;border-radius: 100%;width: 200px;height: 200px;padding: 0.75rem;  margin: 0.75rem;">
+                <i  sect= "numbersSection" class="fa fa-star"></i>
+                <h1  sect= "numbersSection" sectid="number-val" style="text-align:center;margin-top: 1.25rem;">10  % </h1>
+                <h4  sect= "numbersSection" sectid="number-description" style="text-align: center;" >INSERT STATISTIC INFORMATION</h4>
               </div>
 
-              <div class="benefit percentage-info number-border">
-                <i class="fa fa-star"></i>
-                <h1 class="h1 number-val numbersSection_h1" >10  % </h1>
-                <h4 class="h4 number-description" numbersSection_h4 >INSERT STATISTIC INFORMATION</h4>
-              </div>
+              <div sect= "numbersSection" sectid="number-border" style=" border: 3px solid #196932;border-radius: 100%;width: 200px;height: 200px;padding: 0.75rem;  margin: 0.75rem;">
+              <i  sect= "numbersSection" class="fa fa-star"></i>
+              <h1  sect= "numbersSection" sectid="number-val" style="text-align:center;margin-top: 1.25rem;">10  % </h1>
+              <h4  sect= "numbersSection" sectid="number-description" style="text-align: center;" >INSERT STATISTIC INFORMATION</h4>
+            </div>
 
-                <div class="benefit percentage-info number-border">
-                <i class="fa fa-star"></i>
-                <h1 class="h1 number-val numbersSection_h1" >10 % </h1>
-                <h4 class="h4 number-description numbersSection_h4 " >INSERT STATISTIC INFORMATION</h4>
-              </div>
+            <div sect= "numbersSection" sectid="number-border" style=" border: 3px solid #196932;border-radius: 100%;width: 200px;height: 200px;padding: 0.75rem;  margin: 0.75rem;">
+            <i  sect= "numbersSection" class="fa fa-star"></i>
+            <h1  sect= "numbersSection" sectid="number-val" style="text-align:center;margin-top: 1.25rem;">10  % </h1>
+            <h4  sect= "numbersSection" sectid="number-description" style="text-align: center;" >INSERT STATISTIC INFORMATION</h4>
+          </div>
 
               </div>
           </div>
     </section> 
     
-    ${numbermetric}
-    ${getStyles(['.title-div'])}
+ 
     `,
   });
 
@@ -669,8 +658,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
         
       
       <div style="margin-left : 2rem; margin-right: 2rem;display: grid;padding: 40px 40px;"  sect="bannerSector"  sectid="bannar-content">
-         <h1  style="text-align: center;" sect="bannerSector" sectid="main-banner-heading">Add your heading title here</h1>
-         <h6 class="h6"  style="text-align:justify;margin: 0px auto 20px;" sect="bannerSector" sectid="sub-banner-heading">
+         <h1 style="text-align: center;" sect="bannerSector" sectid="main-banner-heading">Add your heading title here</h1>
+         <h6  style="text-align:justify;margin: 0px auto 20px;" sect="bannerSector" sectid="sub-banner-heading">
          Use this area to write about anything you want. Keep it easy to read and percise. (Dummy Text) Lorem ipsum dolor sit amet, consectetur adipiscing
             elit. Nunc nec posuere risus. Phasellus nunc nisl, vulputate nec magna vel, sodales sollicitudin velit. Fusce scelerisque odio risus, eu euismod felis
             pellentesque a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In pulvinar aliquam felis, eu sodales ligula
@@ -703,38 +692,37 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-    content: `<section  id= "photoSector" class="photo-main-wrapper photoSector" data-gjs-type="photoSector">
-    <div class="photo-container" >
+    content: `<section style="margin-left: 7rem;" sect= "photoSector">
+    <div sectid="photo-container" sect= "photoSector" style="width: 70%;margin-left: 5rem;text-align: center; " >
 
-       <div class="photo-title-div">
-          <h1 class="h1 main-photo-heading photoSector_h1">Add your heading title here</h1>
-          <h2 class="h2 sub-photo-heading photoSector_h2">The  Photo Gallery module is a place where can visibily show your user or
+       <div sect= "photoSector" style="text-align: center;">
+          <h1 sect= "photoSector" sectid="main-photo-heading" style="margin-bottom: 0.5rem;">Add your heading title here</h1>
+          <h2 sect= "photoSector" sectid="sub-photo-heading">The  Photo Gallery module is a place where can visibily show your user or
            client aspects of your company or product.
           </h2>
        </div>
     
-       <div class="photo-option-section">
+       <div sect= "photoSector" style="display: flex; margin-left: auto;margin-right: auto; align-items: center;">
 
-       <div class="photo_img_container">
-       <img class="image photo-image-gallery photoSector_image" src="https://dummyimage.com/1200x500" alt="step" >
-          <figcaption class="photo_figure_caption photoSector_photo" >Caption Example</figcaption>
+       <div sect= "photoSector" style="width: 33%; padding-top: 30px; padding-right: 30px; padding-bottom: 30px;padding-left: 30px;">
+       <img sect= "photoSector" sectid="photo-image-gallery" style=" width: 100%;height: 250px;" src="https://dummyimage.com/1200x500" alt="step" >
+          <figcaption sect= "photoSector" sectid="photo_figure_caption" style="  padding-top: 20px;padding-right: 30px;padding-bottom: 20px;padding-left: 30px;background-color: rgb(248, 248, 250);border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;" >Caption Example</figcaption>
     </div>
-    <div class="photo_img_container">
-       <img class="image photo-image-gallery photoSector_image" src="https://dummyimage.com/1200x500" alt="step" >
-          <figcaption class="photo_figure_caption photoSector_photo " >Caption Example</figcaption>
-    </div>
-    <div class="photo_img_container">
-       <img class="image photo-image-gallery photoSector_image" src="https://dummyimage.com/1200x500" alt="step" >
-          <figcaption class="photo_figure_caption photoSector_photo" >Caption Example</figcaption>
-    </div>
+    <div sect= "photoSector" style="width: 33%; padding-top: 30px; padding-right: 30px; padding-bottom: 30px;padding-left: 30px;">
+    <img sect= "photoSector" sectid="photo-image-gallery" style=" width: 100%;height: 250px;" src="https://dummyimage.com/1200x500" alt="step" >
+       <figcaption sect= "photoSector" sectid="photo_figure_caption" style="  padding-top: 20px;padding-right: 30px;padding-bottom: 20px;padding-left: 30px;background-color: rgb(248, 248, 250);border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;" >Caption Example</figcaption>
+ </div>
+ <div sect= "photoSector" style="width: 33%; padding-top: 30px; padding-right: 30px; padding-bottom: 30px;padding-left: 30px;">
+ <img sect= "photoSector" sectid="photo-image-gallery" style=" width: 100%;height: 250px;" src="https://dummyimage.com/1200x500" alt="step" >
+    <figcaption sect= "photoSector" sectid="photo_figure_caption" style="  padding-top: 20px;padding-right: 30px;padding-bottom: 20px;padding-left: 30px;background-color: rgb(248, 248, 250);border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;" >Caption Example</figcaption>
+</div>
 
 
 
        </div>
     </div>
  </section>
- ${photoGalleryStyle}
- ${getStyles(['.photo-title-div', '.photo-option-section'])}
+
  `,
   });
 
@@ -762,29 +750,27 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   </svg>
   
   `,
-    content: 
-      `<section class="ImageTextSector"  id= "ImageTextSector" data-gjs-type="ImageTextSector">
- <div class="main_container">
+    content: `<section sect="ImageTextSector">
+ <div style="display: flex;margin: 2rem 1rem;padding: 4rem 4rem; align-items: center;" sectid="main_container" sect="ImageTextSector">
        
-        <div class="content-section">
-        <h1 class="h1 main-image-heading ImageTextSector_h1" >Add your heading title here</h1>
-        <h2 class="h2 sub-image-heading ImageTextSector_h2">The Image and Text module is a place where you can
+        <div sect="ImageTextSector" sectid="content-section" style="width: 50%;margin:20px 20px;">
+        <h1 sect="ImageTextSector" sectid="main-image-heading" >Add your heading title here</h1>
+        <h2 sect="ImageTextSector" sectid="sub-image-heading" style="font-size: 22px;font-weight: 400;line-height: 1.3;margin-bottom: 5px;">The Image and Text module is a place where you can
            visually show your user or client aspects of your
            company or product.
         </h2>
      </div>
         
         
-        <div class="image-text-image-section">
-        <div class="img_container">
-           <img class="image image-gallery ImageTextSector_image" src="https://dummyimage.com/1200x500" alt="step" >
-              <figcaption class="figure_caption gallery-caption ImageTextSector_figure" >Caption Example</figcaption>
+        <div sect="ImageTextSector" style="width: 50%;margin:20px 20px;">
+        <div sect="ImageTextSector" style=" width: 100%;height: 100%;padding: 30px 30px;">
+           <img sect="ImageTextSector" sectid=" image-gallery" style=" width: 100%;height: 100%;object-fit: center;" src="https://dummyimage.com/1200x500" alt="step" >
+              <figcaption  sect="ImageTextSector"  sectid="gallery-caption" style="padding: 20px 30px;background-color: #f8f8fa; border-radius: 0px 0px 5px 5px;" >Caption Example</figcaption>
         </div>
         </div>
         </div>
         </section>
-    ${ImageText}
-    ${getStyles(['.content-section'])}
+
   
         `,
   });
