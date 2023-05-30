@@ -1251,10 +1251,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-   <div class="btn-sect buttonSector" id ="buttonSector">
-   <button class="button btn-save buttonSector_button">Hello World</button>
+   <div style="margin: 1rem;"  sect ="buttonSector">
+   <button sect="buttonSector" sectid="btn-save">Hello World</button>
    </div>
- ${buttonStyle}
+ 
         `,
   });
 
@@ -1263,8 +1263,8 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     category: 'Basic',
     media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 9c0-.6-.5-1-1.3-1H3.4C2.5 8 2 8.4 2 9v6c0 .6.5 1 1.3 1h17.4c.8 0 1.3-.4 1.3-1V9zm-1 6H3V9h18v6z"></path><path d="M4 11.5h16v1H4z"></path></svg>`,
     content: `
-    <section class="linkSector" id="linkSector">
-    <a  href="#" class="a link-sec linkSector_a">Link</a>
+    <section sect="linkSector">
+    <a  href="#" sect="linkSector" sectid="link-sec">Link</a>
     </section>
  
         `,
