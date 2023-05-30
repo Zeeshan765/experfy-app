@@ -800,67 +800,137 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     // @ts-ignore
-    editor.on('style:sector:update', (props) => {
-      console.log('style:sector:update', props);
-      !isUpdating &&
-        setTimeout(() => {
-          let sm = editor.StyleManager;
-          var selectedBlock = editor.getSelected();
-          isUpdating = true;
-          const sectors = sm.getSectors();
-          for (let i = 0; i < sectors.length; i++) {
-            const modelId = sectors.models[i].get('id');
-            if (modelId === props.id) {
-              let isOpen = sectors.models[i].isOpen();
+    // editor.on('style:sector:update', (props) => {
+    //   console.log('style:sector:update', props);
+    //   !isUpdating &&
+    //     setTimeout(() => {
+    //       let sm = editor.StyleManager;
+    //       var selectedBlock = editor.getSelected();
+    //       isUpdating = true;
+    //       const sectors = sm.getSectors();
+    //       for (let i = 0; i < sectors.length; i++) {
+    //         const modelId = sectors.models[i].get('id');
+    //         if (modelId === props.id) {
+    //           let isOpen = sectors.models[i].isOpen();
 
-              if (isOpen) {
-                // const wrapperCmp = editor.DomComponents.getWrapper();
-                // editor.select(wrapperCmp.find(`.${props.id}`)[0]);
-                // const wrapperCmp = editor.DomComponents.getWrapper();
-                // console.log('wrapperCmp.find(`#${component.ccid}`)', wrapperCmp.find(`#${component.ccid}`))
-                // editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
-              }
-            } else {
-              // sectors.models[i].setOpen(false);
-            }
+    //           if (isOpen) {
+    //             // const wrapperCmp = editor.DomComponents.getWrapper();
+    //             // editor.select(wrapperCmp.find(`.${props.id}`)[0]);
+    //             // const wrapperCmp = editor.DomComponents.getWrapper();
+    //             // console.log('wrapperCmp.find(`#${component.ccid}`)', wrapperCmp.find(`#${component.ccid}`))
+    //             // editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
+    //           }
+    //         } else {
+    //           // sectors.models[i].setOpen(false);
+    //         }
+    //       }
+
+    //       setTimeout(() => {
+    //         isUpdating = false;
+    //       }, 300);
+    //     }, 100);
+    // });
+
+    // //@ts-ignore
+    // editor.on('style:target', (component) => {
+    //   console.log('Section target component', component);
+    //   if (!component) return;
+
+    //   !isUpdating &&
+    //     setTimeout(() => {
+    //       isUpdating = true;
+
+    //       const selectedSector = component.attributes?.attributes?.sectid;
+    //       console.log('selectedSector', selectedSector);
+    //       const sectors = editor.StyleManager.getSectors();
+    //       console.log('sectors', sectors);
+    //       // for (let i = 0; i < sectors.length; i++) {
+    //       //   console.log(
+    //       //     'sectors.models[i].get(id)',
+    //       //     sectors.models[i].get('id')
+    //       //   );
+    //       //   if (selectedSector.includes(sectors.models[i].get('id'))) {
+    //       //     sectors.models[i].setOpen(true);
+    //       //   } else {
+    //       //     sectors.models[i].setOpen(false);
+    //       //   }
+    //       // }
+
+    //       setTimeout(() => {
+    //         isUpdating = false;
+    //       }, 300);
+    //     }, 100);
+    // });
+
+
+
+   editor.on('component:selected', (component) => {
+      //Styles from theme style
+      userData?.defaultStyle?.filteredStyles?.forEach((el) => {
+        const { selectors, style } = el;
+
+        let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
+
+        editor.CssComposer.setRule(element, { ...style });
+      });
+
+      //For Section Sector and Style
+      if (component) {
+        //single sector
+        let sectid = component.attributes?.attributes?.sectid;
+        console.log('sectid', sectid)
+        //ccid
+        let sectId = component.attributes.attributes.sect;
+        console.log("selected sectId",sectId)
+        let sectors = editor.StyleManager.getSectors();
+        sectors.reset();
+        sectors.add(getSectors(sectId));
+        for (let i = 0; i < sectors.length; i++) {
+          console.log('sectors.models[i].get', sectors.models[i].get('id'))
+          if (sectid.includes(sectors.models[i].get('id'))) {
+            sectors.models[i].setOpen(true);
+          } else {
+            sectors.models[i].setOpen(false);
           }
-
-          setTimeout(() => {
-            isUpdating = false;
-          }, 300);
-        }, 100);
+        }
+      }
+     
+        if (component.get('type') == 'text') {
+          editor?.runCommand('core:open-traits');
+        }
+        if (component.get('type') == 'button') {
+          editor?.runCommand('core:open-traits');
+        }
+        if (component.get('type') == 'image') {
+          editor?.runCommand('core:open-traits');
+        }
+        if (component.get('type') == 'map') {
+          editor?.runCommand('core:open-traits');
+        }
     });
 
-    //@ts-ignore
-    editor.on('style:target', (component) => {
-      console.log('Section target component', component);
-      if (!component) return;
 
-      !isUpdating &&
-        setTimeout(() => {
-          isUpdating = true;
 
-          const selectedSector = component.attributes?.attributes?.sectid;
-          console.log('selectedSector', selectedSector);
-          const sectors = editor.StyleManager.getSectors();
-          console.log('sectors', sectors);
-          // for (let i = 0; i < sectors.length; i++) {
-          //   console.log(
-          //     'sectors.models[i].get(id)',
-          //     sectors.models[i].get('id')
-          //   );
-          //   if (selectedSector.includes(sectors.models[i].get('id'))) {
-          //     sectors.models[i].setOpen(true);
-          //   } else {
-          //     sectors.models[i].setOpen(false);
-          //   }
-          // }
 
-          setTimeout(() => {
-            isUpdating = false;
-          }, 300);
-        }, 100);
-    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // editor.on('component:selected', (component) => {
     //   console.log('component selected', component?.ccid);
@@ -906,109 +976,138 @@ const SectionPageBuilder: React.FC = () => {
     //   // });
     // });
 
-    editor.on('component:selected', (component) => {
-      console.log('section selected', component);
-      if (component) {
-        const sectid = component.attributes?.attributes?.sectid;
+    // editor.on('component:selected', (component) => {
+    //   console.log('section selected', component);
 
-        // let ccid = component.sectId.split('-')[0];
-        let sectId = component.attributes.attributes.sect;
-        console.log('sectId', sectId);
-        console.log('blocksector compoentn', component);
-        const blocksector = editor.StyleManager.getSectors();
-        blocksector.reset();
-        console.log('blocksector', blocksector);
-        let newCcid = component?.attributes?.classes?.models?.map(
-          (el) => el?.id
-        );
-        let updatedSectors = [];
-        if (newCcid?.length > 0) {
-          let test = newCcid.join('.');
-          let allSectors = editor.StyleManager.getSectors();
-          console.log('allSectors', allSectors);
-          const allSectorsNames = allSectors.map((el) => el.name || el.id);
 
-          newCcid.forEach((element) => {
-            console.log('element', element);
-            let sector = element.split('_');
-            console.log('sector name', sector);
-            if (sector.length > 1) {
-              let name = getSectors(element.split('_')[0]);
-              console.log('name', name);
-              let allSelectedNames = name.map((el) => el.id);
-              console.log('allSectorsNames', allSectorsNames);
-              console.log('allSelectedNames', allSelectedNames);
-              allSectors.forEach((sect, i) => {
-                if (sect) {
-                  console.log('sect', sect?.id);
-                  const isInclude = allSelectedNames.includes(sect?.id);
-                  console.log('isInclude', isInclude);
-                  if (!isInclude) {
-                    console.log('yesss');
-                    let timers = (i + 1) * 30;
-                    console.log('yesss');
-                    sect.id &&
-                      setTimeout(() => {
-                        editor.StyleManager.removeSector(sect.id);
-                      }, timers);
-                  }
-                }
-              });
-              updatedSectors.push(name);
-            }
-          });
-        } else {
-          updatedSectors = getSectors(sectId);
-        }
 
-        const sectors = editor.StyleManager.getSectors();
-        console.log('sectors', sectors);
-        for (let i = 0; i < sectors.length; i++) {
-          console.log('sectors.models[i].get(id)', sectors.models[i].get('id'));
-          if (sectid.includes(sectors.models[i].get('id'))) {
-            sectors.models[i].setOpen(true);
-          } else {
-            sectors.models[i].setOpen(false);
-          }
-        }
+    //   userData?.defaultStyle?.filteredStyles?.forEach((el) => {
+    //     const { selectors, style } = el;
 
-        setTimeout(() => {
-          console.log('setTimeout updatedSectors', updatedSectors);
-          updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
-          const wrapperCmp = editor.DomComponents.getWrapper();
-          console.log(
-            'wrapperCmp.find(`#${component.ccid}`)',
-            wrapperCmp.find(`#${component.ccid}`)
-          );
+    //     let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
 
-          editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
+    //     editor.CssComposer.setRule(element, { ...style });
+    //   })
 
-          for (let i = 0; i < sectors.length; i++) {
-            console.log(
-              'sectors.models[i].get(id)',
-              sectors.models[i].get('id')
-            );
-            if (sectid.includes(sectors.models[i].get('id'))) {
-              sectors.models[i].setOpen(true);
-            } else {
-              sectors.models[i].setOpen(false);
-            }
-          }
-        }, 500);
-      }
-      let type = component.get('type');
-      const { id } = component.attributes.attributes;
-      if (component.get('type') == 'text') {
-        editor?.runCommand('core:open-traits');
-      }
-      if (component.get('type') == 'button') {
-        editor?.runCommand('core:open-traits');
-      }
-    });
 
-    editor.on('component:update', (component) => {
-      // console.log('component update called', component);
-    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //   if (component) {
+    //     const sectid = component.attributes?.attributes?.sectid;
+
+    //     // let ccid = component.sectId.split('-')[0];
+    //     let sectId = component.attributes.attributes.sect;
+    //     console.log('sectId', sectId);
+    //     console.log('blocksector compoentn', component);
+    //     const blocksector = editor.StyleManager.getSectors();
+    //     blocksector.reset();
+    //     console.log('blocksector', blocksector);
+    //     let newCcid = component?.attributes?.classes?.models?.map(
+    //       (el) => el?.id
+    //     );
+    //     let updatedSectors = [];
+    //     if (newCcid?.length > 0) {
+    //       let test = newCcid.join('.');
+    //       let allSectors = editor.StyleManager.getSectors();
+    //       console.log('allSectors', allSectors);
+    //       const allSectorsNames = allSectors.map((el) => el.name || el.id);
+
+    //       newCcid.forEach((element) => {
+    //         console.log('element', element);
+    //         let sector = element.split('_');
+    //         console.log('sector name', sector);
+    //         if (sector.length > 1) {
+    //           let name = getSectors(element.split('_')[0]);
+    //           console.log('name', name);
+    //           let allSelectedNames = name.map((el) => el.id);
+    //           console.log('allSectorsNames', allSectorsNames);
+    //           console.log('allSelectedNames', allSelectedNames);
+    //           allSectors.forEach((sect, i) => {
+    //             if (sect) {
+    //               console.log('sect', sect?.id);
+    //               const isInclude = allSelectedNames.includes(sect?.id);
+    //               console.log('isInclude', isInclude);
+    //               if (!isInclude) {
+    //                 console.log('yesss');
+    //                 let timers = (i + 1) * 30;
+    //                 console.log('yesss');
+    //                 sect.id &&
+    //                   setTimeout(() => {
+    //                     editor.StyleManager.removeSector(sect.id);
+    //                   }, timers);
+    //               }
+    //             }
+    //           });
+    //           updatedSectors.push(name);
+    //         }
+    //       });
+    //     } else {
+    //       updatedSectors = getSectors(sectId);
+    //     }
+
+    //     const sectors = editor.StyleManager.getSectors();
+    //     console.log('sectors', sectors);
+    //     for (let i = 0; i < sectors.length; i++) {
+    //       console.log('sectors.models[i].get(id)', sectors.models[i].get('id'));
+    //       if (sectid.includes(sectors.models[i].get('id'))) {
+    //         sectors.models[i].setOpen(true);
+    //       } else {
+    //         sectors.models[i].setOpen(false);
+    //       }
+    //     }
+
+    //     setTimeout(() => {
+    //       console.log('setTimeout updatedSectors', updatedSectors);
+    //       updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
+    //       const wrapperCmp = editor.DomComponents.getWrapper();
+    //       console.log(
+    //         'wrapperCmp.find(`#${component.ccid}`)',
+    //         wrapperCmp.find(`#${component.ccid}`)
+    //       );
+
+    //       editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
+
+    //       for (let i = 0; i < sectors.length; i++) {
+    //         console.log(
+    //           'sectors.models[i].get(id)',
+    //           sectors.models[i].get('id')
+    //         );
+    //         if (sectid.includes(sectors.models[i].get('id'))) {
+    //           sectors.models[i].setOpen(true);
+    //         } else {
+    //           sectors.models[i].setOpen(false);
+    //         }
+    //       }
+    //     }, 500);
+    //   }
+    //   let type = component.get('type');
+    //   const { id } = component.attributes.attributes;
+    //   if (component.get('type') == 'text') {
+    //     editor?.runCommand('core:open-traits');
+    //   }
+    //   if (component.get('type') == 'button') {
+    //     editor?.runCommand('core:open-traits');
+    //   }
+    // });
+
+  
 
     // getCurrentBlock();
     addAssets();
