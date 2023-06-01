@@ -777,16 +777,16 @@ add your attachment</span>
       // console.log('component Selection', component);
       //@ts-ignore
       if (component.ccid == 'GuidelineDiv') {
-        component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;">
+        component.append(`<div sect= "guidelineSector" style=" padding: 0.75rem; margin: 0.75rem;">
    
-  <h3 class="h3 guideline-bullet" style="height: 35px;border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
-  <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
-
-<h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
- order to explain what the user
- should do next
-</h6>
-</div>`);
+        <h3 sect= "guidelineSector"  sectid="guideline-bullet" style="height: 35px;border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
+        <h1 sect= "guidelineSector" sectid="bullet-heading" style="text-align:left;">Add Step Title</h1>
+      
+      <h6 sect= "guidelineSector" sectid="bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
+       order to explain what the user
+       should do next
+      </h6>
+      </div>`);
       }
       //@ts-ignore
       if (component.ccid == 'Departmentdiv') {
