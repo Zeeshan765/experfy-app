@@ -369,6 +369,15 @@ const SectionPageBuilder: React.FC = () => {
         console.log('component[0].getId()', component[0].getId());
         sectors.add(getSectors(component[0].getId()));
         //@ts-ignore
+          userData?.defaultStyle?.filteredStyles?.forEach((el) => {
+          const { selectors, style } = el;
+
+          let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
+
+          editor.CssComposer.setRule(element, { ...style });
+          console.log('component[0]', component[0]);
+          editor.select(component[0]);
+        });
         editor.runCommand('core:open-styles');
       } else {
       }
@@ -388,6 +397,11 @@ const SectionPageBuilder: React.FC = () => {
 
         editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
       }
+    });
+
+      editor.on('run:tlb-delete:before', (options) => {
+      options.abort = true;
+      console.log('Prevent `tlb-delete` from execution');
     });
 
     let TextTrait = [

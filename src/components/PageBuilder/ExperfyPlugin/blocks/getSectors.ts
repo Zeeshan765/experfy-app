@@ -2206,6 +2206,12 @@ const obj = {
 
   guidelineSector: [
     {
+      name: 'Section Background',
+      open: false,
+      id: 'guideline-container',
+      buildProps: ['background'],
+    },
+    {
       name: 'Main Heading',
       open: false,
       id: 'main-guideline-heading',
