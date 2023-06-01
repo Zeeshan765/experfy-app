@@ -251,6 +251,7 @@ const PageBuilder: React.FC = () => {
           url: `${apiEndpoint}/page-Template/${id}`,
         })
           .then((res) => {
+            
             const { pageCode } = res.data;
             setCurrentPageData(res.data);
             if (pageCode) {
