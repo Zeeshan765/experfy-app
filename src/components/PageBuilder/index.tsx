@@ -791,15 +791,15 @@ add your attachment</span>
       //@ts-ignore
       if (component.ccid == 'Departmentdiv') {
         component.append(`
-<div class="department-holder" style="padding: 0.75rem;margin: 0.75rem; ">
-  <img class="image-department" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
-
-     <h1 class="h1 icon-department-heading" style="margin-top: 1.25rem; margin-bottom: 1.25rem; ">Department 1</h1>
-     <h6 class="h6 icon-department-sub-heading">Lorem ipsum dolor sit amet. Est
-        porro distinctio eum eius odit ea
-        facere consequuntur.
-     </h6>
-  </div>
+        <div  sect= "departmentSector" style=" padding: 0.75rem; margin: 0.75rem;">
+        <img sect= "departmentSector" sectid="image-department" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+      
+           <h1 sect= "departmentSector" sectid="icon-department-heading" style="text-align:center;margin-top: 1.25rem;margin-bottom: 1.25rem;">Department 1</h1>
+           <h6 sect= "departmentSector" sectid="icon-department-sub-heading" style="  text-align:left;">Lorem ipsum dolor sit amet. Est
+              porro distinctio eum eius odit ea
+              facere consequuntur.
+           </h6>
+        </div>
 `);
       }
 
@@ -952,7 +952,7 @@ add your attachment</span>
     });
 
     editor.on('load', () => {
-      // showanimation();
+     
       let styleFound = [];
       Filtered.forEach((element) => {
         console.log('Filtered element', element);
@@ -1049,181 +1049,7 @@ add your attachment</span>
       }
     });
 
-    // editor.on('component:selected', (component) => {
-
-    //   console.log("onload select",editor.StyleManager.getSectors())
-
-    //   if (component) {
-    //     console.log('component*******', component);
-    //     let ccid = component.ccid.split('-')[0];
-    //     // console.log('ccidcxcxcccxcxc', ccid);
-    //     const blocksector = editor.StyleManager.getSectors();
-    //     console.log('blocksector', blocksector);
-
-    //     let newCcid = component?.attributes?.classes?.models?.map(
-    //       (el) => el?.id
-    //     );
-    //     // console.log('newCcid', newCcid);
-    //     let updatedSectors = [];
-    //     if (newCcid?.length > 0) {
-    //       let test = newCcid.join('.');
-    //       let allSectors = editor.StyleManager.getSectors();
-    //       console.log('allSectors', allSectors);
-    //       const allSectorsNames = allSectors.map((el) => el.name || el.id);
-    //       // console.log('allSectorsNames', allSectorsNames);
-    //       // console.log('test', test);
-    //       newCcid.forEach((element) => {
-    //         console.log('element', element);
-    //         let sector = element.split('_');
-    //         console.log('sector name', sector);
-    //         if (sector.length > 1) {
-    //           // setTimeout(() => {
-    //           let name = getSectors(element.split('_')[0]);
-    //           console.log('name', name);
-    //           let allSelectedNames = name.map((el) => el.id);
-    //           console.log('allSectorsNames', allSectorsNames);
-    //           console.log('allSelectedNames', allSelectedNames);
-    //           // allSectors.forEach(el=> console.log("el",el.id))
-    //           allSectors.forEach((sect, i) => {
-    //             if (sect) {
-    //               console.log('sect', sect?.id);
-    //               const isInclude = allSelectedNames.includes(sect?.id);
-    //               console.log('isInclude', isInclude);
-    //               if (!isInclude) {
-    //                 console.log('yesss');
-    //                 let timers = (i + 1) * 30;
-    //                 console.log('yesss');
-    //                 sect.id &&
-    //                   setTimeout(() => {
-    //                     editor.StyleManager.removeSector(sect.id);
-    //                   }, timers);
-    //               }
-    //             }
-    //           });
-    //           updatedSectors.push(name);
-    //           // }, 100);
-    //         }
-    //       });
-    //     } else {
-    //       updatedSectors = getSectors(ccid);
-    //       // console.log('else', updatedSectors);
-    //     }
-    //     // console.log('updatedSectors', updatedSectors);
-    //     setTimeout(() => {
-    //       console.log('setTimeout updatedSectors', updatedSectors);
-    //       updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
-    //     }, 500);
-    //   }
-    //   let type = component.get('type');
-    //   const { id } = component.attributes.attributes;
-    //   if (component.get('type') == 'text') {
-    //     editor?.runCommand('core:open-traits');
-    //   }
-    //   if (component.get('type') == 'button') {
-    //     editor?.runCommand('core:open-traits');
-    //   }
-    // });
-
-    // editor.on('component:selected', (component) => {
-    //   console.log('section selected', component);
-    //   if (component) {
-    //     const sectid = component.attributes?.attributes?.sectid;
-
-    //     // let ccid = component.sectId.split('-')[0];
-    //     let sectId = component.attributes.attributes.sect;
-    //     console.log('sectId', sectId);
-    //     console.log('blocksector compoentn', component);
-    //     const blocksector = editor.StyleManager.getSectors();
-    //     blocksector.reset();
-    //     console.log('blocksector', blocksector);
-    //     // let newCcid = component?.attributes?.classes?.models?.map(
-    //     //   (el) => el?.id
-    //     // );
-    //     let updatedSectors = [];
-    //     if (newCcid?.length > 0)
-    //     {
-    //       let allSectors = editor.StyleManager.getSectors();
-    //       console.log('allSectors', allSectors);
-    //       const allSectorsNames = allSectors.map((el) => el.name || el.id);
-
-    //       newCcid.forEach((element) => {
-    //         console.log('element', element);
-    //         let sector = element.split('_');
-    //         console.log('sector name', sector);
-
-    //         if (sector.length > 0) {
-    //           let name = getSectors(sectId);
-    //           console.log('name', name);
-    //           let allSelectedNames = name.map((el) => el.id);
-    //           console.log('allSectorsNames', allSectorsNames);
-    //           console.log('allSelectedNames', allSelectedNames);
-    //           allSectors.forEach((sect, i) => {
-    //             if (sect) {
-    //               console.log('sect', sect?.id);
-    //               const isInclude = allSelectedNames.includes(sect?.id);
-    //               console.log('isInclude', isInclude);
-    //               if (!isInclude) {
-    //                 console.log('yesss');
-    //                 let timers = (i + 1) * 30;
-    //                 console.log('yesss');
-    //                 sect.id &&
-    //                   setTimeout(() => {
-    //                     editor.StyleManager.removeSector(sect.id);
-    //                   }, timers);
-    //               }
-    //             }
-    //           });
-    //           updatedSectors.push(name);
-    //         }
-    //       });
-    //     } else {
-    //       updatedSectors = getSectors(sectId);
-    //     }
-
-    //     const sectors = editor.StyleManager.getSectors();
-    //     console.log('sectors', sectors);
-    //     for (let i = 0; i < sectors.length; i++) {
-    //       console.log('sectors.models[i].get(id)', sectors.models[i].get('id'));
-    //       if (sectid.includes(sectors.models[i].get('id'))) {
-    //         sectors.models[i].setOpen(true);
-    //       } else {
-    //         sectors.models[i].setOpen(false);
-    //       }
-    //     }
-
-    //     setTimeout(() => {
-    //       console.log('setTimeout updatedSectors', updatedSectors);
-    //       updatedSectors && updatedSectors.forEach((el) => blocksector.add(el));
-    //       const wrapperCmp = editor.DomComponents.getWrapper();
-    //       console.log(
-    //         'wrapperCmp.find(`#${component.ccid}`)',
-    //         wrapperCmp.find(`#${component.ccid}`)
-    //       );
-
-    //       editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
-
-    //       // for (let i = 0; i < sectors.length; i++) {
-    //       //   console.log(
-    //       //     'sectors.models[i].get(id)',
-    //       //     sectors.models[i].get('id')
-    //       //   );
-    //       //   if (sectid.includes(sectors.models[i].get('id'))) {
-    //       //     sectors.models[i].setOpen(true);
-    //       //   } else {
-    //       //     sectors.models[i].setOpen(false);
-    //       //   }
-    //       // }
-    //     }, 500);
-    //   }
-    //   let type = component.get('type');
-    //   const { id } = component.attributes.attributes;
-    //   if (component.get('type') == 'text') {
-    //     editor?.runCommand('core:open-traits');
-    //   }
-    //   if (component.get('type') == 'button') {
-    //     editor?.runCommand('core:open-traits');
-    //   }
-    // });
+  
 
     editor.on('component:selected', (component) => {
       //Styles from theme style
@@ -1239,15 +1065,11 @@ add your attachment</span>
       if (component) {
         //single sector
         let sectid = component.attributes?.attributes?.sectid;
-        console.log('sectid', sectid)
-        //ccid
         let sectId = component.attributes.attributes.sect;
-        console.log("selected sectId",sectId)
         let sectors = editor.StyleManager.getSectors();
         sectors.reset();
         sectors.add(getSectors(sectId));
         for (let i = 0; i < sectors.length; i++) {
-          console.log('sectors.models[i].get', sectors.models[i].get('id'))
           if (sectid.includes(sectors.models[i].get('id'))) {
             sectors.models[i].setOpen(true);
           } else {
@@ -1265,6 +1087,14 @@ add your attachment</span>
         if (component.get('type') == 'image') {
           editor?.runCommand('core:open-traits');
         }
+        if (component.get('type') == 'GuidelineDiv') {
+          editor?.runCommand('core:open-traits');
+        }
+        if (component.get('type') == 'Departmentdiv') {
+          editor?.runCommand('core:open-traits');
+        }
+       
+      
     });
 
     //This is for all section templates Style Manager

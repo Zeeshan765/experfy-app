@@ -2266,6 +2266,16 @@ const obj = {
     {
       name: 'Heading',
       open: false,
+      id: 'title-sector',
+      properties: [color, typography],
+    },
+  ],
+
+
+  pageSector: [
+    {
+      name: 'Heading',
+      open: false,
       id: 'heading_1',
       properties: [color, typography],
     },
@@ -3107,11 +3117,11 @@ iconSector:[
       properties: [color, typography],
       id: 'sub-department-heading',
     },
-
     {
-      name: 'Department Icon',
+      name: 'Add Department',
       open: false,
       id: 'department-option',
+
       properties: [
         {
           type: 'color',
@@ -3124,6 +3134,7 @@ iconSector:[
         },
       ],
     },
+    
 
     {
       name: 'Icon',
