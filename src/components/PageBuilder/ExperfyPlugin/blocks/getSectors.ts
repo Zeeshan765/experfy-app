@@ -3092,18 +3092,8 @@ iconSector:[
       name: 'Background',
       open: false,
       id: 'department-container',
-      buildProps: ['background-image'],
-      properties: [
-        {
-          type: 'color',
-          name: 'Background Color',
-          property: 'background-color',
-          colorPicker: {
-            preferredFormat: 'hex',
-            showInput: true,
-          },
-        },
-      ],
+      buildProps: ['background'],
+      
     },
     {
       name: 'Department Heading',

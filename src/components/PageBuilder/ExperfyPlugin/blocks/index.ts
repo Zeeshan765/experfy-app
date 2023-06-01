@@ -190,86 +190,51 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   `,
     content: `
     <section  id= "testimonialSector" class="testimonial-container testimonialSector">
-    <div class="test-sector">
-    <h1 class="h1 main-testimonial-title testimonialSector_h1">You are in Good</h1> 
-    <div class="swiper-container  mySwiper">
-    
-    <div class="swiper-wrapper">
-    <div class="swiper-slide">
-    <div class="slider-content-main-div">
-   
-    <div class="left-container">
-       <div class="img-container">
-             <img class="image testimonial-image testimonialSector_image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
-         </div>
-               <h2 class="h2 main-testimonial-name testimonialSector_h2">Daniel Samarov</h2>
-              <span class="user-details">
-               <h5 class="h5 main-testimonial-content testimonialSector_h5">Chief Data Scientist, DS Box</h5>
-             <h5 class="h5 main-testimonial-content testimonialSector_h5">PhD, Statistics University of North</h5></span>
-     </div>
-         <div class="divider"></div>
-         <div class="slider-text-div">
-         <h6 class="h6 main-testimonial-content testimonialSector_h6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+      <div class="test-sector">
+        <h1 class="h1 main-testimonial-title testimonialSector_h1">You are in Good</h1>
+        <div class="swiper-container  mySwiper">
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            <div class="swiper-wrapper">              
+              <div class="swiper-slide">
+                  <div class="slider-content-main-div">
+                    <div class="left-container">
+                        <div class="img-container">
+                          <img class="image testimonial-image testimonialSector_image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+                        </div>
+                        <h2 class="h2 main-testimonial-name testimonialSector_h2">Daniel Samarov</h2>
+                        <span class="user-details">
+                          <h5 class="h5 main-testimonial-content testimonialSector_h5">Chief Data Scientist, DS Box</h5>
+                          <h5 class="h5 main-testimonial-content testimonialSector_h5">PhD, Statistics University of North</h5></span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="slider-text-div">
+                        <h6 class="h6 main-testimonial-content testimonialSector_h6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+                    </div>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="slider-content-main-div">
+                    <div class="left-container">
+                        <div class="img-container">
+                          <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+                        </div>
+                        <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
+                        <span class="user-details">
+                          <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
+                          <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5>
+                        </span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="slider-text-div">
+                        <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+                    </div>
+                  </div>
+              </div>
             </div>
-    </div>
-
-
-
-
-
-
-
-
-
-    
-     </div>
-
-
-    <div class="swiper-slide">
-    <div class="slider-content-main-div">
-   
-    <div class="left-container">
-       <div class="img-container">
-             <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
-         </div>
-               <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
-              <span class="user-details">
-               <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
-             <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5></span>
-     </div>
-         <div class="divider"></div>
-         <div class="slider-text-div">
-         <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
-            </div>
-    </div>
-
-
-
-
-
-
-
-
-
-    
-     </div>
-     </div>
-
-     
-     
-
-
-
-   
-     
-    
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-   
-    
-  </div>
-  </div>
-  </section>
+        </div>
+      </div>
+     </section>
   ${swiperStyle}
  `,
   });
@@ -288,7 +253,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
    
    </svg>`,
-   content: `<section  sect="benefitSector">
+    content: `<section  sect="benefitSector">
    <div  sect="benefitSector" sectid="benefits-container" style="width: 70%;margin-left: 10rem; text-align: center; padding:25px;" >
 
       <div sect="benefitSector" style="text-align: center;">
@@ -461,7 +426,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>  
   `,
-  content: ` <section  sect= "guidelineSector">
+    content: ` <section  sect= "guidelineSector">
   <div sect="guidelineSector"  sectid="guideline-container" style="width: 70%;margin: auto;padding: 6rem margin-left: auto;margin-right: auto; text-align: center;">
     <div sect= "guidelineSector" style="text-align: center;">
       <h1 sect="guidelineSector" sectid="main-guideline-heading" style="margin-bottom: 0.5rem;">Add your heading title here</h1>
@@ -1220,7 +1185,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z"></path>
   </svg>`,
-  content: `<section  sect="imageSector" style="margin: 1.5rem;">
+    content: `<section  sect="imageSector" style="margin: 1.5rem;">
   <div sect="imageSector" style="margin: 3rem;">
   <img sect="imageSector"  sectid="img-link"src="https://dummyimage.com/1200x500" alt="step"  >
   </div>

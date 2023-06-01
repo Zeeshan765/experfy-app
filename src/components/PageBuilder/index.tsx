@@ -494,7 +494,7 @@ const handlePublish = ()=>{
       container: '.editor',
       fromElement: true,
       showDevices: false,
-      height: '300vh',
+      height: '100%',
       style: `${canvasStyle}`,
       // canvasCss: localStorage.getItem('theme_style_css') || '',
       canvasCss: '.blocks: {display: grid;}',
@@ -874,6 +874,9 @@ add your attachment</span>
       model: {
         defaults: {
           script: function () {
+            // const dynamicProgress = "{[ dynamicProgress ]}";
+            // const progressType = "{[ progressType ]}";
+
             const initLib = function () {
               var swiper = new Swiper('.mySwiper', {
                 spaceBetween: 30,
@@ -884,8 +887,70 @@ add your attachment</span>
                   prevEl: '.swiper-button-prev',
                 },
               });
+
+              // const swiper = new Swiper(".mySwiper"
+              // , {
+              //   // spaceBetween: 30,
+              //   // centeredSlides: true,
+              //   // autoplay: {
+              //   //   delay: 2500,
+              //   //   disableOnInteraction: false,
+              //   // },
+              //   // // pagination: {
+              //   // //   el: ".swiper-pagination",
+              //   // //   clickable: true,
+              //   // //   // dynamicBullets: !!dynamicProgress,
+              //   // //   // type: progr essType,
+              //   // // },
+              //   // navigation: {
+              //   //   nextEl: ".swiper-button-next",
+              //   //   prevEl: ".swiper-button-prev",
+              //   // },
+              // });
+              // console.log('swiper :>> ', swiper);
             };
             initLib();
+
+            //  if (typeof Swiper == "undefined") {
+            //           const script = document.createElement("script");
+            //           script.onload = initLib;
+            //           script.src = "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js";
+            //           document.body.appendChild(script);
+            //         } else {
+            //           initLib();
+            //         }
+
+            // const initLib = function () {
+            //   const swiper = new Swiper(".mySwiper", {
+            //     spaceBetween: 30,
+            //     centeredSlides: true,
+            //     autoplay: {
+            //       delay: 2500,
+            //       disableOnInteraction: false,
+            //     },
+            //     // pagination: {
+            //     //   el: ".swiper-pagination",
+            //     //   clickable: true,
+            //     //   // dynamicBullets: !!dynamicProgress,
+            //     //   // type: progressType,
+            //     // },
+            //     navigation: {
+            //       nextEl: ".swiper-button-next",
+            //       prevEl: ".swiper-button-prev",
+            //     },
+            //   });
+            //   console.log("swiper :>> ", swiper);
+            // };
+            // initLib();
+
+            // if (typeof Swiper == "undefined") {
+            //   const script = document.createElement("script");
+            //   script.onload = initLib;
+            //   script.src = "https://unpkg.com/swiper@7/swiper-bundle.min.js";
+            //   document.body.appendChild(script);
+            // } else {
+            //   initLib();
+            // }
           },
         },
       },
