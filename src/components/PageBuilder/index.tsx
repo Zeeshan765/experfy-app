@@ -41,6 +41,7 @@ const PageBuilder: React.FC = () => {
   const [newstateDirty, setnewstateDirty] = useState(null);
   var isUpdating = false;
   let isChanged = false;
+  let isSave = false;
 
   let mediaSvg = {
     location: `<svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24"><path id="noun-location-4491946" d="M168.4,30.763a8.653,8.653,0,0,0-6.33-2.469,8.807,8.807,0,0,0-8.484,8.613,8.6,8.6,0,0,0,1.731,5.313c.16.239,4.292,5.985,5.668,7.892a1.577,1.577,0,0,0,1.268.652h.007a1.576,1.576,0,0,0,1.265-.64c.64-.869,5.624-7.683,5.755-7.848l.021-.028h0a8.835,8.835,0,0,0,1.741-5.23,8.658,8.658,0,0,0-2.642-6.256ZM162.317,41.03a3.893,3.893,0,1,1,2.748-1.14A3.888,3.888,0,0,1,162.317,41.03Z" transform="translate(-153.589 -28.289)" /></svg>`,
@@ -220,6 +221,7 @@ const PageBuilder: React.FC = () => {
   // ======Hooks end=======
   const { admin } = routes;
   const apiEndpoint = `${serverURL}/api`;
+  console.log("admin",admin,apiEndpoint)
 
   //======= Methods start=======
   const addAssets = async () => {
@@ -319,7 +321,10 @@ const PageBuilder: React.FC = () => {
           ...updation,
         })
         .then((res) => {
+          console.log('response', res)
           toast.success(res.data.message);
+          isSave=true;
+          console.log('isSave', isSave)
         })
         .catch((err) => {
           console.log('err', err);
@@ -331,7 +336,10 @@ const PageBuilder: React.FC = () => {
           pageCode: JSON.stringify(editor.getProjectData()),
         })
         .then((res) => {
+
           toast.success(res.data.message);
+          isSave=true;
+          console.log('isSave', isSave)
         })
         .catch((err) => {
           console.log('err', err);
@@ -397,6 +405,16 @@ const PageBuilder: React.FC = () => {
       });
     // }
   };
+
+
+
+
+const handlePublish = ()=>{
+  const newEndPoint = `${serverURL}`;
+ const url =`${newEndPoint}${admin}/publish/${id}` ;
+ window.open(url, '_blank');
+}
+
   // ======= Methods end =======
 
   const updateHeaderBlock = async () => {
@@ -546,6 +564,17 @@ const PageBuilder: React.FC = () => {
               const store = editor.store();
               dataHandler();
             },
+
+          },
+          {
+            id: 'publish-editor',
+            hidden: false,
+            run(editor: { store: () => GrapesJS.Editor }) {
+               console.log("published called")
+               handlePublish()
+              
+            },
+            
           },
         ],
       },

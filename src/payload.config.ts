@@ -31,6 +31,7 @@ import UserProvider from './Providers/UserProvider';
 import SectionBuilder from './collections/SectionBuilder';
 import SectionSaveCollection from './collections/SectionSave';
 import { DataContext } from './Providers/DataProvider';
+import Publish from './components/PageBuilder/Publish';
 
 dotenv.config();
 
@@ -207,6 +208,13 @@ export default buildConfig({
         {
           path: '/collections/section-templates/testimonial',
           Component: SectionPageBuilder,
+          exact: true,
+          strict: true,
+        },
+
+        {
+          path: '/publish/:id',
+          Component: Publish,
           exact: true,
           strict: true,
         },

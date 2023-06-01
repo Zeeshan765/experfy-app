@@ -310,7 +310,7 @@ const SectionPageBuilder: React.FC = () => {
         ...Object.assign(
           {},
           { ...editor.getProjectData() },
-          { styles: userData.defaultStyle.filteredStyles }
+          // { styles: userData.defaultStyle.filteredStyles }
         ),
       });
     });
@@ -353,9 +353,9 @@ const SectionPageBuilder: React.FC = () => {
         window.sectionData = { ...filtering, isUpdate: false };
 
         const sectors = editor.StyleManager.getSectors();
-        // console.log('sectors', sectors);
+        console.log('sectors', sectors);
         const block = editor.BlockManager.get(blocks[0]);
-        // console.log('block', block);
+        console.log('block', block);
         const component = editor.addComponents(block.get('content'));
         console.log('component', component);
         component[0].set('selectable', false);
