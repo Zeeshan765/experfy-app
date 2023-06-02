@@ -357,7 +357,8 @@ const SectionPageBuilder: React.FC = () => {
         const block = editor.BlockManager.get(blocks[0]);
         console.log('block', block);
         const component = editor.addComponents(block.get('content'));
-        console.log('component', component);
+        console.log(' block component', component[0]?.attributes?.attributes?.sect);
+        let selectedComponent=component[0]?.attributes?.attributes?.sect;
         component[0].set('selectable', false);
         component[0].set('removable', false);
         component[0].set('stylable', true);
@@ -366,8 +367,8 @@ const SectionPageBuilder: React.FC = () => {
         component[0].set('draggable', false);
         editor.select(component[0]);
         sectors.reset();
-        console.log('component[0].getId()', component[0].getId());
-        sectors.add(getSectors(component[0].getId()));
+        // console.log('component[0].getId()', component[0].getId());
+        sectors.add(getSectors(selectedComponent));
         //@ts-ignore
           userData?.defaultStyle?.filteredStyles?.forEach((el) => {
           const { selectors, style } = el;

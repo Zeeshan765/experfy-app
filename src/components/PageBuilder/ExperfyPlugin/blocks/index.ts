@@ -192,7 +192,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <section  id= "testimonialSector" class="testimonial-container testimonialSector">
       <div class="test-sector">
         <h1 class="h1 main-testimonial-title testimonialSector_h1">You are in Good</h1>
-        <div class="swiper-container  mySwiper">
+        <div class="swiper-container  mySwiper" data-gjs-type="testimonial">
               <div class="swiper-button-next"></div>
               <div class="swiper-button-prev"></div>
             <div class="swiper-wrapper">              

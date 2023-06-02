@@ -14,7 +14,7 @@ const Publish = () => {
   const apiEndpoint = `${serverURL}/api`;
   let [editor, setEditorState] = useState<GrapesJS.Editor>();
 
-  
+  //Fetch Page Data 
   const fetchData = () => {
     if (id) {
       axios({
@@ -35,6 +35,8 @@ const Publish = () => {
     }
   };
 
+
+  //Initialize Editor
   const initializeEditor = () => {
     editor = GrapesJS.init({
       container: '.editor',
@@ -47,7 +49,11 @@ const Publish = () => {
         scripts: ['https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js'],
       },
     });
+    //Delete Functionality
+    editor.on('run:tlb-delete:before', (options) => {
+      options.abort = true;
 
+    });
     setEditorState(editor);
     if (id) {
       fetchData();

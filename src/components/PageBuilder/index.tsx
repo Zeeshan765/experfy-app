@@ -19,13 +19,9 @@ import { DataContext } from '../../Providers/DataProvider';
 import { canvasStyle, navStep, sections, devices } from './utils';
 import SidebarBottom from './SidebarBottom';
 import { getCurrentDateAndTime } from '../../utilities/dateAndTime';
-// import backgroundPlugin from 'grapesjs-style-bg';
-import BackgroundPlugin from './BackgroundPlugin';
 import StyleFilter from 'grapesjs-style-filter';
-// import gjsScroll from 'grapesjs-plugin-scroll';
-// import 'grapesjs/dist/css/grapes.min.css';
 import 'grapick/dist/grapick.min.css';
-
+import BackgroundPlugin from './BackgroundPlugin';
 interface parems {
   id?: string;
 }
@@ -802,6 +798,28 @@ add your attachment</span>
         </div>
 `);
       }
+      //@ts-ignore
+      if (component.ccid == 'testimonial') {
+        component.append(`
+        <div class="swiper-slide">
+        <div class="slider-content-main-div">
+          <div class="left-container">
+              <div class="img-container">
+                <img class="image testimonial-image testimonialSector_image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+              </div>
+              <h2 class="h2 main-testimonial-name testimonialSector_h2">Daniel Samarov</h2>
+              <span class="user-details">
+                <h5 class="h5 main-testimonial-content testimonialSector_h5">Chief Data Scientist, DS Box</h5>
+                <h5 class="h5 main-testimonial-content testimonialSector_h5">PhD, Statistics University of North</h5></span>
+          </div>
+          <div class="divider"></div>
+          <div class="slider-text-div">
+              <h6 class="h6 main-testimonial-content testimonialSector_h6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+          </div>
+        </div>
+    </div>
+`);
+      }
 
       // component.addTrait(
       //   {
@@ -952,6 +970,13 @@ add your attachment</span>
             //   initLib();
             // }
           },
+          trait:[
+            {
+              type: 'mybtn',
+              label: ' ',
+              name: 'mybtn',
+            },
+          ],
         },
       },
       isComponent: (el) => {
@@ -1010,6 +1035,32 @@ add your attachment</span>
         },
       },
     });
+
+
+
+ //  Div Trait
+ editor.DomComponents.addType('Departmentdiv', {
+  model: {
+    defaults: {
+      traits: [
+        // {
+        //   name: 'mysection',
+        //   label: ' ',
+        //   type: 'mysection',
+        //   changeProp: 1,
+        // },
+        {
+          type: 'mybtn',
+          label: ' ',
+          name: 'mybtn',
+        },
+      ],
+    },
+  },
+});
+
+
+
 
     //@ts-ignore
     editor.on('style:property:update', (component) => {
