@@ -44,6 +44,8 @@ const SectionPageBuilder: React.FC = () => {
   //   isUpdate: false,
   // };
 
+  let shouldUpdate = false;
+
   var isUpdating = false;
   const sections = [
     'page-builder',
@@ -309,7 +311,7 @@ const SectionPageBuilder: React.FC = () => {
       editor.loadProjectData({
         ...Object.assign(
           {},
-          { ...editor.getProjectData() },
+          { ...editor.getProjectData() }
           // { styles: userData.defaultStyle.filteredStyles }
         ),
       });
@@ -358,7 +360,7 @@ const SectionPageBuilder: React.FC = () => {
         // console.log('block', block);
         const component = editor.addComponents(block.get('content'));
         // console.log(' block component', component[0]?.attributes?.attributes?.sect);
-        let selectedComponent=component[0]?.attributes?.attributes?.sect;
+        let selectedComponent = component[0]?.attributes?.attributes?.sect;
         component[0].set('selectable', false);
         component[0].set('removable', false);
         component[0].set('stylable', true);
@@ -367,16 +369,16 @@ const SectionPageBuilder: React.FC = () => {
         component[0].set('draggable', false);
         editor.select(component[0]);
         sectors.reset();
-       
+
         sectors.add(getSectors(selectedComponent));
         //@ts-ignore
-          userData?.defaultStyle?.filteredStyles?.forEach((el) => {
+        userData?.defaultStyle?.filteredStyles?.forEach((el) => {
           const { selectors, style } = el;
 
           let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
 
           editor.CssComposer.setRule(element, { ...style });
-          
+
           editor.select(component[0]);
         });
         editor.runCommand('core:open-styles');
@@ -400,7 +402,7 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
-      editor.on('run:tlb-delete:before', (options) => {
+    editor.on('run:tlb-delete:before', (options) => {
       options.abort = true;
       // console.log('Prevent `tlb-delete` from execution');
     });
@@ -574,13 +576,13 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-   //Add Trait on click
-   const toggleBtn = () => {
-    const component = editor.getSelected();
-    // console.log('component Selection', component);
-    //@ts-ignore
-    if (component.ccid == 'GuidelineDiv') {
-      component.append(`<div sect= "guidelineSector" style=" padding: 0.75rem; margin: 0.75rem;">
+    //Add Trait on click
+    const toggleBtn = () => {
+      const component = editor.getSelected();
+      // console.log('component Selection', component);
+      //@ts-ignore
+      if (component.ccid == 'GuidelineDiv') {
+        component.append(`<div sect= "guidelineSector" style=" padding: 0.75rem; margin: 0.75rem;">
  
       <h3 sect= "guidelineSector"  sectid="guideline-bullet" style="height: 35px;border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
       <h1 sect= "guidelineSector" sectid="bullet-heading" style="text-align:left;">Add Step Title</h1>
@@ -590,10 +592,10 @@ const SectionPageBuilder: React.FC = () => {
      should do next
     </h6>
     </div>`);
-    }
-    //@ts-ignore
-    if (component.ccid == 'Departmentdiv') {
-      component.append(`
+      }
+      //@ts-ignore
+      if (component.ccid == 'Departmentdiv') {
+        component.append(`
       <div  sect= "departmentSector" style=" padding: 0.75rem; margin: 0.75rem;">
       <img sect= "departmentSector" sectid="image-department" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
     
@@ -604,10 +606,10 @@ const SectionPageBuilder: React.FC = () => {
          </h6>
       </div>
 `);
-    }
-    //@ts-ignore
-    if (component.ccid == 'testimonial') {
-      component.append(`
+      }
+      //@ts-ignore
+      if (component.ccid == 'testimonial') {
+        component.append(`
       <div class="swiper-slide">
       <div class="slider-content-main-div">
         <div class="left-container">
@@ -626,18 +628,18 @@ const SectionPageBuilder: React.FC = () => {
       </div>
   </div>
 `);
-    }
+      }
 
-    // component.addTrait(
-    //   {
-    //     name: 'mysection',
-    //     label: ' ',
-    //     type: 'mysection',
-    //     changeProp: 1,
-    //   },
-    //   { at: 0 }
-    // );
-  };
+      // component.addTrait(
+      //   {
+      //     name: 'mysection',
+      //     label: ' ',
+      //     type: 'mysection',
+      //     changeProp: 1,
+      //   },
+      //   { at: 0 }
+      // );
+    };
     //Close Trait on click
     const CloseTrait = () => {
       const component = editor.getSelected();
@@ -840,34 +842,45 @@ const SectionPageBuilder: React.FC = () => {
     // editor.on('style:sector:update', (props) => {
     //   console.log('style:sector:update', props);
     //   // !isUpdating &&
-    //     setTimeout(() => {
-    //       let sm = editor.StyleManager;
-    //       isUpdating = true;
-    //       const sectors = sm.getSectors();
-    //       for (let i = 0; i < sectors.length; i++) {
-    //         const modelId = sectors.models[i].get('id');
-    //         console.log("selected modelId",modelId)
-    //         if (props.id.includes(modelId)) {
-    //           // console.log("yes")
-    //           let isOpen = sectors.models[i].isOpen();
-    //              console.log("isOpen",isOpen)
-    //           if (isOpen) {
-    //             const wrapperCmp = editor.DomComponents.getWrapper();
-    //             console.log("wrapper component",wrapperCmp.find(`${props.id}`[0]))
-    //             editor.select(wrapperCmp.find(`.${props.id}`)[0]);
-    //             // const wrapperCmp = editor.DomComponents.getWrapper();
-    //             // console.log('wrapperCmp.find(`#${component.ccid}`)', wrapperCmp.find(`#${component.ccid}`))
-    //             // editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
-    //           }
-    //         } else {
-    //           sectors.models[i].setOpen(false);
-    //         }
-    //       }
+    //   setTimeout(() => {
+    //     let sm = editor.StyleManager;
+    //     isUpdating = true;
+    //     const sectors = sm.getSectors();
+    //     for (let i = 0; i < sectors.length; i++) {
+    //       const modelId = sectors.models[i].get('id');
+    //       console.log('selected modelId', modelId);
+    //       const wrapperCmp = editor.DomComponents.getWrapper();
+    //       if (props.id.includes(modelId)) {
+    //         // console.log("yes")
+    //         let isOpen = sectors.models[i].isOpen();
+    //         //  console.log("isOpen",isOpen)
+    //         console.log('props.id', props.id);
 
-    //       setTimeout(() => {
-    //         isUpdating = false;
-    //       }, 300);
-    //     }, 100);
+    //         shouldUpdate = true;
+    //         setTimeout(() => {
+    //           shouldUpdate &&
+    //             editor.select(wrapperCmp.find(`[sectid=${props.id}]`)[0]);
+    //             shouldUpdate = false
+    //         }, 1000);
+    //         if (isOpen) {
+    //           console.log(
+    //             'wrapper component',
+    //             wrapperCmp.find(`${props.id}`[0])
+    //           );
+    //           editor.select(wrapperCmp.find(`.${props.id}`)[0]);
+    //           // const wrapperCmp = editor.DomComponents.getWrapper();
+    //           // console.log('wrapperCmp.find(`#${component.ccid}`)', wrapperCmp.find(`#${component.ccid}`))
+    //           // editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
+    //         }
+    //       } else {
+    //         sectors.models[i].setOpen(false);
+    //       }
+    //     }
+
+    //     setTimeout(() => {
+    //       isUpdating = false;
+    //     }, 300);
+    //   }, 100);
     // });
 
     // //@ts-ignore
@@ -901,9 +914,7 @@ const SectionPageBuilder: React.FC = () => {
     //     }, 100);
     // });
 
-
-
-   editor.on('component:selected', (component) => {
+    editor.on('component:selected', (component) => {
       //Styles from theme style
       userData?.defaultStyle?.filteredStyles?.forEach((el) => {
         const { selectors, style } = el;
@@ -917,15 +928,15 @@ const SectionPageBuilder: React.FC = () => {
       if (component) {
         //single sector
         let sectid = component.attributes?.attributes?.sectid;
-        console.log('sectid', sectid)
+        console.log('sectid', sectid);
         //ccid
         let sectId = component.attributes.attributes.sect;
-        console.log("selected sectId",sectId)
+        console.log('selected sectId', sectId);
         let sectors = editor.StyleManager.getSectors();
         sectors.reset();
         sectors.add(getSectors(sectId));
         for (let i = 0; i < sectors.length; i++) {
-          console.log('sectors.models[i].get', sectors.models[i].get('id'))
+          console.log('sectors.models[i].get', sectors.models[i].get('id'));
           if (sectid.includes(sectors.models[i].get('id'))) {
             sectors.models[i].setOpen(true);
           } else {
@@ -933,49 +944,26 @@ const SectionPageBuilder: React.FC = () => {
           }
         }
       }
-     
-        if (component.get('type') == 'text') {
-          editor?.runCommand('core:open-traits');
-        }
-        if (component.get('type') == 'button') {
-          editor?.runCommand('core:open-traits');
-        }
-        if (component.get('type') == 'image') {
-          editor?.runCommand('core:open-traits');
-        }
-        if (component.get('type') == 'map') {
-          editor?.runCommand('core:open-traits');
-        }
-        if (component.get('type') == 'GuidelineDiv') {
-          editor?.runCommand('core:open-traits');
-        }
-        if (component.get('type') == 'Departmentdiv') {
-          editor?.runCommand('core:open-traits');
-        }
+
+      if (component.get('type') == 'text') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'button') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'image') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'map') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'GuidelineDiv') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'Departmentdiv') {
+        editor?.runCommand('core:open-traits');
+      }
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // editor.on('component:selected', (component) => {
     //   console.log('component selected', component?.ccid);
@@ -1024,8 +1012,6 @@ const SectionPageBuilder: React.FC = () => {
     // editor.on('component:selected', (component) => {
     //   console.log('section selected', component);
 
-
-
     //   userData?.defaultStyle?.filteredStyles?.forEach((el) => {
     //     const { selectors, style } = el;
 
@@ -1033,26 +1019,6 @@ const SectionPageBuilder: React.FC = () => {
 
     //     editor.CssComposer.setRule(element, { ...style });
     //   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //   if (component) {
     //     const sectid = component.attributes?.attributes?.sectid;
@@ -1151,8 +1117,6 @@ const SectionPageBuilder: React.FC = () => {
     //     editor?.runCommand('core:open-traits');
     //   }
     // });
-
-  
 
     // getCurrentBlock();
     addAssets();
