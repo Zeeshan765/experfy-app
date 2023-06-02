@@ -1,11 +1,10 @@
-@import "~payload/scss";
-@import "font-proxima-nova";
-@import "updated-styles";
+@import '~payload/scss';
+@import 'font-proxima-nova';
+@import 'updated-styles';
 
-$assets_path: "../../assets/images/";
+$assets_path: '../../assets/images/';
 
 :root {
-
   --breakpoint-xs-width: #{$breakpoint-xs-width};
   --breakpoint-s-width: #{$breakpoint-s-width};
   --breakpoint-m-width: #{$breakpoint-m-width};
@@ -24,7 +23,7 @@ $assets_path: "../../assets/images/";
   --theme-primary: #48a3d7;
   --theme-baseline: #{$baseline-px};
   --theme-baseline-body-size: #{$baseline-body-size};
-  --font-body: "proxima-nova", system-ui;
+  --font-body: 'proxima-nova', system-ui;
 
   --z-popup: 10;
   --z-nav: 20;
@@ -47,8 +46,6 @@ $assets_path: "../../assets/images/";
     --gutter-h: #{base(0.5)};
   }
 }
-
-
 
 // Body
 //---------------------------------------------
@@ -98,7 +95,6 @@ body {
 
   &__builder {
     height: 100%;
-
   }
 }
 
@@ -123,7 +119,6 @@ body {
     font-size: 24px;
     max-width: unset;
   }
-
 
   a {
     span {
@@ -303,13 +298,10 @@ div.react-select {
   padding: 0.7rem 1rem;
   border-radius: 0.4rem;
 
-
   &:hover {
     background-color: var(--theme-text-light);
     color: var(--theme-elevation-0);
     text-decoration: none;
-
-
   }
 
   &:checked {
@@ -321,7 +313,6 @@ div.react-select {
     background-color: var(--theme-text-light);
     color: var(--theme-elevation-0);
   }
-
 }
 
 .btn--style-primary {
@@ -394,28 +385,28 @@ div.react-select {
 }
 
 .Global #nav-design-system::before {
-  background-image: url("#{$assets_path}sidebar/design_system.svg");
+  background-image: url('#{$assets_path}sidebar/design_system.svg');
   background-repeat: no-repeat;
-  content: "";
+  content: '';
   width: 16px;
   height: 16px;
   margin-right: 10px;
 }
 
 .Global #nav-themes-style::before {
-  background-image: url("#{$assets_path}sidebar/theme_style.svg") !important;
+  background-image: url('#{$assets_path}sidebar/theme_style.svg') !important;
   background-repeat: no-repeat;
-  content: "";
+  content: '';
   width: 16px;
   height: 16px;
   margin-right: 10px;
 }
 
 .Global #nav-section-templates::before {
-  background-image: url("#{$assets_path}sidebar/section.svg") !important;
+  background-image: url('#{$assets_path}sidebar/section.svg') !important;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  content: "";
+  content: '';
   width: 16px;
   height: 16px;
   margin-right: 10px;
@@ -476,9 +467,7 @@ div.react-select {
     color: var(--theme-elevation-0);
     background-color: var(--theme-text-light);
     text-decoration: none;
-
   }
-
 }
 
 .radio-group {
@@ -496,7 +485,7 @@ div.react-select {
         font-weight: 500;
         font-size: 20px;
         color: #4ba4da;
-        letter-spacing: .1px;
+        letter-spacing: 0.1px;
         padding: 8px 0;
         margin-left: 0px !important;
         text-transform: capitalize;
@@ -528,7 +517,7 @@ div.react-select {
     li {
       padding-right: 0;
 
-      >label {
+      > label {
         margin-bottom: 0;
       }
     }
@@ -536,19 +525,18 @@ div.react-select {
     li {
       padding-right: 0;
 
-      >label {
+      > label {
         margin-bottom: 0;
       }
     }
 
-    li+li {
+    li + li {
       margin-left: 48px;
     }
   }
 }
 
 .collection-edit__main {
-
   .collection-edit__edit {
     .radio-group--layout-horizontal {
       label.field-label {
@@ -676,7 +664,7 @@ div.react-select {
   display: block;
   line-height: 1.6rem;
   display: flex;
-  letter-spacing: -.5px;
+  letter-spacing: -0.5px;
   color: var(--theme-text-light);
 }
 
@@ -690,7 +678,7 @@ div.react-select {
 }
 
 .model-title {
-  padding: .5rem 1.5rem !important;
+  padding: 0.5rem 1.5rem !important;
   border-bottom: 1px solid var(--theme-border);
 }
 
@@ -708,7 +696,6 @@ div.react-select {
   }
 }
 
-
 .pill {
   background-color: var(--theme-primary);
   color: var(--theme-elevation-0);
@@ -718,7 +705,6 @@ div.react-select {
     background-color: var(--theme-text-dark);
     color: var(--theme-elevation-0);
   }
-
 }
 
 .pill--style-light.pill--has-action:hover {
@@ -783,5 +769,11 @@ div.react-select {
   &:hover {
     background-color: rgb(225, 224, 224);
     // color: var(--theme-bg);
+  }
+}
+
+.preview-editor-canvas {
+  .gjs-off-prv {
+    display: none !important;
   }
 }

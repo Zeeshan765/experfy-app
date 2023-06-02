@@ -10,11 +10,11 @@ interface parems {
 
 const Publish = () => {
   const { id }: parems = useParams();
-  const {serverURL } = useConfig();
+  const { serverURL } = useConfig();
   const apiEndpoint = `${serverURL}/api`;
   let [editor, setEditorState] = useState<GrapesJS.Editor>();
 
-  //Fetch Page Data 
+  //Fetch Page Data
   const fetchData = () => {
     if (id) {
       axios({
@@ -22,11 +22,13 @@ const Publish = () => {
         url: `${apiEndpoint}/pages/${id}`,
       })
         .then((res) => {
-          
           const { pageCode } = res.data;
-         
+
           if (pageCode) {
             editor.loadProjectData(JSON.parse(pageCode));
+            setTimeout(() => {
+              editor.Commands.run('core:preview');
+            }, 1000);
           }
         })
         .catch((err) => {
@@ -34,7 +36,6 @@ const Publish = () => {
         });
     }
   };
-
 
   //Initialize Editor
   const initializeEditor = () => {
@@ -52,7 +53,6 @@ const Publish = () => {
     //Delete Functionality
     editor.on('run:tlb-delete:before', (options) => {
       options.abort = true;
-
     });
     setEditorState(editor);
     if (id) {
@@ -60,15 +60,13 @@ const Publish = () => {
     }
   };
 
- 
-
   useEffect(() => {
     initializeEditor();
   }, []);
 
   return (
     <div className="editor-canvas">
-      <div className="editor"></div>
+      <div className="editor preview-editor-canvas"></div>
     </div>
   );
 };

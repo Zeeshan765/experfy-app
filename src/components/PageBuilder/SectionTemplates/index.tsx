@@ -162,7 +162,7 @@ const SectionPageBuilder: React.FC = () => {
   let str = arr[arr.length - 1];
 
   let isInclude = sections.includes(str);
-  console.log('IsInclude', isInclude);
+  // console.log('IsInclude', isInclude);
 
   let blocks = isInclude ? [str] : basicElements;
   let custom = 'Custom Modules';
@@ -170,7 +170,7 @@ const SectionPageBuilder: React.FC = () => {
 
   //Save the Section
   const saveSectionTemplate = () => {
-    console.log('sectionData', window?.sectionData);
+    // console.log('sectionData', window?.sectionData);
 
     if (window?.sectionData?.isUpdate) {
       axios
@@ -204,7 +204,7 @@ const SectionPageBuilder: React.FC = () => {
   };
 
   const handleScratchSave = (e) => {
-    console.log('editor.getHtml()', editor.getHtml());
+    // console.log('editor.getHtml()', editor.getHtml());
     if (name) {
       axios
         .post(`${apiEndpoint}/section-save`, {
@@ -323,17 +323,17 @@ const SectionPageBuilder: React.FC = () => {
         window.sectionData = { ...filtering, isUpdate: true };
 
         const blo = editor.BlockManager.getAll();
-        console.log('blo', blo);
+        // console.log('blo', blo);
 
         const filtered = blo.filter((block) => block.id === sectionTitle);
-        console.log('filtered', filtered);
+        // console.log('filtered', filtered);
 
         const sectors = editor.StyleManager.getSectors();
-        console.log('sectors', sectors);
+        // console.log('sectors', sectors);
         const block = editor.BlockManager.get(filtered[0]);
-        console.log('block', block);
+        // console.log('block', block);
         const component = editor.addComponents(block.get('content'));
-        console.log('component', component);
+        // console.log('component', component);
         component[0].set('selectable', false);
         component[0].set('removable', false);
         component[0].set('stylable', true);
@@ -345,7 +345,7 @@ const SectionPageBuilder: React.FC = () => {
         editor.loadProjectData({
           ...Object.assign({}, { ...JSON.parse(sectionCode) }),
         });
-        console.log('component[0].getId()', component[0].getId());
+        // console.log('component[0].getId()', component[0].getId());
         sectors.add(getSectors(component[0].getId()));
         //@ts-ignore
         editor.runCommand('core:open-styles');
@@ -353,11 +353,11 @@ const SectionPageBuilder: React.FC = () => {
         window.sectionData = { ...filtering, isUpdate: false };
 
         const sectors = editor.StyleManager.getSectors();
-        console.log('sectors', sectors);
+        // console.log('sectors', sectors);
         const block = editor.BlockManager.get(blocks[0]);
-        console.log('block', block);
+        // console.log('block', block);
         const component = editor.addComponents(block.get('content'));
-        console.log(' block component', component[0]?.attributes?.attributes?.sect);
+        // console.log(' block component', component[0]?.attributes?.attributes?.sect);
         let selectedComponent=component[0]?.attributes?.attributes?.sect;
         component[0].set('selectable', false);
         component[0].set('removable', false);
@@ -367,7 +367,7 @@ const SectionPageBuilder: React.FC = () => {
         component[0].set('draggable', false);
         editor.select(component[0]);
         sectors.reset();
-        // console.log('component[0].getId()', component[0].getId());
+       
         sectors.add(getSectors(selectedComponent));
         //@ts-ignore
           userData?.defaultStyle?.filteredStyles?.forEach((el) => {
@@ -376,7 +376,7 @@ const SectionPageBuilder: React.FC = () => {
           let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
 
           editor.CssComposer.setRule(element, { ...style });
-          console.log('component[0]', component[0]);
+          
           editor.select(component[0]);
         });
         editor.runCommand('core:open-styles');
@@ -402,7 +402,7 @@ const SectionPageBuilder: React.FC = () => {
 
       editor.on('run:tlb-delete:before', (options) => {
       options.abort = true;
-      console.log('Prevent `tlb-delete` from execution');
+      // console.log('Prevent `tlb-delete` from execution');
     });
 
     let TextTrait = [
@@ -574,48 +574,70 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-    //Add Trait on click
-    const toggleBtn = () => {
-      const component = editor.getSelected();
-      // console.log('component Selection', component);
-      //@ts-ignore
-      if (component.ccid == 'GuidelineDiv') {
-        component.append(`<div style=" padding: 0.75rem; margin: 0.75rem;">
-     
-    <h3 class="h3 guideline-bullet" style="height: 35px;border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
-    <h1 class="h1 bullet-heading" style="text-align:left;">Add Step Title</h1>
-  
-  <h6 class="h6 bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
-   order to explain what the user
-   should do next
-  </h6>
-  </div>`);
-      }
-      //@ts-ignore
-      if (component.ccid == 'Departmentdiv') {
-        component.append(`
-<div class="department-holder" style="padding: 0.75rem;margin: 0.75rem; ">
-    <img class="image-department" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
-  
-       <h1 class="h1 icon-department-heading" style="margin-top: 1.25rem; margin-bottom: 1.25rem; ">Department 1</h1>
-       <h6 class="h6 icon-department-sub-heading">Lorem ipsum dolor sit amet. Est
-          porro distinctio eum eius odit ea
-          facere consequuntur.
-       </h6>
-    </div>
+   //Add Trait on click
+   const toggleBtn = () => {
+    const component = editor.getSelected();
+    // console.log('component Selection', component);
+    //@ts-ignore
+    if (component.ccid == 'GuidelineDiv') {
+      component.append(`<div sect= "guidelineSector" style=" padding: 0.75rem; margin: 0.75rem;">
+ 
+      <h3 sect= "guidelineSector"  sectid="guideline-bullet" style="height: 35px;border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
+      <h1 sect= "guidelineSector" sectid="bullet-heading" style="text-align:left;">Add Step Title</h1>
+    
+    <h6 sect= "guidelineSector" sectid="bullet-sub-heading" style="text-align:left;padding: 10px; margin-top: 5px;">Add information in steps in
+     order to explain what the user
+     should do next
+    </h6>
+    </div>`);
+    }
+    //@ts-ignore
+    if (component.ccid == 'Departmentdiv') {
+      component.append(`
+      <div  sect= "departmentSector" style=" padding: 0.75rem; margin: 0.75rem;">
+      <img sect= "departmentSector" sectid="image-department" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OC41NzYiIGhlaWdodD0iNzQuODg1IiB2aWV3Qm94PSIwIDAgNzguNTc2IDc0Ljg4NSI+DQogIDxnIGlkPSJaSkUyN0IudGlmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzUuMjExIC0xMzQ2LjU2NikiPg0KICAgIDxnIGlkPSJHcm91cF81NDg1OCIgZGF0YS1uYW1lPSJHcm91cCA1NDg1OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUzNS4yMTEgMTM0Ni41NjYpIj4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzE3MDE4MyIgZGF0YS1uYW1lPSJQYXRoIDE3MDE4MyIgZD0iTS00OTYuMDI4LDEzNDYuNTY2YTIuODQsMi44NCwwLDAsMSwyLjc5NCwxLjc3NWMzLjM0Miw2LjgxNyw2LjcyMSwxMy42MTYsMTAuMDYzLDIwLjQzM2ExLjM4MywxLjM4MywwLDAsMCwxLjIuODg0YzcuNDM1LDEuMDU0LDE0Ljg2NSwyLjE1MSwyMi4zLDMuMjI0LDIuMTQ4LjMxLDMuMywxLjQ0MiwyLjk4NywzLjJhMy44LDMuOCwwLDAsMS0xLjA2MiwxLjg5MnEtOC4xNTEsOC4wMzgtMTYuMzgsMTZhMS4yNDIsMS4yNDIsMCwwLDAtLjQxOSwxLjI3MmMxLjMyNCw3LjU5NSwyLjYwOCwxNS4yLDMuOTEzLDIyLjhhMi43MTEsMi43MTEsMCwwLDEtMS4xLDIuODg2LDIuNzUzLDIuNzUzLDAsMCwxLTMuMDkyLjA5NXEtMTAuMTUzLTUuMzQ5LTIwLjMxMS0xMC42OTFhMS40LDEuNCwwLDAsMC0xLjUtLjAyMXEtMTAuMDY3LDUuMzI5LTIwLjE1OCwxMC42MTJhMy4wODQsMy4wODQsMCwwLDEtMi42NDIuMzUyLDIuNzE3LDIuNzE3LDAsMCwxLTEuNzU5LTMuMXExLjctMTAuMDQxLDMuNDI4LTIwLjA3NmMuMTYtLjkzNi4yNjMtMS44ODUuNDg4LTIuOGExLjI0NCwxLjI0NCwwLDAsMC0uNDI4LTEuMzVjLTUuMzU1LTUuMTkzLTEwLjY4My0xMC40MTQtMTYuMDQ0LTE1LjYtMS4wMTMtLjk4LTEuOC0yLTEuMzExLTMuNDc4LjUtMS41MywxLjgtMS44MiwzLjIwOS0yLjAyLDcuMzUtMS4wNCwxNC42OTMtMi4xMzYsMjIuMDQyLTMuMTgzYTEuMzIzLDEuMzIzLDAsMCwwLDEuMTQxLS44NDRjMy4zNTgtNi44NDEsNi43NDYtMTMuNjY4LDEwLjEtMjAuNTFBMi43NDcsMi43NDcsMCwwLDEtNDk2LjAyOCwxMzQ2LjU2NloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNS4yMTEgLTEzNDYuNTY2KSIgZmlsbD0iIzE1OTU3NiIvPg0KICAgIDwvZz4NCiAgPC9nPg0KPC9zdmc+DQo='/>
+    
+         <h1 sect= "departmentSector" sectid="icon-department-heading" style="text-align:center;margin-top: 1.25rem;margin-bottom: 1.25rem;">Department 1</h1>
+         <h6 sect= "departmentSector" sectid="icon-department-sub-heading" style="  text-align:left;">Lorem ipsum dolor sit amet. Est
+            porro distinctio eum eius odit ea
+            facere consequuntur.
+         </h6>
+      </div>
 `);
-      }
+    }
+    //@ts-ignore
+    if (component.ccid == 'testimonial') {
+      component.append(`
+      <div class="swiper-slide">
+      <div class="slider-content-main-div">
+        <div class="left-container">
+            <div class="img-container">
+              <img class="image testimonial-image testimonialSector_image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+            </div>
+            <h2 class="h2 main-testimonial-name testimonialSector_h2">Daniel Samarov</h2>
+            <span class="user-details">
+              <h5 class="h5 main-testimonial-content testimonialSector_h5">Chief Data Scientist, DS Box</h5>
+              <h5 class="h5 main-testimonial-content testimonialSector_h5">PhD, Statistics University of North</h5></span>
+        </div>
+        <div class="divider"></div>
+        <div class="slider-text-div">
+            <h6 class="h6 main-testimonial-content testimonialSector_h6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+        </div>
+      </div>
+  </div>
+`);
+    }
 
-      // component.addTrait(
-      //   {
-      //     name: 'mysection',
-      //     label: ' ',
-      //     type: 'mysection',
-      //     changeProp: 1,
-      //   },
-      //   { at: 0 }
-      // );
-    };
+    // component.addTrait(
+    //   {
+    //     name: 'mysection',
+    //     label: ' ',
+    //     type: 'mysection',
+    //     changeProp: 1,
+    //   },
+    //   { at: 0 }
+    // );
+  };
     //Close Trait on click
     const CloseTrait = () => {
       const component = editor.getSelected();
@@ -817,26 +839,28 @@ const SectionPageBuilder: React.FC = () => {
     // @ts-ignore
     // editor.on('style:sector:update', (props) => {
     //   console.log('style:sector:update', props);
-    //   !isUpdating &&
+    //   // !isUpdating &&
     //     setTimeout(() => {
     //       let sm = editor.StyleManager;
-    //       var selectedBlock = editor.getSelected();
     //       isUpdating = true;
     //       const sectors = sm.getSectors();
     //       for (let i = 0; i < sectors.length; i++) {
     //         const modelId = sectors.models[i].get('id');
-    //         if (modelId === props.id) {
+    //         console.log("selected modelId",modelId)
+    //         if (props.id.includes(modelId)) {
+    //           // console.log("yes")
     //           let isOpen = sectors.models[i].isOpen();
-
+    //              console.log("isOpen",isOpen)
     //           if (isOpen) {
-    //             // const wrapperCmp = editor.DomComponents.getWrapper();
-    //             // editor.select(wrapperCmp.find(`.${props.id}`)[0]);
+    //             const wrapperCmp = editor.DomComponents.getWrapper();
+    //             console.log("wrapper component",wrapperCmp.find(`${props.id}`[0]))
+    //             editor.select(wrapperCmp.find(`.${props.id}`)[0]);
     //             // const wrapperCmp = editor.DomComponents.getWrapper();
     //             // console.log('wrapperCmp.find(`#${component.ccid}`)', wrapperCmp.find(`#${component.ccid}`))
     //             // editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
     //           }
     //         } else {
-    //           // sectors.models[i].setOpen(false);
+    //           sectors.models[i].setOpen(false);
     //         }
     //       }
 
@@ -920,6 +944,12 @@ const SectionPageBuilder: React.FC = () => {
           editor?.runCommand('core:open-traits');
         }
         if (component.get('type') == 'map') {
+          editor?.runCommand('core:open-traits');
+        }
+        if (component.get('type') == 'GuidelineDiv') {
+          editor?.runCommand('core:open-traits');
+        }
+        if (component.get('type') == 'Departmentdiv') {
           editor?.runCommand('core:open-traits');
         }
     });
