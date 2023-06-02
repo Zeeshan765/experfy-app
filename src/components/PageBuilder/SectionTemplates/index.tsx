@@ -14,13 +14,9 @@ import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import SidebarBottom from '../SidebarBottom';
 import { canvasStyle, devices } from '../utils';
-import backgroundPlugin from 'grapesjs-style-bg';
+import backgroundPlugin from 'grapesjs-style-gradient';
 import Basics from 'grapesjs-blocks-basic';
-
-import Forms from 'grapesjs-plugin-forms';
-
 import 'grapick/dist/grapick.min.css';
-
 import { Context } from '../../../Providers/MyProvider';
 import { DataContext } from '../../../Providers/DataProvider';
 import { toast } from 'react-toastify';
@@ -288,14 +284,14 @@ const SectionPageBuilder: React.FC = () => {
       },
       layerManager: null,
       traitManager: {
-        appendTo: '.traits-container',
+        appendTo: '.panel__switcher',
       },
       selectorManager: {
         appendTo: '.styles-container',
       },
       styleManager: {
         appendTo: '.styles-container',
-        sectors: getSectors(blocks),
+        sectors: getSectors(blocks.toLocaleString()),
       },
       deviceManager: {
         devices,
@@ -353,7 +349,6 @@ const SectionPageBuilder: React.FC = () => {
         editor.runCommand('core:open-styles');
       } else if (blocks.length === 1 && !found) {
         window.sectionData = { ...filtering, isUpdate: false };
-
         const sectors = editor.StyleManager.getSectors();
         // console.log('sectors', sectors);
         const block = editor.BlockManager.get(blocks[0]);
@@ -410,9 +405,7 @@ const SectionPageBuilder: React.FC = () => {
     let TextTrait = [
       {
         name: 'text',
-
-        label: 'Title',
-
+        label: 'Text',
         changeProp: 1,
       },
 
@@ -524,7 +517,7 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-    // // Image  Trait
+    // Image  Trait
     editor.DomComponents.addType('image', {
       model: {
         defaults: {
