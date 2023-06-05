@@ -500,6 +500,7 @@ const SectionPageBuilder: React.FC = () => {
         },
         init() {
           const comps = this.components();
+          console.log("comps",comps)
 
           const tChild = comps.length === 1 && comps.models[0];
           // console.log('Old tChild', tChild);

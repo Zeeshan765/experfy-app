@@ -31,6 +31,7 @@ const PageBuilder: React.FC = () => {
   // ======States start=======
   let [editor, setEditorState] = React.useState<GrapesJS.Editor>();
   const [currentPageData, setCurrentPageData] = useState<any>(null);
+  // const [pageTitle,setPageTitle] = useState<string>('');
   const [pageHistoryArray, setPageHistoryArray] = useState<any[]>([]);
   const [changeHistory, setChangeHistory] = useState(false);
   const [addHistory, setAddHistory] = useState(true);
@@ -38,6 +39,8 @@ const PageBuilder: React.FC = () => {
   var isUpdating = false;
   let isChanged = false;
   let isSave = false;
+
+
 
   let mediaSvg = {
     location: `<svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24"><path id="noun-location-4491946" d="M168.4,30.763a8.653,8.653,0,0,0-6.33-2.469,8.807,8.807,0,0,0-8.484,8.613,8.6,8.6,0,0,0,1.731,5.313c.16.239,4.292,5.985,5.668,7.892a1.577,1.577,0,0,0,1.268.652h.007a1.576,1.576,0,0,0,1.265-.64c.64-.869,5.624-7.683,5.755-7.848l.021-.028h0a8.835,8.835,0,0,0,1.741-5.23,8.658,8.658,0,0,0-2.642-6.256ZM162.317,41.03a3.893,3.893,0,1,1,2.748-1.14A3.888,3.888,0,0,1,162.317,41.03Z" transform="translate(-153.589 -28.289)" /></svg>`,
@@ -188,6 +191,8 @@ const PageBuilder: React.FC = () => {
 `,
   };
 
+  let pageTitle = ""
+
   // ======States end=======
   // ======Hooks start=======
   const { routes, serverURL } = useConfig();
@@ -217,7 +222,7 @@ const PageBuilder: React.FC = () => {
   // ======Hooks end=======
   const { admin } = routes;
   const apiEndpoint = `${serverURL}/api`;
-  console.log("admin",admin,apiEndpoint)
+  console.log('admin', admin, apiEndpoint);
 
   //======= Methods start=======
   const addAssets = async () => {
@@ -247,9 +252,10 @@ const PageBuilder: React.FC = () => {
           url: `${apiEndpoint}/page-Template/${id}`,
         })
           .then((res) => {
-            
-            const { pageCode } = res.data;
+            console.log("admin",res.data)
+            const { pageCode,title } = res.data;
             setCurrentPageData(res.data);
+            pageTitle = title;
             if (pageCode) {
               editor.loadProjectData(JSON.parse(pageCode));
             }
@@ -264,9 +270,11 @@ const PageBuilder: React.FC = () => {
         })
           .then((res) => {
             // debugger;
-
-            const { pageCode } = res.data;
+            console.log("response data",res.data)
+            const { pageCode ,title } = res.data;
             setCurrentPageData(res.data);
+            // setPageTitle(title
+            pageTitle = title
             if (pageCode) {
               editor.loadProjectData(JSON.parse(pageCode));
             }
@@ -318,10 +326,10 @@ const PageBuilder: React.FC = () => {
           ...updation,
         })
         .then((res) => {
-          console.log('response', res)
+          console.log('response', res);
           toast.success(res.data.message);
-          isSave=true;
-          console.log('isSave', isSave)
+          isSave = true;
+          console.log('isSave', isSave);
         })
         .catch((err) => {
           console.log('err', err);
@@ -333,10 +341,9 @@ const PageBuilder: React.FC = () => {
           pageCode: JSON.stringify(editor.getProjectData()),
         })
         .then((res) => {
-
           toast.success(res.data.message);
-          isSave=true;
-          console.log('isSave', isSave)
+          isSave = true;
+          console.log('isSave', isSave);
         })
         .catch((err) => {
           console.log('err', err);
@@ -403,14 +410,13 @@ const PageBuilder: React.FC = () => {
     // }
   };
 
-
-
-
-const handlePublish = ()=>{
-  const newEndPoint = `${serverURL}`;
- const url =`${newEndPoint}${admin}/publish/${id}` ;
- window.open(url, '_blank');
-}
+  //For Publish the page
+  const handlePublish = () => {
+    const newEndPoint = `${serverURL}`;
+    const url = `${newEndPoint}${admin}/publish/${pageTitle}`;
+    console.log("publish url",url)
+    window.open(url, '_blank');
+  };
 
   // ======= Methods end =======
 
@@ -427,14 +433,34 @@ const handlePublish = ()=>{
         if (headerLinksItem.length > 0) {
           let headerLinks = headerLinksItem[0];
           const { nav } = headerLinks;
+          console.log("nav",nav)
           let linksDiv = '';
 
-          nav.map((navItem: { link: { label: any; url: any } }) => {
-            const { label, url } = navItem.link;
+        nav.map(el=>{
+          console.log("el",el)
+
+        })
+
+
+
+          nav.map((navItem: { link: { label: any; url: any; type:any; } }) => {
+            const { label, url , type} = navItem.link;
+
             console.log('navItem', navItem);
-            let href = `${url}`;
-            console.log('navItem href', href);
-            return (linksDiv += `<a href="${href}" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">${label}</a>`);
+            let href='';
+            if(type =="custom"){
+              href = `https://${url}`;
+              console.log('custom href', href);
+              return (linksDiv += `<a href="${href}" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">${label}</a>`);
+            }
+            if (type == "page"){
+              href =`${serverURL}${admin}/publish/${label}`;
+              console.log('Page href', href);
+              return (linksDiv += `<a href="${href}" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">${label}</a>`);
+            }
+            
+          
+            
           });
 
           let content = `
@@ -561,17 +587,14 @@ const handlePublish = ()=>{
               const store = editor.store();
               dataHandler();
             },
-
           },
           {
             id: 'publish-editor',
             hidden: false,
             run(editor: { store: () => GrapesJS.Editor }) {
-               console.log("published called")
-               handlePublish()
-              
+              console.log('published called');
+              handlePublish();
             },
-            
           },
         ],
       },
@@ -770,7 +793,7 @@ add your attachment</span>
     //Add Trait on click
     const toggleBtn = () => {
       const component = editor.getSelected();
-      // console.log('component Selection', component);
+      console.log('component Selection Toggle', component);
       //@ts-ignore
       if (component.ccid == 'GuidelineDiv') {
         component.append(`<div sect= "guidelineSector" style=" padding: 0.75rem; margin: 0.75rem;">
@@ -799,25 +822,25 @@ add your attachment</span>
 `);
       }
       //@ts-ignore
-      if (component.ccid == 'testimonial') {
+      if (component.attributes?.type == 'testimonial') {
         component.append(`
-        <div class="swiper-slide">
-        <div class="slider-content-main-div">
-          <div class="left-container">
-              <div class="img-container">
-                <img class="image testimonial-image testimonialSector_image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+        <div class="swiper-slide swiper-slide-next" role="group"   style="margin: 1.5rem">
+                  <div class="slider-content-main-div">
+                    <div class="left-container">
+                        <div class="img-container">
+                          <img class="image testimonial-image testimonialSector_image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
+                        </div>
+                        <h2 class="h2 main-testimonial-name testimonialSector_h2">Daniel Samarov</h2>
+                        <span class="user-details">
+                          <h5 class="h5 main-testimonial-content testimonialSector_h5">Chief Data Scientist, DS Box</h5>
+                          <h5 class="h5 main-testimonial-content testimonialSector_h5">PhD, Statistics University of North</h5></span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="slider-text-div">
+                        <h6 class="h6 main-testimonial-content testimonialSector_h6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
+                    </div>
+                  </div>
               </div>
-              <h2 class="h2 main-testimonial-name testimonialSector_h2">Daniel Samarov</h2>
-              <span class="user-details">
-                <h5 class="h5 main-testimonial-content testimonialSector_h5">Chief Data Scientist, DS Box</h5>
-                <h5 class="h5 main-testimonial-content testimonialSector_h5">PhD, Statistics University of North</h5></span>
-          </div>
-          <div class="divider"></div>
-          <div class="slider-text-div">
-              <h6 class="h6 main-testimonial-content testimonialSector_h6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
-          </div>
-        </div>
-    </div>
 `);
       }
 
@@ -896,6 +919,7 @@ add your attachment</span>
             // const progressType = "{[ progressType ]}";
 
             const initLib = function () {
+              //@ts-ignore
               var swiper = new Swiper('.mySwiper', {
                 spaceBetween: 30,
                 centeredSlides: true,
@@ -970,7 +994,8 @@ add your attachment</span>
             //   initLib();
             // }
           },
-          trait:[
+
+          traits: [
             {
               type: 'mybtn',
               label: ' ',
@@ -980,10 +1005,15 @@ add your attachment</span>
         },
       },
       isComponent: (el) => {
-        if (el?.className && el?.className?.includes('swiper-container')) {
-          return {
-            type: 'testimonial',
-          };
+        let cond1 = el?.className !== undefined;
+        let cond2 = typeof el?.className?.baseVal !== 'string';
+
+        if (cond1 && cond2) {
+          if (el?.className?.includes('swiper-container')) {
+            return {
+              type: 'testimonial',
+            };
+          }
         }
       },
       // view: defaultView.extend({
@@ -995,6 +1025,26 @@ add your attachment</span>
     });
 
     //Guideline Div Trait
+    editor.DomComponents.addType('testimonialadd', {
+      model: {
+        defaults: {
+          traits: [
+            // {
+            //   name: 'mysection',
+            //   label: ' ',
+            //   type: 'mysection',
+            //   changeProp: 1,
+            // },
+            {
+              type: 'mybtn',
+              label: ' ',
+              name: 'mybtn',
+            },
+          ],
+        },
+      },
+    });
+
     editor.DomComponents.addType('GuidelineDiv', {
       model: {
         defaults: {
@@ -1036,31 +1086,26 @@ add your attachment</span>
       },
     });
 
-
-
- //  Div Trait
- editor.DomComponents.addType('Departmentdiv', {
-  model: {
-    defaults: {
-      traits: [
-        // {
-        //   name: 'mysection',
-        //   label: ' ',
-        //   type: 'mysection',
-        //   changeProp: 1,
-        // },
-        {
-          type: 'mybtn',
-          label: ' ',
-          name: 'mybtn',
+    //  Div Trait
+    editor.DomComponents.addType('Departmentdiv', {
+      model: {
+        defaults: {
+          traits: [
+            // {
+            //   name: 'mysection',
+            //   label: ' ',
+            //   type: 'mysection',
+            //   changeProp: 1,
+            // },
+            {
+              type: 'mybtn',
+              label: ' ',
+              name: 'mybtn',
+            },
+          ],
         },
-      ],
-    },
-  },
-});
-
-
-
+      },
+    });
 
     //@ts-ignore
     editor.on('style:property:update', (component) => {
@@ -1068,7 +1113,6 @@ add your attachment</span>
     });
 
     editor.on('load', () => {
-     
       let styleFound = [];
       Filtered.forEach((element) => {
         console.log('Filtered element', element);
@@ -1165,8 +1209,6 @@ add your attachment</span>
       }
     });
 
-  
-
     editor.on('component:selected', (component) => {
       //Styles from theme style
       userData?.defaultStyle?.filteredStyles?.forEach((el) => {
@@ -1193,24 +1235,22 @@ add your attachment</span>
           }
         }
       }
-     
-        if (component.get('type') == 'text') {
-          editor?.runCommand('core:open-traits');
-        }
-        if (component.get('type') == 'button') {
-          editor?.runCommand('core:open-traits');
-        }
-        if (component.get('type') == 'image') {
-          editor?.runCommand('core:open-traits');
-        }
-        if (component.get('type') == 'GuidelineDiv') {
-          editor?.runCommand('core:open-traits');
-        }
-        if (component.get('type') == 'Departmentdiv') {
-          editor?.runCommand('core:open-traits');
-        }
-       
-      
+
+      if (component.get('type') == 'text') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'button') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'image') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'GuidelineDiv') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'Departmentdiv') {
+        editor?.runCommand('core:open-traits');
+      }
     });
 
     //This is for all section templates Style Manager

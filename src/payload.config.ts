@@ -26,6 +26,7 @@ import PortalIdentity from './components/PortalIdentity';
 import TemplatesLibrary from './components/TemplateLibrary';
 import AssetsProvider from './Providers/AssetsProvider';
 import DataProvider from './Providers/DataProvider';
+import HeaderProvider from './Providers/HeaderProvider';
 import MyProvider from './Providers/MyProvider';
 import UserProvider from './Providers/UserProvider';
 import SectionBuilder from './collections/SectionBuilder';
@@ -80,7 +81,7 @@ export default buildConfig({
           Component: ThemeStyle,
           exact: true,
         },
-        
+
         {
           path: '/collections/templates-library',
           Component: TemplatesLibrary,
@@ -92,7 +93,7 @@ export default buildConfig({
           exact: true,
         },
         {
-          path: "/collections/themes-style",
+          path: '/collections/themes-style',
           Component: DesignSystem,
           exact: true,
           strict: true,
@@ -103,7 +104,7 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
-       
+
         // {
         //   path: "/collections/templates-library",
         //   Component: SectionPageBuilder,
@@ -204,7 +205,7 @@ export default buildConfig({
           exact: true,
           strict: true,
         },
-       
+
         {
           path: '/collections/section-templates/testimonial',
           Component: SectionPageBuilder,
@@ -213,7 +214,7 @@ export default buildConfig({
         },
 
         {
-          path: '/publish/:id',
+          path: '/publish/:name',
           Component: Publish,
           exact: true,
           strict: true,
@@ -225,7 +226,13 @@ export default buildConfig({
         //   strict: true,
         // },
       ],
-      providers: [UserProvider, AssetsProvider, MyProvider, DataProvider],
+      providers: [
+        UserProvider,
+        AssetsProvider,
+        MyProvider,
+        DataProvider,
+        HeaderProvider,
+      ],
     },
     webpack: (config) => {
       config.module.rules.push({

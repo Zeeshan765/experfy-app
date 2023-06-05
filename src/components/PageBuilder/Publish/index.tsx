@@ -1,40 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
 import GrapesJS from 'grapesjs';
 import 'grapick/dist/grapick.min.css';
+import { HeaderContext } from '../../../Providers/HeaderProvider';
 interface parems {
-  id?: string;
+  name?: string;
 }
 
 const Publish = () => {
-  const { id }: parems = useParams();
+  const { name }: parems = useParams();
   const { serverURL } = useConfig();
   const apiEndpoint = `${serverURL}/api`;
   let [editor, setEditorState] = useState<GrapesJS.Editor>();
+  const { fetchHeaderId } = useContext(HeaderContext);
 
   //Fetch Page Data
-  const fetchData = () => {
-    if (id) {
-      axios({
-        method: 'get',
-        url: `${apiEndpoint}/pages/${id}`,
-      })
-        .then((res) => {
-          const { pageCode } = res.data;
+  const fetchData = async () => {
+    console.log('--------------', name);
 
-          if (pageCode) {
-            editor.loadProjectData(JSON.parse(pageCode));
-            setTimeout(() => {
-              editor.Commands.run('core:preview');
-            }, 1000);
-          }
-        })
-        .catch((err) => {
-          console.log('err', err);
-        });
+    let response = await fetchHeaderId(name);
+    if (response) {
+      editor.loadProjectData(JSON.parse(response));
+                setTimeout(() => {
+            editor.Commands.run('core:preview');
+          }, 1000);
     }
+    console.log('response', response);
+    // console.log("Publish Param",parem)
+    // axios({
+    //   method: 'get',
+    //   url: `${apiEndpoint}/pages/${id}`,
+    // })
+    //   .then((res) => {
+    //     const { pageCode } = res.data;
+
+    //     if (pageCode) {
+    //       editor.loadProjectData(JSON.parse(pageCode));
+    //       setTimeout(() => {
+    //         editor.Commands.run('core:preview');
+    //       }, 1000);
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log('err', err);
+    //   });
   };
 
   //Initialize Editor
@@ -55,13 +66,14 @@ const Publish = () => {
       options.abort = true;
     });
     setEditorState(editor);
-    if (id) {
-      fetchData();
-    }
+    // if (pageTitle) {
+    //   fetchData();
+    // }
   };
 
   useEffect(() => {
     initializeEditor();
+    fetchData();
   }, []);
 
   return (

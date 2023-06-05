@@ -192,11 +192,14 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     <section  id= "testimonialSector" class="testimonial-container testimonialSector">
       <div class="test-sector">
         <h1 class="h1 main-testimonial-title testimonialSector_h1">You are in Good</h1>
-        <div class="swiper-container  mySwiper" data-gjs-type="testimonial">
+
+
+      <div style="margin-bottom: 1rem; border: 1px solid black">
+        <div class="swiper-container  mySwiper">
               <div class="swiper-button-next"></div>
               <div class="swiper-button-prev"></div>
-            <div class="swiper-wrapper">              
-              <div class="swiper-slide">
+            <div class="swiper-wrapper" style="margin: 1.5rem; border: 2px solid red" data-gjs-type="testimonial">              
+              <div class="swiper-slide" style="margin: 1.5rem">
                   <div class="slider-content-main-div">
                     <div class="left-container">
                         <div class="img-container">
@@ -213,27 +216,10 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
                     </div>
                   </div>
               </div>
-              <div class="swiper-slide">
-                  <div class="slider-content-main-div">
-                    <div class="left-container">
-                        <div class="img-container">
-                          <img class="testimonial-image" alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-full flex-shrink-0 object-center" style="">
-                        </div>
-                        <h2 class="h2 main-testimonial-name">Daniel Samarov</h2>
-                        <span class="user-details">
-                          <h5 class="h5 main-testimonial-content">Chief Data Scientist, DS Box</h5>
-                          <h5 class="h5 main-testimonial-content">PhD, Statistics University of North</h5>
-                        </span>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="slider-text-div">
-                        <h6 class="h6 main-testimonial-content">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</h6>
-                    </div>
-                  </div>
-              </div>
-            </div>
+              
         </div>
-      </div>
+      </div>  
+    </div>
      </section>
   ${swiperStyle}
  `,
