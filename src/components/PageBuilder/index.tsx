@@ -420,7 +420,10 @@ const PageBuilder: React.FC = () => {
 
   // ======= Methods end =======
 
-  const updateHeaderBlock = async () => {
+  
+
+
+  const updateHeaderBlock = async () => { 
     axios
       .get(`${serverURL}/api/mega-menu`)
       .then((response) => {
@@ -433,16 +436,9 @@ const PageBuilder: React.FC = () => {
         if (headerLinksItem.length > 0) {
           let headerLinks = headerLinksItem[0];
           const { nav } = headerLinks;
-          console.log("nav",nav)
           let linksDiv = '';
 
-        nav.map(el=>{
-          console.log("el",el)
-
-        })
-
-
-
+        
           nav.map((navItem: { link: { label: any; url: any; type:any; } }) => {
             const { label, url , type} = navItem.link;
 
@@ -451,12 +447,12 @@ const PageBuilder: React.FC = () => {
             if(type =="custom"){
               href = `https://${url}`;
               console.log('custom href', href);
-              return (linksDiv += `<a href="${href}" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">${label}</a>`);
+              return (linksDiv += `<a href="${href}" sect="headerSector" sectid="check-link" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px;">${label}</a>`);
             }
             if (type == "page"){
               href =`${serverURL}${admin}/publish/${label}`;
               console.log('Page href', href);
-              return (linksDiv += `<a href="${href}" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px; color:#ffffff;">${label}</a>`);
+              return (linksDiv += `<a href="${href}" sect="headerSector" sectid="check-link" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px;">${label}</a>`);
             }
             
           
@@ -464,19 +460,31 @@ const PageBuilder: React.FC = () => {
           });
 
           let content = `
-                    <header id=header_1 class="text-gray-600 body-font flex" style="background-color:#2f3d55; color:#ffffff; height:100px;">
-                      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                          <svg id="noun-logo-2121439" xmlns="http://www.w3.org/2000/svg" width="33.021" height="38.052" viewBox="0 0 33.021 38.052">
-                            <path id="Path_169897" data-name="Path 169897" d="M152.09,31.953,168.6,41.5V60.459L152.09,70l-16.51-9.545V41.5Zm0,5.417,5.933,3.354,5.933,3.483V57.879l-5.933,3.354-5.933,3.483-5.933-3.483-5.933-3.354V44.206l5.933-3.483Z" transform="translate(-135.58 -31.953)" fill="#50ae81" fill-rule="evenodd"/>
-                            <path id="Path_169898" data-name="Path 169898" d="M222.093,119.526l5.159,2.967,5.03,2.967.258.129v12.254l-.258.129-5.03,2.967-5.159,2.967-.129.129-.258-.129-5.159-2.967-5.03-2.967-.258-.129V125.588l.258-.129,5.03-2.967,5.159-2.967.258-.129Zm4.643,3.741-4.772-2.838-9.8,5.675v11.221l9.8,5.675,4.772-2.838,4.9-2.838V126.1Z" transform="translate(-205.453 -112.689)" fill="#50ae81"/>
-                          </svg>
-                          <span class="ml-3 text-xl" style="color:#ffffff; font-weight:700; font-size:28px;">Logo</span>
-                        </a>
-                        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                        ${linksDiv}
-                      </div>
-                    </header>`;
+                           <header sect="headerSector">
+   
+   <div sect="headerSector" sectid = "header-main" style=" margin-left: auto;margin-right: auto;padding: 1.25rem;display: flex;justify-content: space-between;align-items: center;">
+   
+
+                          <div sect="headerSector" class="header-gym" style="padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center;">
+   
+   
+   <a sect="headerSector"  class="a" style="display: flex;
+   justify-content: center;
+   gap: 20px;
+   align-items: center;">
+   <img sect="headerSector" sectid="header-svg" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" id="gjs_img_preview_logo_rtl"/>
+     <span sect="headerSector" sectid="header-logo-text">Logo</span>
+   </a>
+   <nav sect="headerSector" class="header-navabr">
+   ${linksDiv}
+
+ 
+   </div>
+   </div>
+                 
+                   </header>
+                
+                   `;
 
           block.set('content', content);
         }
@@ -485,6 +493,19 @@ const PageBuilder: React.FC = () => {
         console.error(error);
       });
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //======== GrapesJs Canvas initialization start here========
   const initializeInstance = () => {
@@ -1086,26 +1107,84 @@ add your attachment</span>
       },
     });
 
-    //  Div Trait
-    editor.DomComponents.addType('Departmentdiv', {
-      model: {
-        defaults: {
-          traits: [
-            // {
-            //   name: 'mysection',
-            //   label: ' ',
-            //   type: 'mysection',
-            //   changeProp: 1,
-            // },
-            {
-              type: 'mybtn',
-              label: ' ',
-              name: 'mybtn',
-            },
-          ],
-        },
-      },
-    });
+    
+
+
+
+    // editor.DomComponents.addType('Checkdiv', {
+    //   model: {
+    //     defaults: {
+    //       traits: [
+    //         {
+    //           name: 'text',
+      
+    //           label: 'Icon Heading',
+      
+    //           changeProp: 1,
+    //         },
+    //         {
+    //           name: 'textarea',
+      
+    //           label: 'Main Heading',
+      
+    //           changeProp: 1,
+    //         },
+    //         {
+    //           name: 'text',
+      
+    //           label: 'Sub Heading',
+      
+    //           changeProp: 1,
+    //         },
+           
+    //       ],
+    //     },
+    //     init() {
+    //       const comps = this.components();
+    //       console.log('Text comps', comps);
+    //       console.log("comps model",comps.models[0])
+    //       let check = '';
+    //       comps.models.map(el=>{
+    //        const newval = el.attributes.text;
+    //      const text=  this.components(this.get('text'));
+    //        this.set('text', text);
+    //       //  console.log("el",this.get("text"))
+
+    //       })
+    //       console.log("check",check)
+    //       const tChild = comps.length >0 && check;
+    //       //@ts-ignore
+    //       // const chCnt =(tChild && tChild.is('textnode') && tChild.get('content')) || '';
+    //       // console.log("chCnt",chCnt)
+    //       // const text = chCnt || this.get('text');
+    //       console.log("text",this.attributes.components)
+    //       // this.set('text', text);
+    //       //@ts-ignore
+    //       this.on('change:text', this.__onTextChange);
+    //       //@ts-ignore
+    //       // text !== chCnt && this.__onTextChange();
+    //     },
+    //     __onTextChange() {
+    //       this.components(this.get('text'));
+    //     },
+    //     // handleHtmltagChange() {
+    //     //   this.set('tagName', this.getAttributes().htmltag);
+    //     // },
+    //   },
+    // });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //@ts-ignore
     editor.on('style:property:update', (component) => {
@@ -1210,6 +1289,9 @@ add your attachment</span>
     });
 
     editor.on('component:selected', (component) => {
+
+
+       console.log("page selected",component)
       //Styles from theme style
       userData?.defaultStyle?.filteredStyles?.forEach((el) => {
         const { selectors, style } = el;

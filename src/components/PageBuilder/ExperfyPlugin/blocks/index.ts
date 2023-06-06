@@ -70,26 +70,25 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
   `,
     content: ` 
 
-    <div data-gjs-type="headerSector" class="headerSector" id="headerSector" >
-    <div class="header-container headerSector header-main">
-    <div class="header-gym">
+    <div sect="headerSector" >
+    <div sect="headerSector" sectid="header-main" style="margin-left: auto;margin-right: auto;padding: 1.25rem;display: flex;justify-content: space-between;align-items: center;">
+    <div sect="headerSector" style="padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; width: 100%;">
    
-    <a  class="al">
+    <a  sect="headerSector" class="al" style="display: flex;align-items: center;justify-content: center;">
 
-    <img  class="image header-svg headerSector_image" style="width:30%" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" style="width: 100%; height:auto;" id="gjs_img_preview_logo_rtl"/>
+    <img sect="headerSector" sectid="header-svg" style="width:30%" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibm91bi1sb2dvLTIxMjE0MzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMzLjAyMSIgaGVpZ2h0PSIzOC4wNTIiIHZpZXdCb3g9IjAgMCAzMy4wMjEgMzguMDUyIj4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk3IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk3IiBkPSJNMTUyLjA5LDMxLjk1MywxNjguNiw0MS41VjYwLjQ1OUwxNTIuMDksNzBsLTE2LjUxLTkuNTQ1VjQxLjVabTAsNS40MTcsNS45MzMsMy4zNTQsNS45MzMsMy40ODNWNTcuODc5bC01LjkzMywzLjM1NC01LjkzMywzLjQ4My01LjkzMy0zLjQ4My01LjkzMy0zLjM1NFY0NC4yMDZsNS45MzMtMy40ODNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM1LjU4IC0zMS45NTMpIiBmaWxsPSIjNTBhZTgxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4NCiAgPHBhdGggaWQ9IlBhdGhfMTY5ODk4IiBkYXRhLW5hbWU9IlBhdGggMTY5ODk4IiBkPSJNMjIyLjA5MywxMTkuNTI2bDUuMTU5LDIuOTY3LDUuMDMsMi45NjcuMjU4LjEyOXYxMi4yNTRsLS4yNTguMTI5LTUuMDMsMi45NjctNS4xNTksMi45NjctLjEyOS4xMjktLjI1OC0uMTI5LTUuMTU5LTIuOTY3LTUuMDMtMi45NjctLjI1OC0uMTI5VjEyNS41ODhsLjI1OC0uMTI5LDUuMDMtMi45NjcsNS4xNTktMi45NjcuMjU4LS4xMjlabTQuNjQzLDMuNzQxLTQuNzcyLTIuODM4LTkuOCw1LjY3NXYxMS4yMjFsOS44LDUuNjc1LDQuNzcyLTIuODM4LDQuOS0yLjgzOFYxMjYuMVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDUuNDUzIC0xMTIuNjg5KSIgZmlsbD0iIzUwYWU4MSIvPg0KPC9zdmc+DQo=" style="width: 100%; height:auto;" id="gjs_img_preview_logo_rtl"/>
     
-       <span class="header-logo-text header-bg headerSector_text">Logo</span>
+       <span  sect="headerSector" sectid="header-logo-text" style="font-weight: 700;font-size: 28px;margin-left: 0.75rem;font-size: 1.25rem;line-height: 1.75rem;">Logo</span>
     </a>
-    <nav class="header-navabr">
-    <a class="a check-link headerSector_a" >Home</a>
-    <a class="a check-link headerSector_a" >About</a>
-    <a class="a check-link headerSector_a">Services</a>
-    <a class="a check-link headerSector_a">Contact</a></nav>
+    <nav  sect="headerSector" style=" display: flex;">
+    <a  sect="headerSector" sectid= check-link" style="margin: 0px 20px;" >Home</a>
+    <a sect="headerSector"  sectid= check-link" style="margin: 0px 20px;" >About</a>
+    <a sect="headerSector"  sectid= check-link" style="margin: 0px 20px;">Services</a>
+    <a sect="headerSector"  sectid= check-link" style="margin: 0px 20px;">Contact</a></nav>
     </div>
   
     </div>
    </div>
-   ${headerstyle}
 
    `,
   });
@@ -421,7 +420,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
       </h2>
     </div>
     <div sect= "guidelineSector" sectid="guidline-option" data-gjs-type="GuidelineDiv" id="GuidelineDiv" style=" display: flex; padding: 3rem 1.25rem;margin-left: auto;margin-right: auto; align-items: center; ">
-    <div sect= "guidelineSector" style=" padding: 0.75rem; margin: 0.75rem;">
+    <div sect= "guidelineSector" style=" padding: 0.75rem; margin: 0.75rem;" data-gjs-type="Checkdiv">
      
      <h3 sect= "guidelineSector" sectid="guideline-bullet" style="height: 35px; border: 2px solid black; display: flex; width: 40px; justify-content: center;align-items: center;margin-right: 10px;border-radius: 80%;">1</h3>
      <h1 sect= "guidelineSector" sectid="bullet-heading" style="text-align:left;">Add Step Title</h1>

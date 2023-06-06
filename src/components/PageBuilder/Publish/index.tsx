@@ -19,12 +19,11 @@ const Publish = () => {
   //Fetch Page Data
   const fetchData = async () => {
     let response = await fetchHeaderId(name);
-    console.log("publish respnse",response)
     if (response) {
       editor.loadProjectData(JSON.parse(response));
-          //       setTimeout(() => {
-          //   editor.Commands.run('core:preview');
-          // }, 1000);
+                setTimeout(() => {
+            editor.Commands.run('core:preview');
+          }, 1000);
     }
 
   };
