@@ -397,9 +397,10 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
-    editor.on('run:tlb-delete:before', (options) => {
+
+    
+    editor.on('run:core:component-delete:before', options => {
       options.abort = true;
-      // console.log('Prevent `tlb-delete` from execution');
     });
 
     let TextTrait = [

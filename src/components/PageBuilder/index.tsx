@@ -1170,16 +1170,16 @@ add your attachment</span>
         });
       }
 
-      editor.loadProjectData({
-        ...Object.assign(
-          {},
-          { ...editor.getProjectData() },
-          {
-            styles:
-              [...userData.defaultStyle.filteredStyles, ...styleFound] ?? null,
-          }
-        ),
-      });
+      // editor.loadProjectData({
+      //   ...Object.assign(
+      //     {},
+      //     { ...editor.getProjectData() },
+      //     {
+      //       styles:
+      //         [...userData.defaultStyle.filteredStyles, ...styleFound] ?? null,
+      //     }
+      //   ),
+      // });
     });
     editor.on('asset:add', (component) => {
       if (component.attributes.src.includes(serverURL)) {
@@ -1225,10 +1225,11 @@ add your attachment</span>
         let sectid = component.attributes?.attributes?.sectid;
         let sectId = component.attributes.attributes.sect;
         let sectors = editor.StyleManager.getSectors();
+        console.log('sectors selected',sectors)
         sectors.reset();
         sectors.add(getSectors(sectId));
         for (let i = 0; i < sectors.length; i++) {
-          if (sectid.includes(sectors.models[i].get('id'))) {
+          if (sectid?.includes(sectors.models[i].get('id'))) {
             sectors.models[i].setOpen(true);
           } else {
             sectors.models[i].setOpen(false);
@@ -1253,10 +1254,31 @@ add your attachment</span>
       }
     });
 
+
+   
+
     //This is for all section templates Style Manager
 
     editor.on(`block:drag:stop`, (component, block) => {
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+      console.log("Component Dropped")
       console.log('drag stop', component);
+      let sectors = editor.StyleManager.getSectors();
+        console.log(' drop sectors selected',sectors)
       // console.log("onload drop",editor.StyleManager.getBuiltInAll())
 
       let { data, found, filtering } = fetchSectionDetail(block.id);

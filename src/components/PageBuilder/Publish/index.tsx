@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, Component } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useConfig } from 'payload/components/utilities';
@@ -18,34 +18,15 @@ const Publish = () => {
 
   //Fetch Page Data
   const fetchData = async () => {
-    console.log('--------------', name);
-
     let response = await fetchHeaderId(name);
+    console.log("publish respnse",response)
     if (response) {
       editor.loadProjectData(JSON.parse(response));
-                setTimeout(() => {
-            editor.Commands.run('core:preview');
-          }, 1000);
+          //       setTimeout(() => {
+          //   editor.Commands.run('core:preview');
+          // }, 1000);
     }
-    console.log('response', response);
-    // console.log("Publish Param",parem)
-    // axios({
-    //   method: 'get',
-    //   url: `${apiEndpoint}/pages/${id}`,
-    // })
-    //   .then((res) => {
-    //     const { pageCode } = res.data;
 
-    //     if (pageCode) {
-    //       editor.loadProjectData(JSON.parse(pageCode));
-    //       setTimeout(() => {
-    //         editor.Commands.run('core:preview');
-    //       }, 1000);
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log('err', err);
-    //   });
   };
 
   //Initialize Editor
@@ -65,10 +46,12 @@ const Publish = () => {
     editor.on('run:tlb-delete:before', (options) => {
       options.abort = true;
     });
+
+
+
+
     setEditorState(editor);
-    // if (pageTitle) {
-    //   fetchData();
-    // }
+    
   };
 
   useEffect(() => {

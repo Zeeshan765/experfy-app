@@ -1080,6 +1080,8 @@ const obj = {
       open: false,
       id: 'benefits-container',
      buildProps:['background'],
+      
+
       properties: [
         // {
         //   type: 'color',
@@ -1118,6 +1120,7 @@ const obj = {
       name: 'Main Heading',
       open: false,
       id: 'main-benefit-heading',
+      tag :'h1',
       properties: [color, typography],
     },
     {
