@@ -862,6 +862,7 @@ export const practiceStyle = `
  row-gap: 20px;
  padding: 0px 50px;
  text-align: center;
+ min-height: 200px;
 }
  .practice-area-container .box-icon-text-holder{
   height:130px;

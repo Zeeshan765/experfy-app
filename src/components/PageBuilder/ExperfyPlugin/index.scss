@@ -285,7 +285,7 @@ $deviceBackground: #2f3d55;
   height: 12px;
   width: 12px;
   border-radius: 100px;
-  -webkit-appearance: none;
+  // -webkit-appearance: none;
   background: var(--theme-primary) !important;
   border: none;
 }
@@ -882,7 +882,6 @@ $deviceBackground: #2f3d55;
 .gjs-sm-unit option {
   background-color: white;
   color: #444444;
-
 }
 
 .gjs-sm-properties {
@@ -965,10 +964,10 @@ $deviceBackground: #2f3d55;
   }
 }
 
-.gjs-sm-properties{
-  .gjs-sm-property__background{
+.gjs-sm-properties {
+  .gjs-sm-property__background {
     display: block !important;
-    #gjs-sm-add{
+    #gjs-sm-add {
       width: 25px !important;
       height: 25px !important;
       top: 5px !important;
@@ -982,3 +981,12 @@ $deviceBackground: #2f3d55;
 //   width: 20rem !important;
 
 // }
+
+.custom-checkbox {
+  text-align: left;
+  input {
+    appearance: auto !important;
+    width: min-content !important;
+    height: 24px;
+  }
+}

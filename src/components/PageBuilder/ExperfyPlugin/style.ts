@@ -709,6 +709,7 @@ display: flex;
  // column-gap: 20px;
  row-gap: 20px;
  padding: 0px 50px;
+ min-height: 150px;
 }
 .box-icon-text-holder{
   height:130px;

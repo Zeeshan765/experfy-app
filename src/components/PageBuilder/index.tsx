@@ -40,8 +40,6 @@ const PageBuilder: React.FC = () => {
   let isChanged = false;
   let isSave = false;
 
-
-
   let mediaSvg = {
     location: `<svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24"><path id="noun-location-4491946" d="M168.4,30.763a8.653,8.653,0,0,0-6.33-2.469,8.807,8.807,0,0,0-8.484,8.613,8.6,8.6,0,0,0,1.731,5.313c.16.239,4.292,5.985,5.668,7.892a1.577,1.577,0,0,0,1.268.652h.007a1.576,1.576,0,0,0,1.265-.64c.64-.869,5.624-7.683,5.755-7.848l.021-.028h0a8.835,8.835,0,0,0,1.741-5.23,8.658,8.658,0,0,0-2.642-6.256ZM162.317,41.03a3.893,3.893,0,1,1,2.748-1.14A3.888,3.888,0,0,1,162.317,41.03Z" transform="translate(-153.589 -28.289)" /></svg>`,
 
@@ -191,7 +189,7 @@ const PageBuilder: React.FC = () => {
 `,
   };
 
-  let pageTitle = ""
+  let pageTitle = '';
 
   // ======States end=======
   // ======Hooks start=======
@@ -252,8 +250,8 @@ const PageBuilder: React.FC = () => {
           url: `${apiEndpoint}/page-Template/${id}`,
         })
           .then((res) => {
-            console.log("admin",res.data)
-            const { pageCode,title } = res.data;
+            console.log('admin', res.data);
+            const { pageCode, title } = res.data;
             setCurrentPageData(res.data);
             pageTitle = title;
             if (pageCode) {
@@ -270,11 +268,11 @@ const PageBuilder: React.FC = () => {
         })
           .then((res) => {
             // debugger;
-            console.log("response data",res.data)
-            const { pageCode ,title } = res.data;
+            console.log('response data', res.data);
+            const { pageCode, title } = res.data;
             setCurrentPageData(res.data);
             // setPageTitle(title
-            pageTitle = title
+            pageTitle = title;
             if (pageCode) {
               editor.loadProjectData(JSON.parse(pageCode));
             }
@@ -414,16 +412,13 @@ const PageBuilder: React.FC = () => {
   const handlePublish = () => {
     const newEndPoint = `${serverURL}`;
     const url = `${newEndPoint}${admin}/publish/${pageTitle}`;
-    console.log("publish url",url)
+    console.log('publish url', url);
     window.open(url, '_blank');
   };
 
   // ======= Methods end =======
 
-  
-
-
-  const updateHeaderBlock = async () => { 
+  const updateHeaderBlock = async () => {
     axios
       .get(`${serverURL}/api/mega-menu`)
       .then((response) => {
@@ -438,25 +433,21 @@ const PageBuilder: React.FC = () => {
           const { nav } = headerLinks;
           let linksDiv = '';
 
-        
-          nav.map((navItem: { link: { label: any; url: any; type:any; } }) => {
-            const { label, url , type} = navItem.link;
+          nav.map((navItem: { link: { label: any; url: any; type: any } }) => {
+            const { label, url, type } = navItem.link;
 
             console.log('navItem', navItem);
-            let href='';
-            if(type =="custom"){
+            let href = '';
+            if (type == 'custom') {
               href = `https://${url}`;
               console.log('custom href', href);
               return (linksDiv += `<a href="${href}" sect="headerSector" sectid="check-link" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px;">${label}</a>`);
             }
-            if (type == "page"){
-              href =`${serverURL}${admin}/publish/${label}`;
+            if (type == 'page') {
+              href = `${serverURL}${admin}/publish/${label}`;
               console.log('Page href', href);
               return (linksDiv += `<a href="${href}" sect="headerSector" sectid="check-link" class="mr-5 hover:text-gray-900" style="font-size: 22px; margin: 0px 20px;">${label}</a>`);
             }
-            
-          
-            
           });
 
           let content = `
@@ -493,19 +484,6 @@ const PageBuilder: React.FC = () => {
         console.error(error);
       });
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   //======== GrapesJs Canvas initialization start here========
   const initializeInstance = () => {
@@ -679,31 +657,6 @@ const PageBuilder: React.FC = () => {
         label: 'Button Text',
         changeProp: 1,
       },
-      // {
-      //   type: 'select',
-      //   name: 'class',
-      //   label: 'Button Size',
-      //   // default: 'small',
-      //   options: [
-      //     { value: 'btn-extrasmall', name: 'Extra Small' },
-
-      //     { value: 'btn-small', name: 'small' },
-      //     { value: 'btn-medium', name: 'Medium' },
-      //     { value: 'btn-large', name: 'Large' },
-      //     { value: 'btn-extralarge', name: 'Extra Large' },
-      //   ],
-      // },
-      // {
-      //   type: 'select',
-      //   name: 'class',
-      //   label: 'Button Alignment',
-      //   // default: 'btn-start',
-      //   options: [
-      //     { value: 'btn-start', name: 'Left' },
-      //     { value: 'btn-center', name: 'Center' },
-      //     { value: 'btn-right', name: 'Right' },
-      //   ],
-      // },
     ];
     editor.DomComponents.addType('text', {
       model: {
@@ -1037,7 +990,125 @@ add your attachment</span>
           }
         }
       },
-     
+    });
+
+    const CheckedBox = (props) => {
+      console.log('props', props);
+      const { target } = props;
+      console.log('target', target);
+      const { checked, name, defaultValue } = target;
+      const component = editor.getSelected();
+      console.log('checked', component);
+      //@ts-ignore
+      if (checked) {
+        if (component.attributes?.type == 'PracticeDiv') {
+          component.append(` <div data-gjs-type='${name}' class='box-icon-text-holder'>
+            <div class='box-icon-div'>
+             <img src='' />
+            </div>
+            <div class='box-text-div'>
+              <p>${name}</p>
+            </div>
+          </div>  `);
+        }
+      } else {
+        let { id } = target;
+        id = id.replace('-', ' ');
+        let index = component.getTraitIndex(id);
+        let trait = component.getTrait(id);
+        console.log('trait', trait);
+        console.log('index', index);
+        console.log('component.getChildAt(index)', component.getChildAt(index));
+        if (index > 0) {
+          component.getChildAt(index).remove();
+        } else {
+          component.getChildAt(1).remove();
+        }
+        // component.findType(defaultValue)?.remove()
+      }
+    };
+
+    let dataArray = [
+      {
+        name: 'AI & Machine Learning',
+        type: 'AI-ML',
+      },
+      {
+        name: 'Big Data',
+        type: 'Big-Data',
+      },
+      {
+        name: 'Cloud Computing',
+        type: 'Cloud-Computing',
+      },
+      {
+        name: 'DevOps',
+        type: 'DevOps',
+      },
+      {
+        name: 'Business Intelligence',
+        type: 'Business-Intelligence',
+      },
+      {
+        name: 'Software/Web Development',
+        type: 'Software-Web-Development',
+      },
+      {
+        name: 'QA',
+        type: 'QA',
+      },
+      {
+        name: 'UX/UI Design',
+        type: 'UX-UI-Design',
+      },
+      {
+        name: 'Mobile',
+        type: 'Mobile',
+      },
+      {
+        name: 'Marketing',
+        type: 'Marketing',
+      },
+      {
+        name: 'Internet of Things',
+        type: 'Internet-of-Things',
+      },
+      {
+        name: 'BlockChain',
+        type: 'BlockChain',
+      },
+      {
+        name: 'Robotics Process Automation',
+        type: 'Robotics-Process-Automation',
+      },
+      {
+        name: 'Cyber Security',
+        type: 'Cyber-Security',
+      },
+    ];
+
+    dataArray.forEach((item, i) => {
+      const { name, type } = item;
+      return editor.TraitManager.addType(type, {
+        noLabel: true,
+        createInput({}) {
+          const el = document.createElement('div');
+          el.className = 'custom-checkbox';
+          el.innerHTML = `<input type="checkbox" id="${type}" name="${type}" value="${type}">
+          <label for="${type}"> ${name}</label>`;
+          const inputType = el.querySelector(`#${type}`);
+          inputType!.addEventListener('change', CheckedBox);
+          return el;
+        },
+      });
+    });
+    //Guideline Div Trait
+    editor.DomComponents.addType('PracticeDiv', {
+      model: {
+        defaults: {
+          traits: dataArray,
+        },
+      },
     });
 
     //Guideline Div Trait
@@ -1102,36 +1173,32 @@ add your attachment</span>
       },
     });
 
-    
-
-
-
     // editor.DomComponents.addType('Checkdiv', {
     //   model: {
     //     defaults: {
     //       traits: [
     //         {
     //           name: 'text',
-      
+
     //           label: 'Icon Heading',
-      
+
     //           changeProp: 1,
     //         },
     //         {
     //           name: 'textarea',
-      
+
     //           label: 'Main Heading',
-      
+
     //           changeProp: 1,
     //         },
     //         {
     //           name: 'text',
-      
+
     //           label: 'Sub Heading',
-      
+
     //           changeProp: 1,
     //         },
-           
+
     //       ],
     //     },
     //     init() {
@@ -1167,19 +1234,6 @@ add your attachment</span>
     //     // },
     //   },
     // });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //@ts-ignore
     editor.on('style:property:update', (component) => {
@@ -1284,9 +1338,7 @@ add your attachment</span>
     });
 
     editor.on('component:selected', (component) => {
-
-
-       console.log("page selected",component)
+      console.log('page selected', component);
       //Styles from theme style
       userData?.defaultStyle?.filteredStyles?.forEach((el) => {
         const { selectors, style } = el;
@@ -1302,7 +1354,7 @@ add your attachment</span>
         let sectid = component.attributes?.attributes?.sectid;
         let sectId = component.attributes.attributes.sect;
         let sectors = editor.StyleManager.getSectors();
-        console.log('sectors selected',sectors)
+        console.log('sectors selected', sectors);
         sectors.reset();
         sectors.add(getSectors(sectId));
         for (let i = 0; i < sectors.length; i++) {
@@ -1331,31 +1383,13 @@ add your attachment</span>
       }
     });
 
-
-   
-
     //This is for all section templates Style Manager
 
     editor.on(`block:drag:stop`, (component, block) => {
-
-
-
-     
-
-
-
-
-
-
-
-
-
-
-
-      console.log("Component Dropped")
+      console.log('Component Dropped');
       console.log('drag stop', component);
       let sectors = editor.StyleManager.getSectors();
-        console.log(' drop sectors selected',sectors)
+      console.log(' drop sectors selected', sectors);
       // console.log("onload drop",editor.StyleManager.getBuiltInAll())
 
       let { data, found, filtering } = fetchSectionDetail(block.id);
@@ -1389,7 +1423,6 @@ add your attachment</span>
 
     // @ts-ignore
     editor.on('style:sector:update', (props) => {
-
       !isUpdating &&
         setTimeout(() => {
           const sectors = editor.StyleManager.getSectors();
@@ -1403,7 +1436,6 @@ add your attachment</span>
 
               if (isOpen) {
                 // const wrapperCmp = editor.DomComponents.getWrapper();
-
                 // editor.select(wrapperCmp.find(`.${props.id}`)[0]);
               }
             } else {

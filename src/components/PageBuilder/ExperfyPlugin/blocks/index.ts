@@ -362,7 +362,7 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
 
     
  
-    <div class="practice-area-container">
+    <div class="practice-area-container" data-gjs-type="PracticeDiv">
     ${practiceAreaData()}
     
  
