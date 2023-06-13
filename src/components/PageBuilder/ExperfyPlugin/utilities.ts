@@ -139,11 +139,11 @@ export const practiceAreaData = () => {
     const { name, type } = item;
 
     htmlData += `
-        <div data-gjs-type=${type} class='box-icon-text-holder'>
-          <div class='box-icon-div'>
+        <div data-gjs-type=${type} style=" height:130px;width:130px;margin: auto;padding: 15px;text-align: center;border-radius: 0.25rem;border: 1px solid #D1DBE3;background-color: #fff;box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;" class='box-icon-text-holder'>
+          <div style=" justify-content: center;display:flex;align-items:center;width:45px; height:45px;margin:auto" class='box-icon-div'>
            <img src='' />
           </div>
-          <div class='box-text-div'>
+          <div style="color:#101010;font-weight:600;font-size:14px;"class='box-text-div'>
             <p>${name}</p>
           </div>
         </div>`;

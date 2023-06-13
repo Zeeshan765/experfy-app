@@ -1442,77 +1442,7 @@ const obj = {
       name: 'Background',
       open: false,
       id: 'para-div',
-      properties: [
-        backgroundColor,
-        {
-          type: 'image',
-          name: 'Background Image',
-          property: 'background-image',
-          attributes: {
-            'data-type': 'background-image',
-            'data-attribute': 'background-image',
-          },
-        },
-        {
-          type: 'select',
-          name: 'Background Repeat',
-          property: 'background-repeat',
-          default: 'no-repeat',
-          options: [
-            { value: 'no-repeat', name: 'No Repeat' },
-            { value: 'repeat', name: 'Repeat' },
-            { value: 'repeat-x', name: 'Repeat Horizontally' },
-            { value: 'repeat-y', name: 'Repeat Vertically' },
-          ],
-        },
-        {
-          type: 'select',
-          name: 'Background Size',
-          property: 'background-size',
-          default: 'cover',
-          options: [
-            { value: 'cover', name: 'Cover' },
-            { value: 'contain', name: 'Contain' },
-            { value: 'auto', name: 'Auto' },
-          ],
-        },
-        {
-          type: 'radio',
-          name: 'Background Position',
-          property: 'background-position',
-          default: 'center center',
-          options: [
-            { value: 'left top', name: `&#8662;` },
-            { value: 'left bottom', name: `&#8665;` },
-            { value: 'center top', name: `&#8657;` },
-            { value: 'center center', name: `&#10560;` },
-            { value: 'center bottom', name: `&#8659;` },
-            { value: 'right top', name: `&#8663;` },
-            { value: 'right center', name: `&#8667;` },
-            { value: 'right bottom', name: `&#8664;` },
-          ],
-        },
-        {
-          type: 'select',
-          name: 'Background Attachment',
-          property: 'background-attachment',
-          default: 'scroll',
-          options: [
-            { value: 'scroll', name: 'Scroll' },
-            { value: 'fixed', name: 'Fixed' },
-          ],
-        },
-        {
-          type: 'slider',
-          name: 'Background Opacity',
-          property: 'background-opacity',
-          default: 100,
-          step: 1,
-          max: 100,
-          min: 0,
-          unit: '%',
-        },
-      ],
+      buildprops:'background'
     },
     {
       name: 'Section Heading',
@@ -1623,31 +1553,31 @@ const obj = {
         },
       ],
     },
-    {
-      name: 'Title',
-      open: false,
-      properties: [color, typography, HtmlTag],
-    },
+    // {
+    //   name: 'Title',
+    //   open: false,
+    //   properties: [color, typography, HtmlTag],
+    // },
 
-    {
-      name: 'Descriptive Text',
-      open: false,
-      properties: [color, typography, HtmlTag],
-    },
+    // {
+    //   name: 'Descriptive Text',
+    //   open: false,
+    //   properties: [color, typography, HtmlTag],
+    // },
 
-    {
-      name: 'Border',
-      open: false,
-      buildProps: ['border-radius', 'border-color', 'border-style', 'padding'],
-      properties: [
-        {
-          type: 'composite',
-          name: 'Border Width',
-          property: 'border-width',
-          properties: widthOptions,
-        },
-      ],
-    },
+    // {
+    //   name: 'Border',
+    //   open: false,
+    //   buildProps: ['border-radius', 'border-color', 'border-style', 'padding'],
+    //   properties: [
+    //     {
+    //       type: 'composite',
+    //       name: 'Border Width',
+    //       property: 'border-width',
+    //       properties: widthOptions,
+    //     },
+    //   ],
+    // },
   ],
   videoSector: [
     {

@@ -355,22 +355,21 @@ export default (editor: grapesjs.Editor, opts: RequiredPluginOptions) => {
     </g>
   </svg>
   `,
-    content: `<section id="practiceAreaSector" class=" para-div practiceAreaSector">
+    content: `<section sect="practiceAreaSector">
   
-
-    <h1 class="h1 main-practice-heading"> Practice Areas</h1>
+<div  sect="practiceAreaSector" sectid="para-div" >
+    <h1 sect="practiceAreaSector" sectid="main-practice-heading"> Practice Areas</h1>
 
     
  
-    <div class="practice-area-container" data-gjs-type="PracticeDiv">
+    <div sect="practiceAreaSector" style=" display: grid;grid-template-columns: repeat(7, 1fr);row-gap: 20px; padding: 0px 50px; min-height: 150px;" class="practice-area-container" data-gjs-type="PracticeDiv">
     ${practiceAreaData()}
     
  
     </div>
     </div>
+    </div>
  </section>
-  ${practiceStyle}
-  ${getStyles(['.box-text-div'])}
  `,
   });
   addBlock('video', {

@@ -1002,27 +1002,29 @@ add your attachment</span>
       //@ts-ignore
       if (checked) {
         if (component.attributes?.type == 'PracticeDiv') {
-          component.append(` <div data-gjs-type='${name}' class='box-icon-text-holder'>
-            <div class='box-icon-div'>
+          component.append(`
+          <div data-gjs-type=${name} style=" height:130px;width:130px;margin: auto;padding: 15px;text-align: center;border-radius: 0.25rem;border: 1px solid #D1DBE3;background-color: #fff;box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;" class='box-icon-text-holder'>
+            <div style=" justify-content: center;display:flex;align-items:center;width:45px; height:45px;margin:auto" class='box-icon-div'>
              <img src='' />
             </div>
-            <div class='box-text-div'>
+            <div style="color:#101010;font-weight:600;font-size:14px;"class='box-text-div'>
               <p>${name}</p>
             </div>
-          </div>  `);
+          </div>`);
         }
       } else {
         let { id } = target;
         id = id.replace('-', ' ');
         let index = component.getTraitIndex(id);
         let trait = component.getTrait(id);
+     
         console.log('trait', trait);
         console.log('index', index);
         console.log('component.getChildAt(index)', component.getChildAt(index));
         if (index > 0) {
           component.getChildAt(index).remove();
         } else {
-          component.getChildAt(1).remove();
+          component.getChildAt(0).remove();
         }
         // component.findType(defaultValue)?.remove()
       }
@@ -1379,6 +1381,9 @@ add your attachment</span>
         editor?.runCommand('core:open-traits');
       }
       if (component.get('type') == 'Departmentdiv') {
+        editor?.runCommand('core:open-traits');
+      }
+      if (component.get('type') == 'PracticeDiv') {
         editor?.runCommand('core:open-traits');
       }
     });
