@@ -1037,12 +1037,7 @@ add your attachment</span>
           }
         }
       },
-      // view: defaultView.extend({
-      //   init({ model }) {
-      //     this.listenTo(model, "change:dynamicProgress", this.updateScript);
-      //     this.listenTo(model, "change:progressType", this.updateScript);
-      //   },
-      // }),
+     
     });
 
     //Guideline Div Trait
@@ -1393,34 +1388,34 @@ add your attachment</span>
     //@ts-ignore
 
     // @ts-ignore
-    // editor.on('style:sector:update', (props) => {
+    editor.on('style:sector:update', (props) => {
 
-    //   !isUpdating &&
-    //     setTimeout(() => {
-    //       const sectors = editor.StyleManager.getSectors();
-    //       var selectedBlock = editor.getSelected();
-    //       isUpdating = true;
-    //       for (let i = 0; i < sectors.length; i++) {
-    //         const modelId = sectors.models[i].get('id');
+      !isUpdating &&
+        setTimeout(() => {
+          const sectors = editor.StyleManager.getSectors();
+          var selectedBlock = editor.getSelected();
+          isUpdating = true;
+          for (let i = 0; i < sectors.length; i++) {
+            const modelId = sectors.models[i].get('id');
 
-    //         if (modelId == props.id) {
-    //           let isOpen = sectors.models[i].isOpen();
+            if (modelId == props.id) {
+              let isOpen = sectors.models[i].isOpen();
 
-    //           if (isOpen) {
-    //             // const wrapperCmp = editor.DomComponents.getWrapper();
+              if (isOpen) {
+                // const wrapperCmp = editor.DomComponents.getWrapper();
 
-    //             // editor.select(wrapperCmp.find(`.${props.id}`)[0]);
-    //           }
-    //         } else {
-    //           sectors.models[i].setOpen(false);
-    //         }
-    //       }
+                // editor.select(wrapperCmp.find(`.${props.id}`)[0]);
+              }
+            } else {
+              sectors.models[i].setOpen(false);
+            }
+          }
 
-    //       setTimeout(() => {
-    //         isUpdating = false;
-    //       }, 300);
-    //     }, 100);
-    // });
+          setTimeout(() => {
+            isUpdating = false;
+          }, 300);
+        }, 100);
+    });
     // @ts-ignore
     // editor.on('style:target', (component) => {
     //   console.log('style sector called', component);

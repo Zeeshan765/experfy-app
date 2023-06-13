@@ -667,12 +667,7 @@ export const headerstyle = `
 <style>
 
 .header-container {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-left: auto;margin-right: auto;padding: 1.25rem;display: flex;justify-content: space-between;align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -684,20 +679,14 @@ export const headerstyle = `
 .header-gym{
 
 
-  padding:1.5rem 2rem; 
-  display:flex; 
-  justify-content:space-between;
-   align-items:center;
-   width: 100%;
+  padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; width: 100%;
 }
 @media (min-width: 768px) {
   .header-gym {
   }
 }
 .header-container a {
-display: flex;
-align-items: center;
-justify-content: center;
+  display: flex;align-items: center;justify-content: center;
 }
 .logo-link {
   display: flex;
@@ -705,11 +694,7 @@ justify-content: center;
 }
 
 .header-logo-text {
-  font-weight: 700;
-  font-size: 28px;
-  margin-left: 0.75rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+  font-weight: 700;font-size: 28px;margin-left: 0.75rem;font-size: 1.25rem;line-height: 1.75rem;
 }
 
 @media (min-width: 768px) {
