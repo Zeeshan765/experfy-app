@@ -1104,7 +1104,7 @@ add your attachment</span>
         },
       });
     });
-    //Guideline Div Trait
+    //Practi ce Area Div Trait
     editor.DomComponents.addType('PracticeDiv', {
       model: {
         defaults: {
