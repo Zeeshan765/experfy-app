@@ -117,7 +117,7 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
   if (opts.showElements) {
     console.log('inside opts.showElements', opts.showElements);
 
-    // Panels.removeButton('panel__switcher', openTraits);
+    Panels.removeButton('panel__switcher', openTraits);
     // Panels.removeButton('panel__switcher', openStyles);
     Panels.removeButton('panel__switcher', openLayers);
     Panels.removeButton('panel__switcher', openBlocks);
@@ -126,8 +126,12 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
     Panels.removeButton('panel-top', 'device-desktop');
     Panels.removeButton('panel-top', 'history');
     Panels.removeButton('panel-top', 'publish');
-    // Panels.removeButton('panel-top', 'preview');
+    Panels.removeButton('panel-top', 'preview');
   } 
+  else{
+    Panels.removeButton('panel__switcher', openTraits);
+
+  }
 
   const openSmBtn = Panels.getButton('panel__switcher', openStyles);
   const openLayersBtn = Panels.getButton('panel__switcher', openLayers);
