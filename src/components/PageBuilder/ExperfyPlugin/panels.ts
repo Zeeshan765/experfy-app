@@ -128,10 +128,10 @@ export default (editor: GrapesJS.Editor, opts: RequiredPluginOptions) => {
     Panels.removeButton('panel-top', 'publish');
     Panels.removeButton('panel-top', 'preview');
   } 
-  else{
-    Panels.removeButton('panel__switcher', openTraits);
+  // else{
+  //   Panels.removeButton('panel__switcher', openTraits);
 
-  }
+  // }
 
   const openSmBtn = Panels.getButton('panel__switcher', openStyles);
   const openLayersBtn = Panels.getButton('panel__switcher', openLayers);

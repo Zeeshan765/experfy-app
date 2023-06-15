@@ -5,10 +5,6 @@ const ThemeCollection: CollectionConfig = {
     singular: 'Theme Style',
     plural: 'Theme Styles',
   },
-  access: {
-    read: () => true,
-    create: () => false,
-  },
   slug: 'themes-style',
   admin: {
     group: 'Global Theme Settings',
@@ -18,7 +14,35 @@ const ThemeCollection: CollectionConfig = {
       },
     },
   },
-  fields: [],
+  endpoints: [
+    {
+      path: "/",
+      method: "get",
+      handler: async (req, res, next) => {
+        const { user } = req;
+        const result = await req.payload.find({
+          collection: "themes-style",
+          limit: 0,
+          depth: 0,
+          where: {
+            user: { equals: user.id },
+          },
+        });
+        res.send(result);
+      }
+    }
+  ],
+  access: {
+    read: () => true,
+    create: () => false,
+  },
+ 
+  fields: [
+    {
+      name: 'user',
+      type: 'text',
+    },
+  ],
 };
 
 export default ThemeCollection;

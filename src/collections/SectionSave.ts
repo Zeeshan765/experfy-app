@@ -4,7 +4,24 @@ import { CollectionConfig } from 'payload/types';
 export const SectionSaveCollection: CollectionConfig = {
   slug: 'section-save',
 
- 
+  endpoints: [
+    {
+      path: "/",
+      method: "get",
+      handler: async (req, res, next) => {
+        const { user } = req;
+        const result = await req.payload.find({
+          collection: "section-save",
+          limit: 0,
+          depth: 0,
+          where: {
+            user: { equals: user?.id },
+          },
+        });
+        res.send(result);
+      }
+    }
+  ],
   
 
   access: {
@@ -14,6 +31,10 @@ export const SectionSaveCollection: CollectionConfig = {
     delete: (): boolean => true,
   },
   fields: [
+    {
+      name: 'user',
+      type: 'text',
+    },
     {
       name: 'sectionTitle',
       label: 'Section Title',

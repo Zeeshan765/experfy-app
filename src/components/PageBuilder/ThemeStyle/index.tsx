@@ -222,7 +222,7 @@ console.log("editor.getProjectData().styles",editor.getProjectData().styles)
       });
       toast.success('Theme Style Saved');
       const { doc } = res.data;
-      setUserData({ ...userData, ...doc });
+      setUserData({ ...userData, ...doc, user: user.id  });
     } catch (error) {
       console.error(error);
       return error;

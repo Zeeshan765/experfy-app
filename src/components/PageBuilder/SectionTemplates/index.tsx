@@ -8,7 +8,7 @@ import Experfy from '../ExperfyPlugin';
 import { getSectors } from '../ExperfyPlugin/blocks/getSectors';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useConfig } from 'payload/components/utilities';
+import { useAuth, useConfig } from 'payload/components/utilities';
 import { UserContext } from '../../../Providers/UserProvider';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
@@ -35,6 +35,7 @@ const SectionPageBuilder: React.FC = () => {
   const [filtered, setFiltered] = useState('');
   const [modelIsOPen, setModelIsOPen] = useState(false);
   const [name, setName] = useState('');
+  const { user } = useAuth();
 
   // let sectionData = {
   //   isUpdate: false,
@@ -173,6 +174,7 @@ const SectionPageBuilder: React.FC = () => {
     if (window?.sectionData?.isUpdate) {
       axios
         .patch(`${apiEndpoint}/section-save/${window?.sectionData?.id}`, {
+          user:user.id,
           sectionTitle: str,
           category: sectcatgy,
           sectionCode: JSON.stringify(editor.getProjectData()),
@@ -187,6 +189,7 @@ const SectionPageBuilder: React.FC = () => {
     } else {
       axios
         .post(`${apiEndpoint}/section-save`, {
+          user:user.id,
           sectionTitle: str,
           category: sectcatgy,
           sectionCode: JSON.stringify(editor.getProjectData()),

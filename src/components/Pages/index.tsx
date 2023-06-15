@@ -4,7 +4,7 @@ import FormSelect from '../../blocks/FormSelect';
 import TextInput from '../../blocks/TextInput';
 import PageTheme from '../PageBuilderTemplate';
 import { Context } from '../../Providers/MyProvider';
-import { useConfig } from 'payload/components/utilities';
+import { useAuth, useConfig } from 'payload/components/utilities';
 import { Form } from 'payload/components/forms';
 import { toast } from 'react-toastify';
 import { Route, useHistory, useParams } from 'react-router-dom';
@@ -24,11 +24,11 @@ const Pages = () => {
   const [pageData, setPageData] = useState({ pageType: '' });
   const [open, setOpen] = React.useState(false);
   const {
-    admin: { user: userSlug },
     collections,
     serverURL,
     routes: { admin, api },
   } = useConfig();
+  const { user } = useAuth();
 
   const From_scratch = 'From_scratch';
   const Template = 'Template';
@@ -78,7 +78,7 @@ const Pages = () => {
     axios({
       method: 'post',
       url: `${serverURL}${api}/pages`,
-      data: pageData,
+      data: { ...pageData, user: user.id },
     })
       .then((res) => {
         const { doc, message } = res.data;
@@ -145,20 +145,21 @@ const Pages = () => {
     if (id) {
       getSinglePage();
     }
-    if (selectedPageCode && pageData?.pageType === Template){
-      setPageData((pre) => ({ ...pre, pageCode: selectedPageCode }));}
+    if (selectedPageCode && pageData?.pageType === Template) {
+      setPageData((pre) => ({ ...pre, pageCode: selectedPageCode }));
+    }
   }, [selectedPageCode, id]);
   return (
     <Dialog
       open={open}
       onClose={handleClose}
-      aria-labelledby='customized-dialog-title'
-      maxWidth='md'
+      aria-labelledby="customized-dialog-title"
+      maxWidth="md"
       fullWidth={true}
       sx={{ boxShadow: 1 }}
     >
       {' '}
-      <DialogTitle className='model-title'>
+      <DialogTitle className="model-title">
         <div
           style={{
             display: 'flex',
@@ -167,7 +168,7 @@ const Pages = () => {
             width: '100%',
           }}
         >
-          <span className='page-title'>
+          <span className="page-title">
             {' '}
             {id ? 'Update Page' : 'Create New Page'}{' '}
           </span>
@@ -176,22 +177,22 @@ const Pages = () => {
           </a>
         </div>
       </DialogTitle>
-      <div className='model-body'>
+      <div className="model-body">
         <Form onSubmit={() => (id ? updatePage() : createPage())}>
           <div style={{ marginBottom: '1rem' }}>
             <TextInput
               label={'*Page Name'}
               onChange={handelChange}
               value={pageData['title']}
-              name='title'
-              className='page-name'
+              name="title"
+              className="page-name"
             />
           </div>
-          <span className='select-radio-title'>*Choose the page type</span>
-          <span className='page-radio-selection'>
+          <span className="select-radio-title">*Choose the page type</span>
+          <span className="page-radio-selection">
             <input
-              type='radio'
-              name='pageType'
+              type="radio"
+              name="pageType"
               disabled={id}
               checked={pageData['pageType'] === Template}
               value={Template}
@@ -199,10 +200,10 @@ const Pages = () => {
             />
             &nbsp;&nbsp; Create Page from Template
           </span>
-          <span className='page-radio-selection'>
+          <span className="page-radio-selection">
             <input
-              type='radio'
-              name='pageType'
+              type="radio"
+              name="pageType"
               disabled={id}
               checked={pageData['pageType'] === From_scratch}
               value={From_scratch}
@@ -213,7 +214,7 @@ const Pages = () => {
 
           {!id && pageData?.pageType === Template && (
             <>
-              <PageTheme fromScratch='fromScratch' />
+              <PageTheme fromScratch="fromScratch" />
             </>
           )}
           <div
@@ -225,15 +226,15 @@ const Pages = () => {
               marginTop: '2rem',
             }}
           >
-            <button type='submit' className='submit-btn'>
+            <button type="submit" className="submit-btn">
               {id ? 'Update' : 'Create Page'}
             </button>
             {id && (
               <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <button className='edit-btn' onClick={handleEditPage}>
+                <button className="edit-btn" onClick={handleEditPage}>
                   <OpenInNewIcon style={{ fontSize: '2rem' }} />
                 </button>
-                <button className='delete-btn' onClick={deletePage}>
+                <button className="delete-btn" onClick={deletePage}>
                   <DeleteOutlineTwoToneIcon style={{ fontSize: '2rem' }} />
                 </button>
               </div>
