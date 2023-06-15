@@ -1004,7 +1004,7 @@ add your attachment</span>
         if (component.attributes?.type == 'PracticeDiv') {
           component.append(`
           <div data-gjs-type=${name} style=" height:130px;width:130px;margin: auto;padding: 15px;text-align: center;border-radius: 0.25rem;border: 1px solid #D1DBE3;background-color: #fff;box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;" class='box-icon-text-holder'>
-            <div style=" justify-content: center;display:flex;align-items:center;width:45px; height:45px;margin:auto" class='box-icon-div'>
+            <div style=" justify-content: center;display:flex;align-items:center; height:65px;margin:auto" class='box-icon-div'>
              <img src='' />
             </div>
             <div style="color:#101010;font-weight:600;font-size:14px;"class='box-text-div'>
@@ -1013,26 +1013,38 @@ add your attachment</span>
           </div>`);
         }
       } else {
+        var wrapper = editor.DomComponents.getWrapper();
+        console.log('wrapper', wrapper);
         let { id } = target;
-        id = id.replace('-', ' ');
+        // id = id.replace('-', ' ');
         let index = component.getTraitIndex(id);
-        let trait = component.getTrait(id);
-     
+        let trait = component.getTrait(id.replace('-', ' '));
+        let cmp = wrapper.find(`[data-gjs-type=${id}]`);
+        console.log('cmp', cmp);
+        if (cmp.length > 0) {
+          let removed = cmp[0]?.remove();
+          console.log('removed', removed);
+        }
+        // wrapper.set('style', { 'background-color': 'red' });
+        // wrapper.set('attributes', { title: 'Hello!' });
+
         console.log('trait', trait);
         console.log('index', index);
         console.log('component.getChildAt(index)', component.getChildAt(index));
         if (index > 0) {
-          component.getChildAt(index).remove();
-        } else {
-          component.getChildAt(0).remove();
+          component.getChildAt(index + 1).remove();
         }
+        // else {
+        //   index = index > 0 ? index+1 : 0;
+        //   component.getChildAt(index).remove();
+        // }
         // component.findType(defaultValue)?.remove()
       }
     };
 
     let dataArray = [
       {
-        name: 'AI & Machine Learning',
+        name: 'AI ML',
         type: 'AI-ML',
       },
       {
@@ -1052,7 +1064,7 @@ add your attachment</span>
         type: 'Business-Intelligence',
       },
       {
-        name: 'Software/Web Development',
+        name: 'Software Web Development',
         type: 'Software-Web-Development',
       },
       {
@@ -1060,7 +1072,7 @@ add your attachment</span>
         type: 'QA',
       },
       {
-        name: 'UX/UI Design',
+        name: 'UX UI Design',
         type: 'UX-UI-Design',
       },
       {

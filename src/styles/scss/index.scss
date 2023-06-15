@@ -777,3 +777,12 @@ div.react-select {
     display: none !important;
   }
 }
+
+
+.box-icon-div {
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+}
