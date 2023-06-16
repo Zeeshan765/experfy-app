@@ -174,7 +174,7 @@ const SectionPageBuilder: React.FC = () => {
     if (window?.sectionData?.isUpdate) {
       axios
         .patch(`${apiEndpoint}/section-save/${window?.sectionData?.id}`, {
-          user:user.id,
+          user: user.id,
           sectionTitle: str,
           category: sectcatgy,
           sectionCode: JSON.stringify(editor.getProjectData()),
@@ -189,7 +189,7 @@ const SectionPageBuilder: React.FC = () => {
     } else {
       axios
         .post(`${apiEndpoint}/section-save`, {
-          user:user.id,
+          user: user.id,
           sectionTitle: str,
           category: sectcatgy,
           sectionCode: JSON.stringify(editor.getProjectData()),
@@ -400,9 +400,7 @@ const SectionPageBuilder: React.FC = () => {
       }
     });
 
-
-    
-    editor.on('run:core:component-delete:before', options => {
+    editor.on('run:core:component-delete:before', (options) => {
       options.abort = true;
     });
 
@@ -504,7 +502,7 @@ const SectionPageBuilder: React.FC = () => {
         },
         init() {
           const comps = this.components();
-          console.log("comps",comps)
+          console.log('comps', comps);
 
           const tChild = comps.length === 1 && comps.models[0];
           // console.log('Old tChild', tChild);
@@ -836,16 +834,6 @@ const SectionPageBuilder: React.FC = () => {
       },
     });
 
-
-
-
-
-
-
-
-
-
-
     const CheckedBox = (props) => {
       console.log('props', props);
       const { target } = props;
@@ -871,7 +859,7 @@ const SectionPageBuilder: React.FC = () => {
         id = id.replace('-', ' ');
         let index = component.getTraitIndex(id);
         let trait = component.getTrait(id);
-     
+
         console.log('trait', trait);
         console.log('index', index);
         console.log('component.getChildAt(index)', component.getChildAt(index));
@@ -1044,28 +1032,55 @@ const SectionPageBuilder: React.FC = () => {
     // });
 
     editor.on('component:selected', (component) => {
-      //Styles from theme style
-      userData?.defaultStyle?.filteredStyles?.forEach((el) => {
-        const { selectors, style } = el;
-
-        let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
-
-        editor.CssComposer.setRule(element, { ...style });
+      console.log('filteredStyles', userData?.defaultStyle?.filteredStyles);
+      let stylesArray = userData?.defaultStyle?.filteredStyles || [];
+      const { attributes } = component;
+      let isFound = stylesArray.filter((el) => {
+        console.log('el', el);
+        const { selectors } = el;
+        let tag = attributes?.tagName || '';
+        console.log('tag', tag);
+        return selectors.includes(tag);
       });
+      console.log('isFound', isFound);
+      if (isFound.length > 0) {
+        const { style } = isFound[0];
+        // editor.DomComponents.
+
+        var wrapper = editor.DomComponents.getWrapper();
+        console.log('wrapper', wrapper);
+        let cmp = wrapper.find(`[id=${component.ccid}]`)[0].setStyle(style);
+        console.log('cmp', cmp)
+
+        const wrapperCmp = editor.DomComponents.getWrapper();
+        let target = `#${component.ccid}`;
+        let found = wrapperCmp.find(target)
+        console.log('found', found)
+        editor.select(wrapperCmp.find(target)[0]);
+      }
+      console.log('section selected', component);
+      //Styles from theme style
+      // userData?.defaultStyle?.filteredStyles?.forEach((el) => {
+      //   const { selectors, style } = el;
+
+      //   let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
+
+      //   editor.CssComposer.setRule(element, { ...style });
+      // });
 
       //For Section Sector and Style
       if (component) {
         //single sector
         let sectid = component.attributes?.attributes?.sectid;
-        console.log('sectid', sectid);
+        // console.log('sectid', sectid);
         //ccid
         let sectId = component.attributes.attributes.sect;
-        console.log('selected sectId', sectId);
+        // console.log('selected sectId', sectId);
         let sectors = editor.StyleManager.getSectors();
         sectors.reset();
         sectors.add(getSectors(sectId));
         for (let i = 0; i < sectors.length; i++) {
-          console.log('sectors.models[i].get', sectors.models[i].get('id'));
+          // console.log('sectors.models[i].get', sectors.models[i].get('id'));
           if (sectid.includes(sectors.models[i].get('id'))) {
             sectors.models[i].setOpen(true);
           } else {
@@ -1095,7 +1110,6 @@ const SectionPageBuilder: React.FC = () => {
       if (component.get('type') == 'PracticeDiv') {
         editor?.runCommand('core:open-traits');
       }
-      
     });
 
     // editor.on('component:selected', (component) => {

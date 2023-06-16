@@ -1034,11 +1034,7 @@ add your attachment</span>
         if (index > 0) {
           component.getChildAt(index + 1).remove();
         }
-        // else {
-        //   index = index > 0 ? index+1 : 0;
-        //   component.getChildAt(index).remove();
-        // }
-        // component.findType(defaultValue)?.remove()
+        
       }
     };
 
@@ -1311,17 +1307,23 @@ add your attachment</span>
           sectionId = sectionTitle;
         });
       }
+   userData?.defaultStyle?.filteredStyles?.forEach((el) => {
+        const { selectors, style } = el;
 
-      // editor.loadProjectData({
-      //   ...Object.assign(
-      //     {},
-      //     { ...editor.getProjectData() },
-      //     {
-      //       styles:
-      //         [...userData.defaultStyle.filteredStyles, ...styleFound] ?? null,
-      //     }
-      //   ),
-      // });
+        let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
+
+        editor.CssComposer.setRule(element, { ...style });
+      });
+      editor.loadProjectData({
+        ...Object.assign(
+          {},
+          { ...editor.getProjectData() },
+          {
+            styles:
+              [...userData.defaultStyle.filteredStyles, ...styleFound] ?? null,
+          }
+        ),
+      });
     });
     editor.on('asset:add', (component) => {
       if (component.attributes.src.includes(serverURL)) {
@@ -1353,14 +1355,53 @@ add your attachment</span>
 
     editor.on('component:selected', (component) => {
       console.log('page selected', component);
-      //Styles from theme style
-      userData?.defaultStyle?.filteredStyles?.forEach((el) => {
-        const { selectors, style } = el;
 
-        let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
 
-        editor.CssComposer.setRule(element, { ...style });
+
+
+
+      let stylesArray = userData?.defaultStyle?.filteredStyles || [];
+      const { attributes } = component;
+      let isFound = stylesArray.filter((el) => {
+        console.log('el', el);
+        const { selectors } = el;
+        let tag = attributes?.tagName || '';
+        console.log('tag', tag);
+        return selectors.includes(tag);
       });
+      console.log('isFound', isFound);
+      if (isFound.length > 0) {
+        const { style } = isFound[0];
+        // editor.DomComponents.
+
+        var wrapper = editor.DomComponents.getWrapper();
+        console.log('wrapper', wrapper);
+        let cmp = wrapper.find(`[id=${component.ccid}]`)[0].setStyle(style);
+        console.log('cmp', cmp)
+
+        const wrapperCmp = editor.DomComponents.getWrapper();
+        let target = `#${component.ccid}`;
+        let found = wrapperCmp.find(target)
+        console.log('found', found)
+        editor.select(wrapperCmp.find(target)[0]);
+      }
+      
+
+
+
+
+
+
+
+
+      //Styles from theme style
+      // userData?.defaultStyle?.filteredStyles?.forEach((el) => {
+      //   const { selectors, style } = el;
+
+      //   let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
+
+      //   editor.CssComposer.setRule(element, { ...style });
+      // });
 
       //For Section Sector and Style
       if (component) {
