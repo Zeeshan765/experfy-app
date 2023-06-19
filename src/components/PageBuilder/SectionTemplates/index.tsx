@@ -385,10 +385,82 @@ const SectionPageBuilder: React.FC = () => {
     });
 
     //This is for all section templates Style Manager
+    // editor.on(`block:drag:stop`, (component, block) => {
+    //   console.log('component', component);
+    //   if (component) {
+    //     console.log('drag component', component.attributes.attributes.sect);
+    //     let sectId = component.attributes.attributes.sect;
+    //     const sectors = editor.StyleManager.getSectors();
+    //     sectors.reset();
+    //     sectors.add(getSectors(sectId));
+
+    //     const wrapperCmp = editor.DomComponents.getWrapper();
+
+    //     editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
+    //   }
+
+
+
+
+      
+    // });
+
     editor.on(`block:drag:stop`, (component, block) => {
-      console.log('component', component);
-      if (component) {
-        console.log('drag component', component.attributes.attributes.sect);
+      console.log('Component Dropped', component);
+      let stylesArray = userData?.defaultStyle?.filteredStyles || [];
+
+      let styleObj = {};
+      stylesArray.forEach((el) => {
+        const { selectors, style } = el;
+        styleObj[selectors[0]] = style;
+      });
+
+      const { attributes } = component;
+      console.log('stylesArray', stylesArray);
+      let isFound = stylesArray.filter((el) => {
+        console.log('el', el);
+        const { selectors } = el;
+        let tag = attributes?.tagName || '';
+        console.log('tag', tag);
+        return selectors.includes(tag);
+      });
+      console.log('isFound', isFound);
+      if (isFound.length > 0) {
+        const { style } = isFound[0];
+        // editor.DomComponents.
+
+        var wrapper = editor.DomComponents.getWrapper();
+        console.log('wrapper', wrapper);
+        let cmp = wrapper.find(`[id=${component.ccid}]`)[0].setStyle(style);
+        console.log('cmp', cmp);
+
+        const wrapperCmp = editor.DomComponents.getWrapper();
+        let target = `#${component.ccid}`;
+        let found = wrapperCmp.find(target);
+        console.log('found', found);
+        editor.select(wrapperCmp.find(target)[0]);
+      }
+
+      let sectors = editor.StyleManager.getSectors();
+      console.log(' drop sectors selected', sectors);
+      // console.log("onload drop",editor.StyleManager.getBuiltInAll())
+
+      let { data, found, filtering } = fetchSectionDetail(block.id);
+      // console.log('found', found, filtering);
+      // let ccid = component.ccid.split('-')[0];
+      // console.log(' ccid', ccid);
+      if (component && found) {
+        const { sectionCode, category, sectionHtml } = filtering;
+        let content = JSON.parse(sectionCode);
+
+        const sectorId =
+          content.pages[0].frames[0].component.components[0].attributes.id;
+        console.log('sectorIsd', sectorId);
+        const blocksector = editor.StyleManager.getSectors();
+        // blocksector.reset();
+        blocksector.add(getSectors(sectorId));
+      }
+      if (!found) {
         let sectId = component.attributes.attributes.sect;
         const sectors = editor.StyleManager.getSectors();
         sectors.reset();
@@ -398,6 +470,44 @@ const SectionPageBuilder: React.FC = () => {
 
         editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
       }
+
+      const wrapperCmp = editor.DomComponents.getWrapper();
+
+      let sectorsxyz = editor.StyleManager.getSectors();
+      console.log('sectorsxyz', sectorsxyz);
+      const { models } = sectorsxyz;
+      models.forEach((model) => {
+        console.log('model', model);
+        const { id } = model;
+
+        let target = `[sectid=${id}]`;
+        // console.log('target', target);
+        let found = wrapperCmp.find(target);
+        // console.log('found', found);
+        // console.log('styleObj', styleObj);
+        if (found.length === 1 && found[0]?.attributes?.tagName) {
+          let tagName = found[0]?.attributes?.tagName;
+          let valid = [  
+          'buttons',
+          'images',
+          'h1',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'links',
+          'labels',
+          'fields'
+        ];
+          let isFound = wrapperCmp.find(target);
+          if (isFound.length > 0 && valid.includes(tagName)) {
+            let cmp = isFound[0].setStyle(
+              styleObj[found[0]?.attributes?.tagName]
+            );
+          }
+        }
+      });
     });
 
     editor.on('run:core:component-delete:before', (options) => {

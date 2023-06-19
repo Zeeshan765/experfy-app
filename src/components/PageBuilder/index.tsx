@@ -1034,7 +1034,6 @@ add your attachment</span>
         if (index > 0) {
           component.getChildAt(index + 1).remove();
         }
-        
       }
     };
 
@@ -1307,7 +1306,7 @@ add your attachment</span>
           sectionId = sectionTitle;
         });
       }
-   userData?.defaultStyle?.filteredStyles?.forEach((el) => {
+      userData?.defaultStyle?.filteredStyles?.forEach((el) => {
         const { selectors, style } = el;
 
         let element = el?.state ? `${selectors}:${el.state}` : `${selectors}`;
@@ -1356,10 +1355,6 @@ add your attachment</span>
     editor.on('component:selected', (component) => {
       console.log('page selected', component);
 
-
-
-
-
       let stylesArray = userData?.defaultStyle?.filteredStyles || [];
       const { attributes } = component;
       let isFound = stylesArray.filter((el) => {
@@ -1377,22 +1372,14 @@ add your attachment</span>
         var wrapper = editor.DomComponents.getWrapper();
         console.log('wrapper', wrapper);
         let cmp = wrapper.find(`[id=${component.ccid}]`)[0].setStyle(style);
-        console.log('cmp', cmp)
+        console.log('cmp', cmp);
 
         const wrapperCmp = editor.DomComponents.getWrapper();
         let target = `#${component.ccid}`;
-        let found = wrapperCmp.find(target)
-        console.log('found', found)
+        let found = wrapperCmp.find(target);
+        console.log('found', found);
         editor.select(wrapperCmp.find(target)[0]);
       }
-      
-
-
-
-
-
-
-
 
       //Styles from theme style
       // userData?.defaultStyle?.filteredStyles?.forEach((el) => {
@@ -1444,8 +1431,41 @@ add your attachment</span>
     //This is for all section templates Style Manager
 
     editor.on(`block:drag:stop`, (component, block) => {
-      console.log('Component Dropped');
-      console.log('drag stop', component);
+      console.log('Component Dropped', component);
+      let stylesArray = userData?.defaultStyle?.filteredStyles || [];
+
+      let styleObj = {};
+      stylesArray.forEach((el) => {
+        const { selectors, style } = el;
+        styleObj[selectors[0]] = style;
+      });
+
+      const { attributes } = component;
+      console.log('stylesArray', stylesArray);
+      let isFound = stylesArray.filter((el) => {
+        console.log('el', el);
+        const { selectors } = el;
+        let tag = attributes?.tagName || '';
+        console.log('tag', tag);
+        return selectors.includes(tag);
+      });
+      console.log('isFound', isFound);
+      if (isFound.length > 0) {
+        const { style } = isFound[0];
+        // editor.DomComponents.
+
+        var wrapper = editor.DomComponents.getWrapper();
+        console.log('wrapper', wrapper);
+        let cmp = wrapper.find(`[id=${component.ccid}]`)[0].setStyle(style);
+        console.log('cmp', cmp);
+
+        const wrapperCmp = editor.DomComponents.getWrapper();
+        let target = `#${component.ccid}`;
+        let found = wrapperCmp.find(target);
+        console.log('found', found);
+        editor.select(wrapperCmp.find(target)[0]);
+      }
+
       let sectors = editor.StyleManager.getSectors();
       console.log(' drop sectors selected', sectors);
       // console.log("onload drop",editor.StyleManager.getBuiltInAll())
@@ -1475,6 +1495,44 @@ add your attachment</span>
 
         editor.select(wrapperCmp.find(`#${component.ccid}`)[0]);
       }
+
+      const wrapperCmp = editor.DomComponents.getWrapper();
+
+      let sectorsxyz = editor.StyleManager.getSectors();
+      console.log('sectorsxyz', sectorsxyz);
+      const { models } = sectorsxyz;
+      models.forEach((model) => {
+        console.log('model', model);
+        const { id } = model;
+
+        let target = `[sectid=${id}]`;
+        // console.log('target', target);
+        let found = wrapperCmp.find(target);
+        // console.log('found', found);
+        // console.log('styleObj', styleObj);
+        if (found.length === 1 && found[0]?.attributes?.tagName) {
+          let tagName = found[0]?.attributes?.tagName;
+          let valid = [  
+          'buttons',
+          'images',
+          'h1',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'links',
+          'labels',
+          'fields'
+        ];
+          let isFound = wrapperCmp.find(target);
+          if (isFound.length > 0 && valid.includes(tagName)) {
+            let cmp = isFound[0].setStyle(
+              styleObj[found[0]?.attributes?.tagName]
+            );
+          }
+        }
+      });
     });
 
     //@ts-ignore
