@@ -219,6 +219,7 @@ const SectionPageBuilder: React.FC = () => {
           // sectionCss: editor.getCss(),
         })
         .then((res) => {
+          console.log("custom response",res)
           toast.success('Section Created Successfully');
           window.location.reload(true);
         })
@@ -481,9 +482,9 @@ const SectionPageBuilder: React.FC = () => {
         const { id } = model;
 
         let target = `[sectid=${id}]`;
-        // console.log('target', target);
+        console.log('target', target);
         let found = wrapperCmp.find(target);
-        // console.log('found', found);
+        console.log('found', found);
         // console.log('styleObj', styleObj);
         if (found.length === 1 && found[0]?.attributes?.tagName) {
           let tagName = found[0]?.attributes?.tagName;
