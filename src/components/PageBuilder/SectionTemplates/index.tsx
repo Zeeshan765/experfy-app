@@ -209,6 +209,7 @@ const SectionPageBuilder: React.FC = () => {
     if (name) {
       axios
         .post(`${apiEndpoint}/section-save`, {
+          user: user.id,
           sectionTitle: name,
           category: custom,
           media: `<svg viewBox="0 0 24 24">
