@@ -108,7 +108,7 @@ const PageTemplates = () => {
   // create page
   const createTemplate = () => {
     const formData = new FormData();
-    formData.append('pageThumnail', pageData?.base64Img);
+    // formData.append('pageThumnail', pageData?.base64Img);
     formData.append('title', pageData?.title);
     formData.append('pageCode', '');
 
@@ -218,7 +218,7 @@ const PageTemplates = () => {
               className="page-name"
             />
           </div>
-          {!id && (
+          {/* {!id && (
             <div>
               {pageData?.base64Img && (
                 <img src={pageData.base64Img} style={{ width: '60px' }} />
@@ -232,7 +232,7 @@ const PageTemplates = () => {
                 className="page-name"
               />
             </div>
-          )}
+          )} */}
           <div
             style={{
               display: 'flex',
