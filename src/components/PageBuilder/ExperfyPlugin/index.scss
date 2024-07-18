@@ -2,7 +2,7 @@ $primaryColor: var(--theme-bg);
 $secondaryColor: var(--theme-text);
 $tertiaryColor: var(--theme-primary);
 $quaternaryColor: var(--theme-primary);
-$tagBg: var(--theme-elevation-50);
+// $tagBg: #fffff;
 $fontFace: var(--font-body);
 $fontSize: 1rem;
 $fontSizeS: 0.85rem;
@@ -20,7 +20,7 @@ $deviceBackground: #2f3d55;
 
 .editor-row {
   display: flex;
-  background-color: var(--theme-elevation-0);
+  background-color: #ffffff;
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: wrap;
@@ -47,7 +47,7 @@ $deviceBackground: #2f3d55;
   width: 23%;
   height: 99%;
   overflow-y: auto;
-  background-color: var(--theme-elevation-0) !important;
+  background-color: #ffffff !important;
   border-right: var(--theme-border) 1px solid;
 
   .gjs-pn-btn {
@@ -69,11 +69,11 @@ $deviceBackground: #2f3d55;
 
     &.gjs-pn-active {
       color: darken($color: rgb(72 163 215), $amount: 20) !important;
-      background-color: var(--theme-elevation-0) !important;
+      background-color: #ffffff !important;
       border-bottom: darken($color: rgb(72 163 215), $amount: 20) !important;
       border-bottom-style: solid !important;
       border-bottom-width: 4px !important;
-      box-shadow: 2px 2px solid var(--theme-elevation-0) !important;
+      box-shadow: 2px 2px solid #ffffff !important;
     }
   }
 }
@@ -126,7 +126,7 @@ $deviceBackground: #2f3d55;
   padding: 15px !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  background-color: var(--theme-elevation-0) !important;
+  background-color: #ffffff !important;
 }
 
 .gjs-label-wrp {
@@ -143,7 +143,7 @@ $deviceBackground: #2f3d55;
   color: var(--theme-text-light) !important;
   font-size: 15px;
   height: 3.2rem !important;
-  background-color: var(--theme-elevation-0) !important;
+  background-color: #ffffff !important;
   flex-direction: row-reverse !important;
   justify-content: start !important;
   position: relative !important;
@@ -169,14 +169,14 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-blocks-c {
-  background-color: var(--theme-elevation-0);
+  background-color: #ffffff;
   padding: 20px;
   justify-content: center;
 }
 
 .gjs-field {
   border: solid 1px var(--theme-border) !important;
-  background-color: var(--theme-elevation-0) !important;
+  background-color: #ffffff !important;
   border-radius: 0px !important;
   padding: 3px !important;
 }
@@ -247,7 +247,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-sm-stack #gjs-sm-add {
-  background: var(--theme-elevation-0);
+  background: #ffffff;
   opacity: 1;
   color: rgb(115 120 132);
   border-radius: 3px;
@@ -402,7 +402,7 @@ $deviceBackground: #2f3d55;
   user-select: none;
 
   .gjs-sm-sector-title {
-    background-color: var(--theme-elevation-50) !important;
+    // background-color: var(--theme-elevation-50) !important;
   }
 
   .gjs-sm-sector-label {
@@ -469,9 +469,9 @@ $deviceBackground: #2f3d55;
     }
 
     &.gjs-pn-active {
-      color: var(--theme-elevation-0);
+      color: #ffffff;
       background-color: var(--theme-text-dark);
-      box-shadow: 2px 2px solid var(--theme-elevation-0);
+      box-shadow: 2px 2px solid #ffffff;
     }
   }
 }
@@ -566,7 +566,7 @@ $deviceBackground: #2f3d55;
 }
 
 .gjs-radio-item .gjs-radio-item .gjs-radio-item-label .fa {
-  color: var(--theme-elevation-150);
+  // color: var(--theme-elevation-150);
 }
 
 .gjs-sm-composite {
@@ -596,11 +596,11 @@ $deviceBackground: #2f3d55;
     input {
       // padding-right: 22px !important;
       width: 40px !important;
-      color: var(--theme-elevation-600) !important;
+      // color: var(--theme-elevation-600) !important;
     }
 
     select {
-      color: var(--theme-elevation-600) !important;
+      // color: var(--theme-elevation-600) !important;
 
       padding: 5px 0px;
     }
@@ -908,13 +908,13 @@ $deviceBackground: #2f3d55;
         .gjs-sm-properties {
           .gjs-field {
             border: solid 1px var(--theme-border) !important;
-            background-color: var(--theme-elevation-0) !important;
+            background-color: #ffffff !important;
           }
         }
       }
       .gjs-sm-layer {
         border: solid 1px var(--theme-border) !important;
-        background-color: var(--theme-elevation-0) !important;
+        background-color: #ffffff !important;
       }
     }
     .gjs-sm-stack #gjs-sm-add {

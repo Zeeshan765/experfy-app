@@ -1,40 +1,41 @@
-import dotenv from 'dotenv';
-import path from 'path';
-import { buildConfig } from 'payload/config';
-import BasicPortalIdentityCollection from './collections/BasicPortalIdentity';
-import Brand from './collections/Brand';
-import DesignSystemCollection from './collections/DesignSystemCollection';
-import Media from './collections/Media';
-import MenusCollection from './collections/MenusCollection';
-import PagesCollection from './collections/Page';
-import PageBuilderCollection from './collections/PageBuilder';
-import PageHistory from './collections/pageHistory';
-import PageTemplateCollection from './collections/PageTemplate';
-import SectionTemplateCollection from './collections/SectionTemplatesCollection';
-import TemplatesCollection from './collections/TemplatesCollection';
-import ThemeCollection from './collections/ThemeCollection';
-import Users from './collections/UsersCollection';
-import BasicPortalIdentityPage from './components/BasicPortalPage';
-import AfterNav from './components/Nav/AfterNav';
-import ExperfyLogo from './components/Nav/AppLogo';
-import BeforeNav from './components/Nav/BeforeNav';
-import PageBuilder from './components/PageBuilder';
-import DesignSystem from './components/PageBuilder/DesignSystem';
-import SectionPageBuilder from './components/PageBuilder/SectionTemplates';
-import ThemeStyle from './components/PageBuilder/ThemeStyle';
-import PortalIdentity from './components/PortalIdentity';
-import TemplatesLibrary from './components/TemplateLibrary';
-import AssetsProvider from './Providers/AssetsProvider';
-import DataProvider from './Providers/DataProvider';
-import HeaderProvider from './Providers/HeaderProvider';
-import MyProvider from './Providers/MyProvider';
-import UserProvider from './Providers/UserProvider';
-import SectionBuilder from './collections/SectionBuilder';
-import SectionSaveCollection from './collections/SectionSave';
-import { DataContext } from './Providers/DataProvider';
-import Publish from './components/PageBuilder/Publish';
+import dotenv from 'dotenv'
+import path from 'path'
+import { buildConfig } from 'payload/config'
+import BasicPortalIdentityCollection from './collections/BasicPortalIdentity'
+import Brand from './collections/Brand'
+import DesignSystemCollection from './collections/DesignSystemCollection'
+import Media from './collections/Media'
+import MenusCollection from './collections/MenusCollection'
+import PagesCollection from './collections/Page'
+import PageBuilderCollection from './collections/PageBuilder'
+import PageHistory from './collections/pageHistory'
+import PageTemplateCollection from './collections/PageTemplate'
+import SectionTemplateCollection from './collections/SectionTemplatesCollection'
+import TemplatesCollection from './collections/TemplatesCollection'
+import ThemeCollection from './collections/ThemeCollection'
+import Users from './collections/UsersCollection'
+import BasicPortalIdentityPage from './components/BasicPortalPage'
+import AfterNav from './components/Nav/AfterNav'
+import ExperfyLogo from './components/Nav/AppLogo'
+import BeforeNav from './components/Nav/BeforeNav'
+import PageBuilder from './components/PageBuilder'
+import DesignSystem from './components/PageBuilder/DesignSystem'
+import SectionPageBuilder from './components/PageBuilder/SectionTemplates'
+import ThemeStyle from './components/PageBuilder/ThemeStyle'
+import PortalIdentity from './components/PortalIdentity'
+import TemplatesLibrary from './components/TemplateLibrary'
+import AssetsProvider from './Providers/AssetsProvider'
+import DataProvider from './Providers/DataProvider'
+import HeaderProvider from './Providers/HeaderProvider'
+import MyProvider from './Providers/MyProvider'
+import UserProvider from './Providers/UserProvider'
+import SectionBuilder from './collections/SectionBuilder'
+import SectionSaveCollection from './collections/SectionSave'
+import { DataContext } from './Providers/DataProvider'
+import Publish from './components/PageBuilder/Publish'
+import ForceThemeProvider from './Providers/ForceThemeProvider'
 
-dotenv.config();
+dotenv.config()
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
@@ -232,6 +233,7 @@ export default buildConfig({
         MyProvider,
         DataProvider,
         HeaderProvider,
+        ForceThemeProvider,
       ],
     },
     webpack: (config) => {
@@ -248,9 +250,9 @@ export default buildConfig({
             },
           },
         ],
-      });
+      })
 
-      return config;
+      return config
     },
   },
   collections: [
@@ -284,4 +286,4 @@ export default buildConfig({
     'https://landing-ui-service.develop.experfy.com',
     'http://localhost:3000',
   ],
-});
+})

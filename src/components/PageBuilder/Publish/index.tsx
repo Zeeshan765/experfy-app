@@ -15,10 +15,12 @@ const Publish = () => {
   const apiEndpoint = `${serverURL}/api`;
   let [editor, setEditorState] = useState<GrapesJS.Editor>();
   const { fetchHeaderId } = useContext(HeaderContext);
-
+console.log('name', name)
   //Fetch Page Data
   const fetchData = async () => {
+    console.log('called')
     let response = await fetchHeaderId(name);
+    console.log('response', response)
     if (response) {
       editor.loadProjectData(JSON.parse(response));
                 setTimeout(() => {

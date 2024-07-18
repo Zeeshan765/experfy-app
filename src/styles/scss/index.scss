@@ -12,12 +12,12 @@ $assets_path: '../../assets/images/';
   --scrollbar-width: 17px;
   --nav-width: #{base(12)};
   --nav-width-m: #{base(10)};
-  --theme-bg: #f9f9fa;
+  --theme-bg: #ffffff;
   --theme-border: #d2dbe2;
-  --theme-elevation-50: #f1f3f5;
-  --theme-elevation-150: var(--theme-border);
-  --theme-elevation-100: var(--theme-border);
-  --theme-input-bg: var(--theme-elevation-0);
+  // --theme-elevation-50: #f1f3f5;
+  // --theme-elevation-150: var(--theme-border);
+  // --theme-elevation-100: var(--theme-border);
+  --theme-input-bg: #ffffff;
   --theme-text-light: #545965;
   --theme-text-dark: #3a4152;
   --theme-primary: #48a3d7;
@@ -137,12 +137,12 @@ body {
 }
 
 .eyebrow {
-  background-color: var(--theme-elevation-0);
+  background-color: #ffffff;
   position: relative;
   padding: 15px;
   font-weight: 500;
   font-size: large;
-  border-bottom: var(--theme-elevation-150) 1px solid;
+  // border-bottom: var(--theme-elevation-150) 1px solid;
   opacity: 1;
 
   .gutter--left {
@@ -173,7 +173,7 @@ body {
 .nav__scroll {
   padding: 0;
   overflow: inherit;
-  background-color: var(--theme-elevation-0);
+  background-color: #ffffff;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -195,7 +195,7 @@ body {
 
 .nav__wrap {
   padding: 0px;
-  background-color: var(--theme-elevation-0);
+  background-color: #ffffff;
 }
 
 .nav nav a {
@@ -209,12 +209,12 @@ body {
 
   &.active {
     background-color: var(--theme-primary);
-    color: var(--theme-elevation-0);
+    color: #ffffff;
   }
 
   &:hover {
     background-color: var(--theme-primary);
-    color: var(--theme-elevation-0);
+    color: #ffffff;
     text-decoration: none;
   }
 }
@@ -292,7 +292,7 @@ div.react-select {
   font-weight: 500;
   font-size: 15px;
   color: var(--theme-text-light);
-  background-color: var(--theme-elevation-0);
+  background-color: #ffffff;
   border: 1px solid var(--theme-border) !important;
   box-shadow: none !important;
   padding: 0.7rem 1rem;
@@ -300,24 +300,24 @@ div.react-select {
 
   &:hover {
     background-color: var(--theme-text-light);
-    color: var(--theme-elevation-0);
+    color: #ffffff;
     text-decoration: none;
   }
 
   &:checked {
     background-color: var(--theme-text-light);
-    color: var(--theme-elevation-0);
+    color: #ffffff;
   }
 
   &::selection {
     background-color: var(--theme-text-light);
-    color: var(--theme-elevation-0);
+    color: #ffffff;
   }
 }
 
 .btn--style-primary {
   background-color: var(--theme-primary);
-  color: var(--theme-elevation-0);
+  color: #ffffff;
   font-family: var(--font-body);
   padding: 10px 25px;
   border-radius: 5px;
@@ -459,12 +459,12 @@ div.react-select {
   font-weight: 500;
   font-size: 17px;
   text-align: center;
-  color: var(--theme-elevation-0);
+  color: #ffffff;
   display: flex;
   justify-content: space-evenly;
 
   &:hover {
-    color: var(--theme-elevation-0);
+    color: #ffffff;
     background-color: var(--theme-text-light);
     text-decoration: none;
   }
@@ -472,7 +472,7 @@ div.react-select {
 
 .radio-group {
   #field-mediaType {
-    border-bottom: 1px solid var(--theme-elevation-50);
+    // border-bottom: 1px solid var(--theme-elevation-50);
     padding: 8px 32px 0;
     margin-right: -32px;
     margin-left: -32px;
@@ -579,7 +579,7 @@ div.react-select {
 
 .submit-btn {
   background-color: var(--theme-primary);
-  color: var(--theme-elevation-0);
+  color: #ffffff;
   border: none;
   border-radius: 6px;
   padding: 10px 20px;
@@ -634,7 +634,7 @@ div.react-select {
   border: none;
   // background-color: rgb(181, 180, 180);
   background-color: var(--theme-primary);
-  color: var(--theme-elevation-0);
+  color: #ffffff;
   top: calc(50% - 15px) !important;
   left: calc(50% - 30px) !important;
   border-radius: 6px;
@@ -683,7 +683,7 @@ div.react-select {
 }
 
 .outlined-btn {
-  background-color: var(--theme-elevation-0);
+  background-color: #ffffff;
   color: var(--theme-text-light);
   border: 1px solid var(--theme-border);
   border-radius: 6px;
@@ -698,19 +698,19 @@ div.react-select {
 
 .pill {
   background-color: var(--theme-primary);
-  color: var(--theme-elevation-0);
+  color: #ffffff;
 
   &:hover {
     // box-shadow: 0px 1px 2px 0px var(--theme-elevation-400);
     background-color: var(--theme-text-dark);
-    color: var(--theme-elevation-0);
+    color: #ffffff;
   }
 }
 
 .pill--style-light.pill--has-action:hover {
   background-color: var(--theme-primary);
   box-shadow: 0px 2px 2px 0px var(--theme-elevation-600);
-  color: var(--theme-elevation-0);
+  color: #ffffff;
 }
 
 .form-control {

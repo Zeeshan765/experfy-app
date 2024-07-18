@@ -583,7 +583,7 @@ ol {
           font-size: 14px;
           font-weight: 500;
           color: var(--theme-text);
-          background-color: var(--theme-elevation-50);
+          // background-color: var(--theme-elevation-50);
           text-transform: uppercase;
           border-top: none;
           border-bottom: 1px solid #d1dbe3;
@@ -602,11 +602,11 @@ ol {
               margin-left: 8px;
 
               button {
-                color: var(--theme-elevation-200);
+                // color: var(--theme-elevation-200);
                 padding: 2px 2px;
 
                 svg {
-                  color: var(--theme-elevation-200);
+                  // color: var(--theme-elevation-200);
                 }
 
                 &:focus {
@@ -624,7 +624,7 @@ ol {
       tr {
         td {
           color: var(--theme-text);
-          background-color: var(--theme-elevation-0);
+          background-color: #ffffff;
           font-weight: 400;
 
           a {
@@ -710,7 +710,7 @@ ol {
   & > .eyebrow {
     &:first-child {
       padding: 1.75rem 2rem !important;
-      background-color: var(--theme-elevation-0) !important;
+      background-color: #ffffff !important;
 
       .eyebrow__wrap {
         &.gutter--left {
@@ -863,7 +863,7 @@ ol {
     padding-left: 0px !important;
 
     &::before {
-      background: var(--theme-elevation-100) !important;
+      // background: var(--theme-elevation-100) !important;
       /* opacity: 0.85; */
     }
   }
@@ -919,7 +919,7 @@ ol {
       align-items: center;
       border: 2px dashed #4ba4da;
       border-radius: 4px;
-      background-color: var(--theme-elevation-0);
+      background-color: #ffffff;
       min-height: 128px;
     }
 
@@ -928,7 +928,7 @@ ol {
       justify-content: center;
       align-items: center;
       width: 100%;
-      background-color: var(--theme-elevation-0);
+      background-color: #ffffff;
       border: none;
       position: relative;
       padding-top: 76px;
@@ -952,7 +952,7 @@ ol {
       justify-content: center;
       align-items: center;
       width: 100%;
-      background-color: var(--theme-elevation-0);
+      background-color: #ffffff;
       padding-top: 40px;
       padding-bottom: 40px;
 
@@ -962,18 +962,18 @@ ol {
 
       .btn {
         .btn__icon {
-          border: 1px solid var(--theme-elevation-100);
+          // border: 1px solid var(--theme-elevation-100);
         }
 
         svg {
-          color: var(--theme-elevation-100);
+          // color: var(--theme-elevation-100);
         }
 
         &:hover,
         &:focus {
           .btn__icon {
             svg {
-              color: var(--theme-elevation-100) !important;
+              // color: var(--theme-elevation-100) !important;
             }
           }
         }
@@ -999,12 +999,12 @@ ol {
 
     .file-field__drag-label {
       font-size: 16px;
-      color: var(--theme-elevation-50);
+      // color: var(--theme-elevation-50);
     }
 
     .file-details {
       background-color: #fff;
-      border: 2px solid var(--theme-elevation-50);
+      // border: 2px solid var(--theme-elevation-50);
 
       header {
         position: relative;
@@ -1068,20 +1068,20 @@ ol {
   &:hover,
   &:focus {
     color: var(--theme-text) !important;
-    background-color: var(--theme-elevation-50) !important;
+    // background-color: var(--theme-elevation-50) !important;
   }
 
   &.active {
     &:hover,
     &:focus {
-      color: var(--theme-elevation-0) !important;
+      color: #ffffff !important;
       background-color: #4ba4da !important;
     }
   }
 
   &.nav-category {
     font-size: 16px !important;
-    border-bottom: 1px solid var(--theme-elevation-100);
+    // border-bottom: 1px solid var(--theme-elevation-100);
     padding: 12px 16px 12px 50px !important;
     display: flex;
     align-items: center;
@@ -1142,13 +1142,13 @@ ol {
     &:hover,
     &:focus {
       color: var(--theme-text) !important;
-      background-color: var(--theme-elevation-50) !important;
+      // background-color: var(--theme-elevation-50) !important;
     }
 
     &.active {
       &:hover,
       &:focus {
-        color: var(--theme-elevation-0) !important;
+        color: #ffffff !important;
         background-color: #4ba4da !important;
       }
     }

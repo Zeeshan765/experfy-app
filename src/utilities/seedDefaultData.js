@@ -251,7 +251,7 @@ const sectionTemplateDefaultData = [
        }
       
        .site-credit-footer{
-        background-color:#000000;
+        background-color:#ffffff;
         padding:20px 40px;
        }
       
